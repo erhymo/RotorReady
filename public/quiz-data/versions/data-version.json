@@ -1,0 +1,10 @@
+{
+  "version": "2025-09-14T00:00:00Z",
+  "qrhVersion": "QRH v3.0 (example)",
+  "rfmVersion": "RFM v2.2 (example)",
+  "changelog": [
+    "Initial normalized datasets",
+    "Added LIMITATIONS section",
+    "Added QRH/RFM version metadata"
+  ]
+}

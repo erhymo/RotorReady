@@ -1,0 +1,14 @@
+[
+  {
+    "id": "rotor-high",
+    "name": "ROTOR HIGH",
+    "severity": "warning",
+    "system": "ROTOR",
+    "description": "Rotor over-speed.\nRotor speed more than 2% above the datum set by the FCS system (Power ON).\nRotor speed higher than 110% (Power OFF).",
+    "procedure": [
+      { "type": "note", "text": "+ Audio tone and 'ROTOR HIGH ROTOR HIGH' voice warning." },
+      { "type": "action", "text": "1. Collective — Adjust to decrease the rotor speed." },
+      { "type": "note", "text": "Refer to Engine Emergency and Malfunction drills if relevant." }
+    ]
+  }
+]

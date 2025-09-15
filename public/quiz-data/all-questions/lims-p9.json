@@ -1,0 +1,134 @@
+[
+  {
+    "id": "lims-p9-001",
+    "section": "LIMITATIONS",
+    "question": "What is the maximum airspeed with one door locked open?",
+    "options": [
+      "80 KIAS",
+      "100 KIAS",
+      "120 KIAS",
+      "60 KIAS"
+    ],
+    "answer": "80 KIAS",
+    "explanation": "Maximum airspeed with one door locked open is limited to 80 KIAS.",
+    "references": "CABIN SLIDING DOOR OPEN LIMITATIONS",
+    "printedPage": 9,
+    "difficulty": "easy",
+    "tags": [
+      "doors",
+      "airspeed",
+      "limitations"
+    ],
+    "source": "QRH p9"
+  },
+  {
+    "id": "lims-p9-002",
+    "section": "LIMITATIONS",
+    "question": "What is the maximum airspeed with both doors locked open?",
+    "options": [
+      "80 KIAS",
+      "100 KIAS",
+      "120 KIAS",
+      "60 KIAS"
+    ],
+    "answer": "100 KIAS",
+    "explanation": "Maximum airspeed with both doors locked open is limited to 100 KIAS.",
+    "references": "CABIN SLIDING DOOR OPEN LIMITATIONS",
+    "printedPage": 9,
+    "difficulty": "easy",
+    "tags": [
+      "doors",
+      "airspeed",
+      "limitations"
+    ],
+    "source": "QRH p9"
+  },
+  {
+    "id": "lims-p9-003",
+    "section": "LIMITATIONS",
+    "question": "What is the maximum airspeed for opening/closing a door in flight?",
+    "options": [
+      "80 KIAS",
+      "100 KIAS",
+      "120 KIAS",
+      "60 KIAS"
+    ],
+    "answer": "80 KIAS",
+    "explanation": "Maximum airspeed for opening/closing door in flight is limited to 80 KIAS.",
+    "references": "CABIN SLIDING DOOR OPEN LIMITATIONS",
+    "printedPage": 9,
+    "difficulty": "easy",
+    "tags": [
+      "doors",
+      "airspeed",
+      "limitations"
+    ],
+    "source": "QRH p9"
+  },
+  {
+    "id": "lims-p9-004",
+    "section": "LIMITATIONS",
+    "question": "What must be installed to open the cabin sliding door(s)?",
+    "options": [
+      "No kit required",
+      "KIT DOOR LOCK PASSENGER DOORS P/N 6F5213F00111",
+      "Pilot approval only",
+      "Both engines shut down"
+    ],
+    "answer": "KIT DOOR LOCK PASSENGER DOORS P/N 6F5213F00111",
+    "explanation": "To open the cabin sliding doors, the KIT DOOR LOCK PASSENGER DOORS P/N 6F5213F00111 must be installed.",
+    "references": "CABIN SLIDING DOOR OPEN LIMITATIONS",
+    "printedPage": 9,
+    "difficulty": "medium",
+    "tags": [
+      "doors",
+      "installation",
+      "limitations"
+    ],
+    "source": "QRH p9"
+  },
+  {
+    "id": "lims-p9-005",
+    "section": "LIMITATIONS",
+    "question": "Who must carry out door opening/closing in flight?",
+    "options": [
+      "Any passenger",
+      "Ground technician only",
+      "A person trained for this task",
+      "Any crew member after briefing"
+    ],
+    "answer": "A person trained for this task",
+    "explanation": "Opening/closing of doors in flight must be carried out by a person trained for this task.",
+    "references": "CABIN SLIDING DOOR OPEN LIMITATIONS",
+    "printedPage": 9,
+    "difficulty": "easy",
+    "tags": [
+      "doors",
+      "procedure",
+      "limitations"
+    ],
+    "source": "QRH p9"
+  },
+  {
+    "id": "lims-p9-006",
+    "section": "LIMITATIONS",
+    "question": "What must be taken into consideration when opening/closing doors in flight?",
+    "options": [
+      "Cabin pressure",
+      "Temperature differences",
+      "Effect of airspeed/windspeed on the door(s)",
+      "Number of passengers onboard"
+    ],
+    "answer": "Effect of airspeed/windspeed on the door(s)",
+    "explanation": "Due consideration must be given to the effect of airspeed/windspeed on the door(s).",
+    "references": "CABIN SLIDING DOOR OPEN LIMITATIONS",
+    "printedPage": 9,
+    "difficulty": "medium",
+    "tags": [
+      "doors",
+      "windspeed",
+      "limitations"
+    ],
+    "source": "QRH p9"
+  }
+]

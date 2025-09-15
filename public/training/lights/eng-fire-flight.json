@@ -1,0 +1,23 @@
+[
+  {
+    "id": "eng-fire-flight",
+    "name": "1(2) ENG FIRE",
+    "severity": "warning",
+    "system": "FIRE",
+    "description": "Engine bay fire (flight).",
+    "procedure": [
+      { "type": "note", "text": "+ Audio tone and 'ENGINE ONE (TWO) FIRE' voice warning." },
+      { "type": "action", "text": "1. Confirm ENGINE FIRE light ON on engine control panel." },
+      { "type": "action", "text": "2. Flight condition — Safe OEI." },
+      { "type": "action", "text": "3. Affected ENG MODE knob — Confirm and IDLE." },
+      { "type": "action", "text": "4. Engine FIRE — Confirm." },
+      { "type": "action", "text": "5. Affected ENG MODE knob — Confirm and OFF." },
+      { "type": "action", "text": "6. Affected ENG FIRE ARM pushbutton — Confirm, lift guard and press. ARM illuminated." },
+      { "type": "action", "text": "7. FIRE EXTING switch — Set to BTL 1." },
+      { "type": "caution", "text": "FIRE BTL LOW P caution illuminates after bottle has discharged." },
+      { "type": "branch", "heading": "IF warning clears:", "text": "On affected engine:\n- Fuel SOV: CLOSE (on EDCU FUEL page).\n- Deselect ENG FIRE/ARM pushbutton.\n- Refer to SINGLE ENGINE PROCEDURE (see page 217). Omit Step 1 as engine is already shutdown.\n- Land as soon as possible." },
+      { "type": "branch", "heading": "IF 1(2) ENG FIRE remains:", "text": "- FIRE EXTING switch: set to BTL 2. (2 FIRE BTL LOW P caution illuminates after bottle has discharged.)\n- LAND IMMEDIATELY.\n- Carry out EMERGENCY GROUND EGRESS procedure (see page 36)." },
+      { "type": "caution", "text": "In case of a subsequent fire in the other engine bay the initial ENG FIRE ARM 1(2) pushbutton must be deselected to allow operation of the ENG FIRE ARM 2(1) pushbutton." }
+    ]
+  }
+]

@@ -1,0 +1,7 @@
+{
+  "sections": [
+    { "id": "afm", "title": "AFM Questions" },
+    { "id": "qrh", "title": "QRH Knowledge" },
+    { "id": "limitations", "title": "Limitations" }
+  ]
+}

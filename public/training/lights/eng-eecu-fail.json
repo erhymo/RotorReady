@@ -1,0 +1,31 @@
+[
+  {
+    "id": "eng-eecu-fail",
+    "name": "1(2) ENG EECU FAIL",
+    "severity": "warning",
+    "system": "ENGINE SYSTEM",
+    "description": "EECU has run the engine down to IDLE.",
+    "procedure": [
+      {
+        "type": "note",
+        "text": "+ \"WARNING WARNING\" voice warning."
+      },
+      {
+        "type": "action",
+        "text": "1. Flight condition — Safe OEI."
+      },
+      {
+        "type": "action",
+        "text": "2. ENG MODE knob (on affected engine) — IDLE."
+      },
+      {
+        "type": "action",
+        "text": "3. Affected engine — Leave at IDLE to keep associated DC GEN on line."
+      },
+      {
+        "type": "action",
+        "text": "4. Land as soon as practicable."
+      }
+    ]
+  }
+]

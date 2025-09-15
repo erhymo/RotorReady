@@ -1,0 +1,21 @@
+{
+  "items": [
+    {
+      "id": "qrh-001",
+      "section": "QRH",
+      "type": "single",
+      "question": "What does the illumination of HYD 1 PRESS indicate?",
+      "options": [
+        "Hydraulic system 1 pressure low",
+        "Hydraulic system 2 pressure low",
+        "Oil pressure low",
+        "Fuel pressure low"
+      ],
+      "answer": [0],
+      "explanation": "HYD 1 PRESS means hydraulic system 1 pressure has dropped.",
+      "references": ["QRH 3-12"],
+      "difficulty": "med",
+      "source": "QRH"
+    }
+  ]
+}

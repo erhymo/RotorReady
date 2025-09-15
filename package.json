@@ -1,0 +1,52 @@
+{
+  "name": "rotorready",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "dev": "next dev -p 3000",
+    "dev:3007": "next dev -p 3007",
+    "dev:open": "node scripts/dev-open.js",
+    "env:setup": "bash scripts/config-env.sh",
+    "stripe:listen": "stripe listen --forward-to localhost:3000/api/stripe",
+    "stripe:trigger": "stripe trigger checkout.session.completed",
+    "dev:clean": "npm run clean && next dev -p 3000",
+    "build": "next build",
+    "build:clean": "npm run clean && next build",
+    "start": "next start -p 3000",
+    "lint": "next lint",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "node scripts/clean.js",
+    "predev": "npm run clean",
+    "prebuild": "npm run clean",
+    "gen:qrh": "tsx scripts/generate-qrh.ts --pdf data/qrh.pdf --count 50 --out public/quiz-data/generated/qrh_batch.json"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "clsx": "^2.1.1",
+    "firebase": "^10.14.1",
+    "firebase-admin": "^12.7.0",
+    "next": "^15.5.3",
+    "pdf-parse": "^1.1.1",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "stripe": "^16.12.0",
+    "tailwind-merge": "^3.3.1",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "24.3.3",
+    "@types/pdf-parse": "^1.1.5",
+    "autoprefixer": "^10.4.21",
+    "pdfjs-dist": "^3.11.174",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.17",
+    "tsx": "^4.20.5",
+    "typescript": "^5.9.2"
+  }
+}

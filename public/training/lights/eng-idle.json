@@ -1,0 +1,29 @@
+[
+  {
+    "id": "eng-idle",
+    "name": "1(2) ENG IDLE",
+    "severity": "warning",
+    "system": "ENGINE SYSTEM",
+    "description": "Warning triggered only with aircraft on ground.\n\nTake-Off commenced with associated engine at IDLE, OR associated ENG MODE knob at IDLE and collective not fully down, OR engine in APU mode.",
+    "procedure": [
+      {
+        "type": "note",
+        "text": "+ Audio tone and 'ENGINE ONE (TWO) IDLE' voice warning."
+      },
+      {
+        "type": "action",
+        "text": "1. Reduce collective to MPOG."
+      },
+      {
+        "type": "branch",
+        "heading": "IF ENG 1 is set to APU:",
+        "text": "- ENG 1 MODE knob: set to IDLE.\n- ENG 1 ACC switch: set to MAIN.\nWhen ENG ACCESSORY MODE advisory clears and ENG ACC TRAN advisory shows, then when ENG ACC TRAN advisory clears on MFD ENGINE page, confirm actuator position fully engaged.\n- ENG 1 MODE knob: set to FLT."
+      },
+      {
+        "type": "branch",
+        "heading": "IF ENG 1(2) MODE knob at IDLE:",
+        "text": "- Check ENG ACCESSORY MODE and ENG APU MODE advisory lights extinguished.\n- ENG 1(2) MODE knob: set to FLT."
+      }
+    ]
+  }
+]

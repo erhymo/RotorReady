@@ -1,0 +1,27 @@
+[
+  {
+    "id": "eng-out",
+    "name": "1(2) ENG OUT",
+    "severity": "warning",
+    "system": "ENGINE SYSTEM",
+    "description": "Affected engine has flamed out.",
+    "procedure": [
+      {
+        "type": "note",
+        "text": "+ Audio Tone and 'ENGINE ONE (TWO) OUT' voice warning."
+      },
+      {
+        "type": "action",
+        "text": "1. Flight condition — Safe OEI."
+      },
+      {
+        "type": "action",
+        "text": "2. Land as soon as practicable."
+      },
+      {
+        "type": "action",
+        "text": "3. Refer to SINGLE ENGINE PROCEDURE (see page 217)."
+      }
+    ]
+  }
+]

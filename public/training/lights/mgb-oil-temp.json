@@ -1,0 +1,17 @@
+[
+  {
+    "id": "mgb-oil-temp",
+    "name": "MGB OIL TEMP",
+    "severity": "warning",
+    "system": "MGB",
+    "description": "MGB oil temperature above limit (greater than 115 °C).",
+    "procedure": [
+      { "type": "note", "text": "+ \"WARNING WARNING\" voice warning." },
+      { "type": "action", "text": "1. TQ 1 & 2 — Reduce not to exceed 55/55%." },
+      { "type": "action", "text": "2. MGB oil temperature — Check on PFD/MFD." },
+      { "type": "branch", "heading": "IF MGB oil temperature within limit:", "text": "- Continue flight monitoring oil temperature." },
+      { "type": "branch", "heading": "IF MGB oil temperature above limit or invalid:", "text": "- Land as soon as possible." },
+      { "type": "note", "text": "55/55% TQ may be shortly exceeded for the final part of the landing manoeuvre." }
+    ]
+  }
+]

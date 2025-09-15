@@ -1,0 +1,45 @@
+[
+  {
+    "id": "elec-fail-double-dc-gen",
+    "name": "ELEC FAIL",
+    "severity": "warning",
+    "system": "ELECTRICAL SYSTEM",
+    "description": "Double DC Generator failure.",
+    "procedure": [
+      {
+        "type": "note",
+        "text": "+“WARNING WARNING” voice Warning\nDouble DC Generator failure."
+      },
+      {
+        "type": "action",
+        "text": "1. Pilot utility light — ON (for night operations)."
+      },
+      {
+        "type": "action",
+        "text": "2. GEN 1 & 2 switches — Select RESET and confirm ON."
+      },
+      {
+        "type": "branch",
+        "heading": "Warning clears",
+        "text": "Both generators back on line.\n- Continue flight.\nIf 1(2) DC GEN FAIL illuminates:\n- Carry out SINGLE DC GENERATOR FAILURE procedure. (See page 107)"
+      },
+      {
+        "type": "branch",
+        "heading": "ELEC FAIL remains",
+        "text": "Confirm GEN BUS Switch (EDCU ELEC page) AUTO.\n- Set AMMC 1 MASTER\n- Select VHF 1 on right side to ensure continue radio communication.\n- Carry out LANDING GEAR EMERGENCY DOWN PROCEDURE (See page 52).\n- Land as soon as possible."
+      },
+      {
+        "type": "caution",
+        "text": "Loss of all MAIN BUS and all NON ESS BUS. See Notes 1 and 2."
+      },
+      {
+        "type": "warning",
+        "text": "Battery power is available for maximum 30 minutes."
+      }
+    ],
+    "notes": [
+      "Note 1: See page 15 for services lost when BUS not available.",
+      "Note 2: If MAIN BUS 1 required, on EDCU ELEC page, set GEN BUS switch to OVRD to supply battery power to MAIN BUS 1 reducing the battery endurance. If BUS TIE is switched OVRD the battery power is also supplied to MAIN BUS 2, with a further reduction in battery endurance."
+    ]
+  }
+]

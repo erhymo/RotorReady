@@ -1,0 +1,45 @@
+[
+  {
+    "id": "eng-fail-fixed",
+    "name": "1(2) ENG FAIL FIXED",
+    "severity": "warning",
+    "system": "ENGINE SYSTEM",
+    "description": "Engine is running at fixed power.",
+    "procedure": [
+      {
+        "type": "note",
+        "text": "+ \"WARNING WARNING\" voice warning."
+      },
+      {
+        "type": "action",
+        "text": "1. AFCS UPPER modes — Disengage."
+      },
+      {
+        "type": "action",
+        "text": "2. Flight condition — Achieve safe OEI."
+      },
+      {
+        "type": "note",
+        "text": "Depending on the fixed power on the affected engine, be aware that large TQ split may develop with possible NR change.\n\nIf TQ split exceeds 30% 1 ENG DEGR or 2 ENG DEGR caution due to HANDLING will illuminate on the engine with higher TQ value."
+      },
+      {
+        "type": "action",
+        "text": "- Continue flight monitoring engine parameters.\n- Land as soon as practicable."
+      },
+      {
+        "type": "caution",
+        "text": "During descent with low power setting do NOT allow TQ on NOT affected engine to decrease below 10%."
+      },
+      {
+        "type": "branch",
+        "heading": "IF TQ on affected engine equal or lower than 50%:",
+        "text": "CAUTION: During landing consider low power available on affected engine.\n\nAfter touchdown:\n- Smoothly lower collective to MPOG maintaining NR within limits.\n- If NR increases above limit, shutdown affected engine before lowering collective to MPOG."
+      },
+      {
+        "type": "branch",
+        "heading": "IF TQ on affected engine higher than 50%:",
+        "text": "CAUTION: If affected engine is above MCP shutdown engine within 5 min.\nDuring engine shutdown be aware of possible NR droop and large TQ split.\n\nBefore approach for landing:\n- Carry out ENGINE SHUTDOWN IN EMERGENCY procedure (see page 35).\n- Refer to SINGLE ENGINE PROCEDURE (see page 217)."
+      }
+    ]
+  }
+]

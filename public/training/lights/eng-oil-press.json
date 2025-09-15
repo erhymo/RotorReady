@@ -1,0 +1,29 @@
+[
+  {
+    "id": "eng-oil-press",
+    "name": "1(2) ENG OIL PRESS",
+    "severity": "warning",
+    "system": "ENGINE SYSTEM",
+    "description": "Associated engine oil pressure below or above limit.",
+    "procedure": [
+      {
+        "type": "note",
+        "text": "+ \"WARNING WARNING\" voice Warning."
+      },
+      {
+        "type": "action",
+        "text": "1. Affected engine — Check oil pressure and temperature on PFD/MFD."
+      },
+      {
+        "type": "branch",
+        "heading": "IF engine oil pressure within limits:",
+        "text": "- Continue flight monitoring oil pressure and temperature."
+      },
+      {
+        "type": "branch",
+        "heading": "IF engine oil pressure below OR above limits, OR invalid:",
+        "text": "- Achieve safe OEI flight.\n\nOn affected engine:\n- Carry out ENGINE SHUTDOWN IN EMERGENCY procedure (see page 35).\n\n- Land as soon as practicable.\n- Refer to SINGLE ENGINE PROCEDURE (see page 217)."
+      }
+    ]
+  }
+]

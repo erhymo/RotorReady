@@ -1,0 +1,141 @@
+[
+  {
+    "id": "lims-p7-001",
+    "section": "LIMITATIONS",
+    "question": "Is CAT B Take-Off and Landing with tail wind permitted?",
+    "options": [
+      "Yes, up to 10 kts",
+      "Yes, up to 20 kts",
+      "No, it is prohibited",
+      "Only with reduced weight"
+    ],
+    "answer": "No, it is prohibited",
+    "explanation": "CAT B Take-Off and Landing with tail wind is prohibited.",
+    "references": "CATEGORY B OPERATION LIMITATIONS (>9 passenger seats)",
+    "printedPage": 7,
+    "difficulty": "easy",
+    "tags": [
+      "cat b",
+      "takeoff",
+      "landing",
+      "tailwind",
+      "limitations"
+    ],
+    "source": "QRH p7"
+  },
+  {
+    "id": "lims-p7-002",
+    "section": "LIMITATIONS",
+    "question": "What electrical load does \u201c75%\u201d mean in CAT B WAT charts?",
+    "options": [
+      "75% of installed generators available",
+      "An electrical load of 75% on each DC generator",
+      "75% of total system load across all buses",
+      "75% only on essential bus"
+    ],
+    "answer": "An electrical load of 75% on each DC generator",
+    "explanation": "In CAT B WAT charts, 75% means that an electrical load of 75% on each DC generator has been included.",
+    "references": "CATEGORY B OPERATION LIMITATIONS (>9 passenger seats)",
+    "printedPage": 7,
+    "difficulty": "medium",
+    "tags": [
+      "cat b",
+      "electrical load",
+      "wat",
+      "limitations"
+    ],
+    "source": "QRH p7"
+  },
+  {
+    "id": "lims-p7-003",
+    "section": "LIMITATIONS",
+    "question": "What electrical load does \u201c25%\u201d mean in CAT B WAT charts?",
+    "options": [
+      "25% of installed generators available",
+      "An electrical load of 25% on each DC generator",
+      "25% of total system load across all buses",
+      "25% only on non-essential bus"
+    ],
+    "answer": "An electrical load of 25% on each DC generator",
+    "explanation": "In CAT B WAT charts, 25% means that an electrical load of 25% on each DC generator has been included.",
+    "references": "CATEGORY B OPERATION LIMITATIONS (>9 passenger seats)",
+    "printedPage": 7,
+    "difficulty": "medium",
+    "tags": [
+      "cat b",
+      "electrical load",
+      "wat",
+      "limitations"
+    ],
+    "source": "QRH p7"
+  },
+  {
+    "id": "lims-p7-004",
+    "section": "LIMITATIONS",
+    "question": "At what altitude can a safe vertical reject be carried out up to 15 ft for weight up to 4600 kg?",
+    "options": [
+      "Up to 1000 ft",
+      "Up to 5000 ft",
+      "Up to 10,000 ft",
+      "Only at sea level"
+    ],
+    "answer": "Up to 15 ft for weight up to 4600 kg (valid up to 4600 kg)",
+    "explanation": "A safe vertical reject can always be carried out from HIGE up to 15 ft for weight up to 4600 kg.",
+    "references": "CATEGORY B OPERATION LIMITATIONS (>9 passenger seats)",
+    "printedPage": 7,
+    "difficulty": "medium",
+    "tags": [
+      "cat b",
+      "vertical reject",
+      "weight",
+      "limitations"
+    ],
+    "source": "QRH p7"
+  },
+  {
+    "id": "lims-p7-005",
+    "section": "LIMITATIONS",
+    "question": "At what altitude can a safe vertical reject be carried out up to 15 ft for weight in excess of 4600 kg up to 4800 kg?",
+    "options": [
+      "Up to 1000 ft",
+      "Up to 5000 ft",
+      "Up to 10,000 ft",
+      "Only at sea level"
+    ],
+    "answer": "Up to 5000 ft",
+    "explanation": "A safe vertical reject can always be carried out from HIGE up to 15 ft for weight in excess of 4600 kg up to 4800 kg up to 5000 ft.",
+    "references": "CATEGORY B OPERATION LIMITATIONS (>9 passenger seats)",
+    "printedPage": 7,
+    "difficulty": "medium",
+    "tags": [
+      "cat b",
+      "vertical reject",
+      "weight",
+      "limitations"
+    ],
+    "source": "QRH p7"
+  },
+  {
+    "id": "lims-p7-006",
+    "section": "LIMITATIONS",
+    "question": "At what altitude can a safe vertical reject be carried out up to 10 ft for weight in excess of 4600 kg up to 4800 kg?",
+    "options": [
+      "Up to 1000 ft",
+      "Up to 5000 ft",
+      "Up to 10,000 ft",
+      "Only at sea level"
+    ],
+    "answer": "Up to 10,000 ft",
+    "explanation": "A safe vertical reject can always be carried out from HIGE up to 10 ft for weight in excess of 4600 kg up to 4800 kg up to 10,000 ft.",
+    "references": "CATEGORY B OPERATION LIMITATIONS (>9 passenger seats)",
+    "printedPage": 7,
+    "difficulty": "medium",
+    "tags": [
+      "cat b",
+      "vertical reject",
+      "weight",
+      "limitations"
+    ],
+    "source": "QRH p7"
+  }
+]

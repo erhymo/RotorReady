@@ -1,0 +1,201 @@
+[
+  {
+    "id": "lims-p5-001",
+    "section": "LIMITATIONS",
+    "question": "Which types of operation is the rotorcraft certified for?",
+    "options": [
+      "Day VFR only",
+      "Day/Night VFR and IFR, Category A, and operations with >9 passenger seats",
+      "Night VFR only",
+      "IFR only"
+    ],
+    "answer": "Day/Night VFR and IFR, Category A, and operations with >9 passenger seats",
+    "explanation": "The rotorcraft is certified in Cat A and B and eligible for Day/Night VFR and IFR, Cat A operation, and operations with more than 9 passenger seats.",
+    "references": "LIMITATIONS - Types of Operation",
+    "printedPage": 5,
+    "difficulty": "easy",
+    "tags": [
+      "operations",
+      "certification",
+      "limitations"
+    ],
+    "source": "QRH p5"
+  },
+  {
+    "id": "lims-p5-002",
+    "section": "LIMITATIONS",
+    "question": "CAT A operations are approved under which conditions?",
+    "options": [
+      "Day only",
+      "Night only",
+      "Day and Night",
+      "IFR only"
+    ],
+    "answer": "Day and Night",
+    "explanation": "CAT A operations are approved under Day/Night conditions.",
+    "references": "LIMITATIONS - Types of Operation",
+    "printedPage": 5,
+    "difficulty": "easy",
+    "tags": [
+      "cat a",
+      "operations",
+      "limitations"
+    ],
+    "source": "QRH p5"
+  },
+  {
+    "id": "lims-p5-003",
+    "section": "LIMITATIONS",
+    "question": "What visual conditions are required for CAT A Take-Off?",
+    "options": [
+      "Visual references in FATO area and Take-Off distance",
+      "Visual references in cockpit only",
+      "No visual references required",
+      "Radar contact"
+    ],
+    "answer": "Visual references in FATO area and Take-Off distance",
+    "explanation": "For CAT A Take-Off, external visual references must exist in the FATO area and in the Take-Off distance.",
+    "references": "LIMITATIONS - CAT A Take-Off",
+    "printedPage": 5,
+    "difficulty": "medium",
+    "tags": [
+      "cat a",
+      "takeoff",
+      "visual references"
+    ],
+    "source": "QRH p5"
+  },
+  {
+    "id": "lims-p5-004",
+    "section": "LIMITATIONS",
+    "question": "What visual conditions are required for CAT A Landing?",
+    "options": [
+      "Only instrument approach",
+      "Visual reference in FATO area and balked landing distance",
+      "No visual reference required",
+      "Radar monitoring"
+    ],
+    "answer": "Visual reference in FATO area and balked landing distance",
+    "explanation": "For CAT A Landing, external visual references must exist in the FATO area and in the balked landing distance.",
+    "references": "LIMITATIONS - CAT A Landing",
+    "printedPage": 5,
+    "difficulty": "medium",
+    "tags": [
+      "cat a",
+      "landing",
+      "visual references"
+    ],
+    "source": "QRH p5"
+  },
+  {
+    "id": "lims-p5-005",
+    "section": "LIMITATIONS",
+    "question": "What is the minimum flight crew for Day/Night VFR and IFR?",
+    "options": [
+      "One pilot (unless otherwise required by operating rules)",
+      "Always two pilots",
+      "One pilot for VFR, two for IFR",
+      "No minimum specified"
+    ],
+    "answer": "One pilot (unless otherwise required by operating rules)",
+    "explanation": "Minimum crew is one pilot, unless otherwise required by operating rules.",
+    "references": "LIMITATIONS - Minimum Flight Crew",
+    "printedPage": 5,
+    "difficulty": "easy",
+    "tags": [
+      "crew",
+      "ifr",
+      "vfr",
+      "limitations"
+    ],
+    "source": "QRH p5"
+  },
+  {
+    "id": "lims-p5-006",
+    "section": "LIMITATIONS",
+    "question": "Is single pilot operation permitted from the left seat?",
+    "options": [
+      "Yes, always",
+      "Yes, VFR only",
+      "No, not permitted",
+      "Only during ferry flights"
+    ],
+    "answer": "No, not permitted",
+    "explanation": "Single pilot operation is not permitted from the left seat.",
+    "references": "LIMITATIONS - Minimum Flight Crew",
+    "printedPage": 5,
+    "difficulty": "easy",
+    "tags": [
+      "crew",
+      "seat",
+      "limitations"
+    ],
+    "source": "QRH p5"
+  },
+  {
+    "id": "lims-p5-007",
+    "section": "LIMITATIONS",
+    "question": "If CAT A Take-Off or Landing is carried out from the left seat, what is the minimum crew?",
+    "options": [
+      "One pilot",
+      "Two pilots",
+      "Three pilots",
+      "One pilot + observer"
+    ],
+    "answer": "Two pilots",
+    "explanation": "When Take-Off or Landing is carried out from the left hand seat, minimum flight crew is two pilots.",
+    "references": "LIMITATIONS - CAT A Crew Limitations",
+    "printedPage": 5,
+    "difficulty": "easy",
+    "tags": [
+      "cat a",
+      "crew",
+      "limitations"
+    ],
+    "source": "QRH p5"
+  },
+  {
+    "id": "lims-p5-008",
+    "section": "LIMITATIONS",
+    "question": "What is the maximum number of occupants including crew for basic approved configurations?",
+    "options": [
+      "8",
+      "9",
+      "10",
+      "12"
+    ],
+    "answer": "10",
+    "explanation": "The maximum number of occupants, including crew, shall not exceed 10 for basic approved configurations.",
+    "references": "LIMITATIONS - Number of Occupants",
+    "printedPage": 5,
+    "difficulty": "easy",
+    "tags": [
+      "occupants",
+      "crew",
+      "limitations"
+    ],
+    "source": "QRH p5"
+  },
+  {
+    "id": "lims-p5-009",
+    "section": "LIMITATIONS",
+    "question": "What must each occupant have?",
+    "options": [
+      "Seat belt and headset",
+      "Seat belt and shoulder harness",
+      "Only shoulder harness",
+      "None of the above"
+    ],
+    "answer": "Seat belt and shoulder harness",
+    "explanation": "Each occupant must have a seat with seat belt and shoulder harness.",
+    "references": "LIMITATIONS - Number of Occupants",
+    "printedPage": 5,
+    "difficulty": "easy",
+    "tags": [
+      "occupants",
+      "equipment",
+      "limitations"
+    ],
+    "source": "QRH p5"
+  }
+]

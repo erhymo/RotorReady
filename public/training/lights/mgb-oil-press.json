@@ -1,0 +1,18 @@
+[
+  {
+    "id": "mgb-oil-press",
+    "name": "MGB OIL PRESS",
+    "severity": "warning",
+    "system": "MGB",
+    "description": "Oil pressure below limits at both engine MGB inputs or at one engine MGB input and in MGB oil system (less than 3.1 bar).",
+    "procedure": [
+      { "type": "note", "text": "+ \"WARNING WARNING\" voice warning." },
+      { "type": "action", "text": "1. TQ 1 & 2 — Reduce not to exceed 55/55%." },
+      { "type": "action", "text": "2. Clock — START." },
+      { "type": "action", "text": "3. PFD/MFD — Check MGB oil pressure." },
+      { "type": "branch", "heading": "IF MGB oil pressure within limits:", "text": "- Land as soon as practicable monitoring MGB oil pressure and temperature and input bearing temperature.\n- Do not activate the chip burner.\n- Torque value may be resumed to previous setting." },
+      { "type": "branch", "heading": "IF MGB oil pressure low or invalid:", "text": "- Land as soon as possible.\n- Landing or ditching should be made within 33 minutes.\n- Do not activate the chip burner." },
+      { "type": "note", "text": "55/55% TQ may be shortly exceeded for the final part of the landing manoeuvre." }
+    ]
+  }
+]

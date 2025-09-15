@@ -1,0 +1,16 @@
+{
+  "items": [
+    {
+      "id": "afm-001",
+      "section": "AFM",
+      "type": "single",
+      "question": "What is the maximum takeoff weight of the AW169?",
+      "options": ["4500 kg", "4800 kg", "4900 kg", "5000 kg"],
+      "answer": [2],
+      "explanation": "The maximum certified takeoff weight is 4900 kg.",
+      "references": ["AFM 2-1"],
+      "difficulty": "easy",
+      "source": "AFM"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+[
+  {
+    "id": "bag-fire-ground",
+    "name": "BAG FIRE",
+    "severity": "warning",
+    "system": "FIRE",
+    "description": "Baggage bay fire (ground).",
+    "procedure": [
+      { "type": "note", "text": "+ \"WARNING WARNING\" voice warning." },
+      { "type": "action", "text": "- Carry out EMERGENCY GROUND EGRESS procedure (see page 36)." }
+    ]
+  }
+]

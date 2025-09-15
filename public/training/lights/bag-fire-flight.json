@@ -1,0 +1,14 @@
+[
+  {
+    "id": "bag-fire-flight",
+    "name": "BAG FIRE",
+    "severity": "warning",
+    "system": "FIRE",
+    "description": "Baggage bay fire (flight).",
+    "procedure": [
+      { "type": "note", "text": "+ \"WARNING WARNING\" voice warning." },
+      { "type": "action", "text": "1. Land as soon as possible." },
+      { "type": "action", "text": "- Carry out EMERGENCY GROUND EGRESS procedure (see page 36)." }
+    ]
+  }
+]

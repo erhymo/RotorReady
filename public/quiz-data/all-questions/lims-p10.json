@@ -1,0 +1,202 @@
+[
+  {
+    "id": "lims-p10-001",
+    "section": "LIMITATIONS",
+    "question": "What is the maximum taxi speed on paved surfaces?",
+    "options": [
+      "20 knots GS",
+      "30 knots GS",
+      "40 knots GS",
+      "50 knots GS"
+    ],
+    "answer": "40 knots GS",
+    "explanation": "Maximum taxi speed on paved surfaces is 40 knots GS.",
+    "references": "GROUND SPEED LIMITATIONS",
+    "printedPage": 10,
+    "difficulty": "easy",
+    "tags": [
+      "ground speed",
+      "taxi",
+      "limitations"
+    ],
+    "source": "QRH p10"
+  },
+  {
+    "id": "lims-p10-002",
+    "section": "LIMITATIONS",
+    "question": "On paved surfaces above 10 knots GS, what must the nose wheel condition be?",
+    "options": [
+      "Free",
+      "Lock",
+      "Steering active",
+      "Not specified"
+    ],
+    "answer": "Lock",
+    "explanation": "Above 10 knots GS on paved surfaces the nose wheel must be locked.",
+    "references": "GROUND SPEED LIMITATIONS",
+    "printedPage": 10,
+    "difficulty": "easy",
+    "tags": [
+      "ground speed",
+      "nose wheel",
+      "limitations"
+    ],
+    "source": "QRH p10"
+  },
+  {
+    "id": "lims-p10-003",
+    "section": "LIMITATIONS",
+    "question": "What is the maximum speed for rolling Take-Off or running landing on paved surfaces?",
+    "options": [
+      "30 knots GS",
+      "40 knots GS",
+      "50 knots GS",
+      "60 knots GS"
+    ],
+    "answer": "60 knots GS",
+    "explanation": "Maximum speed for rolling Take-Off or running landing on paved surfaces is 60 knots GS.",
+    "references": "GROUND SPEED LIMITATIONS",
+    "printedPage": 10,
+    "difficulty": "easy",
+    "tags": [
+      "ground speed",
+      "takeoff",
+      "landing",
+      "limitations"
+    ],
+    "source": "QRH p10"
+  },
+  {
+    "id": "lims-p10-004",
+    "section": "LIMITATIONS",
+    "question": "What is the maximum speed for emergency landing on paved surfaces?",
+    "options": [
+      "30 knots GS",
+      "40 knots GS",
+      "50 knots GS",
+      "60 knots GS"
+    ],
+    "answer": "60 knots GS",
+    "explanation": "Maximum emergency landing speed on paved surfaces is 60 knots GS.",
+    "references": "GROUND SPEED LIMITATIONS",
+    "printedPage": 10,
+    "difficulty": "easy",
+    "tags": [
+      "ground speed",
+      "emergency landing",
+      "limitations"
+    ],
+    "source": "QRH p10"
+  },
+  {
+    "id": "lims-p10-005",
+    "section": "LIMITATIONS",
+    "question": "What is the maximum taxi speed on prepared grass surfaces?",
+    "options": [
+      "10 knots GS",
+      "20 knots GS",
+      "30 knots GS",
+      "40 knots GS"
+    ],
+    "answer": "20 knots GS",
+    "explanation": "Maximum taxi speed on prepared grass surfaces is 20 knots GS.",
+    "references": "GROUND SPEED LIMITATIONS",
+    "printedPage": 10,
+    "difficulty": "easy",
+    "tags": [
+      "ground speed",
+      "grass",
+      "limitations"
+    ],
+    "source": "QRH p10"
+  },
+  {
+    "id": "lims-p10-006",
+    "section": "LIMITATIONS",
+    "question": "On grass surfaces above 10 knots GS, what must the nose wheel condition be?",
+    "options": [
+      "Free",
+      "Lock",
+      "Steering active",
+      "Not specified"
+    ],
+    "answer": "Lock",
+    "explanation": "Above 10 knots GS on grass surfaces the nose wheel must be locked.",
+    "references": "GROUND SPEED LIMITATIONS",
+    "printedPage": 10,
+    "difficulty": "easy",
+    "tags": [
+      "ground speed",
+      "nose wheel",
+      "limitations"
+    ],
+    "source": "QRH p10"
+  },
+  {
+    "id": "lims-p10-007",
+    "section": "LIMITATIONS",
+    "question": "What is the maximum speed for rolling Take-Off or running landing on grass surfaces?",
+    "options": [
+      "20 knots GS",
+      "30 knots GS",
+      "40 knots GS",
+      "50 knots GS"
+    ],
+    "answer": "30 knots GS",
+    "explanation": "Maximum speed for rolling Take-Off or running landing on grass surfaces is 30 knots GS.",
+    "references": "GROUND SPEED LIMITATIONS",
+    "printedPage": 10,
+    "difficulty": "easy",
+    "tags": [
+      "ground speed",
+      "takeoff",
+      "landing",
+      "grass"
+    ],
+    "source": "QRH p10"
+  },
+  {
+    "id": "lims-p10-008",
+    "section": "LIMITATIONS",
+    "question": "What is the maximum emergency landing speed on grass surfaces?",
+    "options": [
+      "20 knots GS",
+      "30 knots GS",
+      "40 knots GS",
+      "50 knots GS"
+    ],
+    "answer": "50 knots GS",
+    "explanation": "Maximum emergency landing speed on grass surfaces is 50 knots GS.",
+    "references": "GROUND SPEED LIMITATIONS",
+    "printedPage": 10,
+    "difficulty": "easy",
+    "tags": [
+      "ground speed",
+      "emergency landing",
+      "grass"
+    ],
+    "source": "QRH p10"
+  },
+  {
+    "id": "lims-p10-009",
+    "section": "LIMITATIONS",
+    "question": "What is the maximum speed with PARK BRAKE ON during CAT A Take-Off and Landing?",
+    "options": [
+      "3 knots GS",
+      "5 knots GS",
+      "7 knots GS",
+      "10 knots GS"
+    ],
+    "answer": "5 knots GS",
+    "explanation": "Maximum speed with park brake on during CAT A Take-Off/Landing is 5 knots GS.",
+    "references": "GROUND SPEED LIMITATIONS",
+    "printedPage": 10,
+    "difficulty": "easy",
+    "tags": [
+      "ground speed",
+      "park brake",
+      "limitations"
+    ],
+    "source": "QRH p10"
+  }
+]

@@ -1,0 +1,352 @@
+[
+  {
+    "id": "lims-p11-001",
+    "section": "LIMITATIONS",
+    "question": "At which OAT must Pitot heating be set to AUTO or ON?",
+    "options": [
+      "+2 \u00b0C or less",
+      "+3 \u00b0C or less",
+      "+4 \u00b0C or less",
+      "+5 \u00b0C or less"
+    ],
+    "answer": "+4 \u00b0C or less",
+    "explanation": "Pitot heating must be set to AUTO or ON for indicated OAT of +4 \u00b0C or less.",
+    "references": "PITOT HEATING LIMITATIONS",
+    "printedPage": 11,
+    "difficulty": "easy",
+    "tags": [
+      "pitot",
+      "heating",
+      "limitations"
+    ],
+    "source": "QRH p11"
+  },
+  {
+    "id": "lims-p11-002",
+    "section": "LIMITATIONS",
+    "question": "At which OAT must Pitot heating be set to AUTO or OFF?",
+    "options": [
+      "+3 \u00b0C or more",
+      "+4 \u00b0C or more",
+      "+5 \u00b0C or more",
+      "+6 \u00b0C or more"
+    ],
+    "answer": "+5 \u00b0C or more",
+    "explanation": "Pitot heating must be set to AUTO or OFF for indicated OAT of +5 \u00b0C or more.",
+    "references": "PITOT HEATING LIMITATIONS",
+    "printedPage": 11,
+    "difficulty": "easy",
+    "tags": [
+      "pitot",
+      "heating",
+      "limitations"
+    ],
+    "source": "QRH p11"
+  },
+  {
+    "id": "lims-p11-003",
+    "section": "LIMITATIONS",
+    "question": "Is flight into known icing conditions permitted?",
+    "options": [
+      "Yes, with anti-ice on",
+      "Yes, with Pitot heating ON",
+      "No, it is prohibited",
+      "Only below +5 \u00b0C"
+    ],
+    "answer": "No, it is prohibited",
+    "explanation": "Flight into known icing conditions is prohibited.",
+    "references": "ICING LIMITATIONS",
+    "printedPage": 11,
+    "difficulty": "easy",
+    "tags": [
+      "icing",
+      "limitations"
+    ],
+    "source": "QRH p11"
+  },
+  {
+    "id": "lims-p11-004",
+    "section": "LIMITATIONS",
+    "question": "Is flight into freezing rain and freezing fog permitted?",
+    "options": [
+      "Yes, with all anti-ice ON",
+      "Yes, if below 5000 ft",
+      "No, it is prohibited",
+      "Only during CAT B operation"
+    ],
+    "answer": "No, it is prohibited",
+    "explanation": "Flight into freezing rain and freezing fog is prohibited.",
+    "references": "ICING LIMITATIONS",
+    "printedPage": 11,
+    "difficulty": "easy",
+    "tags": [
+      "icing",
+      "limitations"
+    ],
+    "source": "QRH p11"
+  },
+  {
+    "id": "lims-p11-005",
+    "section": "LIMITATIONS",
+    "question": "What is the maximum crosswind component for Category A operation?",
+    "options": [
+      "15 kts",
+      "20 kts",
+      "25 kts",
+      "30 kts"
+    ],
+    "answer": "20 kts (10 m/s)",
+    "explanation": "Maximum crosswind component for Category A operation must not exceed 20 kts.",
+    "references": "CATEGORY A OPERATION - WIND LIMITATIONS",
+    "printedPage": 11,
+    "difficulty": "easy",
+    "tags": [
+      "cat a",
+      "crosswind",
+      "limitations"
+    ],
+    "source": "QRH p11"
+  },
+  {
+    "id": "lims-p11-006",
+    "section": "LIMITATIONS",
+    "question": "Is Take-Off with tail wind permitted in Category A operation?",
+    "options": [
+      "Yes, up to 5 kts",
+      "Yes, up to 10 kts",
+      "No, it is prohibited",
+      "Only with reduced weight"
+    ],
+    "answer": "No, it is prohibited",
+    "explanation": "Take-Off with tail wind component is prohibited in Category A operation.",
+    "references": "CATEGORY A OPERATION - WIND LIMITATIONS",
+    "printedPage": 11,
+    "difficulty": "easy",
+    "tags": [
+      "cat a",
+      "tailwind",
+      "limitations"
+    ],
+    "source": "QRH p11"
+  },
+  {
+    "id": "lims-p11-007",
+    "section": "LIMITATIONS",
+    "question": "Are aerobatic manoeuvres permitted?",
+    "options": [
+      "Yes, up to 30\u00b0 bank",
+      "Yes, with instructor onboard",
+      "No, prohibited",
+      "Only in training flights"
+    ],
+    "answer": "No, prohibited",
+    "explanation": "Aerobatic manoeuvres are prohibited.",
+    "references": "MANOEUVRING LIMITATIONS",
+    "printedPage": 11,
+    "difficulty": "easy",
+    "tags": [
+      "manoeuvring",
+      "aerobatic",
+      "limitations"
+    ],
+    "source": "QRH p11"
+  },
+  {
+    "id": "lims-p11-008",
+    "section": "LIMITATIONS",
+    "question": "Are practice autorotative landings permitted?",
+    "options": [
+      "Yes, with instructor",
+      "Yes, with dual controls",
+      "No, prohibited",
+      "Yes, below 500 ft"
+    ],
+    "answer": "No, prohibited",
+    "explanation": "Practice autorotative landings are prohibited.",
+    "references": "AUTOROTATION LIMITATIONS",
+    "printedPage": 11,
+    "difficulty": "easy",
+    "tags": [
+      "autorotation",
+      "limitations"
+    ],
+    "source": "QRH p11"
+  },
+  {
+    "id": "lims-p11-009",
+    "section": "LIMITATIONS",
+    "question": "During autorotation, can ENG MODE switches be moved from FLIGHT to IDLE?",
+    "options": [
+      "Yes, anytime",
+      "Yes, only in training",
+      "No, except in an emergency",
+      "No, under any condition"
+    ],
+    "answer": "No, except in an emergency",
+    "explanation": "During autorotation the ENG MODE switches must not be selected from FLIGHT to IDLE except in an emergency.",
+    "references": "AUTOROTATION LIMITATIONS",
+    "printedPage": 11,
+    "difficulty": "medium",
+    "tags": [
+      "autorotation",
+      "eng mode",
+      "limitations"
+    ],
+    "source": "QRH p11"
+  },
+  {
+    "id": "lims-p11-010",
+    "section": "LIMITATIONS",
+    "question": "Is selection of ENG MODE to IDLE/OFF for training permitted?",
+    "options": [
+      "Yes, for autorotation training",
+      "No, prohibited",
+      "Yes, for CAT B only",
+      "Yes, below 3000 ft"
+    ],
+    "answer": "No, prohibited",
+    "explanation": "Selection of ENG MODE switch to IDLE/OFF for training is prohibited.",
+    "references": "OEI ENGINE OPERATION",
+    "printedPage": 11,
+    "difficulty": "easy",
+    "tags": [
+      "oee",
+      "engine",
+      "limitations"
+    ],
+    "source": "QRH p11"
+  },
+  {
+    "id": "lims-p11-011",
+    "section": "LIMITATIONS",
+    "question": "What are the slope landing/takeoff limits?",
+    "options": [
+      "Nose up 10\u00b0, Nose down 7\u00b0, Left wing low 10\u00b0, Right wing low 10\u00b0",
+      "Nose up 7\u00b0, Nose down 10\u00b0, Left wing low 7\u00b0, Right wing low 10\u00b0",
+      "Nose up 10\u00b0, Nose down 10\u00b0, Left wing low 7\u00b0, Right wing low 7\u00b0",
+      "All directions 10\u00b0"
+    ],
+    "answer": "Nose up 10\u00b0, Nose down 7\u00b0, Left wing low 10\u00b0, Right wing low 10\u00b0",
+    "explanation": "Slope limits are: Nose up 10\u00b0, Nose down 7\u00b0, Left wing low 10\u00b0, Right wing low 10\u00b0.",
+    "references": "SLOPE LIMITATIONS",
+    "printedPage": 11,
+    "difficulty": "medium",
+    "tags": [
+      "slope",
+      "landing",
+      "takeoff",
+      "limitations"
+    ],
+    "source": "QRH p11"
+  },
+  {
+    "id": "lims-p11-012",
+    "section": "LIMITATIONS",
+    "question": "What is the maximum baggage compartment load?",
+    "options": [
+      "200 kg (440 lb)",
+      "225 kg (500 lb)",
+      "250 kg (550 lb)",
+      "300 kg (660 lb)"
+    ],
+    "answer": "250 kg (550 lb)",
+    "explanation": "Maximum baggage compartment load is 250 kg (550 lb).",
+    "references": "BAGGAGE COMPARTMENT LIMITATIONS",
+    "printedPage": 11,
+    "difficulty": "easy",
+    "tags": [
+      "baggage",
+      "weight",
+      "limitations"
+    ],
+    "source": "QRH p11"
+  },
+  {
+    "id": "lims-p11-013",
+    "section": "LIMITATIONS",
+    "question": "What must be installed for baggage compartment load to be allowed?",
+    "options": [
+      "Net or approved means securing cargo",
+      "Baggage liners",
+      "Both net and liners",
+      "None, load is always allowed"
+    ],
+    "answer": "Baggage liners",
+    "explanation": "Load in baggage compartment is allowed provided that baggage liners are installed.",
+    "references": "BAGGAGE COMPARTMENT LIMITATIONS",
+    "printedPage": 11,
+    "difficulty": "easy",
+    "tags": [
+      "baggage",
+      "equipment",
+      "limitations"
+    ],
+    "source": "QRH p11"
+  },
+  {
+    "id": "lims-p11-014",
+    "section": "LIMITATIONS",
+    "question": "What is the maximum unit load in baggage compartment?",
+    "options": [
+      "400 kg/m\u00b2",
+      "450 kg/m\u00b2",
+      "500 kg/m\u00b2",
+      "550 kg/m\u00b2"
+    ],
+    "answer": "450 kg/m\u00b2 (92 lb/sq.ft)",
+    "explanation": "Maximum unit load in baggage compartment is 450 kg/m\u00b2 (92 lb/sq.ft).",
+    "references": "BAGGAGE COMPARTMENT LIMITATIONS",
+    "printedPage": 11,
+    "difficulty": "easy",
+    "tags": [
+      "baggage",
+      "weight",
+      "limitations"
+    ],
+    "source": "QRH p11"
+  },
+  {
+    "id": "lims-p11-015",
+    "section": "LIMITATIONS",
+    "question": "What is the maximum cargo height in baggage compartment?",
+    "options": [
+      "500 mm",
+      "600 mm",
+      "650 mm",
+      "700 mm"
+    ],
+    "answer": "600 mm (2 ft)",
+    "explanation": "Cargo height in baggage compartment must not exceed 600 mm (2 ft).",
+    "references": "BAGGAGE COMPARTMENT LIMITATIONS",
+    "printedPage": 11,
+    "difficulty": "easy",
+    "tags": [
+      "baggage",
+      "height",
+      "limitations"
+    ],
+    "source": "QRH p11"
+  },
+  {
+    "id": "lims-p11-016",
+    "section": "LIMITATIONS",
+    "question": "Is carriage of dangerous goods permitted in baggage compartment?",
+    "options": [
+      "Yes, with approval",
+      "Yes, if below 10 kg",
+      "No, prohibited",
+      "Only on CAT B flights"
+    ],
+    "answer": "No, prohibited",
+    "explanation": "Carriage of dangerous goods in baggage compartment is prohibited.",
+    "references": "BAGGAGE COMPARTMENT LIMITATIONS",
+    "printedPage": 11,
+    "difficulty": "easy",
+    "tags": [
+      "baggage",
+      "dangerous goods",
+      "limitations"
+    ],
+    "source": "QRH p11"
+  }
+]

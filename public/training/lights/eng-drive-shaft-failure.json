@@ -1,0 +1,27 @@
+[
+  {
+    "id": "eng-drive-shaft-failure",
+    "name": "ENGINE DRIVE SHAFT FAILURE",
+    "severity": "warning",
+    "system": "ENGINE SYSTEM",
+    "description": "Rapid decrease in engine 1(2) TQ to 0 with NF1(2) above NR.\nAffected engine should be automatically shutdown by overspeed protection system.",
+    "procedure": [
+      {
+        "type": "action",
+        "text": "1. Flight condition — Safe OEI."
+      },
+      {
+        "type": "action",
+        "text": "2. Carry out ENGINE SHUTDOWN IN EMERGENCY procedure (see page 35)."
+      },
+      {
+        "type": "action",
+        "text": "3. Land as soon as practicable."
+      },
+      {
+        "type": "action",
+        "text": "4. Refer to SINGLE ENGINE PROCEDURE (see page 217)."
+      }
+    ]
+  }
+]

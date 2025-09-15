@@ -1,0 +1,125 @@
+  "items": [
+    // All original items (lines 7-147 from previous version)
+    { "id": "lims-001", "section": "LIMITATIONS", "question": "When must pitot heating be selected to AUTO or ON?", "options": ["OAT +10 °C or less", "OAT +4 °C or less", "OAT 0 °C or less", "OAT +5 °C or more"], "answer": [1], "explanation": "Pitot heating must be AUTO or ON at indicated OAT of +4 °C or less.", "references": ["QRH p.11"], "printedPage": 11, "difficulty": "easy", "tags": ["pitot", "heating", "environment", "limitations"], "source": "QRH" },
+    { "id": "lims-002", "section": "LIMITATIONS", "question": "When must pitot heating be selected to AUTO or OFF?", "options": ["OAT +4 °C or less", "OAT 0 °C or more", "OAT +5 °C or more", "Always in AUTO"], "answer": [2], "explanation": "Pitot heating must be AUTO or OFF at indicated OAT of +5 °C or more.", "references": ["QRH p.11"], "printedPage": 11, "difficulty": "easy", "tags": ["pitot", "heating", "environment", "limitations"], "source": "QRH" },
+    { "id": "lims-003", "section": "LIMITATIONS", "question": "Is flight into known icing conditions permitted?", "options": ["Yes, if pitot heating is ON", "Yes, up to −10 °C", "No, unless cold weather kit installed", "No, it is prohibited"], "answer": [3], "explanation": "Flight into known icing conditions is prohibited.", "references": ["QRH p.11"], "printedPage": 11, "difficulty": "easy", "tags": ["icing", "environment", "limitations"], "source": "QRH" },
+    { "id": "lims-004", "section": "LIMITATIONS", "question": "Is flight into freezing rain or freezing fog permitted?", "options": ["Yes, max 15 minutes", "Yes, below 5000 ft", "No, it is prohibited", "Yes, if pitot heat is ON"], "answer": [2], "explanation": "Flight into freezing rain and freezing fog is prohibited.", "references": ["QRH p.11"], "printedPage": 11, "difficulty": "easy", "tags": ["icing", "environment", "limitations"], "source": "QRH" },
+    { "id": "lims-005", "section": "LIMITATIONS", "question": "What is the maximum crosswind component for Category A operation?", "options": ["15 kt", "25 kt", "35 kt", "20 kt (10 m/s)"], "answer": [3], "explanation": "Maximum cross wind component must not exceed 20 kt (10 m/s).", "references": ["QRH p.11"], "printedPage": 11, "difficulty": "easy", "tags": ["wind", "crosswind", "categoryA", "limitations"], "source": "QRH" },
+    { "id": "lims-006", "section": "LIMITATIONS", "question": "Is take-off with a tailwind component permitted?", "options": ["Yes, up to 10 kt", "Yes, up to 17 kt", "Yes, if below 20 kt", "No, it is prohibited"], "answer": [3], "explanation": "Take-Off with tail wind component is prohibited.", "references": ["QRH p.11"], "printedPage": 11, "difficulty": "easy", "tags": ["wind", "tailwind", "categoryA", "limitations"], "source": "QRH" },
+    { "id": "lims-007", "section": "LIMITATIONS", "question": "Are aerobatic manoeuvres permitted?", "options": ["Yes, up to 60° bank", "Yes, if within Category B", "No, they are prohibited", "Yes, only with training approval"], "answer": [2], "explanation": "Aerobatic manoeuvres are prohibited.", "references": ["QRH p.11"], "printedPage": 11, "difficulty": "easy", "tags": ["manoeuvring", "limitations"], "source": "QRH" },
+    { "id": "lims-008", "section": "LIMITATIONS", "question": "Are practice autorotative landings permitted?", "options": ["Yes, unlimited", "Yes, up to 300 ft", "No, they are prohibited", "Yes, only dual-pilot"], "answer": [2], "explanation": "Practice autorotative landings are prohibited.", "references": ["QRH p.11"], "printedPage": 11, "difficulty": "easy", "tags": ["autorotation", "limitations"], "source": "QRH" },
+    { "id": "lims-009", "section": "LIMITATIONS", "question": "During autorotation, may ENG MODE switches be selected from FLIGHT to IDLE?", "options": ["Yes, always", "No, only in an emergency", "Yes, if both engines are operating", "Yes, below 200 ft"], "answer": [1], "explanation": "During autorotation the ENG MODE switches must NOT be selected from FLIGHT to IDLE except in an emergency.", "references": ["QRH p.11"], "printedPage": 11, "difficulty": "easy", "tags": ["autorotation", "engine", "limitations"], "source": "QRH" },
+    { "id": "lims-010", "section": "LIMITATIONS", "question": "What is the maximum slope for nose-up take-off or landing?", "options": ["7°", "10°", "12°", "15°"], "answer": [1], "explanation": "Sloped take-off/landing nose up is limited to 10°.", "references": ["QRH p.11"], "printedPage": 11, "difficulty": "easy", "tags": ["slope", "limitations"], "source": "QRH" },
+    { "id": "lims-011", "section": "LIMITATIONS", "question": "What is the maximum slope for nose-down take-off or landing?", "options": ["10°", "12°", "5°", "7°"], "answer": [3], "explanation": "Sloped take-off/landing nose down is limited to 7°.", "references": ["QRH p.11"], "printedPage": 11, "difficulty": "easy", "tags": ["slope", "limitations"], "source": "QRH" },
+    { "id": "lims-012", "section": "LIMITATIONS", "question": "What is the maximum slope for left or right wing low take-off or landing?", "options": ["10°", "7°", "12°", "5°"], "answer": [0], "explanation": "Left wing low and right wing low are each limited to 10°.", "references": ["QRH p.11"], "printedPage": 11, "difficulty": "easy", "tags": ["slope", "limitations"], "source": "QRH" },
+    { "id": "lims-013", "section": "LIMITATIONS", "question": "What is the maximum baggage compartment load?", "options": ["200 kg", "250 kg (550 lb)", "300 kg", "150 kg"], "answer": [1], "explanation": "Maximum baggage compartment load is 250 kg (550 lb).", "references": ["QRH p.11"], "printedPage": 11, "difficulty": "easy", "tags": ["baggage", "limitations"], "source": "QRH" },
+    { "id": "lims-014", "section": "LIMITATIONS", "question": "What is the maximum unit load in the baggage compartment?", "options": ["350 kg/m²", "400 kg/m²", "450 kg/m² (92 lb/sq.ft)", "500 kg/m²"], "answer": [2], "explanation": "Maximum unit load is 450 kg/m² (92 lb/sq.ft).", "references": ["QRH p.11"], "printedPage": 11, "difficulty": "easy", "tags": ["baggage", "limitations"], "source": "QRH" },
+    { "id": "lims-015", "section": "LIMITATIONS", "question": "What is the maximum cargo height in the baggage compartment?", "options": ["500 mm (1.5 ft)", "600 mm (2 ft)", "700 mm (2.5 ft)", "800 mm (3 ft)"], "answer": [1], "explanation": "Cargo height must not exceed 600 mm (2 ft).", "references": ["QRH p.11"], "printedPage": 11, "difficulty": "easy", "tags": ["baggage", "limitations"], "source": "QRH" },
+    // All p.10 items (from .lims_p10_items.json, deduplicated)
+    { "id": "lims-p10-001", "section": "LIMITATIONS", "question": "What is the maximum taxi speed on paved surfaces?", "options": ["30 knots GS", "40 knots GS", "50 knots GS", "20 knots GS"], "answer": [1], "explanation": "Maximum taxi speed on paved surfaces is 40 knots GS.", "references": ["QRH p.10"], "printedPage": 10, "difficulty": "easy", "tags": ["ground speed", "paved", "limitations"], "source": "QRH" },
+    { "id": "lims-p10-002", "section": "LIMITATIONS", "question": "On paved surfaces, above what taxi speed must the nose wheel be locked?", "options": ["5 knots (9 km/h)", "15 knots (28 km/h)", "10 knots (18 km/h)", "20 knots (37 km/h)"], "answer": [2], "explanation": "Above 10 knots (18 km/h) taxi speed, the nose wheel must be locked.", "references": ["QRH p.10"], "printedPage": 10, "difficulty": "easy", "tags": ["ground speed", "paved", "nose wheel", "limitations"], "source": "QRH" },
+    { "id": "lims-p10-003", "section": "LIMITATIONS", "question": "What is the maximum speed for rolling take-off or running landing on paved surfaces?", "options": ["50 knots GS", "60 knots GS", "40 knots GS", "30 knots GS"], "answer": [1], "explanation": "Maximum speed for rolling take-off or running landing on paved surfaces is 60 knots GS.", "references": ["QRH p.10"], "printedPage": 10, "difficulty": "easy", "tags": ["ground speed", "paved", "takeoff", "landing", "limitations"], "source": "QRH" },
+    { "id": "lims-p10-004", "section": "LIMITATIONS", "question": "What is the maximum speed for emergency landing on paved surfaces?", "options": ["40 knots GS", "50 knots GS", "60 knots GS", "30 knots GS"], "answer": [2], "explanation": "Maximum speed for emergency landing on paved surfaces is 60 knots GS.", "references": ["QRH p.10"], "printedPage": 10, "difficulty": "easy", "tags": ["ground speed", "paved", "emergency", "limitations"], "source": "QRH" },
+    { "id": "lims-p10-005", "section": "LIMITATIONS", "question": "What is the maximum taxi speed on prepared grass surfaces?", "options": ["20 knots GS", "30 knots GS", "40 knots GS", "50 knots GS"], "answer": [0], "explanation": "Maximum taxi speed on prepared grass surfaces is 20 knots GS.", "references": ["QRH p.10"], "printedPage": 10, "difficulty": "easy", "tags": ["ground speed", "grass", "limitations"], "source": "QRH" },
+    { "id": "lims-p10-006", "section": "LIMITATIONS", "question": "On prepared grass surfaces, above what taxi speed must the nose wheel be locked?", "options": ["5 knots (9 km/h)", "10 knots (18 km/h)", "20 knots (37 km/h)", "15 knots (28 km/h)"], "answer": [1], "explanation": "On prepared grass surfaces, above 10 knots (18 km/h) taxi speed, the nose wheel must be locked.", "references": ["QRH p.10"], "printedPage": 10, "difficulty": "easy", "tags": ["ground speed", "grass", "nose wheel", "limitations"], "source": "QRH" },
+    { "id": "lims-p10-007", "section": "LIMITATIONS", "question": "What is the maximum speed for rolling take-off or running landing on prepared grass surfaces?", "options": ["20 knots GS", "40 knots GS", "50 knots GS", "30 knots GS"], "answer": [3], "explanation": "Maximum speed for rolling take-off or running landing on prepared grass surfaces is 30 knots GS.", "references": ["QRH p.10"], "printedPage": 10, "difficulty": "easy", "tags": ["ground speed", "grass", "takeoff", "landing", "limitations"], "source": "QRH" },
+    { "id": "lims-p10-008", "section": "LIMITATIONS", "question": "What is the maximum speed for emergency landing on prepared grass surfaces?", "options": ["20 knots GS", "30 knots GS", "50 knots GS", "60 knots GS"], "answer": [2], "explanation": "Maximum speed for emergency landing on prepared grass surfaces is 50 knots GS.", "references": ["QRH p.10"], "printedPage": 10, "difficulty": "easy", "tags": ["ground speed", "grass", "emergency", "limitations"], "source": "QRH" },
+    { "id": "lims-p10-009", "section": "LIMITATIONS", "question": "During Cat A take-off and landing on a ground or elevated helideck, what is the maximum speed with PARK BRAKE ON?", "options": ["3 knots GS", "5 knots GS", "10 knots GS", "7 knots GS"], "answer": [1], "explanation": "Maximum speed with PARK BRAKE ON is 5 knots GS.", "references": ["QRH p.10"], "printedPage": 10, "difficulty": "easy", "tags": ["catA", "helideck", "brake", "limitations"], "source": "QRH" },
+    { "id": "lims-p10-010", "section": "LIMITATIONS", "question": "If forecast wind velocity exceeds what value must the helicopter be parked in a sheltered area or hangar?", "options": ["40 knots", "50 knots", "60 knots", "55 knots"], "answer": [1], "explanation": "If forecast wind velocity exceeds 50 knots, the helicopter must be parked in a sheltered area or hangar.", "references": ["QRH p.10"], "printedPage": 10, "difficulty": "easy", "tags": ["wind", "parking", "limitations"], "source": "QRH" },
+    { "id": "lims-p10-011", "section": "LIMITATIONS", "question": "With hydraulic fluid temperature below +20 °C, what must the pilot do?", "options": ["Avoid taxi", "Fly attentive", "Engage AFCS", "Perform warm-up run"], "answer": [1], "explanation": "With hydraulic fluid temperature below +20 °C, the pilot must fly attentive.", "references": ["QRH p.10"], "printedPage": 10, "difficulty": "easy", "tags": ["hydraulic", "temperature", "limitations"], "source": "QRH" }
+  ]
+  ]
+    {
+      "id": "lims-p10-005",
+      "section": "LIMITATIONS",
+      "question": "What is the maximum taxi speed on prepared grass surfaces?",
+      "options": ["20 knots GS", "30 knots GS", "40 knots GS", "50 knots GS"],
+      "answer": [0],
+      "explanation": "Maximum taxi speed on prepared grass surfaces is 20 knots GS.",
+      "references": ["QRH p.10"],
+      "printedPage": 10,
+      "difficulty": "easy",
+      "tags": ["ground speed", "grass", "limitations"],
+      "source": "QRH"
+    },
+    {
+      "id": "lims-p10-006",
+      "section": "LIMITATIONS",
+      "question": "On prepared grass surfaces, above what taxi speed must the nose wheel be locked?",
+      "options": ["5 knots (9 km/h)", "10 knots (18 km/h)", "20 knots (37 km/h)", "15 knots (28 km/h)"],
+      "answer": [1],
+      "explanation": "On prepared grass surfaces, above 10 knots (18 km/h) taxi speed, the nose wheel must be locked.",
+      "references": ["QRH p.10"],
+      "printedPage": 10,
+      "difficulty": "easy",
+      "tags": ["ground speed", "grass", "nose wheel", "limitations"],
+      "source": "QRH"
+    },
+    {
+      "id": "lims-p10-007",
+      "section": "LIMITATIONS",
+      "question": "What is the maximum speed for rolling take-off or running landing on prepared grass surfaces?",
+      "options": ["20 knots GS", "40 knots GS", "50 knots GS", "30 knots GS"],
+      "answer": [3],
+      "explanation": "Maximum speed for rolling take-off or running landing on prepared grass surfaces is 30 knots GS.",
+      "references": ["QRH p.10"],
+      "printedPage": 10,
+      "difficulty": "easy",
+      "tags": ["ground speed", "grass", "takeoff", "landing", "limitations"],
+      "source": "QRH"
+    },
+    {
+      "id": "lims-p10-008",
+      "section": "LIMITATIONS",
+      "question": "What is the maximum speed for emergency landing on prepared grass surfaces?",
+      "options": ["20 knots GS", "30 knots GS", "50 knots GS", "60 knots GS"],
+      "answer": [2],
+      "explanation": "Maximum speed for emergency landing on prepared grass surfaces is 50 knots GS.",
+      "references": ["QRH p.10"],
+      "printedPage": 10,
+      "difficulty": "easy",
+      "tags": ["ground speed", "grass", "emergency", "limitations"],
+      "source": "QRH"
+    },
+    {
+      "id": "lims-p10-009",
+      "section": "LIMITATIONS",
+      "question": "During Cat A take-off and landing on a ground or elevated helideck, what is the maximum speed with PARK BRAKE ON?",
+      "options": ["3 knots GS", "5 knots GS", "10 knots GS", "7 knots GS"],
+      "answer": [1],
+      "explanation": "Maximum speed with PARK BRAKE ON is 5 knots GS.",
+      "references": ["QRH p.10"],
+      "printedPage": 10,
+      "difficulty": "easy",
+      "tags": ["catA", "helideck", "brake", "limitations"],
+      "source": "QRH"
+    },
+    {
+      "id": "lims-p10-010",
+      "section": "LIMITATIONS",
+      "question": "If forecast wind velocity exceeds what value must the helicopter be parked in a sheltered area or hangar?",
+      "options": ["40 knots", "50 knots", "60 knots", "55 knots"],
+      "answer": [1],
+      "explanation": "If forecast wind velocity exceeds 50 knots, the helicopter must be parked in a sheltered area or hangar.",
+      "references": ["QRH p.10"],
+      "printedPage": 10,
+      "difficulty": "easy",
+      "tags": ["wind", "parking", "limitations"],
+      "source": "QRH"
+    },
+    {
+      "id": "lims-p10-011",
+      "section": "LIMITATIONS",
+      "question": "With hydraulic fluid temperature below +20 °C, what must the pilot do?",
+      "options": ["Avoid taxi", "Fly attentive", "Engage AFCS", "Perform warm-up run"],
+      "answer": [1],
+      "explanation": "With hydraulic fluid temperature below +20 °C, the pilot must fly attentive.",
+      "references": ["QRH p.10"],
+      "printedPage": 10,
+      "difficulty": "easy",
+      "tags": ["hydraulic", "temperature", "limitations"],
+      "source": "QRH"
+    }
+    // --- END p.10 items ---
+  ]
+}

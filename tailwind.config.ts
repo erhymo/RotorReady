@@ -1,16 +1,20 @@
-import type { Config } from "tailwindcss";
+import type { Config } from 'tailwindcss'
 
-const config: Config = {
-  darkMode: "class",
-  content: ["./app/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./pages/**/*.{ts,tsx}"],
+export default {
+  darkMode: 'class',
+  content: [
+    "./app/**/*.{ts,tsx,js,jsx}",
+    "./components/**/*.{ts,tsx,js,jsx}",
+    "./pages/**/*.{ts,tsx,js,jsx}",
+    "./features/**/*.{ts,tsx,js,jsx}",
+  ],
   theme: {
     extend: {
       borderRadius: {
         xl: "0.9rem",
-        "2xl": "1.25rem"
-      }
-    }
+        "2xl": "1.25rem",
+      },
+    },
   },
-  plugins: []
-};
-export default config;
+  plugins: [],
+} satisfies Config

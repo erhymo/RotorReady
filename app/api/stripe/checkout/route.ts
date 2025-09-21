@@ -1,12 +1,13 @@
 import { NextResponse } from "next/server";
 import Stripe from "stripe";
+import { serverEnv } from "@/lib/env";
 
 export const runtime = "nodejs";
 
 export async function POST() {
-  const secret = process.env.STRIPE_SECRET_KEY;
-  const price = process.env.STRIPE_PRICE_ID; // optional until configured
-  const ret = process.env.STRIPE_PORTAL_RETURN_URL || "http://localhost:3000/account";
+  const secret = serverEnv.STRIPE_SECRET_KEY;
+  const price = serverEnv.STRIPE_PRICE_ID; // optional until configured
+  const ret = serverEnv.STRIPE_PORTAL_RETURN_URL || "http://localhost:3000/account";
 
   if (!secret || !price) {
     return NextResponse.json({ error: "Stripe price not configured" }, { status: 400 });
@@ -29,9 +30,9 @@ export async function POST() {
 }
 
 export async function GET() {
-  const secret = process.env.STRIPE_SECRET_KEY;
-  const price = process.env.STRIPE_PRICE_ID;
-  const ret = process.env.STRIPE_PORTAL_RETURN_URL || "http://localhost:3000/account";
+  const secret = serverEnv.STRIPE_SECRET_KEY;
+  const price = serverEnv.STRIPE_PRICE_ID;
+  const ret = serverEnv.STRIPE_PORTAL_RETURN_URL || "http://localhost:3000/account";
   if (!secret || !price) {
     return NextResponse.json({ error: "Stripe price not configured" }, { status: 400 });
   }

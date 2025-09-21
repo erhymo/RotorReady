@@ -1,17 +1,12 @@
 import { NextResponse } from "next/server";
 import Stripe from "stripe";
 import { adminDb } from "@/lib/firebase/admin";
+import { serverEnv } from "@/lib/env";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-function getEnv(name: string) {
-  const v = process.env[name];
-  if (!v || v.length === 0) throw new Error(`Missing env: ${name}`);
-  return v;
-}
-
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || "", {
+const stripe = new Stripe(serverEnv.STRIPE_SECRET_KEY || "", {
   apiVersion: "2024-06-20",
 });
 
@@ -20,7 +15,7 @@ export async function POST(req: Request) {
   const rawBody = await req.text();
   const signature = req.headers.get("stripe-signature");
 
-  if (!process.env.STRIPE_SECRET_KEY || !process.env.STRIPE_WEBHOOK_SECRET) {
+  if (!serverEnv.STRIPE_SECRET_KEY || !serverEnv.STRIPE_WEBHOOK_SECRET) {
     console.warn("Stripe env not configured; skipping signature verification");
     return NextResponse.json({ ok: true, note: "No STRIPE env; ignored" });
   }
@@ -34,7 +29,7 @@ export async function POST(req: Request) {
     event = stripe.webhooks.constructEvent(
       rawBody,
       signature,
-      getEnv("STRIPE_WEBHOOK_SECRET")
+      serverEnv.STRIPE_WEBHOOK_SECRET
     );
   } catch (err: any) {
     console.error("Stripe signature verification failed:", err?.message || err);

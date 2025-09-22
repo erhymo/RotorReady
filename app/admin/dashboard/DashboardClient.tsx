@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import AdminPanel from "./AdminPanel";
 
 export default function DashboardClient() {
-  const [initial, setInitial] = useState(null);
+  const [initial, setInitial] = useState<any>(null);
   const [errorMsg, setErrorMsg] = useState("");
   const [loading, setLoading] = useState(true);
 
@@ -17,12 +17,12 @@ export default function DashboardClient() {
           fetch("/api/admin/messages").then(r => r.json()),
         ]);
         setInitial({
-          sections: sectionsRes.sections,
-          flags: flagsRes,
-          messages: messagesRes,
+          sections: sectionsRes.sections || [],
+          flags: flagsRes || {},
+          messages: messagesRes || {},
         });
         setErrorMsg("");
-      } catch (e) {
+      } catch (e: any) {
         setErrorMsg(e?.message || "Ukjent feil ved lasting av admin-data.");
       } finally {
         setLoading(false);

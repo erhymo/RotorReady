@@ -319,8 +319,8 @@ export default function LightsTrainer() {
                   <img src={current.icon} alt={current.name} className="h-14 w-14 object-contain rounded-md bg-white/10" />
                 )}
                 <div className="flex-1">
-                  <div className="text-xl font-semibold">{current.name}</div>
-                  {current.description && <div className="opacity-90 mt-0.5">{current.description}</div>}
+                  <div className="text-xl font-semibold dark:text-zinc-100">{current.name}</div>
+                  {current.description && <div className="opacity-90 mt-0.5 dark:text-zinc-100">{current.description}</div>}
                 </div>
               </div>
             </button>
@@ -333,7 +333,7 @@ export default function LightsTrainer() {
         )}
         {mode === "procedure" && current && (
           <div className="space-y-6">
-            {current.description && <div className="rounded-xl border bg-white p-4">{current.description}</div>}
+            {current.description && <div className="rounded-xl border bg-white dark:bg-zinc-900/90 dark:text-zinc-100 p-4">{current.description}</div>}
             <ProcedureLikePDF item={current} />
             <div className="sticky bottom-0 bg-white/80 backdrop-blur border-t">
               <div className="max-w-3xl mx-auto p-4 flex items-center justify-between">

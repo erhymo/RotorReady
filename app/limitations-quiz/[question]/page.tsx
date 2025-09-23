@@ -83,6 +83,14 @@ export default function QuestionPage() {
       <div className="h-2 bg-gray-200 rounded dark:bg-zinc-800">
         <div className="h-2 bg-blue-600 rounded dark:bg-blue-700" style={{ width: `${progress}%` }} />
       </div>
+      {/* Top bar fix */}
+      <div className="w-full flex items-center justify-between py-2 px-4 border-b border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-900">
+        <div className="flex items-center gap-2">
+          <span className="inline-block rounded-lg px-4 py-2 bg-red-600 text-white font-semibold">MGB OIL PRESS</span>
+          <span className="text-gray-500 dark:text-zinc-400">MGB</span>
+        </div>
+        <div className="text-gray-500 dark:text-zinc-400">1 / 10 &bull; PROCEDURE</div>
+      </div>
       <div className="flex items-center justify-between">
         <div className="text-sm text-gray-600 dark:text-zinc-300">Question {idx+1} / {total}</div>
         <button onClick={toggleFlag} className={`px-3 py-1 rounded border text-sm ${session.flags[idx] ? "bg-amber-100 border-amber-400 dark:bg-amber-900 dark:border-amber-600 dark:text-zinc-100" : "bg-white dark:bg-zinc-900 dark:text-zinc-100 dark:border-zinc-700"}`}>{session.flags[idx] ? "Flagged" : "Flag"}</button>
@@ -121,9 +129,11 @@ export default function QuestionPage() {
         )}
       </div>
 
-      <div className="flex items-center justify-between">
-        <button onClick={prev} disabled={idx===0} className="px-4 py-2 rounded-lg border bg-white dark:bg-zinc-900 dark:text-zinc-100 dark:border-zinc-700 disabled:opacity-50">Back</button>
-        <button onClick={next} className="px-4 py-2 rounded-lg bg-gray-900 text-white dark:bg-zinc-900 dark:text-zinc-100">{idx+1>=total ? "Finish" : "Next"}</button>
+      {/* Bottom bar fix */}
+      <div className="w-full flex items-center justify-between py-4 px-4 border-t border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-900">
+        <button onClick={prev} disabled={idx===0} className="px-4 py-2 rounded-lg border bg-white dark:bg-zinc-900 dark:text-zinc-100 dark:border-zinc-700 disabled:opacity-50">Previous</button>
+        <span className="text-gray-500 dark:text-zinc-400">→ for Next</span>
+        <button onClick={next} className="px-4 py-2 rounded-lg bg-gray-900 text-white dark:bg-zinc-900 dark:text-zinc-100">Next</button>
       </div>
 
   <p className="text-xs text-gray-500 dark:text-zinc-400">Keyboard: 1–4 select, ←/→ navigation, Enter = next, F = flag.</p>

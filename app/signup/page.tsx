@@ -19,7 +19,7 @@ function SignupInner() {
       const cred = await createUserWithEmailAndPassword(auth, email, password);
       try { await setDoc(doc(db, "users", cred.user.uid), { email, createdAt: new Date().toISOString() }, { merge: true }); } catch {}
       try { await sendEmailVerification(cred.user); } catch {}
-      setMsg("Konto opprettet. Sjekk e-post for verifiseringslink.");
+      router.push("/account");
     } catch (e: any) {
       setErr(e?.message || "Klarte ikke opprette konto");
     }

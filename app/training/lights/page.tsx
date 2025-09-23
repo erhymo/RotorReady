@@ -153,15 +153,15 @@ export default function LightsTrainer() {
     if (!current) return null;
     const pal = COLORS[current.severity];
     return (
-      <div className="sticky top-0 z-10 bg-white/80 backdrop-blur border-b">
+      <div className="sticky top-0 z-10 bg-white/80 dark:bg-zinc-900/90 backdrop-blur border-b dark:border-zinc-700">
         <div className="mx-auto max-w-3xl px-6 py-3 flex items-center justify-between gap-3">
           <div className="flex items-center gap-3">
             <div className={`rounded-lg px-3 py-1.5 font-semibold ring-2 ${pal.bg} ${pal.text} ${pal.ring}`} title={current.system || ""}>
               {current.name}
             </div>
-            {current.system && <div className="text-xs opacity-70 uppercase tracking-wide">{current.system}</div>}
+            {current.system && <div className="text-xs opacity-70 uppercase tracking-wide dark:text-zinc-300">{current.system}</div>}
           </div>
-          <div className="text-sm opacity-70">{idx + 1} / {deck.length} • {mode.toUpperCase()}</div>
+          <div className="text-sm opacity-70 dark:text-zinc-300">{idx + 1} / {deck.length} • {mode.toUpperCase()}</div>
         </div>
       </div>
     );
@@ -335,11 +335,11 @@ export default function LightsTrainer() {
           <div className="space-y-6">
             {current.description && <div className="rounded-xl border bg-white dark:bg-zinc-900/90 dark:text-zinc-100 p-4">{current.description}</div>}
             <ProcedureLikePDF item={current} />
-            <div className="sticky bottom-0 bg-white/80 backdrop-blur border-t">
+            <div className="sticky bottom-0 bg-white/80 dark:bg-zinc-900/90 backdrop-blur border-t dark:border-zinc-700">
               <div className="max-w-3xl mx-auto p-4 flex items-center justify-between">
-                <button onClick={prev} disabled={!canPrev} className="rounded-lg px-4 py-2 border disabled:opacity-40">Previous</button>
-                <div className="text-sm opacity-60">→ for Next</div>
-                <button onClick={next} disabled={!canNext} className="rounded-lg px-4 py-2 bg-black text-white disabled:opacity-40">Next</button>
+                <button onClick={prev} disabled={!canPrev} className="rounded-lg px-4 py-2 border dark:bg-zinc-900 dark:text-zinc-100 dark:border-zinc-700 disabled:opacity-40">Previous</button>
+                <div className="text-sm opacity-60 dark:text-zinc-300">→ for Next</div>
+                <button onClick={next} disabled={!canNext} className="rounded-lg px-4 py-2 bg-black text-white dark:bg-zinc-900 dark:text-zinc-100 disabled:opacity-40">Next</button>
               </div>
             </div>
           </div>

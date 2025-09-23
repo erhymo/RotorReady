@@ -168,25 +168,25 @@ export default function LightsTrainer() {
   }, [current, deck.length, idx, mode]);
 
   function StepCard({ step }: { step: ProcedureStep }) {
-    const base = "rounded-xl p-4 whitespace-pre-wrap leading-relaxed";
+  const base = "rounded-xl p-4 whitespace-pre-wrap leading-relaxed dark:bg-zinc-900/90 dark:text-zinc-100";
     switch (step.type) {
       case "action":
-        return <div className={`${base} border`}>{step.text}</div>;
+        return <div className={`${base} border dark:border-zinc-700 dark:bg-zinc-900/90 dark:text-zinc-100`}>{step.text}</div>;
       case "note":
-        return <div className={`${base} border-l-4 border-blue-500/70 bg-blue-50`}>{step.text}</div>;
+        return <div className={`${base} border-l-4 border-blue-500/70 bg-blue-50 dark:bg-zinc-900/90 dark:text-zinc-100`}>{step.text}</div>;
       case "caution":
-        return <div className={`${base} border-l-4 border-amber-500/70 bg-amber-50`}><div className="font-semibold mb-1">CAUTION</div>{step.text}</div>;
+        return <div className={`${base} border-l-4 border-amber-500/70 bg-amber-50 dark:bg-zinc-900/90 dark:text-zinc-100`}><div className="font-semibold mb-1">CAUTION</div>{step.text}</div>;
       case "warning":
-        return <div className={`${base} border-l-4 border-red-600/70 bg-red-50`}><div className="font-semibold mb-1">WARNING</div>{step.text}</div>;
+        return <div className={`${base} border-l-4 border-red-600/70 bg-red-50 dark:bg-zinc-900/90 dark:text-zinc-100`}><div className="font-semibold mb-1">WARNING</div>{step.text}</div>;
       case "branch":
         return (
-          <div className={`${base} border-dashed border`}>
+          <div className={`${base} border-dashed border dark:border-zinc-700 dark:bg-zinc-900/90 dark:text-zinc-100`}>
             {step.heading && <div className="font-semibold mb-1">{step.heading}</div>}
             {step.text}
           </div>
         );
       default:
-        return <div className={`${base} border`}>{(step as any).text}</div>;
+        return <div className={`${base} border dark:border-zinc-700 dark:bg-zinc-900/90 dark:text-zinc-100`}>{(step as any).text}</div>;
     }
   }
 
@@ -203,13 +203,13 @@ export default function LightsTrainer() {
           </section>
         )}
         {actions.length > 0 && (
-          <section className="rounded-xl border-4 border-black p-0 overflow-hidden">
+          <section className="rounded-xl border-4 border-black dark:border-zinc-700 dark:bg-zinc-900/90 p-0 overflow-hidden">
             <table className="w-full text-[15px]">
               <tbody>
                 {actions.map((a, i) => (
-                  <tr key={`${item.id}-act-${i}`} className="border-b last:border-b-0">
-                    <td className="w-12 align-top px-4 py-3 font-bold">{i + 1}.</td>
-                    <td className="align-top px-4 py-3">{(a as any).text}</td>
+                  <tr key={`${item.id}-act-${i}`} className="border-b last:border-b-0 dark:border-zinc-700">
+                    <td className="w-12 align-top px-4 py-3 font-bold dark:text-zinc-100">{i + 1}.</td>
+                    <td className="align-top px-4 py-3 dark:text-zinc-100">{(a as any).text}</td>
                   </tr>
                 ))}
               </tbody>
@@ -256,7 +256,7 @@ export default function LightsTrainer() {
           <section className="space-y-2">
             <div className="text-sm font-semibold opacity-80">Notes</div>
             {item.notes.map((n, i) => (
-              <div key={`${item.id}-noteB-${i}`} className="rounded-xl border bg-neutral-50 p-4 whitespace-pre-wrap">
+              <div key={`${item.id}-noteB-${i}`} className="rounded-xl border bg-neutral-50 dark:bg-zinc-900/90 dark:text-zinc-100 p-4 whitespace-pre-wrap">
                 {n}
               </div>
             ))}

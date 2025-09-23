@@ -79,18 +79,18 @@ export default function QuestionPage() {
   const progress = Math.round(((idx+1) / total) * 100);
 
   return (
-    <div className="max-w-2xl mx-auto p-4 space-y-4">
-      <div className="h-2 bg-gray-200 rounded">
-        <div className="h-2 bg-blue-600 rounded" style={{ width: `${progress}%` }} />
+  <div className="max-w-2xl mx-auto p-4 space-y-4">
+      <div className="h-2 bg-gray-200 rounded dark:bg-zinc-800">
+        <div className="h-2 bg-blue-600 rounded dark:bg-blue-700" style={{ width: `${progress}%` }} />
       </div>
       <div className="flex items-center justify-between">
-        <div className="text-sm text-gray-600">Question {idx+1} / {total}</div>
-        <button onClick={toggleFlag} className={`px-3 py-1 rounded border text-sm ${session.flags[idx] ? "bg-amber-100 border-amber-400" : "bg-white"}`}>{session.flags[idx] ? "Flagged" : "Flag"}</button>
+        <div className="text-sm text-gray-600 dark:text-zinc-300">Question {idx+1} / {total}</div>
+        <button onClick={toggleFlag} className={`px-3 py-1 rounded border text-sm ${session.flags[idx] ? "bg-amber-100 border-amber-400 dark:bg-amber-900 dark:border-amber-600 dark:text-zinc-100" : "bg-white dark:bg-zinc-900 dark:text-zinc-100 dark:border-zinc-700"}`}>{session.flags[idx] ? "Flagged" : "Flag"}</button>
       </div>
 
-      <div className="bg-white rounded-xl border p-4">
+  <div className="bg-white dark:bg-zinc-900 dark:border-zinc-700 dark:text-zinc-100 rounded-xl border p-4">
         <p className="font-medium">{item.question}</p>
-        <ul className="mt-3 space-y-2">
+  <ul className="mt-3 space-y-2">
           {item.options.map((opt, i) => {
             const chosen = selected === i;
             const correct = selected != null && item.answer.includes(i);
@@ -99,20 +99,20 @@ export default function QuestionPage() {
               <li key={i}>
                 <button onClick={() => choose(i)}
                   className={`w-full text-left px-4 py-3 rounded-lg border active:scale-[0.99] transition
-                    ${chosen ? "ring-1" : ""}
-                    ${correct ? "bg-green-50 border-green-400" : ""}
-                    ${wrongChoice ? "bg-red-50 border-red-400" : "border-gray-200 bg-white"}`}>
-                  <span className="mr-2 text-xs text-gray-500">{i+1}.</span>{opt}
+                    ${chosen ? "ring-1 dark:ring-zinc-400" : ""}
+                    ${correct ? "bg-green-50 border-green-400 dark:bg-green-900 dark:border-green-600 dark:text-zinc-100" : ""}
+                    ${wrongChoice ? "bg-red-50 border-red-400 dark:bg-red-900 dark:border-red-600 dark:text-zinc-100" : "border-gray-200 bg-white dark:bg-zinc-900 dark:border-zinc-700 dark:text-zinc-100"}`}>
+                  <span className="mr-2 text-xs text-gray-500 dark:text-zinc-400">{i+1}.</span>{opt}
                 </button>
               </li>
             );
           })}
         </ul>
         {selected != null && (
-          <div className="mt-3 text-sm text-gray-600">
+          <div className="mt-3 text-sm text-gray-600 dark:text-zinc-300">
             {isCorrect ? "Correct ✅" : "Incorrect ❌"} {item.explanation ? `– ${item.explanation}` : ""}
             {(item.references || item.printedPage) ? (
-              <div className="text-xs text-gray-500 mt-1">
+              <div className="text-xs text-gray-500 mt-1 dark:text-zinc-400">
                 Refs: {Array.isArray(item.references) ? item.references.join(", ") : String(item.references || "")}
                 {item.printedPage ? ` (p. ${item.printedPage})` : ""}
               </div>
@@ -122,11 +122,11 @@ export default function QuestionPage() {
       </div>
 
       <div className="flex items-center justify-between">
-        <button onClick={prev} disabled={idx===0} className="px-4 py-2 rounded-lg border bg-white disabled:opacity-50">Back</button>
-        <button onClick={next} className="px-4 py-2 rounded-lg bg-gray-900 text-white">{idx+1>=total ? "Finish" : "Next"}</button>
+        <button onClick={prev} disabled={idx===0} className="px-4 py-2 rounded-lg border bg-white dark:bg-zinc-900 dark:text-zinc-100 dark:border-zinc-700 disabled:opacity-50">Back</button>
+        <button onClick={next} className="px-4 py-2 rounded-lg bg-gray-900 text-white dark:bg-zinc-900 dark:text-zinc-100">{idx+1>=total ? "Finish" : "Next"}</button>
       </div>
 
-      <p className="text-xs text-gray-500">Keyboard: 1–4 select, ←/→ navigation, Enter = next, F = flag.</p>
+  <p className="text-xs text-gray-500 dark:text-zinc-400">Keyboard: 1–4 select, ←/→ navigation, Enter = next, F = flag.</p>
     </div>
   );
 }

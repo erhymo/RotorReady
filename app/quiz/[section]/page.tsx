@@ -34,17 +34,17 @@ export default function SectionPage() {
     router.push(`/quiz/${encodeURIComponent(selected.id)}/${amount}`);
   }
 
-  if (loading) return <div className="min-h-screen grid place-items-center">Laster…</div>;
-  if (error) return <div className="min-h-screen grid place-items-center text-red-600">{error}</div>;
-  if (!sections.length) return <div className="min-h-screen grid place-items-center">Ingen seksjoner funnet</div>;
+  if (loading) return <div className="min-h-screen grid place-items-center dark:bg-zinc-900 dark:text-zinc-100">Laster…</div>;
+  if (error) return <div className="min-h-screen grid place-items-center text-red-600 dark:bg-zinc-900 dark:text-red-400">{error}</div>;
+  if (!sections.length) return <div className="min-h-screen grid place-items-center dark:bg-zinc-900 dark:text-zinc-100">Ingen seksjoner funnet</div>;
 
   return (
-    <div className="min-h-screen bg-slate-50 flex flex-col items-center justify-center p-6">
-      <div className="bg-blue-600 py-3 px-4 flex flex-wrap gap-2 mb-8 rounded-lg">
+  <div className="min-h-screen bg-slate-50 dark:bg-zinc-900 flex flex-col items-center justify-center p-6">
+  <div className="bg-blue-600 dark:bg-blue-900 py-3 px-4 flex flex-wrap gap-2 mb-8 rounded-lg">
         {sections.map(s => (
           <button
             key={s.id}
-            className={`text-white text-sm font-semibold px-3 py-2 rounded transition ${selected?.id===s.id ? "bg-blue-800" : "bg-blue-600 hover:bg-blue-700"}`}
+            className={`text-white text-sm font-semibold px-3 py-2 rounded transition ${selected?.id===s.id ? "bg-blue-800 dark:bg-blue-950" : "bg-blue-600 hover:bg-blue-700 dark:bg-blue-900 dark:hover:bg-blue-800"}`}
             onClick={()=>handleSection(s.id)}
             title={s.title}
           >
@@ -52,12 +52,12 @@ export default function SectionPage() {
           </button>
         ))}
       </div>
-      <h1 className="text-2xl font-bold mb-6">Velg antall spørsmål for "{selected?.title}"</h1>
-      <div className="flex gap-3 flex-wrap justify-center">
+  <h1 className="text-2xl font-bold mb-6 dark:text-zinc-100">Velg antall spørsmål for &quot;{selected?.title}&quot;</h1>
+  <div className="flex gap-3 flex-wrap justify-center">
         {AMOUNTS.map(amount => (
           <button
             key={amount}
-            className="bg-blue-600 text-white px-6 py-3 rounded-lg text-lg font-semibold hover:bg-blue-700 transition"
+            className="bg-blue-600 dark:bg-blue-900 text-white px-6 py-3 rounded-lg text-lg font-semibold hover:bg-blue-700 dark:hover:bg-blue-800 transition"
             onClick={() => handleAmount(amount)}
           >
             {amount}

@@ -69,14 +69,14 @@ export default function EngineSystemsStart() {
       <h1 className="text-2xl font-bold">Engine, Fuel, Lubricants, Hydraulics & System Limitations</h1>
       <p className="text-gray-600">Velg antall spørsmål og start.</p>
 
-      <div className="bg-white border rounded-xl p-4 flex items-center gap-3">
-        <label className="text-sm text-gray-700">Antall:</label>
-        <select className="border rounded px-3 py-2"
+      <div className="bg-white dark:bg-zinc-900 dark:border-zinc-700 border rounded-xl p-4 flex flex-col sm:flex-row items-center gap-3">
+        <label className="text-sm text-gray-700 dark:text-zinc-100">Antall:</label>
+        <select className="border rounded px-3 py-2 dark:bg-zinc-900 dark:text-zinc-100 dark:border-zinc-700"
                 value={amount} onChange={e=>setAmount(parseInt(e.target.value))}>
           {[10,20,30,40,50].map(n => <option key={n} value={n}>{n}</option>)}
         </select>
         <button onClick={startQuiz} disabled={loading}
-          className="ml-auto px-4 py-2 rounded-lg bg-gray-900 text-white active:scale-95">
+          className="w-full sm:w-auto ml-auto px-4 py-2 rounded-lg bg-gray-900 text-white dark:bg-zinc-900 dark:text-zinc-100 active:scale-95">
           {loading ? "Starter…" : "Start"}
         </button>
       </div>

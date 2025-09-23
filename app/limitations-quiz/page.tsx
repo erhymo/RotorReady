@@ -79,9 +79,9 @@ export default function LimitationsStart() {
       <h1 className="text-2xl font-bold">Limitations Quiz</h1>
       <p className="text-gray-600">Velg antall spørsmål og start.</p>
 
-      <div className="bg-white border rounded-xl p-4 flex items-center gap-3">
-        <label className="text-sm text-gray-700">Antall:</label>
-        <select className="border rounded px-3 py-2"
+  <div className="bg-white dark:bg-zinc-900 dark:border-zinc-700 border rounded-xl p-4 flex items-center gap-3">
+  <label className="text-sm text-gray-700 dark:text-zinc-100">Antall:</label>
+  <select className="border rounded px-3 py-2 dark:bg-zinc-900 dark:text-zinc-100 dark:border-zinc-700"
                 value={amount} onChange={e=>setAmount(parseInt(e.target.value))}>
           {[10,20,30,40,50].map(n => <option key={n} value={n}>{n}</option>)}
         </select>

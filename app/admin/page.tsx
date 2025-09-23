@@ -5,34 +5,7 @@ const ADMIN_USERNAME = process.env.NEXT_PUBLIC_ADMIN_USERNAME || "admin";
 const ADMIN_PASSWORD = process.env.NEXT_PUBLIC_ADMIN_PASSWORD || "rotorready2025";
 
 export default function AdminPage() {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [loggedIn, setLoggedIn] = useState(false);
-  const [error, setError] = useState("");
-
-  function handleLogin(e: React.FormEvent) {
-    e.preventDefault();
-    if (username === ADMIN_USERNAME && password === ADMIN_PASSWORD) {
-      setLoggedIn(true);
-      setError("");
-    } else {
-      setError("Feil brukernavn eller passord");
-    }
-  }
-
-  if (!loggedIn) {
-    return (
-      <div className="max-w-sm mx-auto p-6">
-        <h1 className="text-2xl font-bold mb-4">Admin Login</h1>
-        <form onSubmit={handleLogin} className="space-y-3">
-          <input className="w-full border rounded px-3 py-2" placeholder="Brukernavn" value={username} onChange={e=>setUsername(e.target.value)} />
-          <input className="w-full border rounded px-3 py-2" placeholder="Passord" type="password" value={password} onChange={e=>setPassword(e.target.value)} />
-          {error && <div className="text-sm text-red-600">{error}</div>}
-          <button className="w-full rounded bg-blue-600 text-white py-2 font-medium">Logg inn</button>
-        </form>
-      </div>
-    );
-  }
+  // ...existing code...
   return (
     <div className="max-w-xl mx-auto p-6">
       <h1 className="text-2xl font-bold mb-4">Admin</h1>

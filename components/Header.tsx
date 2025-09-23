@@ -30,9 +30,6 @@ export function Header() {
 					<Link href="/account" className="text-slate-700 hover:text-slate-900 dark:text-zinc-200 dark:hover:text-white">
 							Account
 						</Link>
-					<Link href="/admin/dashboard" className="text-sky-700 hover:text-sky-900 font-medium dark:text-sky-400 dark:hover:text-sky-200">
-							Admin
-						</Link>
 						<ClientUserMenu />
 					</nav>
 				</div>

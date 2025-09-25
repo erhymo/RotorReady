@@ -1,6 +1,6 @@
 
 import "./globals.css";
-import { Header } from "@/components/Header";
+import ClientUserMenu from "@/components/ClientUserMenu";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -19,8 +19,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" suppressHydrationWarning>
       <head><script dangerouslySetInnerHTML={{__html: initTheme}} /></head>
-  <body className="min-h-screen bg-gray-50 text-gray-900 dark:bg-zinc-900 dark:text-zinc-100 transition-colors">
-        <Header />
+      <body>
+        <header style={{ padding: '1rem', borderBottom: '1px solid #ddd' }}>
+          <h1>RotorReady</h1>
+          <ClientUserMenu />
+        </header>
         <main className="p-4">{children}</main>
       </body>
     </html>

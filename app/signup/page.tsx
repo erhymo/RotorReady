@@ -21,6 +21,7 @@ function SignupInner() {
       try { await sendEmailVerification(cred.user); } catch {}
       router.push("/account");
     } catch (e: any) {
+      console.error('Signup error:', e);
       setErr(e?.message || "Klarte ikke opprette konto");
     }
   }

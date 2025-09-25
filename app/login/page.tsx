@@ -38,7 +38,8 @@ function LoginInner() {
       } catch {}
       router.push(next);
     } catch (e: any) {
-      setErr(e?.message || "Login feilet");
+        console.error('Login error:', e);
+        setErr(e?.message || "Klarte ikke logge inn");
     }
   }
 

@@ -13,7 +13,7 @@ export default function AdminLoginPage() {
     e.preventDefault();
     if (username === ADMIN_USERNAME && password === ADMIN_PASSWORD) {
       // Set session cookie for middleware
-      document.cookie = `rr_session=ok; path=/; SameSite=Strict; Max-Age=${60*60*8}`;
+  document.cookie = `SESSION_COOKIE=ok; path=/; SameSite=Strict; Max-Age=${60*60*8}`;
       window.location.href = "/admin";
     } else {
       setError("Feil brukernavn eller passord");

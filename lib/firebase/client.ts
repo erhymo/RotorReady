@@ -28,12 +28,14 @@ for (const key of configVars) {
   }
 }
 
-let app;
+import type { FirebaseApp } from "firebase/app";
+let firebaseApp: FirebaseApp;
 if (!getApps().length) {
-  app = initializeApp(firebaseConfig);
+  firebaseApp = initializeApp(firebaseConfig);
 } else {
-  app = getApp();
+  firebaseApp = getApp();
 }
 
-export const auth = getAuth(app);
-export const db = getFirestore(app);
+export { firebaseApp };
+export const auth = getAuth(firebaseApp);
+export const db = getFirestore(firebaseApp);

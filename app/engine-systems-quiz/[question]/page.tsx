@@ -15,7 +15,7 @@ type Item = {
   references?: string[];
   printedPage?: number;
 };
-type Session = { section: string; createdAt: string; items: Item[]; answers: Array<number|null>; flags: boolean[] };
+type Session = { section: string; createdAt: string; items: Item[]; answers: Array<number|null>; flags: boolean[]; error?: string };
 
 function loadSession(): Session | null {
   try { const raw = sessionStorage.getItem("engineq_session"); return raw ? JSON.parse(raw) as Session : null; } catch { return null; }
@@ -60,7 +60,15 @@ export default function EngineQuestionPage() {
   });
 
   if (!session) return <div className="max-w-xl mx-auto p-4">Laster…</div>;
-  if ((session as any).error) return <div className="max-w-xl mx-auto p-4 text-red-600">{(session as any).error}</div>;
+  if ((session as any).error) {
+    console.error('Quiz error:', (session as any).error, session);
+    return (
+      <div className="max-w-xl mx-auto p-4 text-red-600">
+        <b>Feil:</b> {(session as any).error}<br />
+        <pre className="text-xs text-gray-500 mt-2">{JSON.stringify(session, null, 2)}</pre>
+      </div>
+    );
+  }
 
   const item = session.items[idx];
   const isCorrect = selected != null ? item.answer.includes(selected) : null;

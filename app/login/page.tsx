@@ -45,15 +45,26 @@ function LoginInner() {
 
   return (
     <div className="max-w-sm mx-auto p-6 bg-white dark:bg-zinc-900 dark:border-zinc-700 border rounded-2xl space-y-3">
-      <h1 className="text-2xl font-bold">Logg inn</h1>
+      <h1 className="text-2xl font-bold dark:text-zinc-100">Logg inn</h1>
       <form onSubmit={onSubmit} className="space-y-3">
-        <input className="w-full border rounded px-3 py-2 dark:bg-zinc-900 dark:border-zinc-700" placeholder="E-post" value={email} onChange={e=>setEmail(e.target.value)} />
-        <input className="w-full border rounded px-3 py-2 dark:bg-zinc-900 dark:border-zinc-700" placeholder="Passord" type="password" value={password} onChange={e=>setPassword(e.target.value)} />
-        {err && <div className="text-sm text-red-600">{err}</div>}
-        {veri && <div className="text-sm text-amber-700">{veri}</div>}
+        <input
+          className="w-full border rounded px-3 py-2 dark:bg-zinc-900 dark:border-zinc-700 dark:text-zinc-100 placeholder:text-gray-500 dark:placeholder:text-zinc-400"
+          placeholder="E-post"
+          value={email}
+          onChange={e=>setEmail(e.target.value)}
+        />
+        <input
+          className="w-full border rounded px-3 py-2 dark:bg-zinc-900 dark:border-zinc-700 dark:text-zinc-100 placeholder:text-gray-500 dark:placeholder:text-zinc-400"
+          placeholder="Passord"
+          type="password"
+          value={password}
+          onChange={e=>setPassword(e.target.value)}
+        />
+        {err && <div className="text-sm text-red-600 dark:text-red-400">{err}</div>}
+        {veri && <div className="text-sm text-amber-700 dark:text-amber-300">{veri}</div>}
         <button className="w-full rounded bg-blue-600 text-white py-2 font-medium">Logg inn</button>
       </form>
-      <div className="text-sm"><a className="underline" href="/signup">Opprett konto</a></div>
+      <div className="text-sm"><a className="underline dark:text-zinc-100" href="/signup">Opprett konto</a></div>
     </div>
   );
 }

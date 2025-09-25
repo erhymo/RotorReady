@@ -6,7 +6,7 @@ export default function BackButton() {
   return (
     <button
       type="button"
-      className="w-full mb-6 py-3 rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-900 font-semibold text-base shadow flex items-center justify-center transition"
+      className="w-full mb-6 py-3 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-semibold text-base shadow flex items-center justify-center transition"
       onClick={() => router.back()}
       style={{ maxWidth: 480 }}
     >

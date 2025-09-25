@@ -16,9 +16,14 @@ export default function ClientUserMenu() {
   return (
     <div style={{ padding: 8 }}>
       {user ? (
-        <p>Logget inn som {user.email}</p>
+        <span className="text-sm text-slate-700 dark:text-zinc-200">Logget inn</span>
       ) : (
-        <p>Ikke logget inn</p>
+        <a
+          href="/login"
+          className="text-sm text-slate-700 dark:text-zinc-200 underline hover:text-blue-700 dark:hover:text-blue-400"
+        >
+          Logg inn
+        </a>
       )}
     </div>
   );

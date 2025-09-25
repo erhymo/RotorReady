@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { firebaseApp } from '../../lib/firebase';
-import { getFirestore, collection, getDocs } from 'firebase/firestore';
+import { getFirestore, doc, getDoc } from 'firebase/firestore';
 
 export default function FirebaseCheck() {
   const [ok, setOk] = useState<'pending'|'ok'|'fail'>('pending');
@@ -12,7 +12,7 @@ export default function FirebaseCheck() {
     (async () => {
       try {
         const db = getFirestore(firebaseApp);
-        await getDocs(collection(db, '__healthcheck__')); // dummy-read
+        await getDoc(doc(db, '__healthcheck__', 'dummyDoc')); // dummy-read
         setOk('ok');
         setMsg('Firebase init OK og env tilgjengelig i klient.');
       } catch (e: any) {

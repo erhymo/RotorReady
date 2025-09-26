@@ -1,5 +1,6 @@
 import Link from "next/link";
 import ClientUserMenu from "@/components/ClientUserMenu";
+import { Logo } from "@/components/Logo";
 
 export default function Header() {
   return (
@@ -7,9 +8,7 @@ export default function Header() {
       <div className="mx-auto flex h-16 max-w-6xl items-center gap-4 px-6">
         {/* Logo / Brand */}
         <Link href="/" className="group flex items-center gap-3">
-          <div className="grid h-8 w-8 place-items-center rounded-md bg-sky-500/20 ring-1 ring-sky-300/50 dark:bg-sky-900/40 dark:ring-sky-800/60">
-            <div className="h-3 w-3 rounded-sm bg-sky-600 dark:bg-sky-400" />
-          </div>
+          <Logo className="h-10 w-10 transition-transform group-hover:scale-[1.02]" />
           <div className="leading-tight">
             <div className="font-semibold tracking-tight text-slate-900 dark:text-white">RotorReady</div>
             <div className="-mt-0.5 text-xs text-slate-500 dark:text-zinc-300">Be Prepared</div>

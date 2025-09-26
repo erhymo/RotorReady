@@ -22,7 +22,7 @@ function LoginInner() {
       if (!cred.user.emailVerified) {
         setVeri("E-post ikke verifisert. Sender verifiseringslink…");
         try { await sendEmailVerification(cred.user); } catch {}
-        // Fortsett til forsiden selv om ikke verifisert
+        // Redirect til hovedsiden
         router.push("/");
         return;
       }
@@ -78,3 +78,4 @@ export default function LoginPage() {
     </Suspense>
   );
 }
+export const dynamic = "force-dynamic";

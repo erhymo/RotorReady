@@ -1,6 +1,6 @@
 
 import "./globals.css";
-import ClientUserMenu from "@/components/ClientUserMenu";
+import Header from "@/components/Header";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -19,13 +19,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" suppressHydrationWarning>
       <head><script dangerouslySetInnerHTML={{__html: initTheme}} /></head>
-      <body className="bg-slate-50 dark:bg-zinc-900 min-h-screen">
-        {/* Full site header/navigation */}
+      <body className="min-h-screen bg-slate-50 dark:bg-zinc-900">
         <div className="sticky top-0 z-30">
-          {/* Use the original Header component for navigation and branding */}
-          {require("@/components/Header").Header()}
+          <Header />
         </div>
-        {/* Main content container for consistent layout */}
         <main className="mx-auto max-w-6xl px-4 py-8">{children}</main>
       </body>
     </html>

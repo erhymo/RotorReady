@@ -85,34 +85,58 @@ export default function AccountPage() {
   useEffect(() => {
     const storedHistory = parseLocalStorage<Summary[]>("rr_progress");
     if (storedHistory) setHistory(storedHistory);
+
     if (!auth) {
       setAuthChecked(true);
+      setLoggedIn(false);
       return;
     }
-    const current = auth.currentUser;
-    if (current) {
-      setEmail(current.email || null);
-      setLoggedIn(true);
-      if (db) {
-        getDoc(doc(db, "users", current.uid))
-          .then((snap) => setEnts(snap.data()?.entitlements || {}))
-          .catch(() => {});
-      }
-    } else {
-      setLoggedIn(false);
-    }
-    setAuthChecked(true);
 
-    const unsub = onAuthStateChanged(auth, async (u) => {
+    let cancelled = false;
+
+    let tempLoggedIn = false;
+
+    const unsubscribe = onAuthStateChanged(auth, async (u) => {
+      if (cancelled) return;
       setEmail(u?.email || null);
-      setLoggedIn(!!u);
-      if (u && db && u) {
-        try { const snap = await getDoc(doc(db, "users", u.uid)); setEnts(snap.data()?.entitlements || {}); } catch {}
+      tempLoggedIn = !!u;
+      setLoggedIn(tempLoggedIn);
+      if (u && db) {
+        try {
+          const snap = await getDoc(doc(db, "users", u.uid));
+          if (!cancelled) setEnts(snap.data()?.entitlements || {});
+        } catch {
+          if (!cancelled) setEnts({});
+        }
+      } else if (!cancelled) {
+        setEnts({});
       }
-      // Ensure authChecked flips even for delayed auth state
       setAuthChecked(true);
     });
-    return () => unsub && unsub();
+
+    if (!tempLoggedIn) {
+      const existingUser = auth.currentUser;
+      setLoggedIn(!!existingUser);
+      if (existingUser && db) {
+        getDoc(doc(db, "users", existingUser.uid))
+          .then((snap) => {
+            if (!cancelled) setEnts(snap.data()?.entitlements || {});
+          })
+          .catch(() => {
+            if (!cancelled) setEnts({});
+          })
+          .finally(() => {
+            if (!cancelled) setAuthChecked(true);
+          });
+      } else {
+        setAuthChecked(true);
+      }
+    }
+
+    return () => {
+      cancelled = true;
+      if (typeof unsubscribe === "function") unsubscribe();
+    };
   }, []);
 
   if (!authChecked) {

@@ -14,8 +14,9 @@ export async function hasPaidAccess(): Promise<boolean> {
         resolve(auth.currentUser);
         return;
       }
-      const unsub = onAuthStateChanged(auth, (u: any) => {
-        unsub();
+      let unsubscribe: (() => void) | undefined;
+      unsubscribe = onAuthStateChanged(auth, (u: any) => {
+        if (unsubscribe) unsubscribe();
         resolve(u);
       });
     });

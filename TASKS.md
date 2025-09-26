@@ -5,6 +5,7 @@ En enkel TODO-mal du kan fylle ut (gjerne via ChatGPT i nettleseren). Hold oppga
 ## Prosjektkontekst
 - Produkt: RotorReady
 - Kort kontekst: Hva jobber vi mot nå?
+- Tailwind/bygg-oppsett er låst til Tailwind CSS 3.x + PostCSS (tailwindcss + autoprefixer). Ikke oppgrader til v4-plugins uten å planlegge migrasjon.
 
 ## Mål (Q1/Q2/uke)
 - [ ] Overordnet mål 1
@@ -52,6 +53,13 @@ En enkel TODO-mal du kan fylle ut (gjerne via ChatGPT i nettleseren). Hold oppga
 - **Konkret:** beskriv ønsket atferd, ikke implementeringsdetaljer hvis ikke nødvendig
 - **Sjekkbar:** inkluder 2–4 akseptansekriterier jeg kan verifisere
 - **Avgrenset:** helst 1–4 timer arbeid per oppgave
+
+## Bygge- og stilnotater
+- `app/globals.css` skal alltid starte med `@tailwind base; @tailwind components; @tailwind utilities;` (ikke v4-`@import`).
+- `tailwind.config.ts` er eneste kilde; ikke opprett `tailwind.config.js` eller alternative filer.
+- `postcss.config.js` skal bare bruke `tailwindcss` og `autoprefixer`; ikke legg til `@tailwindcss/postcss`.
+- Tailwind-versjon er låst til `^3.4.x`. Oppdater kun etter eksplisitt beslutning.
+- Hvis layout/stiler forsvinner: kjør `rm -rf .next && npm run build` og sjekk at overnevnte filer er urørt.
 
 ## Eksempel
 - [ ] «Limitations-quiz: neste/forrige-navigasjon med tastatur»

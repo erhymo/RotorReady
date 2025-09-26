@@ -53,7 +53,7 @@ export default function OfflinePage() {
     <div className="max-w-2xl mx-auto p-6 space-y-8">
       <BackButton />
       <h1 className="text-2xl font-bold mb-4">Offline pakker</h1>
-      <section className="bg-white rounded-xl border p-4 space-y-4">
+      <section className="rounded-xl border-l-4 border-blue-600 bg-blue-50/40 dark:border-blue-400 dark:bg-blue-900/40 p-4 space-y-4">
         <div className="flex items-center gap-2">
           <span className="font-semibold">Limitations</span>
           {hasLimitations ? <span className="text-green-600 text-xs">Lagret</span> : <span className="text-gray-400 text-xs">Ikke lagret</span>}
@@ -62,7 +62,7 @@ export default function OfflinePage() {
         {hasLimitations && <button onClick={clearLimitations} className="rounded bg-gray-200 text-gray-800 px-4 py-2 font-medium">Fjern fra enhet</button>}
         <div className="text-xs text-gray-500">{status}</div>
       </section>
-      <section className="bg-white rounded-xl border p-4 mt-6">
+      <section className="rounded-xl border-l-4 border-emerald-600 bg-emerald-50/40 dark:border-emerald-400 dark:bg-emerald-900/40 p-4 mt-6">
         <h2 className="font-semibold mb-2">Andre seksjoner lagret offline</h2>
         <ul className="list-disc ml-5 text-sm">
           {keys.filter(k=>k!=="limitations").map(k=>(

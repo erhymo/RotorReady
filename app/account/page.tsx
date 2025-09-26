@@ -34,6 +34,13 @@ export default function AccountPage() {
     return () => unsub && unsub();
   }, []);
 
+  if (!loggedIn) {
+    if (typeof window !== "undefined") {
+      window.location.href = "/login";
+    }
+    return null;
+  }
+
   const attempts = history.length;
   const last = attempts ? history[attempts - 1] : null;
   const best = attempts ? history.reduce((a,b)=> (b.percent > a.percent ? b : a)) : null;

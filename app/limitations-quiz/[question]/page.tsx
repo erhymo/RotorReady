@@ -85,11 +85,9 @@ export default function QuestionPage() {
       </div>
       {/* Top bar fix */}
       <div className="w-full flex items-center justify-between py-2 px-4 border-b border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-900">
-        <div className="flex items-center gap-2">
-          <span className="inline-block rounded-lg px-4 py-2 bg-red-600 text-white font-semibold">MGB OIL PRESS</span>
-          <span className="text-gray-500 dark:text-zinc-400">MGB</span>
-        </div>
-        <div className="text-gray-500 dark:text-zinc-400">1 / 10 &bull; PROCEDURE</div>
+        {/* Fjernet lys/label for quiz */}
+        <div />
+        <div className="text-gray-500 dark:text-zinc-400">Question {idx+1} / {total}</div>
       </div>
       <div className="flex items-center justify-between">
         <div className="text-sm text-gray-600 dark:text-zinc-300">Question {idx+1} / {total}</div>

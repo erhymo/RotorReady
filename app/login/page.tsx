@@ -22,6 +22,8 @@ function LoginInner() {
       if (!cred.user.emailVerified) {
         setVeri("E-post ikke verifisert. Sender verifiseringslink…");
         try { await sendEmailVerification(cred.user); } catch {}
+        // Fortsett til forsiden selv om ikke verifisert
+        router.push("/");
         return;
       }
       try {
@@ -36,7 +38,7 @@ function LoginInner() {
           await deleteDoc(mapRef);
         }
       } catch {}
-      router.push(next);
+      router.push("/");
     } catch (e: any) {
         console.error('Login error:', e);
         setErr(e?.message || "Klarte ikke logge inn");
@@ -44,17 +46,17 @@ function LoginInner() {
   }
 
   return (
-    <div className="max-w-sm mx-auto p-6 bg-white dark:bg-zinc-900 dark:border-zinc-700 border rounded-2xl space-y-3">
+    <div className="max-w-sm mx-auto p-6 rounded-2xl space-y-3 border-l-4 border-blue-600 bg-blue-50/40 dark:border-blue-400 dark:bg-blue-900/40">
       <h1 className="text-2xl font-bold dark:text-zinc-100">Logg inn</h1>
       <form onSubmit={onSubmit} className="space-y-3">
         <input
-          className="w-full border rounded px-3 py-2 dark:bg-zinc-900 dark:border-zinc-700 dark:text-zinc-100 placeholder:text-gray-500 dark:placeholder:text-zinc-400"
+          className="w-full border rounded px-3 py-2 dark:bg-blue-900 dark:border-blue-400 dark:text-zinc-100 placeholder:text-gray-500 dark:placeholder:text-zinc-300"
           placeholder="E-post"
           value={email}
           onChange={e=>setEmail(e.target.value)}
         />
         <input
-          className="w-full border rounded px-3 py-2 dark:bg-zinc-900 dark:border-zinc-700 dark:text-zinc-100 placeholder:text-gray-500 dark:placeholder:text-zinc-400"
+          className="w-full border rounded px-3 py-2 dark:bg-blue-900 dark:border-blue-400 dark:text-zinc-100 placeholder:text-gray-500 dark:placeholder:text-zinc-300"
           placeholder="Passord"
           type="password"
           value={password}
@@ -62,7 +64,7 @@ function LoginInner() {
         />
         {err && <div className="text-sm text-red-600 dark:text-red-400">{err}</div>}
         {veri && <div className="text-sm text-amber-700 dark:text-amber-300">{veri}</div>}
-        <button className="w-full rounded bg-blue-600 text-white py-2 font-medium">Logg inn</button>
+        <button type="submit" className="w-full rounded bg-blue-600 text-white py-2 font-medium">Logg inn</button>
       </form>
       <div className="text-sm"><a className="underline dark:text-zinc-100" href="/signup">Opprett konto</a></div>
     </div>

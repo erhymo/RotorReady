@@ -218,7 +218,7 @@ export default function LightsTrainer() {
         )}
         {(pair || beforeTree.length || afterTree.length) && (
           <div className="flex items-center justify-center">
-            <div className="h-6 w-px bg-black" />
+            <div className="h-6 w-px bg-black dark:bg-zinc-100" />
           </div>
         )}
         {beforeTree.length > 0 && (
@@ -226,13 +226,13 @@ export default function LightsTrainer() {
         )}
         {pair && (
           <section className="relative">
-            <div className="absolute left-1/6 right-1/6 top-3 h-px bg-black mx-auto" />
+            <div className="absolute left-1/6 right-1/6 top-3 h-px bg-black dark:bg-zinc-100 mx-auto" />
             <div className="grid grid-cols-2 gap-6">
               <div className="relative">
                 <div className="flex justify-center">
                   <div className="h-6 w-px bg-black" />
                 </div>
-                <div className="mt-3 rounded-xl border p-4">
+                <div className="mt-3 rounded-xl border p-4 bg-white dark:bg-blue-900/40 dark:text-white dark:border-blue-400">
                   {pair.left.heading && <div className="font-semibold mb-1">{pair.left.heading}</div>}
                   <div className="whitespace-pre-wrap">{pair.left.text}</div>
                 </div>
@@ -241,7 +241,7 @@ export default function LightsTrainer() {
                 <div className="flex justify-center">
                   <div className="h-6 w-px bg-black" />
                 </div>
-                <div className="mt-3 rounded-xl border p-4">
+                <div className="mt-3 rounded-xl border p-4 bg-white dark:bg-blue-900/40 dark:text-white dark:border-blue-400">
                   {pair.right.heading && <div className="font-semibold mb-1">{pair.right.heading}</div>}
                   <div className="whitespace-pre-wrap">{pair.right.text}</div>
                 </div>
@@ -256,35 +256,35 @@ export default function LightsTrainer() {
           <section className="space-y-2">
             <div className="text-sm font-semibold opacity-80">Notes</div>
             {item.notes.map((n, i) => (
-              <div key={`${item.id}-noteB-${i}`} className="rounded-xl border bg-neutral-50 dark:bg-zinc-900/90 dark:text-zinc-100 p-4 whitespace-pre-wrap">
+              <div key={`${item.id}-noteB-${i}`} className="rounded-xl border bg-neutral-50 dark:bg-blue-900/40 dark:text-zinc-100 dark:border-blue-400 p-4 whitespace-pre-wrap">
                 {n}
               </div>
             ))}
           </section>
         )}
         <div className="flex items-center justify-center gap-6 pt-4">
-          <div className="h-px w-40 bg-black" />
-          <div className="text-sm tracking-widest">END</div>
-          <div className="h-px w-40 bg-black" />
+          <div className="h-px w-40 bg-black dark:bg-zinc-100" />
+          <div className="text-sm tracking-widest text-black dark:text-zinc-100">END</div>
+          <div className="h-px w-40 bg-black dark:bg-zinc-100" />
         </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen">
+  <div className="min-h-screen bg-slate-50 dark:bg-zinc-900">
       {mode !== "idle" && current && header}
       <main className="mx-auto max-w-3xl p-6 space-y-6">
         {mode === "idle" && (
-          <div className="space-y-6">
-            <h1 className="text-2xl font-semibold">Red Warning Lights – Trainer</h1>
-            <p className="opacity-70">Select the number of random red lights and press <b>Start</b>.</p>
+          <div className="space-y-6 rounded-xl border-l-4 border-blue-400 bg-blue-900 p-8">
+            <h1 className="text-2xl font-semibold text-white">Red Warning Lights – Trainer</h1>
+            <p className="opacity-90 text-zinc-100">Select the number of random red lights and press <b>Start</b>.</p>
             <div className="flex items-center gap-3">
-              <label className="text-sm opacity-70">Amount:</label>
+              <label className="text-sm opacity-90 text-zinc-100">Amount:</label>
               <select
                 value={pickCount}
                 onChange={(e) => setPickCount(e.target.value === "all" ? "all" : Number(e.target.value))}
-                className="rounded-lg border px-3 py-2"
+                className="rounded-lg border px-3 py-2 bg-blue-900/80 text-zinc-100 border-blue-400"
               >
                 <option value={10}>10</option>
                 <option value={20}>20</option>
@@ -294,13 +294,13 @@ export default function LightsTrainer() {
               <button
                 onClick={start}
                 disabled={loading || !all.length}
-                className="rounded-lg px-5 py-2 bg-black text-white disabled:opacity-40"
+                className="rounded-lg px-5 py-2 bg-blue-600 text-white disabled:opacity-40"
               >
                 {loading ? "Loading…" : `Start (${all.length} available)`}
               </button>
             </div>
             {!all.length && !loading && (
-              <div className="text-sm opacity-70">
+              <div className="text-sm opacity-90 text-zinc-100">
                 No red lights found. Place JSON in <code>/public/training/lights/</code> and optionally a <code>manifest.json</code> with paths.
               </div>
             )}
@@ -310,48 +310,50 @@ export default function LightsTrainer() {
           <div className="space-y-6">
             <button
               onClick={reveal}
-              className="w-full rounded-2xl border p-8 text-left transition hover:shadow-md"
+              className="w-full rounded-2xl border p-8 text-left transition hover:shadow-md bg-white dark:bg-zinc-900 dark:border-zinc-700"
               title="Click to show procedure"
             >
-              <div className="mb-3 text-sm opacity-70">Click the light to show the procedure</div>
+              <div className="mb-3 text-sm opacity-90 text-gray-600 dark:text-zinc-100">Click the light to show the procedure</div>
               <div className={`flex items-center gap-4 rounded-2xl p-5 ring-2 ${COLORS[current.severity].bg} ${COLORS[current.severity].text} ${COLORS[current.severity].ring}`}>
                 {current.icon && (
                   <img src={current.icon} alt={current.name} className="h-14 w-14 object-contain rounded-md bg-white/10" />
                 )}
                 <div className="flex-1">
-                  <div className="text-xl font-semibold dark:text-zinc-100">{current.name}</div>
-                  {current.description && <div className="opacity-90 mt-0.5 dark:text-zinc-100">{current.description}</div>}
+                  <div className="text-xl font-semibold text-white">{current.name}</div>
+                  {current.description && <div className="opacity-90 mt-0.5 text-white">{current.description}</div>}
                 </div>
               </div>
             </button>
             <div className="flex items-center justify-between pt-2">
-              <button onClick={prev} disabled={!canPrev} className="rounded-lg px-4 py-2 border disabled:opacity-40">Previous</button>
-              <div className="text-sm opacity-60">Enter/Space: show procedure</div>
+              <button onClick={prev} disabled={!canPrev} className="rounded-lg px-4 py-2 border dark:bg-zinc-900 dark:text-zinc-100 dark:border-zinc-700 disabled:opacity-40">Previous</button>
+              <div className="text-sm opacity-60 dark:text-zinc-300">Enter/Space: show procedure</div>
               <button disabled className="rounded-lg px-4 py-2 border opacity-40">Next</button>
             </div>
           </div>
         )}
         {mode === "procedure" && current && (
           <div className="space-y-6">
-            {current.description && <div className="rounded-xl border bg-white dark:bg-zinc-900/90 dark:text-zinc-100 p-4">{current.description}</div>}
+            {current.description && <div className="rounded-xl border bg-white dark:bg-blue-900/40 dark:text-zinc-100 dark:border-blue-400 p-4">{current.description}</div>}
             <ProcedureLikePDF item={current} />
-            <div className="sticky bottom-0 bg-white/80 dark:bg-zinc-900/90 backdrop-blur border-t dark:border-zinc-700">
+            <div className="sticky bottom-0 bg-white/80 dark:bg-transparent backdrop-blur border-t dark:border-blue-400">
               <div className="max-w-3xl mx-auto p-4 flex items-center justify-between">
-                <button onClick={prev} disabled={!canPrev} className="rounded-lg px-4 py-2 border dark:bg-zinc-900 dark:text-zinc-100 dark:border-zinc-700 disabled:opacity-40">Previous</button>
+                <button onClick={prev} disabled={!canPrev} className="rounded-lg px-4 py-2 border dark:text-zinc-100 dark:border-blue-400 disabled:opacity-40">Previous</button>
                 <div className="text-sm opacity-60 dark:text-zinc-300">→ for Next</div>
-                <button onClick={next} disabled={!canNext} className="rounded-lg px-4 py-2 bg-black text-white dark:bg-zinc-900 dark:text-zinc-100 disabled:opacity-40">Next</button>
+                <button onClick={next} disabled={!canNext} className="rounded-lg px-4 py-2 bg-blue-600 text-white dark:bg-transparent dark:text-zinc-100 disabled:opacity-40">Next</button>
               </div>
             </div>
           </div>
         )}
         {mode === "done" && (
-          <div className="space-y-6 text-center">
-            <h2 className="text-2xl font-semibold">Finished ✅</h2>
-            <p className="opacity-70">You have completed all selected red lights ({deck.length}).</p>
-            <div className="flex gap-3 justify-center">
-              <button onClick={() => { setMode("idle"); setDeck([]); setIdx(0); }} className="rounded-lg px-5 py-2 border">Restart</button>
-              <button onClick={() => router.push("/")} className="rounded-lg px-5 py-2 bg-black text-white">Go to home</button>
-            </div>
+          <div className="text-center py-24">
+            <div className="text-3xl font-semibold mb-4">Great job!</div>
+            <div className="text-lg opacity-70 mb-8">You've completed the training.</div>
+            <button
+              onClick={() => router.refresh()}
+              className="rounded-lg px-6 py-3 bg-black text-white transition hover:bg-black/90"
+            >
+              Restart
+            </button>
           </div>
         )}
       </main>

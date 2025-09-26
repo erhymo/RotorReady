@@ -32,8 +32,8 @@ function PaywallInner() {
   }
 
   return (
-    <div className="max-w-xl mx-auto p-6 bg-white dark:bg-zinc-900 dark:border-zinc-700 border rounded-2xl space-y-3">
-      <h1 className="text-2xl font-bold">Fortsett med RotorReady</h1>
+    <div className="max-w-xl mx-auto p-6 rounded-2xl space-y-3 border-l-4 border-emerald-600 bg-emerald-50/40 dark:border-emerald-400 dark:bg-emerald-900/40">
+      <h1 className="text-2xl font-bold dark:text-zinc-100">Fortsett med RotorReady</h1>
       <p className="text-gray-600 dark:text-zinc-300">Du har brukt opp gratis kvoten (3 økter per modul). Kjøp tilgang for å låse opp ubegrenset trening og offline-modus.</p>
       <ul className="list-disc ml-5 text-sm text-gray-700 dark:text-zinc-300">
         <li>Ubegrenset quiz per modul (Limitations, AFM, QRH …)</li>
@@ -43,7 +43,7 @@ function PaywallInner() {
       <div className="flex gap-2">
         <button onClick={buyCheckout} disabled={busy} className="px-4 py-2 rounded-lg bg-emerald-600 text-white disabled:opacity-50">Kjøp (Checkout)</button>
         <button onClick={simulateBuy} className="px-4 py-2 rounded-lg bg-blue-600 text-white">Kjøp (DEV)</button>
-        <button onClick={()=>router.push("/")} className="px-4 py-2 rounded-lg border bg-white dark:bg-zinc-900">Til forsiden</button>
+        <button onClick={()=>router.push("/")} className="px-4 py-2 rounded-lg bg-emerald-600 text-white">Til forsiden</button>
       </div>
       {err && <p className="text-sm text-amber-700">{err}</p>}
       <p className="text-xs text-gray-500 dark:text-zinc-400">Stripe-integrasjon kommer — denne knappen simulerer kjøp i dev.</p>

@@ -66,28 +66,28 @@ export default function EngineSystemsStart() {
 
   return (
     <div className="max-w-xl mx-auto p-4 space-y-4">
-      <h1 className="text-2xl font-bold">Engine, Fuel, Lubricants, Hydraulics & System Limitations</h1>
-      <p className="text-gray-600">Velg antall spørsmål og start.</p>
+      <h1 className="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">Engine, Fuel, Lubricants, Hydraulics & System Limitations</h1>
+      <p className="text-lg text-slate-700 dark:text-zinc-100 mt-2">Velg antall spørsmål og start.</p>
 
-      <div className="bg-white dark:bg-zinc-900 dark:border-zinc-700 border rounded-xl p-4 flex flex-col sm:flex-row items-center gap-3">
+      <div className="rounded-xl border-l-4 border-blue-600 bg-blue-50/40 dark:border-blue-400 dark:bg-blue-900/40 p-4 flex flex-col sm:flex-row items-center gap-3">
         <label className="text-sm text-gray-700 dark:text-zinc-100">Antall:</label>
-        <select className="border rounded px-3 py-2 dark:bg-zinc-900 dark:text-zinc-100 dark:border-zinc-700"
+        <select className="border rounded px-3 py-2 dark:bg-blue-900 dark:text-zinc-100 dark:border-blue-400"
                 value={amount} onChange={e=>setAmount(parseInt(e.target.value))}>
           {[10,20,30,40,50].map(n => <option key={n} value={n}>{n}</option>)}
         </select>
         <button onClick={startQuiz} disabled={loading}
-          className="w-full sm:w-auto ml-auto px-4 py-2 rounded-lg bg-gray-900 text-white dark:bg-zinc-900 dark:text-zinc-100 active:scale-95">
+          className="w-full sm:w-auto ml-auto px-4 py-2 rounded-lg bg-blue-600 text-white active:scale-95">
           {loading ? "Starter…" : "Start"}
         </button>
       </div>
       {err && <p className="text-red-600 text-sm">{err}</p>}
-      <div className="bg-white dark:bg-zinc-900 dark:border-zinc-700 border rounded-xl p-4">
+      <div className="rounded-xl border-l-4 border-emerald-600 bg-emerald-50/40 dark:border-emerald-400 dark:bg-emerald-900/40 p-4">
         <div className="flex items-center justify-between">
           <div>
-            <div className="font-semibold">Øv kun på feil</div>
-            <div className="text-sm text-gray-600 dark:text-zinc-300">Bygger et sett av spørsmålene du nylig hadde feil.</div>
+            <div className="font-semibold text-slate-900 dark:text-white">Øv kun på feil</div>
+            <div className="text-sm text-gray-600 dark:text-white">Bygger et sett av spørsmålene du nylig hadde feil.</div>
           </div>
-          <button onClick={startWrongOnly} className="px-4 py-2 rounded-lg border bg-white dark:bg-zinc-900">Start</button>
+          <button onClick={startWrongOnly} className="px-4 py-2 rounded-lg bg-emerald-600 text-white">Start</button>
         </div>
       </div>
     </div>

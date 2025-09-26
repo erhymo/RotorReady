@@ -9,6 +9,7 @@ const quizTypes = [
   { href: "/procedures-quiz", title: "Procedures" },
   { href: "/engine-systems-quiz", title: "Engine, Fuel, Lubricants, Hydraulics & System Limitations" },
   // Legg til flere quiztyper her etter behov
+  { href: "/avionics-fms-limitations-quiz", title: "Avionics & FMS Limitations" },
 ];
 
 export default function QuizTypeSelectPage() {

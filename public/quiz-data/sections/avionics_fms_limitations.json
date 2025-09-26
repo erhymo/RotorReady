@@ -1,0 +1,508 @@
+{
+  "items": [
+    {
+      "id": "avfms-001",
+      "section": "Avionics & FMS Limitations",
+      "type": "single",
+      "question": "Is intentional P/R - C/Y trim de-clutching (in EDCU TRIM page) flight allowed?",
+      "options": [
+        "Yes, always",
+        "Yes, but only in HOV mode",
+        "No, it is prohibited",
+        "Only if both APs are engaged"
+      ],
+      "answer": [
+        2
+      ],
+      "references": [
+        "QRH Avionics Limitations p.1"
+      ]
+    },
+    {
+      "id": "avfms-002",
+      "section": "Avionics & FMS Limitations",
+      "type": "single",
+      "question": "AFCS upper modes must be disengaged, except HOV, TDH, TU, and coupled approach modes, if which of the following occurs?",
+      "options": [
+        "Loss of radio communication",
+        "Failure of one autopilot (AP)",
+        "Low hydraulic pressure",
+        "Both AHRS units operating normally"
+      ],
+      "answer": [
+        1
+      ],
+      "references": [
+        "QRH Avionics Limitations p.1"
+      ]
+    },
+    {
+      "id": "avfms-003",
+      "section": "Avionics & FMS Limitations",
+      "type": "single",
+      "question": "Which failure requires disengagement of AFCS upper modes?",
+      "options": [
+        "One AHRS has failed",
+        "Both GPS units available",
+        "Normal ADI-standby operation",
+        "CAS messages displayed correctly"
+      ],
+      "answer": [
+        0
+      ],
+      "references": [
+        "QRH Avionics Limitations p.1"
+      ]
+    },
+    {
+      "id": "avfms-008",
+      "section": "Avionics & FMS Limitations",
+      "type": "single",
+      "question": "What should the pilot do when the PWR LIM caption is displayed?",
+      "options": [
+        "Ignore it if power margin is high",
+        "Fly attentive and adjust power to maintain margin",
+        "Immediately disengage AFCS",
+        "Switch to manual trim de-clutching"
+      ],
+      "answer": [
+        1
+      ],
+      "references": [
+        "QRH Avionics Limitations p.1"
+      ]
+    },
+    {
+      "id": "avfms-009",
+      "section": "Avionics & FMS Limitations",
+      "type": "single",
+      "question": "Which AFCS modes may only be engaged over flat surfaces clear of obstructions?",
+      "options": [
+        "LOC/GS",
+        "RHT, TU, TDH",
+        "VAPP, NAPP",
+        "MOT, WTR"
+      ],
+      "answer": [
+        1
+      ],
+      "references": [
+        "QRH AFCS Mode Limitations p.1"
+      ]
+    },
+    {
+      "id": "avfms-010",
+      "section": "Avionics & FMS Limitations",
+      "type": "single",
+      "question": "Which AFCS control panel functions are inoperative and display 'FUNCTION UNAVL' if operated?",
+      "options": [
+        "VNAV, MOT, WTR",
+        "LOC, NGS, VAPP",
+        "AHRS, ADI-standby, CAS",
+        "HOV, TDH, TU"
+      ],
+      "answer": [
+        0
+      ],
+      "references": [
+        "QRH AFCS Mode Limitations p.1"
+      ]
+    },
+    {
+      "id": "avfms-011",
+      "section": "Avionics & FMS Limitations",
+      "type": "single",
+      "question": "What is the minimum use height (MUH) for ALT mode in cruise?",
+      "options": [
+        "50 ft AGL",
+        "150 ft AGL",
+        "200 ft AGL",
+        "30 ft AGL"
+      ],
+      "answer": [
+        2
+      ],
+      "references": [
+        "QRH AFCS Modes MUH p.1"
+      ]
+    },
+    {
+      "id": "avfms-012",
+      "section": "Avionics & FMS Limitations",
+      "type": "single",
+      "question": "What is the MUH for ALT mode in hover/low speed?",
+      "options": [
+        "200 ft AGL",
+        "50 ft AGL",
+        "150 ft AGL",
+        "30 ft AGL"
+      ],
+      "answer": [
+        1
+      ],
+      "references": [
+        "QRH AFCS Modes MUH p.1"
+      ]
+    },
+    {
+      "id": "avfms-013",
+      "section": "Avionics & FMS Limitations",
+      "type": "single",
+      "question": "What is the MUH for ALTA mode?",
+      "options": [
+        "200 ft AGL",
+        "150 ft AGL",
+        "100 ft AGL",
+        "30 ft AGL"
+      ],
+      "answer": [
+        0
+      ],
+      "references": [
+        "QRH AFCS Modes MUH p.1"
+      ]
+    },
+    {
+      "id": "avfms-014",
+      "section": "Avionics & FMS Limitations",
+      "type": "single",
+      "question": "What is the MUH for VS mode (in descent)?",
+      "options": [
+        "30 ft AGL",
+        "150 ft AGL",
+        "200 ft AGL",
+        "50 ft AGL"
+      ],
+      "answer": [
+        2
+      ],
+      "references": [
+        "QRH AFCS Modes MUH p.1"
+      ]
+    },
+    {
+      "id": "avfms-015",
+      "section": "Avionics & FMS Limitations",
+      "type": "single",
+      "question": "What is the MUH for RHT mode in cruise?",
+      "options": [
+        "200 ft AGL",
+        "50 ft AGL",
+        "150 ft AGL",
+        "30 ft AGL"
+      ],
+      "answer": [
+        2
+      ],
+      "references": [
+        "QRH AFCS Modes MUH p.1"
+      ]
+    },
+    {
+      "id": "avfms-016",
+      "section": "Avionics & FMS Limitations",
+      "type": "single",
+      "question": "What is the MUH for RHT mode in hover/low speed?",
+      "options": [
+        "200 ft AGL",
+        "50 ft AGL",
+        "150 ft AGL",
+        "30 ft AGL"
+      ],
+      "answer": [
+        3
+      ],
+      "references": [
+        "QRH AFCS Modes MUH p.1"
+      ]
+    },
+    {
+      "id": "avfms-017",
+      "section": "Avionics & FMS Limitations",
+      "type": "single",
+      "question": "What is the MUH for GA mode during approach?",
+      "options": [
+        "30 ft AGL",
+        "50 ft AGL",
+        "150 ft AGL",
+        "160 ft AGL"
+      ],
+      "answer": [
+        3
+      ],
+      "references": [
+        "QRH AFCS Modes MUH p.1"
+      ]
+    },
+    {
+      "id": "avfms-018",
+      "section": "Avionics & FMS Limitations",
+      "type": "single",
+      "question": "What is the MUH for TDH and TU modes?",
+      "options": [
+        "200 ft AGL",
+        "150 ft AGL",
+        "30 ft AGL",
+        "50 ft AGL"
+      ],
+      "answer": [
+        2
+      ],
+      "references": [
+        "QRH AFCS Modes MUH p.1"
+      ]
+    },
+    {
+      "id": "avfms-019",
+      "section": "Avionics & FMS Limitations",
+      "type": "single",
+      "question": "What is the MUH for IAS mode in cruise?",
+      "options": [
+        "150 ft AGL",
+        "200 ft AGL",
+        "230 ft AGL",
+        "30 ft AGL"
+      ],
+      "answer": [
+        0
+      ],
+      "references": [
+        "QRH AFCS Modes MUH p.2"
+      ]
+    },
+    {
+      "id": "avfms-020",
+      "section": "Avionics & FMS Limitations",
+      "type": "single",
+      "question": "What is the MUH for IAS mode during approach?",
+      "options": [
+        "150 ft AGL",
+        "160 ft AGL",
+        "200 ft AGL",
+        "50 ft AGL"
+      ],
+      "answer": [
+        1
+      ],
+      "references": [
+        "QRH AFCS Modes MUH p.2"
+      ]
+    },
+    {
+      "id": "avfms-021",
+      "section": "Avionics & FMS Limitations",
+      "type": "single",
+      "question": "What is the MUH for GSPD mode in cruise?",
+      "options": [
+        "150 ft AGL",
+        "160 ft AGL",
+        "200 ft AGL",
+        "230 ft AGL"
+      ],
+      "answer": [
+        0
+      ],
+      "references": [
+        "QRH AFCS Modes MUH p.2"
+      ]
+    },
+    {
+      "id": "avfms-022",
+      "section": "Avionics & FMS Limitations",
+      "type": "single",
+      "question": "What is the MUH for GSPD mode during approach?",
+      "options": [
+        "150 ft AGL",
+        "160 ft AGL",
+        "200 ft AGL",
+        "50 ft AGL"
+      ],
+      "answer": [
+        1
+      ],
+      "references": [
+        "QRH AFCS Modes MUH p.2"
+      ]
+    },
+    {
+      "id": "avfms-023",
+      "section": "Avionics & FMS Limitations",
+      "type": "single",
+      "question": "What is the MUH for DCL mode?",
+      "options": [
+        "150 ft AGL",
+        "160 ft AGL",
+        "200 ft AGL",
+        "230 ft AGL"
+      ],
+      "answer": [
+        3
+      ],
+      "references": [
+        "QRH AFCS Modes MUH p.2"
+      ]
+    },
+    {
+      "id": "avfms-024",
+      "section": "Avionics & FMS Limitations",
+      "type": "single",
+      "question": "What is the MUH for HOV mode?",
+      "options": [
+        "150 ft AGL",
+        "200 ft AGL",
+        "30 ft AGL",
+        "50 ft AGL"
+      ],
+      "answer": [
+        2
+      ],
+      "references": [
+        "QRH AFCS Modes MUH p.2"
+      ]
+    },
+    {
+      "id": "avfms-025",
+      "section": "Avionics & FMS Limitations",
+      "type": "single",
+      "question": "What is the MUH for APP (approach) modes such as VAPP, LOC, BC, GS, NLOC, NGS, NAPP, NDCL?",
+      "options": [
+        "150 ft AGL",
+        "160 ft AGL",
+        "200 ft AGL",
+        "230 ft AGL"
+      ],
+      "answer": [
+        1
+      ],
+      "references": [
+        "QRH AFCS Modes MUH p.2"
+      ]
+    },
+    {
+      "id": "avfms-026",
+      "section": "Avionics & FMS Limitations",
+      "type": "single",
+      "question": "What is the maximum rate of descent (ROD) for AFCS coupled approach?",
+      "options": [
+        "600 fpm",
+        "800 fpm",
+        "900 fpm",
+        "1000 fpm"
+      ],
+      "answer": [
+        2
+      ],
+      "references": [
+        "QRH AFCS Approach Modes Limitations p.3"
+      ]
+    },
+    {
+      "id": "avfms-027",
+      "section": "Avionics & FMS Limitations",
+      "type": "single",
+      "question": "What is the maximum airspeed for AFCS coupled approach up to 5000 ft?",
+      "options": [
+        "120 KIAS",
+        "130 KIAS",
+        "140 KIAS",
+        "150 KIAS"
+      ],
+      "answer": [
+        1
+      ],
+      "references": [
+        "QRH AFCS Approach Modes Limitations p.3"
+      ]
+    },
+    {
+      "id": "avfms-028",
+      "section": "Avionics & FMS Limitations",
+      "type": "single",
+      "question": "The helicopter is certified to carry out CAT I ILS approaches up to how many degrees glideslope?",
+      "options": [
+        "3°",
+        "5°",
+        "7°",
+        "9°"
+      ],
+      "answer": [
+        2
+      ],
+      "references": [
+        "QRH AFCS Approach Modes Limitations p.3"
+      ]
+    },
+    {
+      "id": "avfms-030",
+      "section": "Avionics & FMS Limitations",
+      "type": "single",
+      "question": "What must the pilot verify regarding the FMS Navigation Data Base (NAV DB)?",
+      "options": [
+        "That it is encrypted",
+        "That it is current and coherent with the procedure to be flown",
+        "That it covers all ICAO states",
+        "That it is backed up to USB"
+      ],
+      "answer": [
+        1
+      ],
+      "references": [
+        "QRH FMS Limitations p.3"
+      ]
+    },
+    {
+      "id": "avfms-031",
+      "section": "Avionics & FMS Limitations",
+      "type": "single",
+      "question": "Is manual FMS reversion to DME/DME or VOR/DME as navigation sensor source allowed?",
+      "options": [
+        "Yes, always",
+        "Only during SBAS outage",
+        "No, it is prohibited",
+        "Only if GNSS is operational"
+      ],
+      "answer": [
+        2
+      ],
+      "references": [
+        "QRH FMS Limitations p.3"
+      ]
+    },
+    {
+      "id": "avfms-032",
+      "section": "Avionics & FMS Limitations",
+      "type": "single",
+      "question": "What is the maximum ROD during coupled FMS Approaches?",
+      "options": [
+        "600 fpm",
+        "700 fpm",
+        "800 fpm",
+        "900 fpm"
+      ],
+      "answer": [
+        2
+      ],
+      "references": [
+        "QRH FMS Limitations p.3"
+      ]
+    },
+    {
+      "id": "avfms-033",
+      "section": "Avionics & FMS Limitations",
+      "type": "single",
+      "question": "What requirement applies to headset/helmet type used in the aircraft?",
+      "options": [
+        "It must be of the same electrical characteristics and authorised by the manufacturer",
+        "Any aviation headset is allowed",
+        "Only noise-cancelling headsets are approved",
+        "Must be EASA TSO-certified"
+      ],
+      "answer": [
+        0
+      ],
+      "references": [
+        "QRH Headset/Helmet Limitations p.3"
+      ]
+    }
+  ]
+}

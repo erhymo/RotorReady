@@ -34,44 +34,9 @@ export default function HomePage() {
   useEffect(() => {
     fetch("/quiz-data/versions/data-version.json").then(r=>r.json()).then(setVer).catch(()=>{});
   }, []);
-    return (
-      <main className="min-h-screen bg-neutral-900 text-neutral-100 flex items-center justify-center p-6">
-        <div className="w-full max-w-3xl">
-          <div className="rounded-3xl border border-blue-400/40 p-6 sm:p-10 shadow-[0_0_80px_-40px_rgba(59,130,246,0.6)]">
-            <h1 className="text-3xl sm:text-4xl font-semibold mb-8">Velg quiztype</h1>
-
-            <ul className="space-y-4">
-              {quizTypes.map((q) => (
-                <li key={q.id} className="group">
-                  <Link
-                    href={`/quiz/${q.id}`}
-                    className="block rounded-2xl border border-neutral-700/60 bg-neutral-800/60 px-5 py-4
-                               hover:border-blue-400/60 hover:bg-neutral-800 transition-colors"
-                  >
-                    <div className="text-lg sm:text-xl">{q.name}</div>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </main>
-    );
-  }
-
-  type QuizType = {
-    id: string;
-    name: string;
-  };
-
-  const quizTypes: QuizType[] = [
-    { id: "limitations", name: "Limitations" },
-    { id: "performance", name: "Performance" },
-    { id: "procedures", name: "Procedures" },
-    { id: "engine_systems", name: "Engine, Fuel, Lubricants, Hydraulics & System Limitations" },
-    // 👇 NYTT KAPITTEL
-    { id: "avionics_fms_limitations", name: "Avionics & FMS Limitations" },
-  ];
+  return (
+    <div className="max-w-5xl mx-auto p-6 space-y-8">
+      <header>
   <h1 className="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">RotorReady</h1>
   <p className="text-slate-600 dark:text-zinc-300 mt-2">Train smarter. Faster repetition for lights and limitations. Offline support for operations without internet.</p>
       </header>

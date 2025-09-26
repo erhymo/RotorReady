@@ -1,0 +1,115 @@
+"use client";
+import { useEffect, useMemo, useState } from "react";
+import Link from "next/link";
+
+import { saveResult } from "@/lib/sync/results";
+
+type Item = {
+  id: string;
+  question: string;
+  options: string[];
+  answer: number[];
+  explanation?: string;
+  references?: string[];
+  section?: string;
+};
+
+type Session = {
+  section: string;
+  createdAt: string;
+  items: Item[];
+  answers: Array<number | null>;
+  flags: boolean[];
+};
+
+function loadSession(): Session | null {
+  try {
+    const raw = sessionStorage.getItem("avionics_session");
+    return raw ? (JSON.parse(raw) as Session) : null;
+  } catch {
+    return null;
+  }
+}
+
+export default function AvionicsResultPage() {
+  const [session, setSession] = useState<Session | null>(null);
+
+  useEffect(() => {
+    setSession(loadSession());
+  }, []);
+
+  const { total, correct, wrongIdx } = useMemo(() => {
+    if (!session) return { total: 0, correct: 0, wrongIdx: [] as number[] };
+    const total = session.items.length;
+    let correct = 0;
+    const wrongIdx: number[] = [];
+    session.items.forEach((item, index) => {
+      const picked = session.answers[index];
+      const ok = picked != null && item.answer.includes(picked);
+      if (ok) correct += 1;
+      else wrongIdx.push(index);
+    });
+    return { total, correct, wrongIdx };
+  }, [session]);
+
+  useEffect(() => {
+    if (!session) return;
+    const percent = total ? (correct / total) * 100 : 0;
+    const record = { section: session.section, total, correct, percent, at: new Date().toISOString() };
+
+    try {
+      const raw = localStorage.getItem("rr_progress");
+      const arr = raw ? JSON.parse(raw) : [];
+      arr.push(record);
+      localStorage.setItem("rr_progress", JSON.stringify(arr));
+    } catch {}
+
+    const sectionKey = "avionics-fms-limitations";
+
+    if (wrongIdx.length) {
+      const items = wrongIdx.map((index) => session.items[index]);
+      const answers = wrongIdx.map(() => null as number | null);
+      const flags = wrongIdx.map(() => false);
+      const wrongSession: Session = {
+        section: session.section,
+        createdAt: new Date().toISOString(),
+        items,
+        answers,
+        flags,
+      };
+      localStorage.setItem(`rr_progress_last_wrong:${sectionKey}`, JSON.stringify(wrongSession));
+    } else {
+      localStorage.removeItem(`rr_progress_last_wrong:${sectionKey}`);
+    }
+
+    try {
+      saveResult({ section: session.section, total, correct, percent, at: new Date().toISOString() });
+    } catch {}
+  }, [session, total, correct, wrongIdx]);
+
+  if (!session) return <div className="max-w-xl mx-auto p-4">Ingen aktiv sesjon.</div>;
+
+  return (
+    <div className="max-w-2xl mx-auto p-4 space-y-4">
+      <h1 className="text-2xl font-bold text-blue-700 dark:text-blue-300 drop-shadow">Resultat</h1>
+      <div className="rounded-xl border-l-4 border-blue-600 bg-blue-50/40 dark:border-blue-400 dark:bg-gradient-to-r dark:from-blue-900 dark:to-blue-800/80 p-4 shadow-lg">
+        <div>Besvarte: <b>{total}</b></div>
+        <div>Riktige: <b>{correct}</b></div>
+        <div>Prosent: <b>{Math.round((correct / total) * 100)}%</b></div>
+      </div>
+
+      <div className="flex gap-2">
+        <Link href="/avionics-fms-limitations-quiz" className="px-4 py-2 rounded-lg bg-blue-600 text-white">Ta på nytt</Link>
+        <Link href="/" className="px-4 py-2 rounded-lg bg-emerald-600 text-white">Forside</Link>
+      </div>
+
+      <div className="rounded-xl border-l-4 border-emerald-600 bg-emerald-50/40 dark:border-emerald-400 dark:bg-gradient-to-r dark:from-emerald-900 dark:to-emerald-800/80 p-4 shadow-lg">
+        <div className="font-semibold mb-2">Neste steg</div>
+        <ul className="list-disc ml-5 text-sm">
+          <li>Trykk <b>“Øv kun på feil”</b> på startsiden for å repetere de vanskelige spørsmålene.</li>
+          <li>Følg progresjonen din under <b>Min side</b>.</li>
+        </ul>
+      </div>
+    </div>
+  );
+}

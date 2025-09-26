@@ -38,6 +38,10 @@ export default function ResultPage() {
     arr.push(rec);
     localStorage.setItem("rr_progress", JSON.stringify(arr));
 
+    const sectionKey = (typeof s.section === "string" && s.section.length)
+      ? s.section.toLowerCase()
+      : "limitations";
+
     if (wrongIdx.length) {
       const items = wrongIdx.map(i => s.items[i]);
       const answers = wrongIdx.map(() => null as number | null);
@@ -47,9 +51,15 @@ export default function ResultPage() {
         createdAt: new Date().toISOString(),
         items, answers, flags
       };
-      localStorage.setItem(`rr_progress_last_wrong:${s.section}`, JSON.stringify(wrongSession));
+      localStorage.setItem(`rr_progress_last_wrong:${sectionKey}`, JSON.stringify(wrongSession));
+      if (sectionKey !== s.section) {
+        localStorage.removeItem(`rr_progress_last_wrong:${s.section}`);
+      }
     } else {
-      localStorage.removeItem(`rr_progress_last_wrong:${s.section}`);
+      localStorage.removeItem(`rr_progress_last_wrong:${sectionKey}`);
+      if (sectionKey !== s.section) {
+        localStorage.removeItem(`rr_progress_last_wrong:${s.section}`);
+      }
     }
 
     // cloud sync (best effort)

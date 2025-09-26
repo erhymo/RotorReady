@@ -43,7 +43,7 @@ export default function ClientQuizPage({ section, amount }: { section: string; a
       <div className="min-h-screen grid place-items-center p-8 dark:bg-zinc-900 dark:text-zinc-100">
         <div className="text-center">
           <div className="text-2xl font-bold mb-2">{error}</div>
-          <div className="text-slate-600 dark:text-zinc-300">Seksjon "{section}"</div>
+          <div className="text-slate-600 dark:text-zinc-300">Seksjon &ldquo;{section}&rdquo;</div>
         </div>
       </div>
     );

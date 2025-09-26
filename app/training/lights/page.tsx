@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState, useCallback } from "react";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 type StepType = "note" | "action" | "branch" | "caution" | "warning";
@@ -316,7 +317,14 @@ export default function LightsTrainer() {
               <div className="mb-3 text-sm opacity-90 text-gray-600 dark:text-zinc-100">Click the light to show the procedure</div>
               <div className={`flex items-center gap-4 rounded-2xl p-5 ring-2 ${COLORS[current.severity].bg} ${COLORS[current.severity].text} ${COLORS[current.severity].ring}`}>
                 {current.icon && (
-                  <img src={current.icon} alt={current.name} className="h-14 w-14 object-contain rounded-md bg-white/10" />
+                  <Image
+                    src={current.icon}
+                    alt={current.name}
+                    width={56}
+                    height={56}
+                    className="h-14 w-14 object-contain rounded-md bg-white/10"
+                    unoptimized
+                  />
                 )}
                 <div className="flex-1">
                   <div className="text-xl font-semibold text-white">{current.name}</div>
@@ -347,7 +355,7 @@ export default function LightsTrainer() {
         {mode === "done" && (
           <div className="text-center py-24">
             <div className="text-3xl font-semibold mb-4">Great job!</div>
-            <div className="text-lg opacity-70 mb-8">You've completed the training.</div>
+            <div className="text-lg opacity-70 mb-8">You&apos;ve completed the training.</div>
             <button
               onClick={() => router.refresh()}
               className="rounded-lg px-6 py-3 bg-black text-white transition hover:bg-black/90"

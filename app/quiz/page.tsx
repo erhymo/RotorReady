@@ -1,5 +1,7 @@
+"use client";
+"use client";
+
 import Link from "next/link";
-import { BookIcon } from "@/components/Icons";
 
 const quizTypes = [
   { href: "/limitations-quiz", title: "Limitations" },
@@ -9,14 +11,12 @@ const quizTypes = [
   // Legg til flere quiztyper her etter behov
 ];
 
-import BackButton from "@/components/BackButton";
-
 export default function QuizTypeSelectPage() {
   return (
     <div className="max-w-2xl mx-auto p-6 space-y-8 rounded-xl border-l-4 border-blue-600 bg-white dark:border-blue-400 dark:bg-zinc-900">
-      <BackButton />
+      {/* ...existing code... */}
       <h1 className="text-2xl font-bold mb-4 flex items-center gap-2 text-slate-900 dark:text-white">
-        <BookIcon className="h-6 w-6 text-blue-600 dark:text-blue-400" />
+        {/* BookIcon can be added if needed */}
         Velg quiztype
       </h1>
       <div className="space-y-4">

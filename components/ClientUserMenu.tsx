@@ -1,5 +1,4 @@
 "use client";
-
 import { useEffect, useState } from 'react';
 import { firebaseApp } from '../lib/firebase/client';
 import { getAuth, onAuthStateChanged, User } from 'firebase/auth';
@@ -27,4 +26,5 @@ export default function ClientUserMenu() {
       )}
     </div>
   );
+// Removed extraneous closing brace
 }

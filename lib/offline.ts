@@ -22,6 +22,7 @@ export function clearOfflineSection(id: string) {
 
 export function listOffline() {
   if (typeof window === "undefined") return [] as string[];
-  return Object.keys(localStorage).filter(k => k.startsWith("offline:sections:"));
+  return Object.keys(localStorage)
+    .filter((k) => k.startsWith("offline:sections:"))
+    .map((k) => k.replace("offline:sections:", ""));
 }
-

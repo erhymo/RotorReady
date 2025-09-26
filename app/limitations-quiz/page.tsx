@@ -50,7 +50,7 @@ export default function LimitationsStart() {
       const data = await getData();
       const items = sample<QuizItem>(data.items, amount);
       const session = {
-        section: "LIMITATIONS",
+        section: "limitations",
         createdAt: new Date().toISOString(),
         items,
         answers: Array(items.length).fill(null) as Array<number|null>,
@@ -67,9 +67,19 @@ export default function LimitationsStart() {
   }
 
   function startWrongOnly() {
-    const raw = localStorage.getItem("rr_progress_last_wrong:limitations");
+    const lower = localStorage.getItem("rr_progress_last_wrong:limitations");
+    const upper = localStorage.getItem("rr_progress_last_wrong:LIMITATIONS");
+    const raw = lower || upper;
     if (!raw) { alert("Ingen feilsett tilgjengelig. Fullfør en quiz først."); return; }
-    const data = JSON.parse(raw);
+    let data;
+    try {
+      data = JSON.parse(raw);
+    } catch {
+      alert("Kunne ikke laste lagret feilsett. Slett og prøv igjen.");
+      if (lower) localStorage.removeItem("rr_progress_last_wrong:limitations");
+      if (upper) localStorage.removeItem("rr_progress_last_wrong:LIMITATIONS");
+      return;
+    }
     sessionStorage.setItem("limq_session", JSON.stringify(data));
     router.push("/limitations-quiz/1");
   }

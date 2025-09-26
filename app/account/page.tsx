@@ -6,34 +6,118 @@ import { onAuthStateChanged } from "firebase/auth";
 import { doc, getDoc } from "firebase/firestore";
 
 type Summary = { section: string; total: number; correct: number; percent: number; at: string };
+type WrongSession = { section?: string; createdAt?: string | number; items?: unknown[] };
 
 export default function AccountPage() {
+  function parseLocalStorage<T>(key: string): T | null {
+    const raw = localStorage.getItem(key);
+    if (!raw) return null;
+    try {
+      return JSON.parse(raw) as T;
+    } catch (error) {
+      console.warn(`Kunne ikke tolke lagrede data for ${key}`, error);
+      localStorage.removeItem(key);
+      return null;
+    }
+  }
+
+  function findWrongSession(): { data: WrongSession; sectionId: string } | null {
+    if (typeof window === "undefined") return null;
+    const seen = new Set<string>();
+    const candidateSections = [
+      "limitations",
+      "LIMITATIONS",
+      ...history.map((h) => h.section),
+      ...history.map((h) => h.section?.toLowerCase?.()).filter(Boolean) as string[],
+    ];
+    const candidateKeys = candidateSections
+      .map((section) => `rr_progress_last_wrong:${section}`)
+      .filter((key) => Boolean(key));
+
+    const storedKeys = Object.keys(localStorage).filter((key) => key.startsWith("rr_progress_last_wrong:"));
+    candidateKeys.push(...storedKeys);
+
+    for (const key of candidateKeys) {
+      if (seen.has(key)) continue;
+      seen.add(key);
+      const parsed = parseLocalStorage<WrongSession>(key);
+      if (!parsed) continue;
+      const sectionId = key.split(":").slice(1).join(":") || parsed.section || "limitations";
+      return { data: parsed, sectionId };
+    }
+    return null;
+  }
+
+  function routeForWrongSession(sectionId: string): string | null {
+    const normalized = sectionId.toLowerCase();
+    if (normalized === "limitations") return "/limitations-quiz/1";
+    return null;
+  }
+
   function startWrongOnly() {
-    const raw = localStorage.getItem("rr_progress_last_wrong:limitations");
-    if (!raw) { alert("Ingen feilsett tilgjengelig. Fullfør en quiz først."); return; }
-    const data = JSON.parse(raw);
-    sessionStorage.setItem("limq_session", JSON.stringify(data));
-    window.location.href = "/limitations-quiz/1";
+    const found = findWrongSession();
+    if (!found) {
+      alert("Ingen feilsett tilgjengelig. Fullfør en quiz først.");
+      return;
+    }
+
+    const route = routeForWrongSession(found.sectionId);
+    if (!route) {
+      alert("Fant et feilsett, men det støttes ikke fra denne snarveien ennå.");
+      return;
+    }
+
+    sessionStorage.setItem("limq_session", JSON.stringify(found.data));
+    window.location.href = route;
   }
   const [history, setHistory] = useState<Summary[]>([]);
   const [ents, setEnts] = useState<{AW169?:boolean; AW189?:boolean; AW139?:boolean}>({});
   const [email, setEmail] = useState<string | null>(null);
   const [loggedIn, setLoggedIn] = useState(false);
+  const [authChecked, setAuthChecked] = useState(false);
+
+  const active = useMemo(() => {
+    return Object.entries(ents)
+      .filter(([, v]) => Boolean(v))
+      .map(([k]) => k);
+  }, [ents]);
 
   useEffect(() => {
-    const raw = localStorage.getItem("rr_progress");
-    if (raw) setHistory(JSON.parse(raw));
-    if (!auth) return;
+    const storedHistory = parseLocalStorage<Summary[]>("rr_progress");
+    if (storedHistory) setHistory(storedHistory);
+    if (!auth) {
+      setAuthChecked(true);
+      return;
+    }
+    const current = auth.currentUser;
+    if (current) {
+      setEmail(current.email || null);
+      setLoggedIn(true);
+      if (db) {
+        getDoc(doc(db, "users", current.uid))
+          .then((snap) => setEnts(snap.data()?.entitlements || {}))
+          .catch(() => {});
+      }
+    } else {
+      setLoggedIn(false);
+    }
+    setAuthChecked(true);
+
     const unsub = onAuthStateChanged(auth, async (u) => {
       setEmail(u?.email || null);
       setLoggedIn(!!u);
-      if (u && db) {
+      if (u && db && u) {
         try { const snap = await getDoc(doc(db, "users", u.uid)); setEnts(snap.data()?.entitlements || {}); } catch {}
       }
+      // Ensure authChecked flips even for delayed auth state
+      setAuthChecked(true);
     });
     return () => unsub && unsub();
   }, []);
 
+  if (!authChecked) {
+    return <div className="p-8 text-center text-lg text-slate-700 dark:text-zinc-200">Laster…</div>;
+  }
   if (!loggedIn) {
     if (typeof window !== "undefined") {
       window.location.href = "/login";
@@ -42,12 +126,15 @@ export default function AccountPage() {
   }
 
   const attempts = history.length;
+  const formatSection = (value: string) => {
+    if (!value) return "";
+    const lower = value.toLowerCase();
+    if (lower === "limitations") return "Limitations";
+    return value;
+  };
+
   const last = attempts ? history[attempts - 1] : null;
   const best = attempts ? history.reduce((a,b)=> (b.percent > a.percent ? b : a)) : null;
-
-  const active = useMemo(() => {
-    return Object.entries(ents).filter(([,v])=>Boolean(v)).map(([k])=>k);
-  }, [ents]);
 
   return (
     <div className="max-w-5xl mx-auto p-6 space-y-8">
@@ -91,13 +178,13 @@ export default function AccountPage() {
           ) : (
             <div className="space-y-2">
               <div className="text-sm text-slate-900 dark:text-zinc-100">Antall forsøk: <b>{attempts}</b></div>
-              {last && <div className="text-sm text-slate-900 dark:text-zinc-100">Sist: {last.section} — {last.correct}/{last.total} ({Math.round(last.percent)}%)</div>}
-              {best && <div className="text-sm text-slate-900 dark:text-zinc-100">Best: {best.section} — {best.correct}/{best.total} ({Math.round(best.percent)}%)</div>}
+              {last && <div className="text-sm text-slate-900 dark:text-zinc-100">Sist: {formatSection(last.section)} — {last.correct}/{last.total} ({Math.round(last.percent)}%)</div>}
+              {best && <div className="text-sm text-slate-900 dark:text-zinc-100">Best: {formatSection(best.section)} — {best.correct}/{best.total} ({Math.round(best.percent)}%)</div>}
               <details className="mt-2">
                 <summary className="cursor-pointer text-slate-900 dark:text-white">Vis historikk</summary>
                 <ul className="list-disc ml-5 text-sm text-slate-900 dark:text-zinc-100">
                   {history.map((h,i)=>(
-                    <li key={i}>{new Date(h.at).toLocaleString()} — {h.section}: {h.correct}/{h.total} ({Math.round(h.percent)}%)</li>
+                    <li key={i}>{new Date(h.at).toLocaleString()} — {formatSection(h.section)}: {h.correct}/{h.total} ({Math.round(h.percent)}%)</li>
                   ))}
                 </ul>
               </details>

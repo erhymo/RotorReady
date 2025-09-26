@@ -155,14 +155,18 @@ export default function LightsTrainer() {
     const pal = COLORS[current.severity];
     return (
       <div className="sticky top-0 z-10 bg-white/80 dark:bg-zinc-900/90 backdrop-blur border-b dark:border-zinc-700">
-        <div className="mx-auto max-w-3xl px-6 py-3 flex items-center justify-between gap-3">
-          <div className="flex items-center gap-3">
-            <div className={`rounded-lg px-3 py-1.5 font-semibold ring-2 ${pal.bg} ${pal.text} ${pal.ring}`} title={current.system || ""}>
-              {current.name}
-            </div>
-            {current.system && <div className="text-xs opacity-70 uppercase tracking-wide dark:text-zinc-300">{current.system}</div>}
+      <div className="mx-auto max-w-3xl px-6 py-3 flex items-center justify-between gap-3">
+        <div className="flex items-center gap-3">
+          <div
+            className={`rounded-lg px-3 py-1.5 font-semibold ring-2 ${pal.bg} ${pal.text} ${pal.ring} 
+              dark:bg-zinc-900 dark:text-zinc-100 dark:ring-zinc-700`}
+            title={current.system || ""}
+          >
+            {current.name}
           </div>
-          <div className="text-sm opacity-70 dark:text-zinc-300">{idx + 1} / {deck.length} • {mode.toUpperCase()}</div>
+          {current.system && <div className="text-xs opacity-70 uppercase tracking-wide dark:text-zinc-300">{current.system}</div>}
+        </div>
+        <div className="text-sm opacity-70 dark:text-zinc-300">{idx + 1} / {deck.length} • {mode.toUpperCase()}</div>
         </div>
       </div>
     );

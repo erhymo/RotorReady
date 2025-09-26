@@ -9,10 +9,22 @@ export const metadata: Metadata = {
 };
 
 const initTheme = `
-(function(){try{
-  var t = localStorage.getItem('rr_theme');
-  if(t==='dark'){document.documentElement.classList.add('dark');}
-}catch(e){}})()
+(function(){
+  try {
+    var root = document.documentElement;
+    var stored = localStorage.getItem('rr_theme');
+    var prefersDark = typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (stored === 'dark') {
+      root.classList.add('dark');
+    } else if (stored === 'light') {
+      root.classList.remove('dark');
+    } else if (prefersDark) {
+      root.classList.add('dark');
+    } else {
+      root.classList.remove('dark');
+    }
+  } catch (e) {}
+})()
 `;
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

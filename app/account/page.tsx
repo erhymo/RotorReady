@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useMemo, useState } from "react";
+import { useRouter } from "next/navigation";
 import BackButton from "@/components/BackButton";
 import { auth, db } from "@/lib/firebase/client";
 import { onAuthStateChanged } from "firebase/auth";
@@ -70,17 +71,57 @@ export default function AccountPage() {
     sessionStorage.setItem("limq_session", JSON.stringify(found.data));
     window.location.href = route;
   }
+  const router = useRouter();
   const [history, setHistory] = useState<Summary[]>([]);
   const [ents, setEnts] = useState<{AW169?:boolean; AW189?:boolean; AW139?:boolean}>({});
   const [email, setEmail] = useState<string | null>(null);
   const [loggedIn, setLoggedIn] = useState(false);
   const [authChecked, setAuthChecked] = useState(false);
+  const [themePref, setThemePref] = useState<'system'|'light'|'dark'>('system');
+  const [effectiveTheme, setEffectiveTheme] = useState<'light'|'dark'>('light');
 
   const active = useMemo(() => {
     return Object.entries(ents)
       .filter(([, v]) => Boolean(v))
       .map(([k]) => k);
   }, [ents]);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const stored = localStorage.getItem('rr_theme');
+    if (stored === 'dark' || stored === 'light') {
+      setThemePref(stored);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const media = window.matchMedia('(prefers-color-scheme: dark)');
+    const root = document.documentElement;
+
+    const applyTheme = () => {
+      const resolved = themePref === 'system' ? (media.matches ? 'dark' : 'light') : themePref;
+      setEffectiveTheme(resolved);
+      if (resolved === 'dark') {
+        root.classList.add('dark');
+      } else {
+        root.classList.remove('dark');
+      }
+      if (themePref === 'system') {
+        localStorage.removeItem('rr_theme');
+      } else {
+        localStorage.setItem('rr_theme', themePref);
+      }
+    };
+
+    applyTheme();
+
+    if (themePref === 'system') {
+      const listener = () => applyTheme();
+      media.addEventListener('change', listener);
+      return () => media.removeEventListener('change', listener);
+    }
+  }, [themePref]);
 
   useEffect(() => {
     const storedHistory = parseLocalStorage<Summary[]>("rr_progress");
@@ -93,60 +134,74 @@ export default function AccountPage() {
     }
 
     let cancelled = false;
+    let resolved = false;
 
-    let tempLoggedIn = false;
-
-    const unsubscribe = onAuthStateChanged(auth, async (u) => {
+    const applyState = (user: typeof auth.currentUser, entitlements?: Record<string, unknown>) => {
       if (cancelled) return;
-      setEmail(u?.email || null);
-      tempLoggedIn = !!u;
-      setLoggedIn(tempLoggedIn);
-      if (u && db) {
-        try {
-          const snap = await getDoc(doc(db, "users", u.uid));
-          if (!cancelled) setEnts(snap.data()?.entitlements || {});
-        } catch {
-          if (!cancelled) setEnts({});
-        }
-      } else if (!cancelled) {
+      setEmail(user?.email || null);
+      setLoggedIn(Boolean(user));
+      if (entitlements) {
+        setEnts(entitlements as {AW169?:boolean; AW189?:boolean; AW139?:boolean});
+      } else {
         setEnts({});
       }
+      resolved = true;
       setAuthChecked(true);
+    };
+
+    const loadEntitlements = async (user: typeof auth.currentUser) => {
+      if (!user || !db) return {} as Record<string, unknown>;
+      try {
+        const snap = await getDoc(doc(db, "users", user.uid));
+        return snap.data()?.entitlements || {};
+      } catch {
+        return {} as Record<string, unknown>;
+      }
+    };
+
+    const handleUser = async (user: typeof auth.currentUser) => {
+      applyState(user);
+      if (user) {
+        const entitlements = await loadEntitlements(user);
+        if (!cancelled) {
+          setEnts(entitlements as {AW169?:boolean; AW189?:boolean; AW139?:boolean});
+        }
+      }
+    };
+
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      handleUser(user);
     });
 
-    if (!tempLoggedIn) {
-      const existingUser = auth.currentUser;
-      setLoggedIn(!!existingUser);
-      if (existingUser && db) {
-        getDoc(doc(db, "users", existingUser.uid))
-          .then((snap) => {
-            if (!cancelled) setEnts(snap.data()?.entitlements || {});
-          })
-          .catch(() => {
-            if (!cancelled) setEnts({});
-          })
-          .finally(() => {
-            if (!cancelled) setAuthChecked(true);
-          });
-      } else {
+    if (auth.currentUser) {
+      handleUser(auth.currentUser);
+    }
+
+    const fallbackTimer = setTimeout(() => {
+      if (!resolved && !cancelled) {
         setAuthChecked(true);
       }
-    }
+    }, 5000);
 
     return () => {
       cancelled = true;
+      clearTimeout(fallbackTimer);
       if (typeof unsubscribe === "function") unsubscribe();
     };
   }, []);
+
+  useEffect(() => {
+    if (!authChecked || loggedIn) return;
+    if (typeof window !== "undefined") {
+      router.replace(`/login?next=${encodeURIComponent("/account")}`);
+    }
+  }, [authChecked, loggedIn, router]);
 
   if (!authChecked) {
     return <div className="p-8 text-center text-lg text-slate-700 dark:text-zinc-200">Laster…</div>;
   }
   if (!loggedIn) {
-    if (typeof window !== "undefined") {
-      window.location.href = "/login";
-    }
-    return null;
+    return <div className="p-8 text-center text-lg text-slate-700 dark:text-zinc-200">Viderekobler til innlogging…</div>;
   }
 
   const attempts = history.length;
@@ -160,6 +215,21 @@ export default function AccountPage() {
   const last = attempts ? history[attempts - 1] : null;
   const best = attempts ? history.reduce((a,b)=> (b.percent > a.percent ? b : a)) : null;
 
+  const toggleTheme = () => {
+    setThemePref(effectiveTheme === 'dark' ? 'light' : 'dark');
+  };
+
+  const followSystem = () => setThemePref('system');
+
+  const themeDescription = themePref === 'system'
+    ? `Følger system (${effectiveTheme === 'dark' ? 'mørk' : 'lys'})`
+    : themePref === 'dark'
+      ? 'Manuelt mørk'
+      : 'Manuelt lys';
+
+  const themeIcon = effectiveTheme === 'dark' ? '☀️' : '🌙';
+  const themeButtonLabel = effectiveTheme === 'dark' ? 'Lyst tema' : 'Mørkt tema';
+
   return (
     <div className="max-w-5xl mx-auto p-6 space-y-8">
       <BackButton className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-2 rounded-xl mb-2" />
@@ -169,6 +239,30 @@ export default function AccountPage() {
       </header>
 
       <section className="space-y-3">
+        <div className="rounded-xl border-l-4 border-amber-500 bg-amber-50/40 dark:border-amber-400 dark:bg-amber-900/40 px-5 py-4 flex items-center justify-between gap-4">
+          <div>
+            <div className="font-semibold text-slate-900 dark:text-zinc-100">Tema</div>
+            <div className="text-sm text-slate-700 dark:text-zinc-300 mt-0.5">{themeDescription}</div>
+          </div>
+          <div className="flex items-center gap-2">
+            <button
+              onClick={toggleTheme}
+              className="inline-flex items-center gap-2 rounded-lg border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-100 dark:border-zinc-700 dark:text-zinc-100 dark:hover:bg-zinc-800"
+              aria-label={`Bytt til ${themeButtonLabel.toLowerCase()}`}
+            >
+              <span className="text-lg" aria-hidden>{themeIcon}</span>
+              <span>{themeButtonLabel}</span>
+            </button>
+            {themePref !== 'system' && (
+              <button
+                onClick={followSystem}
+                className="rounded-lg border border-slate-200 px-3 py-2 text-xs font-medium text-slate-600 hover:bg-slate-100 dark:border-zinc-700 dark:text-zinc-200 dark:hover:bg-zinc-800"
+              >
+                Følg system
+              </button>
+            )}
+          </div>
+        </div>
         <div className="rounded-xl border-l-4 border-emerald-600 bg-emerald-50/40 dark:border-emerald-400 dark:bg-emerald-900/40 px-5 py-4 flex items-start justify-between gap-4">
           <div>
             <div className="font-semibold text-slate-900 dark:text-zinc-100">Tilgang</div>

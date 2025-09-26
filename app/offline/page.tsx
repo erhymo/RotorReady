@@ -106,11 +106,11 @@ export default function OfflinePage() {
   const showContent = access !== "denied";
 
   return (
-    <div className="max-w-2xl mx-auto p-6 space-y-8">
+    <div className="max-w-2xl mx-auto p-6 space-y-8 text-slate-900 dark:text-zinc-100">
       <BackButton />
-      <h1 className="text-2xl font-bold mb-4">Offline pakker</h1>
+      <h1 className="text-2xl font-bold mb-4 dark:text-zinc-100">Offline pakker</h1>
       {access === "checking" && (
-        <div className="rounded-xl border border-dashed border-slate-400/50 bg-slate-50 dark:bg-zinc-900/40 p-4 text-sm text-slate-600 dark:text-zinc-300">
+        <div className="rounded-xl border border-dashed border-slate-400/50 bg-slate-50 dark:border-zinc-700/60 dark:bg-zinc-900/40 p-4 text-sm text-slate-600 dark:text-zinc-300">
           Sjekker tilgang …
         </div>
       )}
@@ -123,7 +123,7 @@ export default function OfflinePage() {
           <div className="flex gap-3">
             <a
               href="/paywall?from=/offline"
-              className="inline-flex items-center rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700"
+              className="inline-flex items-center rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600"
             >
               Se priser
             </a>
@@ -151,7 +151,7 @@ export default function OfflinePage() {
                 {sections.map((section) => {
                   const stored = offlineIds.includes(section.id);
                   return (
-                    <li key={section.id} className="rounded-lg border border-slate-200 dark:border-zinc-800 p-4">
+                    <li key={section.id} className="rounded-lg border border-slate-200 dark:border-zinc-700 p-4 bg-white dark:bg-zinc-900">
                       <div className="flex flex-wrap items-center justify-between gap-3">
                         <div>
                           <p className="font-semibold text-slate-900 dark:text-zinc-100">{section.title}</p>
@@ -161,7 +161,7 @@ export default function OfflinePage() {
                           <button
                             onClick={() => downloadSectionOffline(section)}
                             disabled={!readyForActions}
-                            className="rounded bg-blue-600 text-white px-4 py-2 text-sm font-medium disabled:cursor-not-allowed disabled:bg-blue-400/60"
+                            className="rounded bg-blue-600 text-white px-4 py-2 text-sm font-medium transition disabled:cursor-not-allowed disabled:bg-blue-400/60 dark:bg-blue-500 dark:hover:bg-blue-600"
                           >
                             {readyForActions ? (stored ? "Oppdater" : "Last ned") : access === "checking" ? "Kontrollerer tilgang…" : "Ingen tilgang"}
                           </button>
@@ -176,7 +176,7 @@ export default function OfflinePage() {
                           )}
                         </div>
                       </div>
-                      <div className="mt-2 text-xs text-slate-500 dark:text-zinc-400">
+                      <div className="mt-2 text-xs text-slate-500 dark:text-zinc-300">
                         {stored ? "Lagret lokalt" : "Ikke lagret"}
                         {status[section.id] && <span className="block mt-1">{status[section.id]}</span>}
                       </div>

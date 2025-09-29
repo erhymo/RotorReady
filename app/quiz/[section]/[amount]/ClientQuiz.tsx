@@ -66,14 +66,16 @@ export default function ClientQuiz({ section, initial }: { section: string; init
             const isAnswered = answers[idx] !== undefined;
             const isCorrect = isAnswered && i === (q.answer[0] ?? -1);
             const isWrong = isAnswered && chosen && i !== (q.answer[0] ?? -1);
+            // Marker riktig svar grønt hvis man har svart feil
+            const highlightCorrect = isAnswered && answers[idx] !== q.answer[0] && i === q.answer[0];
             return (
               <button
                 key={i}
                 className={
                   `text-left px-4 py-3 rounded border transition ` +
-                  (chosen ? 'border-blue-600 bg-blue-50 dark:bg-blue-950 dark:border-blue-400' : 'border-slate-200 dark:border-zinc-700 dark:bg-zinc-900') +
-                  (isCorrect ? ' border-green-600 bg-green-50 dark:bg-green-950 dark:border-green-400' : '') +
-                  (isWrong ? ' border-red-600 bg-red-50 dark:bg-red-950 dark:border-red-400' : '')
+                  (chosen ? 'border-blue-600 bg-blue-50 dark:bg-blue-900 dark:border-blue-400 dark:text-blue-50' : 'border-slate-200 dark:border-zinc-700 dark:bg-zinc-900') +
+                  ((isCorrect || highlightCorrect) ? ' border-green-600 bg-green-50 text-green-900 dark:bg-green-900 dark:border-green-500 dark:text-green-100' : '') +
+                  (isWrong ? ' border-red-600 bg-red-50 text-red-900 dark:bg-red-900 dark:border-red-500 dark:text-red-100' : '')
                 }
                 disabled={isAnswered}
                 onClick={() => handleAnswer(i)}
@@ -90,8 +92,12 @@ export default function ClientQuiz({ section, initial }: { section: string; init
             disabled={idx === 0}
           >Forrige</button>
           <div className="text-sm text-slate-500 dark:text-zinc-400">
-            {answers[idx] !== undefined && q.explanation && (
-              <span>Hint: {q.explanation}</span>
+            {answers[idx] !== undefined && (
+              q.explanation
+                ? <span>Hint: {q.explanation}</span>
+                : answers[idx] !== q.answer[0] && q.options[q.answer[0]]
+                  ? <span>Riktig svar: {q.options[q.answer[0]]}</span>
+                  : null
             )}
           </div>
           <button
@@ -104,4 +110,3 @@ export default function ClientQuiz({ section, initial }: { section: string; init
     </div>
   );
 }
-

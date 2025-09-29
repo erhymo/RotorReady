@@ -33,8 +33,8 @@ export const publicEnv = {
 // Server-only env and validation
 export const serverEnv = {
   // Stripe
-  STRIPE_SECRET_KEY: requireIfProd("STRIPE_SECRET_KEY"),
-  STRIPE_WEBHOOK_SECRET: requireIfProd("STRIPE_WEBHOOK_SECRET"),
+  STRIPE_SECRET_KEY: get("STRIPE_SECRET_KEY") || "",
+  STRIPE_WEBHOOK_SECRET: get("STRIPE_WEBHOOK_SECRET") || "",
   STRIPE_PRICE_ID: get("STRIPE_PRICE_ID") || "",
   STRIPE_PORTAL_RETURN_URL: get("STRIPE_PORTAL_RETURN_URL") || "",
 
@@ -49,4 +49,3 @@ export const serverEnv = {
 };
 
 export const isProduction = isProd();
-

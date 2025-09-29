@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 
 const ADMIN_USERNAME = process.env.NEXT_PUBLIC_ADMIN_USERNAME || "admin";
 const ADMIN_PASSWORD = process.env.NEXT_PUBLIC_ADMIN_PASSWORD || "rotorready2025";
@@ -25,11 +25,54 @@ type AdminFlag = {
   status: "open" | "reviewed-OK" | "rejected";
 };
 
+type AdminConversationMessage = {
+  id: string;
+  from: "user" | "admin";
+  body: string;
+  createdAt: string;
+  readByAdmin: boolean;
+  readByUser: boolean;
+};
+
+type AdminConversation = {
+  userId: string;
+  userEmail?: string | null;
+  messages: AdminConversationMessage[];
+  createdAt: string;
+  updatedAt: string;
+  unreadForAdmin: number;
+  unreadForUser: number;
+};
+
 export default function AdminPage() {
+  const [conversations, setConversations] = useState<AdminConversation[]>([]);
+  const [messagesLoading, setMessagesLoading] = useState(true);
+  const [messagesError, setMessagesError] = useState<string | null>(null);
+  const [selectedUserId, setSelectedUserId] = useState<string | null>(null);
+  const [replyText, setReplyText] = useState("");
+  const [replying, setReplying] = useState(false);
   const [flags, setFlags] = useState<AdminFlag[]>([]);
   const [flagsLoading, setFlagsLoading] = useState(true);
   const [flagsError, setFlagsError] = useState<string | null>(null);
   const [actionId, setActionId] = useState<string | null>(null);
+
+  const refreshMessages = useCallback(async () => {
+    setMessagesLoading(true);
+    setMessagesError(null);
+    try {
+      const res = await fetch("/api/admin/messages", { cache: "no-store" });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json();
+      const list: AdminConversation[] = Array.isArray(data?.conversations) ? data.conversations : [];
+      setConversations(list);
+      setMessagesError(null);
+      setSelectedUserId((prev) => prev && list.some((conv) => conv.userId === prev) ? prev : (list[0]?.userId ?? null));
+    } catch (error: any) {
+      setMessagesError(error?.message || "Kunne ikke hente meldinger");
+    } finally {
+      setMessagesLoading(false);
+    }
+  }, []);
 
   async function refreshFlags() {
     setFlagsLoading(true);
@@ -45,6 +88,10 @@ export default function AdminPage() {
       setFlagsLoading(false);
     }
   }
+
+  useEffect(() => {
+    refreshMessages();
+  }, [refreshMessages]);
 
   useEffect(() => {
     refreshFlags();
@@ -102,15 +149,220 @@ export default function AdminPage() {
     [flags],
   );
 
+  const unreadMessages = useMemo(
+    () => conversations.reduce((sum, conv) => sum + (conv.unreadForAdmin ?? 0), 0),
+    [conversations],
+  );
+
+  const selectedConversation = useMemo(() => {
+    if (!selectedUserId) return null;
+    return conversations.find((conv) => conv.userId === selectedUserId) || null;
+  }, [conversations, selectedUserId]);
+
+  const markConversationRead = useCallback(async (userId: string) => {
+    try {
+      const res = await fetch("/api/admin/messages", {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ userId, target: "admin" }),
+      });
+      if (res.ok) {
+        const data = await res.json();
+        if (data?.conversation) {
+          setConversations((prev) => {
+            const updated = prev.map((conv) => (conv.userId === userId ? data.conversation : conv));
+            return updated.sort((a, b) => (a.updatedAt < b.updatedAt ? 1 : -1));
+          });
+        }
+      }
+    } catch (error) {
+      console.warn("Kunne ikke markere meldinger som lest", error);
+    }
+  }, []);
+
+  const handleSelectConversation = useCallback((userId: string) => {
+    setSelectedUserId(userId);
+  }, []);
+
+  const handleReply = useCallback(async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (!selectedConversation) return;
+    const trimmed = replyText.trim();
+    if (!trimmed) return;
+    setReplying(true);
+    setMessagesError(null);
+    try {
+      const res = await fetch("/api/admin/messages", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ userId: selectedConversation.userId, message: trimmed }),
+      });
+      if (!res.ok) {
+        const text = await res.text();
+        throw new Error(text || "Kunne ikke sende svar");
+      }
+      const data = await res.json();
+      if (data?.conversation) {
+        setConversations((prev) => {
+          const updated = prev.map((conv) => (conv.userId === data.conversation.userId ? data.conversation : conv));
+          return updated.sort((a, b) => (a.updatedAt < b.updatedAt ? 1 : -1));
+        });
+        setReplyText("");
+        setSelectedUserId(data.conversation.userId);
+      }
+    } catch (error: any) {
+      setMessagesError(error?.message || "Kunne ikke sende svar");
+    } finally {
+      setReplying(false);
+    }
+  }, [replyText, selectedConversation]);
+
+  useEffect(() => {
+    if (!selectedUserId) return;
+    const convo = conversations.find((conv) => conv.userId === selectedUserId);
+    if (convo && convo.unreadForAdmin > 0) {
+      markConversationRead(selectedUserId);
+    }
+  }, [selectedUserId, conversations, markConversationRead]);
+
+  useEffect(() => {
+    setReplyText("");
+  }, [selectedUserId]);
+
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-zinc-950 py-12 px-4">
       <div className="mx-auto w-full max-w-4xl space-y-6">
         <header className="space-y-1">
           <h1 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">Admin</h1>
           <p className="text-sm text-slate-600 dark:text-zinc-300">
-            Gå gjennom flaggede spørsmål og administrer innholdet i RotorReady.
+            Gå gjennom meldinger fra brukere, svar direkte og håndter flaggede spørsmål.
           </p>
         </header>
+
+        <section className="rounded-2xl border border-slate-200 bg-white/90 p-6 shadow-sm backdrop-blur dark:border-zinc-800 dark:bg-zinc-900/80 dark:text-zinc-100 space-y-4">
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <div>
+              <h2 className="text-lg font-semibold text-slate-900 dark:text-white">Meldinger</h2>
+              <p className="text-xs text-slate-500 dark:text-zinc-400">Uleste meldinger: {unreadMessages}</p>
+            </div>
+            <button
+              onClick={refreshMessages}
+              disabled={messagesLoading}
+              className="rounded-lg border border-slate-300 px-3 py-1.5 text-sm font-medium text-slate-700 transition hover:bg-slate-100 disabled:opacity-60 dark:border-zinc-700 dark:text-zinc-200 dark:hover:bg-zinc-800"
+            >
+              Oppdater
+            </button>
+          </div>
+
+          {messagesError && (
+            <div className="rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-700 dark:border-red-500/40 dark:bg-red-900/30 dark:text-red-200">
+              {messagesError}
+            </div>
+          )}
+
+          {messagesLoading ? (
+            <p className="text-sm text-slate-600 dark:text-zinc-300">Laster meldinger…</p>
+          ) : conversations.length === 0 ? (
+            <p className="text-sm text-slate-600 dark:text-zinc-300">Ingen meldinger sendt inn ennå.</p>
+          ) : (
+            <div className="grid gap-4 lg:grid-cols-[260px,1fr]">
+              <div className="space-y-2">
+                {conversations.map((conv) => {
+                  const isSelected = conv.userId === selectedUserId;
+                  const unread = conv.unreadForAdmin ?? 0;
+                  const lastMessage = conv.messages?.[conv.messages.length - 1];
+                  return (
+                    <button
+                      key={conv.userId}
+                      onClick={() => handleSelectConversation(conv.userId)}
+                      className={`w-full rounded-xl border px-4 py-3 text-left transition ${
+                        isSelected
+                          ? "border-blue-500 bg-blue-50 dark:border-blue-500 dark:bg-blue-900/30"
+                          : "border-slate-200 bg-white hover:bg-slate-100 dark:border-zinc-700 dark:bg-zinc-900 dark:hover:bg-zinc-800"
+                      }`}
+                    >
+                      <div className="flex items-center justify-between gap-2">
+                        <div className="font-semibold text-slate-900 dark:text-white truncate">
+                          {conv.userEmail || conv.userId}
+                        </div>
+                        {unread > 0 && (
+                          <span className="inline-flex min-w-[1.5rem] justify-center rounded-full bg-red-600 px-2 py-0.5 text-xs font-semibold text-white">
+                            {unread}
+                          </span>
+                        )}
+                      </div>
+                      {lastMessage && (
+                        <div className="mt-1 text-xs text-slate-500 dark:text-zinc-400 truncate">
+                          {lastMessage.from === "admin" ? "Du: " : "Bruker: "}
+                          {lastMessage.body.slice(0, 60)}{lastMessage.body.length > 60 ? "…" : ""}
+                        </div>
+                      )}
+                      <div className="mt-1 text-xs text-slate-400 dark:text-zinc-500">
+                        {new Date(conv.updatedAt).toLocaleString()}
+                      </div>
+                    </button>
+                  );
+                })}
+              </div>
+              <div className="rounded-xl border border-slate-200 bg-white/80 p-4 shadow-sm dark:border-zinc-700 dark:bg-zinc-900/70">
+                {selectedConversation ? (
+                  <div className="flex h-full flex-col gap-4">
+                    <div>
+                      <div className="text-sm font-semibold text-slate-900 dark:text-white">
+                        {selectedConversation.userEmail || selectedConversation.userId}
+                      </div>
+                      <div className="text-xs text-slate-500 dark:text-zinc-400">
+                        Oppdatert {new Date(selectedConversation.updatedAt).toLocaleString()}
+                      </div>
+                    </div>
+                    <div className="flex-1 space-y-3 overflow-y-auto pr-1">
+                      {selectedConversation.messages.map((msg) => {
+                        const isAdmin = msg.from === "admin";
+                        return (
+                          <div key={msg.id} className={`flex ${isAdmin ? "justify-end" : "justify-start"}`}>
+                            <div
+                              className={`max-w-[80%] rounded-2xl px-4 py-3 text-sm shadow ${
+                                isAdmin
+                                  ? "bg-blue-600 text-white"
+                                  : "bg-slate-200 text-slate-900 dark:bg-zinc-800 dark:text-zinc-100"
+                              }`}
+                            >
+                              <div className="whitespace-pre-wrap leading-relaxed">{msg.body}</div>
+                              <div className={`mt-2 text-xs ${isAdmin ? "text-blue-100" : "text-slate-500 dark:text-zinc-400"}`}>
+                                {isAdmin ? "RotorReady" : "Bruker"} — {new Date(msg.createdAt).toLocaleString()}
+                              </div>
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                    <form onSubmit={handleReply} className="space-y-3">
+                      <textarea
+                        className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100 dark:focus:border-blue-400 dark:focus:ring-blue-900/60"
+                        placeholder="Skriv svaret ditt…"
+                        value={replyText}
+                        onChange={(event) => setReplyText(event.target.value)}
+                        rows={4}
+                        disabled={replying}
+                      />
+                      <div className="flex items-center justify-end gap-2">
+                        <button
+                          type="submit"
+                          disabled={replying || !replyText.trim() || !selectedConversation}
+                          className="rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-blue-700 disabled:opacity-60 dark:bg-blue-500 dark:hover:bg-blue-600"
+                        >
+                          {replying ? "Sender…" : "Send svar"}
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                ) : (
+                  <p className="text-sm text-slate-600 dark:text-zinc-300">Velg en samtale for å lese og svare.</p>
+                )}
+              </div>
+            </div>
+          )}
+        </section>
 
         <section className="rounded-2xl border border-slate-200 bg-white/90 p-6 shadow-sm backdrop-blur dark:border-zinc-800 dark:bg-zinc-900/80 dark:text-zinc-100">
           <div className="flex items-center justify-between gap-3">

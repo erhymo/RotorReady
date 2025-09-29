@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import BackButton from "@/components/BackButton";
 import { auth, db } from "@/lib/firebase/client";
@@ -8,6 +8,25 @@ import { doc, getDoc } from "firebase/firestore";
 
 type Summary = { section: string; total: number; correct: number; percent: number; at: string };
 type WrongSession = { section?: string; createdAt?: string | number; items?: unknown[] };
+
+type ConversationMessage = {
+  id: string;
+  from: "user" | "admin";
+  body: string;
+  createdAt: string;
+  readByAdmin: boolean;
+  readByUser: boolean;
+};
+
+type ConversationThread = {
+  userId: string;
+  userEmail?: string | null;
+  messages: ConversationMessage[];
+  createdAt: string;
+  updatedAt: string;
+  unreadForAdmin: number;
+  unreadForUser: number;
+};
 
 export default function AccountPage() {
   function parseLocalStorage<T>(key: string): T | null {
@@ -79,12 +98,33 @@ export default function AccountPage() {
   const [authChecked, setAuthChecked] = useState(false);
   const [themePref, setThemePref] = useState<'system'|'light'|'dark'>('system');
   const [effectiveTheme, setEffectiveTheme] = useState<'light'|'dark'>('light');
+  const [userUid, setUserUid] = useState<string | null>(null);
+  const [conversation, setConversation] = useState<ConversationThread | null>(null);
+  const [conversationLoading, setConversationLoading] = useState(false);
+  const [conversationError, setConversationError] = useState<string | null>(null);
+  const [messageText, setMessageText] = useState("");
+  const [sendingMessage, setSendingMessage] = useState(false);
 
   const active = useMemo(() => {
     return Object.entries(ents)
       .filter(([, v]) => Boolean(v))
       .map(([k]) => k);
   }, [ents]);
+
+  const loadConversation = useCallback(async (uid: string) => {
+    setConversationLoading(true);
+    setConversationError(null);
+    try {
+      const res = await fetch(`/api/messages?uid=${encodeURIComponent(uid)}`, { cache: "no-store" });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json();
+      setConversation(data?.conversation || null);
+    } catch (error: any) {
+      setConversationError(error?.message || "Kunne ikke laste meldinger");
+    } finally {
+      setConversationLoading(false);
+    }
+  }, []);
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
@@ -139,6 +179,7 @@ export default function AccountPage() {
     const applyState = (user: typeof auth.currentUser, entitlements?: Record<string, unknown>) => {
       if (cancelled) return;
       setEmail(user?.email || null);
+      setUserUid(user?.uid || null);
       setLoggedIn(Boolean(user));
       if (entitlements) {
         setEnts(entitlements as {AW169?:boolean; AW189?:boolean; AW139?:boolean});
@@ -166,6 +207,8 @@ export default function AccountPage() {
         if (!cancelled) {
           setEnts(entitlements as {AW169?:boolean; AW189?:boolean; AW139?:boolean});
         }
+      } else {
+        setConversation(null);
       }
     };
 
@@ -196,6 +239,51 @@ export default function AccountPage() {
       router.replace(`/login?next=${encodeURIComponent("/account")}`);
     }
   }, [authChecked, loggedIn, router]);
+
+  useEffect(() => {
+    if (!userUid) {
+      setConversation(null);
+      return;
+    }
+    loadConversation(userUid).catch(() => {});
+  }, [userUid, loadConversation]);
+
+  const sortedMessages = useMemo(() => {
+    if (!conversation?.messages) return [] as ConversationMessage[];
+    return [...conversation.messages].sort((a, b) => (a.createdAt > b.createdAt ? 1 : -1));
+  }, [conversation]);
+
+  const handleSendMessage = useCallback(async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (!userUid) {
+      setConversationError("Du må være innlogget for å sende meldinger.");
+      return;
+    }
+    const trimmed = messageText.trim();
+    if (!trimmed) return;
+    setSendingMessage(true);
+    setConversationError(null);
+    try {
+      const res = await fetch("/api/messages", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ uid: userUid, email, message: trimmed }),
+      });
+      if (!res.ok) {
+        const text = await res.text();
+        throw new Error(text || "Kunne ikke sende melding");
+      }
+      const data = await res.json();
+      setConversation(data?.conversation || null);
+      setMessageText("");
+    } catch (error: any) {
+      setConversationError(error?.message || "Kunne ikke sende melding");
+    } finally {
+      setSendingMessage(false);
+    }
+  }, [email, messageText, userUid]);
+
+  const unreadUserMessages = conversation?.messages?.filter((msg) => msg.from === "admin" && !msg.readByUser).length ?? 0;
 
   if (!authChecked) {
     return <div className="p-8 text-center text-lg text-slate-700 dark:text-zinc-200">Laster…</div>;
@@ -318,6 +406,81 @@ export default function AccountPage() {
             <button onClick={startWrongOnly} className="px-4 py-2 rounded-lg border bg-slate-900 text-white dark:bg-zinc-900 dark:text-zinc-100">Start</button>
           </div>
         </div>
+      </section>
+
+      <section className="rounded-2xl border border-slate-200 bg-white/90 p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-900/80 dark:text-zinc-100 space-y-6">
+        <div className="flex items-start justify-between gap-3">
+          <div>
+            <h2 className="text-lg font-semibold text-slate-900 dark:text-white">Kontakt RotorReady</h2>
+            <p className="text-sm text-slate-600 dark:text-zinc-300">Still spørsmål eller del tilbakemeldinger direkte med oss.</p>
+            {unreadUserMessages > 0 && (
+              <p className="mt-2 text-sm text-emerald-600 dark:text-emerald-300">
+                {unreadUserMessages} ulest{unreadUserMessages > 1 ? "e" : ""} svar fra oss.
+              </p>
+            )}
+          </div>
+          <button
+            onClick={() => userUid && loadConversation(userUid)}
+            disabled={conversationLoading}
+            className="rounded-lg border border-slate-300 px-3 py-1.5 text-sm font-medium text-slate-700 transition hover:bg-slate-100 disabled:opacity-60 dark:border-zinc-700 dark:text-zinc-200 dark:hover:bg-zinc-800"
+          >
+            Oppdater
+          </button>
+        </div>
+
+        {conversationError && (
+          <div className="rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-700 dark:border-red-500/40 dark:bg-red-900/30 dark:text-red-200">
+            {conversationError}
+          </div>
+        )}
+
+        {conversationLoading ? (
+          <p className="text-sm text-slate-600 dark:text-zinc-300">Laster meldinger…</p>
+        ) : sortedMessages.length === 0 ? (
+          <p className="text-sm text-slate-600 dark:text-zinc-300">Ingen meldinger ennå. Send oss en tilbakemelding nedenfor.</p>
+        ) : (
+          <div className="space-y-3 max-h-80 overflow-y-auto pr-1">
+            {sortedMessages.map((msg) => {
+              const isAdmin = msg.from === "admin";
+              return (
+                <div key={msg.id} className={`flex ${isAdmin ? "justify-end" : "justify-start"}`}>
+                  <div
+                    className={`max-w-[80%] rounded-2xl px-4 py-3 text-sm shadow ${
+                      isAdmin
+                        ? "bg-blue-600 text-white"
+                        : "bg-slate-200 text-slate-900 dark:bg-zinc-800 dark:text-zinc-100"
+                    }`}
+                  >
+                    <div className="whitespace-pre-wrap leading-relaxed">{msg.body}</div>
+                    <div className={`mt-2 text-xs ${isAdmin ? "text-blue-100" : "text-slate-500 dark:text-zinc-400"}`}>
+                      {isAdmin ? "RotorReady" : "Deg"} — {new Date(msg.createdAt).toLocaleString()}
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        )}
+
+        <form onSubmit={handleSendMessage} className="space-y-3">
+          <textarea
+            className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100 dark:focus:border-blue-400 dark:focus:ring-blue-900/60"
+            placeholder="Skriv meldingen din…"
+            value={messageText}
+            onChange={(event) => setMessageText(event.target.value)}
+            minLength={1}
+            rows={4}
+          />
+          <div className="flex items-center justify-end">
+            <button
+              type="submit"
+              disabled={sendingMessage || !messageText.trim()}
+              className="rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-blue-700 disabled:opacity-60 dark:bg-blue-500 dark:hover:bg-blue-600"
+            >
+              {sendingMessage ? "Sender…" : "Send melding"}
+            </button>
+          </div>
+        </form>
       </section>
     </div>
   );

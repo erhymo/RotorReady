@@ -57,7 +57,11 @@ function ensureStore(): MessageStore {
 }
 
 function writeStore(store: MessageStore) {
-  fs.writeFileSync(FILE, JSON.stringify(store, null, 2));
+  try {
+    fs.writeFileSync(FILE, JSON.stringify(store, null, 2));
+  } catch (error) {
+    throw new Error(`Failed to write messages store: ${(error as Error).message}`);
+  }
 }
 
 function findConversation(store: MessageStore, userId: string) {

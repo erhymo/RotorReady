@@ -31,10 +31,15 @@ export async function POST(req: Request) {
   if (!trimmed) {
     return NextResponse.json({ error: "Empty message" }, { status: 400 });
   }
-  const conversation = upsertUserMessage({
-    userId: body.uid,
-    userEmail: body.email,
-    body: trimmed,
-  });
-  return NextResponse.json({ conversation });
+  try {
+    const conversation = upsertUserMessage({
+      userId: body.uid,
+      userEmail: body.email,
+      body: trimmed,
+    });
+    return NextResponse.json({ conversation });
+  } catch (error: any) {
+    console.error("Could not store user message", error);
+    return NextResponse.json({ error: error?.message || "Failed to store message" }, { status: 500 });
+  }
 }

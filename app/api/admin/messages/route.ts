@@ -25,8 +25,13 @@ export async function POST(req: Request) {
   if (!trimmed) {
     return NextResponse.json({ error: "Empty message" }, { status: 400 });
   }
-  const conversation = upsertAdminMessage({ userId: body.userId, body: trimmed });
-  return NextResponse.json({ conversation });
+  try {
+    const conversation = upsertAdminMessage({ userId: body.userId, body: trimmed });
+    return NextResponse.json({ conversation });
+  } catch (error: any) {
+    console.error("Could not store admin reply", error);
+    return NextResponse.json({ error: error?.message || "Failed to send reply" }, { status: 500 });
+  }
 }
 
 export async function PATCH(req: Request) {
@@ -37,6 +42,11 @@ export async function PATCH(req: Request) {
   if (!body?.userId) {
     return NextResponse.json({ error: "Missing userId" }, { status: 400 });
   }
-  const conversation = markRead({ userId: body.userId, target: body.target || "admin" });
-  return NextResponse.json({ conversation });
+  try {
+    const conversation = markRead({ userId: body.userId, target: body.target || "admin" });
+    return NextResponse.json({ conversation });
+  } catch (error: any) {
+    console.error("Could not mark conversation as read", error);
+    return NextResponse.json({ error: error?.message || "Failed to update conversation" }, { status: 500 });
+  }
 }

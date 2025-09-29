@@ -9,7 +9,10 @@ export async function loadAllQuestions(): Promise<any[]> {
     const r = await fetch(`/quiz-data/all-questions/${file}`);
     if (r.ok) {
       const items = await r.json();
-      if (Array.isArray(items)) all.push(...items);
+      if (Array.isArray(items)) {
+        const withSource = items.map((item) => ({ ...item, __file: file }));
+        all.push(...withSource);
+      }
     }
   }
   // Deduplicate by id

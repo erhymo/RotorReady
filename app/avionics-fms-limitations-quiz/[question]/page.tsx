@@ -2,6 +2,8 @@
 import * as React from "react";
 import { useParams, useRouter } from "next/navigation";
 
+import { reportFlag } from "@/lib/flags";
+
 type Item = {
   id: string;
   section: string;
@@ -12,6 +14,7 @@ type Item = {
   explanation?: string;
   references?: string[];
   printedPage?: number;
+  __file?: string;
 };
 
 type Session = {
@@ -107,8 +110,25 @@ export default function AvionicsQuestionPage() {
     const current = loadSession();
     if (!current) return;
     current.flags[idx] = !current.flags[idx];
+    const nowFlagged = current.flags[idx];
     saveSession(current);
     setSession({ ...current });
+    if (nowFlagged) {
+      reportFlag({
+        section: current.section,
+        sectionId: "avionics_fms_limitations",
+        questionId: item.id,
+        dataSource: "sections",
+        dataFile: "avionics_fms_limitations.json",
+        snapshot: {
+          question: item.question,
+          options: item.options,
+          explanation: item.explanation,
+          references: item.references,
+          answer: item.answer,
+        },
+      });
+    }
   }
 
   function next() {

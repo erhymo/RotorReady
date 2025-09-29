@@ -8,7 +8,17 @@ const FILE = path.join(process.cwd(), "public", "quiz-data", "flags.json");
 type Flag = {
   id: string;
   section: string;
+  sectionId?: string;
   questionId: string;
+  dataSource?: "sections" | "all-questions";
+  dataFile?: string | null;
+  snapshot?: {
+    question?: string;
+    options?: string[];
+    explanation?: string;
+    references?: string[];
+    answer?: number[];
+  };
   reason?: string;
   userId: string; // 'guest' eller faktisk id senere
   createdAt: string;
@@ -27,13 +37,19 @@ export async function POST(req: Request) {
     try { arr = JSON.parse(fs.readFileSync(FILE, "utf-8")).flags ?? []; } catch {}
   }
   const flag: Flag = {
-    id, section: payload.section, questionId: payload.questionId,
+    id,
+    section: payload.section,
+    sectionId: payload.sectionId,
+    questionId: payload.questionId,
+    dataSource: payload.dataSource || "sections",
+    dataFile: payload.dataFile ?? null,
+    snapshot: payload.snapshot,
     reason: (payload.reason || "").slice(0, 400),
     userId: (payload.userId || "guest"),
-    createdAt: now, status: "open"
+    createdAt: now,
+    status: "open",
   };
   const out = { flags: [flag, ...arr] };
   fs.writeFileSync(FILE, JSON.stringify(out, null, 2));
   return NextResponse.json({ ok: true, id });
 }
-

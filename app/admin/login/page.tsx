@@ -21,14 +21,32 @@ export default function AdminLoginPage() {
   }
 
   return (
-    <div className="max-w-sm mx-auto p-6">
-      <h1 className="text-2xl font-bold mb-4">Admin Login</h1>
-      <form onSubmit={handleLogin} className="space-y-3">
-        <input className="w-full border rounded px-3 py-2" placeholder="Brukernavn" value={username} onChange={e=>setUsername(e.target.value)} />
-        <input className="w-full border rounded px-3 py-2" placeholder="Passord" type="password" value={password} onChange={e=>setPassword(e.target.value)} />
-        {error && <div className="text-sm text-red-600">{error}</div>}
-        <button className="w-full rounded bg-blue-600 text-white py-2 font-medium">Logg inn</button>
-      </form>
+    <div className="min-h-screen bg-slate-50 py-16 px-4 dark:bg-zinc-950">
+      <div className="mx-auto w-full max-w-sm rounded-2xl border border-slate-200 bg-white/90 p-6 shadow-lg backdrop-blur dark:border-zinc-800 dark:bg-zinc-900/80 dark:text-zinc-100">
+        <h1 className="text-2xl font-bold mb-4 text-slate-900 dark:text-white">Admin Login</h1>
+        <form onSubmit={handleLogin} className="space-y-3">
+          <input
+            className="w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-slate-900 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100 dark:focus:border-blue-400 dark:focus:ring-blue-900/60"
+            placeholder="Brukernavn"
+            value={username}
+            onChange={e=>setUsername(e.target.value)}
+            autoComplete="username"
+          />
+          <input
+            className="w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-slate-900 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100 dark:focus:border-blue-400 dark:focus:ring-blue-900/60"
+            placeholder="Passord"
+            type="password"
+            value={password}
+            onChange={e=>setPassword(e.target.value)}
+            autoComplete="current-password"
+          />
+          {error && <div className="text-sm text-red-600 dark:text-red-400">{error}</div>}
+          <button className="w-full rounded-lg bg-blue-600 py-2 font-medium text-white transition hover:bg-blue-700 dark:bg-blue-500 dark:text-white dark:hover:bg-blue-600">Logg inn</button>
+        </form>
+        <p className="mt-4 text-xs text-slate-500 dark:text-zinc-400">
+          Standard brukernavn: <span className="font-mono">{ADMIN_USERNAME}</span>
+        </p>
+      </div>
     </div>
   );
 }

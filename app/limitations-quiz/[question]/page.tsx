@@ -2,6 +2,8 @@
 import * as React from "react";
 import { useParams, useRouter } from "next/navigation";
 
+import { reportFlag } from "@/lib/flags";
+
 type Item = {
   id: string;
   section: string;
@@ -12,6 +14,7 @@ type Item = {
   explanation?: string;
   references?: string[];
   printedPage?: number;
+  __file?: string;
 };
 type Session = { section: string; createdAt: string; items: Item[]; answers: Array<number|null>; flags: boolean[] };
 
@@ -66,7 +69,24 @@ export default function QuestionPage() {
   function toggleFlag() {
     const s = loadSession(); if (!s) return;
     s.flags[idx] = !s.flags[idx];
+    const nowFlagged = s.flags[idx];
     saveSession(s); setSession({ ...s });
+    if (nowFlagged) {
+      reportFlag({
+        section: s.section,
+        sectionId: "limitations",
+        questionId: item.id,
+        dataSource: "all-questions",
+        dataFile: item.__file || null,
+        snapshot: {
+          question: item.question,
+          options: item.options,
+          explanation: item.explanation,
+          references: item.references,
+          answer: item.answer,
+        },
+      });
+    }
   }
   function next() {
     if (idx + 1 >= total) router.push("/limitations-quiz/result");
@@ -99,15 +119,18 @@ export default function QuestionPage() {
   <ul className="mt-3 space-y-2">
           {item.options.map((opt, i) => {
             const chosen = selected === i;
-            const correct = selected != null && item.answer.includes(i);
-            const wrongChoice = chosen && !correct;
+            const isAnswered = selected != null;
+            const isCorrect = isAnswered && item.answer.includes(i);
+            const isWrong = isAnswered && chosen && !isCorrect;
+            // Marker riktig svar grønt hvis man har svart feil
+            const highlightCorrect = isAnswered && !item.answer.includes(selected!) && item.answer.includes(i);
             return (
               <li key={i}>
                 <button onClick={() => choose(i)}
                   className={`w-full text-left px-4 py-3 rounded-lg border active:scale-[0.99] transition
                     ${chosen ? "ring-1 dark:ring-zinc-400" : ""}
-                    ${correct ? "bg-green-50 border-green-400 dark:bg-green-900 dark:border-green-600 dark:text-zinc-100" : ""}
-                    ${wrongChoice ? "bg-red-50 border-red-400 dark:bg-red-900 dark:border-red-600 dark:text-zinc-100" : "border-gray-200 bg-white dark:bg-zinc-900 dark:border-zinc-700 dark:text-zinc-100"}`}>
+                    ${(isCorrect || highlightCorrect) ? "bg-green-50 border-green-400 dark:bg-green-900 dark:border-green-600 dark:text-zinc-100" : ""}
+                    ${isWrong ? "bg-red-50 border-red-400 dark:bg-red-900 dark:border-red-600 dark:text-zinc-100" : "border-gray-200 bg-white dark:bg-zinc-900 dark:border-zinc-700 dark:text-zinc-100"}`}>
                   <span className="mr-2 text-xs text-gray-500 dark:text-zinc-400">{i+1}.</span>{opt}
                 </button>
               </li>
@@ -116,7 +139,12 @@ export default function QuestionPage() {
         </ul>
         {selected != null && (
           <div className="mt-3 text-sm text-gray-600 dark:text-zinc-300">
-            {isCorrect ? "Correct ✅" : "Incorrect ❌"} {item.explanation ? `– ${item.explanation}` : ""}
+            {isCorrect ? "Correct ✅" : "Incorrect ❌"}
+            {item.explanation
+              ? `– ${item.explanation}`
+              : !isCorrect && item.answer.length >= 1 && item.answer.map(idx => item.options[idx]).join(', ')
+                ? ` – Correct answer: ${item.answer.map(idx => item.options[idx]).join(', ')}`
+                : ""}
             {(item.references || item.printedPage) ? (
               <div className="text-xs text-gray-500 mt-1 dark:text-zinc-400">
                 Refs: {Array.isArray(item.references) ? item.references.join(", ") : String(item.references || "")}

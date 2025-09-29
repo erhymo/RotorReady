@@ -2,6 +2,8 @@
 import * as React from "react";
 import { useParams, useRouter } from "next/navigation";
 
+import { reportFlag } from "@/lib/flags";
+
 // Samme type som limitations, men bruker engineq_session
 
 type Item = {
@@ -14,6 +16,7 @@ type Item = {
   explanation?: string;
   references?: string[];
   printedPage?: number;
+  __file?: string;
 };
 type Session = { section: string; createdAt: string; items: Item[]; answers: Array<number|null>; flags: boolean[]; error?: string };
 
@@ -81,7 +84,24 @@ export default function EngineQuestionPage() {
   function toggleFlag() {
     const s = loadSession(); if (!s) return;
     s.flags[idx] = !s.flags[idx];
+    const nowFlagged = s.flags[idx];
     saveSession(s); setSession({ ...s });
+    if (nowFlagged) {
+      reportFlag({
+        section: s.section,
+        sectionId: "engine-systems",
+        questionId: item.id,
+        dataSource: "all-questions",
+        dataFile: item.__file || null,
+        snapshot: {
+          question: item.question,
+          options: item.options,
+          explanation: item.explanation,
+          references: item.references,
+          answer: item.answer,
+        },
+      });
+    }
   }
   function next() {
     if (idx + 1 >= total) router.push("/engine-systems-quiz/result");
@@ -125,7 +145,12 @@ export default function EngineQuestionPage() {
         </ul>
         {selected != null && (
           <div className="mt-3 text-sm text-gray-600 dark:text-zinc-300">
-            {isCorrect ? "Riktig ✅" : "Feil ❌"} {item.explanation ? `– ${item.explanation}` : ""}
+            {isCorrect ? "Riktig ✅" : "Feil ❌"}
+            {item.explanation
+              ? `– ${item.explanation}`
+              : !isCorrect && item.answer.length === 1 && item.options[item.answer[0]]
+                ? ` – Riktig svar: ${item.options[item.answer[0]]}`
+                : ""}
             {(item.references || item.printedPage) ? (
               <div className="text-xs text-gray-500 dark:text-zinc-400 mt-1">
                 Refs: {Array.isArray(item.references) ? item.references.join(", ") : String(item.references || "")}

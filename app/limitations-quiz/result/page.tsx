@@ -73,7 +73,7 @@ export default function ResultPage() {
   return (
     <div className="max-w-2xl mx-auto p-4 space-y-4">
   <h1 className="text-2xl font-bold text-blue-700 dark:text-blue-300 drop-shadow">Resultat</h1>
-  <div className="rounded-xl border-l-4 border-blue-600 bg-blue-50/40 dark:border-blue-400 dark:bg-gradient-to-r dark:from-blue-900 dark:to-blue-800/80 p-4 shadow-lg">
+  <div className="rounded-xl border-l-4 border-blue-600 bg-blue-50/40 dark:border-blue-400 dark:bg-gradient-to-r dark:from-blue-900 dark:to-blue-800/80 p-4 shadow-lg dark:text-white">
         <div>Besvarte: <b>{total}</b></div>
         <div>Riktige: <b>{correct}</b></div>
         <div>Prosent: <b>{Math.round((correct/total)*100)}%</b></div>
@@ -84,9 +84,9 @@ export default function ResultPage() {
         <Link href="/" className="px-4 py-2 rounded-lg bg-emerald-600 text-white">Forside</Link>
       </div>
 
-  <div className="rounded-xl border-l-4 border-emerald-600 bg-emerald-50/40 dark:border-emerald-400 dark:bg-gradient-to-r dark:from-emerald-900 dark:to-emerald-800/80 p-4 shadow-lg">
+  <div className="rounded-xl border-l-4 border-emerald-600 bg-emerald-50/40 dark:border-emerald-400 dark:bg-gradient-to-r dark:from-emerald-900 dark:to-emerald-800/80 p-4 shadow-lg dark:text-white">
         <div className="font-semibold mb-2">Neste steg</div>
-        <ul className="list-disc ml-5 text-sm">
+        <ul className="list-disc ml-5 text-sm text-slate-700 dark:text-emerald-100">
           <li>Gå til <b>Limitations</b> og trykk <b>“Øv kun på feil”</b> for målrettet trening.</li>
           <li>Se progresjon under <b>Min side</b> (30-dagers oversikt kommer i sync-versjonen).</li>
         </ul>

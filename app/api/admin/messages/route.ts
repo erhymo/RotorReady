@@ -4,12 +4,12 @@ import {
   listConversations,
   markRead,
   upsertAdminMessage,
-} from "@/lib/server/messagesStore";
+} from "@/lib/server/messages/firestoreMessagesStore";
 
 export const runtime = "nodejs";
 
 export async function GET() {
-  const conversations = listConversations();
+  const conversations = await listConversations();
   return NextResponse.json({ conversations });
 }
 
@@ -26,7 +26,7 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "Empty message" }, { status: 400 });
   }
   try {
-    const conversation = upsertAdminMessage({ userId: body.userId, body: trimmed });
+    const conversation = await upsertAdminMessage({ userId: body.userId, body: trimmed });
     return NextResponse.json({ conversation });
   } catch (error: any) {
     console.error("Could not store admin reply", error);
@@ -43,7 +43,7 @@ export async function PATCH(req: Request) {
     return NextResponse.json({ error: "Missing userId" }, { status: 400 });
   }
   try {
-    const conversation = markRead({ userId: body.userId, target: body.target || "admin" });
+    const conversation = await markRead({ userId: body.userId, target: body.target || "admin" });
     return NextResponse.json({ conversation });
   } catch (error: any) {
     console.error("Could not mark conversation as read", error);

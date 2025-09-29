@@ -4,7 +4,7 @@ import {
   getConversation,
   markRead,
   upsertUserMessage,
-} from "@/lib/server/messagesStore";
+} from "@/lib/server/messages/firestoreMessagesStore";
 
 export const runtime = "nodejs";
 
@@ -14,7 +14,7 @@ export async function GET(req: Request) {
   if (!userId) {
     return NextResponse.json({ error: "Missing uid" }, { status: 400 });
   }
-  const conversation = markRead({ userId, target: "user" }) || getConversation(userId);
+  const conversation = await markRead({ userId, target: "user" }) || await getConversation(userId);
   return NextResponse.json({ conversation: conversation || null });
 }
 
@@ -32,7 +32,7 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "Empty message" }, { status: 400 });
   }
   try {
-    const conversation = upsertUserMessage({
+    const conversation = await upsertUserMessage({
       userId: body.uid,
       userEmail: body.email,
       body: trimmed,

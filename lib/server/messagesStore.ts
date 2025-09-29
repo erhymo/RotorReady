@@ -1,6 +1,6 @@
 import fs from "fs";
 import path from "path";
-import crypto from "crypto";
+import { randomUUID } from "crypto";
 
 const FILE = path.join(process.cwd(), "public", "quiz-data", "messages.json");
 
@@ -82,7 +82,7 @@ export function upsertUserMessage({
   const now = new Date().toISOString();
   let conversation = findConversation(store, userId);
   const message: ConversationMessage = {
-    id: crypto.randomUUID(),
+    id: randomUUID(),
     from: "user",
     body,
     createdAt: now,
@@ -125,7 +125,7 @@ export function upsertAdminMessage({
   const now = new Date().toISOString();
   let conversation = findConversation(store, userId);
   const message: ConversationMessage = {
-    id: crypto.randomUUID(),
+    id: randomUUID(),
     from: "admin",
     body,
     createdAt: now,

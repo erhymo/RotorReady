@@ -1,7 +1,6 @@
 import Link from "next/link";
 import ClientUserMenu from "./ClientUserMenu";
 import ClientActiveModelBadge from "./ClientActiveModelBadge";
-import ThemeToggleButton from "./ThemeToggleButton";
 
 
 export default function Header() {
@@ -40,11 +39,6 @@ export default function Header() {
 
         {/* Active model indicator */}
         <ClientActiveModelBadge />
-
-        {/* Mobile-only theme toggle to keep manual switch available */}
-        <div className="ml-auto md:hidden">
-          <ThemeToggleButton />
-        </div>
 
         {/* Right-side nav (hidden on mobile to avoid horizontal scroll) */}
         <nav className="ml-auto hidden md:flex items-center gap-4 text-sm">

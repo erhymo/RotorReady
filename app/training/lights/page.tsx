@@ -72,6 +72,7 @@ function pickFirstBranchPair(steps: ProcedureStep[]) {
 export default function LightsTrainer() {
   const router = useRouter();
   const { variant: activeVariant } = useActiveModelVariant();
+  const isH125 = activeVariant.productId === "H125";
   const [all, setAll] = useState<LightItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [mode, setMode] = useState<Mode>("idle");
@@ -192,7 +193,7 @@ export default function LightsTrainer() {
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      if (mode === "idle" && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); start(); }
+      if (mode === "idle" && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); start("warning"); }
       else if (mode === "light" && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); reveal(); }
       else if (mode === "procedure" && e.key === "ArrowRight") { e.preventDefault(); next(); }
       else if ((mode === "procedure" || mode === "light") && e.key === "ArrowLeft") { e.preventDefault(); prev(); }
@@ -212,9 +213,10 @@ export default function LightsTrainer() {
         <div className="mx-auto max-w-3xl px-6 py-3 flex items-center justify-between gap-3">
           <div className="flex items-center gap-3">
             <div
-              className={`rounded-lg px-3 py-1.5 font-semibold ring-2 ${pal.bg} ${pal.text} ${pal.ring}`}
+              className="inline-flex items-center rounded-full border bg-white/90 dark:bg-zinc-900/80 border-slate-300 dark:border-zinc-700 px-2.5 py-1 text-sm font-medium text-slate-900 dark:text-zinc-100"
               title={current.system || ""}
             >
+              <span className={`${current.severity === "warning" ? "bg-red-500" : "bg-amber-500"} mr-2 inline-block h-2 w-2 rounded-full`} aria-hidden />
               {current.name}
             </div>
             {current.system && <div className="text-xs opacity-70 uppercase tracking-wide dark:text-zinc-300">{current.system}</div>}
@@ -226,42 +228,42 @@ export default function LightsTrainer() {
   }, [current, deck.length, idx, mode]);
 
   function StepCard({ step }: { step: ProcedureStep }) {
-  const base = "rounded-xl p-4 whitespace-pre-wrap leading-relaxed dark:bg-zinc-900/90 dark:text-zinc-100";
+  const base = "rounded-xl p-4 whitespace-pre-wrap leading-relaxed text-[15px] md:text-[16px] dark:bg-zinc-900/80 dark:text-zinc-100";
     switch (step.type) {
       case "action":
-        return <div className={`${base} border dark:border-zinc-700 dark:bg-zinc-900/90 dark:text-zinc-100`}>{step.text}</div>;
+        return <div className={`${base} border dark:border-zinc-600 dark:bg-zinc-900/80 dark:text-zinc-100`}>{step.text}</div>;
       case "note":
-        return <div className={`${base} border-l-4 border-blue-500/70 bg-blue-50 dark:bg-zinc-900/90 dark:text-zinc-100`}>{step.text}</div>;
+        return <div className={`${base} border-l-4 border-blue-500/60 bg-blue-50 dark:bg-zinc-900/70 dark:text-zinc-100`}>{step.text}</div>;
       case "caution":
-        return <div className={`${base} border-l-4 border-amber-500/70 bg-amber-50 dark:bg-zinc-900/90 dark:text-zinc-100`}><div className="font-semibold mb-1">CAUTION</div>{step.text}</div>;
+        return <div className={`${base} border-l-4 border-amber-500/60 bg-amber-50 dark:bg-zinc-900/70 dark:text-zinc-100`}><div className="font-semibold mb-1">CAUTION</div>{step.text}</div>;
       case "warning":
-        return <div className={`${base} border-l-4 border-red-600/70 bg-red-50 dark:bg-zinc-900/90 dark:text-zinc-100`}><div className="font-semibold mb-1">WARNING</div>{step.text}</div>;
+        return <div className={`${base} border-l-4 border-red-600/60 bg-red-50 dark:bg-zinc-900/70 dark:text-zinc-100`}><div className="font-semibold mb-1">WARNING</div>{step.text}</div>;
       case "branch":
         return (
-          <div className={`${base} border-dashed border dark:border-zinc-700 dark:bg-zinc-900/90 dark:text-zinc-100`}>
+          <div className={`${base} border-dashed border dark:border-zinc-600 dark:bg-zinc-900/80 dark:text-zinc-100`}>
             {step.heading && <div className="font-semibold mb-1">{step.heading}</div>}
             {step.text}
           </div>
         );
       default:
-        return <div className={`${base} border dark:border-zinc-700 dark:bg-zinc-900/90 dark:text-zinc-100`}>{(step as any).text}</div>;
+        return <div className={`${base} border dark:border-zinc-600 dark:bg-zinc-900/80 dark:text-zinc-100`}>{(step as any).text}</div>;
     }
   }
 
   function ProcedureLikePDF({ item }: { item: LightItem }) {
     if (item.pageImage) {
       return (
-        <figure className="rounded-2xl border bg-white shadow dark:bg-zinc-900 dark:border-zinc-700 p-4">
+        <figure className="rounded-2xl border bg-white shadow dark:bg-zinc-900/80 dark:border-zinc-600 p-4">
           <div className="relative overflow-hidden rounded-xl">
             <Image
               src={item.pageImage}
               alt={item.name}
               width={1200}
               height={1600}
-              className="w-full h-auto transition dark:brightness-[0.8]"
+              className="w-full h-auto transition dark:brightness-[0.92]"
               priority
             />
-            <div className="pointer-events-none absolute inset-0 hidden dark:block bg-black/35" />
+            <div className="pointer-events-none absolute inset-0 hidden dark:block bg-black/15" />
           </div>
           {item.references?.length ? (
             <figcaption className="mt-3 text-xs text-slate-500 dark:text-zinc-400">
@@ -284,7 +286,7 @@ export default function LightsTrainer() {
           </section>
         )}
         {actions.length > 0 && (
-          <section className="rounded-xl border-4 border-black dark:border-zinc-700 dark:bg-zinc-900/90 p-0 overflow-hidden">
+          <section className="rounded-xl border-2 border-black dark:border-zinc-600 dark:bg-zinc-900/80 p-0 overflow-hidden">
             <table className="w-full text-[15px]">
               <tbody>
                 {actions.map((a, i) => (
@@ -313,7 +315,7 @@ export default function LightsTrainer() {
                 <div className="flex justify-center">
                   <div className="h-6 w-px bg-black dark:bg-zinc-100" />
                 </div>
-                <div className="mt-3 rounded-xl border p-4 bg-white dark:bg-blue-900/40 dark:text-white dark:border-blue-400">
+                <div className="mt-3 rounded-xl border p-4 bg-white dark:bg-blue-900/20 dark:text-white dark:border-blue-300">
                   {pair.left.heading && <div className="font-semibold mb-1">{pair.left.heading}</div>}
                   <div className="whitespace-pre-wrap">{pair.left.text}</div>
                 </div>
@@ -322,7 +324,7 @@ export default function LightsTrainer() {
                 <div className="flex justify-center">
                   <div className="h-6 w-px bg-black dark:bg-zinc-100" />
                 </div>
-                <div className="mt-3 rounded-xl border p-4 bg-white dark:bg-blue-900/40 dark:text-white dark:border-blue-400">
+                <div className="mt-3 rounded-xl border p-4 bg-white dark:bg-blue-900/20 dark:text-white dark:border-blue-300">
                   {pair.right.heading && <div className="font-semibold mb-1">{pair.right.heading}</div>}
                   <div className="whitespace-pre-wrap">{pair.right.text}</div>
                 </div>
@@ -337,7 +339,7 @@ export default function LightsTrainer() {
           <section className="space-y-2">
             <div className="text-sm font-semibold opacity-80">Notes</div>
             {item.notes.map((n, i) => (
-              <div key={`${item.id}-noteB-${i}`} className="rounded-xl border bg-neutral-50 dark:bg-blue-900/40 dark:text-zinc-100 dark:border-blue-400 p-4 whitespace-pre-wrap">
+              <div key={`${item.id}-noteB-${i}`} className="rounded-xl border bg-neutral-50 dark:bg-blue-900/20 dark:text-zinc-100 dark:border-blue-300 p-4 whitespace-pre-wrap">
                 {n}
               </div>
             ))}
@@ -358,15 +360,18 @@ export default function LightsTrainer() {
       <main className="mx-auto max-w-3xl p-6 space-y-6">
         {mode === "idle" && (
           <div className="space-y-6">
-            <section className="space-y-6 rounded-xl border-l-4 border-red-500 bg-red-600 p-8">
-              <h1 className="text-2xl font-semibold text-white">Red Warning Lights – Trainer</h1>
-              <p className="opacity-90 text-red-100">Select the number of random red lights and press <b>Start</b>.</p>
+            <section className="space-y-4 rounded-xl border bg-white p-6 shadow-sm dark:bg-zinc-900 dark:border-zinc-700">
+              <div className="flex items-center gap-2">
+                <span className="inline-block h-2.5 w-2.5 rounded-full bg-red-600" aria-hidden />
+                <h1 className="text-xl font-semibold text-slate-900 dark:text-zinc-100">Red Warning Lights – Trainer</h1>
+              </div>
+              <p className="text-sm text-slate-600 dark:text-zinc-300">Select the number of random red lights and press <b>Start</b>.</p>
               <div className="flex flex-wrap items-center gap-3">
-                <label className="text-sm opacity-90 text-red-100">Amount:</label>
+                <label className="text-sm text-slate-600 dark:text-zinc-300">Amount:</label>
                 <select
                   value={pickCounts.warning}
                   onChange={(e) => setPickCounts((prev) => ({ ...prev, warning: e.target.value === "all" ? "all" : Number(e.target.value) }))}
-                  className="rounded-lg border px-3 py-2 bg-red-500/70 text-white border-red-200"
+                  className="rounded-md border px-3 py-2 bg-white text-slate-900 border-slate-300 dark:bg-zinc-900 dark:text-zinc-100 dark:border-zinc-700"
                 >
                   <option value={10}>10</option>
                   <option value={20}>20</option>
@@ -376,27 +381,30 @@ export default function LightsTrainer() {
                 <button
                   onClick={() => start("warning")}
                   disabled={loading || !warningLights.length}
-                  className="rounded-lg px-5 py-2 bg-white text-red-700 font-semibold disabled:opacity-40"
+                  className="rounded-md px-4 py-2 bg-red-600 text-white font-medium disabled:opacity-40"
                 >
                   {loading ? "Loading…" : `Start (${warningLights.length} available)`}
                 </button>
               </div>
               {!warningLights.length && !loading && (
-                <div className="text-sm opacity-90 text-red-100">
+                <div className="text-sm text-slate-600 dark:text-zinc-300">
                   No red lights found for the selected model.
                 </div>
               )}
             </section>
 
-            <section className="space-y-6 rounded-xl border-l-4 border-amber-500 bg-amber-100 dark:bg-amber-500/10 p-8">
-              <h2 className="text-2xl font-semibold text-amber-700 dark:text-amber-300">Yellow Caution Lights – Trainer</h2>
-              <p className="text-amber-800/80 dark:text-amber-200/80">Train on caution lights with the same workflow.</p>
+            <section className="space-y-4 rounded-xl border bg-white p-6 shadow-sm dark:bg-zinc-900 dark:border-zinc-700">
+              <div className="flex items-center gap-2">
+                <span className="inline-block h-2.5 w-2.5 rounded-full bg-amber-500" aria-hidden />
+                <h2 className="text-xl font-semibold text-slate-900 dark:text-zinc-100">Yellow Caution Lights – Trainer</h2>
+              </div>
+              <p className="text-sm text-slate-600 dark:text-zinc-300">Train on caution lights with the same workflow.</p>
               <div className="flex flex-wrap items-center gap-3">
-                <label className="text-sm text-amber-800/80 dark:text-amber-200/80">Amount:</label>
+                <label className="text-sm text-slate-600 dark:text-zinc-300">Amount:</label>
                 <select
                   value={pickCounts.caution}
                   onChange={(e) => setPickCounts((prev) => ({ ...prev, caution: e.target.value === "all" ? "all" : Number(e.target.value) }))}
-                  className="rounded-lg border px-3 py-2 bg-amber-50 text-amber-800 border-amber-400 dark:bg-zinc-900/60 dark:text-amber-200 dark:border-amber-500"
+                  className="rounded-md border px-3 py-2 bg-white text-slate-900 border-slate-300 dark:bg-zinc-900 dark:text-zinc-100 dark:border-zinc-700"
                 >
                   <option value={10}>10</option>
                   <option value={20}>20</option>
@@ -406,13 +414,13 @@ export default function LightsTrainer() {
                 <button
                   onClick={() => start("caution")}
                   disabled={loading || !cautionLights.length}
-                  className="rounded-lg px-5 py-2 bg-amber-500 text-amber-950 font-semibold disabled:opacity-40 dark:bg-amber-400 dark:text-zinc-900"
+                  className="rounded-md px-4 py-2 bg-amber-500 text-amber-950 font-medium disabled:opacity-40 dark:bg-amber-400 dark:text-zinc-900"
                 >
                   {loading ? "Loading…" : `Start (${cautionLights.length} available)`}
                 </button>
               </div>
               {!cautionLights.length && !loading && (
-                <div className="text-sm text-amber-800/70 dark:text-amber-200/70">
+                <div className="text-sm text-slate-600 dark:text-zinc-300">
                   No caution lights found for the selected model.
                 </div>
               )}
@@ -427,22 +435,31 @@ export default function LightsTrainer() {
               title="Click to show procedure"
             >
               <div className="mb-3 text-sm opacity-90 text-gray-600 dark:text-zinc-100">Click the light to show the procedure</div>
-              <div className={`flex items-center gap-4 rounded-2xl p-5 ring-2 ${COLORS[current.severity].bg} ${COLORS[current.severity].text} ${COLORS[current.severity].ring}`}>
-                {current.icon && (
-                  <Image
-                    src={current.icon}
-                    alt={current.name}
-                    width={56}
-                    height={56}
-                    className="h-14 w-14 object-contain rounded-md bg-white/10"
-                    unoptimized
-                  />
-                )}
-                <div className="flex-1">
-                  <div className="text-xl font-semibold text-white">{current.name}</div>
-                  {current.description && <div className="opacity-90 mt-0.5 text-white">{current.description}</div>}
+              {isH125 ? (
+                <div className="flex justify-center">
+                  <div className="w-[min(20rem,100%)] rounded-md bg-black p-4 h-20 grid place-items-center shadow-inner ring-1 ring-white/10">
+                    <div className={`${current.severity === "warning" ? "text-red-500" : "text-amber-400"} text-xl md:text-2xl font-semibold tracking-wide`}>{current.name.toUpperCase()}</div>
+                  </div>
                 </div>
-              </div>
+              ) : (
+                <div className="flex items-center gap-4 rounded-2xl p-5 border bg-neutral-50 dark:bg-zinc-900/80 dark:border-zinc-700">
+                  <span className={`${current.severity === "warning" ? "bg-red-500" : "bg-amber-500"} inline-block h-2.5 w-2.5 rounded-full`} aria-hidden />
+                  {current.icon && (
+                    <Image
+                      src={current.icon}
+                      alt={current.name}
+                      width={56}
+                      height={56}
+                      className="h-14 w-14 object-contain rounded-md bg-white/20 dark:bg-white/5"
+                      unoptimized
+                    />
+                  )}
+                  <div className="flex-1">
+                    <div className="text-lg md:text-xl font-semibold text-slate-900 dark:text-zinc-100">{current.name}</div>
+                    {current.description && <div className="opacity-80 mt-0.5 text-slate-600 dark:text-zinc-300">{current.description}</div>}
+                  </div>
+                </div>
+              )}
             </button>
             <div className="flex items-center justify-between pt-2">
               <button onClick={prev} disabled={!canPrev} className="rounded-lg px-4 py-2 border dark:bg-zinc-900 dark:text-zinc-100 dark:border-zinc-700 disabled:opacity-40">Previous</button>
@@ -454,7 +471,7 @@ export default function LightsTrainer() {
         {mode === "procedure" && current && (
           <div className="space-y-6">
             {current.description && !current.pageImage && (
-              <div className="rounded-xl border bg-white dark:bg-blue-900/40 dark:text-zinc-100 dark:border-blue-400 p-4">
+              <div className="rounded-xl border bg-white dark:bg-blue-900/20 dark:text-zinc-100 dark:border-blue-300 p-4 text-[15px] md:text-[16px]">
                 {current.description}
               </div>
             )}

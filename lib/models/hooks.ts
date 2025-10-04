@@ -36,9 +36,12 @@ const listeners = new Set<VariantListener>();
 
 async function persistActiveVariantToServer(variantId: string) {
   try {
+    const token = await auth?.currentUser?.getIdToken().catch(() => null);
+    const headers: Record<string, string> = { "Content-Type": "application/json" };
+    if (token) headers.Authorization = `Bearer ${token}`;
     const res = await fetch("/api/account/model", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers,
       body: JSON.stringify({ variantId }),
     });
     if (!res.ok) {
@@ -100,7 +103,14 @@ export function useActiveModelVariant(): ActiveModelState {
       try {
         const snap = await getDoc(doc(db, "users", user.uid));
         const serverVariantId = snap.data()?.activeModelId as string | undefined;
-        if (serverVariantId) {
+        const localVariantId = getStoredActiveModelVariantId();
+        const localDef = getModelVariant(localVariantId);
+        if (localDef && serverVariantId && serverVariantId !== localDef.id) {
+          // Prefer the users local selection; try to sync to server, but dont block UI
+          storeActiveModelVariantId(localDef.id);
+          broadcastVariantState(localDef, "user");
+          persistActiveVariantToServer(localDef.id).catch(() => {});
+        } else if (serverVariantId) {
           const def = getModelVariant(serverVariantId);
           if (def) {
             storeActiveModelVariantId(def.id);

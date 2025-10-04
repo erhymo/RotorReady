@@ -32,8 +32,14 @@ export function setThemeSource(source: ThemeSource): void {
 export function applyTheme(theme: Theme): void {
   if (typeof window === "undefined") return;
   const root = document.documentElement;
-  if (theme === "dark") root.classList.add("dark");
-  else root.classList.remove("dark");
+  const body = document.body;
+  if (theme === "dark") {
+    root.classList.add("dark");
+    body?.classList.add("dark");
+  } else {
+    root.classList.remove("dark");
+    body?.classList.remove("dark");
+  }
 }
 
 export function getEffectiveTheme(): Theme {

@@ -6,16 +6,25 @@ import { useActiveModelVariant } from "@/lib/models/hooks";
 export default function ClientActiveModelBadge() {
   const { variant, loading } = useActiveModelVariant();
 
-  const label = useMemo(() => {
+  const fullLabel = useMemo(() => {
     if (!variant) return "";
-    // Kompakt visning for H125/AS350-varianter: fjern parentes og mellomrom (AS350 B3 (2B1) -> AS350B3)
     if (variant.productId === "H125") {
-      const human = variant.label.replace("H125 / ", "AS350 ");
-      const noParen = human.replace(/\s*\([^)]*\)\s*/g, "");
-      return noParen.replace(/AS350\s+([A-Za-z0-9]+)/, "AS350$1");
+      // Desktop: behold menneskevennlig label, men fjern "H125 / " prefix hvis tilstede
+      return variant.label.replace(/^H125\s*\/\s*/, "");
     }
     return variant.label;
   }, [variant]);
+
+  const shortLabel = useMemo(() => {
+    if (!variant) return "";
+    if (variant.productId === "H125") {
+      // Mobil: kompakt label (AS350 B3 (2B1) -> AS350B3)
+      const human = variant.label.replace(/^H125\s*\/\s*/, "");
+      const noParen = human.replace(/\s*\([^)]*\)\s*/g, "");
+      return noParen.replace(/AS350\s+([A-Za-z0-9]+)/, "AS350$1");
+    }
+    return fullLabel;
+  }, [variant, fullLabel]);
 
   if (loading) {
     return (
@@ -29,11 +38,12 @@ export default function ClientActiveModelBadge() {
   return (
     <div
       className="ml-2 inline-flex items-center rounded-full border border-emerald-500 bg-emerald-50 px-3 py-1 text-sm font-semibold text-slate-900 shadow-sm dark:border-emerald-400 dark:bg-emerald-200/80 dark:text-slate-900"
-      title={`Aktiv modell: ${label}`}
-      aria-label={`Aktiv modell: ${label}`}
+      title={`Aktiv modell: ${fullLabel}`}
+      aria-label={`Aktiv modell: ${fullLabel}`}
     >
       <span className="mr-2 inline-block h-2.5 w-2.5 rounded-full bg-emerald-500" aria-hidden />
-      {label}
+      <span className="md:hidden">{shortLabel}</span>
+      <span className="hidden md:inline">{fullLabel}</span>
     </div>
   );
 }

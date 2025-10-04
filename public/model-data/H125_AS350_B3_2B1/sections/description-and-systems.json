@@ -149,6 +149,306 @@
       "references": [
         "RFM H125 Section 7.1 – p. 7-3"
       ]
+    },
+    {
+      "id": "H125-DS-001",
+      "question": "What do red warning lights on the caution and warning panel (CWP) indicate?",
+      "options": [
+        "Alarms requiring action which can be delayed",
+        "Alarms requiring immediate action",
+        "Normal system operation",
+        "Audio alerts only"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Red warning lights signal alarms requiring immediate action by the pilot.",
+      "section": "description-and-systems",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 7.3",
+      "reference": "p. 1",
+      "difficulty": "easy",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 7.3 – p. 1"
+      ]
+    },
+    {
+      "id": "H125-DS-002",
+      "question": "How are audio alarms generated in the H125?",
+      "options": [
+        "Through the autopilot system",
+        "Through the intercommunication system",
+        "Through the FADEC system",
+        "Through the fuel monitoring unit"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Audio alarms are generated through the intercommunication system when the HORN switch is ON.",
+      "section": "description-and-systems",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 7.3",
+      "reference": "p. 1",
+      "difficulty": "easy",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 7.3 – p. 1"
+      ]
+    },
+    {
+      "id": "H125-DS-003",
+      "question": "The Turbomeca Arriel 2B1 engine in the H125 is classified as what type?",
+      "options": [
+        "Turbofan",
+        "Turboshaft",
+        "Piston engine",
+        "Turbojet"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "The Arriel 2B1 is a 650 kW class turboshaft engine designed for helicopters.",
+      "section": "description-and-systems",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 7.7",
+      "reference": "p. 1",
+      "difficulty": "easy",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 7.7 – p. 1"
+      ]
+    },
+    {
+      "id": "H125-DS-004",
+      "question": "How many independent modules make up the Arriel 2B1 engine?",
+      "options": [
+        "Three",
+        "Four",
+        "Five",
+        "Six"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "The engine is composed of five modules: Axial Compressor, Gas Generator, Free Turbine, Reduction Gear, and Output Shaft.",
+      "section": "description-and-systems",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 7.7",
+      "reference": "p. 1",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 7.7 – p. 1"
+      ]
+    },
+    {
+      "id": "H125-DS-005",
+      "question": "Which module reduces the free turbine speed from 39,158 rpm down to 6,000 rpm?",
+      "options": [
+        "Axial Compressor Module",
+        "Reduction Gear Module",
+        "Free Turbine Module",
+        "Output Shaft Module"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "The Reduction Gear Module reduces turbine speed from 39,158 rpm to 6,000 rpm for transmission use.",
+      "section": "description-and-systems",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 7.7",
+      "reference": "p. 1",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 7.7 – p. 1"
+      ]
+    },
+    {
+      "id": "H125-DS-006",
+      "question": "What does the Output Shaft Module transmit power to?",
+      "options": [
+        "The main rotor and accessory drive couplings",
+        "Only the tail rotor",
+        "The gearbox lubrication system",
+        "The combustion chamber"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The Output Shaft Module transmits power to the MGB and accessory drive couplings.",
+      "section": "description-and-systems",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 7.7",
+      "reference": "p. 1",
+      "difficulty": "easy",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 7.7 – p. 1"
+      ]
+    },
+    {
+      "id": "H125-DS-007",
+      "question": "What are the two subsystems of the engine oil system?",
+      "options": [
+        "Main and auxiliary systems",
+        "External and internal systems",
+        "Pressure and scavenging systems",
+        "Primary and secondary pumps"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "The engine oil system is divided into an external and an internal system.",
+      "section": "description-and-systems",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 7.7",
+      "reference": "p. 2",
+      "difficulty": "easy",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 7.7 – p. 2"
+      ]
+    },
+    {
+      "id": "H125-DS-008",
+      "question": "What components are included in the external oil system?",
+      "options": [
+        "Tank and cooler",
+        "Three scavenging pumps and filter",
+        "Chip detector and scavenge pumps",
+        "By-pass valve and oil nozzles"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The external system includes one tank and one cooler, with fireproof hoses.",
+      "section": "description-and-systems",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 7.7",
+      "reference": "p. 2",
+      "difficulty": "easy",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 7.7 – p. 2"
+      ]
+    },
+    {
+      "id": "H125-DS-009",
+      "question": "How many scavenge pumps are part of the internal oil system?",
+      "options": [
+        "One",
+        "Two",
+        "Three",
+        "Four"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "The internal oil system includes one pressure pump and three scavenge pumps.",
+      "section": "description-and-systems",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 7.7",
+      "reference": "p. 2",
+      "difficulty": "easy",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 7.7 – p. 2"
+      ]
+    },
+    {
+      "id": "H125-DS-010",
+      "question": "What is the purpose of the tank booster pump in the H125 fuel system?",
+      "options": [
+        "To drive the tail rotor",
+        "To supply lubrication oil",
+        "To prime the fuel line during starting",
+        "To cool the FADEC"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "The booster pump primes the fuel line during starting to ensure proper fuel delivery.",
+      "section": "description-and-systems",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 7.8",
+      "reference": "p. 1",
+      "difficulty": "easy",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 7.8 – p. 1"
+      ]
+    },
+    {
+      "id": "H125-DS-011",
+      "question": "What does the hydro-mechanical unit of the FADEC control?",
+      "options": [
+        "The oil temperature",
+        "The landing gear extension",
+        "The engine fuel flow",
+        "The rotor brake"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "The hydro-mechanical unit of the FADEC is responsible for controlling engine fuel flow.",
+      "section": "description-and-systems",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 7.8",
+      "reference": "p. 1",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 7.8 – p. 1"
+      ]
+    },
+    {
+      "id": "H125-DS-012",
+      "question": "At what minimum temperature does the fuel heat exchanger allow operation without anti-ice additive?",
+      "options": [
+        "–10°C",
+        "–15°C",
+        "–20°C",
+        "–25°C"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "The fuel system heat exchanger enables operation down to –20°C without requiring anti-ice additive.",
+      "section": "description-and-systems",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 7.8",
+      "reference": "p. 1",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 7.8 – p. 1"
+      ]
     }
   ]
 }

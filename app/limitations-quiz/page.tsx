@@ -89,13 +89,36 @@ export default function LimitationsStart() {
   function startWrongOnly() {
     const lowerKey = `${modelScopedKey("rr_progress_last_wrong", activeVariant.id)}:limitations`;
     const upperKey = `${modelScopedKey("rr_progress_last_wrong", activeVariant.id)}:LIMITATIONS`;
+    const histKey = `${modelScopedKey("rr_wrong_history", activeVariant.id)}:limitations`;
+
+    // Prefer aggregated last-10 history if present
+    const rawHist = localStorage.getItem(histKey);
+    let combinedItems: any[] | null = null;
+    try {
+      const arr = rawHist ? JSON.parse(rawHist) : null;
+      if (Array.isArray(arr) && arr.length) {
+        const out: Record<string, any> = {};
+        for (const sess of arr.slice(-10)) {
+          if (Array.isArray(sess?.items)) {
+            for (const it of sess.items) {
+              if (it?.id && !out[it.id]) out[it.id] = it;
+            }
+          }
+        }
+        combinedItems = Object.values(out);
+      }
+    } catch {}
+
     const lower = localStorage.getItem(lowerKey) || (activeVariant.id === "AW169" ? localStorage.getItem("rr_progress_last_wrong:limitations") : null);
     const upper = localStorage.getItem(upperKey) || (activeVariant.id === "AW169" ? localStorage.getItem("rr_progress_last_wrong:LIMITATIONS") : null);
     const raw = lower || upper;
-    if (!raw) { alert("Ingen feilsett tilgjengelig. Fullfør en quiz først."); return; }
-    let data;
+
+    if (!combinedItems && !raw) { alert("Ingen feilsett tilgjengelig. Fullfør en quiz først."); return; }
+
     try {
-      data = JSON.parse(raw);
+      const data = combinedItems ? { section: "limitations", createdAt: new Date().toISOString(), items: combinedItems, answers: combinedItems.map(() => null), flags: combinedItems.map(() => false) } : JSON.parse(raw!);
+      sessionStorage.setItem("limq_session", JSON.stringify(data));
+      router.push("/limitations-quiz/1");
     } catch {
       alert("Kunne ikke laste lagret feilsett. Slett og prøv igjen.");
       if (lower) localStorage.removeItem(lowerKey);
@@ -104,10 +127,7 @@ export default function LimitationsStart() {
         localStorage.removeItem("rr_progress_last_wrong:limitations");
         localStorage.removeItem("rr_progress_last_wrong:LIMITATIONS");
       }
-      return;
     }
-    sessionStorage.setItem("limq_session", JSON.stringify(data));
-    router.push("/limitations-quiz/1");
   }
 
   return (

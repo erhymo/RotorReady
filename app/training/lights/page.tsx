@@ -255,8 +255,8 @@ export default function LightsTrainer() {
     if (item.pageImage) {
       // On H125 in dark mode, inline SVG and strip its prefers-color-scheme: dark block
       // so the SVG stays in its light palette (darker ink) even when OS is dark (mobile Safari).
-      const [svgHtml, setSvgHtml] = useState<string | null>(null);
-      useEffect(() => {
+
+      /*
         let cancelled = false;
         async function load() {
           try {
@@ -293,23 +293,19 @@ export default function LightsTrainer() {
         }
         load();
         return () => { cancelled = true; };
-      }, [item.pageImage]);
+      */
 
       return (
         <figure className={`rounded-2xl border bg-white shadow ${ (isH125) ? "dark:bg-white dark:border-zinc-300" : "dark:bg-zinc-900/80 dark:border-zinc-600" } p-4`}>
           <div className="relative overflow-hidden rounded-xl">
-            {svgHtml ? (
-              <div className="w-full h-auto mx-auto [&>svg]:max-w-full [&>svg]:w-auto [&>svg]:h-auto [&>svg]:max-h-[70svh] sm:[&>svg]:max-h-none" dangerouslySetInnerHTML={{ __html: svgHtml }} />
-            ) : (
-              <Image
-                src={item.pageImage}
-                alt={item.name}
-                width={1200}
-                height={1600}
-                className={`w-full h-auto transition ${item.severity === "warning" ? "dark:brightness-110 dark:contrast-125 dark:saturate-150" : "dark:brightness-110 dark:contrast-120 dark:saturate-140"}`}
-                priority
-              />
-            )}
+            <Image
+              src={item.pageImage}
+              alt={item.name}
+              width={1200}
+              height={1600}
+              className={`w-full h-auto transition ${item.severity === "warning" ? "dark:brightness-110 dark:contrast-125 dark:saturate-150" : "dark:brightness-110 dark:contrast-120 dark:saturate-140"}`}
+              priority
+            />
           </div>
           {item.references?.length ? (
             <figcaption className="mt-3 text-xs text-slate-500 dark:text-zinc-400">

@@ -5,7 +5,7 @@ import { User } from "firebase/auth";
 import { auth } from "@/lib/firebase/client";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import Link from "next/link";
-import { toggleTheme, getStoredTheme } from "@/lib/theme";
+import { toggleTheme, getStoredTheme, getThemeSource, getEffectiveTheme, onThemeChange } from "@/lib/theme";
 
 export default function ClientUserMenu() {
   const [user, setUser] = useState<User | null>(null);
@@ -26,8 +26,27 @@ export default function ClientUserMenu() {
   }, []);
 
   useEffect(() => {
-    const stored = getStoredTheme();
-    if (stored) setTheme(stored);
+    const update = () => {
+      const source = (typeof window !== 'undefined' && (localStorage.getItem('rr_theme_source') || 'system')) as 'manual'|'system';
+      if (source === 'manual') {
+        const stored = getStoredTheme();
+        setTheme(stored || 'light');
+      } else {
+        const prefersDark = typeof window !== 'undefined' && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        setTheme(prefersDark ? 'dark' : 'light');
+      }
+    };
+    update();
+    const unsub = onThemeChange(() => update());
+    // Also listen to storage for cross-tab changes
+    const onStorage = (e: StorageEvent) => {
+      if (!e.key || e.key.startsWith('rr_theme')) update();
+    };
+    window.addEventListener('storage', onStorage);
+    return () => {
+      unsub?.();
+      window.removeEventListener('storage', onStorage);
+    };
   }, []);
 
   const handleThemeToggle = () => {

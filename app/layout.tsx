@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import ProtectedRoutes from "@/components/ProtectedRoutes";
+import ThemeInitializer from "@/components/ThemeInitializer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -44,6 +45,8 @@ export default function RootLayout({
         />
       </head>
       <body className={`${inter.className} bg-slate-50 dark:bg-zinc-900 text-slate-900 dark:text-white`}>
+        <ThemeInitializer />
+
         <div className="sticky top-0 z-30">
           <Header />
         </div>

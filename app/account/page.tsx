@@ -99,7 +99,7 @@ export default function AccountPage() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [authChecked, setAuthChecked] = useState(false);
   const [themePref, setThemePref] = useState<'system'|'light'|'dark'>('system');
-  const [effectiveTheme, setEffectiveTheme] = useState<'light'|'dark'>('light');
+  const [effectiveTheme, setEffectiveTheme] = useState<'light'|'dark'>(() => (typeof window !== 'undefined' && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
   const [userUid, setUserUid] = useState<string | null>(null);
   const [conversation, setConversation] = useState<ConversationThread | null>(null);
   const [conversationLoading, setConversationLoading] = useState(false);
@@ -125,40 +125,21 @@ export default function AccountPage() {
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
-    const stored = localStorage.getItem('rr_theme');
-    if (stored === 'dark' || stored === 'light') {
-      setThemePref(stored);
+    // Initialize from global theme state
+    const source = (localStorage.getItem('rr_theme_source') || 'system') as 'manual'|'system';
+    if (source === 'manual') {
+      const stored = localStorage.getItem('rr_theme');
+      if (stored === 'dark' || stored === 'light') setThemePref(stored);
+      else setThemePref('light');
+    } else {
+      setThemePref('system');
     }
+
+    const { getEffectiveTheme, onThemeChange }: any = require('@/lib/theme');
+    setEffectiveTheme(getEffectiveTheme());
+    const unsub = onThemeChange((payload: { theme: 'light'|'dark'; source: 'manual'|'system' }) => setEffectiveTheme(payload.theme));
+    return () => unsub?.();
   }, []);
-
-  useEffect(() => {
-    if (typeof window === 'undefined') return;
-    const media = window.matchMedia('(prefers-color-scheme: dark)');
-    const root = document.documentElement;
-
-    const applyTheme = () => {
-      const resolved = themePref === 'system' ? (media.matches ? 'dark' : 'light') : themePref;
-      setEffectiveTheme(resolved);
-      if (resolved === 'dark') {
-        root.classList.add('dark');
-      } else {
-        root.classList.remove('dark');
-      }
-      if (themePref === 'system') {
-        localStorage.removeItem('rr_theme');
-      } else {
-        localStorage.setItem('rr_theme', themePref);
-      }
-    };
-
-    applyTheme();
-
-    if (themePref === 'system') {
-      const listener = () => applyTheme();
-      media.addEventListener('change', listener);
-      return () => media.removeEventListener('change', listener);
-    }
-  }, [themePref]);
 
   useEffect(() => {
     const storedHistory = parseLocalStorage<Summary[]>("rr_progress");
@@ -301,10 +282,17 @@ export default function AccountPage() {
   const best = attempts ? history.reduce((a,b)=> (b.percent > a.percent ? b : a)) : null;
 
   const toggleTheme = () => {
-    setThemePref(effectiveTheme === 'dark' ? 'light' : 'dark');
+    const { toggleTheme } = require('@/lib/theme');
+    const next: 'light'|'dark' = toggleTheme();
+    setThemePref(next);
   };
 
-  const followSystem = () => setThemePref('system');
+  const followSystem = () => {
+    const { setThemeSource, getEffectiveTheme } = require('@/lib/theme');
+    setThemeSource('system');
+    setThemePref('system');
+    setEffectiveTheme(getEffectiveTheme());
+  };
 
   const themeDescription = themePref === 'system'
     ? `Følger system (${effectiveTheme === 'dark' ? 'mørk' : 'lys'})`

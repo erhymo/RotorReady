@@ -171,6 +171,7 @@ export default function LightsTrainer() {
 
   const current = deck[idx];
 
+
   const reveal = useCallback(() => {
     if (!current) return;
     setMode("procedure");
@@ -253,17 +254,16 @@ export default function LightsTrainer() {
   function ProcedureLikePDF({ item }: { item: LightItem }) {
     if (item.pageImage) {
       return (
-        <figure className="rounded-2xl border bg-white shadow dark:bg-zinc-900/80 dark:border-zinc-600 p-4">
+        <figure className={`rounded-2xl border bg-white shadow ${ (isH125 && item.severity === "warning") ? "dark:bg-white dark:border-zinc-300" : "dark:bg-zinc-900/80 dark:border-zinc-600" } p-4`}>
           <div className="relative overflow-hidden rounded-xl">
             <Image
               src={item.pageImage}
               alt={item.name}
               width={1200}
               height={1600}
-              className="w-full h-auto transition dark:brightness-[0.92]"
+              className={`w-full h-auto transition ${item.severity === "warning" ? "dark:brightness-110 dark:contrast-125 dark:saturate-150" : "dark:brightness-100 dark:contrast-110"}`}
               priority
             />
-            <div className="pointer-events-none absolute inset-0 hidden dark:block bg-black/15" />
           </div>
           {item.references?.length ? (
             <figcaption className="mt-3 text-xs text-slate-500 dark:text-zinc-400">
@@ -441,9 +441,9 @@ export default function LightsTrainer() {
                     <div
                       className={`${
                         current.severity === "warning"
-                          ? "text-red-600 dark:text-red-400"
-                          : "text-amber-500 dark:text-amber-300"
-                      } text-xl md:text-2xl font-bold tracking-wide antialiased`}
+                          ? "text-red-600 dark:text-red-200 dark:drop-shadow-[0_0_14px_rgba(255,85,85,0.65)]"
+                          : "text-amber-600 dark:text-amber-200 dark:drop-shadow-[0_0_10px_rgba(251,191,36,0.4)]"
+                      } text-xl md:text-2xl font-extrabold tracking-wide antialiased`}
                     >
                       {current.name.toUpperCase()}
                     </div>

@@ -8,9 +8,11 @@ export default function ClientActiveModelBadge() {
 
   const label = useMemo(() => {
     if (!variant) return "";
-    // Vis "AS350 ..." for H125-produkter
+    // Kompakt visning for H125/AS350-varianter: fjern parentes og mellomrom (AS350 B3 (2B1) -> AS350B3)
     if (variant.productId === "H125") {
-      return variant.label.replace("H125 / ", "AS350 ");
+      const human = variant.label.replace("H125 / ", "AS350 ");
+      const noParen = human.replace(/\s*\([^)]*\)\s*/g, "");
+      return noParen.replace(/AS350\s+([A-Za-z0-9]+)/, "AS350$1");
     }
     return variant.label;
   }, [variant]);

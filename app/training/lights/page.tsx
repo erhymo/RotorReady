@@ -260,10 +260,9 @@ export default function LightsTrainer() {
               alt={item.name}
               width={1200}
               height={1600}
-              className="w-full h-auto transition dark:brightness-[0.92]"
+              className={`w-full h-auto transition ${item.severity === "warning" ? "dark:brightness-110 dark:contrast-125 dark:saturate-150" : "dark:brightness-100 dark:contrast-110"}`}
               priority
             />
-            <div className="pointer-events-none absolute inset-0 hidden dark:block bg-black/15" />
           </div>
           {item.references?.length ? (
             <figcaption className="mt-3 text-xs text-slate-500 dark:text-zinc-400">
@@ -441,9 +440,9 @@ export default function LightsTrainer() {
                     <div
                       className={`${
                         current.severity === "warning"
-                          ? "text-red-600 dark:text-red-400"
-                          : "text-amber-500 dark:text-amber-300"
-                      } text-xl md:text-2xl font-bold tracking-wide antialiased`}
+                          ? "text-red-600 dark:text-red-300 dark:drop-shadow-[0_0_10px_rgba(239,68,68,0.45)]"
+                          : "text-amber-600 dark:text-amber-200 dark:drop-shadow-[0_0_10px_rgba(251,191,36,0.4)]"
+                      } text-xl md:text-2xl font-extrabold tracking-wide antialiased`}
                     >
                       {current.name.toUpperCase()}
                     </div>

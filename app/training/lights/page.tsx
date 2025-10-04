@@ -271,7 +271,17 @@ export default function LightsTrainer() {
             const txt = await res.text();
             // Remove the @media (prefers-color-scheme: dark) block entirely
             const cleaned = txt.replace(/@media\s*\(prefers-color-scheme:\s*dark\)\s*\{[\s\S]*?\}/g, "");
-            if (!cancelled) setSvgHtml(cleaned);
+            // Normalize colors/weights to match DOOR style on mobile dark mode
+            const normalized = cleaned.replace(/<\/svg>\s*$/,
+              '<style id="rr-mobile-dark-normalize">\n' +
+              '.txt,.title,.label{fill:#111 !important}\n' +
+              '.branchCaution{fill:orange !important}\n' +
+              '.box,.arrow,line,path{stroke:#111 !important}\n' +
+              '.warnRect{fill:#000 !important;stroke:#111 !important}\n' +
+              '.warnText{fill:#ffcc00 !important}\n' +
+              '</style></svg>'
+            );
+            if (!cancelled) setSvgHtml(normalized);
           } catch {
             if (!cancelled) setSvgHtml(null);
           }
@@ -284,7 +294,7 @@ export default function LightsTrainer() {
         <figure className={`rounded-2xl border bg-white shadow ${ (isH125) ? "dark:bg-white dark:border-zinc-300" : "dark:bg-zinc-900/80 dark:border-zinc-600" } p-4`}>
           <div className="relative overflow-hidden rounded-xl">
             {svgHtml ? (
-              <div className="w-full h-auto [&>svg]:w-full [&>svg]:h-auto" dangerouslySetInnerHTML={{ __html: svgHtml }} />
+              <div className="w-full h-auto mx-auto [&>svg]:max-w-full [&>svg]:w-auto [&>svg]:h-auto [&>svg]:max-h-[70svh] sm:[&>svg]:max-h-none" dangerouslySetInnerHTML={{ __html: svgHtml }} />
             ) : (
               <Image
                 src={item.pageImage}

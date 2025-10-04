@@ -170,7 +170,7 @@ export default function LightsTrainer() {
   }, [warningLights, cautionLights, pickCounts]);
 
   const current = deck[idx];
-  const isBattTemp = current?.id === "batt-temp" || (current?.name || "").toUpperCase() === "BATT TEMP";
+
 
   const reveal = useCallback(() => {
     if (!current) return;
@@ -254,7 +254,7 @@ export default function LightsTrainer() {
   function ProcedureLikePDF({ item }: { item: LightItem }) {
     if (item.pageImage) {
       return (
-        <figure className="rounded-2xl border bg-white shadow dark:bg-zinc-900/80 dark:border-zinc-600 p-4">
+        <figure className={`rounded-2xl border bg-white shadow ${ (isH125 && item.severity === "warning") ? "dark:bg-white dark:border-zinc-300" : "dark:bg-zinc-900/80 dark:border-zinc-600" } p-4`}>
           <div className="relative overflow-hidden rounded-xl">
             <Image
               src={item.pageImage}
@@ -441,9 +441,7 @@ export default function LightsTrainer() {
                     <div
                       className={`${
                         current.severity === "warning"
-                          ? (isBattTemp
-                              ? "text-red-600 dark:text-red-200 dark:drop-shadow-[0_0_14px_rgba(255,85,85,0.65)]"
-                              : "text-red-600 dark:text-red-300 dark:drop-shadow-[0_0_10px_rgba(239,68,68,0.45)]")
+                          ? "text-red-600 dark:text-red-200 dark:drop-shadow-[0_0_14px_rgba(255,85,85,0.65)]"
                           : "text-amber-600 dark:text-amber-200 dark:drop-shadow-[0_0_10px_rgba(251,191,36,0.4)]"
                       } text-xl md:text-2xl font-extrabold tracking-wide antialiased`}
                     >

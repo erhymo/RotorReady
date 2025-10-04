@@ -273,6 +273,8 @@ export default function LightsTrainer() {
             // Remove the @media (prefers-color-scheme: dark) block entirely
             const cleaned = txt.replace(/@media\s*\(prefers-color-scheme:\s*dark\)\s*\{[\s\S]*?\}/g, "");
             const isCaution = item.severity === "caution";
+            if (!isCaution) { setSvgHtml(null); return; }
+
             // Inject white background and normalize to DOOR style only for CAUTION (yellow) lights
             const withBg = cleaned.replace(/<svg([^>]*)>/, '<svg$1><rect width="100%" height="100%" fill="white"/>');
             const style = '<style id="rr-mobile-dark-normalize">\n'
@@ -283,9 +285,7 @@ export default function LightsTrainer() {
               + '.warnText{fill:#ffcc00 !important}\n'
               + '.branchCaution,.caution,.orange{fill:orange !important}\n'
               + '</style>';
-            const finalSvg = isCaution
-              ? withBg.replace(/<\/svg>\s*$/, style + '</svg>')
-              : cleaned;
+            const finalSvg = withBg.replace(/<\/svg>\s*$/, style + '</svg>');
             if (!cancelled) setSvgHtml(finalSvg);
           } catch {
             if (!cancelled) setSvgHtml(null);

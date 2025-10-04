@@ -271,17 +271,21 @@ export default function LightsTrainer() {
             const txt = await res.text();
             // Remove the @media (prefers-color-scheme: dark) block entirely
             const cleaned = txt.replace(/@media\s*\(prefers-color-scheme:\s*dark\)\s*\{[\s\S]*?\}/g, "");
-            // Normalize colors/weights to match DOOR style on mobile dark mode
-            const normalized = cleaned.replace(/<\/svg>\s*$/,
-              '<style id="rr-mobile-dark-normalize">\n' +
-              '.txt,.title,.label{fill:#111 !important}\n' +
-              '.branchCaution{fill:orange !important}\n' +
-              '.box,.arrow,line,path{stroke:#111 !important}\n' +
-              '.warnRect{fill:#000 !important;stroke:#111 !important}\n' +
-              '.warnText{fill:#ffcc00 !important}\n' +
-              '</style></svg>'
-            );
-            if (!cancelled) setSvgHtml(normalized);
+            const isCaution = item.severity === "caution";
+            // Inject white background and normalize to DOOR style only for CAUTION (yellow) lights
+            const withBg = cleaned.replace(/<svg([^>]*)>/, '<svg$1><rect width="100%" height="100%" fill="white"/>');
+            const style = '<style id="rr-mobile-dark-normalize">\n'
+              + ':root,svg,g{color:#111 !important}\n'
+              + 'text{fill:#111 !important}\n'
+              + 'line,path,polyline,polygon,rect,circle,ellipse{stroke:#111 !important}\n'
+              + '.warnRect{fill:#000 !important;stroke:#111 !important}\n'
+              + '.warnText{fill:#ffcc00 !important}\n'
+              + '.branchCaution,.caution,.orange{fill:orange !important}\n'
+              + '</style>';
+            const finalSvg = isCaution
+              ? withBg.replace(/<\/svg>\s*$/, style + '</svg>')
+              : cleaned;
+            if (!cancelled) setSvgHtml(finalSvg);
           } catch {
             if (!cancelled) setSvgHtml(null);
           }

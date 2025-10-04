@@ -170,6 +170,7 @@ export default function LightsTrainer() {
   }, [warningLights, cautionLights, pickCounts]);
 
   const current = deck[idx];
+  const isBattTemp = current?.id === "batt-temp" || (current?.name || "").toUpperCase() === "BATT TEMP";
 
   const reveal = useCallback(() => {
     if (!current) return;
@@ -440,7 +441,9 @@ export default function LightsTrainer() {
                     <div
                       className={`${
                         current.severity === "warning"
-                          ? "text-red-600 dark:text-red-300 dark:drop-shadow-[0_0_10px_rgba(239,68,68,0.45)]"
+                          ? (isBattTemp
+                              ? "text-red-600 dark:text-red-200 dark:drop-shadow-[0_0_14px_rgba(255,85,85,0.65)]"
+                              : "text-red-600 dark:text-red-300 dark:drop-shadow-[0_0_10px_rgba(239,68,68,0.45)]")
                           : "text-amber-600 dark:text-amber-200 dark:drop-shadow-[0_0_10px_rgba(251,191,36,0.4)]"
                       } text-xl md:text-2xl font-extrabold tracking-wide antialiased`}
                     >

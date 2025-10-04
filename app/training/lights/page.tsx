@@ -277,7 +277,7 @@ export default function LightsTrainer() {
             const withBg = cleaned.replace(/<svg([^>]*)>/, '<svg$1><rect width="100%" height="100%" fill="white"/>');
             const style = '<style id="rr-mobile-dark-normalize">\n'
               + ':root,svg,g{color:#111 !important}\n'
-              + 'text{fill:#111 !important}\n'
+              + '.txt,.title,.label{fill:#111 !important}\n'
               + 'line,path,polyline,polygon,rect,circle,ellipse{stroke:#111 !important}\n'
               + '.warnRect{fill:#000 !important;stroke:#111 !important}\n'
               + '.warnText{fill:#ffcc00 !important}\n'

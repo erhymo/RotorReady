@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="no">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>RotorReady AI</title>
+  <style>
+    body { font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; margin: 24px; max-width: 820px; }
+    h1 { margin-bottom: 8px; }
+    .card { border: 1px solid #ddd; border-radius: 12px; padding: 16px; margin: 12px 0; }
+    label { font-weight: 600; }
+    textarea, input, button { width: 100%; font-size: 16px; padding: 10px; border-radius: 10px; border: 1px solid #ccc; }
+    button { cursor: pointer; }
+    .row { display: grid; gap: 10px; grid-template-columns: 1fr auto; align-items: start; }
+    .answer { white-space: pre-wrap; }
+    .muted { color: #666; font-size: 13px; }
+  </style>
+</head>
+<body>
+  <h1>RotorReady AI</h1>
+  <div class="card">
+    <label for="q">Spør AI (f.eks. “Hva bør jeg sjekke før en AW169 preflight i -5°C?”)</label>
+    <div class="row" style="grid-template-columns: 1fr auto;">
+      <textarea id="q" rows="4" placeholder="Skriv spørsmålet ditt her..."></textarea>
+      <button id="send">Send</button>
+    </div>
+    <div id="status" class="muted"></div>
+  </div>
+
+  <div class="card">
+    <h3>Svar</h3>
+    <div id="answer" class="answer"></div>
+  </div>
+
+  <script>
+    const $ = (s) => document.querySelector(s);
+    const q = $("#q");
+    const btn = $("#send");
+    const answer = $("#answer");
+    const statusEl = $("#status");
+
+    async function ask() {
+      const question = q.value.trim();
+      if (!question) {
+        answer.textContent = "Skriv et spørsmål først.";
+        return;
+      }
+      btn.disabled = true;
+      answer.textContent = "";
+      statusEl.textContent = "Sender...";
+
+      try {
+        const res = await fetch("/api/ask", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ question })
+        });
+        if (!res.ok) {
+          const t = await res.text();
+          throw new Error(`Feil fra server: ${res.status} ${t}`);
+        }
+        const data = await res.json();
+        answer.textContent = data.answer || "(Tomt svar)";
+      } catch (err) {
+        answer.textContent = "Noe gikk galt: " + err.message;
+      } finally {
+        btn.disabled = false;
+        statusEl.textContent = "";
+      }
+    }
+
+    btn.addEventListener("click", ask);
+    q.addEventListener("keydown", (e) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === "Enter") ask();
+    });
+  </script>
+</body>
+</html>

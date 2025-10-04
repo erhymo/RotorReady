@@ -1,37 +1,158 @@
 "use client";
 import { useRouter, useParams } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
+import { useActiveModelVariant } from "@/lib/models/hooks";
+import { modelScopedKey } from "@/lib/models/storage";
+import TopBarBackButton from "@/components/TopBarBackButton";
 
 type Section = { id: string; title: string };
-const AMOUNTS = [10, 20, 30, 40, 50];
+const AMOUNT_OPTIONS = [
+  { value: 10, label: "10" },
+  { value: 20, label: "20" },
+  { value: 30, label: "30" },
+  { value: 40, label: "40" },
+  { value: 50, label: "50" },
+  { value: "all", label: "Alle" },
+] as const;
+
+type AmountOptionValue = (typeof AMOUNT_OPTIONS)[number]["value"];
 
 export default function SectionPage() {
   const router = useRouter();
   const params = useParams<{ section: string }>();
-  const routeSection = decodeURIComponent(params.section);
+  const routeSection = decodeURIComponent((params?.section as string) || "");
   const [sections, setSections] = useState<Section[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    fetch("/quiz-data/index.json")
-      .then(r => r.json())
-      .then(d => setSections(d.sections || []))
-      .catch(() => setError("Kunne ikke laste seksjoner"))
-      .finally(() => setLoading(false));
-  }, []);
+  const [amount, setAmount] = useState<AmountOptionValue>(20);
+  const [hasQuestions, setHasQuestions] = useState<boolean | null>(null);
+  const { variant: activeVariant, loading: variantLoading } = useActiveModelVariant();
 
   const selected = useMemo(() => {
     if (!sections.length) return null as Section | null;
-    return sections.find(s => s.id === routeSection) || sections[0];
+    return sections.find((s) => s.id === routeSection) || sections[0];
   }, [sections, routeSection]);
 
-  function handleSection(id: string) {
-    router.replace(`/quiz/${encodeURIComponent(id)}`);
-  }
-  function handleAmount(amount: number) {
+  useEffect(() => {
+    if (variantLoading) return;
+    let cancelled = false;
+    setLoading(true);
+    const urls = [
+      `/model-data/${activeVariant.id}/index.json`,
+      "/quiz-data/index.json",
+    ];
+    (async () => {
+      for (const url of urls) {
+        try {
+          const res = await fetch(url, { cache: "no-store" });
+          if (!res.ok) throw new Error(`HTTP ${res.status}`);
+          const data = await res.json();
+          if (!cancelled) {
+            setSections(Array.isArray(data.sections) ? data.sections : []);
+            setError(null);
+            return;
+          }
+        } catch (err) {
+          console.warn("Kunne ikke hente seksjoner", url, err);
+          continue;
+        }
+      }
+      // Nettverk feilet: dersom vi har lokalt innhold for etterspurt seksjon, vis i det minste denne seksjonen
+      try {
+        const { loadSectionOffline } = await import("@/lib/offline");
+        const offline = loadSectionOffline(routeSection, activeVariant.id);
+        if (!cancelled && offline) {
+          const TITLE_FALLBACK: Record<string, string> = {
+            limitations: "Limitations",
+            emergency_procedures: "Emergency Procedures",
+            normal_procedures: "Normal Procedures",
+          };
+          const title = TITLE_FALLBACK[routeSection] || routeSection.replaceAll("_", " ").replace(/\b\w/g, (c) => c.toUpperCase());
+          setSections([{ id: routeSection, title }]);
+          setError(null);
+          return;
+        }
+      } catch {}
+      if (!cancelled) {
+        setError("Fant ingen seksjoner for valgt modell");
+        setSections([]);
+      }
+    })().finally(() => {
+      if (!cancelled) setLoading(false);
+    });
+
+    return () => { cancelled = true; };
+  }, [activeVariant.id, variantLoading, routeSection]);
+  // Oppdag om valgt seksjon faktisk har spørsmål (lokalt eller på nett)
+  useEffect(() => {
+    if (variantLoading) return;
+    if (!selected?.id) return;
+    let cancelled = false;
+    (async () => {
+      // 1) Lokal/offline først
+      try {
+        const { loadSectionOffline } = await import("@/lib/offline");
+        const offline = loadSectionOffline<{ items?: unknown[] }>(selected.id, activeVariant.id);
+        if (!cancelled && offline && Array.isArray((offline as any).items) && (offline as any).items.length > 0) {
+          setHasQuestions(true);
+          return;
+        }
+      } catch {}
+      // 2) Nettverk
+      const urls = [
+        `/model-data/${activeVariant.id}/sections/${selected.id}.json`,
+        `/quiz-data/sections/${selected.id}.json`,
+      ];
+      for (const url of urls) {
+        try {
+          const res = await fetch(url, { cache: "no-store" });
+          if (!res.ok) continue;
+          const data = await res.json();
+          if (data && Array.isArray(data.items) && data.items.length > 0) {
+            if (!cancelled) setHasQuestions(true);
+            return;
+          }
+        } catch {}
+      }
+      if (!cancelled) setHasQuestions(false);
+    })();
+    return () => { cancelled = true; };
+  }, [selected?.id, activeVariant.id, variantLoading]);
+
+
+  function handleAmount(amount: AmountOptionValue) {
     if (!selected) return;
-    router.push(`/quiz/${encodeURIComponent(selected.id)}/${amount}`);
+    router.push(`/quiz/${encodeURIComponent(selected.id)}/${String(amount)}`);
+  }
+  function startWrongOnly() {
+    const id = selected?.id || routeSection;
+    const lowerKey = `${modelScopedKey("rr_progress_last_wrong", activeVariant.id)}:${id}`;
+    const upperKey = `${modelScopedKey("rr_progress_last_wrong", activeVariant.id)}:${id.toUpperCase()}`;
+    const legacyLower = activeVariant.id === "AW169" ? `rr_progress_last_wrong:${id}` : null;
+    const legacyUpper = activeVariant.id === "AW169" ? `rr_progress_last_wrong:${id.toUpperCase()}` : null;
+
+    const raw =
+      localStorage.getItem(lowerKey) ||
+      localStorage.getItem(upperKey) ||
+      (legacyLower ? localStorage.getItem(legacyLower) : null) ||
+      (legacyUpper ? localStorage.getItem(legacyUpper) : null);
+
+    if (!raw) {
+      alert("Ingen feilsett tilgjengelig. Fullfør en quiz først.");
+      return;
+    }
+    try {
+      const data = JSON.parse(raw);
+      const overrideKey = `${modelScopedKey("quiz_session_override", activeVariant.id)}:${id}`;
+      sessionStorage.setItem(overrideKey, JSON.stringify({ items: data.items || [] }));
+      router.push(`/quiz/${encodeURIComponent(id)}/all`);
+    } catch {
+      alert("Kunne ikke laste lagret feilsett. Slett og prøv igjen.");
+      localStorage.removeItem(lowerKey);
+      localStorage.removeItem(upperKey);
+      if (legacyLower) localStorage.removeItem(legacyLower);
+      if (legacyUpper) localStorage.removeItem(legacyUpper);
+    }
   }
 
   if (loading) return <div className="min-h-screen grid place-items-center dark:bg-zinc-900 dark:text-zinc-100">Laster…</div>;
@@ -39,31 +160,62 @@ export default function SectionPage() {
   if (!sections.length) return <div className="min-h-screen grid place-items-center dark:bg-zinc-900 dark:text-zinc-100">Ingen seksjoner funnet</div>;
 
   return (
-  <div className="min-h-screen bg-slate-50 dark:bg-zinc-900 flex flex-col items-center justify-center p-6">
-  <div className="bg-blue-600 dark:bg-blue-900 py-3 px-4 flex flex-wrap gap-2 mb-8 rounded-lg">
-        {sections.map(s => (
-          <button
-            key={s.id}
-            className={`text-white text-sm font-semibold px-3 py-2 rounded transition ${selected?.id===s.id ? "bg-blue-800 dark:bg-blue-950" : "bg-blue-600 hover:bg-blue-700 dark:bg-blue-900 dark:hover:bg-blue-800"}`}
-            onClick={()=>handleSection(s.id)}
-            title={s.title}
-          >
-            {s.title}
-          </button>
-        ))}
+    <div className="max-w-xl mx-auto p-4 space-y-4">
+      <div className="w-full flex items-center py-1">
+        <TopBarBackButton href="/quiz" />
       </div>
-  <h1 className="text-2xl font-bold mb-6 dark:text-zinc-100">Velg antall spørsmål for &quot;{selected?.title}&quot;</h1>
-  <div className="flex gap-3 flex-wrap justify-center">
-        {AMOUNTS.map(amount => (
-          <button
-            key={amount}
-            className="bg-blue-600 dark:bg-blue-900 text-white px-6 py-3 rounded-lg text-lg font-semibold hover:bg-blue-700 dark:hover:bg-blue-800 transition"
-            onClick={() => handleAmount(amount)}
-          >
-            {amount}
-          </button>
-        ))}
+
+      <h1 className="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+        {selected?.title}
+      </h1>
+      <p className="text-lg text-slate-700 dark:text-zinc-100 mt-2">Velg antall spørsmål og start.</p>
+
+
+      {hasQuestions === false && (
+        <div className="rounded-xl border-l-4 border-amber-600 bg-amber-50/60 dark:border-amber-400 dark:bg-amber-900/40 p-4">
+          <div className="font-semibold text-slate-900 dark:text-white">Kommer senere</div>
+          <div className="text-sm text-gray-600 dark:text-zinc-100">Det kommer spørsmål for denne seksjonen snart.</div>
+        </div>
+      )}
+
+      <div className="rounded-xl border-l-4 border-blue-600 bg-blue-50/40 dark:border-blue-400 dark:bg-blue-900/40 p-4 flex items-center gap-3">
+        <label className="text-sm text-gray-700 dark:text-zinc-100">Antall:</label>
+        <select
+          className="border rounded px-3 py-2 dark:bg-blue-900 dark:text-zinc-100 dark:border-blue-400"
+          value={amount}
+          onChange={(e) => {
+            const value = e.target.value === "all" ? ("all" as AmountOptionValue) : (parseInt(e.target.value, 10) as AmountOptionValue);
+            setAmount(value);
+          }}
+        >
+          {AMOUNT_OPTIONS.map((option) => (
+            <option key={option.value} value={option.value}>
+              {option.label}
+            </option>
+          ))}
+        </select>
+        <button
+          onClick={() => handleAmount(amount)}
+          disabled={hasQuestions === false}
+          className="ml-auto px-4 py-2 rounded-lg bg-blue-600 text-white active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
+        >
+          Start
+        </button>
       </div>
+
+      {hasQuestions !== false && (
+        <div className="rounded-xl border-l-4 border-emerald-600 bg-emerald-50/40 dark:border-emerald-400 dark:bg-emerald-900/40 p-4">
+          <div className="flex items-center justify-between">
+            <div>
+              <div className="font-semibold text-slate-900 dark:text-white">Øv kun på feil</div>
+              <div className="text-sm text-gray-600 dark:text-zinc-100">Gjenbruk siste feilsett for målrettet drilling.</div>
+            </div>
+            <button onClick={startWrongOnly} className="px-4 py-2 rounded-lg bg-emerald-600 text-white">
+              Start
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

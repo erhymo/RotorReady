@@ -1,0 +1,1610 @@
+{
+  "items": [
+    {
+      "id": "H125-LIM-001",
+      "question": "What operations is the helicopter approved for?",
+      "options": [
+        "Day VFR only",
+        "Day and night VFR",
+        "IFR day only",
+        "IFR day and night"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "The RFM states the helicopter is approved for day and night VFR operations.",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 2.1",
+      "reference": "p. 2-1",
+      "difficulty": "easy",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 2.1 – p. 2-1"
+      ]
+    },
+    {
+      "id": "H125-LIM-002",
+      "question": "Aerobatic maneuvers are:",
+      "options": [
+        "Permitted in VMC",
+        "Prohibited",
+        "Permitted by day VFR only",
+        "Permitted during training with instructor"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "The manual explicitly states that aerobatic maneuvers are prohibited.",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 2.1",
+      "reference": "p. 2-1",
+      "difficulty": "easy",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 2.1 – p. 2-1"
+      ]
+    },
+    {
+      "id": "H125-LIM-003",
+      "question": "Engine start is prohibited:",
+      "options": [
+        "When wind exceeds 25 kt",
+        "When snow or ice has collected in or around the engine air intake",
+        "When rotor brake is released",
+        "When OAT is below +10 °C"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Engine start is prohibited if snow or ice has collected in or around the engine air intake.",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 2.1",
+      "reference": "p. 2-1",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 2.1 – p. 2-1"
+      ]
+    },
+    {
+      "id": "H125-LIM-004",
+      "question": "Flight in icing conditions (visible moisture with temperature that can produce ice) is:",
+      "options": [
+        "Permitted with anti-icing on",
+        "Permitted in light rain",
+        "Not permitted",
+        "Permitted below 5000 ft"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "The manual forbids flight in visible moisture with temperature that can produce ice.",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 2.1",
+      "reference": "p. 2-1",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 2.1 – p. 2-1"
+      ]
+    },
+    {
+      "id": "H125-LIM-005",
+      "question": "Intentional engine power reduction in flight using the twist grip is:",
+      "options": [
+        "Required during takeoff checks",
+        "Prohibited (except for training/emergency procedures)",
+        "Permitted for speed control",
+        "Permitted only in autorotation"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Intentional power reduction in flight with the twist grip is prohibited except during training or emergencies as specified.",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 2.1",
+      "reference": "p. 2-1",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 2.1 – p. 2-1"
+      ]
+    },
+    {
+      "id": "H125-LIM-006",
+      "question": "What is the minimum crew?",
+      "options": [
+        "Two pilots",
+        "One pilot in the left seat",
+        "One pilot in the right seat",
+        "No minimum crew requirement"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Minimum crew is one pilot in the right seat.",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 2.1",
+      "reference": "p. 2-1",
+      "difficulty": "easy",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 2.1 – p. 2-1"
+      ]
+    },
+    {
+      "id": "H125-LIM-007",
+      "question": "What is the maximum number of persons on board, including flight crew?",
+      "options": [
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "The maximum number of persons on board, including flight crew, is six.",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 2.1",
+      "reference": "p. 2-1",
+      "difficulty": "easy",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 2.1 – p. 2-1"
+      ]
+    },
+    {
+      "id": "H125-LIM-008",
+      "question": "What does a red marking on the instrument indicate?",
+      "options": [
+        "Normal operating range",
+        "Safety limit or takeoff limitation",
+        "Equipment operating limit",
+        "Caution range"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Red marking = Safety limit or takeoff limitation.",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 2.1",
+      "reference": "p. 2-2",
+      "difficulty": "easy",
+      "tags": [
+        "instrument"
+      ],
+      "references": [
+        "RFM H125 Section 2.1 – p. 2-2"
+      ]
+    },
+    {
+      "id": "H125-LIM-009",
+      "question": "What does a yellow/amber marking on the instrument indicate?",
+      "options": [
+        "Transient limit",
+        "Caution range or takeoff power",
+        "Normal operating range",
+        "VNE, power off"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Yellow/amber marking = Caution range or takeoff power.",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 2.1",
+      "reference": "p. 2-2",
+      "difficulty": "easy",
+      "tags": [
+        "instrument"
+      ],
+      "references": [
+        "RFM H125 Section 2.1 – p. 2-2"
+      ]
+    },
+    {
+      "id": "H125-LIM-010",
+      "question": "What does a white mark on the instrument indicate?",
+      "options": [
+        "Safety limit",
+        "Normal operating range",
+        "Equipment operating limit",
+        "VNE power off"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "White mark = Equipment operating limit.",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 2.1",
+      "reference": "p. 2-2",
+      "difficulty": "easy",
+      "tags": [
+        "instrument"
+      ],
+      "references": [
+        "RFM H125 Section 2.1 – p. 2-2"
+      ]
+    },
+    {
+      "id": "H125-LIM-011",
+      "question": "What does a red triangle on the instrument indicate?",
+      "options": [
+        "Transient limit",
+        "Maximum continuous power",
+        "VNE, power off",
+        "Safety limit"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Red triangle = Transient limit.",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 2.1",
+      "reference": "p. 2-2",
+      "difficulty": "easy",
+      "tags": [
+        "instrument"
+      ],
+      "references": [
+        "RFM H125 Section 2.1 – p. 2-2"
+      ]
+    },
+    {
+      "id": "H125-LIM-012",
+      "question": "What is the maximum permissible internal weight in flight?",
+      "options": [
+        "2150 kg",
+        "2250 kg",
+        "2350 kg",
+        "2450 kg"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Maximum internal weight in flight = 2250 kg (4961 lb).",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 2.2",
+      "reference": "p. 2-1",
+      "difficulty": "easy",
+      "tags": [
+        "weight"
+      ],
+      "references": [
+        "RFM H125 Section 2.2 – p. 2-1"
+      ]
+    },
+    {
+      "id": "H125-LIM-013",
+      "question": "Where is the datum located for CG calculations?",
+      "options": [
+        "At the rotor blade tips",
+        "3.40 m forward of the main rotor head center line",
+        "At the tailboom",
+        "At the cockpit floor line"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Datum is 3.40 m (133.8 in) forward of the main rotor head center line.",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 2.2",
+      "reference": "p. 2-1",
+      "difficulty": "medium",
+      "tags": [
+        "cg"
+      ],
+      "references": [
+        "RFM H125 Section 2.2 – p. 2-1"
+      ]
+    },
+    {
+      "id": "H125-LIM-016",
+      "question": "What is the VNE, power off at Hp = 0?",
+      "options": [
+        "120 kt",
+        "125 kt",
+        "155 kt",
+        "160 kt"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "VNE, power off = 125 kt (232 km/h) at Hp = 0.",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 2.3",
+      "reference": "p. 2-1",
+      "difficulty": "easy",
+      "tags": [
+        "speed",
+        "vne"
+      ],
+      "references": [
+        "RFM H125 Section 2.3 – p. 2-1"
+      ]
+    },
+    {
+      "id": "H125-LIM-017",
+      "question": "What is the VNE, power on at Hp = 0?",
+      "options": [
+        "125 kt",
+        "135 kt",
+        "155 kt",
+        "165 kt"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "VNE, power on = 155 kt (287 km/h) at Hp = 0.",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 2.3",
+      "reference": "p. 2-1",
+      "difficulty": "easy",
+      "tags": [
+        "speed",
+        "vne"
+      ],
+      "references": [
+        "RFM H125 Section 2.3 – p. 2-1"
+      ]
+    },
+    {
+      "id": "H125-LIM-018",
+      "question": "When OAT < -30 °C, by how much must the VNE, power on be reduced?",
+      "options": [
+        "5 kt",
+        "10 kt",
+        "15 kt",
+        "20 kt"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "VNE power on must be reduced by 10 kt when OAT < -30 °C.",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 2.3",
+      "reference": "p. 2-1",
+      "difficulty": "medium",
+      "tags": [
+        "speed",
+        "temperature"
+      ],
+      "references": [
+        "RFM H125 Section 2.3 – p. 2-1"
+      ]
+    },
+    {
+      "id": "H125-LIM-019",
+      "question": "When OAT < -20 °C, by how much must the VNE, power off be reduced?",
+      "options": [
+        "10 kt",
+        "15 kt",
+        "20 kt",
+        "25 kt"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "VNE power off must be reduced by 20 kt when OAT < -20 °C, with a minimum of 65 kt.",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 2.3",
+      "reference": "p. 2-1",
+      "difficulty": "medium",
+      "tags": [
+        "speed",
+        "temperature"
+      ],
+      "references": [
+        "RFM H125 Section 2.3 – p. 2-1"
+      ]
+    },
+    {
+      "id": "H125-LIM-020",
+      "question": "What is the minimum VNE, power off when OAT < -20 °C after reduction?",
+      "options": [
+        "55 kt",
+        "60 kt",
+        "65 kt",
+        "70 kt"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Minimum VNE, power off = 65 kt (120 km/h).",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 2.3",
+      "reference": "p. 2-1",
+      "difficulty": "medium",
+      "tags": [
+        "speed",
+        "temperature"
+      ],
+      "references": [
+        "RFM H125 Section 2.3 – p. 2-1"
+      ]
+    },
+    {
+      "id": "H125-LIM-021",
+      "question": "With at least one door removed, what must be ensured in the cabin?",
+      "options": [
+        "Only the pilot must wear a seat belt",
+        "Loose objects may remain on the floor",
+        "Cushions of unoccupied seats shall be secured or removed and seat belts stowed",
+        "No specific requirements"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Cushions of unoccupied seats must be secured or removed and seat belts stowed.",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 2.3",
+      "reference": "p. 2-1",
+      "difficulty": "medium",
+      "tags": [
+        "doors"
+      ],
+      "references": [
+        "RFM H125 Section 2.3 – p. 2-1"
+      ]
+    },
+    {
+      "id": "H125-LIM-023",
+      "question": "With LH sliding door open (unlocked) in flight, what is the maximum speed?",
+      "options": [
+        "110 kt",
+        "135 kt",
+        "70 kt",
+        "80 kt"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Maximum speed is 70 kt (130 km/h) or VNE (lowest value).",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 2.3",
+      "reference": "p. 2-2",
+      "difficulty": "easy",
+      "tags": [
+        "doors",
+        "speed"
+      ],
+      "references": [
+        "RFM H125 Section 2.3 – p. 2-2"
+      ]
+    },
+    {
+      "id": "H125-LIM-024",
+      "question": "What is the maximum speed to open the LH sliding door in flight?",
+      "options": [
+        "70 kt",
+        "80 kt",
+        "100 kt",
+        "110 kt"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "Opening permitted up to 110 kt (204 km/h) or VNE.",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 2.3",
+      "reference": "p. 2-2",
+      "difficulty": "easy",
+      "tags": [
+        "doors",
+        "speed"
+      ],
+      "references": [
+        "RFM H125 Section 2.3 – p. 2-2"
+      ]
+    },
+    {
+      "id": "H125-LIM-025",
+      "question": "What is the maximum speed to close the LH sliding door in flight?",
+      "options": [
+        "70 kt",
+        "80 kt",
+        "90 kt",
+        "100 kt"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Closing permitted up to 80 kt (148 km/h) or VNE.",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 2.3",
+      "reference": "p. 2-2",
+      "difficulty": "easy",
+      "tags": [
+        "doors",
+        "speed"
+      ],
+      "references": [
+        "RFM H125 Section 2.3 – p. 2-2"
+      ]
+    },
+    {
+      "id": "H125-LIM-026",
+      "question": "Which door configuration is explicitly prohibited?",
+      "options": [
+        "LH sliding door closed",
+        "RH standard doors removed",
+        "LH sliding door open and RH door removed",
+        "LH sliding door open and locked"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Flight prohibited with LH sliding door open and RH door removed.",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 2.3",
+      "reference": "p. 2-2",
+      "difficulty": "medium",
+      "tags": [
+        "doors"
+      ],
+      "references": [
+        "RFM H125 Section 2.3 – p. 2-2"
+      ]
+    },
+    {
+      "id": "H125-LIM-027",
+      "question": "What is the maximum operating altitude in flight?",
+      "options": [
+        "20,000 ft",
+        "21,500 ft",
+        "23,000 ft",
+        "25,000 ft"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Maximum operating altitude = Hp 23,000 ft (7010 m).",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 2.3",
+      "reference": "p. 2-4",
+      "difficulty": "easy",
+      "tags": [
+        "altitude"
+      ],
+      "references": [
+        "RFM H125 Section 2.3 – p. 2-4"
+      ]
+    },
+    {
+      "id": "H125-LIM-028",
+      "question": "What is the minimum temperature limitation?",
+      "options": [
+        "-30 °C",
+        "-35 °C",
+        "-40 °C",
+        "-45 °C"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Minimum temperature = -40 °C.",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 2.3",
+      "reference": "p. 2-4",
+      "difficulty": "easy",
+      "tags": [
+        "temperature"
+      ],
+      "references": [
+        "RFM H125 Section 2.3 – p. 2-4"
+      ]
+    },
+    {
+      "id": "H125-LIM-029",
+      "question": "What is the maximum temperature limitation?",
+      "options": [
+        "+45 °C",
+        "ISA +25 °C",
+        "ISA +35 °C limited to +50 °C",
+        "+55 °C"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Maximum temperature = ISA +35 °C, limited to +50 °C.",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 2.3",
+      "reference": "p. 2-4",
+      "difficulty": "medium",
+      "tags": [
+        "temperature"
+      ],
+      "references": [
+        "RFM H125 Section 2.3 – p. 2-4"
+      ]
+    },
+    {
+      "id": "H125-LIM-030",
+      "question": "What is the maximum slope limitation for landing and rotor stopping, nose up?",
+      "options": [
+        "6°",
+        "8°",
+        "10°",
+        "12°"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Nose up slope limit = 10°.",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 2.3",
+      "reference": "p. 2-4",
+      "difficulty": "medium",
+      "tags": [
+        "slope"
+      ],
+      "references": [
+        "RFM H125 Section 2.3 – p. 2-4"
+      ]
+    },
+    {
+      "id": "H125-LIM-031",
+      "question": "What is the maximum slope limitation for landing and rotor stopping, nose down?",
+      "options": [
+        "4°",
+        "6°",
+        "8°",
+        "10°"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Nose down slope limit = 6°.",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 2.3",
+      "reference": "p. 2-4",
+      "difficulty": "medium",
+      "tags": [
+        "slope"
+      ],
+      "references": [
+        "RFM H125 Section 2.3 – p. 2-4"
+      ]
+    },
+    {
+      "id": "H125-LIM-032",
+      "question": "What is the maximum slope limitation for landing and rotor stopping, sideways?",
+      "options": [
+        "6°",
+        "8°",
+        "10°",
+        "12°"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Sideways slope limit = 8°.",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 2.3",
+      "reference": "p. 2-4",
+      "difficulty": "medium",
+      "tags": [
+        "slope"
+      ],
+      "references": [
+        "RFM H125 Section 2.3 – p. 2-4"
+      ]
+    },
+    {
+      "id": "H125-LIM-033",
+      "question": "What is the maximum speed for performing running landings?",
+      "options": [
+        "30 kt",
+        "35 kt",
+        "40 kt",
+        "45 kt"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Maximum speed = 40 kt (74 km/h).",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 2.3",
+      "reference": "p. 2-4",
+      "difficulty": "easy",
+      "tags": [
+        "speed"
+      ],
+      "references": [
+        "RFM H125 Section 2.3 – p. 2-4"
+      ]
+    },
+    {
+      "id": "H125-LIM-034",
+      "question": "What does the manual state about continued operation in servo transparency?",
+      "options": [
+        "Permitted without restrictions",
+        "Permitted with reduced load",
+        "Prohibited",
+        "Permitted only above 2000 ft"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Continued operation in servo transparency is prohibited.",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 2.3",
+      "reference": "p. 2-4",
+      "difficulty": "medium",
+      "tags": [
+        "servo"
+      ],
+      "references": [
+        "RFM H125 Section 2.3 – p. 2-4"
+      ]
+    },
+    {
+      "id": "H125-LIM-035",
+      "question": "What is prohibited regarding the rotor brake?",
+      "options": [
+        "Use before engine shutdown",
+        "Use after 5 minutes of landing",
+        "Use only with collective full down",
+        "Use with Nr below 170 rpm"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "It is prohibited to use the rotor brake prior to engine shutdown.",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 2.4",
+      "reference": "p. 2-4",
+      "difficulty": "easy",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 2.4 – p. 2-4"
+      ]
+    },
+    {
+      "id": "H125-LIM-036",
+      "question": "What is the minimum time between two consecutive rotor brake applications?",
+      "options": [
+        "2 minutes",
+        "3 minutes",
+        "5 minutes",
+        "10 minutes"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "The manual specifies a minimum of 5 minutes between rotor brake applications.",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 2.4",
+      "reference": "p. 2-4",
+      "difficulty": "easy",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 2.4 – p. 2-4"
+      ]
+    },
+    {
+      "id": "H125-LIM-037",
+      "question": "What is the rotor brake operation maximum speed?",
+      "options": [
+        "150 rpm",
+        "170 rpm",
+        "200 rpm",
+        "320 rpm"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Rotor brake operation maximum speed is 170 rpm.",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 2.4",
+      "reference": "p. 2-4",
+      "difficulty": "easy",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 2.4 – p. 2-4"
+      ]
+    },
+    {
+      "id": "H125-LIM-038",
+      "question": "What is the minimum power-off rotor speed (Nr)?",
+      "options": [
+        "300 rpm",
+        "320 rpm",
+        "350 rpm",
+        "375 rpm"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Minimum power-off Nr is 320 rpm.",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 2.4",
+      "reference": "p. 2-4",
+      "difficulty": "easy",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 2.4 – p. 2-4"
+      ]
+    },
+    {
+      "id": "H125-LIM-039",
+      "question": "What is the normal operating range for rotor speed (Nr)?",
+      "options": [
+        "320–375 rpm",
+        "375–405 rpm",
+        "405–430 rpm",
+        "320–405 rpm"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Normal operating range is 375–405 rpm.",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 2.4",
+      "reference": "p. 2-4",
+      "difficulty": "easy",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 2.4 – p. 2-4"
+      ]
+    },
+    {
+      "id": "H125-LIM-040",
+      "question": "At what Nr does the low rotor aural warning activate?",
+      "options": [
+        "≤ 350 rpm",
+        "≤ 355 rpm",
+        "≤ 360 rpm",
+        "≤ 370 rpm"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Low Nr aural warning activates at ≤ 360 rpm.",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 2.4",
+      "reference": "p. 2-4",
+      "difficulty": "easy",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 2.4 – p. 2-4"
+      ]
+    },
+    {
+      "id": "H125-LIM-041",
+      "question": "At what Nr does the high rotor aural warning activate?",
+      "options": [
+        "≥ 400 rpm",
+        "≥ 405 rpm",
+        "≥ 410 rpm",
+        "≥ 420 rpm"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "High Nr aural warning activates at ≥ 410 rpm.",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 2.4",
+      "reference": "p. 2-4",
+      "difficulty": "easy",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 2.4 – p. 2-4"
+      ]
+    },
+    {
+      "id": "H125-LIM-042",
+      "question": "What is the maximum continuous rating on the First Limitation Instrument (FLI)?",
+      "options": [
+        "9.2",
+        "9.6",
+        "10.0",
+        "10.4"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Maximum continuous rating is 9.6.",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 2.4",
+      "reference": "p. 2-1",
+      "difficulty": "easy",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 2.4 – p. 2-1"
+      ]
+    },
+    {
+      "id": "H125-LIM-043",
+      "question": "What is the maximum takeoff rating on the First Limitation Instrument (FLI)?",
+      "options": [
+        "9.6",
+        "10.0",
+        "10.2",
+        "10.4"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Maximum takeoff rating is 10.0.",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 2.4",
+      "reference": "p. 2-1",
+      "difficulty": "easy",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 2.4 – p. 2-1"
+      ]
+    },
+    {
+      "id": "H125-LIM-044",
+      "question": "What is the maximum transient rating (5 sec.) on the First Limitation Instrument (FLI)?",
+      "options": [
+        "9.6",
+        "10.0",
+        "10.4",
+        "11.0"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Maximum transient rating is 10.4 for 5 seconds.",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 2.4",
+      "reference": "p. 2-1",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 2.4 – p. 2-1"
+      ]
+    },
+    {
+      "id": "H125-LIM-045",
+      "question": "According to the manual, use of heating and demisting is:",
+      "options": [
+        "Allowed anytime",
+        "Allowed below 5000 ft",
+        "Forbidden above the engine maximum continuous rating",
+        "Only allowed during takeoff"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Heating and demisting is forbidden above engine maximum continuous rating (Ng or T4).",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 2.4",
+      "reference": "p. 2-1",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 2.4 – p. 2-1"
+      ]
+    },
+    {
+      "id": "H125-LIM-046",
+      "question": "What is the maximum continuous torque rating?",
+      "options": [
+        "90 %",
+        "92.7 %",
+        "100 %",
+        "104 %"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Maximum continuous torque rating is 92.7 %. ",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 2.4",
+      "reference": "p. 2-2",
+      "difficulty": "easy",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 2.4 – p. 2-2"
+      ]
+    },
+    {
+      "id": "H125-LIM-047",
+      "question": "What is the maximum takeoff torque rating?",
+      "options": [
+        "92.7 %",
+        "97 %",
+        "100 %",
+        "104 %"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Maximum takeoff torque rating is 100 %. ",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 2.4",
+      "reference": "p. 2-2",
+      "difficulty": "easy",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 2.4 – p. 2-2"
+      ]
+    },
+    {
+      "id": "H125-LIM-048",
+      "question": "What is the maximum transient torque (5 sec.)?",
+      "options": [
+        "92.7 %",
+        "100 %",
+        "104 %",
+        "106 %"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Maximum transient torque is 104 % for 5 seconds.",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 2.4",
+      "reference": "p. 2-2",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 2.4 – p. 2-2"
+      ]
+    },
+    {
+      "id": "H125-LIM-052",
+      "question": "What is the maximum continuous T4 limit during start?",
+      "options": [
+        "730 °C",
+        "740 °C",
+        "750 °C",
+        "765 °C"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Starting limitation = 750 °C max continuous.",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 2.4",
+      "reference": "p. 2-3",
+      "difficulty": "easy",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 2.4 – p. 2-3"
+      ]
+    },
+    {
+      "id": "H125-LIM-053",
+      "question": "What is the maximum transient T4 limit during start (10 sec.)?",
+      "options": [
+        "850 °C",
+        "860 °C",
+        "865 °C",
+        "875 °C"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Starting transient = 865 °C (10 sec).",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 2.4",
+      "reference": "p. 2-3",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 2.4 – p. 2-3"
+      ]
+    },
+    {
+      "id": "H125-LIM-054",
+      "question": "What is the maximum continuous T4 limit during flight?",
+      "options": [
+        "840 °C",
+        "845 °C",
+        "849 °C",
+        "850 °C"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Flight limitation continuous = 849 °C.",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 2.4",
+      "reference": "p. 2-3",
+      "difficulty": "easy",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 2.4 – p. 2-3"
+      ]
+    },
+    {
+      "id": "H125-LIM-055",
+      "question": "What is the maximum T4 temperature takeoff rating?",
+      "options": [
+        "910 °C",
+        "915 °C",
+        "920 °C",
+        "925 °C"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Takeoff rating = 915 °C maximum.",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 2.4",
+      "reference": "p. 2-3",
+      "difficulty": "easy",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 2.4 – p. 2-3"
+      ]
+    },
+    {
+      "id": "H125-LIM-060",
+      "question": "What is the maximum oil pressure?",
+      "options": [
+        "9.0 bar",
+        "9.5 bar",
+        "9.8 bar (142 psi)",
+        "10.0 bar"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Maximum oil pressure = 9.8 bar (142 psi).",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 2.4",
+      "reference": "p. 2-4",
+      "difficulty": "easy",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 2.4 – p. 2-4"
+      ]
+    },
+    {
+      "id": "H125-LIM-061",
+      "question": "What is the maximum electrical system voltage?",
+      "options": [
+        "29.0 V",
+        "30.0 V",
+        "31.0 V",
+        "31.5 V"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "Maximum voltage = 31.5 V (rated 26–29 V).",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 2.4",
+      "reference": "p. 2-4",
+      "difficulty": "easy",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 2.4 – p. 2-4"
+      ]
+    },
+    {
+      "id": "H125-LIM-062",
+      "question": "What is the maximum continuous current for the electrical system?",
+      "options": [
+        "100 A",
+        "120 A",
+        "150 A",
+        "200 A"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Maximum continuous current = 150 A.",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 2.4",
+      "reference": "p. 2-4",
+      "difficulty": "easy",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 2.4 – p. 2-4"
+      ]
+    },
+    {
+      "id": "H125-LIM-063",
+      "question": "When is the use of an anti-icing additive mandatory?",
+      "options": [
+        "If OAT is below 0 °C",
+        "If OAT is below -10 °C",
+        "If OAT is below -20 °C and the fuel does not contain a freezing inhibitor",
+        "If OAT is above ISA +20 °C"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Anti-icing additive is mandatory if OAT < -20 °C and the fuel does not contain a freezing inhibitor.",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 2.5",
+      "reference": "p. 2-3",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 2.5 – p. 2-3"
+      ]
+    },
+    {
+      "id": "H125-LIM-068",
+      "question": "What is the maximum load allowed in the RH cargo compartment?",
+      "options": [
+        "80 kg (176 lb)",
+        "100 kg (220 lb)",
+        "120 kg (264 lb)",
+        "150 kg (330 lb)"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "RH cargo compartment limit = 100 kg.",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 2.5",
+      "reference": "p. 2-6",
+      "difficulty": "easy",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 2.5 – p. 2-6"
+      ]
+    },
+    {
+      "id": "H125-LIM-069",
+      "question": "What is the maximum load allowed in the LH cargo compartment?",
+      "options": [
+        "80 kg (176 lb)",
+        "100 kg (220 lb)",
+        "120 kg (264 lb)",
+        "150 kg (330 lb)"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "LH cargo compartment limit = 120 kg.",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 2.5",
+      "reference": "p. 2-6",
+      "difficulty": "easy",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 2.5 – p. 2-6"
+      ]
+    },
+    {
+      "id": "H125-LIM-070",
+      "question": "What is the maximum load allowed in the rear cargo compartment?",
+      "options": [
+        "80 kg (176 lb)",
+        "100 kg (220 lb)",
+        "120 kg (264 lb)",
+        "150 kg (330 lb)"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Rear cargo compartment limit = 80 kg.",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 2.5",
+      "reference": "p. 2-6",
+      "difficulty": "easy",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 2.5 – p. 2-6"
+      ]
+    },
+    {
+      "id": "H125-LIM-071",
+      "question": "What is the maximum load allowed on the rear cabin floor?",
+      "options": [
+        "100 kg (220 lb)",
+        "150 kg (330 lb)",
+        "310 kg (682 lb)",
+        "350 kg (771 lb)"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Rear cabin floor = 310 kg.",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 2.5",
+      "reference": "p. 2-6",
+      "difficulty": "easy",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 2.5 – p. 2-6"
+      ]
+    },
+    {
+      "id": "H125-LIM-072",
+      "question": "What is the maximum load allowed on the forward left cabin floor?",
+      "options": [
+        "100 kg (220 lb)",
+        "120 kg (264 lb)",
+        "150 kg (330 lb)",
+        "200 kg (440 lb)"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Forward left cabin floor = 150 kg.",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 2.5",
+      "reference": "p. 2-6",
+      "difficulty": "easy",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 2.5 – p. 2-6"
+      ]
+    },
+    {
+      "id": "H125-LIM-073",
+      "question": "According to the starter limitations, after a failed first start and crank attempt, what cooling time is required before the next start?",
+      "options": [
+        "1 min",
+        "5 min",
+        "10 min",
+        "30 min"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "After failed first start and crank = 1 min cooling time before next start.",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 2.5",
+      "reference": "p. 2-6",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 2.5 – p. 2-6"
+      ]
+    },
+    {
+      "id": "H125-LIM-074",
+      "question": "According to the starter limitations, after two failed start attempts, what cooling time is required before a third attempt?",
+      "options": [
+        "10 min",
+        "20 min",
+        "30 min",
+        "45 min"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "After two failed starts = 30 min cooling time before retry.",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 2.5",
+      "reference": "p. 2-6",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 2.5 – p. 2-6"
+      ]
+    },
+    {
+      "id": "H125-LIM-075",
+      "question": "What is the minimum number of adequate radio/audio headsets required on board?",
+      "options": [
+        "One headset only",
+        "One headset at controls and one spare",
+        "Two headsets at controls",
+        "Three headsets including two spares"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "The manual requires a minimum of two headsets: one worn by the pilot at the controls and one spare.",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 2.5",
+      "reference": "p. 2-7",
+      "difficulty": "easy",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 2.5 – p. 2-7"
+      ]
+    },
+    {
+      "id": "H125-LIM-076",
+      "question": "How should optional equipment items be handled regarding limitations and procedures?",
+      "options": [
+        "They are always prohibited",
+        "They can be used without restrictions",
+        "Refer to supplements for additional limitations, procedures, and performance data",
+        "Only use when approved by maintenance"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "For optional equipment, the manual directs to supplements for limitations and procedures.",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 2.5",
+      "reference": "p. 2-7",
+      "difficulty": "easy",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 2.5 – p. 2-7"
+      ]
+    }
+  ]
+}

@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState, useCallback } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { useActiveModelVariant } from "@/lib/models/hooks";
 
 type StepType = "note" | "action" | "branch" | "caution" | "warning";
 type Severity = "warning" | "caution";
@@ -18,8 +19,11 @@ type LightItem = {
   system?: string;
   description?: string;
   icon?: string;
-  procedure: ProcedureStep[];
+  pageImage?: string;
+  procedure?: ProcedureStep[];
   notes?: string[];
+  references?: string[];
+  modelIds?: string[];
 };
 
 type Manifest = { files: string[] };
@@ -28,7 +32,7 @@ type Mode = "idle" | "light" | "procedure" | "done";
 
 const COLORS = {
   warning: { bg: "bg-red-600", ring: "ring-red-400", text: "text-white" },
-  caution: { bg: "bg-yellow-400", ring: "ring-yellow-300", text: "text-black" }
+  caution: { bg: "bg-amber-500", ring: "ring-amber-400", text: "text-white" }
 } as const;
 
 function shuffle<T>(arr: T[]): T[] {
@@ -67,10 +71,11 @@ function pickFirstBranchPair(steps: ProcedureStep[]) {
 
 export default function LightsTrainer() {
   const router = useRouter();
+  const { variant: activeVariant } = useActiveModelVariant();
   const [all, setAll] = useState<LightItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [mode, setMode] = useState<Mode>("idle");
-  const [pickCount, setPickCount] = useState<number | "all">(10);
+  const [pickCounts, setPickCounts] = useState<{ warning: number | "all"; caution: number | "all" }>({ warning: 10, caution: 10 });
   const [deck, setDeck] = useState<LightItem[]>([]);
   const [idx, setIdx] = useState(0);
 
@@ -79,23 +84,67 @@ export default function LightsTrainer() {
     (async () => {
       setLoading(true);
       try {
+        const manifests: string[] = [
+          `/model-data/${activeVariant.id}/training/lights/manifest.json`,
+          `/model-data/${activeVariant.id}/training/lights.json`,
+        ];
+        if (activeVariant.productId !== "H125") {
+          manifests.push("/training/lights/manifest.json");
+        }
+
         let files: string[] = [];
-        try {
-          const res = await fetch("/training/lights/manifest.json", { cache: "no-store" });
-          if (res.ok) {
-            const man = (await res.json()) as Manifest;
-            if (man?.files?.length) files = man.files;
+        for (const url of manifests) {
+          try {
+            const res = await fetch(url, { cache: "no-store" });
+            if (!res.ok) continue;
+            const data = await res.json();
+            if (Array.isArray(data?.files)) {
+              files = data.files;
+              break;
+            }
+            if (Array.isArray(data)) {
+              files = data;
+              break;
+            }
+          } catch (err) {
+            console.warn("Kunne ikke lese manifest", url, err);
           }
-        } catch {}
-        if (!files.length) files = ["/training/lights/all-lights.json"];
+        }
+
+        if (!files.length && activeVariant.productId !== "H125") {
+          files = ["/training/lights/all-lights.json"];
+        }
+
         const arrays = await Promise.allSettled(
-          files.map((p) => fetch(p, { cache: "no-store" }).then((r) => (r.ok ? r.json() : [])))
+          files.map((path) => {
+            const finalPath = path.startsWith("/") ? path : `/model-data/${activeVariant.id}/training/lights/${path}`;
+            return fetch(finalPath, { cache: "no-store" }).then((res) => (res.ok ? res.json() : []));
+          })
         );
-        const merged: LightItem[] = arrays.flatMap((r) =>
-          r.status === "fulfilled" && Array.isArray(r.value) ? (r.value as LightItem[]) : []
+
+        const merged: LightItem[] = arrays.flatMap((result) =>
+          result.status === "fulfilled" && Array.isArray(result.value) ? (result.value as LightItem[]) : []
         );
-        const warnings = uniqById(merged.filter((x) => x?.severity === "warning"));
-        if (!cancelled) setAll(warnings);
+
+        const filtered = merged.filter((item) => {
+          const modelIds = Array.isArray((item as any).modelIds) ? (item as any).modelIds : null;
+          const models = Array.isArray((item as any).models) ? (item as any).models : null;
+          const productIds = Array.isArray((item as any).productIds) ? (item as any).productIds : null;
+          const productId = (item as any).productId;
+          const modelId = (item as any).modelId;
+
+          if (modelIds && (modelIds.includes(activeVariant.id) || modelIds.includes(activeVariant.productId))) return true;
+          if (models && models.includes(activeVariant.id)) return true;
+          if (productIds && productIds.includes(activeVariant.productId)) return true;
+          if (typeof modelId === "string" && (modelId === activeVariant.id || modelId === activeVariant.productId)) return true;
+          if (typeof productId === "string" && productId === activeVariant.productId) return true;
+
+          if (activeVariant.productId === "H125") return false;
+          return true;
+        });
+
+        const cleaned = uniqById(filtered);
+        if (!cancelled) setAll(cleaned);
       } finally {
         if (!cancelled) setLoading(false);
       }
@@ -103,16 +152,21 @@ export default function LightsTrainer() {
     return () => {
       cancelled = true;
     };
-  }, []);
+  }, [activeVariant.id, activeVariant.productId]);
 
-  const start = useCallback(() => {
-    if (!all.length) return;
-    const shuffled = shuffle(all);
-    const n = pickCount === "all" ? shuffled.length : Math.min(shuffled.length, pickCount);
+  const warningLights = useMemo(() => all.filter((item) => item.severity === "warning"), [all]);
+  const cautionLights = useMemo(() => all.filter((item) => item.severity === "caution"), [all]);
+
+  const start = useCallback((severity: Severity) => {
+    const pool = severity === "warning" ? warningLights : cautionLights;
+    if (!pool.length) return;
+    const setting = pickCounts[severity];
+    const shuffled = shuffle(pool);
+    const n = setting === "all" ? shuffled.length : Math.min(shuffled.length, setting);
     setDeck(shuffled.slice(0, n));
     setIdx(0);
     setMode("light");
-  }, [all, pickCount]);
+  }, [warningLights, cautionLights, pickCounts]);
 
   const current = deck[idx];
 
@@ -155,18 +209,17 @@ export default function LightsTrainer() {
     const pal = COLORS[current.severity];
     return (
       <div className="sticky top-0 z-10 bg-white/80 dark:bg-zinc-900/90 backdrop-blur border-b dark:border-zinc-700">
-      <div className="mx-auto max-w-3xl px-6 py-3 flex items-center justify-between gap-3">
-        <div className="flex items-center gap-3">
-          <div
-            className={`rounded-lg px-3 py-1.5 font-semibold ring-2 ${pal.bg} ${pal.text} ${pal.ring} 
-              dark:bg-zinc-900 dark:text-zinc-100 dark:ring-zinc-700`}
-            title={current.system || ""}
-          >
-            {current.name}
+        <div className="mx-auto max-w-3xl px-6 py-3 flex items-center justify-between gap-3">
+          <div className="flex items-center gap-3">
+            <div
+              className={`rounded-lg px-3 py-1.5 font-semibold ring-2 ${pal.bg} ${pal.text} ${pal.ring}`}
+              title={current.system || ""}
+            >
+              {current.name}
+            </div>
+            {current.system && <div className="text-xs opacity-70 uppercase tracking-wide dark:text-zinc-300">{current.system}</div>}
           </div>
-          {current.system && <div className="text-xs opacity-70 uppercase tracking-wide dark:text-zinc-300">{current.system}</div>}
-        </div>
-        <div className="text-sm opacity-70 dark:text-zinc-300">{idx + 1} / {deck.length} • {mode.toUpperCase()}</div>
+          <div className="text-sm opacity-70 dark:text-zinc-300">{idx + 1} / {deck.length} • {mode.toUpperCase()}</div>
         </div>
       </div>
     );
@@ -196,6 +249,29 @@ export default function LightsTrainer() {
   }
 
   function ProcedureLikePDF({ item }: { item: LightItem }) {
+    if (item.pageImage) {
+      return (
+        <figure className="rounded-2xl border bg-white shadow dark:bg-zinc-900 dark:border-zinc-700 p-4">
+          <div className="relative overflow-hidden rounded-xl">
+            <Image
+              src={item.pageImage}
+              alt={item.name}
+              width={1200}
+              height={1600}
+              className="w-full h-auto transition dark:brightness-[0.8]"
+              priority
+            />
+            <div className="pointer-events-none absolute inset-0 hidden dark:block bg-black/35" />
+          </div>
+          {item.references?.length ? (
+            <figcaption className="mt-3 text-xs text-slate-500 dark:text-zinc-400">
+              {item.references.join(", ")}
+            </figcaption>
+          ) : null}
+        </figure>
+      );
+    }
+
     const { notes, actions, rest } = splitProcedure(item.procedure || []);
     const pair = pickFirstBranchPair(rest);
     const beforeTree = pair ? rest.slice(0, pair.startIndex) : rest;
@@ -235,7 +311,7 @@ export default function LightsTrainer() {
             <div className="grid grid-cols-2 gap-6">
               <div className="relative">
                 <div className="flex justify-center">
-                  <div className="h-6 w-px bg-black" />
+                  <div className="h-6 w-px bg-black dark:bg-zinc-100" />
                 </div>
                 <div className="mt-3 rounded-xl border p-4 bg-white dark:bg-blue-900/40 dark:text-white dark:border-blue-400">
                   {pair.left.heading && <div className="font-semibold mb-1">{pair.left.heading}</div>}
@@ -244,7 +320,7 @@ export default function LightsTrainer() {
               </div>
               <div className="relative">
                 <div className="flex justify-center">
-                  <div className="h-6 w-px bg-black" />
+                  <div className="h-6 w-px bg-black dark:bg-zinc-100" />
                 </div>
                 <div className="mt-3 rounded-xl border p-4 bg-white dark:bg-blue-900/40 dark:text-white dark:border-blue-400">
                   {pair.right.heading && <div className="font-semibold mb-1">{pair.right.heading}</div>}
@@ -281,34 +357,66 @@ export default function LightsTrainer() {
       {mode !== "idle" && current && header}
       <main className="mx-auto max-w-3xl p-6 space-y-6">
         {mode === "idle" && (
-          <div className="space-y-6 rounded-xl border-l-4 border-blue-400 bg-blue-900 p-8">
-            <h1 className="text-2xl font-semibold text-white">Red Warning Lights – Trainer</h1>
-            <p className="opacity-90 text-zinc-100">Select the number of random red lights and press <b>Start</b>.</p>
-            <div className="flex items-center gap-3">
-              <label className="text-sm opacity-90 text-zinc-100">Amount:</label>
-              <select
-                value={pickCount}
-                onChange={(e) => setPickCount(e.target.value === "all" ? "all" : Number(e.target.value))}
-                className="rounded-lg border px-3 py-2 bg-blue-900/80 text-zinc-100 border-blue-400"
-              >
-                <option value={10}>10</option>
-                <option value={20}>20</option>
-                <option value={30}>30</option>
-                <option value="all">All</option>
-              </select>
-              <button
-                onClick={start}
-                disabled={loading || !all.length}
-                className="rounded-lg px-5 py-2 bg-blue-600 text-white disabled:opacity-40"
-              >
-                {loading ? "Loading…" : `Start (${all.length} available)`}
-              </button>
-            </div>
-            {!all.length && !loading && (
-              <div className="text-sm opacity-90 text-zinc-100">
-                No red lights found. Place JSON in <code>/public/training/lights/</code> and optionally a <code>manifest.json</code> with paths.
+          <div className="space-y-6">
+            <section className="space-y-6 rounded-xl border-l-4 border-red-500 bg-red-600 p-8">
+              <h1 className="text-2xl font-semibold text-white">Red Warning Lights – Trainer</h1>
+              <p className="opacity-90 text-red-100">Select the number of random red lights and press <b>Start</b>.</p>
+              <div className="flex flex-wrap items-center gap-3">
+                <label className="text-sm opacity-90 text-red-100">Amount:</label>
+                <select
+                  value={pickCounts.warning}
+                  onChange={(e) => setPickCounts((prev) => ({ ...prev, warning: e.target.value === "all" ? "all" : Number(e.target.value) }))}
+                  className="rounded-lg border px-3 py-2 bg-red-500/70 text-white border-red-200"
+                >
+                  <option value={10}>10</option>
+                  <option value={20}>20</option>
+                  <option value={30}>30</option>
+                  <option value="all">All</option>
+                </select>
+                <button
+                  onClick={() => start("warning")}
+                  disabled={loading || !warningLights.length}
+                  className="rounded-lg px-5 py-2 bg-white text-red-700 font-semibold disabled:opacity-40"
+                >
+                  {loading ? "Loading…" : `Start (${warningLights.length} available)`}
+                </button>
               </div>
-            )}
+              {!warningLights.length && !loading && (
+                <div className="text-sm opacity-90 text-red-100">
+                  No red lights found for the selected model.
+                </div>
+              )}
+            </section>
+
+            <section className="space-y-6 rounded-xl border-l-4 border-amber-500 bg-amber-100 dark:bg-amber-500/10 p-8">
+              <h2 className="text-2xl font-semibold text-amber-700 dark:text-amber-300">Yellow Caution Lights – Trainer</h2>
+              <p className="text-amber-800/80 dark:text-amber-200/80">Train on caution lights with the same workflow.</p>
+              <div className="flex flex-wrap items-center gap-3">
+                <label className="text-sm text-amber-800/80 dark:text-amber-200/80">Amount:</label>
+                <select
+                  value={pickCounts.caution}
+                  onChange={(e) => setPickCounts((prev) => ({ ...prev, caution: e.target.value === "all" ? "all" : Number(e.target.value) }))}
+                  className="rounded-lg border px-3 py-2 bg-amber-50 text-amber-800 border-amber-400 dark:bg-zinc-900/60 dark:text-amber-200 dark:border-amber-500"
+                >
+                  <option value={10}>10</option>
+                  <option value={20}>20</option>
+                  <option value={30}>30</option>
+                  <option value="all">All</option>
+                </select>
+                <button
+                  onClick={() => start("caution")}
+                  disabled={loading || !cautionLights.length}
+                  className="rounded-lg px-5 py-2 bg-amber-500 text-amber-950 font-semibold disabled:opacity-40 dark:bg-amber-400 dark:text-zinc-900"
+                >
+                  {loading ? "Loading…" : `Start (${cautionLights.length} available)`}
+                </button>
+              </div>
+              {!cautionLights.length && !loading && (
+                <div className="text-sm text-amber-800/70 dark:text-amber-200/70">
+                  No caution lights found for the selected model.
+                </div>
+              )}
+            </section>
           </div>
         )}
         {mode === "light" && current && (
@@ -345,7 +453,11 @@ export default function LightsTrainer() {
         )}
         {mode === "procedure" && current && (
           <div className="space-y-6">
-            {current.description && <div className="rounded-xl border bg-white dark:bg-blue-900/40 dark:text-zinc-100 dark:border-blue-400 p-4">{current.description}</div>}
+            {current.description && !current.pageImage && (
+              <div className="rounded-xl border bg-white dark:bg-blue-900/40 dark:text-zinc-100 dark:border-blue-400 p-4">
+                {current.description}
+              </div>
+            )}
             <ProcedureLikePDF item={current} />
             <div className="sticky bottom-0 bg-white/80 dark:bg-transparent backdrop-blur border-t dark:border-blue-400">
               <div className="max-w-3xl mx-auto p-4 flex items-center justify-between">
@@ -358,11 +470,11 @@ export default function LightsTrainer() {
         )}
         {mode === "done" && (
           <div className="text-center py-24">
-            <div className="text-3xl font-semibold mb-4">Great job!</div>
-            <div className="text-lg opacity-70 mb-8">You&apos;ve completed the training.</div>
+            <div className="text-3xl font-semibold mb-4 text-slate-900 dark:text-zinc-100">Great job!</div>
+            <div className="text-lg opacity-70 mb-8 text-slate-700 dark:text-zinc-300">You&apos;ve completed the training.</div>
             <button
               onClick={() => router.refresh()}
-              className="rounded-lg px-6 py-3 bg-black text-white transition hover:bg-black/90"
+              className="rounded-lg px-6 py-3 bg-black text-white transition hover:bg-black/90 dark:bg-blue-600 dark:hover:bg-blue-500"
             >
               Restart
             </button>

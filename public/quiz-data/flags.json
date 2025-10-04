@@ -1,1 +1,30 @@
-{"flags":[]}
+{
+  "flags": [
+    {
+      "id": "limitations:lims-p18-003:1759170295493",
+      "section": "limitations",
+      "sectionId": "limitations",
+      "questionId": "lims-p18-003",
+      "dataSource": "all-questions",
+      "dataFile": "lims-p18.json",
+      "snapshot": {
+        "question": "In coordinated flight, what is the indicated unusable fuel?",
+        "options": [
+          "0 kg (10 litres per tank)",
+          "0 kg indicated (10 litres per tank)",
+          "200 litres",
+          "888 litres"
+        ],
+        "explanation": "In coordinated flight, unusable fuel is 0 kg indicated (10 litres per tank).",
+        "references": "FUEL SYSTEM LIMITATIONS",
+        "answer": [
+          1
+        ]
+      },
+      "reason": "",
+      "userId": "guest",
+      "createdAt": "2025-09-29T18:24:55.493Z",
+      "status": "reviewed-OK"
+    }
+  ]
+}

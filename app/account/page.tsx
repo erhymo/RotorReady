@@ -5,6 +5,8 @@ import BackButton from "@/components/BackButton";
 import { auth, db } from "@/lib/firebase/client";
 import { onAuthStateChanged } from "firebase/auth";
 import { doc, getDoc } from "firebase/firestore";
+import { listVariantsByProduct } from "@/lib/models/catalog";
+import { getStoredActiveModelVariantId, storeActiveModelVariantId } from "@/lib/models/storage";
 
 type Summary = { section: string; total: number; correct: number; percent: number; at: string };
 type WrongSession = { section?: string; createdAt?: string | number; items?: unknown[] };
@@ -92,7 +94,7 @@ export default function AccountPage() {
   }
   const router = useRouter();
   const [history, setHistory] = useState<Summary[]>([]);
-  const [ents, setEnts] = useState<{AW169?:boolean; AW189?:boolean; AW139?:boolean}>({});
+  const [ents, setEnts] = useState<{AW169?:boolean; AW189?:boolean; AW139?:boolean; H125?:boolean}>({});
   const [email, setEmail] = useState<string | null>(null);
   const [loggedIn, setLoggedIn] = useState(false);
   const [authChecked, setAuthChecked] = useState(false);
@@ -105,11 +107,6 @@ export default function AccountPage() {
   const [messageText, setMessageText] = useState("");
   const [sendingMessage, setSendingMessage] = useState(false);
 
-  const active = useMemo(() => {
-    return Object.entries(ents)
-      .filter(([, v]) => Boolean(v))
-      .map(([k]) => k);
-  }, [ents]);
 
   const loadConversation = useCallback(async (uid: string) => {
     setConversationLoading(true);
@@ -182,7 +179,7 @@ export default function AccountPage() {
       setUserUid(user?.uid || null);
       setLoggedIn(Boolean(user));
       if (entitlements) {
-        setEnts(entitlements as {AW169?:boolean; AW189?:boolean; AW139?:boolean});
+        setEnts(entitlements as {AW169?:boolean; AW189?:boolean; AW139?:boolean; H125?:boolean});
       } else {
         setEnts({});
       }
@@ -205,7 +202,7 @@ export default function AccountPage() {
       if (user) {
         const entitlements = await loadEntitlements(user);
         if (!cancelled) {
-          setEnts(entitlements as {AW169?:boolean; AW189?:boolean; AW139?:boolean});
+          setEnts(entitlements as {AW169?:boolean; AW189?:boolean; AW139?:boolean; H125?:boolean});
         }
       } else {
         setConversation(null);
@@ -318,6 +315,34 @@ export default function AccountPage() {
   const themeIcon = effectiveTheme === 'dark' ? '☀️' : '🌙';
   const themeButtonLabel = effectiveTheme === 'dark' ? 'Lyst tema' : 'Mørkt tema';
 
+  const h125Variants = listVariantsByProduct("H125");
+  const activeVariantId = getStoredActiveModelVariantId();
+  const selectVariant = async (id: string) => {
+    // Lagre lokalt umiddelbart for sømløs opplevelse
+    try { storeActiveModelVariantId(id); } catch {}
+    // Forsøk å lagre på server dersom bruker er innlogget, med ID-token
+    try {
+      const user = auth?.currentUser;
+      if (user) {
+        const token = await user.getIdToken();
+        await fetch("/api/account/model", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({ variantId: id }),
+          cache: "no-store",
+        }).catch(() => {});
+      }
+    } catch (e) {
+      // Ikke forstyrr brukeren – vi har allerede lagret lokalt
+      console.warn("Kunne ikke oppdatere aktiv modell på server", e);
+    } finally {
+      if (typeof window !== "undefined") window.location.reload();
+    }
+  };
+
   return (
     <div className="max-w-5xl mx-auto p-6 space-y-8">
       <BackButton className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-2 rounded-xl mb-2" />
@@ -358,7 +383,45 @@ export default function AccountPage() {
               {loggedIn ? "Innlogget" : <span><a href="/login" className="underline">Logg inn</a> for å se aktivt abonnement.</span>}
             </div>
             <div className="mt-2 flex gap-2 flex-wrap">
-              <span key="AW169" className={`px-3 py-1 rounded-lg border text-sm ${active.includes("AW169") ? "bg-emerald-50 border-emerald-400 text-emerald-700" : "bg-white dark:bg-zinc-900 dark:text-zinc-100"}`}>AW169 {active.includes("AW169") ? "✓" : ""}</span>
+              <button
+                type="button"
+                key="AW169"
+                onClick={() => selectVariant("AW169")}
+                className={`px-3 py-1 rounded-lg border text-sm transition ${
+                  activeVariantId === "AW169"
+                    ? "border-emerald-400 bg-emerald-50 text-emerald-700"
+                    : "bg-white dark:bg-zinc-900 dark:text-zinc-100 hover:border-slate-300 dark:hover:border-zinc-600"
+                }`}
+              >
+                AW169 {ents.AW169 ? "✓" : ""}
+              </button>
+
+              {h125Variants.map((v) => {
+                const coming = v.status === "coming_soon";
+                const hasH125 = Boolean(ents.H125);
+                const isActive = activeVariantId === v.id;
+                const label = v.label.replace("H125 / ", "AS350 ");
+                return (
+                  <button
+                    type="button"
+                    key={v.id}
+                    disabled={coming}
+                    onClick={() => !coming && selectVariant(v.id)}
+                    className={`px-3 py-1 rounded-lg border text-sm transition ${
+                      isActive
+                        ? "border-emerald-400 bg-emerald-50 text-emerald-700"
+                        : "bg-white dark:bg-zinc-900 dark:text-zinc-100 hover:border-slate-300 dark:hover:border-zinc-600"
+                    } ${coming ? "opacity-60 cursor-not-allowed" : "cursor-pointer"}`}
+                  >
+                    {label} {!coming && hasH125 ? "✓" : ""}
+                    {coming && (
+                      <span className="ml-2 inline-flex items-center rounded-full border border-amber-400/70 bg-amber-50 px-1.5 py-0.5 text-[10px] font-semibold text-amber-700 dark:border-amber-500/40 dark:bg-amber-900/30 dark:text-amber-200">
+                        Kommer
+                      </span>
+                    )}
+                  </button>
+                );
+              })}
             </div>
             <p className="text-xs text-gray-500 dark:text-zinc-400 mt-2">Kjøp aktiveres via Stripe Checkout (se Paywall) eller av admin.</p>
           </div>
@@ -369,6 +432,7 @@ export default function AccountPage() {
                 await import("firebase/auth").then(({ getAuth, signOut }) => signOut(getAuth(auth.app)));
                 window.location.href = "/";
               }}
+
             >
               Logg ut
             </button>
@@ -408,6 +472,7 @@ export default function AccountPage() {
         </div>
       </section>
 
+
       <section className="rounded-2xl border border-slate-200 bg-white/90 p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-900/80 dark:text-zinc-100 space-y-6">
         <div className="flex items-start justify-between gap-3">
           <div>
@@ -417,6 +482,7 @@ export default function AccountPage() {
               <p className="mt-2 text-sm text-emerald-600 dark:text-emerald-300">
                 {unreadUserMessages} ulest{unreadUserMessages > 1 ? "e" : ""} svar fra oss.
               </p>
+
             )}
           </div>
           <button

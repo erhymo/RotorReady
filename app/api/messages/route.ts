@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { isProduction } from "@/lib/env";
 
 import {
   getConversation,
@@ -14,8 +15,16 @@ export async function GET(req: Request) {
   if (!userId) {
     return NextResponse.json({ error: "Missing uid" }, { status: 400 });
   }
-  const conversation = await markRead({ userId, target: "user" }) || await getConversation(userId);
-  return NextResponse.json({ conversation: conversation || null });
+  try {
+    const conversation = await markRead({ userId, target: "user" }) || await getConversation(userId);
+    return NextResponse.json({ conversation: conversation || null });
+  } catch (error: any) {
+    console.error("Could not load conversation", error);
+    if (!isProduction) {
+      return NextResponse.json({ conversation: null, devWarning: "Firestore admin not configured in dev; returning empty conversation." }, { status: 200 });
+    }
+    return NextResponse.json({ error: error?.message || "Failed to load conversation" }, { status: 500 });
+  }
 }
 
 export async function POST(req: Request) {
@@ -40,6 +49,9 @@ export async function POST(req: Request) {
     return NextResponse.json({ conversation });
   } catch (error: any) {
     console.error("Could not store user message", error);
+    if (!isProduction) {
+      return NextResponse.json({ conversation: null, devWarning: "Firestore admin not configured in dev; message not stored (noop)." }, { status: 200 });
+    }
     return NextResponse.json({ error: error?.message || "Failed to store message" }, { status: 500 });
   }
 }

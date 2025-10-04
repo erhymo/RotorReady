@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 2000" role="img" aria-label="HYDR – Loss of hydraulic pressure with approach and landing procedure">
+  <style>
+    :root {
+      --paper:#ffffff; --ink:#111111; --panel-bg:#000000; --warning:#d60000; --accent:#f97316;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --paper:#161a20; --ink:#e9eef7; --panel-bg:#000000; --warning:#ff5959; --accent:#ffb35b; }
+    }
+    .sheet { fill:var(--paper); stroke:var(--ink); stroke-width:1; }
+    .tile { fill:var(--panel-bg); }
+    .tileText { font:700 28px/1 Arial, Helvetica, sans-serif; fill:var(--warning); text-anchor:middle; }
+    .body { font:18px/1.4 Arial, Helvetica, sans-serif; fill:var(--ink); }
+    .warning { font:700 18px/1.3 Arial, Helvetica, sans-serif; fill:var(--warning); }
+    .heading { font:700 22px/1.3 Arial, Helvetica, sans-serif; fill:var(--accent); text-anchor:middle; }
+    .underline { font:700 18px/1.3 Arial, Helvetica, sans-serif; fill:var(--ink); text-decoration:underline; }
+  </style>
+
+  <rect x="1" y="1" width="798" height="1998" class="sheet"/>
+
+  <rect x="30" y="40" width="120" height="60" class="tile" rx="3"/>
+  <text x="90" y="78" class="tileText">HYDR</text>
+
+  <text x="35" y="140" class="body">Loss of hydraulic</text>
+  <text x="35" y="165" class="body">pressure</text>
+  <text x="35" y="195" class="body">or</text>
+  <text x="35" y="225" class="body">Low hydraulic</text>
+  <text x="35" y="250" class="body">pressure</text>
+
+  <text x="200" y="80" class="warning" font-size="20">WARNING</text>
+  <text x="200" y="115" class="warning">DO NOT USE [HYD TEST] OR [ACCU TST] PUSHBUTTON AS</text>
+  <text x="200" y="140" class="warning">THIS WILL DEPRESSURIZE THE YAW LOAD COMPENSATOR</text>
+  <text x="200" y="165" class="warning">RESULTING IN HEAVY PEDAL CONTROL LOADS.</text>
+  <text x="200" y="190" class="warning">FAILURE TO COMPLY WITH THE FOLLOWING PROCEDURE</text>
+  <text x="200" y="215" class="warning">MAY LEAD TO LOSS OF CONTROL.</text>
+
+  <text x="200" y="250" class="body">• <tspan font-weight="bold">HIGE, Takeoff, Final:</tspan> (if landing within 30 sec. is possible)</text>
+  <text x="220" y="275" class="body">1. Land normally</text>
+  <text x="220" y="300" class="body">2. Collective .............................. LOCK</text>
+  <text x="220" y="325" class="body">3. Twist grip .............................. IDLE position</text>
+  <text x="220" y="350" class="body">4. Shutdown procedure .......... Apply</text>
+
+  <text x="200" y="385" class="body">• <tspan font-weight="bold">In flight:</tspan></text>
+  <text x="220" y="410" class="body">1. Set and maintain angle of bank below 30°</text>
+  <text x="220" y="435" class="body">2. Avoid abrupt maneuvers</text>
+  <text x="200" y="460" class="body">Then, smoothly:</text>
+  <text x="220" y="485" class="body">3. IAS ....................................... SET between 40 and 60 KIAS</text>
+  <text x="220" y="510" class="body">(74 km/h and 111 km/h)</text>
+
+  <text x="200" y="550" class="body" font-weight="700">NOTE</text>
+  <text x="200" y="575" class="body">Hydraulic failure safety speed: 40 to 60 KIAS (74 km/h and 111 km/h)</text>
+
+  <text x="200" y="610" class="body">Once hydraulic failure safety speed is established:</text>
+  <text x="220" y="635" class="body">4. Hydraulic cut-off switch</text>
+  <text x="240" y="660" class="body">(collective grip) .................. OFF</text>
+
+  <text x="200" y="700" class="warning" font-size="20">WARNING</text>
+  <text x="200" y="730" class="warning">AS CONTROL LOADS INCREASE, BE CAREFUL NOT TO</text>
+  <text x="200" y="755" class="warning">INADVERTENTLY MOVE TWIST GRIP OUT OF FLIGHT</text>
+  <text x="200" y="780" class="warning">POSITION (TWT GRIP LIGHT OFF).</text>
+
+  <text x="200" y="815" class="body">Pilot has to exert forces:</text>
+  <text x="500" y="815" class="body">- On collective increase or decrease</text>
+  <text x="500" y="840" class="body">  around no force feedback point,</text>
+  <text x="500" y="865" class="body">- On forward and left cyclic.</text>
+
+  <g transform="translate(0, 960)">
+    <text x="400" y="60" class="heading">LAND AS SOON AS POSSIBLE</text>
+
+    <text x="200" y="120" class="body" font-weight="700">NOTE</text>
+    <text x="200" y="145" class="body">Accumulators will compensate hydraulic pressure loss for a limited operation</text>
+    <text x="200" y="170" class="body">of the main rotor controls allowing to secure flight conditions and to establish</text>
+    <text x="200" y="195" class="body">hydraulic failure safety speed.</text>
+
+    <text x="200" y="230" class="body">Airspeed may be increased beyond safety speed as necessary but control loads</text>
+    <text x="200" y="255" class="body">will increase with speed.</text>
+
+    <text x="200" y="295" class="underline">Approach and landing</text>
+
+    <text x="200" y="335" class="warning" font-size="20">WARNING</text>
+    <text x="200" y="365" class="warning">DO NOT ATTEMPT TO CARRY OUT HOVER FLIGHT OR ANY</text>
+    <text x="200" y="390" class="warning">LOW SPEED MANEUVER BECAUSE THE INTENSITY AND</text>
+    <text x="200" y="415" class="warning">DIRECTION OF THE CONTROL FEEDBACK FORCE WILL</text>
+    <text x="200" y="440" class="warning">CHANGE RAPIDLY.</text>
+    <text x="200" y="470" class="warning">FAILURE TO COMPLY MAY RESULT IN POOR AIRCRAFT CONTROL AND POSSIBLE LOSS OF CONTROL.</text>
+
+    <text x="200" y="510" class="body">Over a clear and flat area:</text>
+    <text x="220" y="535" class="body">- Set IAS between 40 and 60 KIAS (74 km/h and 111 km/h)</text>
+    <text x="220" y="560" class="body">- Perform a flat approach into the wind</text>
+    <text x="220" y="585" class="body">- Make a slow no-hover running landing at around 10 kt ground speed (18.5 km/h)</text>
+    <text x="220" y="610" class="body" font-weight="700">- Do not hover or taxi without hydraulic pressure</text>
+
+    <text x="200" y="650" class="body">After landing:</text>
+    <text x="220" y="675" class="body">- Collective ........................ LOCK</text>
+    <text x="220" y="700" class="body">- Twist grip ......................... IDLE position</text>
+    <text x="220" y="725" class="body">- Shutdown procedure ...... Apply</text>
+  </g>
+</svg>

@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="824" height="420" viewBox="0 0 824 420" role="img" aria-label="ENG CHIP – Metal particles in engine oil circuit">
+  <style>
+    :root {
+      --ink:#111; --rule:#111; --panel-bg:#000; --warn:#e0a000;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --ink:#e9eef7; --rule:#e9eef7; --panel-bg:#000; --warn:#ffbf47; }
+    }
+    .box { fill:none; stroke:var(--rule); stroke-width:1.5; }
+    .txt { font-family: Arial, Helvetica, sans-serif; fill:var(--ink); }
+    .label { font-size:14px; }
+    .title { font:700 16px/1.3 Arial, Helvetica, sans-serif; fill:var(--ink); }
+    .warnRect { fill:var(--panel-bg); stroke:var(--rule); stroke-width:1; }
+    .warnText { font:700 18px/1 Arial, Helvetica, sans-serif; fill:var(--warn); text-anchor:middle; }
+    .note { font:700 15px/1.4 Arial, Helvetica, sans-serif; fill:var(--ink); }
+    .land { font:700 20px/1.4 Arial, Helvetica, sans-serif; fill:var(--warn); }
+  </style>
+
+  <rect x="10" y="10" width="804" height="400" class="box"/>
+  <line x1="200" y1="10" x2="200" y2="410" stroke="var(--rule)" stroke-width="1.5"/>
+
+  <rect x="55" y="40" width="90" height="60" rx="3" class="warnRect"/>
+  <text x="100" y="65" class="warnText">ENG</text>
+  <text x="100" y="88" class="warnText">CHIP</text>
+
+  <text x="35" y="135" class="txt label" text-anchor="start">Metal particles in</text>
+  <text x="35" y="155" class="txt label" text-anchor="start">engine oil circuit</text>
+
+  <text x="215" y="50" class="title">Collective............................. <tspan font-weight="700">REDUCE power</tspan></text>
+
+  <text x="400" y="100" class="land" text-anchor="middle">LAND AS SOON AS POSSIBLE</text>
+
+  <text x="215" y="150" class="txt label">Low power approach and landing</text>
+  <text x="215" y="175" class="txt label">Be prepared in case of a loss of engine power.</text>
+
+  <text x="215" y="230" class="note">NOTE</text>
+  <text x="215" y="255" class="note" font-weight="700">
+    Takeoff is prohibited until checks specified in engine
+  </text>
+  <text x="215" y="280" class="note" font-weight="700">
+    manufacturer maintenance manual have been completed.
+  </text>
+</svg>

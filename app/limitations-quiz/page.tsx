@@ -3,6 +3,10 @@ import * as React from "react";
 import { useRouter } from "next/navigation";
 import { incQuota, getQuota, isPaidAsync } from "@/lib/quota";
 import { loadAllQuestions } from "@/lib/loadAllQuestions";
+import { useActiveModelVariant } from "@/lib/models/hooks";
+import { modelScopedKey } from "@/lib/models/storage";
+
+import TopBarBackButton from "@/components/TopBarBackButton";
 
 type QuizItem = {
   id: string;
@@ -16,6 +20,10 @@ type QuizItem = {
   tags?: string[];
 };
 
+const AMOUNT_OPTIONS = [10, 20, 30, 40, 50, "all"] as const;
+
+type AmountOption = (typeof AMOUNT_OPTIONS)[number];
+
 function sample<T>(arr: T[], n: number) {
   const copy = [...arr];
   const out: T[] = [];
@@ -26,15 +34,25 @@ function sample<T>(arr: T[], n: number) {
   return out;
 }
 
+function shuffle<T>(arr: T[]) {
+  const copy = [...arr];
+  for (let i = copy.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [copy[i], copy[j]] = [copy[j], copy[i]];
+  }
+  return copy;
+}
+
 export default function LimitationsStart() {
   const router = useRouter();
-  const [amount, setAmount] = React.useState(20);
+  const [amount, setAmount] = React.useState<AmountOption>(20);
   const [loading, setLoading] = React.useState(false);
   const [err, setErr] = React.useState<string | null>(null);
+  const { variant: activeVariant } = useActiveModelVariant();
 
   async function getData(): Promise<{items: QuizItem[]}> {
     // Load and merge all questions from all-questions/
-    const items = await loadAllQuestions();
+    const items = await loadAllQuestions(activeVariant.id);
     return { items };
   }
 
@@ -48,7 +66,9 @@ export default function LimitationsStart() {
       //   if (used >= 3) { router.push("/paywall?from=/limitations-quiz"); return; }
       // }
       const data = await getData();
-      const items = sample<QuizItem>(data.items, amount);
+      const items = amount === "all"
+        ? shuffle<QuizItem>(data.items)
+        : sample<QuizItem>(data.items, amount);
       const session = {
         section: "limitations",
         createdAt: new Date().toISOString(),
@@ -67,8 +87,10 @@ export default function LimitationsStart() {
   }
 
   function startWrongOnly() {
-    const lower = localStorage.getItem("rr_progress_last_wrong:limitations");
-    const upper = localStorage.getItem("rr_progress_last_wrong:LIMITATIONS");
+    const lowerKey = `${modelScopedKey("rr_progress_last_wrong", activeVariant.id)}:limitations`;
+    const upperKey = `${modelScopedKey("rr_progress_last_wrong", activeVariant.id)}:LIMITATIONS`;
+    const lower = localStorage.getItem(lowerKey) || (activeVariant.id === "AW169" ? localStorage.getItem("rr_progress_last_wrong:limitations") : null);
+    const upper = localStorage.getItem(upperKey) || (activeVariant.id === "AW169" ? localStorage.getItem("rr_progress_last_wrong:LIMITATIONS") : null);
     const raw = lower || upper;
     if (!raw) { alert("Ingen feilsett tilgjengelig. Fullfør en quiz først."); return; }
     let data;
@@ -76,8 +98,12 @@ export default function LimitationsStart() {
       data = JSON.parse(raw);
     } catch {
       alert("Kunne ikke laste lagret feilsett. Slett og prøv igjen.");
-      if (lower) localStorage.removeItem("rr_progress_last_wrong:limitations");
-      if (upper) localStorage.removeItem("rr_progress_last_wrong:LIMITATIONS");
+      if (lower) localStorage.removeItem(lowerKey);
+      if (upper) localStorage.removeItem(upperKey);
+      if (activeVariant.id === "AW169") {
+        localStorage.removeItem("rr_progress_last_wrong:limitations");
+        localStorage.removeItem("rr_progress_last_wrong:LIMITATIONS");
+      }
       return;
     }
     sessionStorage.setItem("limq_session", JSON.stringify(data));
@@ -86,14 +112,23 @@ export default function LimitationsStart() {
 
   return (
     <div className="max-w-xl mx-auto p-4 space-y-4">
+      <div className="w-full flex items-center py-1">
+        <TopBarBackButton href="/quiz" />
+      </div>
       <h1 className="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">Limitations Quiz</h1>
       <p className="text-lg text-slate-700 dark:text-zinc-100 mt-2">Velg antall spørsmål og start.</p>
 
       <div className="rounded-xl border-l-4 border-blue-600 bg-blue-50/40 dark:border-blue-400 dark:bg-blue-900/40 p-4 flex items-center gap-3">
         <label className="text-sm text-gray-700 dark:text-zinc-100">Antall:</label>
         <select className="border rounded px-3 py-2 dark:bg-blue-900 dark:text-zinc-100 dark:border-blue-400"
-                value={amount} onChange={e=>setAmount(parseInt(e.target.value))}>
-          {[10,20,30,40,50].map(n => <option key={n} value={n}>{n}</option>)}
+                value={amount}
+                onChange={e => {
+                  const value = e.target.value === "all" ? "all" : parseInt(e.target.value, 10);
+                  setAmount(value as AmountOption);
+                }}>
+          {AMOUNT_OPTIONS.map(option => (
+            <option key={option} value={option}>{option === "all" ? "Alle" : option}</option>
+          ))}
         </select>
         <button onClick={startQuiz} disabled={loading}
           className="ml-auto px-4 py-2 rounded-lg bg-blue-600 text-white active:scale-95">

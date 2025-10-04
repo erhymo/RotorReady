@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { isProduction } from "@/lib/env";
 
 import {
   listConversations,
@@ -9,8 +10,16 @@ import {
 export const runtime = "nodejs";
 
 export async function GET() {
-  const conversations = await listConversations();
-  return NextResponse.json({ conversations });
+  try {
+    const conversations = await listConversations();
+    return NextResponse.json({ conversations });
+  } catch (error: any) {
+    console.error("Could not list conversations", error);
+    if (!isProduction) {
+      return NextResponse.json({ conversations: [], devWarning: "Firestore admin not configured in dev; returning empty list." }, { status: 200 });
+    }
+    return NextResponse.json({ error: error?.message || "Failed to list conversations" }, { status: 500 });
+  }
 }
 
 export async function POST(req: Request) {
@@ -30,6 +39,9 @@ export async function POST(req: Request) {
     return NextResponse.json({ conversation });
   } catch (error: any) {
     console.error("Could not store admin reply", error);
+    if (!isProduction) {
+      return NextResponse.json({ conversation: null, devWarning: "Firestore admin not configured in dev; reply not stored (noop)." }, { status: 200 });
+    }
     return NextResponse.json({ error: error?.message || "Failed to send reply" }, { status: 500 });
   }
 }
@@ -47,6 +59,9 @@ export async function PATCH(req: Request) {
     return NextResponse.json({ conversation });
   } catch (error: any) {
     console.error("Could not mark conversation as read", error);
+    if (!isProduction) {
+      return NextResponse.json({ conversation: null, devWarning: "Firestore admin not configured in dev; noop." }, { status: 200 });
+    }
     return NextResponse.json({ error: error?.message || "Failed to update conversation" }, { status: 500 });
   }
 }

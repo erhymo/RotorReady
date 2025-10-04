@@ -1,0 +1,73 @@
+export type ProductId = "AW169" | "AW189" | "AW139" | "H125";
+
+export type ModelStatus = "available" | "coming_soon";
+
+export type ModelVariantDefinition = {
+  id: string;
+  label: string;
+  description?: string;
+  productId: ProductId;
+  status: ModelStatus;
+  notes?: string;
+};
+
+export const MODEL_VARIANTS: ModelVariantDefinition[] = [
+  {
+    id: "AW169",
+    label: "AW169",
+    description: "Leonardo AW169 – RotorReady original.",
+    productId: "AW169",
+    status: "available",
+  },
+  {
+    id: "AW189",
+    label: "AW189",
+    description: "Leonardo AW189 – lang rekkevidde og kapasitet.",
+    productId: "AW189",
+    status: "coming_soon",
+  },
+  {
+    id: "AW139",
+    label: "AW139",
+    description: "Leonardo AW139 – medium twin.",
+    productId: "AW139",
+    status: "coming_soon",
+  },
+  {
+    id: "H125_AS350_B3_2B1",
+    label: "H125 / AS350 B3 (2B1)",
+    description: "Airbus H125 med Arriel 2B1.",
+    productId: "H125",
+    status: "available",
+  },
+  {
+    id: "H125_AS350_B3E",
+    label: "H125 / AS350 B3e",
+    description: "Airbus H125 (B3e).",
+    productId: "H125",
+    status: "coming_soon",
+  },
+];
+
+export const DEFAULT_MODEL_VARIANT_ID = "AW169";
+
+const MODEL_VARIANT_MAP = new Map<string, ModelVariantDefinition>(
+  MODEL_VARIANTS.map((variant) => [variant.id, variant]),
+);
+
+export function listModelVariants(): ModelVariantDefinition[] {
+  return MODEL_VARIANTS;
+}
+
+export function getModelVariant(id: string | null | undefined): ModelVariantDefinition | null {
+  if (!id) return null;
+  return MODEL_VARIANT_MAP.get(id) || null;
+}
+
+export function listVariantsByProduct(productId: ProductId): ModelVariantDefinition[] {
+  return MODEL_VARIANTS.filter((variant) => variant.productId === productId);
+}
+
+export function isProductId(value: unknown): value is ProductId {
+  return value === "AW169" || value === "AW189" || value === "AW139" || value === "H125";
+}

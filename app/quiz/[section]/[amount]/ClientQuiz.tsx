@@ -91,14 +91,19 @@ export default function ClientQuiz({ section, initial }: { section: string; init
             onClick={handlePrev}
             disabled={idx === 0}
           >Forrige</button>
-          <div className="text-sm text-slate-500 dark:text-zinc-400">
+          <div className="text-sm text-slate-500 dark:text-zinc-400 space-y-1">
             {answers[idx] !== undefined && (
               q.explanation
-                ? <span>Hint: {q.explanation}</span>
+                ? <div>Hint: {q.explanation}</div>
                 : answers[idx] !== q.answer[0] && q.options[q.answer[0]]
-                  ? <span>Riktig svar: {q.options[q.answer[0]]}</span>
+                  ? <div>Riktig svar: {q.options[q.answer[0]]}</div>
                   : null
             )}
+            {answers[idx] !== undefined && q.references?.length ? (
+              <div className="text-xs text-slate-400 dark:text-zinc-500">
+                Kilde: {q.references.join(", ")}
+              </div>
+            ) : null}
           </div>
           <button
             className="px-4 py-2 rounded bg-blue-600 dark:bg-blue-900 text-white font-semibold hover:bg-blue-700 dark:hover:bg-blue-800 disabled:opacity-50"

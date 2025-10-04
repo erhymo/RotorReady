@@ -1,6 +1,7 @@
 "use client";
 import * as React from "react";
 import { useParams, useRouter } from "next/navigation";
+import TopBarBackButton from "@/components/TopBarBackButton";
 
 import { reportFlag } from "@/lib/flags";
 
@@ -103,10 +104,9 @@ export default function QuestionPage() {
       <div className="h-2 bg-gray-200 rounded dark:bg-zinc-800">
         <div className="h-2 bg-blue-600 rounded dark:bg-blue-700" style={{ width: `${progress}%` }} />
       </div>
-      {/* Top bar fix */}
+      {/* Top bar med tilbakeknapp */}
       <div className="w-full flex items-center justify-between py-2 px-4 border-b border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-900">
-        {/* Fjernet lys/label for quiz */}
-        <div />
+        <TopBarBackButton href="/limitations-quiz" />
         <div className="text-gray-500 dark:text-zinc-400">Question {idx+1} / {total}</div>
       </div>
       <div className="flex items-center justify-between">

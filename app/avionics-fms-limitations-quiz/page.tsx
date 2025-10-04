@@ -1,19 +1,30 @@
 "use client";
 import * as React from "react";
 import { useRouter } from "next/navigation";
+import { useActiveModelVariant } from "@/lib/models/hooks";
+import { modelScopedKey } from "@/lib/models/storage";
+
+import TopBarBackButton from "@/components/TopBarBackButton";
 
 const SECTION = "Avionics & FMS Limitations" as const;
 const DATA_URL = "/quiz-data/sections/avionics_fms_limitations.json" as const;
+const AMOUNT_OPTIONS = [10, 20, 30, 40, 50, "all"] as const;
+
+type AmountOption = (typeof AMOUNT_OPTIONS)[number];
 
 type QuizItem = {
   id: string;
-  section: string;
+  section?: string;
   type: "single" | "multi";
   question: string;
   options: string[];
   answer: number[];
   explanation?: string;
   references?: string[];
+  modelIds?: string[];
+  models?: string[];
+  productIds?: string[];
+  productId?: string;
 };
 
 function sample<T>(arr: T[], n: number) {
@@ -26,20 +37,59 @@ function sample<T>(arr: T[], n: number) {
   return out;
 }
 
+function shuffle<T>(arr: T[]) {
+  const copy = [...arr];
+  for (let i = copy.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [copy[i], copy[j]] = [copy[j], copy[i]];
+  }
+  return copy;
+}
+
+function matchesVariant(item: QuizItem, variantId: string, productId: string): boolean {
+  if (Array.isArray(item.modelIds)) {
+    return item.modelIds.includes(variantId);
+  }
+  if (Array.isArray(item.models)) {
+    return item.models.includes(variantId);
+  }
+  if (Array.isArray(item.productIds)) {
+    return item.productIds.includes(productId);
+  }
+  if (typeof item.productId === "string") {
+    return item.productId === productId;
+  }
+  return productId === "AW169";
+}
+
 export default function AvionicsFmsQuizStart() {
   const router = useRouter();
-  const [amount, setAmount] = React.useState(20);
+  const [amount, setAmount] = React.useState<AmountOption>(20);
   const [loading, setLoading] = React.useState(false);
   const [err, setErr] = React.useState<string | null>(null);
+  const { variant: activeVariant } = useActiveModelVariant();
 
   async function getData(): Promise<{ items: QuizItem[] }> {
-    const res = await fetch(DATA_URL, { cache: "no-store" });
-    if (!res.ok) throw new Error("Fant ikke spørsmål for Avionics & FMS");
-    const payload = await res.json();
-    if (!payload.items || !Array.isArray(payload.items)) {
-      throw new Error("Ugyldig datastruktur for Avionics & FMS");
+    const urls = [
+      `/model-data/${activeVariant.id}/sections/avionics_fms_limitations.json`,
+      DATA_URL,
+    ];
+    for (const url of urls) {
+      try {
+        const res = await fetch(url, { cache: "no-store" });
+        if (!res.ok) continue;
+        const payload = await res.json();
+        if (!payload.items || !Array.isArray(payload.items)) continue;
+        const filtered = (payload.items as QuizItem[]).filter((item) =>
+          matchesVariant(item, activeVariant.id, activeVariant.productId),
+        );
+        if (!filtered.length) continue;
+        return { items: filtered };
+      } catch (error) {
+        console.warn("Kunne ikke laste", url, error);
+      }
     }
-    return { items: payload.items as QuizItem[] };
+    throw new Error("Fant ikke spørsmål for Avionics & FMS");
   }
 
   async function startQuiz() {
@@ -52,7 +102,9 @@ export default function AvionicsFmsQuizStart() {
         setLoading(false);
         return;
       }
-      const items = sample(data.items, Math.min(amount, data.items.length));
+      const items = amount === "all"
+        ? shuffle(data.items)
+        : sample(data.items, Math.min(amount, data.items.length));
       const session = {
         section: SECTION,
         createdAt: new Date().toISOString(),
@@ -70,7 +122,10 @@ export default function AvionicsFmsQuizStart() {
   }
 
   function startWrongOnly() {
-    const raw = localStorage.getItem("rr_progress_last_wrong:avionics-fms-limitations");
+    const key = `${modelScopedKey("rr_progress_last_wrong", activeVariant.id)}:avionics-fms-limitations`;
+    const raw =
+      localStorage.getItem(key) ||
+      (activeVariant.id === "AW169" ? localStorage.getItem("rr_progress_last_wrong:avionics-fms-limitations") : null);
     if (!raw) {
       alert("Ingen feilsett tilgjengelig. Fullfør en quiz først.");
       return;
@@ -81,12 +136,19 @@ export default function AvionicsFmsQuizStart() {
       router.push("/avionics-fms-limitations-quiz/1");
     } catch {
       alert("Kunne ikke laste lagret feilsett. Slett og prøv igjen.");
-      localStorage.removeItem("rr_progress_last_wrong:avionics-fms-limitations");
+      localStorage.removeItem(key);
+      if (activeVariant.id === "AW169") {
+        localStorage.removeItem("rr_progress_last_wrong:avionics-fms-limitations");
+      }
     }
   }
 
   return (
     <div className="max-w-xl mx-auto p-4 space-y-4">
+      <div className="w-full flex items-center py-1">
+        <TopBarBackButton href="/quiz" />
+      </div>
+
       <h1 className="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">{SECTION}</h1>
       <p className="text-lg text-slate-700 dark:text-zinc-100 mt-2">Velg antall spørsmål og start.</p>
 
@@ -95,11 +157,14 @@ export default function AvionicsFmsQuizStart() {
         <select
           className="border rounded px-3 py-2 dark:bg-blue-900 dark:text-zinc-100 dark:border-blue-400"
           value={amount}
-          onChange={(event) => setAmount(parseInt(event.target.value, 10))}
+          onChange={(event) => {
+            const value = event.target.value === "all" ? "all" : parseInt(event.target.value, 10);
+            setAmount(value as AmountOption);
+          }}
         >
-          {[10, 20, 30, 40, 50].map((n) => (
-            <option key={n} value={n}>
-              {n}
+          {AMOUNT_OPTIONS.map((option) => (
+            <option key={option} value={option}>
+              {option === "all" ? "Alle" : option}
             </option>
           ))}
         </select>

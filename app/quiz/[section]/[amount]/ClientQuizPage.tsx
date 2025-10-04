@@ -1,6 +1,9 @@
 "use client";
 import { useEffect, useState } from "react";
 import ClientQuiz from "./ClientQuiz";
+import { useActiveModelVariant } from "@/lib/models/hooks";
+import { loadSectionOffline } from "@/lib/offline";
+import { modelScopedKey } from "@/lib/models/storage";
 
 type QuizItem = {
   id: string;
@@ -13,30 +16,83 @@ type QuizItem = {
   references?: string[];
 };
 
-export default function ClientQuizPage({ section, amount }: { section: string; amount: number }) {
+export default function ClientQuizPage({ section, amount }: { section: string; amount: number | null }) {
   const [questions, setQuestions] = useState<QuizItem[] | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const { variant: activeVariant, loading: variantLoading } = useActiveModelVariant();
 
   useEffect(() => {
-    const url = `/quiz-data/sections/${section}.json`;
-    console.log("Fetching quiz data from", url);
-    fetch(url)
-      .then((r) => {
-        console.log("Fetch response status:", r.status);
-        if (!r.ok) throw new Error("Fant ikke seksjonen");
-        return r.json();
-      })
-      .then((data) => {
-        console.log("Fetched data:", data);
-        if (!data.items || !Array.isArray(data.items)) throw new Error("Ugyldig dataformat");
-        const shuffled = [...data.items].sort(() => Math.random() - 0.5).slice(0, amount);
-        setQuestions(shuffled);
-      })
-      .catch((e) => {
-        console.error("Quiz fetch error:", e);
-        setError(e.message || "Feil ved lasting av spørsmål");
-      });
-  }, [section, amount]);
+    if (variantLoading) return;
+    let cancelled = false;
+
+    async function load() {
+      // 0) Sjekk om det finnes en sesjons-override (f.eks. "Øv kun på feil")
+      try {
+        const overrideKey = `${modelScopedKey("quiz_session_override", activeVariant.id)}:${section}`;
+        const raw = sessionStorage.getItem(overrideKey);
+        if (!cancelled && raw) {
+          const data = JSON.parse(raw) as { items?: QuizItem[] };
+          if (Array.isArray(data.items) && data.items.length) {
+            const shuffled = [...data.items].sort(() => Math.random() - 0.5);
+            const limited = typeof amount === "number" ? shuffled.slice(0, amount) : shuffled;
+            setQuestions(limited);
+            setError(null);
+            // Tøm override etter bruk for å unngå utilsiktet gjenbruk
+            sessionStorage.removeItem(overrideKey);
+            return;
+          }
+        }
+      } catch {}
+
+      // 1) Forsøk lokalt (offline) først
+      try {
+        const offline = loadSectionOffline<{ items?: QuizItem[] }>(section, activeVariant.id);
+        if (!cancelled && offline && Array.isArray(offline.items)) {
+          const shuffled = [...offline.items].sort(() => Math.random() - 0.5);
+          const limited = typeof amount === "number" ? shuffled.slice(0, amount) : shuffled;
+          setQuestions(limited);
+          setError(null);
+          return;
+        }
+      } catch {
+        // Ignorer og prøv nettverk
+      }
+
+      // 2) Deretter forsøk nettverk som vanlig
+      const urls = [
+        `/model-data/${activeVariant.id}/sections/${section}.json`,
+        `/quiz-data/sections/${section}.json`,
+      ];
+      for (const url of urls) {
+        try {
+          const res = await fetch(url, { cache: "no-store" });
+          if (!res.ok) throw new Error(`HTTP ${res.status}`);
+          const data = await res.json();
+          if (!data.items || !Array.isArray(data.items)) throw new Error("Ugyldig dataformat");
+          if (cancelled) return;
+
+          const shuffled = [...data.items].sort(() => Math.random() - 0.5);
+          const limited = typeof amount === "number" ? shuffled.slice(0, amount) : shuffled;
+
+          setQuestions(limited);
+          setError(null);
+          return;
+        } catch (error) {
+          console.warn("Kunne ikke laste", url, error);
+          continue;
+        }
+      }
+      if (!cancelled) {
+        setError("Fant ikke spørsmål for valgt modell");
+      }
+    }
+
+    load();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [section, amount, activeVariant.id, variantLoading]);
 
   if (error) {
     return (

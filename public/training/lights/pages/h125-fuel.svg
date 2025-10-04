@@ -1,0 +1,25 @@
+<!-- ======================= SVG 1: FUEL ======================= -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 360">
+  <rect x="1" y="1" width="818" height="358" fill="white" stroke="black" stroke-width="2"/>
+
+  <!-- Left column -->
+  <rect x="30" y="40" width="100" height="50" fill="black"/>
+  <text x="80" y="72" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="yellow" text-anchor="middle">FUEL</text>
+
+  <text x="30" y="120" font-family="Arial, sans-serif" font-size="18">Fuel quantity</text>
+  <text x="30" y="145" font-family="Arial, sans-serif" font-size="18">&lt; 48 kg (106 lb)</text>
+
+  <!-- Separator line -->
+  <line x1="160" y1="20" x2="160" y2="340" stroke="black" stroke-width="1.5"/>
+
+  <!-- Right column -->
+  <text x="200" y="60" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="orange">LAND AS SOON AS POSSIBLE</text>
+
+  <text x="200" y="100" font-family="Arial, sans-serif" font-size="18" font-weight="bold">NOTE</text>
+  <text x="200" y="125" font-family="Arial, sans-serif" font-size="18">15 min. of flight time remains at MCP</text>
+
+  <text x="200" y="160" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="red">WARNING</text>
+  <text x="200" y="185" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="red">AVOID LARGE ATTITUDE CHANGES AS THIS COULD LEAD</text>
+  <text x="200" y="210" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="red">TO AN ENGINE FLAME-OUT.</text>
+</svg>
+

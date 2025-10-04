@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="250" viewBox="0 0 820 250" role="img" aria-label="MGB P – Main Gear Box low oil pressure">
+  <style>
+    :root{
+      --ink:#111; --rule:#111; --panel-bg:#000; --warn:#e00000; --caution:#ff8c00;
+    }
+    @media (prefers-color-scheme: dark){
+      :root{ --ink:#e9eef7; --rule:#e9eef7; --panel-bg:#000; --warn:#ff5959; --caution:#ffb84d; }
+    }
+    .box{ fill:none; stroke:var(--rule); stroke-width:1.5; }
+    .txt{ font-family: Arial, Helvetica, sans-serif; fill:var(--ink); }
+    .label{ font-size:14px; }
+    .title{ font:700 16px/1.2 Arial, Helvetica, sans-serif; fill:var(--ink); }
+    .warnRect{ fill:var(--panel-bg); stroke:var(--rule); stroke-width:1; }
+    .warnText{ font:700 18px/1 Arial, Helvetica, sans-serif; fill:var(--warn); text-anchor:middle; }
+    .caution{ font:700 20px/1.2 Arial, Helvetica, sans-serif; fill:var(--caution); }
+    .note{ font:700 13px/1.4 Arial, Helvetica, sans-serif; fill:var(--ink); }
+  </style>
+
+  <rect x="12" y="12" width="796" height="226" class="box"/>
+  <line x1="206" y1="12" x2="206" y2="238" stroke="var(--rule)" stroke-width="1.5"/>
+
+  <rect x="60" y="38" width="90" height="62" rx="3" class="warnRect"/>
+  <text x="105" y="63" class="warnText">MGB</text>
+  <text x="105" y="85" class="warnText">P</text>
+
+  <text x="42" y="118" class="txt label" text-anchor="start">Main Gear Box</text>
+  <text x="42" y="138" class="txt label" text-anchor="start">low oil pressure</text>
+  <text x="42" y="158" class="txt label" text-anchor="start">&lt; 1 bar (14.5 psi)</text>
+
+  <text x="218" y="48" class="title">
+    Collective............................ <tspan font-weight="700">REDUCE power</tspan>
+  </text>
+
+  <text x="410" y="85" class="caution" text-anchor="middle">LAND AS SOON AS POSSIBLE</text>
+
+  <text x="218" y="115" class="txt label">If a safe landing is not possible, continue flight to the</text>
+  <text x="218" y="133" class="txt label">nearest appropriate landing site, reduce power to fly at</text>
+  <text x="218" y="151" class="txt label">minimum power speed (Vy).</text>
+
+  <text x="218" y="185" class="note">NOTE</text>
+  <text x="218" y="203" class="txt label">At low power (Vy) a maximum of 55 min. of simulated</text>
+  <text x="218" y="221" class="txt label">flight time has been demonstrated during bench tests</text>
+</svg>

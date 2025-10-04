@@ -1,0 +1,755 @@
+{
+  "items": [
+    {
+      "id": "H125-LIM-077",
+      "question": "Which recommendation means an immediate landing without delay?",
+      "options": [
+        "LAND AS SOON AS POSSIBLE",
+        "LAND IMMEDIATELY",
+        "LAND AS SOON AS PRACTICABLE",
+        "CONTINUE FLIGHT"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "“LAND IMMEDIATELY” = self explanatory, landing without delay.",
+      "section": "emergency_procedures",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 3.1",
+      "reference": "p. 3-1",
+      "difficulty": "easy",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 3.1 – p. 3-1"
+      ]
+    },
+    {
+      "id": "H125-LIM-078",
+      "question": "Which recommendation requires landing at the nearest site at which a safe landing can be made?",
+      "options": [
+        "LAND IMMEDIATELY",
+        "LAND AS SOON AS POSSIBLE",
+        "LAND AS SOON AS PRACTICABLE",
+        "CONTINUE FLIGHT"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "“LAND AS SOON AS POSSIBLE” = urgent, nearest safe landing site.",
+      "section": "emergency_procedures",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 3.1",
+      "reference": "p. 3-1",
+      "difficulty": "easy",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 3.1 – p. 3-1"
+      ]
+    },
+    {
+      "id": "H125-LIM-079",
+      "question": "Which recommendation allows the pilot to proceed to the nearest airfield where assistance is available?",
+      "options": [
+        "LAND IMMEDIATELY",
+        "LAND AS SOON AS POSSIBLE",
+        "LAND AS SOON AS PRACTICABLE",
+        "CONTINUE FLIGHT"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "“LAND AS SOON AS PRACTICABLE” = less urgent, nearest airfield where assistance can be expected.",
+      "section": "emergency_procedures",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 3.1",
+      "reference": "p. 3-1",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 3.1 – p. 3-1"
+      ]
+    },
+    {
+      "id": "H125-LIM-080",
+      "question": "Which recommendation means the flight can be continued to the destination?",
+      "options": [
+        "LAND IMMEDIATELY",
+        "LAND AS SOON AS POSSIBLE",
+        "LAND AS SOON AS PRACTICABLE",
+        "CONTINUE FLIGHT"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "“CONTINUE FLIGHT” = flight as planned, repair at destination.",
+      "section": "emergency_procedures",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 3.1",
+      "reference": "p. 3-1",
+      "difficulty": "easy",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 3.1 – p. 3-1"
+      ]
+    },
+    {
+      "id": "H125-LIM-081",
+      "question": "What happens when the [HORN] pushbutton on the SCU is pressed?",
+      "options": [
+        "The warning lights reset",
+        "The horn is activated",
+        "The ICS system is disabled",
+        "The VEMD resets"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Pressing [HORN] activates the audio warning.",
+      "section": "emergency_procedures",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 3.1",
+      "reference": "p. 3-1",
+      "difficulty": "easy",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 3.1 – p. 3-1"
+      ]
+    },
+    {
+      "id": "H125-LIM-082",
+      "question": "What happens when a red warning appears on the warning panel?",
+      "options": [
+        "A 310 Hz tone is heard",
+        "A gong is generated",
+        "A 285 Hz tone is heard",
+        "The horn is reset"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "A gong is generated for each red warning.",
+      "section": "emergency_procedures",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 3.1",
+      "reference": "p. 3-2",
+      "difficulty": "easy",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 3.1 – p. 3-2"
+      ]
+    },
+    {
+      "id": "H125-LIM-083",
+      "question": "At what rotor speed (Nr) is a 310 Hz continuous tone heard?",
+      "options": [
+        "Below 350 rpm",
+        "Below 355 rpm",
+        "Below 360 rpm",
+        "Below 365 rpm"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Continuous 310 Hz tone is heard when Nr < 360 rpm.",
+      "section": "emergency_procedures",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 3.1",
+      "reference": "p. 3-2",
+      "difficulty": "easy",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 3.1 – p. 3-2"
+      ]
+    },
+    {
+      "id": "H125-LIM-086",
+      "question": "An intermittent 310 Hz tone is heard when:",
+      "options": [
+        "Nr < 360 rpm",
+        "Nr = 386 rpm",
+        "Nr > 410 rpm",
+        "Nr > 450 rpm"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Intermittent 310 Hz tone is heard when Nr > 410 rpm.",
+      "section": "emergency_procedures",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 3.1",
+      "reference": "p. 3-2",
+      "difficulty": "easy",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 3.1 – p. 3-2"
+      ]
+    },
+    {
+      "id": "H125-EP-087",
+      "question": "If you experience an engine flame-out in cruise flight, what are the first three immediate actions?",
+      "options": [
+        "Reduce collective, set IAS Vy, twist grip to IDLE",
+        "Reduce collective, pedals adjust, cyclic forward",
+        "Twist grip IDLE, cyclic flare, collective increase",
+        "Cyclic flare, adjust pedals, rotor brake apply"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The three first steps: Collective – reduce, IAS – Vy, Twist grip – IDLE.",
+      "section": "emergency_procedures",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 3.2",
+      "reference": "p. 3-1",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 3.2 – p. 3-1"
+      ]
+    },
+    {
+      "id": "H125-EP-088",
+      "question": "During autorotation after flame-out, what control action is required at approximately 70 ft (21 m)?",
+      "options": [
+        "Collective reduce",
+        "Pedals adjust",
+        "Cyclic flare",
+        "Rotor brake apply"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "At 70 ft the cyclic must be flared to reduce descent and speed before touchdown.",
+      "section": "emergency_procedures",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 3.2",
+      "reference": "p. 3-1",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 3.2 – p. 3-1"
+      ]
+    },
+    {
+      "id": "H125-EP-089",
+      "question": "At 20–25 ft (6–8 m), which of the following is not part of the recommended procedure?",
+      "options": [
+        "Collective gradually increase",
+        "Cyclic forward for nose-up attitude < 10°",
+        "Pedals adjust to cancel sideslip",
+        "Collective full low pitch"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "At 20–25 ft: increase collective gradually, cyclic forward to slight nose-up (<10°), adjust pedals. Full low pitch is only after the aircraft has stopped.",
+      "section": "emergency_procedures",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 3.2",
+      "reference": "p. 3-1",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 3.2 – p. 3-1"
+      ]
+    },
+    {
+      "id": "H125-EP-090",
+      "question": "What should be done with collective, cyclic, and pedals immediately after touchdown in autorotation?",
+      "options": [
+        "Adjust to control ground run",
+        "Full low pitch",
+        "Apply rotor brake",
+        "Cyclic flare"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "After touchdown: adjust collective, cyclic, and pedals to control ground run.",
+      "section": "emergency_procedures",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 3.2",
+      "reference": "p. 3-1",
+      "difficulty": "easy",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 3.2 – p. 3-1"
+      ]
+    },
+    {
+      "id": "H125-EP-091",
+      "question": "When may the rotor brake be applied after an autorotation landing?",
+      "options": [
+        "At 200 rpm",
+        "At 170 rpm",
+        "Immediately after touchdown",
+        "After collective reduce to idle"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Rotor brake is applied below 170 rpm.",
+      "section": "emergency_procedures",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 3.2",
+      "reference": "p. 3-1",
+      "difficulty": "easy",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 3.2 – p. 3-1"
+      ]
+    },
+    {
+      "id": "H125-EP-092",
+      "question": "What is the first step in the in-flight relighting procedure after a flame-out?",
+      "options": [
+        "[FUEL P] ON",
+        "Engine starting selector ON",
+        "Engine starting selector OFF",
+        "Twist grip IDLE"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "The first action is to set the engine starting selector to OFF.",
+      "section": "emergency_procedures",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 3.2",
+      "reference": "p. 3-3",
+      "difficulty": "easy",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 3.2 – p. 3-3"
+      ]
+    },
+    {
+      "id": "H125-EP-093",
+      "question": "What is the correct sequence of the first three steps in the in-flight relighting procedure?",
+      "options": [
+        "[FUEL P] ON → Engine starting selector OFF → Engine starting selector ON",
+        "Engine starting selector OFF → [FUEL P] ON → Engine starting selector ON",
+        "Engine starting selector ON → [FUEL P] ON → Engine starting selector OFF",
+        "Twist grip IDLE → [FUEL P] ON → Engine starting selector ON"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "The correct sequence is OFF, then fuel pump ON, then engine starting selector ON.",
+      "section": "emergency_procedures",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 3.2",
+      "reference": "p. 3-3",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 3.2 – p. 3-3"
+      ]
+    },
+    {
+      "id": "H125-EP-094",
+      "question": "At least how much altitude is required to complete the in-flight relighting procedure?",
+      "options": [
+        "300 ft (100 m)",
+        "500 ft (150 m)",
+        "1000 ft (300 m)",
+        "1500 ft (450 m)"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Manual specifies at least 1000 ft (300 m).",
+      "section": "emergency_procedures",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 3.2",
+      "reference": "p. 3-3",
+      "difficulty": "easy",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 3.2 – p. 3-3"
+      ]
+    },
+    {
+      "id": "H125-EP-095",
+      "question": "What are the first two actions if tail rotor thrust is lost while hovering within the HV diagram?",
+      "options": [
+        "Cyclic forward, collective reduce",
+        "Twist grip IDLE, collective increase",
+        "Pedals adjust, cyclic flare",
+        "IAS Vy, collective reduce"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "In hover (IGE/OGE within HV diagram): Twist grip → IDLE, Collective → Increase to cushion touchdown.",
+      "section": "emergency_procedures",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 3.3",
+      "reference": "p. 3-1",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 3.3 – p. 3-1"
+      ]
+    },
+    {
+      "id": "H125-EP-099",
+      "question": "What is the first target airspeed to be set when experiencing loss of tail rotor control?",
+      "options": [
+        "50 kt (90 km/h)",
+        "60 kt (110 km/h)",
+        "70 kt (130 km/h)",
+        "Vy"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Cyclic and collective are adjusted to set IAS 70 kt in level flight.",
+      "section": "emergency_procedures",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 3.3",
+      "reference": "p. 3-2",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 3.3 – p. 3-2"
+      ]
+    },
+    {
+      "id": "H125-EP-100",
+      "question": "After engaging [HYD TEST] or [ACCU TST], what should be done after 5 seconds?",
+      "options": [
+        "Set collective to full low pitch",
+        "Reset [HYD TEST] or [ACCU TST] to OFF",
+        "Maintain IAS Vy",
+        "Increase cyclic forward"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "After 5 sec, [HYD TEST] or [ACCU TST] must be reset to OFF.",
+      "section": "emergency_procedures",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 3.3",
+      "reference": "p. 3-2",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 3.3 – p. 3-2"
+      ]
+    },
+    {
+      "id": "H125-EP-101",
+      "question": "What type of landing is recommended after loss of tail rotor control?",
+      "options": [
+        "Hover landing",
+        "Shallow approach with a running landing",
+        "Autorotation to a confined area",
+        "Immediate flare at 70 ft"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Manual specifies shallow approach with slight left sideslip, then running landing.",
+      "section": "emergency_procedures",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 3.3",
+      "reference": "p. 3-2",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 3.3 – p. 3-2"
+      ]
+    },
+    {
+      "id": "H125-EP-102",
+      "question": "Which wind condition makes landing easier after loss of tail rotor control?",
+      "options": [
+        "Tailwind",
+        "Headwind",
+        "Left crosswind",
+        "Right-hand wind component"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "Manual notes that landing is easier with a RH wind component.",
+      "section": "emergency_procedures",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 3.3",
+      "reference": "p. 3-2",
+      "difficulty": "easy",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 3.3 – p. 3-2"
+      ]
+    }
+  ,
+    {
+      "id": "H125-EP-103",
+      "question": "When the rotor is stopping with wind blowing, how should the aircraft be positioned?",
+      "options": ["Tail into the wind", "Head into the wind", "Sideways into the wind", "Nose down slope"],
+      "answer": [1],
+      "explanation": "With wind blowing during rotor stopping, position the aircraft head into the wind.",
+      "section": "emergency_procedures",
+      "modelIds": ["H125_AS350_B3_2B1"],
+      "manual": "RFM H125 Section 3.7",
+      "reference": "p. 3-1",
+      "difficulty": "easy",
+      "tags": [],
+      "references": ["RFM H125 Section 3.7 – p. 3-1"]
+    },
+    {
+      "id": "H125-EP-104",
+      "question": "When the rotor is stopping with wind blowing, how should the cyclic be positioned?",
+      "options": ["Forward", "Aft", "Slightly into the wind", "Neutral"],
+      "answer": [2],
+      "explanation": "During rotor stopping with wind, the cyclic should be slightly into the wind.",
+      "section": "emergency_procedures",
+      "modelIds": ["H125_AS350_B3_2B1"],
+      "manual": "RFM H125 Section 3.7",
+      "reference": "p. 3-1",
+      "difficulty": "easy",
+      "tags": [],
+      "references": ["RFM H125 Section 3.7 – p. 3-1"]
+    },
+    {
+      "id": "H125-EP-105",
+      "question": "What is a flight control hardover?",
+      "options": ["A commanded smooth movement of controls", "An uncommanded movement of one or two flight controls", "A normal trim condition", "A yaw due to tail rotor effectiveness"],
+      "answer": [1],
+      "explanation": "A hardover results in uncommanded movements of one or two flight controls.",
+      "section": "emergency_procedures",
+      "modelIds": ["H125_AS350_B3_2B1"],
+      "manual": "RFM H125 Section 3.7",
+      "reference": "p. 3-1",
+      "difficulty": "medium",
+      "tags": [],
+      "references": ["RFM H125 Section 3.7 – p. 3-1"]
+    },
+    {
+      "id": "H125-EP-106",
+      "question": "What is a servojam?",
+      "options": ["A loss of hydraulic pressure", "A higher than normal force needed to move flight controls", "A complete failure of tail rotor control", "An autopilot-induced oscillation"],
+      "answer": [1],
+      "explanation": "A servojam results in a higher than normal force required to move the flight controls.",
+      "section": "emergency_procedures",
+      "modelIds": ["H125_AS350_B3_2B1"],
+      "manual": "RFM H125 Section 3.7",
+      "reference": "p. 3-1",
+      "difficulty": "medium",
+      "tags": [],
+      "references": ["RFM H125 Section 3.7 – p. 3-1"]
+    },
+    {
+      "id": "H125-EP-107",
+      "question": "What immediate action is required during HIGE, Takeoff, or Final if a flight control hardover or servojam occurs?",
+      "options": ["Continue flight", "Reduce collective slowly", "Land immediately", "Monitor hydraulic pressure"],
+      "answer": [2],
+      "explanation": "For HIGE, Takeoff, Final the directive is LAND IMMEDIATELY.",
+      "section": "emergency_procedures",
+      "modelIds": ["H125_AS350_B3_2B1"],
+      "manual": "RFM H125 Section 3.7",
+      "reference": "p. 3-1",
+      "difficulty": "easy",
+      "tags": [],
+      "references": ["RFM H125 Section 3.7 – p. 3-1"]
+    },
+    {
+      "id": "H125-EP-108",
+      "question": "After landing from a hardover or servojam, which action comes first?",
+      "options": ["Turn off the fuel pump", "Hydraulic cut-off switch (collective grip) — OFF", "Apply rotor brake", "IAS set to Vy"],
+      "answer": [1],
+      "explanation": "After landing: Hydraulic cut-off switch (collective grip) — OFF.",
+      "section": "emergency_procedures",
+      "modelIds": ["H125_AS350_B3_2B1"],
+      "manual": "RFM H125 Section 3.7",
+      "reference": "p. 3-1",
+      "difficulty": "easy",
+      "tags": [],
+      "references": ["RFM H125 Section 3.7 – p. 3-1"]
+    },
+    {
+      "id": "H125-EP-109",
+      "question": "During flight with a servojam, which IAS should be set?",
+      "options": ["30 to 50 kt", "40 to 60 kt (74 km/h and 111 km/h)", "70 to 90 kt", "100 kt or more"],
+      "answer": [1],
+      "explanation": "In flight: IAS set to between 40 and 60 kt (74 km/h and 111 km/h).",
+      "section": "emergency_procedures",
+      "modelIds": ["H125_AS350_B3_2B1"],
+      "manual": "RFM H125 Section 3.7",
+      "reference": "p. 3-1",
+      "difficulty": "easy",
+      "tags": [],
+      "references": ["RFM H125 Section 3.7 – p. 3-1"]
+    },
+    {
+      "id": "H125-EP-110",
+      "question": "In flight with servojam, what must be done with the hydraulic cut-off switch?",
+      "options": ["Leave ON at all times", "Reset after 10 seconds", "OFF, apply HYDR procedure", "Cycle between ON and OFF"],
+      "answer": [2],
+      "explanation": "In flight: Hydraulic cut-off switch (collective grip) — OFF, apply HYDR procedure.",
+      "section": "emergency_procedures",
+      "modelIds": ["H125_AS350_B3_2B1"],
+      "manual": "RFM H125 Section 3.7",
+      "reference": "p. 3-1",
+      "difficulty": "medium",
+      "tags": [],
+      "references": ["RFM H125 Section 3.7 – p. 3-1"]
+    },
+    {
+      "id": "H125-EP-111",
+      "question": "With no hydraulic pressure, what is noted about aerodynamic loads at high airspeed?",
+      "options": ["They remain normal", "They may be heavy and must be counteracted", "They disappear completely", "They can be ignored"],
+      "answer": [1],
+      "explanation": "NOTE: With no hydraulic pressure, the aerodynamic loads to be counteracted may be heavy at high airspeed.",
+      "section": "emergency_procedures",
+      "modelIds": ["H125_AS350_B3_2B1"],
+      "manual": "RFM H125 Section 3.7",
+      "reference": "p. 3-1",
+      "difficulty": "medium",
+      "tags": [],
+      "references": ["RFM H125 Section 3.7 – p. 3-1"]
+    }
+,
+    {
+      "id": "H125-EP-112",
+      "question": "When the bleed valve opens, what indication appears on the FLI or 3-data page?",
+      "options": ["A green 'VV' flag", "A red GOV warning", "A yellow ENG P warning", "No indication appears"],
+      "answer": [0],
+      "explanation": "When the bleed valve opens, a green 'VV' flag appears on the FLI or 3-data page.",
+      "section": "emergency_procedures",
+      "modelIds": ["H125_AS350_B3_2B1"],
+      "manual": "RFM H125 Section 3.7",
+      "reference": "p. 3-2",
+      "difficulty": "easy",
+      "tags": [],
+      "references": ["RFM H125 Section 3.7 – p. 3-2"]
+    },
+    {
+      "id": "H125-EP-113",
+      "question": "What is the consequence if the bleed valve flag does not disappear at high power settings (near MCP or above)?",
+      "options": ["The engine shuts down automatically", "Maximum available engine power is reduced, especially in cold weather", "Rotor RPM increases rapidly", "The GOV warning light turns off"],
+      "answer": [1],
+      "explanation": "If the flag does not disappear at high power settings, the maximum available engine power is reduced, specifically in cold weather.",
+      "section": "emergency_procedures",
+      "modelIds": ["H125_AS350_B3_2B1"],
+      "manual": "RFM H125 Section 3.7",
+      "reference": "p. 3-2",
+      "difficulty": "medium",
+      "tags": [],
+      "references": ["RFM H125 Section 3.7 – p. 3-2"]
+    },
+    {
+      "id": "H125-EP-114",
+      "question": "If the bleed valve flag does not reappear at low power settings, what may occur?",
+      "options": ["The engine may surge", "The tail rotor may lose thrust", "The rotor brake engages", "The generator fails"],
+      "answer": [0],
+      "explanation": "If the flag does not reappear at low power settings, the engine may surge.",
+      "section": "emergency_procedures",
+      "modelIds": ["H125_AS350_B3_2B1"],
+      "manual": "RFM H125 Section 3.7",
+      "reference": "p. 3-2",
+      "difficulty": "medium",
+      "tags": [],
+      "references": ["RFM H125 Section 3.7 – p. 3-2"]
+    },
+    {
+      "id": "H125-EP-115",
+      "question": "What warning is associated with a bleed valve failure?",
+      "options": ["GOV", "ENG CHIP", "MGB TEMP", "ENG P"],
+      "answer": [0],
+      "explanation": "A bleed valve failure results in a GOV warning.",
+      "section": "emergency_procedures",
+      "modelIds": ["H125_AS350_B3_2B1"],
+      "manual": "RFM H125 Section 3.7",
+      "reference": "p. 3-2",
+      "difficulty": "easy",
+      "tags": [],
+      "references": ["RFM H125 Section 3.7 – p. 3-2"]
+    },
+    {
+      "id": "H125-EP-116",
+      "question": "What is the recommended pilot action in case of bleed valve failure?",
+      "options": ["Land immediately", "Continue flight", "Land as soon as practicable", "Shut down engine"],
+      "answer": [2],
+      "explanation": "In case of bleed valve failure, the recommended action is to land as soon as practicable.",
+      "section": "emergency_procedures",
+      "modelIds": ["H125_AS350_B3_2B1"],
+      "manual": "RFM H125 Section 3.7",
+      "reference": "p. 3-2",
+      "difficulty": "easy",
+      "tags": [],
+      "references": ["RFM H125 Section 3.7 – p. 3-2"]
+    },
+    {
+      "id": "H125-EP-117",
+      "question": "If ICS is inoperative, how will VHF communications be available?",
+      "options": ["Only through COM2 for both pilots", "Only for the RH pilot via COM1 transceiver", "Not available at all", "Via SATCOM system"],
+      "answer": [1],
+      "explanation": "With ICS inoperative, VHF communications remain available for the RH pilot via COM1 transceiver.",
+      "section": "emergency_procedures",
+      "modelIds": ["H125_AS350_B3_2B1"],
+      "manual": "RFM H125 Section 3.7",
+      "reference": "p. 3-2",
+      "difficulty": "medium",
+      "tags": [],
+      "references": ["RFM H125 Section 3.7 – p. 3-2"]
+    },
+    {
+      "id": "H125-EP-118",
+      "question": "Where will audio warnings be transmitted if ICS fails?",
+      "options": ["Through COM1 audio system", "Through COM2", "Through cockpit loudspeakers", "Not available"],
+      "answer": [0],
+      "explanation": "If ICS fails, audio warnings are transmitted via the COM1 audio system.",
+      "section": "emergency_procedures",
+      "modelIds": ["H125_AS350_B3_2B1"],
+      "manual": "RFM H125 Section 3.7",
+      "reference": "p. 3-2",
+      "difficulty": "easy",
+      "tags": [],
+      "references": ["RFM H125 Section 3.7 – p. 3-2"]
+    }
+  ]
+}

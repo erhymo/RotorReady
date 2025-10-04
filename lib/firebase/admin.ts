@@ -1,6 +1,7 @@
 import { getApps, initializeApp, applicationDefault, cert } from "firebase-admin/app";
 import { getFirestore } from "firebase-admin/firestore";
-import { serverEnv } from "@/lib/env";
+
+import { isProduction, serverEnv } from "@/lib/env";
 
 function getConfig() {
   const projectId = serverEnv.FIREBASE_PROJECT_ID;
@@ -24,6 +25,8 @@ if (!existing.length) {
       }),
     });
   } else {
+    // Production fallback: do not throw during build; attempt applicationDefault.
+    // In real production runtime, credentials should be provided via env/secrets.
     initializeApp({ credential: applicationDefault() });
   }
 }

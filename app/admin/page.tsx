@@ -44,6 +44,20 @@ type AdminConversation = {
   unreadForUser: number;
 };
 
+type SubscriptionMetrics = {
+  totalUsers: number;
+  totals: {
+    active: number;
+    trials: number;
+    pastDue: number;
+  };
+  perModel: Record<string, {
+    active: number;
+    trials: number;
+    pastDue: number;
+  }>;
+};
+
 export default function AdminPage() {
   const [conversations, setConversations] = useState<AdminConversation[]>([]);
   const [messagesLoading, setMessagesLoading] = useState(true);
@@ -55,6 +69,9 @@ export default function AdminPage() {
   const [flagsLoading, setFlagsLoading] = useState(true);
   const [flagsError, setFlagsError] = useState<string | null>(null);
   const [actionId, setActionId] = useState<string | null>(null);
+  const [metrics, setMetrics] = useState<SubscriptionMetrics | null>(null);
+  const [metricsLoading, setMetricsLoading] = useState(true);
+  const [metricsError, setMetricsError] = useState<string | null>(null);
 
   const refreshMessages = useCallback(async () => {
     setMessagesLoading(true);
@@ -89,6 +106,21 @@ export default function AdminPage() {
     }
   }
 
+  const refreshMetrics = useCallback(async () => {
+    setMetricsLoading(true);
+    setMetricsError(null);
+    try {
+      const res = await fetch("/api/admin/subscriptions", { cache: "no-store" });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json();
+      setMetrics(data?.metrics ?? null);
+    } catch (error: any) {
+      setMetricsError(error?.message || "Kunne ikke hente abonnementstall");
+    } finally {
+      setMetricsLoading(false);
+    }
+  }, []);
+
   useEffect(() => {
     refreshMessages();
   }, [refreshMessages]);
@@ -96,6 +128,10 @@ export default function AdminPage() {
   useEffect(() => {
     refreshFlags();
   }, []);
+
+  useEffect(() => {
+    refreshMetrics();
+  }, [refreshMetrics]);
 
   async function reviewFlag(id: string, status: "reviewed-OK" | "rejected") {
     const res = await fetch("/api/admin/flags/review", {
@@ -238,6 +274,63 @@ export default function AdminPage() {
             Gå gjennom meldinger fra brukere, svar direkte og håndter flaggede spørsmål.
           </p>
         </header>
+
+        <section className="rounded-2xl border border-slate-200 bg-white/90 p-6 shadow-sm backdrop-blur dark:border-zinc-800 dark:bg-zinc-900/80 dark:text-zinc-100 space-y-4">
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <div>
+              <h2 className="text-lg font-semibold text-slate-900 dark:text-white">Abonnement</h2>
+              <p className="text-xs text-slate-500 dark:text-zinc-400">
+                Total brukere: {metrics?.totalUsers ?? 0}
+              </p>
+            </div>
+            <button
+              onClick={refreshMetrics}
+              disabled={metricsLoading}
+              className="rounded-lg border border-slate-300 px-3 py-1.5 text-sm font-medium text-slate-700 transition hover:bg-slate-100 disabled:opacity-60 dark:border-zinc-700 dark:text-zinc-200 dark:hover:bg-zinc-800"
+            >
+              Oppdater
+            </button>
+          </div>
+
+          {metricsError && (
+            <div className="rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-700 dark:border-red-500/40 dark:bg-red-900/30 dark:text-red-200">
+              {metricsError}
+            </div>
+          )}
+
+          {metricsLoading ? (
+            <p className="text-sm text-slate-600 dark:text-zinc-300">Laster abonnementstall…</p>
+          ) : metrics ? (
+            <div className="space-y-4">
+              <div className="flex flex-wrap gap-3 text-xs font-medium text-slate-700 dark:text-zinc-300">
+                <span className="rounded-full bg-emerald-100 px-3 py-1 text-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-200">
+                  Aktive: {metrics.totals.active}
+                </span>
+                <span className="rounded-full bg-blue-100 px-3 py-1 text-blue-800 dark:bg-blue-900/40 dark:text-blue-200">
+                  Prøveperiode: {metrics.totals.trials}
+                </span>
+                <span className="rounded-full bg-amber-100 px-3 py-1 text-amber-800 dark:bg-amber-900/40 dark:text-amber-200">
+                  Betaling feilet: {metrics.totals.pastDue}
+                </span>
+              </div>
+              <div className="space-y-2">
+                {Object.entries(metrics.perModel).map(([modelId, counts]) => (
+                  <div
+                    key={modelId}
+                    className="flex flex-wrap items-center justify-between gap-2 rounded-lg border border-slate-200 bg-white/70 px-3 py-2 text-sm dark:border-zinc-700 dark:bg-zinc-900/60"
+                  >
+                    <span className="font-semibold text-slate-900 dark:text-white">{modelId}</span>
+                    <span className="text-xs text-slate-600 dark:text-zinc-400">
+                      Aktive {counts.active} • Prøve {counts.trials} • Feilet {counts.pastDue}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ) : (
+            <p className="text-sm text-slate-600 dark:text-zinc-300">Ingen abonnementstall tilgjengelige.</p>
+          )}
+        </section>
 
         <section className="rounded-2xl border border-slate-200 bg-white/90 p-6 shadow-sm backdrop-blur dark:border-zinc-800 dark:bg-zinc-900/80 dark:text-zinc-100 space-y-4">
           <div className="flex flex-wrap items-center justify-between gap-3">

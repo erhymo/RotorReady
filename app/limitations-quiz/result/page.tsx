@@ -2,6 +2,9 @@
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { saveResult } from "@/lib/sync/results";
+import { useActiveModelVariant } from "@/lib/models/hooks";
+import { modelScopedKey } from "@/lib/models/storage";
+import TopBarBackButton from "@/components/TopBarBackButton";
 
 type Item = { id: string; question: string; options: string[]; answer: number[]; explanation?: string; references?: string[]; section?: string };
 type Session = { section: string; createdAt: string; items: Item[]; answers: Array<number|null>; flags: boolean[] };
@@ -13,6 +16,7 @@ function loadSession(): Session | null {
 
 export default function ResultPage() {
   const [s, setS] = useState<Session | null>(null);
+  const { variant: activeVariant } = useActiveModelVariant();
 
   useEffect(() => { setS(loadSession()); }, []);
 
@@ -33,14 +37,22 @@ export default function ResultPage() {
     if (!s) return;
     const percent = total ? (correct/total)*100 : 0;
     const rec = { section: s.section, total, correct, percent, at: new Date().toISOString() };
-    const raw = localStorage.getItem("rr_progress");
+    const historyKey = modelScopedKey("rr_progress", activeVariant.id);
+    const raw = localStorage.getItem(historyKey);
     const arr = raw ? JSON.parse(raw) : [];
     arr.push(rec);
-    localStorage.setItem("rr_progress", JSON.stringify(arr));
+    localStorage.setItem(historyKey, JSON.stringify(arr));
+    if (activeVariant.id === "AW169") {
+      localStorage.removeItem("rr_progress");
+    }
 
     const sectionKey = (typeof s.section === "string" && s.section.length)
       ? s.section.toLowerCase()
       : "limitations";
+
+    const prefix = modelScopedKey("rr_progress_last_wrong", activeVariant.id);
+    const storageKey = `${prefix}:${sectionKey}`;
+    const originalKey = `rr_progress_last_wrong:${sectionKey}`;
 
     if (wrongIdx.length) {
       const items = wrongIdx.map(i => s.items[i]);
@@ -51,14 +63,14 @@ export default function ResultPage() {
         createdAt: new Date().toISOString(),
         items, answers, flags
       };
-      localStorage.setItem(`rr_progress_last_wrong:${sectionKey}`, JSON.stringify(wrongSession));
-      if (sectionKey !== s.section) {
-        localStorage.removeItem(`rr_progress_last_wrong:${s.section}`);
+      localStorage.setItem(storageKey, JSON.stringify(wrongSession));
+      if (activeVariant.id === "AW169") {
+        localStorage.setItem(originalKey, JSON.stringify(wrongSession));
       }
     } else {
-      localStorage.removeItem(`rr_progress_last_wrong:${sectionKey}`);
-      if (sectionKey !== s.section) {
-        localStorage.removeItem(`rr_progress_last_wrong:${s.section}`);
+      localStorage.removeItem(storageKey);
+      if (activeVariant.id === "AW169") {
+        localStorage.removeItem(originalKey);
       }
     }
 
@@ -66,13 +78,16 @@ export default function ResultPage() {
     try {
       saveResult({ section: s.section, total, correct, percent, at: new Date().toISOString() });
     } catch {}
-  }, [s, total, correct, wrongIdx]);
+  }, [s, total, correct, wrongIdx, activeVariant.id]);
 
   if (!s) return <div className="max-w-xl mx-auto p-4">Ingen aktiv sesjon.</div>;
 
   return (
     <div className="max-w-2xl mx-auto p-4 space-y-4">
-  <h1 className="text-2xl font-bold text-blue-700 dark:text-blue-300 drop-shadow">Resultat</h1>
+      <div className="w-full flex items-center py-1">
+        <TopBarBackButton href="/limitations-quiz" />
+      </div>
+      <h1 className="text-2xl font-bold text-blue-700 dark:text-blue-300 drop-shadow">Resultat</h1>
   <div className="rounded-xl border-l-4 border-blue-600 bg-blue-50/40 dark:border-blue-400 dark:bg-gradient-to-r dark:from-blue-900 dark:to-blue-800/80 p-4 shadow-lg dark:text-white">
         <div>Besvarte: <b>{total}</b></div>
         <div>Riktige: <b>{correct}</b></div>

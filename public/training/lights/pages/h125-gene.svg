@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 780">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L9,3 L0,6 Z" fill="black"/>
+    </marker>
+  </defs>
+
+  <!-- Outer frame -->
+  <rect x="1" y="1" width="838" height="778" fill="white" stroke="black" stroke-width="2"/>
+
+  <!-- Left column -->
+  <rect x="30" y="50" width="100" height="70" fill="black"/>
+  <text x="80" y="80" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="yellow" text-anchor="middle">GENE</text>
+
+  <text x="30" y="165" font-family="Arial, sans-serif" font-size="18">DC generator</text>
+  <text x="30" y="190" font-family="Arial, sans-serif" font-size="18">off line</text>
+
+  <!-- Separator line -->
+  <line x1="160" y1="20" x2="160" y2="760" stroke="black" stroke-width="1.5"/>
+
+  <!-- Procedure steps -->
+  <text x="180" y="70" font-family="Arial, sans-serif" font-size="18" font-weight="bold">1. U bus on VEMD ................ CHECK</text>
+  <text x="180" y="95" font-family="Arial, sans-serif" font-size="18" font-weight="bold">2. [GEN] or [GENE]................ CHECK ON</text>
+
+  <!-- Branch from CHECK ON -->
+  <line x1="470" y1="112" x2="240" y2="112" stroke="black" stroke-width="1.2" marker-end="url(#arrow)"/>
+  <line x1="470" y1="112" x2="720" y2="112" stroke="black" stroke-width="1.2" marker-end="url(#arrow)"/>
+
+  <!-- YES branch -->
+  <line x1="270" y1="112" x2="270" y2="150" stroke="black" stroke-width="1.2" marker-end="url(#arrow)"/>
+  <text x="250" y="170" font-family="Arial, sans-serif" font-size="16">YES</text>
+
+  <text x="180" y="200" font-family="Arial, sans-serif" font-size="18">"GENE RESET" circuit</text>
+  <text x="180" y="225" font-family="Arial, sans-serif" font-size="18">breaker ............................. Check not popped</text>
+  <text x="180" y="250" font-family="Arial, sans-serif" font-size="18">out (30α panel)</text>
+
+  <text x="180" y="285" font-family="Arial, sans-serif" font-size="18">[GENE RESET] or [GENE RST]................ PRESS</text>
+
+  <!-- Fan-out to Case A and Case B -->
+  <line x1="420" y1="288" x2="330" y2="310" stroke="black" stroke-width="1.2" marker-end="url(#arrow)"/>
+  <line x1="430" y1="288" x2="610" y2="310" stroke="black" stroke-width="1.2" marker-end="url(#arrow)"/>
+
+  <!-- Case A -->
+  <text x="200" y="320" font-family="Arial, sans-serif" font-size="18">Case A:</text>
+  <rect x="270" y="302" width="60" height="26" fill="black"/>
+  <text x="300" y="321" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="yellow" text-anchor="middle">GENE</text>
+
+  <line x1="300" y1="327" x2="300" y2="360" stroke="black" stroke-width="1.2" marker-end="url(#arrow)"/>
+  <text x="180" y="385" font-family="Arial, sans-serif" font-size="18">Unnecessary equipment ........ OFF</text>
+
+  <line x1="300" y1="390" x2="300" y2="420" stroke="black" stroke-width="1.2" marker-end="url(#arrow)"/>
+  <text x="180" y="445" font-family="Arial, sans-serif" font-size="18">U bus on VEMD.................... MONITOR</text>
+
+  <line x1="300" y1="450" x2="300" y2="485" stroke="black" stroke-width="1.2" marker-end="url(#arrow)"/>
+  <text x="180" y="520" font-family="Arial, sans-serif" font-size="22" font-weight="bold">LAND AS SOON AS</text>
+  <text x="180" y="545" font-family="Arial, sans-serif" font-size="22" font-weight="bold">PRACTICABLE</text>
+
+  <!-- NO branch -->
+  <line x1="720" y1="112" x2="720" y2="155" stroke="black" stroke-width="1.2" marker-end="url(#arrow)"/>
+  <text x="700" y="175" font-family="Arial, sans-serif" font-size="16">NO</text>
+
+  <text x="600" y="205" font-family="Arial, sans-serif" font-size="18">[GEN] or [GENE] ........ ON</text>
+
+  <line x1="720" y1="210" x2="720" y2="300" stroke="black" stroke-width="1.2" marker-end="url(#arrow)"/>
+
+  <!-- Case B (light OFF) -->
+  <text x="560" y="325" font-family="Arial, sans-serif" font-size="18">Case B:</text>
+  <rect x="630" y="307" width="60" height="26" fill="black"/>
+  <text x="660" y="326" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#ffffff" text-anchor="middle">GENE</text>
+
+  <line x1="660" y1="332" x2="660" y2="500" stroke="black" stroke-width="1.2" marker-end="url(#arrow)"/>
+  <text x="560" y="535" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="green">CONTINUE FLIGHT</text>
+
+  <!-- Caution -->
+  <text x="180" y="585" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="orange">CAUTION</text>
+  <text x="180" y="610" font-family="Arial, sans-serif" font-size="18" fill="orange">If the battery fails, the VEMD will go out and</text>
+  <text x="180" y="635" font-family="Arial, sans-serif" font-size="18" fill="orange">only the analogue NR indication will remain.</text>
+  <text x="180" y="660" font-family="Arial, sans-serif" font-size="18" fill="orange">Apply the procedure for failure of both screens</text>
+  <text x="180" y="685" font-family="Arial, sans-serif" font-size="18" fill="orange">(Section 3.5 § 1 VEMD screen failures).</text>
+
+  <!-- Note -->
+  <text x="180" y="715" font-family="Arial, sans-serif" font-size="18" font-weight="bold">NOTE</text>
+  <rect x="240" y="698" width="60" height="24" fill="black"/>
+  <text x="270" y="715" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="yellow" text-anchor="middle">GENE</text>
+  <text x="305" y="715" font-family="Arial, sans-serif" font-size="18">comes on if the DC system is supplied with external power.</text>
+</svg>
+

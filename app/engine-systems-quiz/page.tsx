@@ -2,8 +2,16 @@
 import * as React from "react";
 import { useRouter } from "next/navigation";
 import { loadAllQuestions } from "@/lib/loadAllQuestions";
+import { useActiveModelVariant } from "@/lib/models/hooks";
+import { modelScopedKey } from "@/lib/models/storage";
+
+import TopBarBackButton from "@/components/TopBarBackButton";
 
 const SECTION = "ENGINE, FUEL, LUBRICANTS, HYDRAULICS & SYSTEM LIMITATIONS";
+
+const AMOUNT_OPTIONS = [10, 20, 30, 40, 50, "all"] as const;
+
+type AmountOption = (typeof AMOUNT_OPTIONS)[number];
 
 function sample<T>(arr: T[], n: number) {
   const copy = [...arr];
@@ -15,14 +23,24 @@ function sample<T>(arr: T[], n: number) {
   return out;
 }
 
+function shuffle<T>(arr: T[]) {
+  const copy = [...arr];
+  for (let i = copy.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [copy[i], copy[j]] = [copy[j], copy[i]];
+  }
+  return copy;
+}
+
 export default function EngineSystemsStart() {
   const router = useRouter();
-  const [amount, setAmount] = React.useState(20);
+  const [amount, setAmount] = React.useState<AmountOption>(20);
   const [loading, setLoading] = React.useState(false);
   const [err, setErr] = React.useState<string | null>(null);
+  const { variant: activeVariant } = useActiveModelVariant();
 
   async function getData() {
-    const items = await loadAllQuestions();
+    const items = await loadAllQuestions(activeVariant.id);
     // Filtrer spørsmål for denne seksjonen: kun de med "eng syst" i section (case-insensitiv, robust)
     const filtered = items.filter((q: any) =>
       (q.section || "").toLowerCase().replace(/[^a-z]/g, "").includes("engsyst")
@@ -39,7 +57,9 @@ export default function EngineSystemsStart() {
         setLoading(false);
         return;
       }
-      const items = sample(data.items, Math.min(amount, data.items.length));
+      const items = amount === "all"
+        ? shuffle(data.items)
+        : sample(data.items, Math.min(amount, data.items.length));
       const session = {
         section: SECTION,
         createdAt: new Date().toISOString(),
@@ -57,7 +77,8 @@ export default function EngineSystemsStart() {
   }
 
   function startWrongOnly() {
-    const raw = localStorage.getItem("rr_progress_last_wrong:engine-systems");
+    const key = `${modelScopedKey("rr_progress_last_wrong", activeVariant.id)}:engine-systems`;
+    const raw = localStorage.getItem(key) || (activeVariant.id === "AW169" ? localStorage.getItem("rr_progress_last_wrong:engine-systems") : null);
     if (!raw) { alert("Ingen feilsett tilgjengelig. Fullfør en quiz først."); return; }
     const data = JSON.parse(raw);
     sessionStorage.setItem("engineq_session", JSON.stringify(data));
@@ -66,14 +87,24 @@ export default function EngineSystemsStart() {
 
   return (
     <div className="max-w-xl mx-auto p-4 space-y-4">
+      <div className="w-full flex items-center py-1">
+        <TopBarBackButton href="/quiz" />
+      </div>
+
       <h1 className="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">Engine, Fuel, Lubricants, Hydraulics & System Limitations</h1>
       <p className="text-lg text-slate-700 dark:text-zinc-100 mt-2">Velg antall spørsmål og start.</p>
 
       <div className="rounded-xl border-l-4 border-blue-600 bg-blue-50/40 dark:border-blue-400 dark:bg-blue-900/40 p-4 flex flex-col sm:flex-row items-center gap-3">
         <label className="text-sm text-gray-700 dark:text-zinc-100">Antall:</label>
         <select className="border rounded px-3 py-2 dark:bg-blue-900 dark:text-zinc-100 dark:border-blue-400"
-                value={amount} onChange={e=>setAmount(parseInt(e.target.value))}>
-          {[10,20,30,40,50].map(n => <option key={n} value={n}>{n}</option>)}
+                value={amount}
+                onChange={e => {
+                  const value = e.target.value === "all" ? "all" : parseInt(e.target.value, 10);
+                  setAmount(value as AmountOption);
+                }}>
+          {AMOUNT_OPTIONS.map(option => (
+            <option key={option} value={option}>{option === "all" ? "Alle" : option}</option>
+          ))}
         </select>
         <button onClick={startQuiz} disabled={loading}
           className="w-full sm:w-auto ml-auto px-4 py-2 rounded-lg bg-blue-600 text-white active:scale-95">

@@ -33,14 +33,17 @@ function PaywallInner() {
 
   return (
     <div className="max-w-xl mx-auto p-6 rounded-2xl space-y-3 border-l-4 border-emerald-600 bg-emerald-50/40 dark:border-emerald-400 dark:bg-emerald-900/40">
-      <h1 className="text-2xl font-bold dark:text-zinc-100">Fortsett med RotorReady</h1>
-      <p className="text-gray-600 dark:text-zinc-300">Du har brukt opp gratis kvoten (3 økter per modul). Kjøp tilgang for å låse opp ubegrenset trening og offline-modus.</p>
+      <h1 className="text-2xl font-bold dark:text-zinc-100">Full tilgang krever abonnement</h1>
+      <p className="text-gray-600 dark:text-zinc-300">
+        Opprett konto for å starte en gratis 10 dagers prøveperiode på ønsket modell, eller kjøp abonnement for full tilgang til spørsmålsbank, lystrening og offline-modus.
+      </p>
       <ul className="list-disc ml-5 text-sm text-gray-700 dark:text-zinc-300">
         <li>Ubegrenset quiz per modul (Limitations, AFM, QRH …)</li>
         <li>Offline-nedlasting for trening uten nett</li>
         <li>Fremtidig synk mellom enheter</li>
       </ul>
       <div className="flex gap-2">
+        <button onClick={() => { window.location.href = "/signup"; }} className="px-4 py-2 rounded-lg bg-blue-600 text-white">Start gratis prøve</button>
         <button onClick={buyCheckout} disabled={busy} className="px-4 py-2 rounded-lg bg-emerald-600 text-white disabled:opacity-50">Kjøp (Checkout)</button>
         <button onClick={simulateBuy} className="px-4 py-2 rounded-lg bg-blue-600 text-white">Kjøp (DEV)</button>
         <button onClick={()=>router.push("/")} className="px-4 py-2 rounded-lg bg-emerald-600 text-white">Til forsiden</button>

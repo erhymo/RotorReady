@@ -1,6 +1,7 @@
 "use client";
 import * as React from "react";
 import { useParams, useRouter } from "next/navigation";
+import TopBarBackButton from "@/components/TopBarBackButton";
 
 import { reportFlag } from "@/lib/flags";
 
@@ -146,6 +147,10 @@ export default function AvionicsQuestionPage() {
     <div className="max-w-2xl mx-auto p-4 space-y-4">
       <div className="h-2 bg-gray-200 rounded dark:bg-zinc-800">
         <div className="h-2 bg-blue-600 rounded dark:bg-blue-700" style={{ width: `${progress}%` }} />
+      </div>
+      <div className="w-full flex items-center justify-between py-2 px-1">
+        <TopBarBackButton href="/avionics-fms-limitations-quiz" />
+        <div className="text-gray-500 dark:text-zinc-400">Spørsmål {idx + 1} / {total}</div>
       </div>
       <div className="flex items-center justify-between">
         <div className="text-sm text-gray-600 dark:text-zinc-300">Spørsmål {idx + 1} / {total}</div>

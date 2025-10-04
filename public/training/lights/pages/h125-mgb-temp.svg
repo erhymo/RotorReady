@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="320" viewBox="0 0 820 320" role="img" aria-label="MGB TEMP – Main Gear Box oil overheating (arrows clear of boxes)">
+  <style>
+    :root{
+      --ink:#111; --rule:#111; --panel-bg:#000; --caution:#ff8c00; --yellow:#ffcc00;
+    }
+    @media (prefers-color-scheme: dark){
+      :root{ --ink:#e9eef7; --rule:#e9eef7; --panel-bg:#000; --caution:#ffb84d; --yellow:#ffe680; }
+    }
+    .box{ fill:none; stroke:var(--rule); stroke-width:1.5; }
+    .txt{ font-family: Arial, Helvetica, sans-serif; fill:var(--ink); }
+    .label{ font-size:14px; }
+    .title{ font:700 16px/1.25 Arial, Helvetica, sans-serif; }
+    .warnRect{ fill:var(--panel-bg); stroke:var(--rule); stroke-width:1; }
+    .warnText{ font:700 16px/1 Arial, Helvetica, sans-serif; fill:var(--yellow); text-anchor:middle; }
+    .branchStrong{ font:700 18px/1.25 Arial, Helvetica, sans-serif; }
+    .branchCaution{ font:700 18px/1.25 Arial, Helvetica, sans-serif; fill:var(--caution); }
+    .arrow{ stroke:var(--ink); stroke-width:1.3; marker-end:url(#ah); fill:none; }
+  </style>
+
+  <defs>
+    <marker id="ah" viewBox="0 0 10 10" refX="8.2" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 Z" fill="currentColor"/>
+    </marker>
+  </defs>
+
+  <rect x="12" y="12" width="796" height="296" class="box"/>
+  <line x1="206" y1="12" x2="206" y2="308" stroke="var(--rule)" stroke-width="1.5"/>
+
+  <rect x="60" y="38" width="90" height="62" rx="3" class="warnRect"/>
+  <text x="105" y="70" class="warnText">MGB</text>
+  <text x="105" y="92" class="warnText">TEMP</text>
+
+  <text x="42" y="130" class="txt label">Main Gear Box</text>
+  <text x="42" y="148" class="txt label">oil overheating</text>
+  <text x="42" y="166" class="txt label">(> 115°C)</text>
+
+  <text x="218" y="48" class="txt title">1. IAS................................................ SET TO Vy</text>
+  <text x="218" y="76" class="txt title">2. CWP ................................................. MONITOR</text>
+
+  <path d="M440,84 C 405,90 380,96 352,102" class="arrow"/>
+  <path d="M510,84 C 535,90 552,96 580,102" class="arrow"/>
+
+  <rect x="304" y="116" width="96" height="44" rx="3" class="warnRect"/>
+  <text x="352" y="143" class="warnText">MGB TEMP</text>
+
+  <rect x="524" y="116" width="96" height="44" rx="3" class="warnRect"/>
+  <text x="572" y="143" class="warnText">MGB TEMP</text>
+
+  <text x="352" y="190" class="txt branchStrong" text-anchor="middle">LAND AS SOON AS</text>
+  <text x="352" y="212" class="txt branchStrong" text-anchor="middle">PRACTICABLE</text>
+
+  <text x="572" y="190" class="branchCaution" text-anchor="middle">LAND AS SOON AS</text>
+  <text x="572" y="212" class="branchCaution" text-anchor="middle">POSSIBLE</text>
+</svg>

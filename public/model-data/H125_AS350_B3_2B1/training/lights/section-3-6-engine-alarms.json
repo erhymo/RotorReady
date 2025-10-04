@@ -1,0 +1,209 @@
+[
+  {
+    "id": "eng-fire",
+    "name": "ENG FIRE",
+    "severity": "warning",
+    "system": "ENGINE",
+    "description": "Engine bay fire warning covering start-up, hover/takeoff and in-flight procedures.",
+    "pageImage": "/training/lights/pages/h125-eng-fire.svg",
+    "references": ["RFM H125 Section 3.6 – p. 3-1"],
+    "modelIds": ["H125_AS350_B3_2B1"]
+  },
+  {
+    "id": "gov-failure",
+    "name": "GOV",
+    "severity": "warning",
+    "system": "ENGINE",
+    "description": "Major governor failure detected. Emergency mode is engaged.",
+    "pageImage": "/training/lights/pages/h125-gov.svg",
+    "references": ["RFM H125 Section 3.6 – p. 3-2"],
+    "modelIds": ["H125_AS350_B3_2B1"]
+  },
+  {
+    "id": "eng-oil-pressure",
+    "name": "ENG P",
+    "severity": "warning",
+    "system": "ENGINE",
+    "description": "Engine oil pressure warning flow with immediate actions.",
+    "pageImage": "/training/lights/pages/h125-eng-oil-press.svg",
+    "references": ["RFM H125 Section 3.6 – p. 3-2"],
+    "modelIds": ["H125_AS350_B3_2B1"]
+  },
+  {
+    "id": "twt-grip",
+    "name": "TWT GRIP",
+    "severity": "warning",
+    "system": "ENGINE",
+    "description": "Twist grip out of FLIGHT position warning.",
+    "pageImage": "/training/lights/pages/h125-twt-grip.svg",
+    "references": ["RFM H125 Section 3.6 – p. 3-2"],
+    "modelIds": ["H125_AS350_B3_2B1"]
+  },
+  {
+    "id": "hydr-failure",
+    "name": "HYDR",
+    "severity": "warning",
+    "system": "HYDRAULIC",
+    "description": "Loss or low hydraulic pressure warning procedure.",
+    "pageImage": "/training/lights/pages/h125-hydr.svg",
+    "references": ["RFM H125 Section 3.6 – p. 3-4"],
+    "modelIds": ["H125_AS350_B3_2B1"]
+  },
+  {
+    "id": "gov-caution",
+    "name": "GOV (Minor FADEC failure)",
+    "severity": "caution",
+    "system": "ENGINE",
+    "description": "Minor FADEC failure indications.",
+    "pageImage": "/training/lights/pages/h125-gov-caution.svg",
+    "references": ["RFM H125 Section 3.6 – p. 3-3"],
+    "modelIds": ["H125_AS350_B3_2B1"]
+  },
+  {
+    "id": "eng-chip",
+    "name": "ENG CHIP",
+    "severity": "caution",
+    "system": "ENGINE",
+    "description": "Metal particles detected in engine oil circuit.",
+    "pageImage": "/training/lights/pages/h125-eng-chip.svg",
+    "references": ["RFM H125 Section 3.6 – p. 3-3"],
+    "modelIds": ["H125_AS350_B3_2B1"]
+  },
+  {
+    "id": "mgb-pressure",
+    "name": "MGB P",
+    "severity": "warning",
+    "system": "TRANSMISSION",
+    "description": "Main gearbox low oil pressure warning.",
+    "pageImage": "/training/lights/pages/h125-mgb-p.svg",
+    "references": ["RFM H125 Section 3.6 – p. 3-3"],
+    "modelIds": ["H125_AS350_B3_2B1"]
+  },
+  {
+    "id": "mgb-temp",
+    "name": "MGB TEMP",
+    "severity": "caution",
+    "system": "TRANSMISSION",
+    "description": "Main gearbox oil temperature caution flow.",
+    "pageImage": "/training/lights/pages/h125-mgb-temp.svg",
+    "references": ["RFM H125 Section 3.6 – p. 3-3"],
+    "modelIds": ["H125_AS350_B3_2B1"]
+  },
+  {
+    "id": "mgb-chip",
+    "name": "MGB CHIP",
+    "severity": "caution",
+    "system": "TRANSMISSION",
+    "description": "Metal particles detected in main gearbox oil circuit.",
+    "pageImage": "/training/lights/pages/h125-mgb-chip.svg",
+    "references": ["RFM H125 Section 3.6 – p. 3-3"],
+    "modelIds": ["H125_AS350_B3_2B1"]
+  },
+  {
+    "id": "tgb-chip",
+    "name": "TGB CHIP",
+    "severity": "caution",
+    "system": "TRANSMISSION",
+    "description": "Tail gearbox chip light advisory.",
+    "pageImage": "/training/lights/pages/h125-tgb-chip.svg",
+    "references": ["RFM H125 Section 3.6 – p. 3-3"],
+    "modelIds": ["H125_AS350_B3_2B1"]
+  }
+  ,
+  {
+    "id": "batt-temp",
+    "name": "BATT TEMP",
+    "severity": "warning",
+    "system": "ELECTRICAL",
+    "description": "Battery temperature above maximum.",
+    "pageImage": "/training/lights/pages/h125-batt-temp.svg",
+    "references": ["RFM H125 Section 3.6 – p. 3-4"],
+    "modelIds": ["H125_AS350_B3_2B1"]
+  }
+,
+  {
+    "id": "gene",
+    "name": "GENE",
+    "severity": "caution",
+    "system": "ELECTRICAL",
+    "description": "DC generator offline.",
+    "pageImage": "/training/lights/pages/h125-gene.svg",
+    "modelIds": ["H125_AS350_B3_2B1"]
+  }
+,
+  {
+    "id": "inv",
+    "name": "INV",
+    "severity": "caution",
+    "system": "ELECTRICAL",
+    "description": "AC power supply failure (inverter).",
+    "pageImage": "/training/lights/pages/h125-inv.svg",
+    "modelIds": ["H125_AS350_B3_2B1"]
+  }
+
+
+,
+  {
+    "id": "fuel",
+    "name": "FUEL",
+    "severity": "caution",
+    "system": "FUEL",
+    "description": "Fuel quantity < 48 kg (106 lb).",
+    "pageImage": "/training/lights/pages/h125-fuel.svg",
+    "modelIds": ["H125_AS350_B3_2B1"]
+  }
+,
+  {
+    "id": "fuel-p",
+    "name": "FUEL P",
+    "severity": "caution",
+    "system": "FUEL",
+    "description": "Low fuel pressure.",
+    "pageImage": "/training/lights/pages/h125-fuel-p.svg",
+    "modelIds": ["H125_AS350_B3_2B1"]
+  }
+
+
+,
+  {
+    "id": "fuel-filt",
+    "name": "FUEL FILT",
+    "severity": "caution",
+    "system": "FUEL",
+    "description": "Fuel filter clogged.",
+    "pageImage": "/training/lights/pages/h125-fuel-filt.svg",
+    "modelIds": ["H125_AS350_B3_2B1"]
+  }
+,
+  {
+    "id": "pitot",
+    "name": "PITOT",
+    "severity": "caution",
+    "system": "ELECTRICAL",
+    "description": "Pitot heating not operative.",
+    "pageImage": "/training/lights/pages/h125-pitot.svg",
+    "modelIds": ["H125_AS350_B3_2B1"]
+  }
+,
+  {
+    "id": "horn",
+    "name": "HORN",
+    "severity": "caution",
+    "system": "ELECTRICAL",
+    "description": "Aural warning not operative.",
+    "pageImage": "/training/lights/pages/h125-horn.svg",
+    "modelIds": ["H125_AS350_B3_2B1"]
+  }
+
+,
+  {
+    "id": "door",
+    "name": "DOOR",
+    "severity": "caution",
+    "system": "AIRFRAME",
+    "description": "Cargo hold door(s) unlocked.",
+    "pageImage": "/training/lights/pages/h125-door.svg",
+    "modelIds": ["H125_AS350_B3_2B1"]
+  }
+
+]

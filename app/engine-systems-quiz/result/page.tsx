@@ -1,6 +1,7 @@
 "use client";
 import * as React from "react";
 import { useRouter } from "next/navigation";
+import TopBarBackButton from "@/components/TopBarBackButton";
 
 export default function EngineQuizResult() {
   const router = useRouter();
@@ -20,6 +21,9 @@ export default function EngineQuizResult() {
 
   return (
     <div className="max-w-xl mx-auto p-4 space-y-4 bg-white dark:bg-zinc-900 dark:text-zinc-100 dark:border-zinc-700 border rounded-xl">
+      <div className="w-full flex items-center py-1">
+        <TopBarBackButton href="/engine-systems-quiz" />
+      </div>
       <h1 className="text-2xl font-bold">Resultat</h1>
       <div className="text-lg">Du fikk <b>{correct}</b> av <b>{total}</b> riktige ({percent}%).</div>
       <button className="mt-4 px-4 py-2 rounded-lg bg-gray-900 text-white dark:bg-zinc-900 dark:text-zinc-100" onClick={()=>router.replace("/engine-systems-quiz")}>Prøv igjen</button>

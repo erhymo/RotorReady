@@ -1,11 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 900" role="img" aria-label="HYDR – Hydraulic failure approach and landing">
+  <rect width="100%" height="100%" fill="white"/>
   <style>
     :root {
       --paper:#ffffff; --ink:#111111; --warning:#d60000;
     }
-    @media (prefers-color-scheme: dark) {
-      :root { --paper:#161a20; --ink:#e9eef7; --warning:#ff5959; }
-    }
+
     .sheet { fill:var(--paper); stroke:var(--ink); stroke-width:1; }
     .body { font:18px/1.4 Arial, Helvetica, sans-serif; fill:var(--ink); }
     .heading { font:700 22px/1.3 Arial, Helvetica, sans-serif; fill:#f97316; text-anchor:middle; }

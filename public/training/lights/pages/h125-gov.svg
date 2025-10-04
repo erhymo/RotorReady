@@ -1,4 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1120" width="800" height="1120" role="img" aria-label="RFM H125 Section 3.6 - GOV warning page">
+  <rect width="100%" height="100%" fill="white"/>
   <style>
     :root {
       --bg: #ffffff;
@@ -19,27 +20,7 @@
       --hilite-bg: #ffee58;
       --hilite-text: #111111;
     }
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #0d0f13;
-        --paper: #161a20;
-        --ink: #e9eef7;
-        --muted: #c9d3e6;
-        --table-border: #e9eef7;
-        --panel-bg: #000000;
-        --panel-text: #ff4d4d;
-        --heading: #ffffff;
-        --subheading: #e9eef7;
-        --emphasis: #ffffff;
-        --green: #73e073;
-        --orange: #ffae42;
-        --red: #ff6b6b;
-        --note-bg: #2a2f3a;
-        --note-text: #e9eef7;
-        --hilite-bg: #554a00;
-        --hilite-text: #fff2b0;
-      }
-    }
+
     .paper { fill: var(--paper); stroke: none; }
     .frame { fill: none; stroke: var(--table-border); stroke-width: 2; }
     .rule { stroke: var(--table-border); stroke-width: 2; }
@@ -57,7 +38,7 @@
     .hiliteText { fill: var(--hilite-text); font: 700 16px/1 Arial, Helvetica, sans-serif; }
   </style>
 
-  <rect class="paper" x="0" y="0" width="800" height="1120" />
+  <rect class="paper" x="0" y="0" width="800" height="1120"/>
 
   <text class="h1" x="400" y="70" text-anchor="middle">SECTION 3.6</text>
   <text class="h2" x="400" y="105" text-anchor="middle">CAUTION AND WARNING PANEL</text>

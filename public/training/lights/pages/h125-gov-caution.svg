@@ -1,4 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 500" width="820" height="500" role="img" aria-label="RFM H125 Section 3.6 – GOV (Minor FADEC failure)">
+  <rect width="100%" height="100%" fill="white"/>
   <style>
     :root{
       --paper:#ffffff; --ink:#111; --muted:#333; --rule:#111;
@@ -6,13 +7,7 @@
       --red:#c40000;
       --note:#666;
     }
-    @media (prefers-color-scheme: dark){
-      :root{
-        --paper:#161a20; --ink:#e9eef7; --muted:#c9d3e6; --rule:#e9eef7;
-        --panel-bg:#000; --panel-text:#ffdb4d;
-        --red:#ff6b6b; --note:#aeb8cc;
-      }
-    }
+
     .paper{fill:var(--paper)}
     .frame{fill:none;stroke:var(--rule);stroke-width:2}
     .rule{stroke:var(--rule);stroke-width:2}

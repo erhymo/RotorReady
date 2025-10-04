@@ -1,12 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="820" height="180" viewBox="0 0 820 180" role="img" aria-label="TGB CHIP – Metal particles in TGB oil circuit (Continue flight)">
+  <rect width="100%" height="100%" fill="white"/>
   <style>
     :root{
       --ink:#111; --rule:#111; --panel-bg:#000;
       --amber:#ffcc00; --ok:#118a11;
     }
-    @media (prefers-color-scheme: dark){
-      :root{ --ink:#e9eef7; --rule:#e9eef7; --panel-bg:#000; --amber:#ffe680; --ok:#7ee07e; }
-    }
+
     .frame{ fill:none; stroke:var(--rule); stroke-width:1.5; }
     .sep{ stroke:var(--rule); stroke-width:1.5; }
     .txt{ font-family: Arial, Helvetica, sans-serif; fill:var(--ink); }

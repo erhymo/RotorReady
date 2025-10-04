@@ -272,7 +272,7 @@ export default function LightsTrainer() {
             const txt = await res.text();
             // Remove the @media (prefers-color-scheme: dark) block entirely
             const cleaned = txt.replace(/@media\s*\(prefers-color-scheme:\s*dark\)\s*\{[\s\S]*?\}/g, "");
-            const isCaution = item.severity === "caution";
+            const isCaution = false;
             if (!isCaution) { setSvgHtml(null); return; }
 
             // Inject white background and normalize to DOOR style only for CAUTION (yellow) lights

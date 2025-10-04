@@ -264,7 +264,8 @@ export default function LightsTrainer() {
             if (typeof window === "undefined") { setSvgHtml(null); return; }
             const isDark = document.documentElement.classList.contains("dark");
             const isSvg = typeof item.pageImage === "string" && item.pageImage.endsWith(".svg");
-            if (!(isDark && isSvg)) { setSvgHtml(null); return; }
+            const isMobile = window.matchMedia && window.matchMedia("(max-width: 640px)").matches;
+            if (!(isDark && isSvg && isMobile)) { setSvgHtml(null); return; }
             const src = String(item.pageImage);
             const res = await fetch(src, { cache: "no-store" });
             if (!res.ok) { setSvgHtml(null); return; }

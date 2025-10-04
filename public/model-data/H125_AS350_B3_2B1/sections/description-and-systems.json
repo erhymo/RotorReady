@@ -1,0 +1,154 @@
+{
+  "items": [
+    {
+      "id": "H125-DS-101",
+      "question": "What is the total length of the H125 (AS350 B3 2B1) helicopter?",
+      "options": [
+        "10.93 m (35.86 ft)",
+        "12.94 m (42.45 ft)",
+        "11.87 m (38.91 ft)",
+        "10.30 m (33.79 ft)"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "The helicopter's total length is 12.94 meters (42.45 ft).",
+      "section": "description-and-systems",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 7.1",
+      "reference": "p. 7-1",
+      "difficulty": "easy",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 7.1 – p. 7-1"
+      ]
+    },
+    {
+      "id": "H125-DS-102",
+      "question": "What is the diameter of the main rotor on the H125?",
+      "options": [
+        "12.94 m (42.45 ft)",
+        "10.69 m (35.07 ft)",
+        "9.86 m (32.35 ft)",
+        "11.22 m (36.81 ft)"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "The main rotor diameter is 10.69 meters (35.07 ft).",
+      "section": "description-and-systems",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 7.1",
+      "reference": "p. 7-1",
+      "difficulty": "easy",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 7.1 – p. 7-1"
+      ]
+    },
+    {
+      "id": "H125-DS-103",
+      "question": "Which engine powers the H125 (AS350 B3 2B1)?",
+      "options": [
+        "Pratt & Whitney PT6B",
+        "Turbomeca Arriel 2B1",
+        "Rolls-Royce 250-C47",
+        "Safran Arrius 2R"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "The helicopter is powered by a Turbomeca Arriel 2B1 engine.",
+      "section": "description-and-systems",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 7.1",
+      "reference": "p. 7-3",
+      "difficulty": "easy",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 7.1 – p. 7-3"
+      ]
+    },
+    {
+      "id": "H125-DS-104",
+      "question": "What is the maximum takeoff power rating (MTOP) of the Arriel 2B1 engine?",
+      "options": [
+        "543 kW (728 SHP)",
+        "557 kW (747 SHP)",
+        "600 kW (805 SHP)",
+        "510 kW (685 SHP)"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "The Arriel 2B1 engine has a maximum takeoff power rating (MTOP) of 557 kW (747 SHP).",
+      "section": "description-and-systems",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 7.1",
+      "reference": "p. 7-3",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 7.1 – p. 7-3"
+      ]
+    },
+    {
+      "id": "H125-DS-105",
+      "question": "What is the nominal rotor speed of the main rotor?",
+      "options": [
+        "386 rpm",
+        "410 rpm",
+        "360 rpm",
+        "420 rpm"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The main rotor speed is 386 rpm.",
+      "section": "description-and-systems",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 7.1",
+      "reference": "p. 7-3",
+      "difficulty": "easy",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 7.1 – p. 7-3"
+      ]
+    },
+    {
+      "id": "H125-DS-106",
+      "question": "What is the nominal tail rotor speed?",
+      "options": [
+        "2044 rpm",
+        "386 rpm",
+        "1700 rpm",
+        "2200 rpm"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The nominal tail rotor speed is 2044 rpm.",
+      "section": "description-and-systems",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 7.1",
+      "reference": "p. 7-3",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 7.1 – p. 7-3"
+      ]
+    }
+  ]
+}

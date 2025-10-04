@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { saveResult } from "@/lib/sync/results";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 import { modelScopedKey } from "@/lib/models/storage";
@@ -15,6 +16,7 @@ function loadSession(): Session | null {
 }
 
 export default function ResultPage() {
+  const router = useRouter();
   const [s, setS] = useState<Session | null>(null);
   const { variant: activeVariant } = useActiveModelVariant();
 
@@ -63,10 +65,18 @@ export default function ResultPage() {
         createdAt: new Date().toISOString(),
         items, answers, flags
       };
+      // Store single last-wrong
       localStorage.setItem(storageKey, JSON.stringify(wrongSession));
       if (activeVariant.id === "AW169") {
         localStorage.setItem(originalKey, JSON.stringify(wrongSession));
       }
+      // Maintain rolling history of last 10 wrong sessions
+      const histKey = `${modelScopedKey("rr_wrong_history", activeVariant.id)}:${sectionKey}`;
+      const rawHist = localStorage.getItem(histKey);
+      let hist: Session[] = Array.isArray(rawHist ? JSON.parse(rawHist) : null) ? JSON.parse(rawHist!) : [];
+      hist.push(wrongSession);
+      if (hist.length > 10) hist = hist.slice(hist.length - 10);
+      localStorage.setItem(histKey, JSON.stringify(hist));
     } else {
       localStorage.removeItem(storageKey);
       if (activeVariant.id === "AW169") {
@@ -96,7 +106,23 @@ export default function ResultPage() {
 
       <div className="flex gap-2">
         <Link href="/limitations-quiz" className="px-4 py-2 rounded-lg bg-blue-600 text-white">Ta på nytt</Link>
-        <Link href="/" className="px-4 py-2 rounded-lg bg-emerald-600 text-white">Forside</Link>
+        <button onClick={() => {
+          if (!s) return;
+          const wrongIdx: number[] = [];
+          s.items.forEach((it, i) => {
+            const picked = s.answers[i];
+            const ok = picked != null && it.answer.includes(picked);
+            if (!ok) wrongIdx.push(i);
+          });
+          if (!wrongIdx.length) { alert("Ingen feil i denne runden."); return; }
+          const items = wrongIdx.map(i => s.items[i]);
+          const answers = wrongIdx.map(() => null as number | null);
+          const flags = wrongIdx.map(() => false);
+          const limSession = { section: s.section, createdAt: new Date().toISOString(), items, answers, flags };
+          sessionStorage.setItem("limq_session", JSON.stringify(limSession));
+          router.push("/limitations-quiz/1");
+        }} className="px-4 py-2 rounded-lg bg-emerald-600 text-white">Øv kun på feil</button>
+        <Link href="/" className="px-4 py-2 rounded-lg bg-emerald-600/80 text-white">Forside</Link>
       </div>
 
   <div className="rounded-xl border-l-4 border-emerald-600 bg-emerald-50/40 dark:border-emerald-400 dark:bg-gradient-to-r dark:from-emerald-900 dark:to-emerald-800/80 p-4 shadow-lg dark:text-white">

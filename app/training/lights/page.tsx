@@ -438,7 +438,15 @@ export default function LightsTrainer() {
               {isH125 ? (
                 <div className="flex justify-center">
                   <div className="w-[min(20rem,100%)] rounded-md bg-black p-4 h-20 grid place-items-center shadow-inner ring-1 ring-white/10">
-                    <div className={`${current.severity === "warning" ? "text-red-500" : "text-amber-400"} text-xl md:text-2xl font-semibold tracking-wide`}>{current.name.toUpperCase()}</div>
+                    <div
+                      className={`${
+                        current.severity === "warning"
+                          ? "text-red-600 dark:text-red-400"
+                          : "text-amber-500 dark:text-amber-300"
+                      } text-xl md:text-2xl font-bold tracking-wide antialiased`}
+                    >
+                      {current.name.toUpperCase()}
+                    </div>
                   </div>
                 </div>
               ) : (

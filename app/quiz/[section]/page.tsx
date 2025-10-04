@@ -131,20 +131,39 @@ export default function SectionPage() {
     const legacyLower = activeVariant.id === "AW169" ? `rr_progress_last_wrong:${id}` : null;
     const legacyUpper = activeVariant.id === "AW169" ? `rr_progress_last_wrong:${id.toUpperCase()}` : null;
 
+    // Prefer aggregated history across last 10 sessions if available
+    const histKey = `${modelScopedKey("rr_wrong_history", activeVariant.id)}:${id}`;
+    const rawHist = localStorage.getItem(histKey);
+    let combinedItems: any[] | null = null;
+    try {
+      const arr = rawHist ? JSON.parse(rawHist) : null;
+      if (Array.isArray(arr) && arr.length) {
+        const out: Record<string, any> = {};
+        for (const sess of arr.slice(-10)) {
+          if (Array.isArray(sess?.items)) {
+            for (const it of sess.items) {
+              if (it?.id && !out[it.id]) out[it.id] = it;
+            }
+          }
+        }
+        combinedItems = Object.values(out);
+      }
+    } catch {}
+
     const raw =
       localStorage.getItem(lowerKey) ||
       localStorage.getItem(upperKey) ||
       (legacyLower ? localStorage.getItem(legacyLower) : null) ||
       (legacyUpper ? localStorage.getItem(legacyUpper) : null);
 
-    if (!raw) {
+    if (!combinedItems && !raw) {
       alert("Ingen feilsett tilgjengelig. Fullfør en quiz først.");
       return;
     }
     try {
-      const data = JSON.parse(raw);
+      const items = combinedItems ?? (JSON.parse(raw!).items || []);
       const overrideKey = `${modelScopedKey("quiz_session_override", activeVariant.id)}:${id}`;
-      sessionStorage.setItem(overrideKey, JSON.stringify({ items: data.items || [] }));
+      sessionStorage.setItem(overrideKey, JSON.stringify({ items }));
       router.push(`/quiz/${encodeURIComponent(id)}/all`);
     } catch {
       alert("Kunne ikke laste lagret feilsett. Slett og prøv igjen.");

@@ -253,17 +253,48 @@ export default function LightsTrainer() {
 
   function ProcedureLikePDF({ item }: { item: LightItem }) {
     if (item.pageImage) {
+      // On H125 in dark mode, inline SVG and strip its prefers-color-scheme: dark block
+      // so the SVG stays in its light palette (darker ink) even when OS is dark (mobile Safari).
+      const [svgHtml, setSvgHtml] = useState<string | null>(null);
+      useEffect(() => {
+        let cancelled = false;
+        async function load() {
+          try {
+            if (!isH125) { setSvgHtml(null); return; }
+            if (typeof window === "undefined") { setSvgHtml(null); return; }
+            const isDark = document.documentElement.classList.contains("dark");
+            const isSvg = typeof item.pageImage === "string" && item.pageImage.endsWith(".svg");
+            if (!(isDark && isSvg)) { setSvgHtml(null); return; }
+            const src = String(item.pageImage);
+            const res = await fetch(src, { cache: "no-store" });
+            if (!res.ok) { setSvgHtml(null); return; }
+            const txt = await res.text();
+            // Remove the @media (prefers-color-scheme: dark) block entirely
+            const cleaned = txt.replace(/@media\s*\(prefers-color-scheme:\s*dark\)\s*\{[\s\S]*?\}/g, "");
+            if (!cancelled) setSvgHtml(cleaned);
+          } catch {
+            if (!cancelled) setSvgHtml(null);
+          }
+        }
+        load();
+        return () => { cancelled = true; };
+      }, [item.pageImage]);
+
       return (
-        <figure className={`rounded-2xl border bg-white shadow ${ (isH125 && item.severity === "warning") ? "dark:bg-white dark:border-zinc-300" : "dark:bg-zinc-900/80 dark:border-zinc-600" } p-4`}>
+        <figure className={`rounded-2xl border bg-white shadow ${ (isH125) ? "dark:bg-white dark:border-zinc-300" : "dark:bg-zinc-900/80 dark:border-zinc-600" } p-4`}>
           <div className="relative overflow-hidden rounded-xl">
-            <Image
-              src={item.pageImage}
-              alt={item.name}
-              width={1200}
-              height={1600}
-              className={`w-full h-auto transition ${item.severity === "warning" ? "dark:brightness-110 dark:contrast-125 dark:saturate-150" : "dark:brightness-100 dark:contrast-110"}`}
-              priority
-            />
+            {svgHtml ? (
+              <div className="w-full h-auto [&>svg]:w-full [&>svg]:h-auto" dangerouslySetInnerHTML={{ __html: svgHtml }} />
+            ) : (
+              <Image
+                src={item.pageImage}
+                alt={item.name}
+                width={1200}
+                height={1600}
+                className={`w-full h-auto transition ${item.severity === "warning" ? "dark:brightness-110 dark:contrast-125 dark:saturate-150" : "dark:brightness-110 dark:contrast-120 dark:saturate-140"}`}
+                priority
+              />
+            )}
           </div>
           {item.references?.length ? (
             <figcaption className="mt-3 text-xs text-slate-500 dark:text-zinc-400">
@@ -442,7 +473,7 @@ export default function LightsTrainer() {
                       className={`${
                         current.severity === "warning"
                           ? "text-red-600 dark:text-red-200 dark:drop-shadow-[0_0_14px_rgba(255,85,85,0.65)]"
-                          : "text-amber-600 dark:text-amber-200 dark:drop-shadow-[0_0_10px_rgba(251,191,36,0.4)]"
+                          : "text-amber-600 dark:text-amber-100 dark:drop-shadow-[0_0_14px_rgba(251,191,36,0.5)]"
                       } text-xl md:text-2xl font-extrabold tracking-wide antialiased`}
                     >
                       {current.name.toUpperCase()}

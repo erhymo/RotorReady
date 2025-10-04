@@ -264,7 +264,8 @@ export default function LightsTrainer() {
             if (typeof window === "undefined") { setSvgHtml(null); return; }
             const isDark = document.documentElement.classList.contains("dark");
             const isSvg = typeof item.pageImage === "string" && item.pageImage.endsWith(".svg");
-            if (!(isDark && isSvg)) { setSvgHtml(null); return; }
+            const isMobile = window.matchMedia && window.matchMedia("(max-width: 640px)").matches;
+            if (!(isDark && isSvg && isMobile)) { setSvgHtml(null); return; }
             const src = String(item.pageImage);
             const res = await fetch(src, { cache: "no-store" });
             if (!res.ok) { setSvgHtml(null); return; }
@@ -272,19 +273,19 @@ export default function LightsTrainer() {
             // Remove the @media (prefers-color-scheme: dark) block entirely
             const cleaned = txt.replace(/@media\s*\(prefers-color-scheme:\s*dark\)\s*\{[\s\S]*?\}/g, "");
             const isCaution = item.severity === "caution";
+            if (!isCaution) { setSvgHtml(null); return; }
+
             // Inject white background and normalize to DOOR style only for CAUTION (yellow) lights
             const withBg = cleaned.replace(/<svg([^>]*)>/, '<svg$1><rect width="100%" height="100%" fill="white"/>');
             const style = '<style id="rr-mobile-dark-normalize">\n'
               + ':root,svg,g{color:#111 !important}\n'
-              + 'text{fill:#111 !important}\n'
+              + '.txt,.title,.label{fill:#111 !important}\n'
               + 'line,path,polyline,polygon,rect,circle,ellipse{stroke:#111 !important}\n'
               + '.warnRect{fill:#000 !important;stroke:#111 !important}\n'
               + '.warnText{fill:#ffcc00 !important}\n'
               + '.branchCaution,.caution,.orange{fill:orange !important}\n'
               + '</style>';
-            const finalSvg = isCaution
-              ? withBg.replace(/<\/svg>\s*$/, style + '</svg>')
-              : cleaned;
+            const finalSvg = withBg.replace(/<\/svg>\s*$/, style + '</svg>');
             if (!cancelled) setSvgHtml(finalSvg);
           } catch {
             if (!cancelled) setSvgHtml(null);

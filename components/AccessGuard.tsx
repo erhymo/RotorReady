@@ -45,41 +45,50 @@ export default function AccessGuard({ children }: { children: React.ReactNode })
       router.push(`/auth/signup?from=${encodeURIComponent(from)}`);
     }
 
-    try {
-      unsub = onAuthStateChanged(auth, (user) => {
-        if (user) {
+    const runTrialCheck = () => {
+      try {
+        const raw = localStorage.getItem(key);
+        const now = nowMs();
+        if (!raw) {
+          const expiresAt = new Date(now + msFromDays(TRIAL_DAYS)).toISOString();
+          const startedAt = new Date().toISOString();
+          localStorage.setItem(
+            key,
+            JSON.stringify({ active: true, startedAt, expiresAt })
+          );
           allow();
           return;
         }
-        try {
-          const raw = localStorage.getItem(key);
-          const now = nowMs();
-          if (!raw) {
-            const expiresAt = new Date(now + msFromDays(TRIAL_DAYS)).toISOString();
-            const startedAt = new Date().toISOString();
-            localStorage.setItem(
-              key,
-              JSON.stringify({ active: true, startedAt, expiresAt })
-            );
-            allow();
-            return;
-          }
-          const data = JSON.parse(raw);
-          const exp = new Date(data?.expiresAt || 0).getTime();
-          const active = data?.active !== false;
-          if (Number.isFinite(exp) && exp > now && active) {
+        const data = JSON.parse(raw);
+        const exp = new Date(data?.expiresAt || 0).getTime();
+        const active = data?.active !== false;
+        if (Number.isFinite(exp) && exp > now && active) {
+          allow();
+        } else {
+          block();
+        }
+      } catch {
+        // If anything goes wrong with localStorage/JSON, be permissive
+        allow();
+      }
+    };
+
+    try {
+      if (!auth) {
+        // No Firebase on client (e.g. localhost without env) → rely on trial
+        runTrialCheck();
+      } else {
+        unsub = onAuthStateChanged(auth, (user) => {
+          if (user) {
             allow();
           } else {
-            block();
+            runTrialCheck();
           }
-        } catch {
-          // If anything goes wrong with localStorage/JSON, be permissive
-          allow();
-        }
-      });
+        });
+      }
     } catch {
-      // If Firebase not configured, allow by default
-      allow();
+      // Fallback: rely on trial if subscription setup fails
+      runTrialCheck();
     }
 
     return () => {

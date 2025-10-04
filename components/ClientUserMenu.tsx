@@ -14,6 +14,10 @@ export default function ClientUserMenu() {
   const [theme, setTheme] = useState<"light" | "dark">("light");
 
   useEffect(() => {
+    if (!auth) {
+      setLoading(false);
+      return;
+    }
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       setUser(user);
       setLoading(false);
@@ -32,6 +36,7 @@ export default function ClientUserMenu() {
   };
 
   const handleSignOut = async () => {
+    if (!auth) return;
     try {
       await signOut(auth);
       setShowMenu(false);

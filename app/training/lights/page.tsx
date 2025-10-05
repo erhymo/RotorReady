@@ -91,7 +91,22 @@ export default function LightsTrainer() {
 
   const [flagBusy, setFlagBusy] = useState(false);
   const [flagged, setFlagged] = useState(false);
-  useEffect(() => { setFlagged(false); }, [deck, idx]);
+  useEffect(() => {
+    const c = deck[idx];
+    if (!c) { setFlagged(false); return; }
+    let cancelled = false;
+    (async () => {
+      try {
+        const res = await fetch("/api/admin/flags", { cache: "no-store" });
+        const store = res.ok ? await res.json() : { flags: [] };
+        const exists = !!(store?.flags || []).find((f: any) => f?.type === "training-light" && f?.lightId === c.id && f?.model === activeVariant.id && f?.productId === activeVariant.productId);
+        if (!cancelled) setFlagged(exists);
+      } catch {
+        if (!cancelled) setFlagged(false);
+      }
+    })();
+    return () => { cancelled = true; };
+  }, [idx, deck, activeVariant.id, activeVariant.productId]);
 
   const onFlag = useCallback(async () => {
     const c = deck[idx];
@@ -569,14 +584,14 @@ export default function LightsTrainer() {
             </div>
             <div className="sticky bottom-0 bg-white/95 backdrop-blur border-t border-slate-200">
               <div className="max-w-none mx-auto p-4 flex items-center justify-between gap-8">
-                <button onClick={prev} disabled={!canPrev} className="rounded-lg px-5 py-3 border text-base disabled:opacity-40" aria-label="Previous">
-                  Previous
+                <button onClick={prev} disabled={!canPrev} className="rounded-lg px-5 py-3 border text-base font-semibold hover:bg-slate-50 active:bg-slate-100 disabled:opacity-40" aria-label="Prev light">
+                  ← Prev
                 </button>
-                <button onClick={onFlag} disabled={flagBusy || flagged} className="rounded-full px-5 py-3 border text-base bg-yellow-50 hover:bg-yellow-100 disabled:opacity-60" aria-label="Flag this procedure">
-                  {flagged ? "Flagged" : "Flag"}
+                <button onClick={onFlag} disabled={flagBusy} className="inline-flex items-center gap-2 rounded-full px-5 py-3 border-2 border-amber-600 bg-amber-500 text-amber-950 font-bold shadow-sm hover:bg-amber-400 active:bg-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-500/50 disabled:opacity-60" aria-label={flagged ? "Unflag this procedure" : "Flag this procedure"}>
+                  <span aria-hidden>🚩</span>{flagged ? "Unflag" : "Flag"}
                 </button>
-                <button onClick={next} disabled={!canNext} className="rounded-lg px-5 py-3 border bg-blue-600 text-white text-base disabled:opacity-40" aria-label="Next">
-                  Next
+                <button onClick={next} disabled={!canNext} className="rounded-lg px-5 py-3 border bg-blue-600 text-white text-base font-semibold hover:bg-blue-500 active:bg-blue-600 disabled:opacity-40" aria-label="Next light">
+                  Next →
                 </button>
               </div>
             </div>

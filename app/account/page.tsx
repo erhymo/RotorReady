@@ -536,6 +536,21 @@ export default function AccountPage() {
           </div>
         </form>
       </section>
+
+      <section className="rounded-2xl border border-slate-200 bg-white/90 p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-900/80 dark:text-zinc-100 space-y-3">
+        <h2 className="text-lg font-semibold text-slate-900 dark:text-white">Om appen og ansvarsfraskrivelse</h2>
+        <ul className="list-disc ml-5 text-sm text-slate-700 dark:text-zinc-300 space-y-1">
+          <li>Denne appen er under aktiv utvikling og kan oppdateres hyppig.</li>
+          <li>RotorReady er en uavhengig treningsapplikasjon. Den er ikke en offisielt godkjent trener.</li>
+          <li>Bruk alltid QRH/AFM og operatørens prosedyrer som primær kilde. Ikke ta operative beslutninger basert på appen alene.</li>
+        </ul>
+        <div>
+          <a className="inline-flex items-center gap-2 rounded-lg border border-slate-300 px-3 py-1.5 text-sm text-slate-700 hover:bg-slate-100 dark:border-zinc-700 dark:text-zinc-200 dark:hover:bg-zinc-800" href="https://github.com/erhymo/RotorReady#readme" target="_blank" rel="noreferrer">
+            Les README (detaljer om bruk, personvern og teknisk)
+          </a>
+        </div>
+      </section>
+
     </div>
   );
 }

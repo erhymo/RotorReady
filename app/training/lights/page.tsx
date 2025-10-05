@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState, useCallback } from "react";
+import { useEffect, useMemo, useState, useCallback, useRef } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useActiveModelVariant } from "@/lib/models/hooks";
@@ -89,6 +89,9 @@ export default function LightsTrainer() {
     mql?.addEventListener?.("change", update);
     return () => mql?.removeEventListener?.("change", update);
   }, []);
+
+
+  const procOverlayRef = useRef<HTMLDivElement | null>(null);
 
   const [flagBusy, setFlagBusy] = useState(false);
   const [flagged, setFlagged] = useState(false);
@@ -256,6 +259,9 @@ export default function LightsTrainer() {
   const reveal = useCallback(() => {
     if (!current) return;
     setMode("procedure");
+    if (typeof window !== "undefined") {
+      try { window.history.pushState({ rr: "procedure" }, "", window.location.href); } catch {}
+    }
   }, [current]);
 
   const next = useCallback(() => {
@@ -283,6 +289,25 @@ export default function LightsTrainer() {
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [mode, start, reveal, next, prev]);
+
+  useEffect(() => {
+    if (isMobile && mode === "procedure") {
+      setTimeout(() => procOverlayRef.current?.focus(), 0);
+    }
+  }, [isMobile, mode]);
+
+  useEffect(() => {
+    if (!isMobile) return;
+    const onPop = () => {
+      if (mode === "procedure") {
+        setMode("light");
+        try { history.pushState(null, "", location.href); } catch {}
+      }
+    };
+    window.addEventListener("popstate", onPop);
+    return () => window.removeEventListener("popstate", onPop);
+  }, [isMobile, mode]);
+
 
   const canPrev = idx > 0 && (mode === "procedure" || mode === "light");
   const canNext = mode === "procedure";
@@ -600,18 +625,18 @@ export default function LightsTrainer() {
           </div>
         )}
         {isMobile && mode === "procedure" && current && (
-          <div className="fixed left-0 right-0 bottom-0 top-16 z-40 bg-white dark:bg-white">
+          <div ref={procOverlayRef} tabIndex={-1} className="fixed left-0 right-0 bottom-0 top-16 z-40 bg-white dark:bg-white">
             <div className="h-full w-full overflow-y-auto">
               <div className="px-0">
                 <ProcedureLikePDF item={current} flat />
               </div>
             </div>
             <div className="sticky bottom-0 bg-white/95 backdrop-blur border-t border-slate-200">
-              <div className="max-w-none mx-auto p-4 flex items-center justify-between gap-8">
+              <div className="max-w-none mx-auto p-4 flex items-center justify-between gap-8" style={{ paddingBottom: 'calc(1rem + env(safe-area-inset-bottom))' }}>
                 <button onClick={prev} disabled={!canPrev} className="rounded-lg px-5 py-3 border text-base font-semibold hover:bg-slate-50 active:bg-slate-100 disabled:opacity-40" aria-label="Prev light">
                   ← Prev
                 </button>
-                <button onClick={onFlag} disabled={flagBusy} className="inline-flex items-center gap-2 rounded-full px-5 py-3 border-2 border-amber-600 bg-amber-500 text-amber-950 font-bold shadow-sm hover:bg-amber-400 active:bg-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-500/50 disabled:opacity-60" aria-label={flagged ? "Unflag this procedure" : "Flag this procedure"}>
+                <button onClick={onFlag} disabled={flagBusy} className="inline-flex items-center gap-2 rounded-full px-5 py-3 border border-slate-300 bg-slate-50 text-slate-900 font-medium hover:bg-slate-100 active:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-slate-300 disabled:opacity-60" aria-label={flagged ? "Unflag this procedure" : "Flag this procedure"}>
                   <span aria-hidden>🚩</span>{flagged ? "Unflag" : "Flag"}
                 </button>
                 <button onClick={next} disabled={!canNext} className="rounded-lg px-5 py-3 border bg-blue-600 text-white text-base font-semibold hover:bg-blue-500 active:bg-blue-600 disabled:opacity-40" aria-label="Next light">

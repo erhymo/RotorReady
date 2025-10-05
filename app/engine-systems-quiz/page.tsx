@@ -32,6 +32,21 @@ function shuffle<T>(arr: T[]) {
   return copy;
 }
 
+function signature(items: any[]) { return items.map((it:any) => it.id).join(","); }
+
+function shuffleOptionsForItem<T extends { options?: string[]; answer?: number[] }>(it: T): T {
+  if (!Array.isArray((it as any).options) || !Array.isArray((it as any).answer)) return it;
+  const idx = (it as any).options.map((_: any, i: number) => i);
+  for (let i = idx.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [idx[i], idx[j]] = [idx[j], idx[i]];
+  }
+  const options = idx.map((i: number) => (it as any).options[i]);
+  const answer = (it as any).answer.map((a: number) => idx.indexOf(a)).filter((n: number) => n >= 0).sort((a:number,b:number)=>a-b);
+  return { ...(it as any), options, answer } as T;
+}
+
+
 export default function EngineSystemsStart() {
   const router = useRouter();
   const [amount, setAmount] = React.useState<AmountOption>(20);
@@ -57,15 +72,28 @@ export default function EngineSystemsStart() {
         setLoading(false);
         return;
       }
-      const items = amount === "all"
+      const base = amount === "all"
         ? shuffle(data.items)
         : sample(data.items, Math.min(amount, data.items.length));
+
+      const key = `quiz:lastOrders:${activeVariant.id}:${SECTION}:${amount === "all" ? "all" : amount}`;
+      let lastOrders: string[] = [];
+      try { lastOrders = JSON.parse(sessionStorage.getItem(key) || "[]"); } catch {}
+      let items = base;
+      if (lastOrders.includes(signature(items))) {
+        items = shuffle(items);
+      }
+      const updated = [...lastOrders, signature(items)].slice(-2);
+      try { sessionStorage.setItem(key, JSON.stringify(updated)); } catch {}
+
+      const randomized = items.map(shuffleOptionsForItem);
+
       const session = {
         section: SECTION,
         createdAt: new Date().toISOString(),
-        items,
-        answers: Array(items.length).fill(null),
-        flags: Array(items.length).fill(false)
+        items: randomized,
+        answers: Array(randomized.length).fill(null),
+        flags: Array(randomized.length).fill(false)
       };
       sessionStorage.setItem("engineq_session", JSON.stringify(session));
       router.push("/engine-systems-quiz/1");

@@ -46,6 +46,21 @@ function shuffle<T>(arr: T[]) {
   return copy;
 }
 
+function signature(items: QuizItem[]) { return items.map(it => it.id).join(","); }
+
+function shuffleOptionsForItem(it: QuizItem): QuizItem {
+  if (!Array.isArray(it.options) || !Array.isArray(it.answer)) return it;
+  const idx = it.options.map((_, i) => i);
+  for (let i = idx.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [idx[i], idx[j]] = [idx[j], idx[i]];
+  }
+  const options = idx.map(i => it.options[i]);
+  const answer = it.answer.map(a => idx.indexOf(a)).filter(n => n >= 0).sort((a,b)=>a-b);
+  return { ...it, options, answer };
+}
+
+
 function matchesVariant(item: QuizItem, variantId: string, productId: string): boolean {
   if (Array.isArray(item.modelIds)) {
     return item.modelIds.includes(variantId);
@@ -102,15 +117,28 @@ export default function AvionicsFmsQuizStart() {
         setLoading(false);
         return;
       }
-      const items = amount === "all"
+      const base = amount === "all"
         ? shuffle(data.items)
         : sample(data.items, Math.min(amount, data.items.length));
+
+      const key = `quiz:lastOrders:${activeVariant.id}:${SECTION}:${amount === "all" ? "all" : amount}`;
+      let lastOrders: string[] = [];
+      try { lastOrders = JSON.parse(sessionStorage.getItem(key) || "[]"); } catch {}
+      let items = base;
+      if (lastOrders.includes(signature(items))) {
+        items = shuffle(items);
+      }
+      const updated = [...lastOrders, signature(items)].slice(-2);
+      try { sessionStorage.setItem(key, JSON.stringify(updated)); } catch {}
+
+      const randomized = items.map(shuffleOptionsForItem);
+
       const session = {
         section: SECTION,
         createdAt: new Date().toISOString(),
-        items,
-        answers: Array(items.length).fill(null) as Array<number | null>,
-        flags: Array(items.length).fill(false) as boolean[],
+        items: randomized,
+        answers: Array(randomized.length).fill(null) as Array<number | null>,
+        flags: Array(randomized.length).fill(false) as boolean[],
       };
       sessionStorage.setItem("avionics_session", JSON.stringify(session));
       router.push("/avionics-fms-limitations-quiz/1");

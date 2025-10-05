@@ -79,6 +79,48 @@ export default function LightsTrainer() {
   const [pickCounts, setPickCounts] = useState<{ warning: number | "all"; caution: number | "all" }>({ warning: 10, caution: 10 });
   const [deck, setDeck] = useState<LightItem[]>([]);
   const [idx, setIdx] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const mql = window.matchMedia?.("(max-width: 640px)");
+    const update = () => setIsMobile(!!mql && mql.matches);
+    update();
+    mql?.addEventListener?.("change", update);
+    return () => mql?.removeEventListener?.("change", update);
+  }, []);
+
+  const [flagBusy, setFlagBusy] = useState(false);
+  const [flagged, setFlagged] = useState(false);
+  useEffect(() => { setFlagged(false); }, [deck, idx]);
+
+  const onFlag = useCallback(async () => {
+    const c = deck[idx];
+    if (!c || flagBusy) return;
+    setFlagBusy(true);
+    try {
+      const res = await fetch("/api/admin/flags", { cache: "no-store" });
+      const store = res.ok ? await res.json() : { flags: [] };
+      const entry = {
+        id: `${c.id}-${Date.now()}`,
+        type: "training-light",
+        lightId: c.id,
+        name: c.name,
+        severity: c.severity,
+        model: activeVariant.id,
+        productId: activeVariant.productId,
+        timestamp: new Date().toISOString(),
+        page: "training/lights",
+      };
+      const nextStore = { flags: [ ...(store?.flags || []), entry ] };
+      await fetch("/api/admin/flags", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(nextStore) });
+      setFlagged(true);
+    } catch (e) {
+      console.warn("Kunne ikke flagge element", e);
+    } finally {
+      setFlagBusy(false);
+    }
+  }, [idx, deck, activeVariant.id, activeVariant.productId, flagBusy]);
+
 
   useEffect(() => {
     let cancelled = false;
@@ -251,7 +293,7 @@ export default function LightsTrainer() {
     }
   }
 
-  function ProcedureLikePDF({ item }: { item: LightItem }) {
+  function ProcedureLikePDF({ item, flat = false }: { item: LightItem; flat?: boolean }) {
     if (item.pageImage) {
       // On H125 in dark mode, inline SVG and strip its prefers-color-scheme: dark block
       // so the SVG stays in its light palette (darker ink) even when OS is dark (mobile Safari).
@@ -296,7 +338,7 @@ export default function LightsTrainer() {
       */
 
       return (
-        <figure className={`rounded-2xl border bg-white shadow ${ (isH125) ? "dark:bg-white dark:border-zinc-300" : "dark:bg-zinc-900/80 dark:border-zinc-600" } p-4`}>
+        <figure className={flat ? "bg-white dark:bg-white p-0" : `rounded-2xl border bg-white shadow ${ (isH125) ? "dark:bg-white dark:border-zinc-300" : "dark:bg-zinc-900/80 dark:border-zinc-600" } p-4`}>
           <div className="relative overflow-hidden rounded-xl">
             <Image
               src={item.pageImage}
@@ -518,7 +560,30 @@ export default function LightsTrainer() {
             </div>
           </div>
         )}
-        {mode === "procedure" && current && (
+        {isMobile && mode === "procedure" && current && (
+          <div className="fixed left-0 right-0 bottom-0 top-16 z-40 bg-white dark:bg-white">
+            <div className="h-full w-full overflow-y-auto">
+              <div className="px-0">
+                <ProcedureLikePDF item={current} flat />
+              </div>
+            </div>
+            <div className="sticky bottom-0 bg-white/95 backdrop-blur border-t border-slate-200">
+              <div className="max-w-none mx-auto p-4 flex items-center justify-between gap-8">
+                <button onClick={prev} disabled={!canPrev} className="rounded-lg px-5 py-3 border text-base disabled:opacity-40" aria-label="Previous">
+                  Previous
+                </button>
+                <button onClick={onFlag} disabled={flagBusy || flagged} className="rounded-full px-5 py-3 border text-base bg-yellow-50 hover:bg-yellow-100 disabled:opacity-60" aria-label="Flag this procedure">
+                  {flagged ? "Flagged" : "Flag"}
+                </button>
+                <button onClick={next} disabled={!canNext} className="rounded-lg px-5 py-3 border bg-blue-600 text-white text-base disabled:opacity-40" aria-label="Next">
+                  Next
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {!isMobile && mode === "procedure" && current && (
           <div className="space-y-6">
             {current.description && !current.pageImage && (
               <div className="rounded-xl border bg-white dark:bg-blue-900/20 dark:text-zinc-100 dark:border-blue-300 p-4 text-[15px] md:text-[16px]">

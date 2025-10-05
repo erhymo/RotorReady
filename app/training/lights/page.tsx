@@ -77,6 +77,7 @@ export default function LightsTrainer() {
   const [loading, setLoading] = useState(true);
   const [mode, setMode] = useState<Mode>("idle");
   const [pickCounts, setPickCounts] = useState<{ warning: number | "all"; caution: number | "all" }>({ warning: 10, caution: 10 });
+  const [lastSeverity, setLastSeverity] = useState<Severity | null>(null);
   const [deck, setDeck] = useState<LightItem[]>([]);
   const [idx, setIdx] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
@@ -222,9 +223,32 @@ export default function LightsTrainer() {
     const shuffled = shuffle(pool);
     const n = setting === "all" ? shuffled.length : Math.min(shuffled.length, setting);
     setDeck(shuffled.slice(0, n));
+    setLastSeverity(severity);
     setIdx(0);
     setMode("light");
   }, [warningLights, cautionLights, pickCounts]);
+
+  const restart = useCallback(() => {
+    const sev: Severity = lastSeverity ?? (deck[0]?.severity ?? "warning");
+    const pool = sev === "warning" ? warningLights : cautionLights;
+    if (!pool.length) return;
+    const setting = pickCounts[sev];
+    const n = setting === "all" ? pool.length : Math.min(pool.length, setting);
+    const key = `lights:lastOrders:${activeVariant.id}:${sev}:${n}`;
+    const lastOrders = (() => {
+      try { return JSON.parse(sessionStorage.getItem(key) || "[]"); } catch { return []; }
+    })() as string[];
+    const sig = (arr: LightItem[]) => arr.map((x) => x.id).join(",");
+    let next = shuffle(pool).slice(0, n);
+    if (lastOrders.includes(sig(next))) {
+      next = shuffle(pool).slice(0, n);
+    }
+    const updated = [...lastOrders, sig(next)].slice(-2);
+    try { sessionStorage.setItem(key, JSON.stringify(updated)); } catch {}
+    setDeck(next);
+    setIdx(0);
+    setMode("light");
+  }, [lastSeverity, deck, warningLights, cautionLights, pickCounts, activeVariant.id]);
 
   const current = deck[idx];
 
@@ -620,7 +644,7 @@ export default function LightsTrainer() {
             <div className="text-3xl font-semibold mb-4 text-slate-900 dark:text-zinc-100">Great job!</div>
             <div className="text-lg opacity-70 mb-8 text-slate-700 dark:text-zinc-300">You&apos;ve completed the training.</div>
             <button
-              onClick={() => router.refresh()}
+              onClick={restart}
               className="rounded-lg px-6 py-3 bg-black text-white transition hover:bg-black/90 dark:bg-blue-600 dark:hover:bg-blue-500"
             >
               Restart

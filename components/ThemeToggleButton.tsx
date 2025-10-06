@@ -1,19 +1,21 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { toggleTheme, getEffectiveTheme, onThemeChange } from "@/lib/theme";
+import { toggleTheme, onThemeChange } from "@/lib/theme";
 
 export default function ThemeToggleButton({ className = "" }: { className?: string }) {
-  const [theme, setTheme] = useState<"light" | "dark">(() => {
-    if (typeof window === "undefined") return "light";
-    try {
-      return getEffectiveTheme();
-    } catch {
-      return "light";
-    }
-  });
+  // Avoid hydration mismatch: don't depend on window during initial render
+  const [mounted, setMounted] = useState(false);
+  const [theme, setTheme] = useState<"light" | "dark">("light");
 
   useEffect(() => {
+    setMounted(true);
+    // Sync from DOM (set by no-flash script / initializer)
+    try {
+      const isDark = document.documentElement.classList.contains("dark");
+      setTheme(isDark ? "dark" : "light");
+    } catch {}
+
     const unsub = onThemeChange(({ theme }) => setTheme(theme));
     return () => unsub?.();
   }, []);
@@ -25,7 +27,11 @@ export default function ThemeToggleButton({ className = "" }: { className?: stri
     } catch {}
   };
 
-  const label = theme === "light" ? "Bytt til mørkt tema" : "Bytt til lyst tema";
+  const label = mounted
+    ? theme === "light"
+      ? "Bytt til mørkt tema"
+      : "Bytt til lyst tema"
+    : "Bytt tema";
 
   return (
     <button
@@ -35,7 +41,7 @@ export default function ThemeToggleButton({ className = "" }: { className?: stri
       aria-label={label}
       title={label}
     >
-      {theme === "light" ? "🌙" : "☀️"}
+      {mounted ? (theme === "light" ? "🌙" : "☀️") : "🌗"}
     </button>
   );
 }

@@ -402,7 +402,7 @@ export default function LightsTrainer() {
       */
 
       return (
-        <figure className={flat ? "bg-white dark:bg-white p-0" : `rounded-2xl border bg-white shadow ${ (isH125) ? "dark:bg-white dark:border-zinc-300" : "dark:bg-zinc-900/80 dark:border-zinc-600" } p-4`}>
+        <figure className={flat ? "bg-white dark:bg-zinc-900 p-0" : `rounded-2xl border bg-white shadow ${ (isH125) ? "dark:bg-zinc-900/80 dark:border-zinc-600" : "dark:bg-zinc-900/80 dark:border-zinc-600" } p-4`}>
           <div className="relative overflow-hidden rounded-xl">
             <Image
               src={item.pageImage}
@@ -463,7 +463,7 @@ export default function LightsTrainer() {
                 <div className="flex justify-center">
                   <div className="h-6 w-px bg-black dark:bg-zinc-100" />
                 </div>
-                <div className="mt-3 rounded-xl border p-4 bg-white dark:bg-blue-900/20 dark:text-white dark:border-blue-300">
+                <div className="mt-3 rounded-xl border p-4 bg-white dark:bg-blue-900/40 dark:text-white dark:border-blue-400">
                   {pair.left.heading && <div className="font-semibold mb-1">{pair.left.heading}</div>}
                   <div className="whitespace-pre-wrap">{pair.left.text}</div>
                 </div>
@@ -472,7 +472,7 @@ export default function LightsTrainer() {
                 <div className="flex justify-center">
                   <div className="h-6 w-px bg-black dark:bg-zinc-100" />
                 </div>
-                <div className="mt-3 rounded-xl border p-4 bg-white dark:bg-blue-900/20 dark:text-white dark:border-blue-300">
+                <div className="mt-3 rounded-xl border p-4 bg-white dark:bg-blue-900/40 dark:text-white dark:border-blue-400">
                   {pair.right.heading && <div className="font-semibold mb-1">{pair.right.heading}</div>}
                   <div className="whitespace-pre-wrap">{pair.right.text}</div>
                 </div>
@@ -487,7 +487,7 @@ export default function LightsTrainer() {
           <section className="space-y-2">
             <div className="text-sm font-semibold opacity-80">Notes</div>
             {item.notes.map((n, i) => (
-              <div key={`${item.id}-noteB-${i}`} className="rounded-xl border bg-neutral-50 dark:bg-blue-900/20 dark:text-zinc-100 dark:border-blue-300 p-4 whitespace-pre-wrap">
+              <div key={`${item.id}-noteB-${i}`} className="rounded-xl border bg-neutral-50 dark:bg-blue-900/40 dark:text-zinc-100 dark:border-blue-400 p-4 whitespace-pre-wrap">
                 {n}
               </div>
             ))}
@@ -625,13 +625,13 @@ export default function LightsTrainer() {
           </div>
         )}
         {isMobile && mode === "procedure" && current && (
-          <div ref={procOverlayRef} tabIndex={-1} className="fixed left-0 right-0 bottom-0 top-16 z-40 bg-white dark:bg-white">
+          <div ref={procOverlayRef} tabIndex={-1} className="fixed left-0 right-0 bottom-0 top-16 z-40 bg-white dark:bg-zinc-900">
             <div className="h-full w-full overflow-y-auto">
               <div className="px-0">
                 <ProcedureLikePDF item={current} flat />
               </div>
             </div>
-            <div className="sticky bottom-0 bg-white/95 backdrop-blur border-t border-slate-200">
+            <div className="sticky bottom-0 bg-white/95 dark:bg-zinc-900/95 backdrop-blur border-t border-slate-200 dark:border-zinc-700">
               <div className="max-w-none mx-auto p-4 flex items-center justify-between gap-8" style={{ paddingBottom: 'calc(1rem + env(safe-area-inset-bottom))' }}>
                 <button onClick={prev} disabled={!canPrev} className="rounded-lg px-5 py-3 border text-base font-semibold hover:bg-slate-50 active:bg-slate-100 disabled:opacity-40" aria-label="Prev light">
                   ← Prev
@@ -650,7 +650,7 @@ export default function LightsTrainer() {
         {!isMobile && mode === "procedure" && current && (
           <div className="space-y-6">
             {current.description && !current.pageImage && (
-              <div className="rounded-xl border bg-white dark:bg-blue-900/20 dark:text-zinc-100 dark:border-blue-300 p-4 text-[15px] md:text-[16px]">
+              <div className="rounded-xl border bg-white dark:bg-blue-900/40 dark:text-zinc-100 dark:border-blue-400 p-4 text-[15px] md:text-[16px]">
                 {current.description}
               </div>
             )}

@@ -1,5 +1,6 @@
 "use client";
 import { useCallback, useEffect, useMemo, useState } from "react";
+import { toggleTheme as toggleThemeLib, setThemeSource as setThemeSourceLib, getEffectiveTheme as getEffectiveThemeLib, onThemeChange as onThemeChangeLib } from "@/lib/theme";
 import { useRouter } from "next/navigation";
 import BackButton from "@/components/BackButton";
 import { auth, db } from "@/lib/firebase/client";
@@ -135,9 +136,8 @@ export default function AccountPage() {
       setThemePref('system');
     }
 
-    const { getEffectiveTheme, onThemeChange }: any = require('@/lib/theme');
-    setEffectiveTheme(getEffectiveTheme());
-    const unsub = onThemeChange((payload: { theme: 'light'|'dark'; source: 'manual'|'system' }) => setEffectiveTheme(payload.theme));
+    setEffectiveTheme(getEffectiveThemeLib());
+    const unsub = onThemeChangeLib((payload: { theme: 'light'|'dark'; source: 'manual'|'system' }) => setEffectiveTheme(payload.theme));
     return () => unsub?.();
   }, []);
 
@@ -281,17 +281,16 @@ export default function AccountPage() {
   const last = attempts ? history[attempts - 1] : null;
   const best = attempts ? history.reduce((a,b)=> (b.percent > a.percent ? b : a)) : null;
 
-  const toggleTheme = () => {
-    const { toggleTheme } = require('@/lib/theme');
-    const next: 'light'|'dark' = toggleTheme();
+  const handleToggleTheme = () => {
+    const next: 'light'|'dark' = toggleThemeLib();
     setThemePref(next);
+    setEffectiveTheme(next);
   };
 
   const followSystem = () => {
-    const { setThemeSource, getEffectiveTheme } = require('@/lib/theme');
-    setThemeSource('system');
+    setThemeSourceLib('system');
     setThemePref('system');
-    setEffectiveTheme(getEffectiveTheme());
+    setEffectiveTheme(getEffectiveThemeLib());
   };
 
   const themeDescription = themePref === 'system'
@@ -347,7 +346,7 @@ export default function AccountPage() {
           </div>
           <div className="flex items-center gap-2">
             <button
-              onClick={toggleTheme}
+              onClick={handleToggleTheme}
               className="inline-flex items-center gap-2 rounded-lg border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-100 dark:border-zinc-700 dark:text-zinc-100 dark:hover:bg-zinc-800"
               aria-label={`Bytt til ${themeButtonLabel.toLowerCase()}`}
             >

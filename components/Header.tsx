@@ -1,7 +1,7 @@
 import Link from "next/link";
 import ClientUserMenu from "./ClientUserMenu";
 import ClientActiveModelBadge from "./ClientActiveModelBadge";
-import ClientThemeToggle from "./ClientThemeToggle";
+
 
 
 export default function Header() {
@@ -45,7 +45,6 @@ export default function Header() {
         <nav className="ml-auto hidden md:flex items-center gap-4 text-sm">
           <Link href="/offline" className="text-slate-700 hover:text-slate-900 dark:text-zinc-200 dark:hover:text-white">Offline</Link>
           <Link href="/account" className="text-slate-700 hover:text-slate-900 dark:text-zinc-200 dark:hover:text-white">Account</Link>
-          <ClientThemeToggle />
           <ClientUserMenu />
         </nav>
       </div>

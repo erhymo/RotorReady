@@ -106,7 +106,7 @@ export default function EmergencyResultPage() {
     }
   }, [session, total, correct, wrongIdx, activeVariant.id]);
 
-  if (!session) return <div className="max-w-xl mx-auto p-4">Ingen aktiv sesjon.</div>;
+  if (!session) return <div className="max-w-xl mx-auto p-4">No active session.</div>;
 
   const percent = total ? Math.round((correct / total) * 100) : 0;
 
@@ -115,23 +115,23 @@ export default function EmergencyResultPage() {
       <div className="w-full flex items-center py-1">
         <TopBarBackButton href="/emergency-quiz" />
       </div>
-      <h1 className="text-2xl font-bold text-blue-700 dark:text-blue-300 drop-shadow">Resultat</h1>
+      <h1 className="text-2xl font-bold text-blue-700 dark:text-blue-300 drop-shadow">Result</h1>
       <div className="rounded-xl border-l-4 border-blue-600 bg-blue-50/40 dark:border-blue-400 dark:bg-gradient-to-r dark:from-blue-900 dark:to-blue-800/80 p-4 shadow-lg dark:text-white">
-        <div>Besvarte: <b>{total}</b></div>
-        <div>Riktige: <b>{correct}</b></div>
-        <div>Prosent: <b>{percent}%</b></div>
+        <div>Answered: <b>{total}</b></div>
+        <div>Correct: <b>{correct}</b></div>
+        <div>Percent: <b>{percent}%</b></div>
       </div>
 
       <div className="flex gap-2">
         <Link href="/emergency-quiz" className="px-4 py-2 rounded-lg bg-blue-600 text-white">Ta på nytt</Link>
-        <Link href="/" className="px-4 py-2 rounded-lg bg-emerald-600 text-white">Forside</Link>
+        <Link href="/" className="px-4 py-2 rounded-lg bg-emerald-600 text-white">Home</Link>
       </div>
 
       <div className="rounded-xl border-l-4 border-emerald-600 bg-emerald-50/40 dark:border-emerald-400 dark:bg-gradient-to-r dark:from-emerald-900 dark:to-emerald-800/80 p-4 shadow-lg dark:text-white">
-        <div className="font-semibold mb-2">Neste steg</div>
+        <div className="font-semibold mb-2">Next steps</div>
         <ul className="list-disc ml-5 text-sm text-slate-700 dark:text-emerald-100">
-          <li>Trykk <b>“Øv kun på feil”</b> for å repetere de spørsmålene du bommet på.</li>
-          <li>Se progresjon under <b>Min side</b> for oversikt over treningen.</li>
+          <li>Press <b>“Practice wrong answers only”</b> to repeat the questions you missed.</li>
+          <li>See your progress under <b>My Page</b> for an overview of your training.</li>
         </ul>
       </div>
     </div>

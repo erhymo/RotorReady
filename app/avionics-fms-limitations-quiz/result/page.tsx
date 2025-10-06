@@ -102,30 +102,30 @@ export default function AvionicsResultPage() {
     } catch {}
   }, [session, total, correct, wrongIdx, activeVariant.id]);
 
-  if (!session) return <div className="max-w-xl mx-auto p-4">Ingen aktiv sesjon.</div>;
+  if (!session) return <div className="max-w-xl mx-auto p-4">No active session.</div>;
 
   return (
     <div className="max-w-2xl mx-auto p-4 space-y-4">
       <div className="w-full flex items-center py-1">
         <TopBarBackButton href="/avionics-fms-limitations-quiz" />
       </div>
-      <h1 className="text-2xl font-bold text-blue-700 dark:text-blue-300 drop-shadow">Resultat</h1>
+      <h1 className="text-2xl font-bold text-blue-700 dark:text-blue-300 drop-shadow">Result</h1>
       <div className="rounded-xl border-l-4 border-blue-600 bg-blue-50/40 dark:border-blue-400 dark:bg-gradient-to-r dark:from-blue-900 dark:to-blue-800/80 p-4 shadow-lg dark:text-white">
-        <div>Besvarte: <b>{total}</b></div>
-        <div>Riktige: <b>{correct}</b></div>
+        <div>Answered: <b>{total}</b></div>
+        <div>Correct: <b>{correct}</b></div>
         <div>Prosent: <b>{Math.round((correct / total) * 100)}%</b></div>
       </div>
 
       <div className="flex gap-2">
-        <Link href="/avionics-fms-limitations-quiz" className="px-4 py-2 rounded-lg bg-blue-600 text-white">Ta på nytt</Link>
-        <Link href="/" className="px-4 py-2 rounded-lg bg-emerald-600 text-white">Forside</Link>
+        <Link href="/avionics-fms-limitations-quiz" className="px-4 py-2 rounded-lg bg-blue-600 text-white">Try again</Link>
+        <Link href="/" className="px-4 py-2 rounded-lg bg-emerald-600 text-white">Home</Link>
       </div>
 
       <div className="rounded-xl border-l-4 border-emerald-600 bg-emerald-50/40 dark:border-emerald-400 dark:bg-gradient-to-r dark:from-emerald-900 dark:to-emerald-800/80 p-4 shadow-lg dark:text-white">
-        <div className="font-semibold mb-2">Neste steg</div>
+        <div className="font-semibold mb-2">Next steps</div>
         <ul className="list-disc ml-5 text-sm text-slate-700 dark:text-emerald-100">
-          <li>Trykk <b>“Øv kun på feil”</b> på startsiden for å repetere de vanskelige spørsmålene.</li>
-          <li>Følg progresjonen din under <b>Min side</b>.</li>
+          <li>Click <b>“Practice wrong answers only”</b> on the start page to repeat the difficult questions.</li>
+          <li>Follow your progress under <b>My Page</b>.</li>
         </ul>
       </div>
     </div>

@@ -101,10 +101,10 @@ export default function AvionicsFmsQuizStart() {
         if (!filtered.length) continue;
         return { items: filtered };
       } catch (error) {
-        console.warn("Kunne ikke laste", url, error);
+        console.warn("Could not load", url, error);
       }
     }
-    throw new Error("Fant ikke spørsmål for Avionics & FMS");
+    throw new Error("Found no questions for Avionics & FMS");
   }
 
   async function startQuiz() {
@@ -113,7 +113,7 @@ export default function AvionicsFmsQuizStart() {
     try {
       const data = await getData();
       if (!data.items.length) {
-        setErr("Fant ingen spørsmål i denne seksjonen.");
+        setErr("Found no questions in this section.");
         setLoading(false);
         return;
       }
@@ -143,7 +143,7 @@ export default function AvionicsFmsQuizStart() {
       sessionStorage.setItem("avionics_session", JSON.stringify(session));
       router.push("/avionics-fms-limitations-quiz/1");
     } catch (error: any) {
-      setErr(error?.message || "Kunne ikke starte quiz");
+      setErr(error?.message || "Could not start quiz");
     } finally {
       setLoading(false);
     }
@@ -155,7 +155,7 @@ export default function AvionicsFmsQuizStart() {
       localStorage.getItem(key) ||
       (activeVariant.id === "AW169" ? localStorage.getItem("rr_progress_last_wrong:avionics-fms-limitations") : null);
     if (!raw) {
-      alert("Ingen feilsett tilgjengelig. Fullfør en quiz først.");
+      alert("No wrong-answer set available. Complete a quiz first.");
       return;
     }
     try {
@@ -163,7 +163,7 @@ export default function AvionicsFmsQuizStart() {
       sessionStorage.setItem("avionics_session", JSON.stringify(data));
       router.push("/avionics-fms-limitations-quiz/1");
     } catch {
-      alert("Kunne ikke laste lagret feilsett. Slett og prøv igjen.");
+      alert("Could not load saved wrong-answer set. Delete and try again.");
       localStorage.removeItem(key);
       if (activeVariant.id === "AW169") {
         localStorage.removeItem("rr_progress_last_wrong:avionics-fms-limitations");
@@ -178,10 +178,10 @@ export default function AvionicsFmsQuizStart() {
       </div>
 
       <h1 className="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">{SECTION}</h1>
-      <p className="text-lg text-slate-700 dark:text-zinc-100 mt-2">Velg antall spørsmål og start.</p>
+      <p className="text-lg text-slate-700 dark:text-zinc-100 mt-2">Choose number of questions and start.</p>
 
       <div className="rounded-xl border-l-4 border-blue-600 bg-blue-50/40 dark:border-blue-400 dark:bg-blue-900/40 p-4 flex flex-col sm:flex-row items-center gap-3">
-        <label className="text-sm text-gray-700 dark:text-zinc-100">Antall:</label>
+        <label className="text-sm text-gray-700 dark:text-zinc-100">Count:</label>
         <select
           className="border rounded px-3 py-2 dark:bg-blue-900 dark:text-zinc-100 dark:border-blue-400"
           value={amount}
@@ -192,7 +192,7 @@ export default function AvionicsFmsQuizStart() {
         >
           {AMOUNT_OPTIONS.map((option) => (
             <option key={option} value={option}>
-              {option === "all" ? "Alle" : option}
+              {option === "all" ? "All" : option}
             </option>
           ))}
         </select>
@@ -201,15 +201,15 @@ export default function AvionicsFmsQuizStart() {
           disabled={loading}
           className="w-full sm:w-auto ml-auto px-4 py-2 rounded-lg bg-blue-600 text-white active:scale-95 disabled:opacity-60"
         >
-          {loading ? "Starter…" : "Start"}
+          {loading ? "Starting…" : "Start"}
         </button>
       </div>
       {err && <p className="text-red-600 text-sm dark:text-red-400">{err}</p>}
       <div className="rounded-xl border-l-4 border-emerald-600 bg-emerald-50/40 dark:border-emerald-400 dark:bg-emerald-900/40 p-4">
         <div className="flex items-center justify-between gap-3">
           <div>
-            <div className="font-semibold text-slate-900 dark:text-white">Øv kun på feil</div>
-            <div className="text-sm text-gray-600 dark:text-zinc-100">Bygger et sett av spørsmålene du nylig hadde feil.</div>
+            <div className="font-semibold text-slate-900 dark:text-white">Practice wrong answers only</div>
+            <div className="text-sm text-gray-600 dark:text-zinc-100">Builds a set of questions you recently got wrong.</div>
           </div>
           <button onClick={startWrongOnly} className="px-4 py-2 rounded-lg bg-emerald-600 text-white dark:bg-emerald-500">Start</button>
         </div>

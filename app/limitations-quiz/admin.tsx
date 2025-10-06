@@ -53,13 +53,13 @@ export default function LimitationsQuizAdmin() {
 
   return (
     <div className="max-w-2xl mx-auto py-8">
-      <h1 className="text-2xl font-bold mb-6">Admin: Skjul spørsmål</h1>
+      <h1 className="text-2xl font-bold mb-6">Admin: Hide questions</h1>
       <ul className="space-y-2">
         {questions.map((q, idx) => (
           <li key={q.id} className="flex items-center gap-2 p-2 border rounded bg-white">
             <button
               className={`w-6 h-6 flex items-center justify-center rounded-full border border-gray-300 transition ${hidden.includes(q.id) ? "bg-red-500" : "bg-gray-100"}`}
-              title={hidden.includes(q.id) ? "Vis spørsmålet igjen" : "Skjul dette spørsmålet"}
+              title={hidden.includes(q.id) ? "Show question again" : "Hide this question"}
               onClick={() => toggleHidden(q.id)}
               type="button"
             >

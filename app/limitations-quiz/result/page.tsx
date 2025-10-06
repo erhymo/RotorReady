@@ -90,22 +90,22 @@ export default function ResultPage() {
     } catch {}
   }, [s, total, correct, wrongIdx, activeVariant.id]);
 
-  if (!s) return <div className="max-w-xl mx-auto p-4">Ingen aktiv sesjon.</div>;
+  if (!s) return <div className="max-w-xl mx-auto p-4">No active session.</div>;
 
   return (
     <div className="max-w-2xl mx-auto p-4 space-y-4">
       <div className="w-full flex items-center py-1">
         <TopBarBackButton href="/limitations-quiz" />
       </div>
-      <h1 className="text-2xl font-bold text-blue-700 dark:text-blue-300 drop-shadow">Resultat</h1>
+      <h1 className="text-2xl font-bold text-blue-700 dark:text-blue-300 drop-shadow">Result</h1>
   <div className="rounded-xl border-l-4 border-blue-600 bg-blue-50/40 dark:border-blue-400 dark:bg-gradient-to-r dark:from-blue-900 dark:to-blue-800/80 p-4 shadow-lg dark:text-white">
-        <div>Besvarte: <b>{total}</b></div>
-        <div>Riktige: <b>{correct}</b></div>
-        <div>Prosent: <b>{Math.round((correct/total)*100)}%</b></div>
+        <div>Answered: <b>{total}</b></div>
+        <div>Correct: <b>{correct}</b></div>
+        <div>Percent: <b>{Math.round((correct/total)*100)}%</b></div>
       </div>
 
       <div className="flex gap-2">
-        <Link href="/limitations-quiz" className="px-4 py-2 rounded-lg bg-blue-600 text-white">Ta på nytt</Link>
+        <Link href="/limitations-quiz" className="px-4 py-2 rounded-lg bg-blue-600 text-white">Try again</Link>
         <button onClick={() => {
           if (!s) return;
           const wrongIdx: number[] = [];
@@ -114,22 +114,22 @@ export default function ResultPage() {
             const ok = picked != null && it.answer.includes(picked);
             if (!ok) wrongIdx.push(i);
           });
-          if (!wrongIdx.length) { alert("Ingen feil i denne runden."); return; }
+          if (!wrongIdx.length) { alert("No wrong answers in this round."); return; }
           const items = wrongIdx.map(i => s.items[i]);
           const answers = wrongIdx.map(() => null as number | null);
           const flags = wrongIdx.map(() => false);
           const limSession = { section: s.section, createdAt: new Date().toISOString(), items, answers, flags };
           sessionStorage.setItem("limq_session", JSON.stringify(limSession));
           router.push("/limitations-quiz/1");
-        }} className="px-4 py-2 rounded-lg bg-emerald-600 text-white">Øv kun på feil</button>
-        <Link href="/" className="px-4 py-2 rounded-lg bg-emerald-600/80 text-white">Forside</Link>
+        }} className="px-4 py-2 rounded-lg bg-emerald-600 text-white">Practice wrong answers only</button>
+        <Link href="/" className="px-4 py-2 rounded-lg bg-emerald-600/80 text-white">Home</Link>
       </div>
 
   <div className="rounded-xl border-l-4 border-emerald-600 bg-emerald-50/40 dark:border-emerald-400 dark:bg-gradient-to-r dark:from-emerald-900 dark:to-emerald-800/80 p-4 shadow-lg dark:text-white">
-        <div className="font-semibold mb-2">Neste steg</div>
+        <div className="font-semibold mb-2">Next steps</div>
         <ul className="list-disc ml-5 text-sm text-slate-700 dark:text-emerald-100">
-          <li>Gå til <b>Limitations</b> og trykk <b>“Øv kun på feil”</b> for målrettet trening.</li>
-          <li>Se progresjon under <b>Min side</b> (30-dagers oversikt kommer i sync-versjonen).</li>
+          <li>Go to <b>Limitations</b> and press <b>“Practice wrong answers only”</b> for focused training.</li>
+          <li>See your progress under <b>My Page</b> (30-day overview is coming in the sync version).</li>
         </ul>
       </div>
     </div>

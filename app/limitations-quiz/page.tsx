@@ -108,7 +108,7 @@ export default function LimitationsStart() {
       // if (!paid) incQuota("limitations");
       router.push("/limitations-quiz/1");
     } catch(e:any) {
-      setErr(e?.message || "Kunne ikke starte quiz");
+      setErr(e?.message || "Could not start quiz");
     } finally {
       setLoading(false);
     }
@@ -141,7 +141,7 @@ export default function LimitationsStart() {
     const upper = localStorage.getItem(upperKey) || (activeVariant.id === "AW169" ? localStorage.getItem("rr_progress_last_wrong:LIMITATIONS") : null);
     const raw = lower || upper;
 
-    if (!combinedItems && !raw) { alert("Ingen feilsett tilgjengelig. Fullfør en quiz først."); return; }
+    if (!combinedItems && !raw) { alert("No wrong-answer set available. Complete a quiz first."); return; }
 
     try {
       const data = combinedItems ? { section: "limitations", createdAt: new Date().toISOString(), items: combinedItems, answers: combinedItems.map(() => null), flags: combinedItems.map(() => false) } : JSON.parse(raw!);
@@ -164,10 +164,10 @@ export default function LimitationsStart() {
         <TopBarBackButton href="/quiz" />
       </div>
       <h1 className="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">Limitations Quiz</h1>
-      <p className="text-lg text-slate-700 dark:text-zinc-100 mt-2">Velg antall spørsmål og start.</p>
+      <p className="text-lg text-slate-700 dark:text-zinc-100 mt-2">Choose number of questions and start.</p>
 
       <div className="rounded-xl border-l-4 border-blue-600 bg-blue-50/40 dark:border-blue-400 dark:bg-blue-900/40 p-4 flex items-center gap-3">
-        <label className="text-sm text-gray-700 dark:text-zinc-100">Antall:</label>
+        <label className="text-sm text-gray-700 dark:text-zinc-100">Count:</label>
         <select className="border rounded px-3 py-2 dark:bg-blue-900 dark:text-zinc-100 dark:border-blue-400"
                 value={amount}
                 onChange={e => {
@@ -175,26 +175,26 @@ export default function LimitationsStart() {
                   setAmount(value as AmountOption);
                 }}>
           {AMOUNT_OPTIONS.map(option => (
-            <option key={option} value={option}>{option === "all" ? "Alle" : option}</option>
+            <option key={option} value={option}>{option === "all" ? "All" : option}</option>
           ))}
         </select>
         <button onClick={startQuiz} disabled={loading}
           className="ml-auto px-4 py-2 rounded-lg bg-blue-600 text-white active:scale-95">
-          {loading ? "Starter…" : "Start"}
+          {loading ? "Starting…" : "Start"}
         </button>
       </div>
       {err && <p className="text-red-600 text-sm">{err}</p>}
       <div className="rounded-xl border-l-4 border-emerald-600 bg-emerald-50/40 dark:border-emerald-400 dark:bg-emerald-900/40 p-4">
         <div className="flex items-center justify-between">
           <div>
-            <div className="font-semibold text-slate-900 dark:text-white">Øv kun på feil</div>
-            <div className="text-sm text-gray-600 dark:text-zinc-100">Bygger et sett av spørsmålene du nylig hadde feil.</div>
+            <div className="font-semibold text-slate-900 dark:text-white">Practice wrong answers only</div>
+            <div className="text-sm text-gray-600 dark:text-zinc-100">Builds a set of questions you recently got wrong.</div>
           </div>
           <button onClick={startWrongOnly} className="px-4 py-2 rounded-lg bg-emerald-600 text-white">Start</button>
         </div>
       </div>
 
-      <p className="text-xs text-gray-500">Tips: Last ned “Limitations” på <a href="/offline" className="underline">Offline</a> (krever kjøp).</p>
+      <p className="text-xs text-gray-500">Tip: Download “Chapters” on <a href="/offline" className="underline">Offline</a> (requires purchase).</p>
     </div>
   );
 }

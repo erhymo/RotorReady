@@ -53,7 +53,7 @@ export default function SectionPage() {
             return;
           }
         } catch (err) {
-          console.warn("Kunne ikke hente seksjoner", url, err);
+          console.warn("Could not fetch sections", url, err);
           continue;
         }
       }
@@ -74,7 +74,7 @@ export default function SectionPage() {
         }
       } catch {}
       if (!cancelled) {
-        setError("Fant ingen seksjoner for valgt modell");
+        setError("No sections found for the selected model");
         setSections([]);
       }
     })().finally(() => {
@@ -157,7 +157,7 @@ export default function SectionPage() {
       (legacyUpper ? localStorage.getItem(legacyUpper) : null);
 
     if (!combinedItems && !raw) {
-      alert("Ingen feilsett tilgjengelig. Fullfør en quiz først.");
+      alert("No wrong-answer set available. Complete a quiz first.");
       return;
     }
     try {
@@ -166,7 +166,7 @@ export default function SectionPage() {
       sessionStorage.setItem(overrideKey, JSON.stringify({ items }));
       router.push(`/quiz/${encodeURIComponent(id)}/all`);
     } catch {
-      alert("Kunne ikke laste lagret feilsett. Slett og prøv igjen.");
+      alert("Could not load saved wrong-answer set. Delete and try again.");
       localStorage.removeItem(lowerKey);
       localStorage.removeItem(upperKey);
       if (legacyLower) localStorage.removeItem(legacyLower);
@@ -174,9 +174,9 @@ export default function SectionPage() {
     }
   }
 
-  if (loading) return <div className="min-h-screen grid place-items-center dark:bg-zinc-900 dark:text-zinc-100">Laster…</div>;
+  if (loading) return <div className="min-h-screen grid place-items-center dark:bg-zinc-900 dark:text-zinc-100">Loading…</div>;
   if (error) return <div className="min-h-screen grid place-items-center text-red-600 dark:bg-zinc-900 dark:text-red-400">{error}</div>;
-  if (!sections.length) return <div className="min-h-screen grid place-items-center dark:bg-zinc-900 dark:text-zinc-100">Ingen seksjoner funnet</div>;
+  if (!sections.length) return <div className="min-h-screen grid place-items-center dark:bg-zinc-900 dark:text-zinc-100">No sections found</div>;
 
   return (
     <div className="max-w-xl mx-auto p-4 space-y-4">
@@ -187,18 +187,18 @@ export default function SectionPage() {
       <h1 className="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">
         {selected?.title}
       </h1>
-      <p className="text-lg text-slate-700 dark:text-zinc-100 mt-2">Velg antall spørsmål og start.</p>
+      <p className="text-lg text-slate-700 dark:text-zinc-100 mt-2">Choose number of questions and start.</p>
 
 
       {hasQuestions === false && (
         <div className="rounded-xl border-l-4 border-amber-600 bg-amber-50/60 dark:border-amber-400 dark:bg-amber-900/40 p-4">
-          <div className="font-semibold text-slate-900 dark:text-white">Kommer senere</div>
+          <div className="font-semibold text-slate-900 dark:text-white">Coming soon</div>
           <div className="text-sm text-gray-600 dark:text-zinc-100">Det kommer spørsmål for denne seksjonen snart.</div>
         </div>
       )}
 
       <div className="rounded-xl border-l-4 border-blue-600 bg-blue-50/40 dark:border-blue-400 dark:bg-blue-900/40 p-4 flex items-center gap-3">
-        <label className="text-sm text-gray-700 dark:text-zinc-100">Antall:</label>
+        <label className="text-sm text-gray-700 dark:text-zinc-100">Count:</label>
         <select
           className="border rounded px-3 py-2 dark:bg-blue-900 dark:text-zinc-100 dark:border-blue-400"
           value={amount}
@@ -226,8 +226,8 @@ export default function SectionPage() {
         <div className="rounded-xl border-l-4 border-emerald-600 bg-emerald-50/40 dark:border-emerald-400 dark:bg-emerald-900/40 p-4">
           <div className="flex items-center justify-between">
             <div>
-              <div className="font-semibold text-slate-900 dark:text-white">Øv kun på feil</div>
-              <div className="text-sm text-gray-600 dark:text-zinc-100">Gjenbruk siste feilsett for målrettet drilling.</div>
+              <div className="font-semibold text-slate-900 dark:text-white">Practice wrong answers only</div>
+              <div className="text-sm text-gray-600 dark:text-zinc-100">Reuse the last wrong-answer set for focused practice.</div>
             </div>
             <button onClick={startWrongOnly} className="px-4 py-2 rounded-lg bg-emerald-600 text-white">
               Start

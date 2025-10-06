@@ -16,7 +16,7 @@ const MODEL_CONFIGS: RotorModelConfig[] = [
   {
     id: "AW169",
     label: "AW169",
-    description: "Leonardo AW169 – Limitations, QRH/AFM og systemquiz.",
+    description: "Leonardo AW169 – Limitations, QRH/AFM and systems quizzes.",
     trialDays: 10,
     priceEnv: {
       standard: "STRIPE_PRICE_AW169_STANDARD",
@@ -26,7 +26,7 @@ const MODEL_CONFIGS: RotorModelConfig[] = [
   {
     id: "AW189",
     label: "AW189",
-    description: "Leonardo AW189 – Treningsinnhold.",
+    description: "Leonardo AW189 – Training content.",
     trialDays: 10,
     priceEnv: {
       standard: "STRIPE_PRICE_AW189_STANDARD",
@@ -36,7 +36,7 @@ const MODEL_CONFIGS: RotorModelConfig[] = [
   {
     id: "AW139",
     label: "AW139",
-    description: "Leonardo AW139 – Treningsinnhold.",
+    description: "Leonardo AW139 – Training content.",
     trialDays: 10,
     priceEnv: {
       standard: "STRIPE_PRICE_AW139_STANDARD",
@@ -46,7 +46,7 @@ const MODEL_CONFIGS: RotorModelConfig[] = [
   {
     id: "H125",
     label: "Airbus H125",
-    description: "Airbus H125 – Treningsinnhold.",
+    description: "Airbus H125 – Training content.",
     trialDays: 10,
     priceEnv: {
       standard: "STRIPE_PRICE_H125_STANDARD",

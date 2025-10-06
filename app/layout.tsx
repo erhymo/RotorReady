@@ -10,8 +10,8 @@ import AnalyticsProvider from "@/components/AnalyticsProvider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "RotorReady - AW169 Training Platform",
-  description: "Comprehensive training platform for AW169 helicopter operations",
+  title: "RotorReady – Your rotorwing training app",
+  description: "Your rotorwing training app",
 };
 
 export default function RootLayout({
@@ -46,7 +46,7 @@ export default function RootLayout({
         />
       </head>
       <body className={`${inter.className} bg-slate-50 dark:bg-zinc-900 text-slate-900 dark:text-white`}>
-        <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[1000] focus:rounded-md focus:bg-yellow-200 focus:px-3 focus:py-2 focus:text-slate-900">Hopp til innhold</a>
+        <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[1000] focus:rounded-md focus:bg-yellow-200 focus:px-3 focus:py-2 focus:text-slate-900">Skip to content</a>
         <ThemeInitializer />
         <AnalyticsProvider />
 

@@ -294,13 +294,13 @@ export default function AccountPage() {
   };
 
   const themeDescription = themePref === 'system'
-    ? `Følger system (${effectiveTheme === 'dark' ? 'mørk' : 'lys'})`
+    ? `Following system (${effectiveTheme === 'dark' ? 'dark' : 'light'})`
     : themePref === 'dark'
-      ? 'Manuelt mørk'
-      : 'Manuelt lys';
+      ? 'Manual dark'
+      : 'Manual light';
 
   const themeIcon = effectiveTheme === 'dark' ? '☀️' : '🌙';
-  const themeButtonLabel = effectiveTheme === 'dark' ? 'Lyst tema' : 'Mørkt tema';
+  const themeButtonLabel = effectiveTheme === 'dark' ? 'Light theme' : 'Dark theme';
 
   const h125Variants = listVariantsByProduct("H125");
   const activeVariantId = getStoredActiveModelVariantId();
@@ -341,14 +341,14 @@ export default function AccountPage() {
       <section className="space-y-3">
         <div className="rounded-xl border-l-4 border-amber-500 bg-amber-50/40 dark:border-amber-400 dark:bg-amber-900/40 px-5 py-4 flex items-center justify-between gap-4">
           <div>
-            <div className="font-semibold text-slate-900 dark:text-zinc-100">Tema</div>
+            <div className="font-semibold text-slate-900 dark:text-zinc-100">Theme</div>
             <div className="text-sm text-slate-700 dark:text-zinc-300 mt-0.5">{themeDescription}</div>
           </div>
           <div className="flex items-center gap-2">
             <button
               onClick={handleToggleTheme}
               className="inline-flex items-center gap-2 rounded-lg border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-100 dark:border-zinc-700 dark:text-zinc-100 dark:hover:bg-zinc-800"
-              aria-label={`Bytt til ${themeButtonLabel.toLowerCase()}`}
+              aria-label={`Switch to ${themeButtonLabel.toLowerCase()}`}
             >
               <span className="text-lg" aria-hidden>{themeIcon}</span>
               <span>{themeButtonLabel}</span>
@@ -358,7 +358,7 @@ export default function AccountPage() {
                 onClick={followSystem}
                 className="rounded-lg border border-slate-200 px-3 py-2 text-xs font-medium text-slate-600 hover:bg-slate-100 dark:border-zinc-700 dark:text-zinc-200 dark:hover:bg-zinc-800"
               >
-                Følg system
+                Follow system
               </button>
             )}
           </div>

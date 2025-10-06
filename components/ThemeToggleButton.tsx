@@ -29,9 +29,9 @@ export default function ThemeToggleButton({ className = "" }: { className?: stri
 
   const label = mounted
     ? theme === "light"
-      ? "Bytt til mørkt tema"
-      : "Bytt til lyst tema"
-    : "Bytt tema";
+      ? "Switch to dark theme"
+      : "Switch to light theme"
+    : "Switch theme";
 
   return (
     <button

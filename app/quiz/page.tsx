@@ -66,12 +66,12 @@ export default function QuizTypeSelectPage() {
             return;
           }
         } catch (err) {
-          console.warn("Kunne ikke hente seksjoner", url, err);
+          console.warn("Could not fetch sections", url, err);
         }
       }
       if (!cancelled) {
         setSections([]);
-        setError("Fant ingen seksjoner for valgt modell");
+        setError("No sections found for the selected model");
       }
     })().finally(() => {
       if (!cancelled) setLoading(false);
@@ -87,7 +87,7 @@ export default function QuizTypeSelectPage() {
       <div className="max-w-2xl mx-auto p-6 space-y-8 rounded-xl border-l-4 border-blue-600 bg-white dark:border-blue-400 dark:bg-zinc-900">
         <div className="mb-2"><TopBarBackButton href="/" /></div>
         <h1 className="text-2xl font-bold mb-4 flex items-center gap-2 text-slate-900 dark:text-white">
-          Velg quiztype
+          Choose quiz type
         </h1>
         <div className="space-y-4">
           {STATIC_QUIZ_TYPES.map((quiz) => (
@@ -105,7 +105,7 @@ export default function QuizTypeSelectPage() {
   }
 
   if (loading) {
-    return <div className="max-w-2xl mx-auto p-6">Laster seksjoner …</div>;
+    return <div className="max-w-2xl mx-auto p-6">Loading sections …</div>;
   }
 
   if (error) {
@@ -120,7 +120,7 @@ export default function QuizTypeSelectPage() {
     return (
       <div className="max-w-2xl mx-auto p-6">
         <div className="rounded-xl border border-dashed border-slate-300 dark:border-zinc-700 p-6 text-center text-slate-600 dark:text-zinc-300">
-          Ingen seksjoner tilgjengelig for {activeVariant.label} ennå.
+          No sections available for {activeVariant.label} yet.
         </div>
       </div>
     );
@@ -130,7 +130,7 @@ export default function QuizTypeSelectPage() {
     <div className="max-w-2xl mx-auto p-6 space-y-6 rounded-xl border-l-4 border-blue-600 bg-white dark:border-blue-400 dark:bg-zinc-900">
       <div className="mb-2"><TopBarBackButton href="/" /></div>
       <h1 className="text-2xl font-bold mb-4 flex items-center gap-2 text-slate-900 dark:text-white">
-        Velg quiztype
+        Choose quiz type
       </h1>
       <div className="space-y-4">
         {sections.map((section) => (

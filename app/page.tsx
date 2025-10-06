@@ -73,7 +73,7 @@ export default function HomePage() {
         <Bar
           href="/offline"
           title="Offline Packages"
-          description="Download ‘Limitations’ locally for offline use."
+          description="Download ‘Chapters’ locally for offline use."
           tone="emerald"
           icon={<DownloadIcon className="h-4 w-4" />}
         />

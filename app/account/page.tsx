@@ -38,7 +38,7 @@ export default function AccountPage() {
     try {
       return JSON.parse(raw) as T;
     } catch (error) {
-      console.warn(`Kunne ikke tolke lagrede data for ${key}`, error);
+      console.warn(`Could not parse stored data for ${key}`, error);
       localStorage.removeItem(key);
       return null;
     }
@@ -80,13 +80,13 @@ export default function AccountPage() {
   function startWrongOnly() {
     const found = findWrongSession();
     if (!found) {
-      alert("Ingen feilsett tilgjengelig. Fullfør en quiz først.");
+      alert("No wrong-answer set available. Complete a quiz first.");
       return;
     }
 
     const route = routeForWrongSession(found.sectionId);
     if (!route) {
-      alert("Fant et feilsett, men det støttes ikke fra denne snarveien ennå.");
+      alert("Found a wrong-answer set, but it is not supported from this shortcut yet.");
       return;
     }
 
@@ -118,7 +118,7 @@ export default function AccountPage() {
       const data = await res.json();
       setConversation(data?.conversation || null);
     } catch (error: any) {
-      setConversationError(error?.message || "Kunne ikke laste meldinger");
+      setConversationError(error?.message || "Could not load messages");
     } finally {
       setConversationLoading(false);
     }
@@ -264,10 +264,10 @@ export default function AccountPage() {
   const unreadUserMessages = conversation?.messages?.filter((msg) => msg.from === "admin" && !msg.readByUser).length ?? 0;
 
   if (!authChecked) {
-    return <div className="p-8 text-center text-lg text-slate-700 dark:text-zinc-200">Laster…</div>;
+    return <div className="p-8 text-center text-lg text-slate-700 dark:text-zinc-200">Loading…</div>;
   }
   if (!loggedIn) {
-    return <div className="p-8 text-center text-lg text-slate-700 dark:text-zinc-200">Viderekobler til innlogging…</div>;
+    return <div className="p-8 text-center text-lg text-slate-700 dark:text-zinc-200">Redirecting to login…</div>;
   }
 
   const attempts = history.length;
@@ -324,7 +324,7 @@ export default function AccountPage() {
       }
     } catch (e) {
       // Ikke forstyrr brukeren – vi har allerede lagret lokalt
-      console.warn("Kunne ikke oppdatere aktiv modell på server", e);
+      console.warn("Could not update active model on server", e);
     } finally {
       if (typeof window !== "undefined") window.location.reload();
     }
@@ -334,8 +334,8 @@ export default function AccountPage() {
     <div className="max-w-5xl mx-auto p-6 space-y-8">
       <BackButton className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-2 rounded-xl mb-2" />
       <header>
-        <h1 className="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">Min side</h1>
-        <p className="text-slate-600 dark:text-zinc-300 mt-2">Din tilgang og progresjon i RotorReady.</p>
+        <h1 className="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">My Page</h1>
+        <p className="text-slate-600 dark:text-zinc-300 mt-2">Your access and progress in RotorReady.</p>
       </header>
 
       <section className="space-y-3">
@@ -365,9 +365,9 @@ export default function AccountPage() {
         </div>
         <div className="rounded-xl border-l-4 border-emerald-600 bg-emerald-50/40 dark:border-emerald-400 dark:bg-emerald-900/40 px-5 py-4 flex items-start justify-between gap-4">
           <div>
-            <div className="font-semibold text-slate-900 dark:text-zinc-100">Tilgang</div>
+            <div className="font-semibold text-slate-900 dark:text-zinc-100">Access</div>
             <div className="text-sm text-slate-700 dark:text-zinc-300 mt-0.5">
-              {loggedIn ? "Innlogget" : <span><a href="/login" className="underline">Logg inn</a> for å se aktivt abonnement.</span>}
+              {loggedIn ? "Logged in" : <span><a href="/login" className="underline">Log in</a> to view your active subscription.</span>}
             </div>
             <div className="mt-2 flex gap-2 flex-wrap">
               <button
@@ -403,14 +403,14 @@ export default function AccountPage() {
                     {label} {!coming && hasH125 ? "✓" : ""}
                     {coming && (
                       <span className="ml-2 inline-flex items-center rounded-full border border-amber-400/70 bg-amber-50 px-1.5 py-0.5 text-[10px] font-semibold text-amber-700 dark:border-amber-500/40 dark:bg-amber-900/30 dark:text-amber-200">
-                        Kommer
+                        Coming soon
                       </span>
                     )}
                   </button>
                 );
               })}
             </div>
-            <p className="text-xs text-gray-500 dark:text-zinc-400 mt-2">Kjøp aktiveres via Stripe Checkout (se Paywall) eller av admin.</p>
+            <p className="text-xs text-gray-500 dark:text-zinc-400 mt-2">Purchases are activated via Stripe Checkout (see Paywall) or by an admin.</p>
           </div>
           {loggedIn && (
             <button
@@ -421,7 +421,7 @@ export default function AccountPage() {
               }}
 
             >
-              Logg ut
+              Log out
             </button>
           )}
         </div>
@@ -429,16 +429,16 @@ export default function AccountPage() {
 
       <section className="space-y-3">
         <div className="rounded-xl border-l-4 border-blue-600 bg-blue-50/40 dark:border-blue-400 dark:bg-blue-900/40 px-5 py-4">
-          <div className="font-semibold text-slate-900 dark:text-zinc-100">Progresjon</div>
+          <div className="font-semibold text-slate-900 dark:text-zinc-100">Progress</div>
           {attempts === 0 ? (
-            <p className="text-gray-600 dark:text-zinc-300">Ingen gjennomførte quizer enda.</p>
+            <p className="text-gray-600 dark:text-zinc-300">No completed quizzes yet.</p>
           ) : (
             <div className="space-y-2">
-              <div className="text-sm text-slate-900 dark:text-zinc-100">Antall forsøk: <b>{attempts}</b></div>
-              {last && <div className="text-sm text-slate-900 dark:text-zinc-100">Sist: {formatSection(last.section)} — {last.correct}/{last.total} ({Math.round(last.percent)}%)</div>}
+              <div className="text-sm text-slate-900 dark:text-zinc-100">Attempts: <b>{attempts}</b></div>
+              {last && <div className="text-sm text-slate-900 dark:text-zinc-100">Last: {formatSection(last.section)} — {last.correct}/{last.total} ({Math.round(last.percent)}%)</div>}
               {best && <div className="text-sm text-slate-900 dark:text-zinc-100">Best: {formatSection(best.section)} — {best.correct}/{best.total} ({Math.round(best.percent)}%)</div>}
               <details className="mt-2">
-                <summary className="cursor-pointer text-slate-900 dark:text-white">Vis historikk</summary>
+                <summary className="cursor-pointer text-slate-900 dark:text-white">Show history</summary>
                 <ul className="list-disc ml-5 text-sm text-slate-900 dark:text-zinc-100">
                   {history.map((h,i)=>(
                     <li key={i}>{new Date(h.at).toLocaleString()} — {formatSection(h.section)}: {h.correct}/{h.total} ({Math.round(h.percent)}%)</li>
@@ -451,8 +451,8 @@ export default function AccountPage() {
         <div className="bg-slate-900 dark:bg-zinc-900 dark:border-zinc-700 border rounded-xl p-4 mt-2">
           <div className="flex items-center justify-between">
             <div>
-              <div className="font-semibold text-white dark:text-zinc-100">Øv kun på feil</div>
-              <div className="text-sm text-gray-300 dark:text-zinc-300">Bygger et sett av spørsmålene du nylig hadde feil.</div>
+              <div className="font-semibold text-white dark:text-zinc-100">Practice wrong answers only</div>
+              <div className="text-sm text-gray-300 dark:text-zinc-300">Builds a set of questions you recently got wrong.</div>
             </div>
             <button onClick={startWrongOnly} className="px-4 py-2 rounded-lg border bg-slate-900 text-white dark:bg-zinc-900 dark:text-zinc-100">Start</button>
           </div>
@@ -463,8 +463,8 @@ export default function AccountPage() {
       <section className="rounded-2xl border border-slate-200 bg-white/90 p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-900/80 dark:text-zinc-100 space-y-6">
         <div className="flex items-start justify-between gap-3">
           <div>
-            <h2 className="text-lg font-semibold text-slate-900 dark:text-white">Kontakt RotorReady</h2>
-            <p className="text-sm text-slate-600 dark:text-zinc-300">Still spørsmål eller del tilbakemeldinger direkte med oss.</p>
+            <h2 className="text-lg font-semibold text-slate-900 dark:text-white">Contact RotorReady</h2>
+            <p className="text-sm text-slate-600 dark:text-zinc-300">Ask questions or share feedback directly with us.</p>
             {unreadUserMessages > 0 && (
               <p className="mt-2 text-sm text-emerald-600 dark:text-emerald-300">
                 {unreadUserMessages} ulest{unreadUserMessages > 1 ? "e" : ""} svar fra oss.
@@ -477,7 +477,7 @@ export default function AccountPage() {
             disabled={conversationLoading}
             className="rounded-lg border border-slate-300 px-3 py-1.5 text-sm font-medium text-slate-700 transition hover:bg-slate-100 disabled:opacity-60 dark:border-zinc-700 dark:text-zinc-200 dark:hover:bg-zinc-800"
           >
-            Oppdater
+            Refresh
           </button>
         </div>
 
@@ -488,9 +488,9 @@ export default function AccountPage() {
         )}
 
         {conversationLoading ? (
-          <p className="text-sm text-slate-600 dark:text-zinc-300">Laster meldinger…</p>
+          <p className="text-sm text-slate-600 dark:text-zinc-300">Loading messages…</p>
         ) : sortedMessages.length === 0 ? (
-          <p className="text-sm text-slate-600 dark:text-zinc-300">Ingen meldinger ennå. Send oss en tilbakemelding nedenfor.</p>
+          <p className="text-sm text-slate-600 dark:text-zinc-300">No messages yet. Send us feedback below.</p>
         ) : (
           <div className="space-y-3 max-h-80 overflow-y-auto pr-1">
             {sortedMessages.map((msg) => {
@@ -506,7 +506,7 @@ export default function AccountPage() {
                   >
                     <div className="whitespace-pre-wrap leading-relaxed">{msg.body}</div>
                     <div className={`mt-2 text-xs ${isAdmin ? "text-blue-100" : "text-slate-500 dark:text-zinc-400"}`}>
-                      {isAdmin ? "RotorReady" : "Deg"} — {new Date(msg.createdAt).toLocaleString()}
+                      {isAdmin ? "RotorReady" : "You"} — {new Date(msg.createdAt).toLocaleString()}
                     </div>
                   </div>
                 </div>
@@ -518,7 +518,7 @@ export default function AccountPage() {
         <form onSubmit={handleSendMessage} className="space-y-3">
           <textarea
             className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100 dark:focus:border-blue-400 dark:focus:ring-blue-900/60"
-            placeholder="Skriv meldingen din…"
+            placeholder="Write your message…"
             value={messageText}
             onChange={(event) => setMessageText(event.target.value)}
             minLength={1}
@@ -530,22 +530,22 @@ export default function AccountPage() {
               disabled={sendingMessage || !messageText.trim()}
               className="rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-blue-700 disabled:opacity-60 dark:bg-blue-500 dark:hover:bg-blue-600"
             >
-              {sendingMessage ? "Sender…" : "Send melding"}
+              {sendingMessage ? "Sending…" : "Send message"}
             </button>
           </div>
         </form>
       </section>
 
       <section className="rounded-2xl border border-slate-200 bg-white/90 p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-900/80 dark:text-zinc-100 space-y-3">
-        <h2 className="text-lg font-semibold text-slate-900 dark:text-white">Om appen og ansvarsfraskrivelse</h2>
+        <h2 className="text-lg font-semibold text-slate-900 dark:text-white">About the app and disclaimer</h2>
         <ul className="list-disc ml-5 text-sm text-slate-700 dark:text-zinc-300 space-y-1">
-          <li>Denne appen er under aktiv utvikling og kan oppdateres hyppig.</li>
-          <li>RotorReady er en uavhengig treningsapplikasjon. Den er ikke en offisielt godkjent trener.</li>
-          <li>Bruk alltid QRH/AFM og operatørens prosedyrer som primær kilde. Ikke ta operative beslutninger basert på appen alene.</li>
+          <li>This app is under active development and may be updated frequently.</li>
+          <li>RotorReady is an independent training application. It is not an officially approved trainer.</li>
+          <li>Always use the QRH/AFM and your operator's procedures as the primary source. Do not make operational decisions based on the app alone.</li>
         </ul>
         <div>
           <a className="inline-flex items-center gap-2 rounded-lg border border-slate-300 px-3 py-1.5 text-sm text-slate-700 hover:bg-slate-100 dark:border-zinc-700 dark:text-zinc-200 dark:hover:bg-zinc-800" href="https://github.com/erhymo/RotorReady#readme" target="_blank" rel="noreferrer">
-            Les README (detaljer om bruk, personvern og teknisk)
+            Read the README (details on usage, privacy, and technical)
           </a>
         </div>
       </section>

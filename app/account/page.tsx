@@ -1,6 +1,6 @@
 "use client";
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { toggleTheme as toggleThemeLib, setThemeSource as setThemeSourceLib, getEffectiveTheme as getEffectiveThemeLib, onThemeChange as onThemeChangeLib } from "@/lib/theme";
+import { toggleTheme as toggleThemeLib, setThemeSource as setThemeSourceLib, getEffectiveTheme as getEffectiveThemeLib, onThemeChange as onThemeChangeLib, applyTheme as applyThemeLib } from "@/lib/theme";
 import { useRouter } from "next/navigation";
 import BackButton from "@/components/BackButton";
 import { auth, db } from "@/lib/firebase/client";
@@ -289,8 +289,14 @@ export default function AccountPage() {
 
   const followSystem = () => {
     setThemeSourceLib('system');
+    try {
+      localStorage.removeItem('rr_theme');
+      localStorage.removeItem('theme');
+    } catch {}
+    const next = getEffectiveThemeLib();
+    applyThemeLib(next);
     setThemePref('system');
-    setEffectiveTheme(getEffectiveThemeLib());
+    setEffectiveTheme(next);
   };
 
   const themeDescription = themePref === 'system'

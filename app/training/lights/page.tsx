@@ -704,11 +704,11 @@ export default function LightsTrainer() {
             </div>
             <div className="sticky bottom-0 bg-white/95 dark:bg-zinc-900/95 backdrop-blur border-t border-slate-200 dark:border-zinc-700">
               <div className="max-w-none mx-auto p-4 flex items-center justify-between gap-8" style={{ paddingBottom: 'calc(1rem + env(safe-area-inset-bottom))' }}>
-                <button onClick={prev} disabled={!canPrev} className="rounded-lg px-5 py-3 border text-base font-semibold hover:bg-slate-50 active:bg-slate-100 disabled:opacity-40" aria-label="Prev light">
+                <button onClick={prev} disabled={!canPrev} className="rounded-lg px-5 py-3 border text-base font-semibold hover:bg-slate-50 active:bg-slate-100 disabled:opacity-40 dark:border-zinc-700 dark:text-zinc-100 dark:hover:bg-zinc-800 dark:active:bg-zinc-700" aria-label="Prev light">
                   ← Prev
                 </button>
                 {!memoryOnly && (
-                  <button onClick={onFlag} disabled={flagBusy} className="inline-flex items-center gap-2 rounded-full px-5 py-3 border border-slate-300 bg-slate-50 text-slate-900 font-medium hover:bg-slate-100 active:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-slate-300 disabled:opacity-60" aria-label={flagged ? "Unflag this procedure" : "Flag this procedure"}>
+                  <button onClick={onFlag} disabled={flagBusy} className="inline-flex items-center gap-2 rounded-full px-5 py-3 border border-slate-300 bg-slate-50 text-slate-900 font-medium hover:bg-slate-100 active:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-slate-300 disabled:opacity-60 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-100 dark:hover:bg-zinc-700 dark:active:bg-zinc-700 dark:focus:ring-zinc-700" aria-label={flagged ? "Unflag this procedure" : "Flag this procedure"}>
                     <span aria-hidden>🚩</span>{flagged ? "Unflag" : "Flag"}
                   </button>
                 )}

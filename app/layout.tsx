@@ -28,13 +28,13 @@ export default function RootLayout({
               (function(){
                 try {
                   var root = document.documentElement;
+                  var source = localStorage.getItem('rr_theme_source');
                   var stored = localStorage.getItem('rr_theme');
-                  var prefersDark = typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-                  if (stored === 'dark') {
-                    root.classList.add('dark');
-                  } else if (stored === 'light') {
-                    root.classList.remove('dark');
-                  } else if (prefersDark) {
+                  var mql = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
+                  var prefersDark = !!(mql && mql.matches);
+                  var useStored = (source === 'manual') && (stored === 'dark' || stored === 'light');
+                  var theme = useStored ? stored : (prefersDark ? 'dark' : 'light');
+                  if (theme === 'dark') {
                     root.classList.add('dark');
                   } else {
                     root.classList.remove('dark');

@@ -5,6 +5,11 @@ export const runtime = "nodejs";
 
 const FILE = path.join(process.cwd(), "public", "quiz-data", "flags.json");
 
+function ensureDir() {
+  const dir = path.dirname(FILE);
+  if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
+}
+
 type Flag = {
   id: string;
   section: string;
@@ -50,6 +55,7 @@ export async function POST(req: Request) {
     status: "open",
   };
   const out = { flags: [flag, ...arr] };
+  ensureDir();
   fs.writeFileSync(FILE, JSON.stringify(out, null, 2));
   return NextResponse.json({ ok: true, id });
 }

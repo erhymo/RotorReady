@@ -16,7 +16,7 @@ export type FlagPayload = {
 
 export async function reportFlag(payload: FlagPayload) {
   try {
-    await fetch("/api/flags", {
+    await fetch("/api/admin/flags", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

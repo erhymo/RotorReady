@@ -4,6 +4,8 @@ import { useParams, useRouter } from "next/navigation";
 
 import { reportFlag } from "@/lib/flags";
 import TopBarBackButton from "@/components/TopBarBackButton";
+import Link from "next/link";
+import { useActiveModelVariant } from "@/lib/models/hooks";
 
 // Samme type som limitations, men bruker engineq_session
 
@@ -29,11 +31,12 @@ function saveSession(s: Session) { sessionStorage.setItem("engineq_session", JSO
 export default function EngineQuestionPage() {
   const router = useRouter();
   const params = useParams<{question: string}>();
-  const idx = Math.max(0, (parseInt(params.question) || 1) - 1);
+  const idx = Math.max(0, (parseInt(((params as any)?.question || "1")) || 1) - 1);
 
   const [session, setSession] = React.useState<Session | null>(null);
   const [selected, setSelected] = React.useState<number | null>(null);
   const total = session?.items.length ?? 0;
+  const { variant: activeVariant } = useActiveModelVariant();
 
   React.useEffect(() => {
     const s = loadSession();
@@ -125,7 +128,12 @@ export default function EngineQuestionPage() {
       </div>
       <div className="flex items-center justify-between">
         <div className="text-sm text-gray-600 dark:text-zinc-300">Spørsmål {idx+1} / {total}</div>
-        <button onClick={toggleFlag} className={`px-3 py-1 rounded border text-sm ${session.flags[idx] ? "bg-amber-100 border-amber-400 dark:bg-amber-900 dark:border-amber-600 dark:text-zinc-100" : "bg-white dark:bg-zinc-900 dark:text-zinc-100 dark:border-zinc-700"}`}>{session.flags[idx] ? "Flagget" : "Flagg"}</button>
+        <div className="flex items-center gap-2">
+          {activeVariant.id === "AW169" && (
+            <Link href="/aw169/abbreviations" className="px-2 py-1 rounded border text-xs bg-white dark:bg-zinc-900 dark:text-zinc-100 dark:border-zinc-700">ABBR</Link>
+          )}
+          <button onClick={toggleFlag} className={`px-3 py-1 rounded border text-sm ${session.flags[idx] ? "bg-amber-100 border-amber-400 dark:bg-amber-900 dark:border-amber-600 dark:text-zinc-100" : "bg-white dark:bg-zinc-900 dark:text-zinc-100 dark:border-zinc-700"}`}>{session.flags[idx] ? "Flagget" : "Flagg"}</button>
+        </div>
       </div>
 
   <div className="bg-white dark:bg-zinc-900 dark:border-zinc-700 dark:text-zinc-100 rounded-xl border p-4">

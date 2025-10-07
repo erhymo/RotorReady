@@ -30,12 +30,12 @@ export default function Header() {
         <Link
           href="/"
           className="ml-2 inline-flex items-center gap-2 rounded-lg border border-slate-300 bg-white px-3 py-1 text-sm font-semibold text-slate-800 shadow-sm transition hover:border-slate-400 hover:bg-slate-50 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100 dark:hover:border-zinc-600 dark:hover:bg-zinc-800"
-          aria-label="Hjem"
+          aria-label="Home"
         >
           <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" className="text-slate-600 dark:text-zinc-300">
             <path d="M3 11l9-7 9 7v8a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-4H9v4a2 2 0 0 1-2 2H3z" fill="currentColor" />
           </svg>
-          Hjem
+          Home
         </Link>
 
         {/* Active model indicator */}

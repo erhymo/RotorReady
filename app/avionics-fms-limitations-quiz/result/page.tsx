@@ -113,7 +113,7 @@ export default function AvionicsResultPage() {
       <div className="rounded-xl border-l-4 border-blue-600 bg-blue-50/40 dark:border-blue-400 dark:bg-gradient-to-r dark:from-blue-900 dark:to-blue-800/80 p-4 shadow-lg dark:text-white">
         <div>Answered: <b>{total}</b></div>
         <div>Correct: <b>{correct}</b></div>
-        <div>Prosent: <b>{Math.round((correct / total) * 100)}%</b></div>
+        <div>Percent: <b>{Math.round((correct / total) * 100)}%</b></div>
       </div>
 
       <div className="flex gap-2">

@@ -78,10 +78,10 @@ export default function ClientQuiz({ section, initial }: { section: string; init
     return (
       <div className="min-h-screen grid place-items-center p-6 dark:bg-zinc-900 dark:text-zinc-100">
         <div className="w-full max-w-xl bg-white dark:bg-zinc-900 dark:text-zinc-100 rounded-lg shadow p-6 text-center border dark:border-zinc-700">
-          <h1 className="text-2xl font-bold mb-2">Resultat</h1>
-          <div className="mb-1">Riktige: <b>{correct}</b> / {initial.length}</div>
-          <div className="mb-6">Prosent: <b>{percent}%</b></div>
-          <button className="px-4 py-2 rounded bg-blue-600 dark:bg-blue-900 text-white font-semibold hover:bg-blue-700 dark:hover:bg-blue-800" onClick={handleRestart}>Start på nytt</button>
+          <h1 className="text-2xl font-bold mb-2">Result</h1>
+          <div className="mb-1">Correct: <b>{correct}</b> / {initial.length}</div>
+          <div className="mb-6">Percent: <b>{percent}%</b></div>
+          <button className="px-4 py-2 rounded bg-blue-600 dark:bg-blue-900 text-white font-semibold hover:bg-blue-700 dark:hover:bg-blue-800" onClick={handleRestart}>Try again</button>
         </div>
       </div>
     );

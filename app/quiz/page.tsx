@@ -99,6 +99,13 @@ export default function QuizTypeSelectPage() {
               {quiz.title}
             </Link>
           ))}
+          <Link
+            href="/quiz/all"
+            className="block w-full rounded-xl border-l-4 border-blue-600 bg-blue-50/40 hover:bg-blue-600 hover:text-white dark:bg-zinc-900 dark:text-white dark:border-blue-400 dark:hover:bg-blue-600 dark:hover:text-white transition px-5 py-4 font-semibold"
+          >
+            All
+          </Link>
+
         </div>
       </div>
     );
@@ -142,6 +149,12 @@ export default function QuizTypeSelectPage() {
             {section.title}
           </Link>
         ))}
+        <Link
+          href="/quiz/all"
+          className="block w-full rounded-xl border-l-4 border-blue-600 bg-blue-50/40 hover:bg-blue-600 hover:text-white dark:bg-zinc-900 dark:text-white dark:border-blue-400 dark:hover:bg-blue-600 dark:hover:text-white transition px-5 py-4 font-semibold"
+        >
+          All
+        </Link>
       </div>
     </div>
   );

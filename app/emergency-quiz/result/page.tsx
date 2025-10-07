@@ -123,7 +123,7 @@ export default function EmergencyResultPage() {
       </div>
 
       <div className="flex gap-2">
-        <Link href="/emergency-quiz" className="px-4 py-2 rounded-lg bg-blue-600 text-white">Ta på nytt</Link>
+        <Link href="/emergency-quiz" className="px-4 py-2 rounded-lg bg-blue-600 text-white">Try again</Link>
         <Link href="/" className="px-4 py-2 rounded-lg bg-emerald-600 text-white">Home</Link>
       </div>
 

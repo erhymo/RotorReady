@@ -11,8 +11,7 @@ const AMOUNT_OPTIONS = [
   { value: 20, label: "20" },
   { value: 30, label: "30" },
   { value: 40, label: "40" },
-  { value: 50, label: "50" },
-  { value: "all", label: "Alle" },
+  { value: "all", label: "All" },
 ] as const;
 
 type AmountOptionValue = (typeof AMOUNT_OPTIONS)[number]["value"];
@@ -37,6 +36,12 @@ export default function SectionPage() {
     if (variantLoading) return;
     let cancelled = false;
     setLoading(true);
+
+    const addAll = (arr: Section[]): Section[] => {
+      const exists = arr.some((s) => s.id === "all");
+      return exists ? arr : [...arr, { id: "all", title: "All" }];
+    };
+
     const urls = [
       `/model-data/${activeVariant.id}/index.json`,
       "/quiz-data/index.json",
@@ -48,7 +53,8 @@ export default function SectionPage() {
           if (!res.ok) throw new Error(`HTTP ${res.status}`);
           const data = await res.json();
           if (!cancelled) {
-            setSections(Array.isArray(data.sections) ? data.sections : []);
+            const fromApi = Array.isArray(data.sections) ? (data.sections as Section[]) : [];
+            setSections(addAll(fromApi));
             setError(null);
             return;
           }
@@ -68,14 +74,14 @@ export default function SectionPage() {
             normal_procedures: "Normal Procedures",
           };
           const title = TITLE_FALLBACK[routeSection] || routeSection.replaceAll("_", " ").replace(/\b\w/g, (c) => c.toUpperCase());
-          setSections([{ id: routeSection, title }]);
+          setSections(addAll([{ id: routeSection, title }]));
           setError(null);
           return;
         }
       } catch {}
       if (!cancelled) {
         setError("No sections found for the selected model");
-        setSections([]);
+        setSections(addAll([]));
       }
     })().finally(() => {
       if (!cancelled) setLoading(false);
@@ -89,6 +95,11 @@ export default function SectionPage() {
     if (!selected?.id) return;
     let cancelled = false;
     (async () => {
+      // Spesialtilfelle for "All": aggregator finnes alltid
+      if (selected.id === "all") {
+        setHasQuestions(true);
+        return;
+      }
       // 1) Lokal/offline først
       try {
         const { loadSectionOffline } = await import("@/lib/offline");

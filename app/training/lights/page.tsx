@@ -69,6 +69,13 @@ function pickFirstBranchPair(steps: ProcedureStep[]) {
   return null;
 }
 
+
+  function displayName(item: LightItem): string {
+    if (item.id === "eng-fire-flight") return `${item.name} (in flight)`;
+    if (item.id === "eng-fire-ground") return `${item.name} (on ground)`;
+    return item.name;
+  }
+
 export default function LightsTrainer() {
   const router = useRouter();
   const { variant: activeVariant } = useActiveModelVariant();
@@ -80,6 +87,7 @@ export default function LightsTrainer() {
   const [lastSeverity, setLastSeverity] = useState<Severity | null>(null);
   const [deck, setDeck] = useState<LightItem[]>([]);
   const [idx, setIdx] = useState(0);
+  const [memoryOnly, setMemoryOnly] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -219,6 +227,18 @@ export default function LightsTrainer() {
   const warningLights = useMemo(() => all.filter((item) => item.severity === "warning"), [all]);
   const cautionLights = useMemo(() => all.filter((item) => item.severity === "caution"), [all]);
 
+  const hasMemory = useCallback((item: LightItem) => {
+    const steps = item.procedure || [];
+    return steps.some((s) => s.type === "action");
+  }, []);
+
+  const memoryCount = useMemo(
+    () => warningLights.filter((item) => activeVariant.id === "AW169" && hasMemory(item)).length,
+    [warningLights, activeVariant.id, hasMemory]
+  );
+
+
+
   const start = useCallback((severity: Severity) => {
     const pool = severity === "warning" ? warningLights : cautionLights;
     if (!pool.length) return;
@@ -228,16 +248,33 @@ export default function LightsTrainer() {
     setDeck(shuffled.slice(0, n));
     setLastSeverity(severity);
     setIdx(0);
+    setMemoryOnly(false);
     setMode("light");
   }, [warningLights, cautionLights, pickCounts]);
 
+  const startMemoryOnly = useCallback(() => {
+    // AW169 only, all red lights that have memory items (at least one 'action' step)
+    const pool = warningLights.filter((item) => activeVariant.id === "AW169" && hasMemory(item));
+    if (!pool.length) return;
+    const shuffled = shuffle(pool);
+    const n = shuffled.length; // In memory-only mode, always include all available lights
+    setDeck(shuffled.slice(0, n));
+    setLastSeverity("warning");
+    setIdx(0);
+    setMemoryOnly(true);
+    setMode("light");
+  }, [warningLights, activeVariant.id, hasMemory]);
+
   const restart = useCallback(() => {
     const sev: Severity = lastSeverity ?? (deck[0]?.severity ?? "warning");
-    const pool = sev === "warning" ? warningLights : cautionLights;
+    let pool = sev === "warning" ? warningLights : cautionLights;
+    if (memoryOnly) {
+      pool = warningLights.filter((item) => activeVariant.id === "AW169" && hasMemory(item));
+    }
     if (!pool.length) return;
     const setting = pickCounts[sev];
-    const n = setting === "all" ? pool.length : Math.min(pool.length, setting);
-    const key = `lights:lastOrders:${activeVariant.id}:${sev}:${n}`;
+    const n = memoryOnly ? pool.length : (setting === "all" ? pool.length : Math.min(pool.length, setting));
+    const key = `lights:lastOrders:${activeVariant.id}:${sev}:${n}:memory:${memoryOnly ? 1 : 0}`;
     const lastOrders = (() => {
       try { return JSON.parse(sessionStorage.getItem(key) || "[]"); } catch { return []; }
     })() as string[];
@@ -251,7 +288,7 @@ export default function LightsTrainer() {
     setDeck(next);
     setIdx(0);
     setMode("light");
-  }, [lastSeverity, deck, warningLights, cautionLights, pickCounts, activeVariant.id]);
+  }, [lastSeverity, deck, warningLights, cautionLights, pickCounts, activeVariant.id, memoryOnly, hasMemory]);
 
   const current = deck[idx];
 
@@ -324,7 +361,7 @@ export default function LightsTrainer() {
               title={current.system || ""}
             >
               <span className={`${current.severity === "warning" ? "bg-red-500" : "bg-amber-500"} mr-2 inline-block h-2 w-2 rounded-full`} aria-hidden />
-              {current.name}
+              {displayName(current)}
             </div>
             {current.system && <div className="text-xs opacity-70 uppercase tracking-wide dark:text-zinc-300">{current.system}</div>}
           </div>
@@ -357,7 +394,7 @@ export default function LightsTrainer() {
     }
   }
 
-  function ProcedureLikePDF({ item, flat = false }: { item: LightItem; flat?: boolean }) {
+  function ProcedureLikePDF({ item, flat = false, memoryOnly: memoryMode = false }: { item: LightItem; flat?: boolean; memoryOnly?: boolean }) {
     if (item.pageImage) {
       // On H125 in dark mode, inline SVG and strip its prefers-color-scheme: dark block
       // so the SVG stays in its light palette (darker ink) even when OS is dark (mobile Safari).
@@ -426,6 +463,28 @@ export default function LightsTrainer() {
     const pair = pickFirstBranchPair(rest);
     const beforeTree = pair ? rest.slice(0, pair.startIndex) : rest;
     const afterTree = pair ? rest.slice(pair.startIndex + 2) : [];
+
+    if (memoryMode) {
+      return (
+        <div className="space-y-6">
+          {actions.length > 0 && (
+            <section className="rounded-xl border-2 border-black dark:border-zinc-600 dark:bg-zinc-900/80 p-0 overflow-hidden">
+              <table className="w-full text-[15px]">
+                <tbody>
+                  {actions.map((a, i) => (
+                    <tr key={`${item.id}-mem-${i}`} className="border-b last:border-b-0 dark:border-zinc-700">
+                      <td className="w-12 align-top px-4 py-3 font-bold dark:text-zinc-100">{i + 1}.</td>
+                      <td className="align-top px-4 py-3 dark:text-zinc-100">{(a as any).text}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </section>
+          )}
+        </div>
+      );
+    }
+
     return (
       <div className="space-y-6">
         {notes.length > 0 && (
@@ -533,6 +592,16 @@ export default function LightsTrainer() {
                 >
                   {loading ? "Loading…" : `Start (${warningLights.length} available)`}
                 </button>
+                {activeVariant.id === "AW169" && (
+                  <button
+                    onClick={startMemoryOnly}
+                    disabled={loading || memoryCount === 0}
+                    className="rounded-md px-4 py-2 bg-slate-900 text-white font-medium disabled:opacity-40"
+                    title="Train on memory items only for red lights"
+                  >
+                    {`Memory items only (${memoryCount})`}
+                  </button>
+                )}
               </div>
               {!warningLights.length && !loading && (
                 <div className="text-sm text-slate-600 dark:text-zinc-300">
@@ -582,7 +651,7 @@ export default function LightsTrainer() {
               className="w-full rounded-2xl border p-8 text-left transition hover:shadow-md bg-white dark:bg-zinc-900 dark:border-zinc-700"
               title="Click to show procedure"
             >
-              <div className="mb-3 text-sm opacity-90 text-gray-600 dark:text-zinc-100">Click the light to show the procedure</div>
+              <div className="mb-3 text-sm opacity-90 text-gray-600 dark:text-zinc-100">{memoryOnly ? "Click the light to show memory items" : "Click the light to show the procedure"}</div>
               {isH125 ? (
                 <div className="flex justify-center">
                   <div className="w-[min(20rem,100%)] rounded-md bg-black p-4 h-20 grid place-items-center shadow-inner ring-1 ring-white/10">
@@ -603,7 +672,7 @@ export default function LightsTrainer() {
                   {current.icon && (
                     <Image
                       src={current.icon}
-                      alt={current.name}
+                      alt={displayName(current)}
                       width={56}
                       height={56}
                       className="h-14 w-14 object-contain rounded-md bg-white/20 dark:bg-white/5"
@@ -611,8 +680,8 @@ export default function LightsTrainer() {
                     />
                   )}
                   <div className="flex-1">
-                    <div className="text-lg md:text-xl font-semibold text-slate-900 dark:text-zinc-100">{current.name}</div>
-                    {current.description && <div className="opacity-80 mt-0.5 text-slate-600 dark:text-zinc-300">{current.description}</div>}
+                    <div className="text-lg md:text-xl font-semibold text-slate-900 dark:text-zinc-100">{displayName(current)}</div>
+                    {!memoryOnly && current.description && <div className="opacity-80 mt-0.5 text-slate-600 dark:text-zinc-300">{current.description}</div>}
                   </div>
                 </div>
               )}
@@ -628,7 +697,7 @@ export default function LightsTrainer() {
           <div ref={procOverlayRef} tabIndex={-1} className="fixed left-0 right-0 bottom-0 top-16 z-40 bg-white dark:bg-zinc-900">
             <div className="h-full w-full overflow-y-auto">
               <div className="px-0">
-                <ProcedureLikePDF item={current} flat />
+                <ProcedureLikePDF item={current} flat memoryOnly={memoryOnly} />
               </div>
             </div>
             <div className="sticky bottom-0 bg-white/95 dark:bg-zinc-900/95 backdrop-blur border-t border-slate-200 dark:border-zinc-700">
@@ -636,9 +705,11 @@ export default function LightsTrainer() {
                 <button onClick={prev} disabled={!canPrev} className="rounded-lg px-5 py-3 border text-base font-semibold hover:bg-slate-50 active:bg-slate-100 disabled:opacity-40" aria-label="Prev light">
                   ← Prev
                 </button>
-                <button onClick={onFlag} disabled={flagBusy} className="inline-flex items-center gap-2 rounded-full px-5 py-3 border border-slate-300 bg-slate-50 text-slate-900 font-medium hover:bg-slate-100 active:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-slate-300 disabled:opacity-60" aria-label={flagged ? "Unflag this procedure" : "Flag this procedure"}>
-                  <span aria-hidden>🚩</span>{flagged ? "Unflag" : "Flag"}
-                </button>
+                {!memoryOnly && (
+                  <button onClick={onFlag} disabled={flagBusy} className="inline-flex items-center gap-2 rounded-full px-5 py-3 border border-slate-300 bg-slate-50 text-slate-900 font-medium hover:bg-slate-100 active:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-slate-300 disabled:opacity-60" aria-label={flagged ? "Unflag this procedure" : "Flag this procedure"}>
+                    <span aria-hidden>🚩</span>{flagged ? "Unflag" : "Flag"}
+                  </button>
+                )}
                 <button onClick={next} disabled={!canNext} className="rounded-lg px-5 py-3 border bg-blue-600 text-white text-base font-semibold hover:bg-blue-500 active:bg-blue-600 disabled:opacity-40" aria-label="Next light">
                   Next →
                 </button>
@@ -649,12 +720,12 @@ export default function LightsTrainer() {
 
         {!isMobile && mode === "procedure" && current && (
           <div className="space-y-6">
-            {current.description && !current.pageImage && (
+            {!memoryOnly && current.description && !current.pageImage && (
               <div className="rounded-xl border bg-white dark:bg-blue-900/40 dark:text-zinc-100 dark:border-blue-400 p-4 text-[15px] md:text-[16px]">
                 {current.description}
               </div>
             )}
-            <ProcedureLikePDF item={current} />
+            <ProcedureLikePDF item={current} memoryOnly={memoryOnly} />
             <div className="sticky bottom-0 bg-white/80 dark:bg-transparent backdrop-blur border-t dark:border-blue-400">
               <div className="max-w-3xl mx-auto p-4 flex items-center justify-between">
                 <button onClick={prev} disabled={!canPrev} className="rounded-lg px-4 py-2 border dark:text-zinc-100 dark:border-blue-400 disabled:opacity-40">Previous</button>

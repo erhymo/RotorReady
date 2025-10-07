@@ -563,7 +563,7 @@ export default function LightsTrainer() {
 
   return (
   <div className="min-h-screen bg-slate-50 dark:bg-zinc-900">
-      {mode !== "idle" && current && header}
+      {!isMobile && mode !== "idle" && current && header}
       <main className="mx-auto max-w-3xl p-6 space-y-6">
         {mode === "idle" && (
           <div className="space-y-6">
@@ -694,8 +694,10 @@ export default function LightsTrainer() {
           </div>
         )}
         {isMobile && mode === "procedure" && current && (
-          <div ref={procOverlayRef} tabIndex={-1} className="fixed left-0 right-0 bottom-0 top-16 z-40 bg-white dark:bg-zinc-900">
+          <div ref={procOverlayRef} tabIndex={-1} className="fixed left-0 right-0 bottom-0 top-0 z-40 bg-white dark:bg-zinc-900">
             <div className="h-full w-full overflow-y-auto">
+            {header}
+
               <div className="px-0">
                 <ProcedureLikePDF item={current} flat memoryOnly={memoryOnly} />
               </div>

@@ -1,9 +1,8 @@
 {
   "sections": [
-    {
-      "id": "limitations",
-      "title": "Limitations"
-    }
+    { "id": "limitations", "title": "Limitations" },
+    { "id": "emergency_procedures", "title": "Emergency Procedures" },
+    { "id": "normal_procedures", "title": "Normal Procedures" }
   ]
 }
 

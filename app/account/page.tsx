@@ -7,7 +7,7 @@ import { auth, db } from "@/lib/firebase/client";
 import { onAuthStateChanged } from "firebase/auth";
 import { doc, getDoc } from "firebase/firestore";
 import { listVariantsByProduct } from "@/lib/models/catalog";
-import { getStoredActiveModelVariantId, storeActiveModelVariantId } from "@/lib/models/storage";
+import { getStoredActiveModelVariantId, storeActiveModelVariantId, modelScopedKey } from "@/lib/models/storage";
 
 type Summary = { section: string; total: number; correct: number; percent: number; at: string };
 type WrongSession = { section?: string; createdAt?: string | number; items?: unknown[] };
@@ -47,17 +47,25 @@ export default function AccountPage() {
   function findWrongSession(): { data: WrongSession; sectionId: string } | null {
     if (typeof window === "undefined") return null;
     const seen = new Set<string>();
+    const variantId = getStoredActiveModelVariantId();
+    const modelPrefix = modelScopedKey("rr_progress_last_wrong", variantId);
+    const legacyPrefix = "rr_progress_last_wrong";
+
     const candidateSections = [
       "limitations",
       "LIMITATIONS",
       ...history.map((h) => h.section),
       ...history.map((h) => h.section?.toLowerCase?.()).filter(Boolean) as string[],
     ];
-    const candidateKeys = candidateSections
-      .map((section) => `rr_progress_last_wrong:${section}`)
-      .filter((key) => Boolean(key));
 
-    const storedKeys = Object.keys(localStorage).filter((key) => key.startsWith("rr_progress_last_wrong:"));
+    const candidateKeys: string[] = [
+      ...candidateSections.map((section) => `${modelPrefix}:${section}`),
+      ...candidateSections.map((section) => `${legacyPrefix}:${section}`),
+    ];
+
+    const storedKeys = Object.keys(localStorage).filter(
+      (key) => key.startsWith(`${modelPrefix}:`) || key.startsWith(`${legacyPrefix}:`)
+    );
     candidateKeys.push(...storedKeys);
 
     for (const key of candidateKeys) {
@@ -65,33 +73,108 @@ export default function AccountPage() {
       seen.add(key);
       const parsed = parseLocalStorage<WrongSession>(key);
       if (!parsed) continue;
-      const sectionId = key.split(":").slice(1).join(":") || parsed.section || "limitations";
+
+      let sectionId = parsed.section || "limitations";
+      if (key.startsWith(`${modelPrefix}:`)) {
+        sectionId = key.substring((`${modelPrefix}:`).length) || sectionId;
+      } else if (key.startsWith(`${legacyPrefix}:`)) {
+        sectionId = key.substring((`${legacyPrefix}:`).length) || sectionId;
+      }
       return { data: parsed, sectionId };
     }
     return null;
   }
 
   function routeForWrongSession(sectionId: string): string | null {
+    // Deprecated: My Page now launches a mixed cross-section practice via generic ClientQuiz
     const normalized = sectionId.toLowerCase();
     if (normalized === "limitations") return "/limitations-quiz/1";
     return null;
   }
 
   function startWrongOnly() {
-    const found = findWrongSession();
-    if (!found) {
+    // Build a mixed set across ALL sections for the active model variant
+    const variantId = getStoredActiveModelVariantId();
+    const modelWrongPrefix = modelScopedKey("rr_progress_last_wrong", variantId) + ":";
+    const modelHistPrefix = modelScopedKey("rr_wrong_history", variantId) + ":";
+    const useLegacy = variantId === "AW169";
+    const legacyWrongPrefix = useLegacy ? "rr_progress_last_wrong:" : null; // only for AW169 legacy
+
+    const unique: Record<string, any> = {};
+
+    // 1) Collect from rolling histories per section (prefer)
+    try {
+      for (const key of Object.keys(localStorage)) {
+        if (!key.startsWith(modelHistPrefix)) continue;
+        const raw = localStorage.getItem(key);
+        if (!raw) continue;
+        const arr = JSON.parse(raw);
+        if (Array.isArray(arr)) {
+          for (const sess of arr) {
+            if (Array.isArray(sess?.items)) {
+              for (const it of sess.items) {
+                if (it?.id && !unique[it.id]) unique[it.id] = it;
+              }
+            }
+          }
+        }
+      }
+    } catch {}
+
+    // 2) Collect from last-wrong per section (fallback)
+    try {
+      for (const key of Object.keys(localStorage)) {
+        if (!(key.startsWith(modelWrongPrefix) || (legacyWrongPrefix && key.startsWith(legacyWrongPrefix)))) continue;
+        const raw = localStorage.getItem(key);
+        if (!raw) continue;
+        const sess = JSON.parse(raw);
+        if (Array.isArray(sess?.items)) {
+          for (const it of sess.items) {
+            if (it?.id && !unique[it.id]) unique[it.id] = it;
+          }
+        }
+      }
+    } catch {}
+
+    const items = Object.values(unique) as any[];
+    if (!items.length) {
       alert("No wrong-answer set available. Complete a quiz first.");
       return;
     }
 
-    const route = routeForWrongSession(found.sectionId);
-    if (!route) {
-      alert("Found a wrong-answer set, but it is not supported from this shortcut yet.");
+    // Normalize minimal shape for ClientQuiz
+    const normalizedItems = items.map((it) => {
+      const answer = Array.isArray(it?.answer) ? it.answer : (typeof it?.answer === "number" ? [it.answer] : []);
+      const type = Array.isArray(answer) && answer.length > 1 ? "multi" : "single";
+      const section = (typeof it?.section === "string" && it.section) ? it.section : "mixed";
+      return {
+        id: String(it.id),
+        section,
+        type,
+        question: String(it.question || "Question"),
+        options: Array.isArray(it.options) ? it.options.map(String) : [],
+        answer,
+        explanation: it.explanation,
+        references: Array.isArray(it.references) ? it.references.map(String) : undefined,
+        __file: it.__file,
+      };
+    }).filter((it) => it.options.length >= 2 && it.answer.length >= 1);
+
+    if (!normalizedItems.length) {
+      alert("Found wrong answers, but they were not usable. Try retaking a quiz.");
       return;
     }
 
-    sessionStorage.setItem("limq_session", JSON.stringify(found.data));
-    window.location.href = route;
+    // Use generic ClientQuiz override session under a virtual section id
+    const virtualSection = "all_wrong";
+    try {
+      const overrideKey = `${modelScopedKey("quiz_session_override", variantId)}:${virtualSection}`;
+      sessionStorage.setItem(overrideKey, JSON.stringify({ items: normalizedItems }));
+      window.location.href = `/quiz/${encodeURIComponent(virtualSection)}/all`;
+    } catch (e) {
+      console.warn("Could not start mixed wrong-only session", e);
+      alert("Could not start practice. Please try again.");
+    }
   }
   const router = useRouter();
   const [history, setHistory] = useState<Summary[]>([]);
@@ -142,8 +225,13 @@ export default function AccountPage() {
   }, []);
 
   useEffect(() => {
-    const storedHistory = parseLocalStorage<Summary[]>("rr_progress");
-    if (storedHistory) setHistory(storedHistory);
+    // Load quiz history (prefer model-scoped; fallback to legacy)
+    const variantId = getStoredActiveModelVariantId();
+    const modelKey = modelScopedKey("rr_progress", variantId);
+    const modelHistory = parseLocalStorage<Summary[]>(modelKey);
+    const legacyHistory = parseLocalStorage<Summary[]>("rr_progress");
+    const picked = modelHistory || legacyHistory || null;
+    if (picked) setHistory(picked);
 
     if (!auth) {
       setAuthChecked(true);

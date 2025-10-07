@@ -5,6 +5,8 @@ import { useRouter } from "next/navigation";
 import { auth, db } from "@/lib/firebase/client";
 import { createUserWithEmailAndPassword, sendEmailVerification } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
+import { mapAuthError } from "@/lib/auth/errors";
+
 
 function SignupInner() {
   const router = useRouter();
@@ -15,6 +17,10 @@ function SignupInner() {
 
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault(); setErr(""); setMsg("");
+    if (!auth) {
+      setErr("Oppretting av konto er utilgjengelig for \u00f8yeblikket. Pr\u00f8v igjen senere.");
+      return;
+    }
     try {
       const cred = await createUserWithEmailAndPassword(auth, email, password);
       try { await setDoc(doc(db, "users", cred.user.uid), { email, createdAt: new Date().toISOString() }, { merge: true }); } catch {}
@@ -22,7 +28,7 @@ function SignupInner() {
       router.push("/account");
     } catch (e: any) {
       console.error('Signup error:', e);
-      setErr(e?.message || "Klarte ikke opprette konto");
+      setErr(mapAuthError(e?.code) || e?.message || "Klarte ikke opprette konto");
     }
   }
 

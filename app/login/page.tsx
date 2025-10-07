@@ -5,6 +5,8 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { auth, db } from "@/lib/firebase/client";
 import { signInWithEmailAndPassword, sendEmailVerification } from "firebase/auth";
 import { doc, setDoc, getDoc, deleteDoc } from "firebase/firestore";
+import { mapAuthError } from "@/lib/auth/errors";
+
 
 function LoginInner() {
   const router = useRouter();
@@ -17,13 +19,17 @@ function LoginInner() {
 
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault(); setErr(""); setVeri("");
+    if (!auth) {
+      setErr("Innlogging er utilgjengelig for øyeblikket. Prøv igjen senere.");
+      return;
+    }
     try {
       const cred = await signInWithEmailAndPassword(auth, email, password);
       if (!cred.user.emailVerified) {
         setVeri("E-post ikke verifisert. Sender verifiseringslink…");
         try { await sendEmailVerification(cred.user); } catch {}
         // Redirect til hovedsiden
-        router.push("/");
+        router.push("/account");
         return;
       }
       try {
@@ -38,10 +44,10 @@ function LoginInner() {
           await deleteDoc(mapRef);
         }
       } catch {}
-      router.push("/");
+      router.push("/account");
     } catch (e: any) {
         console.error('Login error:', e);
-        setErr(e?.message || "Klarte ikke logge inn");
+        setErr(mapAuthError(e?.code) || e?.message || "Klarte ikke logge inn");
     }
   }
 

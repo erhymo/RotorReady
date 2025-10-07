@@ -12,6 +12,12 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  async redirects() {
+    return [
+      { source: "/auth/signin", destination: "/login", permanent: true },
+      { source: "/auth/signup", destination: "/signup", permanent: true },
+    ];
+  },
 };
 
 export default nextConfig;

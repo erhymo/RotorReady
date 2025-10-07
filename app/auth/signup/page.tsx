@@ -6,6 +6,8 @@ import { auth, db } from "@/lib/firebase/client";
 import { doc, setDoc } from "firebase/firestore";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { mapAuthError } from "@/lib/auth/errors";
+
 
 export default function SignUpPage() {
   const [email, setEmail] = useState("");
@@ -20,6 +22,12 @@ export default function SignUpPage() {
     setLoading(true);
     setError("");
 
+    if (!auth) {
+      setError("Oppretting av konto er utilgjengelig for \u00f8yeblikket. Pr\u00f8v igjen senere.");
+      setLoading(false);
+      return;
+    }
+
     if (password !== confirmPassword) {
       setError("Passwords do not match");
       setLoading(false);
@@ -28,7 +36,7 @@ export default function SignUpPage() {
 
     try {
       const cred = await createUserWithEmailAndPassword(auth, email, password);
-      
+
       // Create user document
       try {
         await setDoc(doc(db, "users", cred.user.uid), {
@@ -48,7 +56,7 @@ export default function SignUpPage() {
 
       router.push("/account");
     } catch (error: any) {
-      setError(error.message || "Failed to create account");
+      setError(mapAuthError(error?.code) || error.message || "Failed to create account");
     } finally {
       setLoading(false);
     }

@@ -6,6 +6,8 @@ import { auth } from "@/lib/firebase/client";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 
+import { mapAuthError } from "@/lib/auth/errors";
+
 export default function SignInPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -18,11 +20,17 @@ export default function SignInPage() {
     setLoading(true);
     setError("");
 
+    if (!auth) {
+      setError("Innlogging er utilgjengelig for øyeblikket. Prøv igjen senere.");
+      setLoading(false);
+      return;
+    }
+
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      router.push("/");
+      router.push("/account");
     } catch (error: any) {
-      setError(error.message || "Failed to sign in");
+      setError(mapAuthError(error?.code) || error.message || "Failed to sign in");
     } finally {
       setLoading(false);
     }

@@ -2,6 +2,8 @@
 import * as React from "react";
 import { useParams, useRouter } from "next/navigation";
 import TopBarBackButton from "@/components/TopBarBackButton";
+import Link from "next/link";
+import { useActiveModelVariant } from "@/lib/models/hooks";
 
 import { reportFlag } from "@/lib/flags";
 
@@ -48,6 +50,7 @@ export default function AvionicsQuestionPage() {
   const [session, setSession] = React.useState<Session | null>(null);
   const [selected, setSelected] = React.useState<number | null>(null);
   const total = session?.items.length ?? 0;
+  const { variant: activeVariant } = useActiveModelVariant();
 
   React.useEffect(() => {
     const current = loadSession();
@@ -154,12 +157,17 @@ export default function AvionicsQuestionPage() {
       </div>
       <div className="flex items-center justify-between">
         <div className="text-sm text-gray-600 dark:text-zinc-300">Spørsmål {idx + 1} / {total}</div>
-        <button
-          onClick={toggleFlag}
-          className={`px-3 py-1 rounded border text-sm ${session.flags[idx] ? "bg-amber-100 border-amber-400 dark:bg-amber-900 dark:border-amber-600 dark:text-zinc-100" : "bg-white dark:bg-zinc-900 dark:text-zinc-100 dark:border-zinc-700"}`}
-        >
-          {session.flags[idx] ? "Flagget" : "Flagg"}
-        </button>
+        <div className="flex items-center gap-2">
+          {activeVariant.id === "AW169" && (
+            <Link href="/aw169/abbreviations" className="px-2 py-1 rounded border text-xs bg-white dark:bg-zinc-900 dark:text-zinc-100 dark:border-zinc-700">ABBR</Link>
+          )}
+          <button
+            onClick={toggleFlag}
+            className={`px-3 py-1 rounded border text-sm ${session.flags[idx] ? "bg-amber-100 border-amber-400 dark:bg-amber-900 dark:border-amber-600 dark:text-zinc-100" : "bg-white dark:bg-zinc-900 dark:text-zinc-100 dark:border-zinc-700"}`}
+          >
+            {session.flags[idx] ? "Flagget" : "Flagg"}
+          </button>
+        </div>
       </div>
 
       <div className="bg-white dark:bg-zinc-900 dark:border-zinc-700 dark:text-zinc-100 rounded-xl border p-4">

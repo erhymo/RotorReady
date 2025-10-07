@@ -159,6 +159,12 @@ export default function ClientQuiz({ section, initial }: { section: string; init
               )}
             </div>
             <div className="mb-4 text-sm text-slate-600 dark:text-zinc-300">Seksjon: {section.toUpperCase()}</div>
+            <div className="-mt-2 mb-2 flex items-center justify-between text-sm text-slate-600 dark:text-zinc-300">
+              <div>Question {idx + 1} / {initial.length}</div>
+              {activeVariant.id === "AW169" && (
+                <Link href="/aw169/abbreviations" className="px-2 py-1 rounded border text-xs bg-white dark:bg-zinc-900 dark:text-zinc-100 dark:border-zinc-700">ABBR</Link>
+              )}
+            </div>
             <div className="mb-4 text-lg font-semibold">Spørsmål {idx + 1} av {initial.length}</div>
             <div className="mb-4 text-xl font-bold">{q.question}</div>
             <div className="grid grid-cols-1 gap-3 mb-6">

@@ -45,7 +45,7 @@ export const MODEL_VARIANTS: ModelVariantDefinition[] = [
     label: "H125 / AS350 B3e",
     description: "Airbus H125 (B3e).",
     productId: "H125",
-    status: "coming_soon",
+    status: "available",
   },
 ];
 

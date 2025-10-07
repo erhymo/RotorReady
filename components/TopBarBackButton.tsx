@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { useCallback } from "react";
 
-export default function TopBarBackButton({ href, label = "Tilbake", className = "" }: { href?: string; label?: string; className?: string }) {
+export default function TopBarBackButton({ href, label = "Back", className = "" }: { href?: string; label?: string; className?: string }) {
   const router = useRouter();
 
   const onClick = useCallback(

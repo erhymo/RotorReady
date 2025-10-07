@@ -1,24 +1,24 @@
 export function mapAuthError(code?: string): string {
   switch (code) {
     case "auth/email-already-in-use":
-      return "E‑posten er allerede i bruk.";
+      return "Email is already in use.";
     case "auth/invalid-email":
-      return "Ugyldig e‑postadresse.";
+      return "Invalid email address.";
     case "auth/weak-password":
-      return "Passordet er for svakt (minst 6 tegn).";
+      return "Password is too weak (minimum 6 characters).";
     case "auth/invalid-credential":
     case "auth/wrong-password":
-      return "Feil e‑post eller passord.";
+      return "Incorrect email or password.";
     case "auth/user-not-found":
-      return "Fant ingen konto med den e‑posten.";
+      return "No account found with that email.";
     case "auth/network-request-failed":
-      return "Nettverksfeil – prøv igjen.";
+      return "Network error — please try again.";
     case "auth/too-many-requests":
-      return "For mange forsøk. Vent litt og prøv igjen.";
+      return "Too many attempts. Please wait and try again.";
     case "auth/operation-not-allowed":
-      return "Innlogging er ikke aktivert for denne metoden.";
+      return "Sign-in is not enabled for this method.";
     default:
-      return "Noe gikk galt. Prøv igjen senere.";
+      return "Something went wrong. Please try again later.";
   }
 }
 

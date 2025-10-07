@@ -45,10 +45,10 @@ async function persistActiveVariantToServer(variantId: string) {
       body: JSON.stringify({ variantId }),
     });
     if (!res.ok) {
-      console.warn("Kunne ikke oppdatere aktiv modell på server", await res.text());
+      console.warn("Unable to update active model on server", await res.text());
     }
   } catch (error) {
-    console.warn("Feil ved oppdatering av aktiv modell", error);
+    console.warn("Error updating active model", error);
   }
 }
 
@@ -118,7 +118,7 @@ export function useActiveModelVariant(): ActiveModelState {
           }
         }
       } catch (error) {
-        console.warn("Kunne ikke hente aktiv modell for bruker", error);
+        console.warn("Unable to fetch active model for user", error);
       } finally {
         setLoading(false);
       }

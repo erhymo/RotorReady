@@ -86,12 +86,12 @@ export default function AvionicsQuestionPage() {
     return () => window.removeEventListener("keydown", onKey);
   });
 
-  if (!session) return <div className="max-w-xl mx-auto p-4">Laster…</div>;
+  if (!session) return <div className="max-w-xl mx-auto p-4">Loading…</div>;
   if ((session as any).error) {
     console.error("Quiz error:", (session as any).error, session);
     return (
       <div className="max-w-xl mx-auto p-4 text-red-600">
-        <b>Feil:</b> {(session as any).error}
+        <b>Error:</b> {(session as any).error}
         <br />
         <pre className="text-xs text-gray-500 mt-2">{JSON.stringify(session, null, 2)}</pre>
       </div>
@@ -153,10 +153,10 @@ export default function AvionicsQuestionPage() {
       </div>
       <div className="w-full flex items-center justify-between py-2 px-1">
         <TopBarBackButton href="/avionics-fms-limitations-quiz" />
-        <div className="text-gray-500 dark:text-zinc-400">Spørsmål {idx + 1} / {total}</div>
+        <div className="text-gray-500 dark:text-zinc-400">Question {idx + 1} / {total}</div>
       </div>
       <div className="flex items-center justify-between">
-        <div className="text-sm text-gray-600 dark:text-zinc-300">Spørsmål {idx + 1} / {total}</div>
+        <div className="text-sm text-gray-600 dark:text-zinc-300">Question {idx + 1} / {total}</div>
         <div className="flex items-center gap-2">
           {activeVariant.id === "AW169" && (
             <Link href="/aw169/abbreviations" className="px-2 py-1 rounded border text-xs bg-white dark:bg-zinc-900 dark:text-zinc-100 dark:border-zinc-700">ABBR</Link>
@@ -165,7 +165,7 @@ export default function AvionicsQuestionPage() {
             onClick={toggleFlag}
             className={`px-3 py-1 rounded border text-sm ${session.flags[idx] ? "bg-amber-100 border-amber-400 dark:bg-amber-900 dark:border-amber-600 dark:text-zinc-100" : "bg-white dark:bg-zinc-900 dark:text-zinc-100 dark:border-zinc-700"}`}
           >
-            {session.flags[idx] ? "Flagget" : "Flagg"}
+            {session.flags[idx] ? "Flagged" : "Flag"}
           </button>
         </div>
       </div>
@@ -195,7 +195,7 @@ export default function AvionicsQuestionPage() {
         </ul>
         {selected != null && (
           <div className="mt-3 text-sm text-gray-600 dark:text-zinc-300">
-            {isCorrect ? "Riktig ✅" : "Feil ❌"} {item.explanation ? `– ${item.explanation}` : ""}
+            {isCorrect ? "Correct ✅" : "Wrong ❌"} {item.explanation ? `– ${item.explanation}` : ""}
             {(item.references) ? (
               <div className="text-xs text-gray-500 dark:text-zinc-400 mt-1">
                 Refs: {Array.isArray(item.references) ? item.references.join(", ") : String(item.references || "")}
@@ -211,17 +211,17 @@ export default function AvionicsQuestionPage() {
           disabled={idx === 0}
           className="px-4 py-2 rounded-lg border bg-white dark:bg-zinc-900 dark:text-zinc-100 dark:border-zinc-700 disabled:opacity-50"
         >
-          Tilbake
+          Back
         </button>
         <button
           onClick={next}
           className="px-4 py-2 rounded-lg bg-gray-900 text-white dark:bg-zinc-900 dark:text-zinc-100"
         >
-          {idx + 1 >= total ? "Fullfør" : "Neste"}
+          {idx + 1 >= total ? "Finish" : "Next"}
         </button>
       </div>
 
-      <p className="text-xs text-gray-500 dark:text-zinc-400">Tastatur: 1–4 velger, ←/→ navigasjon, Enter = neste, F = flagg.</p>
+      <p className="text-xs text-gray-500 dark:text-zinc-400">Keyboard: 1–4 select, ←/→ navigation, Enter = next, F = flag.</p>
     </div>
   );
 }

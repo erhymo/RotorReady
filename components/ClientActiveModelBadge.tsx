@@ -30,7 +30,7 @@ export default function ClientActiveModelBadge() {
     return (
       <div className="ml-2 inline-flex h-7 min-w-[120px] items-center rounded-full border border-emerald-400 bg-emerald-50/80 px-3 py-1 text-sm font-semibold text-slate-900 shadow-sm dark:border-emerald-400/70 dark:bg-emerald-200/50">
         <div className="h-3 w-3 animate-pulse rounded-full bg-emerald-400" aria-hidden />
-        <span className="ml-2 opacity-70">Laster…</span>
+        <span className="ml-2 opacity-70">Loading…</span>
       </div>
     );
   }
@@ -38,8 +38,8 @@ export default function ClientActiveModelBadge() {
   return (
     <div
       className="ml-2 inline-flex items-center rounded-full border border-emerald-500 bg-emerald-50 px-3 py-1 text-sm font-semibold text-slate-900 shadow-sm dark:border-emerald-400 dark:bg-emerald-200/80 dark:text-slate-900"
-      title={`Aktiv modell: ${fullLabel}`}
-      aria-label={`Aktiv modell: ${fullLabel}`}
+      title={`Active model: ${fullLabel}`}
+      aria-label={`Active model: ${fullLabel}`}
     >
       <span className="mr-2 inline-block h-2.5 w-2.5 rounded-full bg-emerald-500" aria-hidden />
       <span className="md:hidden">{shortLabel}</span>

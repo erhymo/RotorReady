@@ -10,7 +10,7 @@ export default function BackButton({ className = "w-full mb-6 py-3 rounded-lg bg
       onClick={() => router.back()}
       style={{ maxWidth: 480 }}
     >
-      <span className="mr-2 text-lg">←</span> Tilbake
+      <span className="mr-2 text-lg">←</span> Back
     </button>
   );
 }

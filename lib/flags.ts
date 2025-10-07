@@ -25,7 +25,7 @@ export async function reportFlag(payload: FlagPayload) {
     });
   } catch (error) {
     if (process.env.NODE_ENV !== "production") {
-      console.warn("Kunne ikke sende flagg", error);
+      console.warn("Could not send flag", error);
     }
   }
 }

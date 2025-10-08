@@ -1,0 +1,161 @@
+[
+  {
+    "id": "eng-fire",
+    "name": "ENG FIRE",
+    "severity": "warning",
+    "system": "FIRE",
+    "description": "Fire in engine bay.",
+    "procedure": [
+      { "type": "branch", "heading": "At Start-up:", "text": "" },
+      { "type": "action", "text": "1. Engine starting selector - OFF position." },
+      { "type": "action", "text": "2. Emergency fuel shut-off handle - AFT." },
+      { "type": "action", "text": "3. [FUEL P] - OFF." },
+      { "type": "action", "text": "4. [CRANK] - PRESS (10 sec.)." },
+      { "type": "action", "text": "5. Rotor brake - APPLY (<= 170 rpm)." },
+      { "type": "action", "text": "6. [EMER SW] - OFF." },
+      { "type": "action", "text": "7. Evacuate aircraft and fight fire from outside." },
+      { "type": "branch", "heading": "Hover, Takeoff, Final:", "text": "LAND IMMEDIATELY. Carry out a no hover powered landing. Once on ground, apply same procedure as above." },
+      { "type": "branch", "heading": "In Flight:", "text": "" },
+      { "type": "action", "text": "1. Collective - LOWER." },
+      { "type": "action", "text": "2. IAS - Vy." },
+      { "type": "action", "text": "3. Autorotation procedure - APPLY." },
+      { "type": "action", "text": "4. Emergency fuel shut-off handle - AFT." },
+      { "type": "action", "text": "5. [FUEL P] - CHECK OFF." },
+      { "type": "action", "text": "6. Engine starting selector - OFF position." },
+      { "type": "branch", "heading": "After Landing:", "text": "" },
+      { "type": "action", "text": "7. Rotor brake - APPLY (<= 170 rpm)." },
+      { "type": "action", "text": "8. [EMER SW] - OFF." },
+      { "type": "action", "text": "9. Evacuate aircraft and fight fire from outside." }
+    ],
+    "references": ["RFM H125 Section 3 - Emergency Procedures - p. 3.6"],
+    "modelIds": ["H125_AS350_B3E"]
+  },
+  {
+    "id": "eng-p",
+    "name": "ENG P",
+    "severity": "warning",
+    "system": "ENGINE",
+    "description": "Engine oil pressure low.",
+    "procedure": [
+      { "type": "branch", "heading": "If ENG P light ON:", "text": "" },
+      { "type": "action", "text": "1. Autorotation procedure - APPLY." },
+      { "type": "action", "text": "2. Land immediately." },
+      { "type": "action", "text": "3. Shut down engine, time permitting." }
+    ],
+    "references": ["RFM H125 Section 3 - Emergency Procedures - p. 3.5"],
+    "modelIds": ["H125_AS350_B3E"]
+  },
+  {
+    "id": "mgb-oil-p",
+    "name": "MGB OIL P",
+    "severity": "warning",
+    "system": "TRANSMISSION",
+    "description": "Main gearbox oil pressure low.",
+    "procedure": [
+      { "type": "action", "text": "1. Land immediately." }
+    ],
+    "references": ["RFM H125 Section 3 - Emergency Procedures - p. 3.6"],
+    "modelIds": ["H125_AS350_B3E"]
+  },
+  {
+    "id": "mgb-temp",
+    "name": "MGB TEMP",
+    "severity": "warning",
+    "system": "TRANSMISSION",
+    "description": "Main gearbox oil temperature high.",
+    "procedure": [
+      { "type": "branch", "heading": "If MGB TEMP:", "text": "Land as soon as possible." }
+    ],
+    "references": ["RFM H125 Section 3 - Emergency Procedures - p. 3.6"],
+    "modelIds": ["H125_AS350_B3E"]
+  },
+  {
+    "id": "mgb-chip",
+    "name": "MGB CHIP",
+    "severity": "warning",
+    "system": "TRANSMISSION",
+    "description": "Metal particles detected in main gearbox oil.",
+    "procedure": [
+      { "type": "action", "text": "1. Land as soon as possible." }
+    ],
+    "references": ["RFM H125 Section 3 - Emergency Procedures - p. 3.6"],
+    "modelIds": ["H125_AS350_B3E"]
+  },
+  {
+    "id": "eng-chip",
+    "name": "ENG CHIP",
+    "severity": "warning",
+    "system": "ENGINE",
+    "description": "Metal particles detected in engine oil.",
+    "procedure": [
+      { "type": "action", "text": "1. Land as soon as possible." }
+    ],
+    "references": ["RFM H125 Section 3 - Emergency Procedures - p. 3.6"],
+    "modelIds": ["H125_AS350_B3E"]
+  },
+  {
+    "id": "rotor-low",
+    "name": "ROTOR LOW",
+    "severity": "warning",
+    "system": "ROTOR",
+    "description": "Rotor speed below safe range.",
+    "procedure": [
+      { "type": "action", "text": "1. Lower collective." },
+      { "type": "branch", "heading": "If NR not recovered:", "text": "Autorotation - APPLY." }
+    ],
+    "references": ["RFM H125 Section 3 - Emergency Procedures - p. 3.5"],
+    "modelIds": ["H125_AS350_B3E"]
+  },
+  {
+    "id": "eng-out",
+    "name": "ENG OUT",
+    "severity": "warning",
+    "system": "ENGINE",
+    "description": "Engine flame-out (loss of Ng).",
+    "procedure": [
+      { "type": "branch", "heading": "In Cruise:", "text": "Autorotation procedure - APPLY." },
+      { "type": "branch", "heading": "In Hover IGE:", "text": "Collective - reduce to cushion landing." }
+    ],
+    "references": ["RFM H125 Section 3 - Emergency Procedures - p. 3.2"],
+    "modelIds": ["H125_AS350_B3E"]
+  },
+  {
+    "id": "fuel",
+    "name": "FUEL",
+    "severity": "warning",
+    "system": "FUEL",
+    "description": "Fuel quantity critically low.",
+    "procedure": [
+      { "type": "action", "text": "1. Land as soon as possible." }
+    ],
+    "references": ["RFM H125 Section 3 - Emergency Procedures - p. 3.6"],
+    "modelIds": ["H125_AS350_B3E"]
+  },
+  {
+    "id": "hydr",
+    "name": "HYDR",
+    "severity": "warning",
+    "system": "HYDRAULIC",
+    "description": "Hydraulic system pressure low.",
+    "procedure": [
+      { "type": "action", "text": "1. Maintain 40-60 KIAS." },
+      { "type": "action", "text": "2. Land as soon as practicable." }
+    ],
+    "references": ["RFM H125 Section 3 - Emergency Procedures - p. 3.6"],
+    "modelIds": ["H125_AS350_B3E"]
+  },
+  {
+    "id": "bat-temp",
+    "name": "BAT TEMP",
+    "severity": "warning",
+    "system": "ELEC",
+    "description": "Battery temperature high.",
+    "procedure": [
+      { "type": "action", "text": "1. BAT - OFF." },
+      { "type": "action", "text": "2. Land as soon as possible." }
+    ],
+    "references": ["RFM H125 Section 3 - Emergency Procedures - p. 3.6"],
+    "modelIds": ["H125_AS350_B3E"]
+  }
+]
+

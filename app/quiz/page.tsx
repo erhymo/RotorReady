@@ -19,8 +19,7 @@ const STATIC_QUIZ_TYPES = [
     href: "/engine-systems-quiz",
     title: "Engine, Fuel, Lubricants, Hydraulics & System Limitations",
   },
-  { href: "/avionics-fms-limitations-quiz", title: "Avionics & FMS Limitations" },
-  { href: "/quiz/law", title: "Law" },
+  { href: "/avionics-fms-limitations-quiz", title: "Avionics & FMS Limitations" }
 ];
 const SECTION_ROUTE_MAP: Record<string, string> = {
   limitations: "/limitations-quiz",

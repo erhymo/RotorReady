@@ -2,7 +2,6 @@
   "sections": [
     { "id": "afm", "title": "AFM Questions" },
     { "id": "qrh", "title": "QRH Knowledge" },
-    { "id": "limitations", "title": "Limitations" },
-    { "id": "law", "title": "Law" }
+    { "id": "limitations", "title": "Limitations" }
   ]
 }

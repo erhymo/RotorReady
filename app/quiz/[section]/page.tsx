@@ -3,6 +3,7 @@ import { useRouter, useParams } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 import { modelScopedKey } from "@/lib/models/storage";
+import { isPaidAsync } from "@/lib/quota";
 import TopBarBackButton from "@/components/TopBarBackButton";
 
 type Section = { id: string; title: string };
@@ -142,12 +143,20 @@ export default function SectionPage() {
   }, [selected?.id, activeVariant.id, variantLoading]);
 
 
-  function handleAmount(amount: AmountOptionValue) {
+  async function handleAmount(amount: AmountOptionValue) {
     if (!selected) return;
+    if (selected.id !== "limitations") {
+      const paid = await isPaidAsync();
+      if (!paid) { router.push(`/paywall?from=${encodeURIComponent(`/quiz/${encodeURIComponent(selected.id)}`)}`); return; }
+    }
     router.push(`/quiz/${encodeURIComponent(selected.id)}/${String(amount)}`);
   }
-  function startWrongOnly() {
+  async function startWrongOnly() {
     const id = selected?.id || routeSection;
+    if (id !== "limitations") {
+      const paid = await isPaidAsync();
+      if (!paid) { router.push(`/paywall?from=${encodeURIComponent(`/quiz/${encodeURIComponent(id)}`)}`); return; }
+    }
     const lowerKey = `${modelScopedKey("rr_progress_last_wrong", activeVariant.id)}:${id}`;
     const upperKey = `${modelScopedKey("rr_progress_last_wrong", activeVariant.id)}:${id.toUpperCase()}`;
     const legacyLower = activeVariant.id === "AW169" ? `rr_progress_last_wrong:${id}` : null;

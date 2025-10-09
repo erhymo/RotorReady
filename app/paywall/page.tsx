@@ -46,7 +46,7 @@ function PaywallInner() {
         <button onClick={() => { window.location.href = "/signup"; }} className="px-4 py-2 rounded-lg bg-blue-600 text-white">Start free trial</button>
         <button onClick={buyCheckout} disabled={busy} className="px-4 py-2 rounded-lg bg-emerald-600 text-white disabled:opacity-50">Buy (Checkout)</button>
         <button onClick={simulateBuy} className="px-4 py-2 rounded-lg bg-blue-600 text-white">Buy (DEV)</button>
-        <button onClick={()=>router.push("/")} className="px-4 py-2 rounded-lg bg-emerald-600 text-white">Back to home</button>
+        <button onClick={()=>router.push(from)} className="px-4 py-2 rounded-lg bg-emerald-600 text-white">Back</button>
       </div>
       {err && <p className="text-sm text-amber-700">{err}</p>}
       <p className="text-xs text-gray-500 dark:text-zinc-400">Stripe integration coming — this button simulates purchase in dev.</p>
@@ -55,6 +55,11 @@ function PaywallInner() {
 }
 
 export default function PaywallPage() {
-  // DEV: Bypass paywall for quiz testing
-  return null;
+  return (
+    <div className="min-h-[60vh] grid place-items-center p-6">
+      <Suspense>
+        <PaywallInner />
+      </Suspense>
+    </div>
+  );
 }

@@ -3,6 +3,7 @@ import * as React from "react";
 import { useRouter } from "next/navigation";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 import { modelScopedKey } from "@/lib/models/storage";
+import { isPaidAsync } from "@/lib/quota";
 
 import TopBarBackButton from "@/components/TopBarBackButton";
 
@@ -111,6 +112,8 @@ export default function AvionicsFmsQuizStart() {
     setLoading(true);
     setErr(null);
     try {
+      const paid = await isPaidAsync();
+      if (!paid) { router.push(`/paywall?from=${encodeURIComponent('/avionics-fms-limitations-quiz')}`); return; }
       const data = await getData();
       if (!data.items.length) {
         setErr("Found no questions in this section.");
@@ -149,7 +152,9 @@ export default function AvionicsFmsQuizStart() {
     }
   }
 
-  function startWrongOnly() {
+  async function startWrongOnly() {
+    const paid = await isPaidAsync();
+    if (!paid) { router.push(`/paywall?from=${encodeURIComponent('/avionics-fms-limitations-quiz')}`); return; }
     const key = `${modelScopedKey("rr_progress_last_wrong", activeVariant.id)}:avionics-fms-limitations`;
     const raw =
       localStorage.getItem(key) ||

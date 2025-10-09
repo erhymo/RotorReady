@@ -14,7 +14,7 @@ type SectionResponse = {
 const STATIC_QUIZ_TYPES = [
   { href: "/limitations-quiz", title: "Limitations" },
   { href: "/performance-quiz", title: "Performance" },
-  { href: "/procedures-quiz", title: "Procedures" },
+  { href: "/quiz/normal_procedures", title: "Normal Procedures" },
   {
     href: "/engine-systems-quiz",
     title: "Engine, Fuel, Lubricants, Hydraulics & System Limitations",

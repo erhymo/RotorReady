@@ -1,0 +1,211 @@
+[
+  {
+    "id": "AW169-NP-001",
+    "question": "During a CAT A clearway take-off, an engine fails before TDP. What is the correct action?",
+    "options": [
+      "Continue take-off using remaining engine",
+      "Reject take-off and land back on the helipad/runway",
+      "Transition to CAT B profile",
+      "Maintain V2 speed and climb away"
+    ],
+    "answer": [1],
+    "explanation": "In a CAT A clearway take-off, if engine failure occurs before TDP, the pilot must reject the take-off and land back.",
+    "section": "NORMAL PROCEDURES",
+    "references": ["AW169 QRH Normal Procedures p. 171+"],
+    "difficulty": "medium",
+    "tags": []
+  },
+  {
+    "id": "AW169-NP-004",
+    "question": "In a CAT A rejected landing (before LDP), the procedure is to:",
+    "options": [
+      "Continue descent and flare",
+      "Initiate go-around or balked landing profile",
+      "Land regardless of engine status",
+      "Transition to autorotation"
+    ],
+    "answer": [1],
+    "explanation": "If engine failure occurs before LDP during CAT A landing, pilot must perform balked landing/go-around.",
+    "section": "NORMAL PROCEDURES",
+    "references": ["AW169 QRH Normal Procedures p. 171+"],
+    "difficulty": "medium",
+    "tags": []
+  },
+  {
+    "id": "AW169-NP-005",
+    "question": "During CAT A take-off with a defined clearway, which factor must be considered for TDP determination?",
+    "options": [
+      "Runway slope only",
+      "Height of obstacles in departure path",
+      "Wind direction only",
+      "Distance to next navigation fix"
+    ],
+    "answer": [1],
+    "explanation": "Obstacle clearance is critical for determining TDP in a CAT A clearway take-off.",
+    "section": "NORMAL PROCEDURES",
+    "references": ["AW169 QRH Normal Procedures p. 171+"],
+    "difficulty": "medium",
+    "tags": []
+  },
+  {
+    "id": "AW169-NP-006",
+    "question": "In CAT A landing profile, the rejected landing distance must account for:",
+    "options": [
+      "Landing flare only",
+      "Obstacle clearance and transition to balked landing",
+      "Taxi distance to parking",
+      "Only hover height"
+    ],
+    "answer": [1],
+    "explanation": "Rejected landing distance includes obstacle clearance and balked landing path requirements.",
+    "section": "NORMAL PROCEDURES",
+    "references": ["AW169 QRH Normal Procedures p. 171+"],
+    "difficulty": "medium",
+    "tags": []
+  },
+  {
+    "id": "AW169-NP-007",
+    "question": "When both engines fail after TDP in CAT A take-off, what is the procedure?",
+    "options": [
+      "Land immediately within take-off area",
+      "Continue CAT A OEI profile",
+      "Transition to autorotation",
+      "Fly a missed approach"
+    ],
+    "answer": [2],
+    "explanation": "If both engines fail after TDP, autorotation is required.",
+    "section": "NORMAL PROCEDURES",
+    "references": ["AW169 QRH Normal Procedures p. 171+"],
+    "difficulty": "hard",
+    "tags": []
+  },
+  {
+    "id": "AW169-NP-008",
+    "question": "What defines the LDP (Landing Decision Point)?",
+    "options": [
+      "Last point to safely reject landing and perform go-around",
+      "First point where V2 speed is achieved",
+      "Altitude to flare the helicopter",
+      "Altitude where collective is reduced to idle"
+    ],
+    "answer": [0],
+    "explanation": "The LDP is the last point where the pilot can decide to reject landing and initiate balked landing/go-around.",
+    "section": "NORMAL PROCEDURES",
+    "references": ["AW169 QRH Normal Procedures p. 171+"],
+    "difficulty": "medium",
+    "tags": []
+  },
+  {
+    "id": "AW169-NP-009",
+    "question": "During CAT A vertical take-off, if engine failure occurs before TDP:",
+    "options": [
+      "Land back and do not continue take-off",
+      "Continue with OEI procedure",
+      "Climb at Vyse",
+      "Accelerate to Vref"
+    ],
+    "answer": [0],
+    "explanation": "For CAT A vertical take-off, an engine failure before TDP requires landing back.",
+    "section": "NORMAL PROCEDURES",
+    "references": ["AW169 QRH Normal Procedures p. 171+"],
+    "difficulty": "medium",
+    "tags": []
+  },
+  {
+    "id": "AW169-NP-010",
+    "question": "For a CAT A balked landing, what minimum climb gradient must be ensured OEI?",
+    "options": [
+      "4 %",
+      "2.5 %",
+      "3.3 %",
+      "8 %"
+    ],
+    "answer": [2],
+    "explanation": "CAT A balked landing requires an OEI climb gradient of 3.3%.",
+    "section": "NORMAL PROCEDURES",
+    "references": ["AW169 QRH Normal Procedures p. 171+"],
+    "difficulty": "medium",
+    "tags": []
+  },
+  {
+    "id": "AW169-NP-014",
+    "question": "What is the purpose of TDP (Take-off Decision Point)?",
+    "options": [
+      "Point to decide continue or reject take-off after engine failure",
+      "Maximum speed before rotation",
+      "Point of flare initiation",
+      "First waypoint in SID"
+    ],
+    "answer": [0],
+    "explanation": "TDP defines the decision point to either reject or continue the take-off in case of engine failure.",
+    "section": "NORMAL PROCEDURES",
+    "references": ["AW169 QRH Normal Procedures p. 171+"],
+    "difficulty": "easy",
+    "tags": []
+  },
+  {
+    "id": "AW169-NP-015",
+    "question": "CAT A landing requires the approach path to be clear of obstacles up to:",
+    "options": [
+      "Final approach fix",
+      "1,000 ft AGL",
+      "Missed approach point",
+      "LDP"
+    ],
+    "answer": [3],
+    "explanation": "In CAT A landing, obstacle clearance must be assured until the LDP.",
+    "section": "NORMAL PROCEDURES",
+    "references": ["AW169 QRH Normal Procedures p. 171+"],
+    "difficulty": "medium",
+    "tags": []
+  },
+  {
+    "id": "AW169-NP-018",
+    "question": "During CAT A vertical take-off in confined area, why is hover height limited?",
+    "options": [
+      "To minimize exposure time to engine failure before TDP",
+      "To reduce noise footprint",
+      "To keep fuel burn low",
+      "To allow faster acceleration"
+    ],
+    "answer": [0],
+    "explanation": "Limiting hover height reduces exposure time to engine failure before reaching TDP.",
+    "section": "NORMAL PROCEDURES",
+    "references": ["AW169 QRH Normal Procedures p. 171+"],
+    "difficulty": "medium",
+    "tags": []
+  },
+  {
+    "id": "AW169-NP-019",
+    "question": "What is V2 in CAT A operations?",
+    "options": [
+      "Minimum speed providing required climb gradient OEI",
+      "Normal climb speed AEO",
+      "Maximum operating speed",
+      "Best endurance speed"
+    ],
+    "answer": [0],
+    "explanation": "V2 ensures the minimum speed providing the necessary climb gradient in OEI conditions.",
+    "section": "NORMAL PROCEDURES",
+    "references": ["AW169 QRH Normal Procedures p. 171+"],
+    "difficulty": "medium",
+    "tags": []
+  },
+  {
+    "id": "AW169-NP-020",
+    "question": "In CAT A landing profile, if an engine fails before LDP:",
+    "options": [
+      "Reject landing, climb away OEI",
+      "Continue landing regardless",
+      "Transition to CAT B landing",
+      "Enter autorotation"
+    ],
+    "answer": [0],
+    "explanation": "If an engine fails before LDP, the pilot must reject landing and execute OEI climb away.",
+    "section": "NORMAL PROCEDURES",
+    "references": ["AW169 QRH Normal Procedures p. 171+"],
+    "difficulty": "medium",
+    "tags": []
+  }
+]
+

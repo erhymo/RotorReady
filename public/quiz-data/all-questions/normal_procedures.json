@@ -207,5 +207,119 @@
     "difficulty": "medium",
     "tags": []
   }
+,
+  {
+    "id": "AW169-NP-023",
+    "question": "What is the minimum height and speed at the Initial Point (IP) in a CAT A profile?",
+    "options": [
+      "200 ft and 60 kt",
+      "300 ft and 70 kt",
+      "400 ft and 65 kt",
+      "500 ft and 80 kt"
+    ],
+    "answer": [1],
+    "explanation": "The IP is defined at 300 ft and 70 kt in CAT A profiles.",
+    "section": "NORMAL PROCEDURES",
+    "references": ["AW169 QRH Normal Procedures p. 176"],
+    "difficulty": "medium",
+    "tags": []
+  },
+  {
+    "id": "AW169-NP-026",
+    "question": "Which speed must be reached and maintained after TDP in CAT A take-off?",
+    "options": [
+      "Vy",
+      "Vyse",
+      "Vtoss",
+      "Vref"
+    ],
+    "answer": [2],
+    "explanation": "After TDP, the helicopter must accelerate to and maintain Vtoss.",
+    "section": "NORMAL PROCEDURES",
+    "references": ["AW169 QRH Normal Procedures p. 175"],
+    "difficulty": "medium",
+    "tags": []
+  },
+  {
+    "id": "AW169-NP-027",
+    "question": "What is Vy (all engines operative best rate of climb)?",
+    "options": [
+      "70 kt",
+      "75 kt",
+      "80 kt",
+      "85 kt"
+    ],
+    "answer": [1],
+    "explanation": "Vy for AW169 is 75 kt, giving best rate of climb with both engines operative.",
+    "section": "NORMAL PROCEDURES",
+    "references": ["AW169 QRH Normal Procedures p. 175"],
+    "difficulty": "easy",
+    "tags": []
+  },
+  {
+    "id": "AW169-NP-028",
+    "question": "What must be ensured before reaching LDP during CAT A landing?",
+    "options": [
+      "Correct configuration and stable approach",
+      "OEI climb gradient available",
+      "Rotor brake disengaged",
+      "Vne achieved"
+    ],
+    "answer": [0],
+    "explanation": "Before reaching LDP, configuration and approach stability must be ensured.",
+    "section": "NORMAL PROCEDURES",
+    "references": ["AW169 QRH Normal Procedures p. 176"],
+    "difficulty": "medium",
+    "tags": []
+  },
+  {
+    "id": "AW169-NP-030",
+    "question": "If engine failure occurs after passing LDP in CAT A landing, what is the procedure?",
+    "options": [
+      "Reject landing",
+      "Continue landing",
+      "Autorotation",
+      "Hover at IP"
+    ],
+    "answer": [1],
+    "explanation": "After LDP, the landing must be continued regardless of engine status.",
+    "section": "NORMAL PROCEDURES",
+    "references": ["AW169 QRH Normal Procedures p. 176"],
+    "difficulty": "medium",
+    "tags": []
+  },
+  {
+    "id": "AW169-NP-032",
+    "question": "Why is the Initial Point (IP) defined in CAT A procedures?",
+    "options": [
+      "To standardize transition from approach to landing",
+      "To provide a defined point for balked landing",
+      "To allow ATC spacing",
+      "To mark flare initiation"
+    ],
+    "answer": [0],
+    "explanation": "The IP standardizes the transition point from approach to landing in CAT A procedures.",
+    "section": "NORMAL PROCEDURES",
+    "references": ["AW169 QRH Normal Procedures p. 176"],
+    "difficulty": "easy",
+    "tags": []
+  },
+  {
+    "id": "AW169-NP-033",
+    "question": "During a CAT A vertical landing, what must be assured before LDP?",
+    "options": [
+      "Helicopter in correct configuration and OEI path available",
+      "Autorotation RPM set",
+      "Cruise IAS achieved",
+      "Rotor brake armed"
+    ],
+    "answer": [0],
+    "explanation": "Before LDP, correct landing configuration and an OEI contingency path must be available.",
+    "section": "NORMAL PROCEDURES",
+    "references": ["AW169 QRH Normal Procedures p. 176"],
+    "difficulty": "medium",
+    "tags": []
+  }
+
 ]
 

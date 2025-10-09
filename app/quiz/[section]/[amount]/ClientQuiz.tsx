@@ -5,6 +5,7 @@ import TopBarBackButton from "@/components/TopBarBackButton";
 import Link from "next/link";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 import { modelScopedKey } from "@/lib/models/storage";
+import { reportFlag } from "@/lib/flags";
 
 export type QuizItem = {
   id: string;
@@ -15,6 +16,8 @@ export type QuizItem = {
   answer: number[];
   explanation?: string;
   references?: string[];
+  sectionId?: string;
+  __file?: string;
 };
 
 export default function ClientQuiz({ section, initial }: { section: string; initial: QuizItem[] }) {
@@ -23,11 +26,20 @@ export default function ClientQuiz({ section, initial }: { section: string; init
 
   const [idx, setIdx] = React.useState(0);
   const [answers, setAnswers] = React.useState<(number | undefined)[]>(() => Array(initial.length).fill(undefined));
+  const [flags, setFlags] = React.useState<boolean[]>(() => Array(initial.length).fill(false));
   const [done, setDone] = React.useState(false);
 
   const q = initial[idx];
   const total = initial.length;
   const progress = Math.round(((idx + 1) / total) * 100);
+
+  React.useEffect(() => {
+    function onKey(e: KeyboardEvent) {
+      if (e.key.toLowerCase() === "f") toggleFlag();
+    }
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  });
 
   function handleAnswer(i: number) {
     if (answers[idx] !== undefined) return;
@@ -45,6 +57,28 @@ export default function ClientQuiz({ section, initial }: { section: string; init
   function handleRestart() {
     router.replace(`/quiz/${encodeURIComponent(section)}`);
   }
+  function toggleFlag() {
+    const next = [...flags];
+    next[idx] = !next[idx];
+    const nowFlagged = next[idx];
+    setFlags(next);
+    if (nowFlagged && q) {
+      reportFlag({
+        section,
+        sectionId: q.sectionId || section,
+        questionId: q.id,
+        dataSource: section === "all" ? "all-questions" : "sections",
+        dataFile: (q as any).__file || null,
+        snapshot: {
+          question: q.question,
+          options: q.options,
+          explanation: q.explanation,
+          references: q.references,
+          answer: q.answer,
+        },
+      });
+    }
+  }
 
   // Persist "last wrong" set so SectionPage → "Øv kun på feil" works for alle seksjoner
   React.useEffect(() => {
@@ -61,8 +95,8 @@ export default function ClientQuiz({ section, initial }: { section: string; init
       if (wrongIdx.length) {
         const items = wrongIdx.map((i) => initial[i]);
         const wAnswers = wrongIdx.map(() => null as number | null);
-        const flags = wrongIdx.map(() => false);
-        const wrongSession = { section, createdAt: new Date().toISOString(), items, answers: wAnswers, flags };
+        const wFlags = wrongIdx.map(() => false);
+        const wrongSession = { section, createdAt: new Date().toISOString(), items, answers: wAnswers, flags: wFlags };
         localStorage.setItem(storageKey, JSON.stringify(wrongSession));
       } else {
         localStorage.removeItem(storageKey);
@@ -106,6 +140,7 @@ export default function ClientQuiz({ section, initial }: { section: string; init
           {activeVariant.id === "AW169" && (
             <Link href="/aw169/abbreviations" className="px-2 py-1 rounded border text-xs bg-white dark:bg-zinc-900 dark:text-zinc-100 dark:border-zinc-700">ABBR</Link>
           )}
+          <button onClick={toggleFlag} aria-label={flags[idx] ? "Remove flag" : "Flag this question"} className={`px-3 py-1 rounded border text-sm ${flags[idx] ? "bg-amber-100 border-amber-400 dark:bg-amber-900 dark:border-amber-600 dark:text-zinc-100" : "bg-white dark:bg-zinc-900 dark:text-zinc-100 dark:border-zinc-700"}`}>{flags[idx] ? "🚩 Flagged" : "🚩 Flag"}</button>
         </div>
       </div>
 
@@ -156,6 +191,8 @@ export default function ClientQuiz({ section, initial }: { section: string; init
         <span className="text-gray-500 dark:text-zinc-400">→ for Next</span>
         <button onClick={handleNext} disabled={answers[idx] === undefined} className="px-4 py-2 rounded-lg bg-gray-900 text-white dark:bg-zinc-900 dark:text-zinc-100 disabled:opacity-50">{idx < initial.length - 1 ? "Next" : "Finish"}</button>
       </div>
+      <p className="mt-2 text-xs text-gray-500 dark:text-zinc-400">Keyboard: 1–4 select, ←/→ navigation, Enter = next, F = flag.</p>
+
     </div>
   );
 }

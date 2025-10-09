@@ -35,7 +35,7 @@ export default function HomePage() {
     fetch("/quiz-data/versions/data-version.json").then(r=>r.json()).then(setVer).catch(()=>{});
   }, []);
   return (<>
-      <div className="fixed top-2 right-2 z-50">
+      <div className="fixed top-16 right-2 z-50">
         <span className="inline-flex items-center gap-1 rounded-full border border-emerald-600/40 bg-emerald-100 text-emerald-800 dark:bg-emerald-900/50 dark:text-emerald-200 px-2.5 py-1 text-xs font-medium select-none">
           In production
         </span>

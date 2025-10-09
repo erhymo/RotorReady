@@ -373,6 +373,12 @@ export default function AccountPage() {
     const next: 'light'|'dark' = toggleThemeLib();
     setThemePref(next);
     setEffectiveTheme(next);
+    try {
+      const root = document.documentElement;
+      if (next === 'dark') root.classList.add('dark'); else root.classList.remove('dark');
+      const meta = document.querySelector('meta[name="theme-color"]') as HTMLMetaElement | null;
+      if (meta) meta.content = next === 'dark' ? '#0b0f19' : '#f8fafc';
+    } catch {}
   };
 
   const followSystem = () => {
@@ -383,6 +389,12 @@ export default function AccountPage() {
     } catch {}
     const next = getEffectiveThemeLib();
     applyThemeLib(next);
+    try {
+      const root = document.documentElement;
+      if (next === 'dark') root.classList.add('dark'); else root.classList.remove('dark');
+      const meta = document.querySelector('meta[name="theme-color"]') as HTMLMetaElement | null;
+      if (meta) meta.content = next === 'dark' ? '#0b0f19' : '#f8fafc';
+    } catch {}
     setThemePref('system');
     setEffectiveTheme(next);
   };

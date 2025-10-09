@@ -54,7 +54,18 @@ export default function SectionPage() {
           const data = await res.json();
           if (!cancelled) {
             const fromApi = Array.isArray(data.sections) ? (data.sections as Section[]) : [];
-            setSections(addAll(fromApi));
+            // Ensure the route section is available even if not listed in index.json
+            let arr = fromApi;
+            if (routeSection && !arr.some((s) => s.id === routeSection)) {
+              const TITLE_FALLBACK: Record<string, string> = {
+                limitations: "Limitations",
+                emergency_procedures: "Emergency Procedures",
+                normal_procedures: "Normal Procedures",
+              };
+              const title = TITLE_FALLBACK[routeSection] || routeSection.replaceAll("_", " ").replace(/\b\w/g, (c) => c.toUpperCase());
+              arr = [...arr, { id: routeSection, title }];
+            }
+            setSections(addAll(arr));
             setError(null);
             return;
           }

@@ -101,52 +101,6 @@ export default function LightsTrainer() {
 
   const procOverlayRef = useRef<HTMLDivElement | null>(null);
 
-  const [flagBusy, setFlagBusy] = useState(false);
-  const [flagged, setFlagged] = useState(false);
-  useEffect(() => {
-    const c = deck[idx];
-    if (!c) { setFlagged(false); return; }
-    let cancelled = false;
-    (async () => {
-      try {
-        const res = await fetch("/api/admin/flags", { cache: "no-store" });
-        const store = res.ok ? await res.json() : { flags: [] };
-        const exists = !!(store?.flags || []).find((f: any) => f?.type === "training-light" && f?.lightId === c.id && f?.model === activeVariant.id && f?.productId === activeVariant.productId);
-        if (!cancelled) setFlagged(exists);
-      } catch {
-        if (!cancelled) setFlagged(false);
-      }
-    })();
-    return () => { cancelled = true; };
-  }, [idx, deck, activeVariant.id, activeVariant.productId]);
-
-  const onFlag = useCallback(async () => {
-    const c = deck[idx];
-    if (!c || flagBusy) return;
-    setFlagBusy(true);
-    try {
-      const res = await fetch("/api/admin/flags", { cache: "no-store" });
-      const store = res.ok ? await res.json() : { flags: [] };
-      const entry = {
-        id: `${c.id}-${Date.now()}`,
-        type: "training-light",
-        lightId: c.id,
-        name: c.name,
-        severity: c.severity,
-        model: activeVariant.id,
-        productId: activeVariant.productId,
-        timestamp: new Date().toISOString(),
-        page: "training/lights",
-      };
-      const nextStore = { flags: [ ...(store?.flags || []), entry ] };
-      await fetch("/api/admin/flags", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(nextStore) });
-      setFlagged(true);
-    } catch (e) {
-      console.warn("Kunne ikke flagge element", e);
-    } finally {
-      setFlagBusy(false);
-    }
-  }, [idx, deck, activeVariant.id, activeVariant.productId, flagBusy]);
 
 
   useEffect(() => {
@@ -707,11 +661,6 @@ export default function LightsTrainer() {
                 <button onClick={prev} disabled={!canPrev} className="rounded-lg px-5 py-3 border text-base font-semibold hover:bg-slate-50 active:bg-slate-100 disabled:opacity-40 dark:border-zinc-700 dark:text-zinc-100 dark:hover:bg-zinc-800 dark:active:bg-zinc-700" aria-label="Prev light">
                   ← Prev
                 </button>
-                {!memoryOnly && (
-                  <button onClick={onFlag} disabled={flagBusy} className="inline-flex items-center gap-2 rounded-full px-5 py-3 border border-slate-300 bg-slate-50 text-slate-900 font-medium hover:bg-slate-100 active:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-slate-300 disabled:opacity-60 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-100 dark:hover:bg-zinc-700 dark:active:bg-zinc-700 dark:focus:ring-zinc-700" aria-label={flagged ? "Unflag this procedure" : "Flag this procedure"}>
-                    <span aria-hidden>🚩</span>{flagged ? "Unflag" : "Flag"}
-                  </button>
-                )}
                 <button onClick={next} disabled={!canNext} className="rounded-lg px-5 py-3 border bg-blue-600 text-white text-base font-semibold hover:bg-blue-500 active:bg-blue-600 disabled:opacity-40" aria-label="Next light">
                   Next →
                 </button>

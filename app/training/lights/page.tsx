@@ -4,7 +4,8 @@ import { useEffect, useMemo, useState, useCallback, useRef } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useActiveModelVariant } from "@/lib/models/hooks";
-import { getQuota, incQuota, isPaidAsync } from "@/lib/quota";
+import { getQuota, incQuota } from "@/lib/quota";
+import { isLoggedInAsync } from "@/lib/auth";
 
 type StepType = "note" | "action" | "branch" | "caution" | "warning";
 type Severity = "warning" | "caution";
@@ -195,9 +196,9 @@ export default function LightsTrainer() {
 
 
   const start = useCallback(async (severity: Severity) => {
-    // Access control: allow 5 starts when not logged in; unlimited when paid
-    const paid = await isPaidAsync();
-    if (!paid) {
+    // Access control: allow 5 starts when not logged in; unlimited when logged in
+    const loggedIn = await isLoggedInAsync();
+    if (!loggedIn) {
       const used = getQuota("lights");
       if (used >= 5) {
         try { window.location.href = `/paywall?from=${encodeURIComponent('/training/lights')}`; } catch {}
@@ -218,8 +219,8 @@ export default function LightsTrainer() {
   }, [warningLights, cautionLights, pickCounts]);
 
   const startMemoryOnly = useCallback(async () => {
-    const paid = await isPaidAsync();
-    if (!paid) {
+    const loggedIn = await isLoggedInAsync();
+    if (!loggedIn) {
       const used = getQuota("lights");
       if (used >= 5) {
         try { window.location.href = `/paywall?from=${encodeURIComponent('/training/lights')}`; } catch {}

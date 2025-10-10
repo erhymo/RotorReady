@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import { loadAllQuestions } from "@/lib/loadAllQuestions";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 import { modelScopedKey } from "@/lib/models/storage";
-import { isPaidAsync } from "@/lib/quota";
+import { isLoggedInAsync } from "@/lib/auth";
 
 import TopBarBackButton from "@/components/TopBarBackButton";
 
@@ -67,8 +67,8 @@ export default function EngineSystemsStart() {
   async function startQuiz() {
     setLoading(true); setErr(null);
     try {
-      const paid = await isPaidAsync();
-      if (!paid) { router.push(`/paywall?from=${encodeURIComponent('/engine-systems-quiz')}`); return; }
+      const loggedIn = await isLoggedInAsync();
+      if (!loggedIn) { router.push(`/paywall?from=${encodeURIComponent('/engine-systems-quiz')}`); return; }
       const data = await getData();
       if (!data.items.length) {
         setErr("No questions tagged 'eng syst' found.");
@@ -108,8 +108,8 @@ export default function EngineSystemsStart() {
   }
 
   async function startWrongOnly() {
-    const paid = await isPaidAsync();
-    if (!paid) { router.push(`/paywall?from=${encodeURIComponent('/engine-systems-quiz')}`); return; }
+    const loggedIn = await isLoggedInAsync();
+    if (!loggedIn) { router.push(`/paywall?from=${encodeURIComponent('/engine-systems-quiz')}`); return; }
     const key = `${modelScopedKey("rr_progress_last_wrong", activeVariant.id)}:engine-systems`;
     const raw = localStorage.getItem(key) || (activeVariant.id === "AW169" ? localStorage.getItem("rr_progress_last_wrong:engine-systems") : null);
     if (!raw) { alert("No wrong-answer set available. Complete a quiz first."); return; }

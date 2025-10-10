@@ -4,7 +4,8 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 import TopBarBackButton from "@/components/TopBarBackButton";
-import { isPaidAsync } from "@/lib/quota";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "@/lib/firebase/client";
 
 
 type Section = { id: string; title: string };
@@ -37,19 +38,12 @@ export default function QuizTypeSelectPage() {
   const { variant: activeVariant, loading: variantLoading } = useActiveModelVariant();
   const [sections, setSections] = useState<Section[]>([]);
   const [loading, setLoading] = useState(true);
-  const [paid, setPaid] = useState<boolean | null>(null);
+  const [loggedIn, setLoggedIn] = useState<boolean | null>(null);
 
   useEffect(() => {
-    let cancelled = false;
-    (async () => {
-      try {
-        const p = await isPaidAsync();
-        if (!cancelled) setPaid(p);
-      } catch {
-        if (!cancelled) setPaid(false);
-      }
-    })();
-    return () => { cancelled = true; };
+    if (!auth) { setLoggedIn(false); return; }
+    const unsub = onAuthStateChanged(auth, (user) => setLoggedIn(!!user));
+    return () => { try { unsub(); } catch {} };
   }, []);
 
   const [error, setError] = useState<string | null>(null);
@@ -113,7 +107,7 @@ export default function QuizTypeSelectPage() {
               className="block w-full rounded-xl border-l-4 border-blue-600 bg-blue-50/40 hover:bg-blue-600 hover:text-white dark:bg-zinc-900 dark:text-white dark:border-blue-400 dark:hover:bg-blue-600 dark:hover:text-white transition px-5 py-4 font-semibold"
             >
               {quiz.title}
-              {paid === false && quiz.href !== "/limitations-quiz" ? (
+              {loggedIn === false && quiz.href !== "/limitations-quiz" ? (
                 <span className="ml-2 text-xs px-2 py-0.5 rounded-full bg-slate-200 dark:bg-zinc-700 text-slate-700 dark:text-zinc-200">Locked</span>
               ) : null}
             </Link>
@@ -122,7 +116,7 @@ export default function QuizTypeSelectPage() {
             href="/quiz/all"
             className="block w-full rounded-xl border-l-4 border-blue-600 bg-blue-50/40 hover:bg-blue-600 hover:text-white dark:bg-zinc-900 dark:text-white dark:border-blue-400 dark:hover:bg-blue-600 dark:hover:text-white transition px-5 py-4 font-semibold"
           >
-            All {paid === false ? (
+            All {loggedIn === false ? (
               <span className="ml-2 text-xs px-2 py-0.5 rounded-full bg-slate-200 dark:bg-zinc-700 text-slate-700 dark:text-zinc-200">Locked</span>
             ) : null}
           </Link>
@@ -168,7 +162,7 @@ export default function QuizTypeSelectPage() {
             className="block w-full rounded-xl border-l-4 border-blue-600 bg-blue-50/40 hover:bg-blue-600 hover:text-white dark:bg-zinc-900 dark:text-white dark:border-blue-400 dark:hover:bg-blue-600 dark:hover:text-white transition px-5 py-4 font-semibold"
           >
             {section.title}
-            {paid === false && section.id !== "limitations" ? (
+            {loggedIn === false && section.id !== "limitations" ? (
               <span className="ml-2 text-xs px-2 py-0.5 rounded-full bg-slate-200 dark:bg-zinc-700 text-slate-700 dark:text-zinc-200">Locked</span>
             ) : null}
           </Link>
@@ -177,7 +171,7 @@ export default function QuizTypeSelectPage() {
           href="/quiz/all"
           className="block w-full rounded-xl border-l-4 border-blue-600 bg-blue-50/40 hover:bg-blue-600 hover:text-white dark:bg-zinc-900 dark:text-white dark:border-blue-400 dark:hover:bg-blue-600 dark:hover:text-white transition px-5 py-4 font-semibold"
         >
-          All {paid === false ? (
+          All {loggedIn === false ? (
             <span className="ml-2 text-xs px-2 py-0.5 rounded-full bg-slate-200 dark:bg-zinc-700 text-slate-700 dark:text-zinc-200">Locked</span>
           ) : null}
         </Link>

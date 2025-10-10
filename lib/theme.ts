@@ -29,6 +29,13 @@ export function setThemeSource(source: ThemeSource): void {
   broadcastThemeChange();
 }
 
+function setMetaTheme(theme: Theme) {
+  try {
+    const meta = document.querySelector('meta[name="theme-color"]') as HTMLMetaElement | null;
+    if (meta) meta.content = theme === "dark" ? "#0b0f19" : "#f8fafc";
+  } catch {}
+}
+
 export function applyTheme(theme: Theme): void {
   if (typeof window === "undefined") return;
   const root = document.documentElement;
@@ -40,6 +47,7 @@ export function applyTheme(theme: Theme): void {
     root.classList.remove("dark");
     body?.classList.remove("dark");
   }
+  setMetaTheme(theme);
 }
 
 export function getEffectiveTheme(): Theme {
@@ -103,6 +111,11 @@ export function initializeTheme(): void {
     // Seed stored to keep legacy codepaths happy
     setStoredTheme(theme);
   }
+  // Ensure meta theme-color reflects the applied theme immediately
+  try {
+    const meta = document.querySelector('meta[name="theme-color"]') as HTMLMetaElement | null;
+    if (meta) meta.content = theme === "dark" ? "#0b0f19" : "#f8fafc";
+  } catch {}
   broadcastThemeChange();
 
   // React to OS changes only when source === 'system'

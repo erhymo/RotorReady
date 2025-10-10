@@ -6,6 +6,7 @@ import Header from "@/components/Header";
 import ProtectedRoutes from "@/components/ProtectedRoutes";
 import ThemeInitializer from "@/components/ThemeInitializer";
 import AnalyticsProvider from "@/components/AnalyticsProvider";
+import ThemeDebugBadge from "@/components/ThemeDebugBadge";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -72,6 +73,8 @@ export default function RootLayout({
         <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[1000] focus:rounded-md focus:bg-yellow-200 focus:px-3 focus:py-2 focus:text-slate-900">Skip to content</a>
         <ThemeInitializer />
         <AnalyticsProvider />
+        {/* Temporary: Always show theme debug until issue is resolved */}
+        <ThemeDebugBadge />
 
         <div className="sticky top-0 z-30">
           <Header />

@@ -82,6 +82,7 @@ export default function LightsTrainer() {
   const router = useRouter();
   const { variant: activeVariant } = useActiveModelVariant();
   const isH125 = activeVariant.productId === "H125";
+  const isB3e = activeVariant.id === "H125_AS350_B3E";
   const [all, setAll] = useState<LightItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [mode, setMode] = useState<Mode>("idle");
@@ -91,6 +92,7 @@ export default function LightsTrainer() {
   const [idx, setIdx] = useState(0);
   const [memoryOnly, setMemoryOnly] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [coming, setComing] = useState<Severity | null>(null);
   useEffect(() => {
     if (typeof window === "undefined") return;
     const mql = window.matchMedia?.("(max-width: 640px)");
@@ -196,6 +198,12 @@ export default function LightsTrainer() {
 
 
   const start = useCallback(async (severity: Severity) => {
+    // Temporarily hide lights training for AS350 B3e
+    if (activeVariant.id === "H125_AS350_B3E") {
+      setComing(severity);
+      try { setTimeout(() => setComing(null), 2000); } catch {}
+      return;
+    }
     // Access control: allow 5 starts when not logged in; unlimited when logged in
     const loggedIn = await isLoggedInAsync();
     if (!loggedIn) {
@@ -216,7 +224,7 @@ export default function LightsTrainer() {
     setIdx(0);
     setMemoryOnly(false);
     setMode("light");
-  }, [warningLights, cautionLights, pickCounts]);
+  }, [warningLights, cautionLights, pickCounts, activeVariant.id]);
 
   const startMemoryOnly = useCallback(async () => {
     const loggedIn = await isLoggedInAsync();
@@ -567,6 +575,9 @@ export default function LightsTrainer() {
                 >
                   {loading ? "Loading…" : `Start (${warningLights.length} available)`}
                 </button>
+                {isB3e && coming === "warning" && (
+                  <span className="text-sm text-slate-600 dark:text-zinc-300">Coming</span>
+                )}
                 {activeVariant.id === "AW169" && (
                   <button
                     onClick={startMemoryOnly}
@@ -610,6 +621,9 @@ export default function LightsTrainer() {
                 >
                   {loading ? "Loading…" : `Start (${cautionLights.length} available)`}
                 </button>
+                {isB3e && coming === "caution" && (
+                  <span className="text-sm text-slate-600 dark:text-zinc-300">Coming</span>
+                )}
               </div>
               {!cautionLights.length && !loading && (
                 <div className="text-sm text-slate-600 dark:text-zinc-300">

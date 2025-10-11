@@ -93,7 +93,7 @@ async function fetchAvailableSections(variantId: string, productId: string): Pro
       collected.push(...arr);
     } catch {}
   }
-  // AW169: legg til kapitler som finnes i quiz-menyen slik at de kan lastes ned offline
+  // AW169: legg til kapitler som finnes i quiz-menyen slik at de kan lastes ned offline (uten AFM/QRH)
   if (productId === "AW169") {
     const aw169: Section[] = [
       { id: "limitations", title: "Limitations" },
@@ -101,8 +101,6 @@ async function fetchAvailableSections(variantId: string, productId: string): Pro
       { id: "engine-systems", title: "Engine Systems" },
       { id: "emergency_procedures", title: "Emergency Procedures" },
       { id: "normal_procedures", title: "Normal Procedures" },
-      { id: "afm", title: "AFM Questions" },
-      { id: "qrh", title: "QRH Knowledge" },
       // { id: "performance", title: "Performance" }, // legg til når vi har spørsmål
     ];
     collected.push(...aw169);
@@ -111,6 +109,7 @@ async function fetchAvailableSections(variantId: string, productId: string): Pro
   const merged = collected.filter((s) => {
     if (!s || typeof s.id !== "string") return false;
     if (s.id === "all") return false;
+    if (productId === "AW169" && (s.id === "afm" || s.id === "qrh")) return false; // skjul AFM/QRH for AW169
     if (seen.has(s.id)) return false;
     seen.add(s.id);
     return true;

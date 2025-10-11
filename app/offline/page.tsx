@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useMemo, useState } from "react";
 import BackButton from "@/components/BackButton";
-import { saveSectionOffline, clearOfflineSection, listOffline, loadSectionOffline } from "@/lib/offline";
+import { saveSectionOffline, clearOfflineSection, listOffline } from "@/lib/offline";
 import { loadAllQuestions } from "@/lib/loadAllQuestions";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 
@@ -12,8 +12,13 @@ async function fetchSection(id: string, variantId: string) {
   for (const url of urls) {
     try {
       const res = await fetch(url, { cache: "no-store" });
-      if (res.ok) {
-        return await res.json();
+      if (!res.ok) continue;
+      const raw = await res.text();
+      try {
+        return JSON.parse(raw);
+      } catch {
+        const cleaned = raw.replace(/[\u0000-\u001F]/g, " ");
+        return JSON.parse(cleaned);
       }
     } catch {}
   }
@@ -92,19 +97,6 @@ async function fetchAvailableSections(variantId: string, productId: string): Pro
       const arr = Array.isArray(data.sections) ? (data.sections as Section[]) : [];
       collected.push(...arr);
     } catch {}
-  }
-  // AW169: legg til kapitler som finnes i quiz-menyen slik at de kan lastes ned offline (uten AFM/QRH)
-  if (productId === "AW169") {
-    const aw169: Section[] = [
-      { id: "limitations", title: "Limitations" },
-      { id: "avionics_fms_limitations", title: "Avionics & FMS Limitations" },
-      { id: "engine-systems", title: "Engine Systems" },
-      { id: "emergency_procedures", title: "Emergency Procedures" },
-      { id: "normal_procedures", title: "Normal Procedures" },
-      { id: "air_law", title: "Air Law (EASA)" },
-      // { id: "performance", title: "Performance" }, // legg til når vi har spørsmål
-    ];
-    collected.push(...aw169);
   }
   const seen = new Set<string>();
   const merged = collected.filter((s) => {

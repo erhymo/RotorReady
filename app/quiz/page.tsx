@@ -16,7 +16,6 @@ type SectionResponse = {
 
 const STATIC_QUIZ_TYPES = [
   { href: "/limitations-quiz", title: "Limitations" },
-  { href: "/performance-quiz", title: "Performance" },
   { href: "/quiz/normal_procedures", title: "Normal Procedures" },
   { href: "/quiz/air_law", title: "Air Law (EASA)" },
   {
@@ -29,6 +28,7 @@ const SECTION_ROUTE_MAP: Record<string, string> = {
   limitations: "/limitations-quiz",
   avionics_fms_limitations: "/avionics-fms-limitations-quiz",
   emergency_procedures: "/emergency-quiz",
+  "engine-systems": "/engine-systems-quiz",
 };
 
 function resolveSectionRoute(sectionId: string): string {
@@ -49,7 +49,7 @@ export default function QuizTypeSelectPage() {
 
   const [error, setError] = useState<string | null>(null);
 
-  const dynamicVariant = activeVariant.productId === "H125";
+  const dynamicVariant = activeVariant.productId === "H125" || activeVariant.id === "AW169";
 
   useEffect(() => {
     if (!dynamicVariant || variantLoading) {

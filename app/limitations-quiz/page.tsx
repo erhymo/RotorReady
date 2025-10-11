@@ -1,7 +1,6 @@
 "use client";
 import * as React from "react";
 import { useRouter } from "next/navigation";
-import { incQuota, getQuota, isPaidAsync } from "@/lib/quota";
 import { loadAllQuestions } from "@/lib/loadAllQuestions";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 import { modelScopedKey } from "@/lib/models/storage";
@@ -194,7 +193,6 @@ export default function LimitationsStart() {
         </div>
       </div>
 
-      <p className="text-xs text-gray-500">Tip: Download “Chapters” on <a href="/offline" className="underline">Offline</a> (requires purchase).</p>
     </div>
   );
 }

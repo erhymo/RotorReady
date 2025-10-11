@@ -151,7 +151,7 @@ export default function AvionicsQuestionPage() {
       <div className="h-2 bg-gray-200 rounded dark:bg-zinc-800">
         <div className="h-2 bg-blue-600 rounded dark:bg-blue-700" style={{ width: `${progress}%` }} />
       </div>
-      <div className="w-full flex items-center justify-between py-2 px-1">
+      <div className="w-full flex items-center justify-between py-2 px-4 border-b border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-900">
         <TopBarBackButton href="/avionics-fms-limitations-quiz" />
         <div className="text-gray-500 dark:text-zinc-400">Question {idx + 1} / {total}</div>
       </div>
@@ -183,7 +183,7 @@ export default function AvionicsQuestionPage() {
                   onClick={() => choose(i)}
                   className={`w-full text-left px-4 py-3 rounded-lg border active:scale-[0.99] transition
                     ${chosen ? "ring-1 dark:ring-zinc-400" : ""}
-                    ${correct ? "bg-green-50 border-green-400 dark:bg-green-900 dark:border-green-600 dark:text-zinc-100" : ""}
+                    ${(correct || (selected != null && !item.answer.includes(selected!) && item.answer.includes(i))) ? "bg-green-50 border-green-400 dark:bg-green-900 dark:border-green-600 dark:text-zinc-100" : ""}
                     ${wrongChoice ? "bg-red-50 border-red-400 dark:bg-red-900 dark:border-red-600 dark:text-zinc-100" : "border-gray-200 bg-white dark:bg-zinc-900 dark:border-zinc-700 dark:text-zinc-100"}`}
                 >
                   <span className="mr-2 text-xs text-gray-500 dark:text-zinc-400">{i + 1}.</span>
@@ -195,10 +195,10 @@ export default function AvionicsQuestionPage() {
         </ul>
         {selected != null && (
           <div className="mt-3 text-sm text-gray-600 dark:text-zinc-300">
-            {isCorrect ? "Correct ✅" : "Wrong ❌"} {item.explanation ? `– ${item.explanation}` : ""}
-            {(item.references) ? (
+            {isCorrect ? "Correct ✅" : "Incorrect ❌"}{item.explanation ? `– ${item.explanation}` : (!isCorrect && item.answer.length >= 1 && item.answer.map((answerIdx) => item.options[answerIdx]).join(", ") ? ` – Correct answer: ${item.answer.map((answerIdx) => item.options[answerIdx]).join(", ")}` : "")}
+            {(item.references || item.printedPage) ? (
               <div className="text-xs text-gray-500 dark:text-zinc-400 mt-1">
-                Refs: {Array.isArray(item.references) ? item.references.join(", ") : String(item.references || "")}
+                Refs: {Array.isArray(item.references) ? item.references.join(", ") : String(item.references || "")} {item.printedPage ? `(p. ${item.printedPage})` : ""}
               </div>
             ) : null}
           </div>
@@ -213,7 +213,7 @@ export default function AvionicsQuestionPage() {
         >
           Previous
         </button>
-        <span className="text-gray-500 dark:text-zinc-400">→ for Next for Next</span>
+        <span className="text-gray-500 dark:text-zinc-400">→ for Next</span>
         <button
           onClick={next}
           className="px-4 py-2 rounded-lg bg-gray-900 text-white dark:bg-zinc-900 dark:text-zinc-100"

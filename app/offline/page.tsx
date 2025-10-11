@@ -93,6 +93,20 @@ async function fetchAvailableSections(variantId: string, productId: string): Pro
       collected.push(...arr);
     } catch {}
   }
+  // AW169: legg til kapitler som finnes i quiz-menyen slik at de kan lastes ned offline
+  if (productId === "AW169") {
+    const aw169: Section[] = [
+      { id: "limitations", title: "Limitations" },
+      { id: "avionics_fms_limitations", title: "Avionics & FMS Limitations" },
+      { id: "engine-systems", title: "Engine Systems" },
+      { id: "emergency_procedures", title: "Emergency Procedures" },
+      { id: "normal_procedures", title: "Normal Procedures" },
+      { id: "afm", title: "AFM Questions" },
+      { id: "qrh", title: "QRH Knowledge" },
+      // { id: "performance", title: "Performance" }, // legg til når vi har spørsmål
+    ];
+    collected.push(...aw169);
+  }
   const seen = new Set<string>();
   const merged = collected.filter((s) => {
     if (!s || typeof s.id !== "string") return false;

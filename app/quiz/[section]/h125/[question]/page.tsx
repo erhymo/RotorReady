@@ -125,6 +125,16 @@ export default function H125QuestionPage() {
         <TopBarBackButton href={`/quiz/${encodeURIComponent(section)}`} />
         <div className="text-gray-500 dark:text-zinc-400">Question {index + 1} / {total}</div>
       </div>
+      <div className="flex items-center justify-between">
+        <div className="text-sm text-gray-600 dark:text-zinc-300">Question {index + 1} / {total}</div>
+        <div className="flex items-center gap-2">
+          {activeVariant.id === "AW169" && (
+            <a href="/aw169/abbreviations" className="px-2 py-1 rounded border text-xs bg-white dark:bg-zinc-900 dark:text-zinc-100 dark:border-zinc-700">ABBR</a>
+          )}
+          <button onClick={toggleFlag} className={`px-3 py-1 rounded border text-sm ${session!.flags[index] ? "bg-amber-100 border-amber-400 dark:bg-amber-900 dark:border-amber-600 dark:text-zinc-100" : "bg-white dark:bg-zinc-900 dark:text-zinc-100 dark:border-zinc-700"}`}>{session!.flags[index] ? "Flagged" : "Flag"}</button>
+        </div>
+      </div>
+
 
       <div className="bg-white dark:bg-zinc-900 dark:border-zinc-700 dark:text-zinc-100 rounded-xl border p-4">
         <p className="font-medium">{item.question}</p>
@@ -171,7 +181,6 @@ export default function H125QuestionPage() {
         <button onClick={prev} disabled={index===0} className="px-4 py-2 rounded-lg border bg-white dark:bg-zinc-900 dark:text-zinc-100 dark:border-zinc-700 disabled:opacity-50">Previous</button>
         <span className="text-gray-500 dark:text-zinc-400">→ for Next</span>
         <div className="flex items-center gap-2">
-          <button onClick={toggleFlag} className={`px-3 py-1 rounded border text-sm ${session.flags[index] ? "bg-amber-100 border-amber-400 dark:bg-amber-900 dark:border-amber-600 dark:text-zinc-100" : "bg-white dark:bg-zinc-900 dark:text-zinc-100 dark:border-zinc-700"}`}>{session.flags[index] ? "Flagged" : "Flag"}</button>
           <button onClick={next} disabled={selected==null} className="px-4 py-2 rounded-lg bg-gray-900 text-white dark:bg-zinc-900 dark:text-zinc-100 disabled:opacity-50">Next</button>
         </div>
       </div>

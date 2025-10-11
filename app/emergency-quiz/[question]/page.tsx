@@ -84,7 +84,7 @@ export default function EmergencyQuestionPage() {
     return () => window.removeEventListener("keydown", onKey);
   });
 
-  if (!session) return <div className="max-w-xl mx-auto p-4">Laster…</div>;
+  if (!session) return <div className="max-w-xl mx-auto p-4">Loading…</div>;
 
   const item = session.items[idx];
   const isCorrect = selected != null ? item.answer.includes(selected) : null;
@@ -222,7 +222,7 @@ export default function EmergencyQuestionPage() {
         </button>
       </div>
 
-      <p className="text-xs text-gray-500 dark:text-zinc-400">Keyboard: 1–4 velger, ←/→ navigasjon, Enter = neste, F = flagg.</p>
+      <p className="text-xs text-gray-500 dark:text-zinc-400">Keyboard: 1–4 select, ←/→ navigation, Enter = next, F = flag.</p>
     </div>
   );
 }

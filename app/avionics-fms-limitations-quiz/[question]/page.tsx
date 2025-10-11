@@ -182,7 +182,7 @@ export default function AvionicsQuestionPage() {
                 <button
                   onClick={() => choose(i)}
                   className={`w-full text-left px-4 py-3 rounded-lg border active:scale-[0.99] transition
-                    ${chosen ? "ring-1 ring-blue-500 dark:ring-blue-400" : ""}
+                    ${chosen ? "ring-1 dark:ring-zinc-400" : ""}
                     ${correct ? "bg-green-50 border-green-400 dark:bg-green-900 dark:border-green-600 dark:text-zinc-100" : ""}
                     ${wrongChoice ? "bg-red-50 border-red-400 dark:bg-red-900 dark:border-red-600 dark:text-zinc-100" : "border-gray-200 bg-white dark:bg-zinc-900 dark:border-zinc-700 dark:text-zinc-100"}`}
                 >
@@ -213,6 +213,7 @@ export default function AvionicsQuestionPage() {
         >
           Back
         </button>
+        <span className="text-gray-500 dark:text-zinc-400">→ for Next for Next</span>
         <button
           onClick={next}
           className="px-4 py-2 rounded-lg bg-gray-900 text-white dark:bg-zinc-900 dark:text-zinc-100"

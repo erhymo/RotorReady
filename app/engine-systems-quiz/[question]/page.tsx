@@ -66,7 +66,7 @@ export default function EngineQuestionPage() {
     return () => window.removeEventListener("keydown", onKey);
   });
 
-  if (!session) return <div className="max-w-xl mx-auto p-4">Laster…</div>;
+  if (!session) return <div className="max-w-xl mx-auto p-4">Loading…</div>;
   if ((session as any).error) {
     console.error('Quiz error:', (session as any).error, session);
     return (
@@ -121,13 +121,13 @@ export default function EngineQuestionPage() {
     <div className="max-w-2xl mx-auto p-4 space-y-4">
       <div className="flex items-center justify-between py-2">
         <TopBarBackButton href="/engine-systems-quiz" />
-        <div className="text-gray-500 dark:text-zinc-400">Spørsmål {idx+1} / {total}</div>
+        <div className="text-gray-500 dark:text-zinc-400">Question {idx+1} / {total}</div>
       </div>
       <div className="h-2 bg-gray-200 rounded dark:bg-zinc-800">
         <div className="h-2 bg-blue-600 rounded dark:bg-blue-700" style={{ width: `${progress}%` }} />
       </div>
       <div className="flex items-center justify-between">
-        <div className="text-sm text-gray-600 dark:text-zinc-300">Spørsmål {idx+1} / {total}</div>
+        <div className="text-sm text-gray-600 dark:text-zinc-300">Question {idx+1} / {total}</div>
         <div className="flex items-center gap-2">
           {activeVariant.id === "AW169" && (
             <Link href="/aw169/abbreviations" className="px-2 py-1 rounded border text-xs bg-white dark:bg-zinc-900 dark:text-zinc-100 dark:border-zinc-700">ABBR</Link>
@@ -147,7 +147,7 @@ export default function EngineQuestionPage() {
               <li key={i}>
                 <button onClick={() => choose(i)}
                   className={`w-full text-left px-4 py-3 rounded-lg border active:scale-[0.99] transition
-                    ${chosen ? "ring-1 ring-blue-500 dark:ring-blue-400" : ""}
+                    ${chosen ? "ring-1 dark:ring-zinc-400" : ""}
                     ${correct ? "bg-green-50 border-green-400 dark:bg-green-900 dark:border-green-600 dark:text-zinc-100" : ""}
                     ${wrongChoice ? "bg-red-50 border-red-400 dark:bg-red-900 dark:border-red-600 dark:text-zinc-100" : "border-gray-200 bg-white dark:bg-zinc-900 dark:border-zinc-700 dark:text-zinc-100"}`}>
                   <span className="mr-2 text-xs text-gray-500 dark:text-zinc-400">{i+1}.</span>{opt}
@@ -158,11 +158,11 @@ export default function EngineQuestionPage() {
         </ul>
         {selected != null && (
           <div className="mt-3 text-sm text-gray-600 dark:text-zinc-300">
-            {isCorrect ? "Riktig ✅" : "Feil ❌"}
+            {isCorrect ? "Correct ✅" : "Incorrect ❌"}
             {item.explanation
               ? `– ${item.explanation}`
               : !isCorrect && item.answer.length === 1 && item.options[item.answer[0]]
-                ? ` – Riktig svar: ${item.options[item.answer[0]]}`
+                ? ` – Correct answer: ${item.options[item.answer[0]]}`
                 : ""}
             {(item.references || item.printedPage) ? (
               <div className="text-xs text-gray-500 dark:text-zinc-400 mt-1">
@@ -175,11 +175,12 @@ export default function EngineQuestionPage() {
       </div>
 
       <div className="flex items-center justify-between">
-        <button onClick={prev} disabled={idx===0} className="px-4 py-2 rounded-lg border bg-white dark:bg-zinc-900 dark:text-zinc-100 dark:border-zinc-700 disabled:opacity-50">Tilbake</button>
-        <button onClick={next} className="px-4 py-2 rounded-lg bg-gray-900 text-white dark:bg-zinc-900 dark:text-zinc-100">{idx+1>=total ? "Fullfør" : "Neste"}</button>
+        <button onClick={prev} disabled={idx===0} className="px-4 py-2 rounded-lg border bg-white dark:bg-zinc-900 dark:text-zinc-100 dark:border-zinc-700 disabled:opacity-50">Previous</button>
+        <span className="text-gray-500 dark:text-zinc-400">→ for Next</span>
+        <button onClick={next} className="px-4 py-2 rounded-lg bg-gray-900 text-white dark:bg-zinc-900 dark:text-zinc-100">{idx+1>=total ? "Finish" : "Next"}</button>
       </div>
 
-  <p className="text-xs text-gray-500 dark:text-zinc-400">Tastatur: 1–4 velger, ←/→ navigasjon, Enter = neste, F = flagg.</p>
+  <p className="text-xs text-gray-500 dark:text-zinc-400">Keyboard: 1–4 select, ←/→ navigation, Enter = next, F = flag.</p>
     </div>
   );
 }

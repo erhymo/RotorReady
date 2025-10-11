@@ -211,7 +211,7 @@ export default function AvionicsQuestionPage() {
           disabled={idx === 0}
           className="px-4 py-2 rounded-lg border bg-white dark:bg-zinc-900 dark:text-zinc-100 dark:border-zinc-700 disabled:opacity-50"
         >
-          Back
+          Previous
         </button>
         <span className="text-gray-500 dark:text-zinc-400">→ for Next for Next</span>
         <button

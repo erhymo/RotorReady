@@ -3,6 +3,7 @@ import * as React from "react";
 import { useParams, useRouter } from "next/navigation";
 import { modelScopedKey } from "@/lib/models/storage";
 import { useActiveModelVariant } from "@/lib/models/hooks";
+import TopBarBackButton from "@/components/TopBarBackButton";
 
 export default function H125ResultPage() {
   const router = useRouter();
@@ -61,34 +62,46 @@ export default function H125ResultPage() {
   }
 
   return (
-    <div className="min-h-screen grid place-items-center p-6 dark:bg-zinc-900 dark:text-zinc-100">
-      <div className="w-full max-w-xl bg-white dark:bg-zinc-900 dark:text-zinc-100 rounded-lg shadow p-6 text-center border dark:border-zinc-700">
-        <h1 className="text-2xl font-bold mb-2">Resultat</h1>
-        <div className="mb-1">Riktige: <b>{summary.correct}</b> / {summary.total}</div>
-        <div className="mb-6">Prosent: <b>{percent}%</b></div>
-        <div className="flex gap-2 justify-center">
-          <button className="px-4 py-2 rounded bg-blue-600 dark:bg-blue-900 text-white font-semibold hover:bg-blue-700 dark:hover:bg-blue-800" onClick={restart}>Try again</button>
-          <button onClick={() => {
-            try {
-              const raw = sessionStorage.getItem(key);
-              if (!raw) return;
-              const s = JSON.parse(raw) as { section: string; items: { answer: number[] }[]; answers: Array<number|null> };
-              const wrongIdx: number[] = [];
-              s.items.forEach((it, i) => {
-                const picked = s.answers[i];
-                const ok = picked != null && it.answer.includes(picked);
-                if (!ok) wrongIdx.push(i);
-              });
-              if (!wrongIdx.length) { alert("Ingen feil i denne runden."); return; }
-              const items = wrongIdx.map(i => s.items[i]);
-              const answers = wrongIdx.map(() => null as number | null);
-              const flags = wrongIdx.map(() => false);
-              const wrongSession = { section: s.section, createdAt: new Date().toISOString(), items, answers, flags };
-              sessionStorage.setItem(key, JSON.stringify(wrongSession));
-              router.replace(`/quiz/${encodeURIComponent(section)}/h125/1`);
-            } catch {}
-          }} className="px-4 py-2 rounded-lg bg-emerald-600 text-white">Practice wrong answers only</button>
-        </div>
+    <div className="max-w-2xl mx-auto p-4 space-y-4">
+      <div className="w-full flex items-center py-1">
+        <TopBarBackButton href={`/quiz/${encodeURIComponent(section)}`} />
+      </div>
+      <h1 className="text-2xl font-bold text-blue-700 dark:text-blue-300 drop-shadow">Result</h1>
+      <div className="rounded-xl border-l-4 border-blue-600 bg-blue-50/40 dark:border-blue-400 dark:bg-gradient-to-r dark:from-blue-900 dark:to-blue-800/80 p-4 shadow-lg dark:text-white">
+        <div>Answered: <b>{summary.total}</b></div>
+        <div>Correct: <b>{summary.correct}</b></div>
+        <div>Percent: <b>{percent}%</b></div>
+      </div>
+      <div className="flex gap-2">
+        <button className="px-4 py-2 rounded-lg bg-blue-600 text-white" onClick={restart}>Try again</button>
+        <button onClick={() => {
+          try {
+            const raw = sessionStorage.getItem(key);
+            if (!raw) return;
+            const s = JSON.parse(raw) as { section: string; items: { answer: number[] }[]; answers: Array<number|null> };
+            const wrongIdx: number[] = [];
+            s.items.forEach((it, i) => {
+              const picked = s.answers[i];
+              const ok = picked != null && it.answer.includes(picked);
+              if (!ok) wrongIdx.push(i);
+            });
+            if (!wrongIdx.length) { alert("No wrong answers in this round."); return; }
+            const items = wrongIdx.map(i => s.items[i]);
+            const answers = wrongIdx.map(() => null as number | null);
+            const flags = wrongIdx.map(() => false);
+            const wrongSession = { section: s.section, createdAt: new Date().toISOString(), items, answers, flags };
+            sessionStorage.setItem(key, JSON.stringify(wrongSession));
+            router.replace(`/quiz/${encodeURIComponent(section)}/h125/1`);
+          } catch {}
+        }} className="px-4 py-2 rounded-lg bg-emerald-600 text-white">Practice wrong answers only</button>
+        <a href="/" className="px-4 py-2 rounded-lg bg-emerald-600/80 text-white">Home</a>
+      </div>
+      <div className="rounded-xl border-l-4 border-emerald-600 bg-emerald-50/40 dark:border-emerald-400 dark:bg-gradient-to-r dark:from-emerald-900 dark:to-emerald-800/80 p-4 shadow-lg dark:text-white">
+        <div className="font-semibold mb-2">Next steps</div>
+        <ul className="list-disc ml-5 text-sm text-slate-700 dark:text-emerald-100">
+          <li>Press <b>“Practice wrong answers only”</b> to repeat the questions you missed.</li>
+          <li>See your progress under <b>My Page</b>.</li>
+        </ul>
       </div>
     </div>
   );

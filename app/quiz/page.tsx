@@ -18,7 +18,7 @@ const STATIC_QUIZ_TYPES = [
   { href: "/limitations-quiz", title: "Limitations" },
   { href: "/performance-quiz", title: "Performance" },
   { href: "/quiz/normal_procedures", title: "Normal Procedures" },
-  { href: "/quiz/air_law", title: "Air Law" },
+  { href: "/quiz/air_law", title: "Air Law (EASA)" },
   {
     href: "/engine-systems-quiz",
     title: "Engine, Fuel, Lubricants, Hydraulics & System Limitations",

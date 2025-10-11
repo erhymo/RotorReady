@@ -101,7 +101,7 @@ async function fetchAvailableSections(variantId: string, productId: string): Pro
       { id: "engine-systems", title: "Engine Systems" },
       { id: "emergency_procedures", title: "Emergency Procedures" },
       { id: "normal_procedures", title: "Normal Procedures" },
-      { id: "air_law", title: "Air Law" },
+      { id: "air_law", title: "Air Law (EASA)" },
       // { id: "performance", title: "Performance" }, // legg til når vi har spørsmål
     ];
     collected.push(...aw169);

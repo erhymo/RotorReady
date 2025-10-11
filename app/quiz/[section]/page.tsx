@@ -62,6 +62,7 @@ export default function SectionPage() {
                 limitations: "Limitations",
                 emergency_procedures: "Emergency Procedures",
                 normal_procedures: "Normal Procedures",
+                air_law: "Air Law (EASA)",
               };
               const title = TITLE_FALLBACK[routeSection] || routeSection.replaceAll("_", " ").replace(/\b\w/g, (c) => c.toUpperCase());
               arr = [...arr, { id: routeSection, title }];
@@ -84,6 +85,7 @@ export default function SectionPage() {
             limitations: "Limitations",
             emergency_procedures: "Emergency Procedures",
             normal_procedures: "Normal Procedures",
+            air_law: "Air Law (EASA)",
           };
           const title = TITLE_FALLBACK[routeSection] || routeSection.replaceAll("_", " ").replace(/\b\w/g, (c) => c.toUpperCase());
           setSections(addAll([{ id: routeSection, title }]));

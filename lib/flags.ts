@@ -1,3 +1,7 @@
+'use client';
+import { auth, db } from '@/lib/firebase/client';
+import { addDoc, collection } from 'firebase/firestore';
+
 export type FlagPayload = {
   section: string;
   questionId: string;
@@ -15,17 +19,33 @@ export type FlagPayload = {
 };
 
 export async function reportFlag(payload: FlagPayload) {
+  const data = {
+    ...payload,
+    userId: auth?.currentUser?.uid || 'guest',
+    createdAt: new Date().toISOString(),
+    status: 'open',
+  } as any;
+
+  // 1) Primærvei: backend lagrer til Firestore (persist i prod)
   try {
-    await fetch("/api/admin/flags", {
+    const res = await fetch("/api/admin/flags", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(payload),
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
     });
-  } catch (error) {
-    if (process.env.NODE_ENV !== "production") {
-      console.warn("Could not send flag", error);
+    if (res.ok) return;
+  } catch {}
+
+  // 2) Fallback: skriv direkte til Firestore fra klient hvis tilgjengelig
+  try {
+    if (db) {
+      await addDoc(collection(db, 'flags'), data);
+      return;
     }
+  } catch {}
+
+  // 3) Siste utvei: logg i dev
+  if (process.env.NODE_ENV !== 'production') {
+    console.warn('[flags] Failed to persist flag via API and client DB', data);
   }
 }

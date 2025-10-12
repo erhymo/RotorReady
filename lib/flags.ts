@@ -2,6 +2,36 @@
 import { auth, db } from '@/lib/firebase/client';
 import { addDoc, collection } from 'firebase/firestore';
 
+const QUEUE_KEY = 'rr_flags_queue';
+function loadQueue(): any[] {
+  try { return JSON.parse(localStorage.getItem(QUEUE_KEY) || '[]') || []; } catch { return []; }
+}
+function saveQueue(items: any[]) {
+  try { localStorage.setItem(QUEUE_KEY, JSON.stringify(items)); } catch {}
+}
+let initDone = false;
+async function flushQueue() {
+  const q = loadQueue(); if (!q.length) return;
+  const rest: any[] = [];
+  for (const item of q) {
+    try {
+      const res = await fetch('/api/admin/flags', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(item) });
+      if (!res.ok) throw new Error('HTTP '+res.status);
+    } catch {
+      rest.push(item);
+    }
+  }
+  saveQueue(rest);
+}
+function ensureInit() {
+  if (initDone) return; initDone = true;
+  if (typeof window !== 'undefined') {
+    window.addEventListener('online', () => { flushQueue(); });
+    document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible') flushQueue(); });
+    setTimeout(() => { flushQueue(); }, 0);
+  }
+}
+
 export type FlagPayload = {
   section: string;
   questionId: string;
@@ -19,6 +49,7 @@ export type FlagPayload = {
 };
 
 export async function reportFlag(payload: FlagPayload) {
+  ensureInit();
   const data = {
     ...payload,
     userId: auth?.currentUser?.uid || 'guest',
@@ -26,26 +57,14 @@ export async function reportFlag(payload: FlagPayload) {
     status: 'open',
   } as any;
 
-  // 1) Primærvei: backend lagrer til Firestore (persist i prod)
-  try {
-    const res = await fetch("/api/admin/flags", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
-    });
-    if (res.ok) return;
-  } catch {}
+  // Legg alltid i lokal kø først (offline-safe)
+  const queued = loadQueue();
+  queued.push(data);
+  saveQueue(queued);
 
-  // 2) Fallback: skriv direkte til Firestore fra klient hvis tilgjengelig
-  try {
-    if (db) {
-      await addDoc(collection(db, 'flags'), data);
-      return;
-    }
-  } catch {}
+  // Forsøk å flush med en gang
+  try { await flushQueue(); } catch {}
 
-  // 3) Siste utvei: logg i dev
-  if (process.env.NODE_ENV !== 'production') {
-    console.warn('[flags] Failed to persist flag via API and client DB', data);
-  }
+  // Ekstra fallback: klient-DB for miljø der API kan feile permanent
+  try { if (db) { await addDoc(collection(db, 'flags'), data); await flushQueue(); } } catch {}
 }

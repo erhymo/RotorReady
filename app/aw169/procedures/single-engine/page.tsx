@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { BackButton } from "@/app/components/BackButton";
 
 export const metadata = {
   title: "AW169 – Single Engine Procedure",
@@ -7,6 +8,11 @@ export const metadata = {
 export default function SingleEngineProcedurePage() {
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-zinc-900">
+      <div className="sticky top-0 z-10 bg-white/80 dark:bg-zinc-900/90 backdrop-blur border-b dark:border-zinc-700">
+        <div className="mx-auto max-w-3xl px-6 py-3">
+          <BackButton label="Back to procedure" />
+        </div>
+      </div>
       <main className="mx-auto max-w-3xl p-6 space-y-6">
         <header className="rounded-xl border bg-white dark:bg-zinc-900 dark:border-zinc-700 p-4">
           <h1 className="text-xl font-semibold text-slate-900 dark:text-zinc-100">SINGLE ENGINE PROCEDURE</h1>

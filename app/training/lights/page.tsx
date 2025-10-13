@@ -186,6 +186,26 @@ export default function LightsTrainer() {
   const warningLights = useMemo(() => all.filter((item) => item.severity === "warning"), [all]);
   const cautionLights = useMemo(() => all.filter((item) => item.severity === "caution"), [all]);
 
+  // Resume previous procedure context when returning from a linked procedure page
+  useEffect(() => {
+    try {
+      const raw = sessionStorage.getItem("lights:resume");
+      if (!raw) return;
+      const r = JSON.parse(raw) as { variantId: string; lightId: string; memoryOnly?: boolean };
+      if (r.variantId !== activeVariant.id) return;
+      if (!all.length) return;
+      const item = all.find((x) => x.id === r.lightId);
+      if (!item) return;
+      setDeck([item]);
+      setIdx(0);
+      setLastSeverity(item.severity);
+      setMemoryOnly(!!r.memoryOnly);
+      setMode("procedure");
+      sessionStorage.removeItem("lights:resume");
+    } catch {}
+  }, [all, activeVariant.id]);
+
+
   const hasMemory = useCallback((item: LightItem) => {
     const steps = item.procedure || [];
     return steps.some((s) => s.type === "action");
@@ -275,6 +295,7 @@ export default function LightsTrainer() {
   }, [lastSeverity, deck, warningLights, cautionLights, pickCounts, activeVariant.id, memoryOnly, hasMemory]);
 
 
+
   const renderText = useCallback((text?: string) => {
     if (!text) return null as any;
     if (activeVariant.id !== "AW169") return text as any;
@@ -287,14 +308,40 @@ export default function LightsTrainer() {
           const up = p.toUpperCase();
           if (up === "SINGLE ENGINE PROCEDURE") {
             return (
-              <Link key={i} href="/aw169/procedures/single-engine" className="underline text-blue-600 dark:text-blue-400">
+              <Link
+                key={i}
+                href="/aw169/procedures/single-engine"
+                onClick={() => {
+                  try {
+                    if (!current) return;
+                    sessionStorage.setItem(
+                      "lights:resume",
+                      JSON.stringify({ variantId: activeVariant.id, lightId: current.id, memoryOnly })
+                    );
+                  } catch {}
+                }}
+                className="underline text-blue-600 dark:text-blue-400"
+              >
                 SINGLE ENGINE PROCEDURE
               </Link>
             );
           }
           if (up === "ENGINE SHUTDOWN IN EMERGENCY") {
             return (
-              <Link key={i} href="/aw169/procedures/engine-shutdown-emergency" className="underline text-blue-600 dark:text-blue-400">
+              <Link
+                key={i}
+                href="/aw169/procedures/engine-shutdown-emergency"
+                onClick={() => {
+                  try {
+                    if (!current) return;
+                    sessionStorage.setItem(
+                      "lights:resume",
+                      JSON.stringify({ variantId: activeVariant.id, lightId: current.id, memoryOnly })
+                    );
+                  } catch {}
+                }}
+                className="underline text-blue-600 dark:text-blue-400"
+              >
                 ENGINE SHUTDOWN IN EMERGENCY
               </Link>
             );

@@ -353,6 +353,7 @@ export default function LightsTrainer() {
                     mem: memoryOnly ? "1" : "0"
                   }
                 }}
+                onClick={() => { try { sessionStorage.setItem("lights:resume", JSON.stringify({ variantId: activeVariant.id, lightId: current?.id || "", memoryOnly })); } catch {} }}
                 className="underline text-blue-600 dark:text-blue-400"
               >
                 SINGLE ENGINE PROCEDURE
@@ -372,6 +373,7 @@ export default function LightsTrainer() {
                     mem: memoryOnly ? "1" : "0"
                   }
                 }}
+                onClick={() => { try { sessionStorage.setItem("lights:resume", JSON.stringify({ variantId: activeVariant.id, lightId: current?.id || "", memoryOnly })); } catch {} }}
                 className="underline text-blue-600 dark:text-blue-400"
               >
                 ENGINE SHUTDOWN IN EMERGENCY
@@ -382,7 +384,7 @@ export default function LightsTrainer() {
         })}
       </>
     );
-  }, [activeVariant.id]);
+  }, [activeVariant.id, idx, deck, memoryOnly]);
 
   const current = deck[idx];
 

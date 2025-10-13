@@ -81,7 +81,7 @@ function pickFirstBranchPair(steps: ProcedureStep[]) {
 
 export default function LightsTrainer() {
   const router = useRouter();
-  const { variant: activeVariant } = useActiveModelVariant();
+  const { variant: activeVariant, setActiveVariant } = useActiveModelVariant();
   const isH125 = activeVariant.productId === "H125";
   const isB3e = activeVariant.id === "H125_AS350_B3E";
   const [all, setAll] = useState<LightItem[]>([]);
@@ -204,37 +204,38 @@ export default function LightsTrainer() {
       setMemoryOnly(!!r.memoryOnly);
       setMode("procedure");
       sessionStorage.removeItem("lights:resume");
+    } catch {}
+  }, [all, activeVariant.id]);
 
   // Resume via URL query (?resume=1&v=<variant>&light=<id>&mem=0|1>)
   useEffect(() => {
-    try {
-      if (!searchParams) return;
-      const resume = searchParams.get("resume");
-      const v = searchParams.get("v");
-      const light = searchParams.get("light");
-      const mem = searchParams.get("mem");
-      if (!resume || !v || !light) return;
-      if (v !== activeVariant.id) return;
-      if (!all.length) return;
-      const item = all.find((x) => x.id === light);
-      if (!item) return;
-      setDeck([item]);
-      setIdx(0);
-      setLastSeverity(item.severity);
-      setMemoryOnly(mem === "1");
-      setMode("procedure");
-      // clean URL without remounting the page (preserve state)
+    const run = async () => {
       try {
-        const url = new URL(window.location.href);
-        url.search = "";
-        window.history.replaceState({}, "", url.toString());
+        if (!searchParams) return;
+        const resume = searchParams.get("resume");
+        const v = searchParams.get("v");
+        const light = searchParams.get("light");
+        const mem = searchParams.get("mem");
+        if (!resume || !v || !light) return;
+        if (v !== activeVariant.id) { try { await setActiveVariant(v); } catch {} return; }
+        if (!all.length) return;
+        const item = all.find((x) => x.id === light);
+        if (!item) return;
+        setDeck([item]);
+        setIdx(0);
+        setLastSeverity(item.severity);
+        setMemoryOnly(mem === "1");
+        setMode("procedure");
+        // clean URL without remounting the page (preserve state)
+        try {
+          const url = new URL(window.location.href);
+          url.search = "";
+          window.history.replaceState({}, "", url.toString());
+        } catch {}
       } catch {}
-
-    } catch {}
-  }, [searchParams, all, activeVariant.id, router]);
-
-    } catch {}
-  }, [all, activeVariant.id]);
+    };
+    run();
+  }, [searchParams, all, activeVariant.id, setActiveVariant]);
 
 
   const hasMemory = useCallback((item: LightItem) => {

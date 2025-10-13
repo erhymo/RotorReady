@@ -654,6 +654,7 @@ export default function LightsTrainer() {
           <section className="space-y-2">
             <div className="text-sm font-semibold opacity-80">Notes</div>
             {item.notes.map((n, i) => (
+
               <div key={`${item.id}-noteB-${i}`} className="rounded-xl border bg-neutral-50 dark:bg-blue-900/40 dark:text-zinc-100 dark:border-blue-400 p-4 whitespace-pre-wrap">
                 {renderText(n)}
               </div>
@@ -667,6 +668,19 @@ export default function LightsTrainer() {
         </div>
       </div>
     );
+  }
+
+  const isResuming = useMemo(() => {
+    try {
+      if (typeof window !== "undefined") {
+        if (sessionStorage.getItem("lights:resume")) return true;
+      }
+    } catch {}
+    return !!searchParams?.get("resume");
+  }, [searchParams]);
+
+  if (isResuming && mode !== "procedure") {
+    return <div className="min-h-screen bg-slate-50 dark:bg-zinc-900" />;
   }
 
   return (

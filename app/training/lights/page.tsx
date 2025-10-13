@@ -191,6 +191,8 @@ export default function LightsTrainer() {
   // Resume previous procedure context when returning from a linked procedure page
   useEffect(() => {
     try {
+      // If URL already has resume parameters, let the URL-resume effect handle it to avoid double-restores
+      if (searchParams?.get("resume")) return;
       const raw = sessionStorage.getItem("lights:resume");
       if (!raw) return;
       const r = JSON.parse(raw) as { variantId: string; lightId: string; memoryOnly?: boolean; deck?: string[]; idx?: number; lastSeverity?: Severity };
@@ -217,7 +219,7 @@ export default function LightsTrainer() {
       setMode("procedure");
       sessionStorage.removeItem("lights:resume");
     } catch {}
-  }, [all, activeVariant.id]);
+  }, [all, activeVariant.id, searchParams]);
 
   // Resume via URL query (?resume=1&v=<variant>&light=<id>&mem=0|1>)
   useEffect(() => {
@@ -233,6 +235,39 @@ export default function LightsTrainer() {
         if (!all.length) return;
         const item = all.find((x) => x.id === light);
         if (!item) return;
+        // Prefer restoring full deck/idx from sessionStorage if available and matching
+        try {
+          const raw = sessionStorage.getItem("lights:resume");
+          if (raw) {
+            const r = JSON.parse(raw) as { variantId: string; lightId: string; memoryOnly?: boolean; deck?: string[]; idx?: number; lastSeverity?: Severity };
+            if (r.variantId === v) {
+              let deckItems: LightItem[] = [];
+              if (Array.isArray(r.deck) && r.deck.length) {
+                deckItems = r.deck.map((id) => all.find((x) => x.id === id)).filter(Boolean) as LightItem[];
+                if (!deckItems.find((d) => d.id === item.id)) deckItems.push(item);
+              } else {
+                deckItems = [item];
+              }
+              const idxToSet = (typeof r.idx === "number" && r.idx >= 0 && r.idx < deckItems.length)
+                ? r.idx
+                : Math.max(0, deckItems.findIndex((d) => d.id === item.id));
+              setDeck(deckItems);
+              setIdx(idxToSet >= 0 ? idxToSet : 0);
+              setLastSeverity(r.lastSeverity ?? (deckItems[0]?.severity ?? item.severity));
+              setMemoryOnly(mem === "1" ? true : !!r.memoryOnly);
+              setMode("procedure");
+              try { sessionStorage.removeItem("lights:resume"); } catch {}
+              // clean URL without remounting the page (preserve state)
+              try {
+                const url = new URL(window.location.href);
+                url.search = "";
+                window.history.replaceState({}, "", url.toString());
+              } catch {}
+              return;
+            }
+          }
+        } catch {}
+        // Fallback: single item resume
         setDeck([item]);
         setIdx(0);
         setLastSeverity(item.severity);

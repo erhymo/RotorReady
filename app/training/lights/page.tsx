@@ -223,8 +223,13 @@ export default function LightsTrainer() {
       setLastSeverity(item.severity);
       setMemoryOnly(mem === "1");
       setMode("procedure");
-      // clean URL to avoid repeated restores
-      router.replace("/training/lights");
+      // clean URL without remounting the page (preserve state)
+      try {
+        const url = new URL(window.location.href);
+        url.search = "";
+        window.history.replaceState({}, "", url.toString());
+      } catch {}
+
     } catch {}
   }, [searchParams, all, activeVariant.id, router]);
 

@@ -25,6 +25,30 @@
       "userId": "guest",
       "createdAt": "2025-09-29T18:24:55.493Z",
       "status": "reviewed-OK"
+    },
+    {
+      "id": "mgny8wkx-6i50go",
+      "status": "open",
+      "createdAt": "2025-10-12T16:59:31.953Z",
+      "section": "test_section",
+      "sectionId": "limitations",
+      "questionId": "QTEST123",
+      "dataSource": "sections",
+      "dataFile": "test.json",
+      "snapshot": {
+        "question": "Test q?",
+        "options": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "explanation": "",
+        "references": [],
+        "answer": [
+          1
+        ]
+      }
     }
   ]
 }

@@ -1,0 +1,74 @@
+import Link from "next/link";
+
+export const metadata = {
+  title: "AW169 – Single Engine Procedure",
+};
+
+export default function SingleEngineProcedurePage() {
+  return (
+    <div className="min-h-screen bg-slate-50 dark:bg-zinc-900">
+      <main className="mx-auto max-w-3xl p-6 space-y-6">
+        <header className="rounded-xl border bg-white dark:bg-zinc-900 dark:border-zinc-700 p-4">
+          <h1 className="text-xl font-semibold text-slate-900 dark:text-zinc-100">SINGLE ENGINE PROCEDURE</h1>
+          <p className="mt-2 text-sm text-slate-700 dark:text-zinc-300">
+            The following procedure intends to indicate the procedures to follow, in OEI conditions, following an emergency or malfunction procedure which has caused an engine failure or an intentional shutdown.
+          </p>
+        </header>
+
+        <section className="space-y-3 rounded-xl border bg-white dark:bg-zinc-900 dark:border-zinc-700 p-4">
+          <p className="text-sm text-slate-800 dark:text-zinc-100">
+            After an engine shutdown, the indication of fuel quantity on PFD and on MFD ENGINE synoptic page will change as follows:
+          </p>
+          <ul className="list-disc pl-6 text-sm text-slate-800 dark:text-zinc-100">
+            <li>
+              if the fuel quantity associated to the failed engine is greater than 160 kg, the quantity exceeding 160 kg is added to the quantity of the operative engine and the Total Fuel Quantity coincides with it. The Fuel Quantity of the failed engine is displayed in grey inverse video as 160 kg.
+            </li>
+            <li>
+              if the fuel quantity associated to the failed engine is lower than 160 kg, the Total Fuel Quantity coincides with the fuel quantity indication of the operative engine. The Fuel Quantity readout associated to the failed engine turns to grey inverse video.
+            </li>
+          </ul>
+          <div className="rounded-xl border-l-4 border-blue-500/60 bg-blue-50 dark:bg-zinc-900/70 p-3 text-sm dark:text-zinc-100">
+            <div className="font-semibold mb-1">Note</div>
+            Consider increased unusable fuel affecting flight duration.
+          </div>
+        </section>
+
+        <section className="space-y-3 rounded-xl border bg-white dark:bg-zinc-900 dark:border-zinc-700 p-4">
+          <div className="text-sm text-slate-800 dark:text-zinc-100">
+            When conditions permit confirm the following:
+          </div>
+          <ol className="list-decimal pl-6 text-sm text-slate-800 dark:text-zinc-100">
+            <li>
+              Carry out <span className="font-semibold">ENGINE SHUTDOWN IN EMERGENCY</span> procedure.
+            </li>
+          </ol>
+        </section>
+
+        <section className="space-y-3">
+          <div className="rounded-xl border p-4 bg-white dark:bg-blue-900/40 dark:text-white dark:border-blue-400">
+            <div className="font-semibold mb-1">IS ENGINE DAMAGE SUSPECTED?</div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="rounded-xl border p-3 bg-white dark:bg-zinc-900/70 dark:text-zinc-100">
+                <div className="font-semibold mb-1">NO</div>
+                <div className="text-sm">Refer to engine re-light procedure as applicable.</div>
+              </div>
+              <div className="rounded-xl border p-3 bg-white dark:bg-zinc-900/70 dark:text-zinc-100">
+                <div className="font-semibold mb-1">YES</div>
+                <div className="text-sm">DO NOT attempt engine re-light. Continue as follows:</div>
+                <div className="mt-2 rounded-xl border-l-4 border-blue-500/60 bg-blue-50 dark:bg-zinc-900/70 p-3 text-sm">
+                  <div className="font-semibold mb-1">Note</div>
+                  FUEL XFER (if installed): Select as required on EDCU FUEL page.
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <footer className="pt-2 text-center text-xs text-slate-500 dark:text-zinc-400">
+          AW169 training reference. For training use only.
+        </footer>
+      </main>
+    </div>
+  );
+}
+

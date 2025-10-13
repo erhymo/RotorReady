@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState, useCallback, useRef } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 import { getQuota, incQuota } from "@/lib/quota";
 import { isLoggedInAsync } from "@/lib/auth";
@@ -273,6 +274,27 @@ export default function LightsTrainer() {
     setMode("light");
   }, [lastSeverity, deck, warningLights, cautionLights, pickCounts, activeVariant.id, memoryOnly, hasMemory]);
 
+
+  const renderText = useCallback((text?: string) => {
+    if (!text) return null as any;
+    if (activeVariant.id !== "AW169") return text as any;
+    const parts = String(text).split(/(SINGLE ENGINE PROCEDURE)/gi);
+    if (parts.length === 1) return text as any;
+    return (
+      <>
+        {parts.map((p, i) =>
+          p.toUpperCase() === "SINGLE ENGINE PROCEDURE" ? (
+            <Link key={i} href="/aw169/procedures/single-engine" className="underline text-blue-600 dark:text-blue-400">
+              SINGLE ENGINE PROCEDURE
+            </Link>
+          ) : (
+            p
+          )
+        )}
+      </>
+    );
+  }, [activeVariant.id]);
+
   const current = deck[idx];
 
 
@@ -358,22 +380,22 @@ export default function LightsTrainer() {
   const base = "rounded-xl p-4 whitespace-pre-wrap leading-relaxed text-[15px] md:text-[16px] dark:bg-zinc-900/80 dark:text-zinc-100";
     switch (step.type) {
       case "action":
-        return <div className={`${base} border dark:border-zinc-600 dark:bg-zinc-900/80 dark:text-zinc-100`}>{step.text}</div>;
+        return <div className={`${base} border dark:border-zinc-600 dark:bg-zinc-900/80 dark:text-zinc-100`}>{renderText(step.text)}</div>;
       case "note":
-        return <div className={`${base} border-l-4 border-blue-500/60 bg-blue-50 dark:bg-zinc-900/70 dark:text-zinc-100`}>{step.text}</div>;
+        return <div className={`${base} border-l-4 border-blue-500/60 bg-blue-50 dark:bg-zinc-900/70 dark:text-zinc-100`}>{renderText(step.text)}</div>;
       case "caution":
-        return <div className={`${base} border-l-4 border-amber-500/60 bg-amber-50 dark:bg-zinc-900/70 dark:text-zinc-100`}><div className="font-semibold mb-1">CAUTION</div>{step.text}</div>;
+        return <div className={`${base} border-l-4 border-amber-500/60 bg-amber-50 dark:bg-zinc-900/70 dark:text-zinc-100`}><div className="font-semibold mb-1">CAUTION</div>{renderText(step.text)}</div>;
       case "warning":
-        return <div className={`${base} border-l-4 border-red-600/60 bg-red-50 dark:bg-zinc-900/70 dark:text-zinc-100`}><div className="font-semibold mb-1">WARNING</div>{step.text}</div>;
+        return <div className={`${base} border-l-4 border-red-600/60 bg-red-50 dark:bg-zinc-900/70 dark:text-zinc-100`}><div className="font-semibold mb-1">WARNING</div>{renderText(step.text)}</div>;
       case "branch":
         return (
           <div className={`${base} border-dashed border dark:border-zinc-600 dark:bg-zinc-900/80 dark:text-zinc-100`}>
             {step.heading && <div className="font-semibold mb-1">{step.heading}</div>}
-            {step.text}
+            {renderText(step.text)}
           </div>
         );
       default:
-        return <div className={`${base} border dark:border-zinc-600 dark:bg-zinc-900/80 dark:text-zinc-100`}>{(step as any).text}</div>;
+        return <div className={`${base} border dark:border-zinc-600 dark:bg-zinc-900/80 dark:text-zinc-100`}>{renderText((step as any).text)}</div>;
     }
   }
 
@@ -457,7 +479,7 @@ export default function LightsTrainer() {
                   {actions.map((a, i) => (
                     <tr key={`${item.id}-mem-${i}`} className="border-b last:border-b-0 dark:border-zinc-700">
                       <td className="w-12 align-top px-4 py-3 font-bold dark:text-zinc-100">{i + 1}.</td>
-                      <td className="align-top px-4 py-3 dark:text-zinc-100">{(a as any).text}</td>
+                      <td className="align-top px-4 py-3 dark:text-zinc-100">{renderText((a as any).text)}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -482,7 +504,7 @@ export default function LightsTrainer() {
                 {actions.map((a, i) => (
                   <tr key={`${item.id}-act-${i}`} className="border-b last:border-b-0 dark:border-zinc-700">
                     <td className="w-12 align-top px-4 py-3 font-bold dark:text-zinc-100">{i + 1}.</td>
-                    <td className="align-top px-4 py-3 dark:text-zinc-100">{(a as any).text}</td>
+                    <td className="align-top px-4 py-3 dark:text-zinc-100">{renderText((a as any).text)}</td>
                   </tr>
                 ))}
               </tbody>
@@ -507,7 +529,7 @@ export default function LightsTrainer() {
                 </div>
                 <div className="mt-3 rounded-xl border p-4 bg-white dark:bg-blue-900/40 dark:text-white dark:border-blue-400">
                   {pair.left.heading && <div className="font-semibold mb-1">{pair.left.heading}</div>}
-                  <div className="whitespace-pre-wrap">{pair.left.text}</div>
+                  <div className="whitespace-pre-wrap">{renderText(pair.left.text)}</div>
                 </div>
               </div>
               <div className="relative">
@@ -516,7 +538,7 @@ export default function LightsTrainer() {
                 </div>
                 <div className="mt-3 rounded-xl border p-4 bg-white dark:bg-blue-900/40 dark:text-white dark:border-blue-400">
                   {pair.right.heading && <div className="font-semibold mb-1">{pair.right.heading}</div>}
-                  <div className="whitespace-pre-wrap">{pair.right.text}</div>
+                  <div className="whitespace-pre-wrap">{renderText(pair.right.text)}</div>
                 </div>
               </div>
             </div>
@@ -530,7 +552,7 @@ export default function LightsTrainer() {
             <div className="text-sm font-semibold opacity-80">Notes</div>
             {item.notes.map((n, i) => (
               <div key={`${item.id}-noteB-${i}`} className="rounded-xl border bg-neutral-50 dark:bg-blue-900/40 dark:text-zinc-100 dark:border-blue-400 p-4 whitespace-pre-wrap">
-                {n}
+                {renderText(n)}
               </div>
             ))}
           </section>
@@ -670,7 +692,7 @@ export default function LightsTrainer() {
                   )}
                   <div className="flex-1">
                     <div className="text-lg md:text-xl font-semibold text-slate-900 dark:text-zinc-100">{displayName(current)}</div>
-                    {!memoryOnly && current.description && <div className="opacity-80 mt-0.5 text-slate-600 dark:text-zinc-300">{current.description}</div>}
+                    {!memoryOnly && current.description && <div className="opacity-80 mt-0.5 text-slate-600 dark:text-zinc-300">{renderText(current.description)}</div>}
                   </div>
                 </div>
               )}
@@ -708,7 +730,7 @@ export default function LightsTrainer() {
           <div className="space-y-6">
             {!memoryOnly && current.description && !current.pageImage && (
               <div className="rounded-xl border bg-white dark:bg-blue-900/40 dark:text-zinc-100 dark:border-blue-400 p-4 text-[15px] md:text-[16px]">
-                {current.description}
+                {renderText(current.description)}
               </div>
             )}
             <ProcedureLikePDF item={current} memoryOnly={memoryOnly} />

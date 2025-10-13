@@ -278,19 +278,29 @@ export default function LightsTrainer() {
   const renderText = useCallback((text?: string) => {
     if (!text) return null as any;
     if (activeVariant.id !== "AW169") return text as any;
-    const parts = String(text).split(/(SINGLE ENGINE PROCEDURE)/gi);
+    const re = /(SINGLE ENGINE PROCEDURE|ENGINE SHUTDOWN IN EMERGENCY)/gi;
+    const parts = String(text).split(re);
     if (parts.length === 1) return text as any;
     return (
       <>
-        {parts.map((p, i) =>
-          p.toUpperCase() === "SINGLE ENGINE PROCEDURE" ? (
-            <Link key={i} href="/aw169/procedures/single-engine" className="underline text-blue-600 dark:text-blue-400">
-              SINGLE ENGINE PROCEDURE
-            </Link>
-          ) : (
-            p
-          )
-        )}
+        {parts.map((p, i) => {
+          const up = p.toUpperCase();
+          if (up === "SINGLE ENGINE PROCEDURE") {
+            return (
+              <Link key={i} href="/aw169/procedures/single-engine" className="underline text-blue-600 dark:text-blue-400">
+                SINGLE ENGINE PROCEDURE
+              </Link>
+            );
+          }
+          if (up === "ENGINE SHUTDOWN IN EMERGENCY") {
+            return (
+              <Link key={i} href="/aw169/procedures/engine-shutdown-emergency" className="underline text-blue-600 dark:text-blue-400">
+                ENGINE SHUTDOWN IN EMERGENCY
+              </Link>
+            );
+          }
+          return p;
+        })}
       </>
     );
   }, [activeVariant.id]);

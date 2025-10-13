@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState, useCallback, useRef } from "react";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 import { getQuota, incQuota } from "@/lib/quota";
@@ -102,6 +102,8 @@ export default function LightsTrainer() {
     mql?.addEventListener?.("change", update);
     return () => mql?.removeEventListener?.("change", update);
   }, []);
+  const searchParams = useSearchParams();
+
 
 
   const procOverlayRef = useRef<HTMLDivElement | null>(null);
@@ -202,6 +204,30 @@ export default function LightsTrainer() {
       setMemoryOnly(!!r.memoryOnly);
       setMode("procedure");
       sessionStorage.removeItem("lights:resume");
+
+  // Resume via URL query (?resume=1&v=<variant>&light=<id>&mem=0|1>)
+  useEffect(() => {
+    try {
+      if (!searchParams) return;
+      const resume = searchParams.get("resume");
+      const v = searchParams.get("v");
+      const light = searchParams.get("light");
+      const mem = searchParams.get("mem");
+      if (!resume || !v || !light) return;
+      if (v !== activeVariant.id) return;
+      if (!all.length) return;
+      const item = all.find((x) => x.id === light);
+      if (!item) return;
+      setDeck([item]);
+      setIdx(0);
+      setLastSeverity(item.severity);
+      setMemoryOnly(mem === "1");
+      setMode("procedure");
+      // clean URL to avoid repeated restores
+      router.replace("/training/lights");
+    } catch {}
+  }, [searchParams, all, activeVariant.id, router]);
+
     } catch {}
   }, [all, activeVariant.id]);
 
@@ -249,6 +275,8 @@ export default function LightsTrainer() {
 
   const startMemoryOnly = useCallback(async () => {
     const loggedIn = await isLoggedInAsync();
+
+
     if (!loggedIn) {
       const used = getQuota("lights");
       if (used >= 5) {
@@ -310,15 +338,14 @@ export default function LightsTrainer() {
             return (
               <Link
                 key={i}
-                href="/aw169/procedures/single-engine"
-                onClick={() => {
-                  try {
-                    if (!current) return;
-                    sessionStorage.setItem(
-                      "lights:resume",
-                      JSON.stringify({ variantId: activeVariant.id, lightId: current.id, memoryOnly })
-                    );
-                  } catch {}
+                href={{
+                  pathname: "/aw169/procedures/single-engine",
+                  query: {
+                    resume: "1",
+                    v: activeVariant.id,
+                    light: current?.id || "",
+                    mem: memoryOnly ? "1" : "0"
+                  }
                 }}
                 className="underline text-blue-600 dark:text-blue-400"
               >
@@ -330,15 +357,14 @@ export default function LightsTrainer() {
             return (
               <Link
                 key={i}
-                href="/aw169/procedures/engine-shutdown-emergency"
-                onClick={() => {
-                  try {
-                    if (!current) return;
-                    sessionStorage.setItem(
-                      "lights:resume",
-                      JSON.stringify({ variantId: activeVariant.id, lightId: current.id, memoryOnly })
-                    );
-                  } catch {}
+                href={{
+                  pathname: "/aw169/procedures/engine-shutdown-emergency",
+                  query: {
+                    resume: "1",
+                    v: activeVariant.id,
+                    light: current?.id || "",
+                    mem: memoryOnly ? "1" : "0"
+                  }
                 }}
                 className="underline text-blue-600 dark:text-blue-400"
               >

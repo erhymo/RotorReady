@@ -10,6 +10,19 @@ export function BackButton({ className, label }: { className?: string; label?: s
       type="button"
       onClick={() => {
         try {
+          const sp = new URLSearchParams(window.location.search);
+          const resume = sp.get("resume");
+          const v = sp.get("v");
+          const light = sp.get("light");
+          const mem = sp.get("mem");
+          if (resume && v && light) {
+            const qs = new URLSearchParams({ resume: "1", v, light });
+            if (mem) qs.set("mem", mem);
+            router.push(`/training/lights?${qs.toString()}`);
+            return;
+          }
+        } catch {}
+        try {
           const raw = sessionStorage.getItem("lights:resume");
           if (raw) {
             router.push("/training/lights");

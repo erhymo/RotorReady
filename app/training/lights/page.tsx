@@ -193,14 +193,26 @@ export default function LightsTrainer() {
     try {
       const raw = sessionStorage.getItem("lights:resume");
       if (!raw) return;
-      const r = JSON.parse(raw) as { variantId: string; lightId: string; memoryOnly?: boolean };
+      const r = JSON.parse(raw) as { variantId: string; lightId: string; memoryOnly?: boolean; deck?: string[]; idx?: number; lastSeverity?: Severity };
       if (r.variantId !== activeVariant.id) return;
       if (!all.length) return;
       const item = all.find((x) => x.id === r.lightId);
       if (!item) return;
-      setDeck([item]);
-      setIdx(0);
-      setLastSeverity(item.severity);
+      let deckItems: LightItem[] = [];
+      if (Array.isArray(r.deck) && r.deck.length) {
+        deckItems = r.deck.map((id) => all.find((x) => x.id === id)).filter(Boolean) as LightItem[];
+        // Ensure current item is present
+        if (!deckItems.find((d) => d.id === item.id)) deckItems.push(item);
+      } else {
+        // Fallback: at least current item
+        deckItems = [item];
+      }
+      const idxToSet = (typeof r.idx === "number" && r.idx >= 0 && r.idx < deckItems.length)
+        ? r.idx
+        : Math.max(0, deckItems.findIndex((d) => d.id === item.id));
+      setDeck(deckItems);
+      setIdx(idxToSet >= 0 ? idxToSet : 0);
+      setLastSeverity(r.lastSeverity ?? (deckItems[0]?.severity ?? item.severity));
       setMemoryOnly(!!r.memoryOnly);
       setMode("procedure");
       sessionStorage.removeItem("lights:resume");
@@ -353,7 +365,7 @@ export default function LightsTrainer() {
                     mem: memoryOnly ? "1" : "0"
                   }
                 }}
-                onClick={() => { try { sessionStorage.setItem("lights:resume", JSON.stringify({ variantId: activeVariant.id, lightId: current?.id || "", memoryOnly })); } catch {} }}
+                onClick={() => { try { sessionStorage.setItem("lights:resume", JSON.stringify({ variantId: activeVariant.id, lightId: current?.id || "", memoryOnly, idx, deck: deck.map(d => d.id), lastSeverity })); } catch {} }}
                 className="underline text-blue-600 dark:text-blue-400"
               >
                 SINGLE ENGINE PROCEDURE
@@ -373,7 +385,7 @@ export default function LightsTrainer() {
                     mem: memoryOnly ? "1" : "0"
                   }
                 }}
-                onClick={() => { try { sessionStorage.setItem("lights:resume", JSON.stringify({ variantId: activeVariant.id, lightId: current?.id || "", memoryOnly })); } catch {} }}
+                onClick={() => { try { sessionStorage.setItem("lights:resume", JSON.stringify({ variantId: activeVariant.id, lightId: current?.id || "", memoryOnly, idx, deck: deck.map(d => d.id), lastSeverity })); } catch {} }}
                 className="underline text-blue-600 dark:text-blue-400"
               >
                 ENGINE SHUTDOWN IN EMERGENCY

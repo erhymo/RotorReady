@@ -133,9 +133,23 @@ export default function SectionPage() {
           const res = await fetch(url, { cache: "no-store" });
           if (!res.ok) continue;
           const data = await res.json();
-          if (data && Array.isArray(data.items) && data.items.length > 0) {
-            if (!cancelled) setHasQuestions(true);
-            return;
+          if (data && Array.isArray(data.items)) {
+            let items = data.items as any[];
+            // When checking global repository, filter items to this active variant/product to avoid false positives
+            if (url.startsWith("/quiz-data")) {
+              items = items.filter((q: any) => {
+                if (Array.isArray(q.modelIds)) return q.modelIds.includes(activeVariant.id);
+                if (Array.isArray(q.models)) return q.models.includes(activeVariant.id);
+                if (activeVariant.productId && Array.isArray(q.productIds)) return q.productIds.includes(activeVariant.productId);
+                if (activeVariant.productId && typeof q.productId === "string") return q.productId === activeVariant.productId;
+                // Default-allow only for AW169 (legacy)
+                return activeVariant.productId === "AW169";
+              });
+            }
+            if (items.length > 0) {
+              if (!cancelled) setHasQuestions(true);
+              return;
+            }
           }
         } catch {}
       }

@@ -2,7 +2,8 @@
   "sections": [
     { "id": "limitations", "title": "Limitations" },
     { "id": "emergency_procedures", "title": "Emergency Procedures" },
-    { "id": "normal_procedures", "title": "Normal Procedures" }
+    { "id": "normal_procedures", "title": "Normal Procedures" },
+    { "id": "air_law", "title": "Air Law (EASA)" }
   ]
 }
 

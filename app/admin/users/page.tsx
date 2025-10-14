@@ -1,7 +1,15 @@
+import { headers } from "next/headers";
+
 async function fetchJSON(url: string) {
   const isServer = typeof window === "undefined";
-  const base = isServer ? process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000" : "";
-  const res = await fetch(isServer ? base + url : url, { cache: "no-store" });
+  let fullUrl = url;
+  if (isServer && url.startsWith("/")) {
+    const hdrs = headers();
+    const host = hdrs.get("x-forwarded-host") || hdrs.get("host") || "localhost:3000";
+    const proto = hdrs.get("x-forwarded-proto") || (host.startsWith("localhost") ? "http" : "https");
+    fullUrl = `${proto}://${host}${url}`;
+  }
+  const res = await fetch(fullUrl, { cache: "no-store" });
   if (!res.ok) throw new Error(`HTTP ${res.status}`);
   return res.json();
 }

@@ -582,6 +582,20 @@ export default function AdminPage() {
           </p>
         </section>
 
+        <section className="rounded-2xl border border-slate-200 bg-white/90 p-4 shadow-sm backdrop-blur dark:border-zinc-800 dark:bg-zinc-900/80 dark:text-zinc-100">
+          <button
+            onClick={() => { window.location.href = "/admin/users"; }}
+            className="w-full flex items-center justify-between rounded-xl border border-slate-200 bg-white/70 px-4 py-3 text-left transition hover:bg-slate-100 dark:border-zinc-700 dark:bg-zinc-900/60 dark:hover:bg-zinc-800"
+            aria-label="Åpne brukerliste (e-post)"
+          >
+            <div>
+              <div className="text-sm font-semibold text-slate-900 dark:text-white">Brukere (e-post)</div>
+              <div className="text-xs text-slate-600 dark:text-zinc-400">Klikk for å åpne full oversikt nederst på siden</div>
+            </div>
+            <span className="text-slate-400">›</span>
+          </button>
+        </section>
+
         <footer className="text-xs text-slate-500 dark:text-zinc-400">
           Flere verktøy og paneler kommer her etter hvert.
         </footer>

@@ -1,21 +1,40 @@
-import { headers } from "next/headers";
-
-async function fetchJSON(url: string) {
-  const isServer = typeof window === "undefined";
-  let fullUrl = url;
-  if (isServer && url.startsWith("/")) {
-    const hdrs = headers();
-    const host = hdrs.get("x-forwarded-host") || hdrs.get("host") || "localhost:3000";
-    const proto = hdrs.get("x-forwarded-proto") || (host.startsWith("localhost") ? "http" : "https");
-    fullUrl = `${proto}://${host}${url}`;
-  }
-  const res = await fetch(fullUrl, { cache: "no-store" });
-  if (!res.ok) throw new Error(`HTTP ${res.status}`);
-  return res.json();
-}
+import { adminDb } from "@/lib/firebase/admin";
 
 export default async function AdminUsersPage() {
-  const { users } = await fetchJSON("/api/admin/users");
+  let users: { email: string; createdAt?: string | null }[] = [];
+  try {
+    const snap = await adminDb.collection("users").get();
+    users = snap.docs
+      .map((doc) => {
+        const data = doc.data() as any;
+        const email: string | null = data?.email || null;
+        const createdAtMeta = (doc as any).createTime?.toDate?.();
+        const createdAt: string | null = createdAtMeta ? createdAtMeta.toISOString() : (data?.createdAt ?? null);
+        return email ? { email, createdAt } : null;
+      })
+      .filter(Boolean) as { email: string; createdAt?: string | null }[];
+
+    if (users.length === 0) {
+      // Fallback to users_by_email if main collection has no email fields
+      const idxSnap = await adminDb.collection("users_by_email").get();
+      users = idxSnap.docs
+        .map((doc) => {
+          const email = doc.id;
+          const data = doc.data() as any;
+          const createdAt: string | null = data?.createdAt ?? null;
+          return { email, createdAt };
+        });
+    }
+
+    users.sort((a, b) => {
+      const ta = a.createdAt ? Date.parse(a.createdAt) : 0;
+      const tb = b.createdAt ? Date.parse(b.createdAt) : 0;
+      return tb - ta; // newest first
+    });
+  } catch (e) {
+    // If Firestore not available, keep users as empty list to avoid 500
+    users = [];
+  }
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-zinc-950 py-12 px-4">

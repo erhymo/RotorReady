@@ -656,6 +656,31 @@ export default function AccountPage() {
         </div>
       </section>
 
+      <section className="rounded-2xl border border-red-200 bg-red-50 p-6 shadow-sm dark:border-red-500/40 dark:bg-red-900/20 dark:text-red-100 space-y-3">
+        <h2 className="text-lg font-semibold text-red-800 dark:text-red-200">Delete account</h2>
+        <p className="text-sm text-red-700 dark:text-red-300">This will permanently delete your RotorReady account and profile. This action cannot be undone.</p>
+        <button
+          className="rounded-lg bg-red-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-red-700"
+          onClick={async () => {
+            try {
+              if (!auth?.currentUser) { alert("You must be logged in."); return; }
+              if (!confirm("Are you sure you want to permanently delete your account? This cannot be undone.")) return;
+              const token = await auth.currentUser.getIdToken();
+              const res = await fetch("/api/account/delete", { method: "POST", headers: { Authorization: `Bearer ${token}` } });
+              if (!res.ok) { const t = await res.text(); throw new Error(t || "Failed to delete"); }
+              // Sign out on client and redirect
+              await import("firebase/auth").then(({ getAuth, signOut }) => signOut(getAuth(auth.app)));
+              window.location.href = "/";
+            } catch (e: any) {
+              alert(e?.message || "Could not delete account.");
+            }
+          }}
+        >
+          Delete my account
+        </button>
+      </section>
+
+
     </div>
   );
 }

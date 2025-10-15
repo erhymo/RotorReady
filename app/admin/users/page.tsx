@@ -3,28 +3,39 @@ import { adminDb } from "@/lib/firebase/admin";
 export default async function AdminUsersPage() {
   let users: { email: string; createdAt?: string | null }[] = [];
   try {
-    const snap = await adminDb.collection("users").get();
-    users = snap.docs
-      .map((doc) => {
-        const data = doc.data() as any;
-        const email: string | null = data?.email || null;
-        const createdAtMeta = (doc as any).createTime?.toDate?.();
-        const createdAt: string | null = createdAtMeta ? createdAtMeta.toISOString() : (data?.createdAt ?? null);
-        return email ? { email, createdAt } : null;
-      })
-      .filter(Boolean) as { email: string; createdAt?: string | null }[];
+    // Collect from main users collection (email field) and from users_by_email index
+    const [snap, idxSnap] = await Promise.all([
+      adminDb.collection("users").get(),
+      adminDb.collection("users_by_email").get(),
+    ]);
 
-    if (users.length === 0) {
-      // Fallback to users_by_email if main collection has no email fields
-      const idxSnap = await adminDb.collection("users_by_email").get();
-      users = idxSnap.docs
-        .map((doc) => {
-          const email = doc.id;
-          const data = doc.data() as any;
-          const createdAt: string | null = data?.createdAt ?? null;
-          return { email, createdAt };
-        });
+    const byEmail = new Map<string, string | null>(); // email -> createdAt
+
+    // From users collection
+    for (const doc of snap.docs) {
+      const data = doc.data() as any;
+      const email: string | null = data?.email || null;
+      if (!email) continue;
+      const createdAtMeta = (doc as any).createTime?.toDate?.();
+      const createdAt: string | null = createdAtMeta ? createdAtMeta.toISOString() : (data?.createdAt ?? null);
+      const cur = byEmail.get(email);
+      if (!cur || (createdAt && (!cur || Date.parse(createdAt) > Date.parse(cur)))) {
+        byEmail.set(email, createdAt || cur || null);
+      }
     }
+
+    // From users_by_email index
+    for (const doc of idxSnap.docs) {
+      const email = doc.id;
+      const data = doc.data() as any;
+      const createdAt: string | null = data?.createdAt ?? null;
+      const cur = byEmail.get(email);
+      if (!cur || (createdAt && (!cur || Date.parse(createdAt) > Date.parse(cur)))) {
+        byEmail.set(email, createdAt || cur || null);
+      }
+    }
+
+    users = Array.from(byEmail.entries()).map(([email, createdAt]) => ({ email, createdAt }));
 
     users.sort((a, b) => {
       const ta = a.createdAt ? Date.parse(a.createdAt) : 0;

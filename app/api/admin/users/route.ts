@@ -5,14 +5,36 @@ export const runtime = "nodejs";
 
 export async function GET() {
   try {
-    const snap = await adminDb.collection("users").get();
-    const users = snap.docs.map((doc) => {
+    const [snap, idxSnap] = await Promise.all([
+      adminDb.collection("users").get(),
+      adminDb.collection("users_by_email").get(),
+    ]);
+
+    const byEmail = new Map<string, string | null>();
+
+    for (const doc of snap.docs) {
       const data = doc.data() as any;
       const email: string | null = data?.email || null;
+      if (!email) continue;
       const createdAtMeta = (doc as any).createTime?.toDate?.();
       const createdAt: string | null = createdAtMeta ? createdAtMeta.toISOString() : (data?.createdAt ?? null);
-      return { email, createdAt };
-    }).filter((u) => !!u.email) as { email: string; createdAt?: string | null }[];
+      const cur = byEmail.get(email);
+      if (!cur || (createdAt && (!cur || Date.parse(createdAt) > Date.parse(cur)))) {
+        byEmail.set(email, createdAt || cur || null);
+      }
+    }
+
+    for (const doc of idxSnap.docs) {
+      const email = doc.id;
+      const data = doc.data() as any;
+      const createdAt: string | null = data?.createdAt ?? null;
+      const cur = byEmail.get(email);
+      if (!cur || (createdAt && (!cur || Date.parse(createdAt) > Date.parse(cur)))) {
+        byEmail.set(email, createdAt || cur || null);
+      }
+    }
+
+    const users = Array.from(byEmail.entries()).map(([email, createdAt]) => ({ email, createdAt }));
 
     users.sort((a, b) => {
       const ta = a.createdAt ? Date.parse(a.createdAt) : 0;

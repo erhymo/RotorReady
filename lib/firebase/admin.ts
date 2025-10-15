@@ -1,5 +1,6 @@
 import { getApps, initializeApp, applicationDefault, cert } from "firebase-admin/app";
 import { getFirestore } from "firebase-admin/firestore";
+import { getAuth } from "firebase-admin/auth";
 
 import { isProduction, serverEnv } from "@/lib/env";
 
@@ -32,3 +33,4 @@ if (!existing.length) {
 }
 
 export const adminDb = getFirestore();
+export const adminAuth = getAuth();

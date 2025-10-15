@@ -14,7 +14,7 @@ async function flushQueue() {
   const rest: any[] = [];
   for (const item of q) {
     try {
-      const res = await fetch('/api/admin/flags', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(item) });
+      const res = await fetch('/api/flags', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(item) });
       if (!res.ok) throw new Error('HTTP '+res.status);
     } catch {
       rest.push(item);

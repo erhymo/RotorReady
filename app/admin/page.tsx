@@ -21,6 +21,7 @@ type AdminFlag = {
   };
   reason?: string;
   userId?: string;
+  email?: string;
   createdAt: string;
   status: "open" | "reviewed-OK" | "rejected";
 };
@@ -534,7 +535,7 @@ export default function AdminPage() {
                     )}
                     <div className="mt-4 flex flex-wrap items-center gap-2 text-xs text-slate-500 dark:text-zinc-400">
                       <span>Kilde: {flag.dataSource === "all-questions" ? "Master (all-questions)" : (flag.sectionId || flag.section)}</span>
-                      {flag.userId && <span>• Rapportert av: {flag.userId}</span>}
+                      {(flag.email || flag.userId) && <span>• Rapportert av: {flag.email || flag.userId}</span>}
                       {flag.dataFile && <span>• Fil: {flag.dataFile}</span>}
                     </div>
                     <div className="mt-4 flex flex-wrap gap-3">

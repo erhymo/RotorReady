@@ -11,6 +11,18 @@ async function fetchJson<T = unknown>(url: string): Promise<T | null> {
   }
 }
 
+async function fetchBlockedSet(): Promise<Set<string>> {
+  try {
+    const res = await fetch("/api/blocked-questions", { cache: "no-store" });
+    if (!res.ok) return new Set();
+    const data = await res.json();
+    const ids: string[] = Array.isArray(data?.ids) ? data.ids : [];
+    return new Set(ids);
+  } catch {
+    return new Set();
+  }
+}
+
 export async function loadAllQuestions(variantId?: string): Promise<any[]> {
   const all: any[] = [];
 
@@ -66,29 +78,32 @@ export async function loadAllQuestions(variantId?: string): Promise<any[]> {
     }
   }
 
-  if (!variantId) {
-    return filtered;
+  // Filter by variant (if provided)
+  let variantFiltered: any[] = filtered;
+  if (variantId) {
+    const variant = getModelVariant(variantId);
+    const productId = variant?.productId;
+    variantFiltered = filtered.filter((q) => {
+      if (Array.isArray(q.modelIds)) {
+        return q.modelIds.includes(variantId);
+      }
+      if (Array.isArray(q.models)) {
+        return q.models.includes(variantId);
+      }
+      if (productId && Array.isArray(q.productIds)) {
+        return q.productIds.includes(productId);
+      }
+      if (productId && typeof q.productId === "string") {
+        return q.productId === productId;
+      }
+      if (!variant || variant.productId === "AW169") {
+        return true;
+      }
+      return false;
+    });
   }
 
-  const variant = getModelVariant(variantId);
-  const productId = variant?.productId;
-
-  return filtered.filter((q) => {
-    if (Array.isArray(q.modelIds)) {
-      return q.modelIds.includes(variantId);
-    }
-    if (Array.isArray(q.models)) {
-      return q.models.includes(variantId);
-    }
-    if (productId && Array.isArray(q.productIds)) {
-      return q.productIds.includes(productId);
-    }
-    if (productId && typeof q.productId === "string") {
-      return q.productId === productId;
-    }
-    if (!variant || variant.productId === "AW169") {
-      return true;
-    }
-    return false;
-  });
+  // Filter out blocked questions (soft-deleted)
+  const blockedSet = await fetchBlockedSet();
+  return variantFiltered.filter((q) => !blockedSet.has(q?.id));
 }

@@ -86,6 +86,13 @@ export default function AvionicsFmsQuizStart() {
   const { variant: activeVariant } = useActiveModelVariant();
 
   async function getData(): Promise<{ items: QuizItem[] }> {
+    // Fetch blocked (soft-deleted) questions and filter them out
+    let blocked = new Set<string>();
+    try {
+      const r = await fetch('/api/blocked-questions', { cache: 'no-store' });
+      if (r.ok) { const j = await r.json(); blocked = new Set<string>(Array.isArray(j?.ids) ? j.ids : []); }
+    } catch {}
+
     const urls = [
       `/model-data/${activeVariant.id}/sections/avionics_fms_limitations.json`,
       DATA_URL,
@@ -96,9 +103,9 @@ export default function AvionicsFmsQuizStart() {
         if (!res.ok) continue;
         const payload = await res.json();
         if (!payload.items || !Array.isArray(payload.items)) continue;
-        const filtered = (payload.items as QuizItem[]).filter((item) =>
-          matchesVariant(item, activeVariant.id, activeVariant.productId),
-        );
+        const filtered = (payload.items as QuizItem[])
+          .filter((item) => matchesVariant(item, activeVariant.id, activeVariant.productId))
+          .filter((item) => item && !blocked.has(item.id));
         if (!filtered.length) continue;
         return { items: filtered };
       } catch (error) {

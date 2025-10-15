@@ -1,6 +1,5 @@
 'use client';
-import { auth, db } from '@/lib/firebase/client';
-import { addDoc, collection } from 'firebase/firestore';
+import { auth } from '@/lib/firebase/client';
 
 const QUEUE_KEY = 'rr_flags_queue';
 function loadQueue(): any[] {
@@ -57,14 +56,10 @@ export async function reportFlag(payload: FlagPayload) {
     status: 'open',
   } as any;
 
-  // Legg alltid i lokal kø først (offline-safe)
+  // Offline-first: legg i lokal kø, og forsøk deretter server-post.
   const queued = loadQueue();
   queued.push(data);
   saveQueue(queued);
 
-  // Forsøk å flush med en gang
   try { await flushQueue(); } catch {}
-
-  // Ekstra fallback: klient-DB for miljø der API kan feile permanent
-  try { if (db) { await addDoc(collection(db, 'flags'), data); await flushQueue(); } } catch {}
 }

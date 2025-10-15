@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import fs from "fs";
 import path from "path";
+import { isProduction } from "@/lib/env";
 export const runtime = "nodejs";
 
 // Firestore-based store (production/persistent)
@@ -30,11 +31,23 @@ export async function GET() {
   // Try Firestore first
   try {
     const flags = await listFlags();
-    return NextResponse.json({ flags });
+    // Dedupe: some clients may have produced duplicates when both client-Firestore and API were used
+    const seen = new Set<string>();
+    const deduped = flags.filter((f: any) => {
+      const key = [f.questionId || "", f.section || "", f.userId || "", f.createdAt || ""].join("|");
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    });
+    return NextResponse.json({ flags: deduped });
   } catch (err) {
+    // In production, surface a clear warning so the UI can indicate misconfiguration
+    if (isProduction) {
+      return NextResponse.json({ flags: [], error: "Firestore admin not configured or unreachable; returning empty list." }, { status: 200 });
+    }
     // Fallback for local/dev
     const store = readStore();
-    return NextResponse.json({ flags: store.flags });
+    return NextResponse.json({ flags: store.flags, devWarning: "Using local file fallback for flags" });
   }
 }
 
@@ -49,6 +62,10 @@ export async function POST(req: Request) {
     const saved = await addFlag(payload);
     return NextResponse.json({ ok: true, flag: saved });
   } catch (err) {
+    // In production, do not silently fall back; indicate misconfiguration
+    if (isProduction) {
+      return NextResponse.json({ error: "Firestore admin not configured; cannot persist flag in production." }, { status: 500 });
+    }
     // Fallback: local file append (dev only)
     try {
       const now = new Date().toISOString();
@@ -58,7 +75,7 @@ export async function POST(req: Request) {
       ensureDir();
       const next = { flags: [...store.flags, flag] };
       fs.writeFileSync(FILE, JSON.stringify(next, null, 2));
-      return NextResponse.json({ ok: true, flag });
+      return NextResponse.json({ ok: true, flag, devWarning: "Persisted to local file fallback (dev only)" });
     } catch (e) {
       return NextResponse.json({ error: "Failed to persist flag" }, { status: 500 });
     }

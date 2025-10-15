@@ -26,6 +26,7 @@ export default async function AdminDashboard() {
 
   const openFlags = (flags?.flags as Flag[] || []).filter((f: Flag) => f.status === "open");
   const genCount = (generated?.items || []).length;
+  const flagsWarning: string | null = (flags?.error || flags?.devWarning) ? (flags?.error || flags?.devWarning) : null;
 
   type Section = {
     id: string;
@@ -53,6 +54,12 @@ export default async function AdminDashboard() {
           <a href="/admin/generated" className="px-3 py-2 rounded border text-sm">Generated ({genCount})</a>
         </div>
       </section>
+      {flagsWarning && (
+        <div className="bg-yellow-50 border border-yellow-300 text-yellow-800 px-4 py-3 rounded">
+          {flagsWarning}
+        </div>
+      )}
+
 
       <section className="bg-white dark:bg-zinc-900 dark:border-zinc-700 rounded-xl p-4 shadow border">
         <h2 className="font-semibold mb-2">Flaggede spørsmål — åpne ({openFlags.length})</h2>

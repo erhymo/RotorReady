@@ -85,7 +85,7 @@ export default async function AdminUsersPage() {
                 <li key={`${u.email}-${idx}`} className="flex items-center justify-between py-3">
                   <span className="font-mono text-sm text-slate-900 dark:text-zinc-100">{u.email}</span>
                   {u.createdAt && (
-                    <span className="text-xs text-slate-500 dark:text-zinc-400">{new Date(u.createdAt).toLocaleString()}</span>
+                    <span className="text-xs text-slate-500 dark:text-zinc-400">{new Date(u.createdAt).toLocaleString('nb-NO', { timeZone: 'Europe/Oslo', weekday: 'long', year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' })}</span>
                   )}
                 </li>
               ))}

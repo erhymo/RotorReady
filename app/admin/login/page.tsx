@@ -1,31 +1,28 @@
 "use client";
 import { useState } from "react";
 
-import { SESSION_COOKIE } from "@/lib/auth/session";
-
-const ADMIN_USERNAME = process.env.NEXT_PUBLIC_ADMIN_USERNAME || "admin";
-const ADMIN_PASSWORD = process.env.NEXT_PUBLIC_ADMIN_PASSWORD || "rotorready2025";
-
 export default function AdminLoginPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  function handleLogin(e: React.FormEvent) {
+  async function handleLogin(e: React.FormEvent) {
     e.preventDefault();
-    if (username === ADMIN_USERNAME && password === ADMIN_PASSWORD) {
-      const maxAge = 60 * 60 * 8;
-      const parts = [
-        `${SESSION_COOKIE}=ok`,
-        "Path=/",
-        "SameSite=Strict",
-        window.location.protocol === "https:" ? "Secure" : null,
-        `Max-Age=${maxAge}`,
-      ].filter(Boolean) as string[];
-      document.cookie = parts.join("; ");
-      window.location.href = "/admin";
-    } else {
-      setError("Feil brukernavn eller passord");
+    setError("");
+    try {
+      const res = await fetch('/api/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, password })
+      });
+      if (!res.ok) {
+        const j = await res.json().catch(() => ({}));
+        throw new Error(j?.error || 'Feil brukernavn eller passord');
+      }
+      const next = new URLSearchParams(window.location.search).get('next') || '/admin';
+      window.location.href = next;
+    } catch (err: any) {
+      setError(err?.message || 'Kunne ikke logge inn');
     }
   }
 
@@ -54,9 +51,8 @@ export default function AdminLoginPage() {
             Logg inn
           </button>
         </form>
-        <p className="mt-4 text-xs text-slate-500 dark:text-zinc-400">
-          Standard brukernavn: <span className="font-mono">{ADMIN_USERNAME}</span>
-        </p>
+        {/* Hint (uten å eksponere verdier i bundle): kontakt systemansvarlig om du mangler brukernavn/passord */}
+        <p className="mt-4 text-xs text-slate-500 dark:text-zinc-400">Har du problemer med innlogging? Kontakt administrator.</p>
       </div>
     </div>
   );

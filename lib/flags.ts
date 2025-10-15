@@ -12,9 +12,13 @@ let initDone = false;
 async function flushQueue() {
   const q = loadQueue(); if (!q.length) return;
   const rest: any[] = [];
+  // fetch ID token once per flush; refresh per item if needed
+  const idToken = auth?.currentUser ? await auth.currentUser.getIdToken().catch(() => null) : null;
   for (const item of q) {
     try {
-      const res = await fetch('/api/flags', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(item) });
+      const headers: Record<string, string> = { 'Content-Type': 'application/json' };
+      if (idToken) headers['Authorization'] = `Bearer ${idToken}`;
+      const res = await fetch('/api/flags', { method: 'POST', headers, body: JSON.stringify(item) });
       if (!res.ok) throw new Error('HTTP '+res.status);
     } catch {
       rest.push(item);
@@ -52,6 +56,7 @@ export async function reportFlag(payload: FlagPayload) {
   const data = {
     ...payload,
     userId: auth?.currentUser?.uid || 'guest',
+    // email sendes med for bakoverkomp., server ignorerer og beriker selv
     email: auth?.currentUser?.email || undefined,
     createdAt: new Date().toISOString(),
     status: 'open',

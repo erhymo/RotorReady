@@ -48,10 +48,12 @@ export default async function AdminDashboard() {
             </li>
           ))}
         </ul>
-        <div className="mt-3 flex gap-2">
+        <div className="mt-3 flex gap-2 flex-wrap">
           <a href="/admin/qrh-publish" className="px-3 py-2 rounded bg-blue-600 text-white text-sm">QRH Publish</a>
           <a href="/admin/flags?status=open" className="px-3 py-2 rounded border text-sm">Flags</a>
           <a href="/admin/generated" className="px-3 py-2 rounded border text-sm">Generated ({genCount})</a>
+          <a href="/api/admin/flags/dedupe" className="px-3 py-2 rounded border text-sm" title="Forhåndsvis duplikater">Preview flag dedupe</a>
+          <a href="/api/admin/flags/dedupe?confirm=1" className="px-3 py-2 rounded border text-sm text-red-700" title="Slett duplikater (irreversibelt)">Run flag dedupe</a>
         </div>
       </section>
       {flagsWarning && (

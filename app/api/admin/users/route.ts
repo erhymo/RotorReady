@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { adminDb } from "@/lib/firebase/admin";
+import { adminDb, adminAuth } from "@/lib/firebase/admin";
 
 export const runtime = "nodejs";
 
@@ -33,6 +33,24 @@ export async function GET() {
         byEmail.set(email, createdAt || cur || null);
       }
     }
+
+    // From Firebase Auth (users that may not yet have Firestore profile)
+    try {
+      let pageToken: string | undefined = undefined;
+      do {
+        const res = await adminAuth.listUsers(1000, pageToken);
+        for (const u of res.users) {
+          const email = u.email;
+          if (!email) continue;
+          const creation = u.metadata?.creationTime ? new Date(u.metadata.creationTime).toISOString() : null;
+          const cur = byEmail.get(email);
+          if (!cur || (creation && (!cur || Date.parse(creation) > Date.parse(cur)))) {
+            byEmail.set(email, creation || cur || null);
+          }
+        }
+        pageToken = res.pageToken as any;
+      } while (pageToken);
+    } catch {}
 
     const users = Array.from(byEmail.entries()).map(([email, createdAt]) => ({ email, createdAt }));
 

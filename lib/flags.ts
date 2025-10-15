@@ -52,6 +52,7 @@ export async function reportFlag(payload: FlagPayload) {
   const data = {
     ...payload,
     userId: auth?.currentUser?.uid || 'guest',
+    email: auth?.currentUser?.email || undefined,
     createdAt: new Date().toISOString(),
     status: 'open',
   } as any;

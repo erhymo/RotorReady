@@ -1,4 +1,4 @@
-import { adminDb } from "@/lib/firebase/admin";
+import { adminDb, adminAuth } from "@/lib/firebase/admin";
 
 export type AdminFlag = {
   id: string;
@@ -16,6 +16,7 @@ export type AdminFlag = {
   };
   reason?: string;
   userId?: string;
+  email?: string;
   createdAt: string;
   status: "open" | "reviewed-OK" | "rejected";
 };
@@ -44,6 +45,7 @@ export async function listFlags(): Promise<AdminFlag[]> {
       snapshot: data.snapshot || undefined,
       reason: data.reason || undefined,
       userId: data.userId || undefined,
+      email: data.email || undefined,
       createdAt: toIso(data.createdAt),
       status: (data.status as AdminFlag["status"]) || "open",
     } satisfies AdminFlag;
@@ -52,8 +54,20 @@ export async function listFlags(): Promise<AdminFlag[]> {
 
 export async function addFlag(payload: Omit<AdminFlag, "id" | "createdAt" | "status"> & Partial<Pick<AdminFlag, "status" | "createdAt">>) {
   const now = new Date().toISOString();
+
+  // Enrich with email if we have a userId but no email in payload
+  let enrichedEmail = (payload as any)?.email as string | undefined;
+  const uid = (payload as any)?.userId as string | undefined;
+  if (!enrichedEmail && uid) {
+    try {
+      const u = await adminAuth.getUser(uid);
+      enrichedEmail = u.email || undefined;
+    } catch {}
+  }
+
   const docRef = await adminDb.collection(COLLECTION).add({
     ...payload,
+    email: enrichedEmail ?? (payload as any)?.email ?? undefined,
     status: payload.status ?? "open",
     createdAt: payload.createdAt ?? now,
   });
@@ -69,6 +83,7 @@ export async function addFlag(payload: Omit<AdminFlag, "id" | "createdAt" | "sta
     snapshot: data.snapshot ?? payload.snapshot,
     reason: data.reason ?? payload.reason,
     userId: data.userId ?? payload.userId,
+    email: data.email ?? enrichedEmail,
     createdAt: toIso(data.createdAt) || now,
     status: (data.status as AdminFlag["status"]) || "open",
   } as AdminFlag;

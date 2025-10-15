@@ -19,6 +19,7 @@ export default async function AdminDashboard() {
     questionId: string;
     section: string;
     userId: string;
+    email?: string;
     createdAt: string;
     status: string;
     reason?: string;
@@ -70,7 +71,7 @@ export default async function AdminDashboard() {
             {openFlags.map((f: Flag) => (
               <li key={f.id} className="border dark:border-zinc-700 rounded-lg p-3">
                 <div className="text-sm"><b>ID:</b> {f.questionId} <span className="text-gray-500">[{f.section}]</span></div>
-                <div className="text-xs text-gray-600">Av: {f.userId} — {new Date(f.createdAt).toLocaleString()} — status: {f.status}</div>
+                <div className="text-xs text-gray-600">Av: {f.email || f.userId || 'ukjent'} — {new Date(f.createdAt).toLocaleString('nb-NO', { timeZone: 'Europe/Oslo', weekday: 'long', year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' })} — status: {f.status}</div>
                 {f.reason && <div className="text-sm mt-1">{f.reason}</div>}
               </li>
             ))}

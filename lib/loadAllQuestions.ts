@@ -26,29 +26,47 @@ async function fetchBlockedSet(): Promise<Set<string>> {
 export async function loadAllQuestions(variantId?: string): Promise<any[]> {
   const all: any[] = [];
 
+  // 1) Modell-spesifikke kapitler fra index.json for varianten
   if (variantId) {
     const index = await fetchJson<{ sections?: Array<{ id?: string; title?: string }> }>(
       `/model-data/${variantId}/index.json`,
     );
     if (index?.sections?.length) {
       for (const section of index.sections) {
-        if (!section?.id) continue;
-        const sectionData = await fetchJson<{ items?: any[] }>(
-          `/model-data/${variantId}/sections/${section.id}.json`,
+        const sectionId = section?.id?.trim();
+        if (!sectionId) continue;
+
+        // Prøv modell-fil først
+        let sectionData = await fetchJson<{ items?: any[] }>(
+          `/model-data/${variantId}/sections/${sectionId}.json`,
         );
-        if (!sectionData?.items || !Array.isArray(sectionData.items)) continue;
-        const label = typeof section.title === "string" && section.title.trim() ? section.title : section.id;
-        const enriched = sectionData.items.map((item) => ({
+        let source: "model" | "global" | null = null;
+        if (sectionData?.items && Array.isArray(sectionData.items)) {
+          source = "model";
+        } else {
+          // Fallback: global seksjon for samme id
+          sectionData = await fetchJson<{ items?: any[] }>(
+            `/quiz-data/sections/${sectionId}.json`,
+          );
+          if (sectionData?.items && Array.isArray(sectionData.items)) source = "global";
+        }
+        if (!source) continue;
+
+        const label = typeof section.title === "string" && section.title.trim() ? section.title : sectionId;
+        const enriched = (sectionData!.items || []).map((item: any) => ({
           section: label,
           ...item,
-          sectionId: item.sectionId ?? section.id,
-          __file: `model-data/${variantId}/sections/${section.id}.json`,
+          sectionId: item.sectionId ?? sectionId,
+          __file: source === "model"
+            ? `model-data/${variantId}/sections/${sectionId}.json`
+            : `quiz-data/sections/${sectionId}.json`,
         }));
         all.push(...enriched);
       }
     }
   }
 
+  // 2) Kuraterte ekstra-banker fra manifest (valgfritt tillegg)
   const manifest = await fetchJson<string[]>("/quiz-data/all-questions/manifest.json");
   if (manifest?.length) {
     for (const file of manifest) {
@@ -59,6 +77,7 @@ export async function loadAllQuestions(variantId?: string): Promise<any[]> {
     }
   }
 
+  // 3) Unik per id + normalisering
   const seen = new Set<string>();
   const filtered = all.filter((q) => {
     const id = q?.id;
@@ -78,32 +97,22 @@ export async function loadAllQuestions(variantId?: string): Promise<any[]> {
     }
   }
 
-  // Filter by variant (if provided)
+  // 4) Variant-filtrering: tillat eksplisitt scoping; ellers default-allow for AW169 (legacy)
   let variantFiltered: any[] = filtered;
   if (variantId) {
     const variant = getModelVariant(variantId);
     const productId = variant?.productId;
     variantFiltered = filtered.filter((q) => {
-      if (Array.isArray(q.modelIds)) {
-        return q.modelIds.includes(variantId);
-      }
-      if (Array.isArray(q.models)) {
-        return q.models.includes(variantId);
-      }
-      if (productId && Array.isArray(q.productIds)) {
-        return q.productIds.includes(productId);
-      }
-      if (productId && typeof q.productId === "string") {
-        return q.productId === productId;
-      }
-      if (!variant || variant.productId === "AW169") {
-        return true;
-      }
-      return false;
+      if (Array.isArray(q.modelIds)) return q.modelIds.includes(variantId);
+      if (Array.isArray(q.models)) return q.models.includes(variantId);
+      if (productId && Array.isArray(q.productIds)) return q.productIds.includes(productId);
+      if (productId && typeof q.productId === "string") return q.productId === productId;
+      // Ingen eksplisitt scoping: behold for AW169 (historisk innhold), ellers dropp
+      return variant?.productId === "AW169";
     });
   }
 
-  // Filter out blocked questions (soft-deleted)
+  // 5) Soft-delete (blocklist)
   const blockedSet = await fetchBlockedSet();
   return variantFiltered.filter((q) => !blockedSet.has(q?.id));
 }

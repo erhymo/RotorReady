@@ -33,6 +33,9 @@ export default function SectionPage() {
     return sections.find((s) => s.id === routeSection) || sections[0];
   }, [sections, routeSection]);
 
+  const [totalCount, setTotalCount] = useState<number | null>(null);
+  const [totalLoading, setTotalLoading] = useState<boolean>(false);
+
   useEffect(() => {
     if (variantLoading) return;
     let cancelled = false;
@@ -158,6 +161,76 @@ export default function SectionPage() {
     return () => { cancelled = true; };
   }, [selected?.id, activeVariant.id, variantLoading]);
 
+  useEffect(() => {
+    if (variantLoading) return;
+    if (!selected?.id) { setTotalCount(null); return; }
+    let cancelled = false;
+    setTotalLoading(true);
+    (async () => {
+      try {
+        // 'All' = total across all chapters for this model
+        if (selected.id === "all") {
+          try {
+            const mod = await import("@/lib/loadAllQuestions");
+            const all = await mod.loadAllQuestions(activeVariant.id);
+            if (!cancelled) setTotalCount(all.length);
+            return;
+          } catch {}
+        }
+        // Try offline first
+        let items: any[] | null = null;
+        try {
+          const mod = await import("@/lib/offline");
+          const offline = mod.loadSectionOffline<{ items?: any[] }>(selected.id, activeVariant.id);
+          if (offline && Array.isArray(offline.items)) items = offline.items;
+        } catch {}
+        // Fallback to network (model-specific, then global with variant filter)
+        if (!items) {
+          const urls = [
+            `/model-data/${activeVariant.id}/sections/${selected.id}.json`,
+            `/quiz-data/sections/${selected.id}.json`,
+          ];
+          for (const url of urls) {
+            try {
+              const res = await fetch(url, { cache: "no-store" });
+              if (!res.ok) continue;
+              const data = await res.json();
+              if (data && Array.isArray(data.items)) {
+                let sourceItems: any[] = data.items;
+                if (url.startsWith("/quiz-data")) {
+                  sourceItems = sourceItems.filter((q: any) => {
+                    if (Array.isArray(q.modelIds)) return q.modelIds.includes(activeVariant.id);
+                    if (Array.isArray(q.models)) return q.models.includes(activeVariant.id);
+                    if (activeVariant.productId && Array.isArray(q.productIds)) return q.productIds.includes(activeVariant.productId);
+                    if (activeVariant.productId && typeof q.productId === "string") return q.productId === activeVariant.productId;
+                    return activeVariant.productId === "AW169"; // default-allow legacy
+                  });
+                }
+                if (sourceItems.length) { items = sourceItems; break; }
+              }
+            } catch {}
+          }
+        }
+        if (!items) { if (!cancelled) setTotalCount(0); return; }
+        // Apply blocklist
+        let blocked = new Set<string>();
+        try {
+          const res = await fetch("/api/blocked-questions", { cache: "no-store" });
+          if (res.ok) {
+            const data = await res.json();
+            const ids: string[] = Array.isArray(data?.ids) ? data.ids : [];
+            blocked = new Set(ids);
+          }
+        } catch {}
+        const allowed = items.filter((it: any) => it && !blocked.has(it.id));
+        if (!cancelled) setTotalCount(allowed.length);
+      } finally {
+        if (!cancelled) setTotalLoading(false);
+      }
+    })();
+    return () => { cancelled = true; };
+  }, [selected?.id, activeVariant.id, variantLoading]);
+
 
   async function handleAmount(amount: AmountOptionValue) {
     if (!selected) return;
@@ -193,6 +266,7 @@ export default function SectionPage() {
             }
           }
         }
+
         combinedItems = Object.values(out);
       }
     } catch {}
@@ -263,10 +337,13 @@ export default function SectionPage() {
             </option>
           ))}
         </select>
+        <span className="ml-auto mr-2 text-xs text-gray-600 dark:text-zinc-300">
+          {totalLoading ? "\u2026" : (totalCount != null ? `${totalCount} total` : "")}
+        </span>
         <button
           onClick={() => handleAmount(amount)}
           disabled={hasQuestions === false}
-          className="ml-auto px-4 py-2 rounded-lg bg-blue-600 text-white active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="px-4 py-2 rounded-lg bg-blue-600 text-white active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
         >
           Start
         </button>

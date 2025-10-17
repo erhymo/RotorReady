@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import { adminDb, adminAuth } from "@/lib/firebase/admin";
 
 export default async function AdminUsersPage() {

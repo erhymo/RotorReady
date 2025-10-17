@@ -20,10 +20,8 @@ export async function GET(req: Request) {
     return NextResponse.json({ conversation: conversation || null });
   } catch (error: any) {
     console.error("Could not load conversation", error);
-    if (!isProduction) {
-      return NextResponse.json({ conversation: null, devWarning: "Firestore admin not configured in dev; returning empty conversation." }, { status: 200 });
-    }
-    return NextResponse.json({ error: error?.message || "Failed to load conversation" }, { status: 500 });
+    // Be lenient for GET: don't surface transient errors in UI; return empty conversation
+    return NextResponse.json({ conversation: null }, { status: 200 });
   }
 }
 

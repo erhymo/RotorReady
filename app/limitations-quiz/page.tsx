@@ -64,6 +64,24 @@ export default function LimitationsStart() {
   const [err, setErr] = React.useState<string | null>(null);
   const { variant: activeVariant } = useActiveModelVariant();
 
+  const [totalCount, setTotalCount] = React.useState<number|null>(null);
+  const [totalLoading, setTotalLoading] = React.useState(false);
+  React.useEffect(() => {
+    let cancelled = false;
+    setTotalLoading(true);
+    (async () => {
+      try {
+        const items = await loadAllQuestions(activeVariant.id);
+        if (!cancelled) setTotalCount(items.length);
+      } catch {
+        if (!cancelled) setTotalCount(0);
+      } finally {
+        if (!cancelled) setTotalLoading(false);
+      }
+    })();
+    return () => { cancelled = true; };
+  }, [activeVariant.id]);
+
   async function getData(): Promise<{items: QuizItem[]}> {
     // Load and merge all questions from all-questions/
     const items = await loadAllQuestions(activeVariant.id);
@@ -177,8 +195,11 @@ export default function LimitationsStart() {
             <option key={option} value={option}>{option === "all" ? "All" : option}</option>
           ))}
         </select>
+        <span className="ml-auto mr-2 text-xs text-gray-600 dark:text-zinc-300">
+          {totalLoading ? "…" : (totalCount != null ? `${totalCount} total` : "")}
+        </span>
         <button onClick={startQuiz} disabled={loading}
-          className="ml-auto px-4 py-2 rounded-lg bg-blue-600 text-white active:scale-95">
+          className="px-4 py-2 rounded-lg bg-blue-600 text-white active:scale-95">
           {loading ? "Starting…" : "Start"}
         </button>
       </div>

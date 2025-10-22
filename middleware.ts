@@ -19,9 +19,16 @@ export async function middleware(req: NextRequest) {
   try {
     const host = req.headers.get("host") || "";
     if (process.env.VERCEL_ENV === "production") {
-      if (host === "rotorready.vercel.app" || host === "www.rotorready.com") {
+      const CANON = "rotor-ready.com";
+      const redirectHosts = new Set([
+        "rotorready.vercel.app",
+        "www.rotorready.com",
+        "rotorready.com",
+        "www.rotor-ready.com",
+      ]);
+      if (redirectHosts.has(host)) {
         const url = req.nextUrl.clone();
-        url.host = "rotorready.com";
+        url.host = CANON;
         url.protocol = "https";
         return NextResponse.redirect(url, 308);
       }

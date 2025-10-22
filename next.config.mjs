@@ -36,6 +36,12 @@ const withPWA = withPWAInit({
       handler: 'NetworkFirst',
       options: { cacheName: 'pages' },
     },
+    {
+      // Ensure quiz amount-selection pages are cached and available offline
+      urlPattern: ({ url }) => url.pathname.startsWith('/quiz/'),
+      handler: 'NetworkFirst',
+      options: { cacheName: 'quiz-pages' },
+    },
   ],
 });
 

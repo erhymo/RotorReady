@@ -248,6 +248,18 @@ export default function OfflinePage() {
     } catch {}
   }
 
+  // Hent og cache HTML-sidene for "Velg antall" slik at navigasjon funker offline
+  async function prefetchQuizAmountPages(ids: string[]) {
+    for (const id of ids) {
+      try {
+        await fetch(`/quiz/${encodeURIComponent(id)}`, {
+          cache: 'no-store',
+          headers: { Accept: 'text/html' },
+        });
+      } catch {}
+    }
+  }
+
   async function downloadAllSections() {
     if (!sections.length) return;
     setDownloadingAll(true);
@@ -257,6 +269,7 @@ export default function OfflinePage() {
       setDownloadProgress((p) => ({ done: Math.min(p.done + 1, p.total), total: p.total }));
     }
     await prefetchAllQuestionsAssets().catch(() => {});
+    await prefetchQuizAmountPages(sections.map((s) => s.id)).catch(() => {});
     setDownloadingAll(false);
   }
 

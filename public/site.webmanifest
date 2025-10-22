@@ -2,7 +2,9 @@
   "name": "RotorReady",
   "short_name": "RotorReady",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
+  "display_override": ["fullscreen", "standalone"],
   "background_color": "#111827",
   "theme_color": "#111827",
   "icons": [

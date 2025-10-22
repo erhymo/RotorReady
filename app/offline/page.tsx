@@ -120,6 +120,10 @@ export default function OfflinePage() {
   // Gating midlertidig deaktivert – alltid tilgang til offline
   const { variant: activeVariant, loading: variantLoading } = useActiveModelVariant();
 
+  const [downloadingAll, setDownloadingAll] = useState(false);
+  const [downloadProgress, setDownloadProgress] = useState<{ done: number; total: number }>({ done: 0, total: 0 });
+
+
 
   useEffect(() => {
     if (variantLoading) return;
@@ -227,6 +231,35 @@ export default function OfflinePage() {
     updateStatus(section.id, "Slettet lokale offline-data");
   }
 
+  async function prefetchAllQuestionsAssets() {
+    try {
+      const r = await fetch('/quiz-data/all-questions/manifest.json', { cache: 'no-store' });
+      if (r.ok) {
+        const arr = await r.json();
+        if (Array.isArray(arr)) {
+          await Promise.all(
+            arr.map((f) => fetch(`/quiz-data/all-questions/${f}`, { cache: 'no-store' }).catch(() => {}))
+          );
+        }
+      }
+      // Priming index files helps future navigation offline
+      await fetch(`/model-data/${activeVariant.id}/index.json`, { cache: 'no-store' }).catch(() => {});
+      await fetch('/quiz-data/index.json', { cache: 'no-store' }).catch(() => {});
+    } catch {}
+  }
+
+  async function downloadAllSections() {
+    if (!sections.length) return;
+    setDownloadingAll(true);
+    setDownloadProgress({ done: 0, total: sections.length });
+    for (const s of sections) {
+      await downloadSectionOffline(s);
+      setDownloadProgress((p) => ({ done: Math.min(p.done + 1, p.total), total: p.total }));
+    }
+    await prefetchAllQuestionsAssets().catch(() => {});
+    setDownloadingAll(false);
+  }
+
   const readyForActions = true;
   const showContent = true;
 
@@ -237,7 +270,16 @@ export default function OfflinePage() {
       {showContent && (
         <>
           <section className="rounded-xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-4 space-y-4">
-            <h2 className="font-semibold text-slate-900 dark:text-zinc-100">Tilgjengelige seksjoner</h2>
+            <div className="flex items-center justify-between gap-3">
+              <h2 className="font-semibold text-slate-900 dark:text-zinc-100">Tilgjengelige seksjoner</h2>
+              <button
+                onClick={downloadAllSections}
+                disabled={loadingSections || sections.length === 0 || downloadingAll}
+                className="rounded bg-blue-600 text-white px-3 py-1.5 text-xs font-semibold disabled:opacity-60 disabled:cursor-not-allowed dark:bg-blue-500 dark:hover:bg-blue-600"
+              >
+                {downloadingAll ? `Laster ned… ${downloadProgress.done}/${downloadProgress.total}` : "Last ned alt for denne modellen"}
+              </button>
+            </div>
             {loadingSections ? (
               <p className="text-sm text-slate-600 dark:text-zinc-300">Laster seksjoner…</p>
             ) : sectionsError ? (

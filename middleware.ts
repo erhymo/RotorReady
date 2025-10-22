@@ -9,11 +9,24 @@ import { SESSION_COOKIE } from "./lib/auth/session";
 import { verifyAdminToken } from "./lib/auth/token-verify-edge";
 
 export const config = {
-  matcher: ["/admin/:path*", "/api/admin/:path*", "/api/auth/:path*"],
+  matcher: ["/:path*"],
 };
 
 export async function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
+
+  // Canonical domain redirect (production only)
+  try {
+    const host = req.headers.get("host") || "";
+    if (process.env.VERCEL_ENV === "production") {
+      if (host === "rotorready.vercel.app" || host === "www.rotorready.com") {
+        const url = req.nextUrl.clone();
+        url.host = "rotorready.com";
+        url.protocol = "https";
+        return NextResponse.redirect(url, 308);
+      }
+    }
+  } catch {}
 
   // Always allow auth endpoints and the login page
   if (pathname.startsWith("/api/auth/") || pathname.startsWith("/admin/login")) {

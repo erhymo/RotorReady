@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import fs from "fs";
 import path from "path";
+import { isProduction } from "@/lib/env";
 export const runtime = "nodejs";
 
 const FILE = path.join(process.cwd(), "public", "quiz-data", "flags.json");
@@ -73,6 +74,10 @@ export async function POST(req: Request) {
     const saved = await addFlag(safePayload);
     return NextResponse.json({ ok: true, id: saved.id, flag: saved });
   } catch (err) {
+    // In production, do NOT fall back to file — surface clear error so client retries later
+    if (isProduction) {
+      return NextResponse.json({ error: 'Firestore admin not configured or unreachable; cannot persist flag in production.' }, { status: 500 });
+    }
     // Fallback: local file append (dev only)
     try {
       const now = new Date().toISOString();

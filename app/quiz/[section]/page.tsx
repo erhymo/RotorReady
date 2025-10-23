@@ -28,6 +28,8 @@ export default function SectionPage() {
   const [hasQuestions, setHasQuestions] = useState<boolean | null>(null);
   const { variant: activeVariant, loading: variantLoading } = useActiveModelVariant();
 
+  const [resumeInfo, setResumeInfo] = useState<{ amountToken: string; idx: number; total: number } | null>(null);
+
   const selected = useMemo(() => {
     if (!sections.length) return null as Section | null;
     return sections.find((s) => s.id === routeSection) || sections[0];
@@ -103,6 +105,7 @@ export default function SectionPage() {
     })().finally(() => {
       if (!cancelled) setLoading(false);
     });
+
 
     return () => { cancelled = true; };
   }, [activeVariant.id, variantLoading, routeSection]);
@@ -231,6 +234,54 @@ export default function SectionPage() {
     return () => { cancelled = true; };
   }, [selected?.id, activeVariant.id, variantLoading]);
 
+  // Detect existing resume snapshot for this section/model
+  useEffect(() => {
+    if (variantLoading) return;
+    let cancelled = false;
+    try {
+      const prefix = `${modelScopedKey("quiz:resume", activeVariant.id)}:${routeSection}:`;
+      const matches: Array<{ key: string; snap: any }> = [];
+      for (let i = 0; i < localStorage.length; i++) {
+        const k = localStorage.key(i) || "";
+        if (!k.startsWith(prefix)) continue;
+        const raw = localStorage.getItem(k);
+        if (!raw) continue;
+        try {
+          const snap = JSON.parse(raw);
+          if (Array.isArray(snap?.items) && snap.items.length) {
+            matches.push({ key: k, snap });
+          }
+        } catch {}
+      }
+      if (!cancelled) {
+        if (matches.length) {
+          matches.sort((a, b) => Number(b.snap?.updatedAt || 0) - Number(a.snap?.updatedAt || 0));
+          const top = matches[0];
+          const amountToken = String(top.snap?.amount ?? top.key.substring(prefix.length));
+          const total = Array.isArray(top.snap?.items) ? top.snap.items.length : 0;
+          const idx = Math.min(Math.max(0, Number(top.snap?.idx ?? 0)), Math.max(0, total - 1));
+          setResumeInfo({ amountToken, idx, total });
+        } else {
+          setResumeInfo(null);
+        }
+      }
+    } catch {}
+    return () => { cancelled = true; };
+  }, [activeVariant.id, routeSection, variantLoading]);
+
+  function handleResumeContinue() {
+    if (!resumeInfo) return;
+    router.push(`/quiz/${encodeURIComponent(routeSection)}/${encodeURIComponent(String(resumeInfo.amountToken))}`);
+  }
+  function handleResumeReset() {
+    if (!resumeInfo) return;
+    try {
+      const key = `${modelScopedKey("quiz:resume", activeVariant.id)}:${routeSection}:${resumeInfo.amountToken}`;
+      localStorage.removeItem(key);
+    } catch {}
+    setResumeInfo(null);
+  }
+
 
   async function handleAmount(amount: AmountOptionValue) {
     if (!selected) return;
@@ -270,6 +321,8 @@ export default function SectionPage() {
         combinedItems = Object.values(out);
       }
     } catch {}
+
+
 
     const raw =
       localStorage.getItem(lowerKey) ||
@@ -311,6 +364,18 @@ export default function SectionPage() {
       <p className="text-lg text-slate-700 dark:text-zinc-100 mt-2">Choose number of questions and start.</p>
       {selected?.id === "all" && (
         <p className="text-sm text-slate-600 dark:text-zinc-100 mt-1">"All" includes all available questions from every chapter for this model, randomized.</p>
+      )}
+
+
+      {resumeInfo && hasQuestions !== false && (
+        <div className="rounded-xl border-l-4 border-emerald-600 bg-emerald-50/40 dark:border-emerald-400 dark:bg-emerald-900/40 p-4 flex items-center gap-3">
+          <div className="flex-1">
+            <div className="font-semibold text-slate-900 dark:text-white">Fortsett økt</div>
+            <div className="text-sm text-gray-600 dark:text-zinc-100">Du er på spørsmål {resumeInfo.idx + 1} av {resumeInfo.total} ({String(resumeInfo.amountToken)}).</div>
+          </div>
+          <button onClick={handleResumeContinue} className="px-3 py-2 rounded-lg bg-emerald-600 text-white">Fortsett</button>
+          <button onClick={handleResumeReset} className="px-3 py-2 rounded-lg bg-slate-200 dark:bg-zinc-700 dark:text-white">Start på nytt</button>
+        </div>
       )}
 
 

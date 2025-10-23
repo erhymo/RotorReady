@@ -7,6 +7,8 @@ import TopBarBackButton from "@/components/TopBarBackButton";
 import Link from "next/link";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 
+import { modelScopedKey } from "@/lib/models/storage";
+
 // Samme type som limitations, men bruker engineq_session
 
 type Item = {
@@ -36,6 +38,28 @@ export default function EngineQuestionPage() {
   const [session, setSession] = React.useState<Session | null>(null);
   const [selected, setSelected] = React.useState<number | null>(null);
   const total = session?.items.length ?? 0;
+  function resumeKeyFor(amountToken: string) {
+    return `${modelScopedKey("quiz:resume", activeVariant.id)}:engine-systems:${amountToken}`;
+  }
+  function updateResume(idxOverride?: number) {
+    try {
+      const amt = String(((loadSession() as any)?.amountToken ?? "all"));
+      const s = loadSession(); if (!s) return;
+      const snapshot = {
+        section: "engine-systems",
+        variantId: activeVariant.id,
+        amount: amt,
+        items: s.items,
+        idx: idxOverride != null ? idxOverride : idx,
+        answers: s.answers.map((a) => (a == null ? undefined : Number(a))),
+        flags: s.flags,
+        startedAt: Date.now(),
+        updatedAt: Date.now(),
+      };
+      localStorage.setItem(resumeKeyFor(amt), JSON.stringify(snapshot));
+    } catch {}
+  }
+
   const { variant: activeVariant } = useActiveModelVariant();
 
   React.useEffect(() => {
@@ -84,12 +108,14 @@ export default function EngineQuestionPage() {
     const s = loadSession(); if (!s) return;
     s.answers[idx] = i;
     saveSession(s); setSession(s); setSelected(i);
+    updateResume();
   }
   function toggleFlag() {
     const s = loadSession(); if (!s) return;
     s.flags[idx] = !s.flags[idx];
     const nowFlagged = s.flags[idx];
     saveSession(s); setSession({ ...s });
+    updateResume();
     if (nowFlagged) {
       reportFlag({
         section: s.section,
@@ -108,11 +134,22 @@ export default function EngineQuestionPage() {
     }
   }
   function next() {
-    if (idx + 1 >= total) router.push("/engine-systems-quiz/result");
-    else router.push(`/engine-systems-quiz/${idx + 2}`);
+    if (idx + 1 >= total) {
+      try {
+        const amt = String(((loadSession() as any)?.amountToken ?? "all"));
+        localStorage.removeItem(resumeKeyFor(amt));
+      } catch {}
+      router.push("/engine-systems-quiz/result");
+    } else {
+      updateResume(idx + 1);
+      router.push(`/engine-systems-quiz/${idx + 2}`);
+    }
   }
   function prev() {
-    if (idx > 0) router.push(`/engine-systems-quiz/${idx}`);
+    if (idx > 0) {
+      updateResume(idx - 1);
+      router.push(`/engine-systems-quiz/${idx}`);
+    }
   }
 
   const progress = Math.round(((idx+1) / total) * 100);

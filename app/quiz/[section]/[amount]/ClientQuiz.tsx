@@ -20,18 +20,45 @@ export type QuizItem = {
   __file?: string;
 };
 
-export default function ClientQuiz({ section, initial }: { section: string; initial: QuizItem[] }) {
+export default function ClientQuiz({ section, initial, resumeKey, amountToken, initialIdx = 0, initialAnswers, initialFlags }: { section: string; initial: QuizItem[]; resumeKey: string; amountToken: string; initialIdx?: number; initialAnswers?: (number | undefined)[]; initialFlags?: boolean[] }) {
   const router = useRouter();
   const { variant: activeVariant } = useActiveModelVariant();
 
-  const [idx, setIdx] = React.useState(0);
-  const [answers, setAnswers] = React.useState<(number | undefined)[]>(() => Array(initial.length).fill(undefined));
-  const [flags, setFlags] = React.useState<boolean[]>(() => Array(initial.length).fill(false));
+  const [idx, setIdx] = React.useState<number>(initialIdx);
+  const [answers, setAnswers] = React.useState<(number | undefined)[]>(() => (initialAnswers && initialAnswers.length === initial.length) ? initialAnswers : Array(initial.length).fill(undefined));
+  const [flags, setFlags] = React.useState<boolean[]>(() => (initialFlags && initialFlags.length === initial.length) ? initialFlags : Array(initial.length).fill(false));
   const [done, setDone] = React.useState(false);
 
   const q = initial[idx];
   const total = initial.length;
   const progress = Math.round(((idx + 1) / total) * 100);
+
+  // Persist resume snapshot
+  function persistSnapshot(nextIdx: number = idx, nextAnswers: (number | undefined)[] = answers, nextFlags: boolean[] = flags) {
+    try {
+      const snapshot = {
+        section,
+        variantId: activeVariant.id,
+        amount: amountToken,
+        items: initial,
+        idx: nextIdx,
+        answers: nextAnswers,
+        flags: nextFlags,
+        startedAt: Date.now(),
+        updatedAt: Date.now(),
+      };
+      localStorage.setItem(resumeKey, JSON.stringify(snapshot));
+    } catch {}
+  }
+
+  // Create initial snapshot if missing
+  React.useEffect(() => {
+    try {
+      const existing = localStorage.getItem(resumeKey);
+      if (!existing) persistSnapshot(initialIdx, answers, flags);
+    } catch {}
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [resumeKey]);
 
   React.useEffect(() => {
     function onKey(e: KeyboardEvent) {
@@ -46,13 +73,25 @@ export default function ClientQuiz({ section, initial }: { section: string; init
     const next = [...answers];
     next[idx] = i;
     setAnswers(next);
+    // persist progress
+    persistSnapshot(idx, next, flags);
   }
   function handleNext() {
-    if (idx < initial.length - 1) setIdx(idx + 1);
-    else setDone(true);
+    if (idx < initial.length - 1) {
+      const nextIdx = idx + 1;
+      setIdx(nextIdx);
+      persistSnapshot(nextIdx, answers, flags);
+    } else {
+      try { localStorage.removeItem(resumeKey); } catch {}
+      setDone(true);
+    }
   }
   function handlePrev() {
-    if (idx > 0) setIdx(idx - 1);
+    if (idx > 0) {
+      const prevIdx = idx - 1;
+      setIdx(prevIdx);
+      persistSnapshot(prevIdx, answers, flags);
+    }
   }
   function handleRestart() {
     router.replace(`/quiz/${encodeURIComponent(section)}`);
@@ -62,6 +101,8 @@ export default function ClientQuiz({ section, initial }: { section: string; init
     next[idx] = !next[idx];
     const nowFlagged = next[idx];
     setFlags(next);
+    // persist progress
+    persistSnapshot(idx, answers, next);
     if (nowFlagged && q) {
       reportFlag({
         section,

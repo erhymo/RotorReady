@@ -82,12 +82,36 @@ export default function H125QuestionPage() {
     setSession({ ...s });
   }
 
+  function updateResume(idxOverride?: number) {
+    try {
+      const amountToken = String(((session as any)?.amountToken ?? "all"));
+      const resumeKey = `${modelScopedKey("quiz:resume", activeVariant.id)}:${section}:${amountToken}`;
+      const raw = sessionStorage.getItem(key); if (!raw) return;
+      const s = JSON.parse(raw) as Session;
+      const snapshot = {
+        section,
+        variantId: activeVariant.id,
+        amount: amountToken,
+        items: s.items,
+        idx: idxOverride != null ? idxOverride : index,
+        answers: s.answers.map((a) => (a == null ? undefined : Number(a))),
+        flags: s.flags,
+        startedAt: Date.now(),
+        updatedAt: Date.now(),
+      };
+      localStorage.setItem(resumeKey, JSON.stringify(snapshot));
+    } catch {}
+  }
+
+
   function choose(i: number) {
     persist((s) => { s.answers[index] = i; });
     setSelected(i);
+    updateResume();
   }
   function toggleFlag() {
     persist((s) => { s.flags[index] = !s.flags[index]; });
+    updateResume();
     const nowFlagged = !session?.flags[index];
     if (nowFlagged) {
       reportFlag({
@@ -107,11 +131,23 @@ export default function H125QuestionPage() {
     }
   }
   function next() {
-    if (index + 1 >= total) router.push(`/quiz/${encodeURIComponent(section)}/h125/result`);
-    else router.push(`/quiz/${encodeURIComponent(section)}/h125/${index + 2}`);
+    if (index + 1 >= total) {
+      try {
+        const amt = String(((session as any)?.amountToken ?? "all"));
+        const resumeKey = `${modelScopedKey("quiz:resume", activeVariant.id)}:${section}:${amt}`;
+        localStorage.removeItem(resumeKey);
+      } catch {}
+      router.push(`/quiz/${encodeURIComponent(section)}/h125/result`);
+    } else {
+      updateResume(index + 1);
+      router.push(`/quiz/${encodeURIComponent(section)}/h125/${index + 2}`);
+    }
   }
   function prev() {
-    if (index > 0) router.push(`/quiz/${encodeURIComponent(section)}/h125/${index}`);
+    if (index > 0) {
+      updateResume(index - 1);
+      router.push(`/quiz/${encodeURIComponent(section)}/h125/${index}`);
+    }
   }
 
   const progress = Math.round(((index + 1) / total) * 100);

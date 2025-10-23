@@ -28,6 +28,13 @@ export default function H125ResultPage() {
       }, 0);
       setSummary({ correct, total });
 
+      // Clear resume snapshot for this quiz
+      try {
+        const amt = String(((s as any)?.amountToken ?? "all"));
+        const resumeKey = `${modelScopedKey("quiz:resume", activeVariant.id)}:${section}:${amt}`;
+        localStorage.removeItem(resumeKey);
+      } catch {}
+
       // Persist last-wrong set for this section (model-scoped)
       const normalized = (typeof s.section === "string" && s.section.length) ? s.section.toLowerCase() : section.toLowerCase();
       const prefix = modelScopedKey("rr_progress_last_wrong", activeVariant.id);

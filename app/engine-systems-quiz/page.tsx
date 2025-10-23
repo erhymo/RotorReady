@@ -56,6 +56,7 @@ export default function EngineSystemsStart() {
   const { variant: activeVariant } = useActiveModelVariant();
   const [totalCount, setTotalCount] = React.useState<number|null>(null);
   const [totalLoading, setTotalLoading] = React.useState(false);
+  const [resumeInfo, setResumeInfo] = React.useState<{ amountToken: string; idx: number; total: number } | null>(null);
   React.useEffect(() => {
     let cancelled = false;
     setTotalLoading(true);
@@ -70,6 +71,36 @@ export default function EngineSystemsStart() {
       }
     })();
     return () => { cancelled = true; };
+  }, [activeVariant.id]);
+
+  React.useEffect(() => {
+    // Detect resume snapshot
+    try {
+      const prefix = `${modelScopedKey("quiz:resume", activeVariant.id)}:engine-systems:`;
+      const matches: Array<{ key: string; snap: any }> = [];
+      for (let i = 0; i < localStorage.length; i++) {
+        const k = localStorage.key(i) || "";
+        if (!k.startsWith(prefix)) continue;
+        const raw = localStorage.getItem(k);
+        if (!raw) continue;
+        try {
+          const snap = JSON.parse(raw);
+          if (Array.isArray(snap?.items) && snap.items.length) {
+            matches.push({ key: k, snap });
+          }
+        } catch {}
+      }
+      if (matches.length) {
+        matches.sort((a, b) => Number(b.snap?.updatedAt || 0) - Number(a.snap?.updatedAt || 0));
+        const top = matches[0];
+        const amountToken = String(top.snap?.amount ?? top.key.substring(prefix.length));
+        const total = Array.isArray(top.snap?.items) ? top.snap.items.length : 0;
+        const idx = Math.min(Math.max(0, Number(top.snap?.idx ?? 0)), Math.max(0, total - 1));
+        setResumeInfo({ amountToken, idx, total });
+      } else {
+        setResumeInfo(null);
+      }
+    } catch {}
   }, [activeVariant.id]);
 
 
@@ -109,14 +140,31 @@ export default function EngineSystemsStart() {
 
       const randomized = items.map(shuffleOptionsForItem);
 
+      const amountToken = amount === "all" ? "all" : String(amount);
       const session = {
         section: SECTION,
         createdAt: new Date().toISOString(),
         items: randomized,
         answers: Array(randomized.length).fill(null),
-        flags: Array(randomized.length).fill(false)
-      };
+        flags: Array(randomized.length).fill(false),
+        amountToken,
+      } as any;
       sessionStorage.setItem("engineq_session", JSON.stringify(session));
+      try {
+        const resumeKey = `${modelScopedKey("quiz:resume", activeVariant.id)}:engine-systems:${amountToken}`;
+        const snapshot = {
+          section: "engine-systems",
+          variantId: activeVariant.id,
+          amount: amountToken,
+          items: randomized,
+          idx: 0,
+          answers: Array(randomized.length).fill(undefined),
+          flags: Array(randomized.length).fill(false),
+          startedAt: Date.now(),
+          updatedAt: Date.now(),
+        };
+        localStorage.setItem(resumeKey, JSON.stringify(snapshot));
+      } catch {}
       router.push("/engine-systems-quiz/1");
     } catch(e:any) {
       setErr(e?.message || "Could not start quiz");
@@ -136,6 +184,42 @@ export default function EngineSystemsStart() {
     router.push("/engine-systems-quiz/1");
   }
 
+  function handleResumeContinue() {
+    if (!resumeInfo) return;
+    try {
+      const key = `${modelScopedKey("quiz:resume", activeVariant.id)}:engine-systems:${resumeInfo.amountToken}`;
+      const raw = localStorage.getItem(key);
+      if (!raw) return;
+      const snap = JSON.parse(raw);
+      if (!Array.isArray(snap?.items) || !snap.items.length) return;
+      const session = {
+        section: SECTION,
+        createdAt: new Date().toISOString(),
+        items: snap.items,
+        answers: Array(snap.items.length).fill(null) as Array<number|null>,
+        flags: Array(snap.items.length).fill(false) as boolean[],
+        amountToken: String(resumeInfo.amountToken),
+      } as any;
+      if (Array.isArray(snap.answers) && snap.answers.length === snap.items.length) {
+        session.answers = snap.answers.map((a: any) => (a == null ? null : Number(a)));
+      }
+      if (Array.isArray(snap.flags) && snap.flags.length === snap.items.length) {
+        session.flags = snap.flags as boolean[];
+      }
+      sessionStorage.setItem("engineq_session", JSON.stringify(session));
+      router.push(`/engine-systems-quiz/${resumeInfo.idx + 1}`);
+    } catch {}
+  }
+
+  function handleResumeReset() {
+    if (!resumeInfo) return;
+    try {
+      const key = `${modelScopedKey("quiz:resume", activeVariant.id)}:engine-systems:${resumeInfo.amountToken}`;
+      localStorage.removeItem(key);
+    } catch {}
+    setResumeInfo(null);
+  }
+
   return (
     <div className="max-w-xl mx-auto p-4 space-y-4">
       <div className="w-full flex items-center py-1">
@@ -144,6 +228,17 @@ export default function EngineSystemsStart() {
 
       <h1 className="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">Engine, Fuel, Lubricants, Hydraulics & System Limitations</h1>
       <p className="text-lg text-slate-700 dark:text-zinc-100 mt-2">Choose number of questions and start.</p>
+
+      {resumeInfo && (
+        <div className="rounded-xl border-l-4 border-emerald-600 bg-emerald-50/40 dark:border-emerald-400 dark:bg-emerald-900/40 p-4 flex items-center gap-3">
+          <div className="flex-1">
+            <div className="font-semibold text-slate-900 dark:text-white">Fortsett økt</div>
+            <div className="text-sm text-gray-600 dark:text-zinc-100">Du er på spørsmål {resumeInfo.idx + 1} av {resumeInfo.total} ({String(resumeInfo.amountToken)}).</div>
+          </div>
+          <button onClick={handleResumeContinue} className="px-3 py-2 rounded-lg bg-emerald-600 text-white">Fortsett</button>
+          <button onClick={handleResumeReset} className="px-3 py-2 rounded-lg bg-slate-200 dark:bg-zinc-700 dark:text-white">Start på nytt</button>
+        </div>
+      )}
 
       <div className="rounded-xl border-l-4 border-blue-600 bg-blue-50/40 dark:border-blue-400 dark:bg-blue-900/40 p-4 flex items-center gap-3">
         <label className="text-sm text-gray-700 dark:text-zinc-100">Count:</label>

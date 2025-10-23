@@ -2,16 +2,25 @@
 import * as React from "react";
 import { useRouter } from "next/navigation";
 import TopBarBackButton from "@/components/TopBarBackButton";
+import { useActiveModelVariant } from "@/lib/models/hooks";
+import { modelScopedKey } from "@/lib/models/storage";
 
 export default function EngineQuizResult() {
   const router = useRouter();
+  const { variant: activeVariant } = useActiveModelVariant();
   const [session, setSession] = React.useState<any>(null);
 
   React.useEffect(() => {
     const raw = sessionStorage.getItem("engineq_session");
     if (!raw) { router.replace("/engine-systems-quiz"); return; }
-    setSession(JSON.parse(raw));
-  }, [router]);
+    const s = JSON.parse(raw);
+    setSession(s);
+    try {
+      const amt = String((s?.amountToken ?? "all"));
+      const key = `${modelScopedKey("quiz:resume", activeVariant.id)}:engine-systems:${amt}`;
+      localStorage.removeItem(key);
+    } catch {}
+  }, [router, activeVariant.id]);
 
   if (!session) return <div className="max-w-xl mx-auto p-4 dark:text-zinc-100">Laster…</div>;
 

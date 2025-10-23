@@ -42,7 +42,7 @@ export default function AccessGuard({ children }: { children: React.ReactNode })
     function block() {
       setAllowed(false);
       const from = typeof pathname === "string" ? pathname : "/";
-      router.push(`/auth/signup?from=${encodeURIComponent(from)}`);
+      router.push(`/signup?from=${encodeURIComponent(from)}`);
     }
 
     const runTrialCheck = () => {

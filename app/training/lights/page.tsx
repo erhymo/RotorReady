@@ -723,7 +723,7 @@ export default function LightsTrainer() {
 
   return (
   <div className="min-h-screen bg-slate-50 dark:bg-zinc-900">
-      {!isMobile && mode !== "idle" && current && header}
+      {!isMobile && mode !== "idle" && current && !(compactCWP && mode === "procedure") && header}
       <main className="mx-auto max-w-3xl p-6 space-y-6">
         {mode === "idle" && (
           <div className="space-y-6">
@@ -874,23 +874,24 @@ export default function LightsTrainer() {
             </div>
           </div>
         )}
-        {isMobile && mode === "procedure" && current && (
-          compactCWP ? (
-            <div
-              ref={procOverlayRef}
-              tabIndex={-1}
-              className="fixed left-0 right-0 bottom-0 top-0 z-40 bg-white dark:bg-zinc-900 cursor-pointer"
-              role="button"
-              aria-label="Close procedure"
-              onClick={() => { try { router.back(); } catch {} }}
-            >
-              <div className="h-full w-full overflow-y-auto">
-                <div className="px-0">
-                  <ProcedureLikePDF item={current} flat memoryOnly={memoryOnly} hideReferences />
-                </div>
+        {mode === "procedure" && current && compactCWP && (
+          <div
+            ref={procOverlayRef}
+            tabIndex={-1}
+            className="fixed left-0 right-0 bottom-0 top-0 z-40 bg-white dark:bg-zinc-900 cursor-pointer"
+            role="button"
+            aria-label="Close procedure"
+            onClick={() => { try { router.back(); } catch {} }}
+          >
+            <div className="h-full w-full overflow-y-auto">
+              <div className="px-0">
+                <ProcedureLikePDF item={current} flat memoryOnly={memoryOnly} hideReferences />
               </div>
             </div>
-          ) : (
+          </div>
+        )}
+
+        {isMobile && mode === "procedure" && current && !compactCWP && (
           <div ref={procOverlayRef} tabIndex={-1} className="fixed left-0 right-0 bottom-0 top-0 z-40 bg-white dark:bg-zinc-900">
             <div className="h-full w-full overflow-y-auto">
             {header}
@@ -910,10 +911,10 @@ export default function LightsTrainer() {
               </div>
             </div>
           </div>
-            )
-        )}
+        )
+        }
 
-        {!isMobile && mode === "procedure" && current && (
+        {!isMobile && mode === "procedure" && current && !compactCWP && (
           <div className="space-y-6">
             {!memoryOnly && current.description && !current.pageImage && (
               <div className="rounded-xl border bg-white dark:bg-blue-900/40 dark:text-zinc-100 dark:border-blue-400 p-4 text-[15px] md:text-[16px]">

@@ -94,6 +94,7 @@ export default function LightsTrainer() {
   const [memoryOnly, setMemoryOnly] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [coming, setComing] = useState<Severity | null>(null);
+  const [compactCWP, setCompactCWP] = useState(false);
   useEffect(() => {
     if (typeof window === "undefined") return;
     const mql = window.matchMedia?.("(max-width: 640px)");
@@ -230,7 +231,9 @@ export default function LightsTrainer() {
         const v = searchParams.get("v");
         const light = searchParams.get("light");
         const mem = searchParams.get("mem");
+        const cwp = searchParams.get("cwp");
         if (!resume || !v || !light) return;
+        setCompactCWP(!!cwp && cwp !== "0" && cwp !== "false");
         if (v !== activeVariant.id) { try { await setActiveVariant(v); } catch {} return; }
         if (!all.length) return;
         const item = all.find((x) => x.id === light);
@@ -537,7 +540,7 @@ export default function LightsTrainer() {
     }
   }
 
-  function ProcedureLikePDF({ item, flat = false, memoryOnly: memoryMode = false }: { item: LightItem; flat?: boolean; memoryOnly?: boolean }) {
+  function ProcedureLikePDF({ item, flat = false, memoryOnly: memoryMode = false, hideReferences = false }: { item: LightItem; flat?: boolean; memoryOnly?: boolean; hideReferences?: boolean }) {
     if (item.pageImage) {
       // On H125 in dark mode, inline SVG and strip its prefers-color-scheme: dark block
       // so the SVG stays in its light palette (darker ink) even when OS is dark (mobile Safari).
@@ -593,7 +596,7 @@ export default function LightsTrainer() {
               priority
             />
           </div>
-          {item.references?.length ? (
+          {item.references?.length && !hideReferences ? (
             <figcaption className="mt-3 text-xs text-slate-500 dark:text-zinc-400">
               {item.references.join(", ")}
             </figcaption>
@@ -872,6 +875,22 @@ export default function LightsTrainer() {
           </div>
         )}
         {isMobile && mode === "procedure" && current && (
+          compactCWP ? (
+            <div
+              ref={procOverlayRef}
+              tabIndex={-1}
+              className="fixed left-0 right-0 bottom-0 top-0 z-40 bg-white dark:bg-zinc-900 cursor-pointer"
+              role="button"
+              aria-label="Close procedure"
+              onClick={() => { try { router.back(); } catch {} }}
+            >
+              <div className="h-full w-full overflow-y-auto">
+                <div className="px-0">
+                  <ProcedureLikePDF item={current} flat memoryOnly={memoryOnly} hideReferences />
+                </div>
+              </div>
+            </div>
+          ) : (
           <div ref={procOverlayRef} tabIndex={-1} className="fixed left-0 right-0 bottom-0 top-0 z-40 bg-white dark:bg-zinc-900">
             <div className="h-full w-full overflow-y-auto">
             {header}
@@ -891,6 +910,7 @@ export default function LightsTrainer() {
               </div>
             </div>
           </div>
+            )
         )}
 
         {!isMobile && mode === "procedure" && current && (

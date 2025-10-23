@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
-import BackButton from "@/components/BackButton";
+
 import { useActiveModelVariant } from "@/lib/models/hooks";
 
 const VARIANT_ID = "H125_AS350_B3_2B1" as const;
@@ -73,13 +73,13 @@ export default function Page() {
         JSON.stringify({ variantId: VARIANT_ID, lightId: id, memoryOnly: false, deck: [id], idx: 0, lastSeverity: undefined })
       );
     } catch {}
-    router.push(`/training/lights?resume=1&v=${encodeURIComponent(VARIANT_ID)}&light=${encodeURIComponent(id)}&mem=0`);
+    router.push(`/training/lights?resume=1&v=${encodeURIComponent(VARIANT_ID)}&light=${encodeURIComponent(id)}&mem=0&cwp=1`);
   }
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-zinc-900">
       <main className="mx-auto max-w-5xl p-4 sm:p-6 space-y-4 sm:space-y-6">
-        <BackButton />
+
         <section className="rounded-xl border bg-white p-4 sm:p-6 shadow-sm dark:bg-zinc-900 dark:border-zinc-700">
           <div className="flex items-center justify-between flex-wrap gap-3 mb-4">
             <div className="flex items-center gap-2">

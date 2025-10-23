@@ -805,6 +805,21 @@ export default function LightsTrainer() {
                 </div>
               )}
             </section>
+
+            {activeVariant.id === "H125_AS350_B3_2B1" && (
+              <section className="space-y-4 rounded-xl border bg-white p-6 shadow-sm dark:bg-zinc-900 dark:border-zinc-700">
+                <div className="flex items-center gap-2">
+                  <span className="inline-block h-2.5 w-2.5 rounded-full bg-neutral-700" aria-hidden />
+                  <h2 className="text-xl font-semibold text-slate-900 dark:text-zinc-100">CWP-trainer</h2>
+                </div>
+                <p className="text-sm text-slate-600 dark:text-zinc-300">AS350 B3 2B1 caution/warning panel — tap to train by pressing lights.</p>
+                <div>
+                  <Link href="/training/lights/cwp/b3-2b1" className="inline-flex items-center rounded-md px-4 py-2 bg-black text-white font-medium hover:bg-black/90">
+                    Open CWP-trainer
+                  </Link>
+                </div>
+              </section>
+            )}
           </div>
         )}
         {mode === "light" && current && (

@@ -65,7 +65,7 @@ function ClearAreaTakeOffInner() {
         <section className="space-y-3 rounded-xl border bg-white dark:bg-zinc-900 dark:border-zinc-700 p-4">
           <div className="text-sm text-slate-800 dark:text-zinc-100">Perform as follows:</div>
           <ol className="list-decimal pl-6 text-sm text-slate-800 dark:text-zinc-100">
-            <li>Park brake — <span className="font-semibold">Release</span>. Confirm <span className="font-semibold">PARK BRK ON</span> advisory not illuminated on CAS.</li>
+            <li>Park brake — <span className="font-semibold">Release</span>. Confirm <span className="font-semibold bg-green-200 text-green-900 dark:bg-green-900/40 dark:text-green-200 px-1 rounded">PARK BRK ON</span> advisory not illuminated on CAS.</li>
             <li>Pilot altimeter — <span className="font-semibold">Set</span>.</li>
             <li>Rad Alt — <span className="font-semibold">Check</span>.</li>
             <li>Power checks — Carry out as required in accordance with <span className="font-semibold">ENGINE POWER CHECKS</span> procedure in Basic RFM Section 4.</li>

@@ -80,7 +80,7 @@ export default function Page() {
     <div className="min-h-screen bg-slate-50 dark:bg-zinc-900">
       <main className="mx-auto max-w-5xl p-4 sm:p-6 space-y-4 sm:space-y-6">
 
-        <section className="rounded-xl border bg-white p-4 sm:p-6 shadow-sm dark:bg-zinc-900 dark:border-zinc-700">
+        <section className="rounded-xl border bg-white p-4 sm:p-6 shadow-sm dark:bg-zinc-900 dark:border-zinc-700 overflow-hidden">
           <div className="flex items-center justify-between flex-wrap gap-3 mb-4">
             <div className="flex items-center gap-2">
               <span className="inline-block h-2.5 w-2.5 rounded-full bg-neutral-700" aria-hidden />
@@ -90,9 +90,9 @@ export default function Page() {
           </div>
 
           {/* Panel container: responsive, fills most of screen incl. landscape */}
-          <div className="mx-auto w-full" style={{ maxHeight: "calc(100dvh - 160px)" }}>
+          <div className="w-full mx-[-1rem] sm:mx-0" style={{ maxHeight: "calc(100dvh - 160px)" }}>
             <div
-              className="mx-auto rounded-2xl shadow-inner ring-1 ring-white/10 p-3 sm:p-4"
+              className="rounded-2xl shadow-inner ring-1 ring-white/10 p-3 sm:p-4 w-full"
               style={{
                 background: "linear-gradient(180deg,#121216 0%,#1b1b21 100%)",
                 aspectRatio: "1200 / 420",

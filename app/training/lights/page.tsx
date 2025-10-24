@@ -8,7 +8,7 @@ import { useActiveModelVariant } from "@/lib/models/hooks";
 import { getQuota, incQuota } from "@/lib/quota";
 import { isLoggedInAsync } from "@/lib/auth";
 
-type StepType = "note" | "action" | "branch" | "caution" | "warning";
+type StepType = "note" | "action" | "branch" | "caution" | "warning" | "step";
 type Severity = "warning" | "caution";
 
 type ProcedureStep =
@@ -524,6 +524,8 @@ export default function LightsTrainer() {
     switch (step.type) {
       case "action":
         return <div className={`${base} border dark:border-zinc-600 dark:bg-zinc-900/80 dark:text-zinc-100`}>{renderText(step.text)}</div>;
+      case "step":
+        return <div className={`${base}`}>{renderText(step.text)}</div>;
       case "note":
         return <div className={`${base} border-l-4 border-blue-500/60 bg-blue-50 dark:bg-zinc-900/70 dark:text-zinc-100`}>{renderText(step.text)}</div>;
       case "caution":

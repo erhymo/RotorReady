@@ -192,7 +192,7 @@ export default function Page() {
                       aria-label={displayName(item)}
                       title={displayName(item)}
                     >
-                      <span className="px-1 leading-tight whitespace-pre-line break-words text-[11px] sm:text-[13px] md:text-sm">
+                      <span className="px-1 leading-tight whitespace-pre-line break-words text-[12px] sm:text-[13px] md:text-sm">
                         {twoLineLabel(item).toUpperCase()}
                       </span>
                     </div>

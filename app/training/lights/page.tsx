@@ -901,7 +901,7 @@ export default function LightsTrainer() {
             aria-label="Close procedure"
             onClick={() => { try { router.back(); } catch {} }}
           >
-            <div className="h-full w-full overflow-y-auto" onClick={(e) => e.stopPropagation()} onMouseDown={(e) => e.stopPropagation()} onTouchStart={(e) => e.stopPropagation()}>
+            <div className="h-full w-full overflow-y-auto" onClickCapture={(e) => { const t = e.target as HTMLElement; if (t && t.closest('a,button,[role="button"],[role="link"],input,textarea,select,[data-prevent-back]')) { e.stopPropagation(); } }} onMouseDownCapture={(e) => { const t = e.target as HTMLElement; if (t && t.closest('a,button,[role="button"],[role="link"],input,textarea,select,[data-prevent-back]')) { e.stopPropagation(); } }} onTouchStartCapture={(e) => { const t = e.target as HTMLElement; if (t && t.closest('a,button,[role="button"],[role="link"],input,textarea,select,[data-prevent-back]')) { e.stopPropagation(); } }}>
               <div className="px-0">
                 <ProcedureLikePDF item={current} flat memoryOnly={memoryOnly} hideReferences />
               </div>

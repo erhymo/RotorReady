@@ -80,8 +80,8 @@ export default function Page() {
     <div className="min-h-screen bg-slate-50 dark:bg-zinc-900">
       <main className="mx-auto max-w-5xl p-4 sm:p-6 space-y-4 sm:space-y-6">
 
-        <section className="rounded-xl border bg-white p-4 sm:p-6 shadow-sm dark:bg-zinc-900 dark:border-zinc-700 overflow-hidden">
-          <div className="flex items-center justify-between flex-wrap gap-3 mb-4">
+        <section className="p-0 border-0 bg-transparent shadow-none rounded-none sm:p-6 sm:border sm:bg-white sm:shadow-sm sm:rounded-xl sm:overflow-hidden dark:sm:bg-zinc-900 dark:sm:border-zinc-700">
+          <div className="flex items-center justify-between flex-wrap gap-3 mb-4 px-4 pt-4 sm:px-0 sm:pt-0">
             <div className="flex items-center gap-2">
               <span className="inline-block h-2.5 w-2.5 rounded-full bg-neutral-700" aria-hidden />
               <h1 className="text-lg sm:text-xl font-semibold text-slate-900 dark:text-zinc-100">CWP-trainer · AS350 B3 2B1</h1>
@@ -90,9 +90,9 @@ export default function Page() {
           </div>
 
           {/* Panel container: responsive, fills most of screen incl. landscape */}
-          <div className="w-full mx-[-1rem] sm:mx-0" style={{ maxHeight: "calc(100dvh - 160px)" }}>
+          <div className="-mx-4 sm:mx-0" style={{ maxHeight: "calc(100dvh - 160px)" }}>
             <div
-              className="rounded-2xl shadow-inner ring-1 ring-white/10 p-3 sm:p-4 w-full"
+              className="rounded-2xl shadow-inner ring-1 ring-white/10 p-3 sm:p-4 w-[100vw] sm:w-full"
               style={{
                 background: "linear-gradient(180deg,#121216 0%,#1b1b21 100%)",
                 aspectRatio: "1200 / 420",

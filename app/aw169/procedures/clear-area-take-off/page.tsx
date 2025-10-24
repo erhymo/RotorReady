@@ -22,21 +22,48 @@ function ClearAreaTakeOffInner() {
   const compact = compactCWP || compactList;
 
   function Content() {
+    const steps = [
+      { left: "PARK BRAKE", right: <>Release. Confirm <span className="font-semibold bg-green-200 text-green-900 dark:bg-green-900/40 dark:text-green-200 px-1 rounded">PARK BRK ON</span> advisory not illuminated on CAS.</> },
+      { left: "Pilot Altimeter", right: <>Set.</> },
+      { left: "Rad Alt", right: <>Check.</> },
+      { left: "Power checks", right: <>Carry out as required in accordance with <span className="font-semibold">ENGINE POWER CHECKS</span> procedure in Basic RFM Section 4.</> },
+      { left: "Nosewheel steering", right: <>LOCK.</> },
+      { left: "Engine/Rotor", right: <>TQ/ITT matched as required and check <span className="font-semibold">NF/NR 103%</span>.</> },
+      { left: "MFD PWR PLANT page", right: <>Check all parameters within normal operating limits and cross‑check with PFD.</> },
+      { left: "Warnings and Cautions", right: <>None/as required.</> },
+      { left: "Flight controls", right: <>Check correct functioning.</> },
+      { left: "Hover", right: <>Establish a <span className="font-semibold">6 ft (1.8 m) ATS</span> hover and note pitch attitude. No winds from rear sectors (090° to 270°).</> },
+      { left: "PI/NR", right: <>Note PI value and confirm NR in <span className="font-semibold">PLUS</span> Mode.</> },
+      { left: "Collective/Cyclic control", right: <>Apply Cyclic to rotate 10° nose down with respect to hover attitude and apply collective to increase hover PI by 5–10% to maintain height. Maintain pitch attitude until airspeed indication starts to increase then reduce pitch down by 5° to climb and start climb to TDP.</> },
+      { left: "Take‑Off Decision Point (TDP)", right: <>At TDP continue climb and accelerate to <span className="font-semibold">VTOSS (45 KIAS)</span>. From VTOSS continue climb and accelerate to <span className="font-semibold">VY</span>.</> },
+      { left: "Acceleration/Climb", right: <>Passing through <span className="font-semibold">VTOSS (45 KIAS)</span> continue acceleration to <span className="font-semibold">VY</span> and climb to <span className="font-semibold">1000 ft (300 m) ATS</span>.</> },
+      { left: "Landing gear", right: <>Up (when reaching VY but not below <span className="font-semibold">200 ft ATS</span>).</> },
+      { left: "AFTER TAKE‑OFF checks", right: <>Complete.</> },
+    ];
+
     return (
       <main className="mx-auto max-w-3xl p-6 space-y-6">
         <header className="rounded-xl border bg-white dark:bg-zinc-900 dark:border-zinc-700 p-4">
           <h1 className="text-xl font-semibold text-slate-900 dark:text-zinc-100">CLEAR AREA TAKE-OFF PROCEDURE</h1>
-          <div className="mt-3 text-sm text-slate-700 dark:text-zinc-300 space-y-1">
+          <div className="mt-3 text-sm text-slate-700 dark:text-zinc-300 space-y-2">
             <div><span className="font-semibold">Take‑Off Decision Point (TDP)</span></div>
-            <div className="flex flex-col sm:flex-row sm:items-center sm:gap-6">
-              <div>Height — <span className="font-semibold">20 ft (6 m) ATS</span></div>
-              <div>Airspeed — <span className="font-semibold">20 KIAS</span></div>
+            <div className="space-y-1">
+              <div className="flex items-baseline">
+                <span>Height</span>
+                <span className="mx-2 flex-1 border-b border-dotted border-slate-400/80 dark:border-zinc-500/60" />
+                <span className="font-semibold">20 ft (6 m) ATS</span>
+              </div>
+              <div className="flex items-baseline">
+                <span>Airspeed</span>
+                <span className="mx-2 flex-1 border-b border-dotted border-slate-400/80 dark:border-zinc-500/60" />
+                <span className="font-semibold">20 KIAS</span>
+              </div>
             </div>
           </div>
         </header>
 
         <section className="rounded-xl border bg-white dark:bg-zinc-900 dark:border-zinc-700 p-4 text-sm text-slate-800 dark:text-zinc-100">
-          <div className="font-semibold mb-1">Note</div>
+          <div className="font-semibold text-center mb-1">Note</div>
           <p>Radio altimeter heights are shown in the flight path profiles. Refer to Barometric altimeter when obstacles are present in the Take‑Off flight path.</p>
         </section>
 
@@ -56,32 +83,25 @@ function ClearAreaTakeOffInner() {
         </section>
 
         <section className="space-y-3">
-          <div className="rounded-xl border-l-4 border-amber-500/60 bg-amber-50 dark:bg-zinc-900/70 p-3 text-sm dark:text-zinc-100">
-            <div className="font-semibold mb-1">CAUTION</div>
-            If this procedure is modified, it may not be possible, if an engine fails in the Take‑Off path, to carry out a safe OEI landing or achieve the scheduled OEI performance.
+          <div className="rounded-xl border bg-white dark:bg-zinc-900 dark:border-zinc-700 p-4 text-sm text-slate-800 dark:text-zinc-100 flex flex-col items-center">
+            <div className="rounded border-2 border-amber-600 bg-amber-100 px-3 py-1 font-bold text-amber-900">CAUTION</div>
+            <p className="mt-3 text-center">If this procedure is modified, it may not be possible, if an engine fails in the Take‑Off path, to carry out a safe OEI landing or achieve the scheduled OEI performance.</p>
           </div>
         </section>
 
         <section className="space-y-3 rounded-xl border bg-white dark:bg-zinc-900 dark:border-zinc-700 p-4">
           <div className="text-sm text-slate-800 dark:text-zinc-100">Perform as follows:</div>
-          <ol className="list-decimal pl-6 text-sm text-slate-800 dark:text-zinc-100">
-            <li>Park brake — <span className="font-semibold">Release</span>. Confirm <span className="font-semibold bg-green-200 text-green-900 dark:bg-green-900/40 dark:text-green-200 px-1 rounded">PARK BRK ON</span> advisory not illuminated on CAS.</li>
-            <li>Pilot altimeter — <span className="font-semibold">Set</span>.</li>
-            <li>Rad Alt — <span className="font-semibold">Check</span>.</li>
-            <li>Power checks — Carry out as required in accordance with <span className="font-semibold">ENGINE POWER CHECKS</span> procedure in Basic RFM Section 4.</li>
-            <li>Nosewheel steering — <span className="font-semibold">LOCK</span>.</li>
-            <li>Engine/Rotor — TQ/ITT matched as required and check <span className="font-semibold">NF/NR 103%</span>.</li>
-            <li>MFD PWR PLANT page — Check all parameters within normal operating limits and cross‑check with PFD.</li>
-            <li>Warnings and cautions — <span className="font-semibold">None/as required</span>.</li>
-            <li>Flight controls — Check correct functioning.</li>
-            <li>Hover — Establish a <span className="font-semibold">6 ft (1.8 m) ATS</span> hover and note pitch attitude. No winds from rear sectors (090° to 270°).</li>
-            <li>PI/NR — Note PI value and confirm NR in <span className="font-semibold">PLUS</span> Mode.</li>
-            <li>Collective/Cyclic control — Apply cyclic to rotate ~10° nose down from hover attitude and apply collective to increase hover PI by 5–10% to maintain height. Maintain pitch attitude until airspeed indication starts to increase, then reduce pitch down by ~5° to climb and start climb to TDP.</li>
-            <li>Take‑Off Decision Point (TDP) — At TDP continue climb and accelerate to <span className="font-semibold">VTOSS (45 KIAS)</span>. From VTOSS continue climb and accelerate to <span className="font-semibold">VY</span>.</li>
-            <li>Acceleration/Climb — Passing through <span className="font-semibold">VTOSS (45 KIAS)</span> continue acceleration to <span className="font-semibold">VY</span> and climb to <span className="font-semibold">1000 ft (300 m) ATS</span>.</li>
-            <li>Landing gear — <span className="font-semibold">Up</span> (when reaching VY but not below <span className="font-semibold">200 ft ATS</span>).</li>
-            <li>After take‑off checks — <span className="font-semibold">Complete</span>.</li>
-          </ol>
+          <div className="mt-2 divide-y divide-slate-200/70 dark:divide-zinc-700/60">
+            {steps.map((s, i) => (
+              <div key={i} className="grid grid-cols-1 sm:grid-cols-[auto_1fr] gap-x-6 py-2">
+                <div className="text-sm text-slate-700 dark:text-zinc-300">
+                  <span className="inline-block w-6 text-right mr-2">{i + 1}.</span>
+                  <span className="font-medium">{s.left}</span>
+                </div>
+                <div className="text-sm text-slate-800 dark:text-zinc-100 sm:mt-0 mt-1">— {s.right}</div>
+              </div>
+            ))}
+          </div>
         </section>
 
         <footer className="pt-2 text-center text-xs text-slate-500 dark:text-zinc-400">AW169 training reference. For training use only.</footer>

@@ -6,7 +6,7 @@ import { BackButton } from "@/app/components/BackButton";
 
 export default function ClearAreaTakeOffPage() {
   return (
-    <Suspense fallback={<div className="min-h-screen bg-slate-50 dark:bg-zinc-900" />}> 
+    <Suspense fallback={<div className="min-h-screen bg-slate-50 dark:bg-zinc-900" />}>
       <ClearAreaTakeOffInner />
     </Suspense>
   );
@@ -38,6 +38,21 @@ function ClearAreaTakeOffInner() {
         <section className="rounded-xl border bg-white dark:bg-zinc-900 dark:border-zinc-700 p-4 text-sm text-slate-800 dark:text-zinc-100">
           <div className="font-semibold mb-1">Note</div>
           <p>Radio altimeter heights are shown in the flight path profiles. Refer to Barometric altimeter when obstacles are present in the Take‑Off flight path.</p>
+        </section>
+
+
+        <section className="rounded-xl border bg-white dark:bg-zinc-900 dark:border-zinc-700 p-4">
+          <div className="text-sm font-semibold text-slate-800 dark:text-zinc-100 mb-2">Take-Off</div>
+          <div className="rounded-lg overflow-hidden border dark:border-zinc-700 bg-white dark:bg-zinc-900">
+            {/* Provide PNG/SVG asset at public/aw169/procedures/clear-area-take-off/figure-np3.png */}
+            <img
+              src="/aw169/procedures/clear-area-take-off/figure-np3.png"
+              alt="Figure NP 3: Take-Off Profile Clear Area"
+              className="w-full h-auto"
+              onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
+            />
+          </div>
+          <div className="mt-2 text-center text-xs text-slate-500 dark:text-zinc-400">Figure NP 3: Take-Off Profile Clear Area</div>
         </section>
 
         <section className="space-y-3">

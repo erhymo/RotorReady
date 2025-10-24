@@ -4,6 +4,8 @@ import Link from "next/link";
 
 import { BoltIcon, BookIcon, DownloadIcon } from "@/components/Icons";
 
+import { useActiveModelVariant } from "@/lib/models/hooks";
+
 function Bar(props: { href: string; title: string; description: string; tone?: "blue"|"amber"|"slate"|"emerald"; icon?: React.ReactNode }) {
   const tones: Record<string, string> = {
     blue: "border-blue-600 bg-blue-50/40 hover:bg-blue-50 dark:border-blue-400 dark:bg-blue-900/40 dark:hover:bg-blue-900/60",
@@ -30,6 +32,7 @@ function Bar(props: { href: string; title: string; description: string; tone?: "
 
 export default function HomePage() {
   const [ver, setVer] = useState<any>(null);
+  const { variant: activeVariant } = useActiveModelVariant();
   const hasCheckout = Boolean(process.env.NEXT_PUBLIC_STRIPE_PRICE_ID);
   useEffect(() => {
     fetch("/quiz-data/versions/data-version.json").then(r=>r.json()).then(setVer).catch(()=>{});
@@ -63,13 +66,15 @@ export default function HomePage() {
           tone="blue"
           icon={<BookIcon className="h-4 w-4" />}
         />
-        <Bar
-          href="/training/procedures/aw169"
-          title="Procedures"
-          description="Browse AW169 procedures. Tap inside a procedure to return to the list."
-          tone="emerald"
-          icon={<BookIcon className="h-4 w-4" />}
-        />
+        {activeVariant?.id === "AW169" && (
+          <Bar
+            href="/training/procedures/aw169"
+            title="Procedures"
+            description="Browse AW169 procedures. Tap inside a procedure to return to the list."
+            tone="emerald"
+            icon={<BookIcon className="h-4 w-4" />}
+          />
+        )}
 
       </section>
 

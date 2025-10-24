@@ -1,17 +1,17 @@
+"use client";
 
 import Link from "next/link";
 import { BackButton } from "@/app/components/BackButton";
-
+import { useRouter, useSearchParams } from "next/navigation";
 
 export const metadata = {
   title: "AW169 – Engine Shutdown in Emergency",
 };
 
-export default function EngineShutdownEmergencyPage({ searchParams }: { searchParams?: { [key: string]: string | string[] | undefined } }) {
-  const cwp = (searchParams?.cwp as string | undefined) ?? undefined;
-  const v = (searchParams?.v as string | undefined) ?? "";
-  const light = (searchParams?.light as string | undefined) ?? "";
-  const mem = (searchParams?.mem as string | undefined) ?? "0";
+export default function EngineShutdownEmergencyPage() {
+  const router = useRouter();
+  const sp = useSearchParams();
+  const cwp = sp.get("cwp");
   const compact = !!cwp && cwp !== "0" && cwp !== "false";
 
   function Content() {
@@ -59,16 +59,16 @@ export default function EngineShutdownEmergencyPage({ searchParams }: { searchPa
 
   if (compact) {
     return (
-      <Link
-        href={{ pathname: "/training/lights", query: { resume: "1", v, light, mem, cwp: "1" } }}
-        className="fixed left-0 right-0 bottom-0 top-0 z-40 bg-white dark:bg-zinc-900 cursor-pointer block"
+      <div
+        className="fixed left-0 right-0 bottom-0 top-0 z-40 bg-white dark:bg-zinc-900 cursor-pointer"
         role="button"
         aria-label="Close procedure"
+        onClick={() => { try { router.back(); } catch {} }}
       >
-        <div className="h-full w-full overflow-y-auto">
+        <div className="h-full w-full overflow-y-auto" onClick={(e) => e.stopPropagation()} onMouseDown={(e) => e.stopPropagation()} onTouchStart={(e) => e.stopPropagation()}>
           <Content />
         </div>
-      </Link>
+      </div>
     );
   }
 

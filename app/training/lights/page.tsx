@@ -901,7 +901,7 @@ export default function LightsTrainer() {
             aria-label="Close procedure"
             onClick={() => { try { router.back(); } catch {} }}
           >
-            <div className="h-full w-full overflow-y-auto">
+            <div className="h-full w-full overflow-y-auto" onClick={(e) => e.stopPropagation()} onMouseDown={(e) => e.stopPropagation()} onTouchStart={(e) => e.stopPropagation()}>
               <div className="px-0">
                 <ProcedureLikePDF item={current} flat memoryOnly={memoryOnly} hideReferences />
               </div>

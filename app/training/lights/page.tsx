@@ -903,7 +903,9 @@ export default function LightsTrainer() {
           >
             <div className="h-full w-full overflow-y-auto" onClickCapture={(e) => { const t = e.target as HTMLElement; if (t && t.closest('a,button,input,textarea,select,[data-prevent-back]')) { e.stopPropagation(); } }} onMouseDownCapture={(e) => { const t = e.target as HTMLElement; if (t && t.closest('a,button,input,textarea,select,[data-prevent-back]')) { e.stopPropagation(); } }} onTouchStartCapture={(e) => { const t = e.target as HTMLElement; if (t && t.closest('a,button,input,textarea,select,[data-prevent-back]')) { e.stopPropagation(); } }}>
               <div className="px-0">
-                <ProcedureLikePDF item={current} flat memoryOnly={memoryOnly} hideReferences />
+                <div className={`${!isMobile ? "max-w-3xl mx-auto my-6 px-4" : ""}`}>
+                  <ProcedureLikePDF item={current} flat memoryOnly={memoryOnly} hideReferences />
+                </div>
               </div>
             </div>
           </div>

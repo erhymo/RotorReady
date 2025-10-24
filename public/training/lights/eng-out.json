@@ -15,11 +15,11 @@
         "text": "1. Flight condition — Safe OEI."
       },
       {
-        "type": "action",
+        "type": "step",
         "text": "2. Land as soon as practicable."
       },
       {
-        "type": "action",
+        "type": "step",
         "text": "3. Refer to SINGLE ENGINE PROCEDURE (see page 217)."
       }
     ]

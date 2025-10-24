@@ -4,10 +4,6 @@ import Link from "next/link";
 import { BackButton } from "@/app/components/BackButton";
 import { useRouter, useSearchParams } from "next/navigation";
 
-export const metadata = {
-  title: "AW169 – Single Engine Procedure",
-};
-
 export default function SingleEngineProcedurePage() {
   const router = useRouter();
   const sp = useSearchParams();

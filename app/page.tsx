@@ -63,6 +63,14 @@ export default function HomePage() {
           tone="blue"
           icon={<BookIcon className="h-4 w-4" />}
         />
+        <Bar
+          href="/training/procedures/aw169"
+          title="Procedures"
+          description="Browse AW169 procedures. Tap inside a procedure to return to the list."
+          tone="emerald"
+          icon={<BookIcon className="h-4 w-4" />}
+        />
+
       </section>
 
       <section className="space-y-3">

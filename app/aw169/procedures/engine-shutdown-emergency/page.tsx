@@ -1,10 +1,20 @@
 "use client";
 
+import { Suspense } from "react";
+
 import Link from "next/link";
 import { BackButton } from "@/app/components/BackButton";
 import { useRouter, useSearchParams } from "next/navigation";
 
 export default function EngineShutdownEmergencyPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-slate-50 dark:bg-zinc-900" />}>
+      <EngineShutdownEmergencyInner />
+    </Suspense>
+  );
+}
+
+function EngineShutdownEmergencyInner() {
   const router = useRouter();
   const sp = useSearchParams();
   const cwp = sp.get("cwp");

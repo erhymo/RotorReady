@@ -132,6 +132,15 @@ export default function Page() {
     ? "grid-cols-5"
     : "grid-cols-6"
   ), [gridCols]);
+  const gridClassSm = useMemo(() => (gridCols === 3
+    ? "sm:grid-cols-3"
+    : gridCols === 4
+    ? "sm:grid-cols-4"
+    : gridCols === 5
+    ? "sm:grid-cols-5"
+    : "sm:grid-cols-6"
+  ), [gridCols]);
+
 
   function handleLampClick(id?: string) {
     if (!id) return;
@@ -162,14 +171,14 @@ export default function Page() {
               className="mx-auto rounded-2xl shadow-inner ring-1 ring-white/10 p-3 sm:p-4"
               style={{ background: "linear-gradient(180deg,#16171d 0%,#22232a 100%)" }}
             >
-              <div className={`grid ${gridClass} gap-2 sm:gap-3`}>
+              <div className={`grid grid-cols-2 ${gridClassSm} gap-2 sm:gap-3`}>
                 {loading && (
                   <div className="col-span-full text-center py-10 text-slate-600 dark:text-zinc-300">Loading…</div>
                 )}
                 {!loading && all.map((item) => {
                   const clickable = !!item.id;
                   const classes = [
-                    "relative select-none rounded-md sm:rounded-lg flex items-center justify-center text-center font-extrabold tracking-wide antialiased h-16 sm:h-20 md:h-24",
+                    "relative select-none rounded-md sm:rounded-lg flex items-center justify-center text-center font-extrabold tracking-wide antialiased h-20 sm:h-20 md:h-24 overflow-hidden",
                     "bg-neutral-900 ring-1 ring-white/10 text-red-600 dark:text-red-200",
                     "[text-shadow:0_0_12px_rgba(255,85,85,0.6)]",
                     clickable ? "cursor-pointer hover:opacity-95 active:opacity-90" : "opacity-90 cursor-default",
@@ -183,7 +192,7 @@ export default function Page() {
                       aria-label={displayName(item)}
                       title={displayName(item)}
                     >
-                      <span className="px-1 leading-tight whitespace-pre-line text-[11px] sm:text-[13px] md:text-sm">
+                      <span className="px-1 leading-tight whitespace-pre-line break-words text-[11px] sm:text-[13px] md:text-sm">
                         {twoLineLabel(item).toUpperCase()}
                       </span>
                     </div>

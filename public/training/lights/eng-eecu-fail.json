@@ -15,15 +15,15 @@
         "text": "1. Flight condition — Safe OEI."
       },
       {
-        "type": "action",
+        "type": "step",
         "text": "2. ENG MODE knob (on affected engine) — IDLE."
       },
       {
-        "type": "action",
+        "type": "step",
         "text": "3. Affected engine — Leave at IDLE to keep associated DC GEN on line."
       },
       {
-        "type": "action",
+        "type": "step",
         "text": "4. Land as soon as practicable."
       }
     ]

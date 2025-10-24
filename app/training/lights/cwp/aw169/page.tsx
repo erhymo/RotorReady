@@ -24,16 +24,16 @@ type LightItem = {
 };
 
 function displayName(item: LightItem): string {
-  if (item.id === "eng-fire-flight") return `${item.name} (in flight)`;
-  if (item.id === "eng-fire-ground") return `${item.name} (on ground)`;
+  if (item.id.endsWith("-flight")) return `${item.name} (in flight)`;
+  if (item.id.endsWith("-ground")) return `${item.name} (on ground)`;
   return item.name;
 }
 
 function twoLineLabel(item: LightItem): string {
   const id = item.id;
   if (id === "eng-drive-shaft-failure") return "ENGINE DRIVE SHAFT\nFAILURE";
-  if (id === "eng-fire-flight") return "1(2) ENG FIRE\n(IN FLIGHT)";
-  if (id === "eng-fire-ground") return "1(2) ENG FIRE\n(ON GROUND)";
+  if (id.endsWith("-flight")) return `${item.name}\n(IN FLIGHT)`;
+  if (id.endsWith("-ground")) return `${item.name}\n(ON GROUND)`;
   const name = displayName(item);
   const words = name.split(" ");
   if (words.length >= 3) {

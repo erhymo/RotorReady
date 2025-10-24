@@ -74,8 +74,8 @@ function pickFirstBranchPair(steps: ProcedureStep[]) {
 
 
   function displayName(item: LightItem): string {
-    if (item.id === "eng-fire-flight") return `${item.name} (in flight)`;
-    if (item.id === "eng-fire-ground") return `${item.name} (on ground)`;
+    if (item.id.endsWith("-flight")) return `${item.name} (in flight)`;
+    if (item.id.endsWith("-ground")) return `${item.name} (on ground)`;
     return item.name;
   }
 

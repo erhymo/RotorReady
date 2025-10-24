@@ -65,7 +65,20 @@ function SingleEngineProcedureInner() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="rounded-xl border p-3 bg-white dark:bg-zinc-900/70 dark:text-zinc-100">
                 <div className="font-semibold mb-1">NO</div>
-                <div className="text-sm">Refer to engine re-light procedure as applicable.</div>
+                <div className="text-sm">Refer to <Link
+                  href={{
+                    pathname: "/aw169/procedures/engine-re-light",
+                    query: {
+                      resume: "1",
+                      v: sp.get("v") || "AW169",
+                      light: sp.get("light") || "",
+                      mem: sp.get("mem") || "0",
+                      cwp: "1",
+                    },
+                  }}
+                  onClick={() => { try { sessionStorage.setItem("lights:resume", JSON.stringify({ variantId: sp.get("v") || "AW169", lightId: sp.get("light") || "", memoryOnly: (sp.get("mem") || "0") === "1", idx: 0, deck: [sp.get("light") || ""], lastSeverity: "warning" })); } catch {} }}
+                  className="underline text-blue-600 dark:text-blue-400"
+                >engine re-light procedure</Link> as applicable.</div>
               </div>
               <div className="rounded-xl border p-3 bg-white dark:bg-zinc-900/70 dark:text-zinc-100">
                 <div className="font-semibold mb-1">YES</div>

@@ -29,6 +29,20 @@ function displayName(item: LightItem): string {
   return item.name;
 }
 
+function twoLineLabel(item: LightItem): string {
+  const id = item.id;
+  if (id === "eng-drive-shaft-failure") return "ENGINE DRIVE SHAFT\nFAILURE";
+  if (id === "eng-fire-flight") return "1(2) ENG FIRE\n(IN FLIGHT)";
+  if (id === "eng-fire-ground") return "1(2) ENG FIRE\n(ON GROUND)";
+  const name = displayName(item);
+  const words = name.split(" ");
+  if (words.length >= 3) {
+    const mid = Math.ceil(words.length / 2);
+    return words.slice(0, mid).join(" ") + "\n" + words.slice(mid).join(" ");
+  }
+  return name;
+}
+
 export default function Page() {
   const router = useRouter();
   const { variant: activeVariant, setActiveVariant } = useActiveModelVariant();
@@ -146,7 +160,7 @@ export default function Page() {
           <div className="mx-auto w-full" style={{ maxHeight: "calc(100dvh - 160px)" }}>
             <div
               className="mx-auto rounded-2xl shadow-inner ring-1 ring-white/10 p-3 sm:p-4"
-              style={{ background: "linear-gradient(180deg,#121216 0%,#1b1b21 100%)" }}
+              style={{ background: "linear-gradient(180deg,#16171d 0%,#22232a 100%)" }}
             >
               <div className={`grid ${gridClass} gap-2 sm:gap-3`}>
                 {loading && (
@@ -156,7 +170,7 @@ export default function Page() {
                   const clickable = !!item.id;
                   const classes = [
                     "relative select-none rounded-md sm:rounded-lg flex items-center justify-center text-center font-extrabold tracking-wide antialiased h-16 sm:h-20 md:h-24",
-                    "bg-black ring-1 ring-white/10 text-red-600 dark:text-red-200",
+                    "bg-neutral-900 ring-1 ring-white/10 text-red-600 dark:text-red-200",
                     "[text-shadow:0_0_12px_rgba(255,85,85,0.6)]",
                     clickable ? "cursor-pointer hover:opacity-95 active:opacity-90" : "opacity-90 cursor-default",
                   ].join(" ");
@@ -169,8 +183,8 @@ export default function Page() {
                       aria-label={displayName(item)}
                       title={displayName(item)}
                     >
-                      <span className="px-1 leading-tight whitespace-pre text-[11px] sm:text-[13px] md:text-sm">
-                        {displayName(item).toUpperCase()}
+                      <span className="px-1 leading-tight whitespace-pre-line text-[11px] sm:text-[13px] md:text-sm">
+                        {twoLineLabel(item).toUpperCase()}
                       </span>
                     </div>
                   );

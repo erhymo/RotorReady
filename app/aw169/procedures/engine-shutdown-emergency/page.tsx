@@ -1,17 +1,21 @@
+
+import Link from "next/link";
 import { BackButton } from "@/app/components/BackButton";
+
 
 export const metadata = {
   title: "AW169 – Engine Shutdown in Emergency",
 };
 
-export default function EngineShutdownEmergencyPage() {
-  return (
-    <div className="min-h-screen bg-slate-50 dark:bg-zinc-900">
-      <div className="sticky top-0 z-10 bg-white/80 dark:bg-zinc-900/90 backdrop-blur border-b dark:border-zinc-700">
-        <div className="mx-auto max-w-3xl px-6 py-3">
-          <BackButton label="Back to procedure" />
-        </div>
-      </div>
+export default function EngineShutdownEmergencyPage({ searchParams }: { searchParams?: { [key: string]: string | string[] | undefined } }) {
+  const cwp = (searchParams?.cwp as string | undefined) ?? undefined;
+  const v = (searchParams?.v as string | undefined) ?? "";
+  const light = (searchParams?.light as string | undefined) ?? "";
+  const mem = (searchParams?.mem as string | undefined) ?? "0";
+  const compact = !!cwp && cwp !== "0" && cwp !== "false";
+
+  function Content() {
+    return (
       <main className="mx-auto max-w-3xl p-6 space-y-6">
         <header className="rounded-xl border bg-white dark:bg-zinc-900 dark:border-zinc-700 p-4">
           <h1 className="text-xl font-semibold text-slate-900 dark:text-zinc-100">ENGINE SHUTDOWN IN EMERGENCY</h1>
@@ -50,6 +54,32 @@ export default function EngineShutdownEmergencyPage() {
           AW169 training reference. For training use only.
         </footer>
       </main>
+    );
+  }
+
+  if (compact) {
+    return (
+      <Link
+        href={{ pathname: "/training/lights", query: { resume: "1", v, light, mem, cwp: "1" } }}
+        className="fixed left-0 right-0 bottom-0 top-0 z-40 bg-white dark:bg-zinc-900 cursor-pointer block"
+        role="button"
+        aria-label="Close procedure"
+      >
+        <div className="h-full w-full overflow-y-auto">
+          <Content />
+        </div>
+      </Link>
+    );
+  }
+
+  return (
+    <div className="min-h-screen bg-slate-50 dark:bg-zinc-900">
+      <div className="sticky top-0 z-10 bg-white/80 dark:bg-zinc-900/90 backdrop-blur border-b dark:border-zinc-700">
+        <div className="mx-auto max-w-3xl px-6 py-3">
+          <BackButton label="Back to procedure" />
+        </div>
+      </div>
+      <Content />
     </div>
   );
 }

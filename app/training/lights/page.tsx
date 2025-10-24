@@ -400,7 +400,8 @@ export default function LightsTrainer() {
                     resume: "1",
                     v: activeVariant.id,
                     light: current?.id || "",
-                    mem: memoryOnly ? "1" : "0"
+                    mem: memoryOnly ? "1" : "0",
+                    cwp: "1"
                   }
                 }}
                 onClick={() => { try { sessionStorage.setItem("lights:resume", JSON.stringify({ variantId: activeVariant.id, lightId: current?.id || "", memoryOnly, idx, deck: deck.map(d => d.id), lastSeverity })); } catch {} }}
@@ -420,7 +421,8 @@ export default function LightsTrainer() {
                     resume: "1",
                     v: activeVariant.id,
                     light: current?.id || "",
-                    mem: memoryOnly ? "1" : "0"
+                    mem: memoryOnly ? "1" : "0",
+                    cwp: "1"
                   }
                 }}
                 onClick={() => { try { sessionStorage.setItem("lights:resume", JSON.stringify({ variantId: activeVariant.id, lightId: current?.id || "", memoryOnly, idx, deck: deck.map(d => d.id), lastSeverity })); } catch {} }}

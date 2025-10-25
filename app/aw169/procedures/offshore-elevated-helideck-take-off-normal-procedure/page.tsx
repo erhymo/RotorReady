@@ -33,8 +33,8 @@ function PageInner() {
         {/* Figure under title */}
         <section aria-label="Figure" className="rounded-xl border bg-white dark:bg-zinc-900 dark:border-zinc-700 p-4">
           <img
-            src="/aw169/procedures/offshore-elevated-helideck-take-off-normal-procedure/offshore_elevated_helideck_take_off_profile_exact.svg"
-            alt="Figure NP 5: Offshore / Elevated Helideck Take-Off Normal Procedure"
+            src="/aw169/procedures/offshore-elevated-helideck-take-off-normal-procedure/figure-np-6-offshore-elevated-helideck-normal-take-off-profile.svg"
+            alt="Figure NP 6: Offshore / Elevated Helideck – Normal Take-Off Profile"
             className="w-full h-auto"
             onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
           />
@@ -42,6 +42,9 @@ function PageInner() {
 
         <section className="rounded-xl border bg-white dark:bg-zinc-900 dark:border-zinc-700 p-4">
           <ol className="list-decimal pl-6 space-y-2 text-slate-800 dark:text-zinc-100">
+            <li>
+              <span className="font-medium">ECS</span> — As required.
+            </li>
             <li>
               <span className="font-medium">Pilot Altimeter</span> — Set 0 ft or nearest 1000 ft (300 m) setting to T-O altitude, with collective at MPOG.
             </li>
@@ -55,41 +58,54 @@ function PageInner() {
               <span className="font-medium">NOSEWHEEL lock</span> — LOCK.
             </li>
             <li>
-              <span className="font-medium">PARK BRAKE</span> — As required.
+              <span className="font-medium">PARK BRAKE</span> — Apply. Confirm pressure can be felt on brake pedals and <span className="font-semibold">PARK BRK ON</span> advisory illuminated on CAS.
             </li>
             <li>
-              <span className="font-medium">Engine / Rotor</span> — TQ / ITT matched as required and check NF / NR 103 %.
+              <span className="font-medium">Engine/Rotor</span> — Check TQ matched and NF/NR 103%.
             </li>
             <li>
               <span className="font-medium">MFD PWR PLANT page</span> — Check all parameters within normal operating limits and cross check with PFD.
             </li>
             <li>
-              <span className="font-medium">Warnings and Cautions</span> — None / as required.
+              <span className="font-medium">PFD menu</span> — Select DG on Rig, Otherwise check heading and select as required.
             </li>
             <li>
-              <span className="font-medium">Flight controls</span> — Check correct functioning.
+              <span className="font-medium">Warnings and Cautions</span> — None/as required.
             </li>
             <li>
-              <span className="font-medium">Landing lights</span> — For night operations set as follows:
+              <span className="font-medium">Landing Lights</span> — For night operations set as follows:
               <ul className="list-disc pl-6">
-                <li>Flying pilot side set pointing down.</li>
-                <li>Non-flying pilot side set pointing forward.</li>
+                <li>Flying pilot side set pointing down</li>
+                <li>Non flying pilot side set pointing forward.</li>
               </ul>
             </li>
             <li>
-              <span className="font-medium">Hover</span> — Establish a 6 ft (1.8 m) ATS hover and note pitch attitude and PI. No winds from rear sectors (090° to 270°).
+              <span className="font-medium">Hover</span> — Establish a 5 ft (1.5 m) ATS hover with the helicopter nose wheel positioned approximately 2 m from the front edge of the helideck and note hovering PI.
+            </li>
+          </ol>
+
+          <div className="rounded-xl border bg-white p-4 dark:bg-zinc-900 dark:border-zinc-700 mt-4" aria-label="Note">
+            <div className="font-semibold">Note</div>
+            <p className="mt-1">
+              If wind is from right sector, it is recommended that the aircraft is oriented to minimize the crosswind.
+            </p>
+          </div>
+
+          <ol start={13} className="list-decimal pl-6 space-y-2 text-slate-800 dark:text-zinc-100 mt-4">
+            <li>
+              <span className="font-medium">Collective/Cyclic Control</span> — Increase PI by 15% in approximately 2 sec. to climb vertically at 400 fpm or greater, maintaining hover position.
             </li>
             <li>
-              <span className="font-medium">Collective / Cyclic Control</span> — Increase collective to start a slow climb (max 300 fpm) to TDP (max 400 ft) maintaining the centre of the helideck in sight between yaw pedals.
+              <span className="font-medium">Take-Off Decision Point (TDP)</span> — At 25 ft (7.5 m) ATS rotate nose to 12° nose down to achieve 15 kts GS then rotate to 6° nose up while continuing to accelerate to V<sub>Y</sub> (75 KIAS).
             </li>
             <li>
-              <span className="font-medium">Take-Off Decision Point (TDP)</span> — Rotate in 2 sec ≈ 15° nose down with respect to hover attitude using collective to maintain height. Maintain this attitude until airspeed indications start to increase, then reduce pitch down by 5° to accelerate through V<sub>TOSS</sub> (45 KIAS). From V<sub>TOSS</sub> continue climb and accelerate to V<sub>Y</sub>.
+              <span className="font-medium">V<sub>Y</sub></span> — Above 200 ft, Landing Gear UP.
             </li>
             <li>
-              <span className="font-medium">Acceleration / Climb</span> — Passing through V<sub>TOSS</sub> (45 KIAS) continue acceleration to V<sub>Y</sub> and climb to 1000 ft (300 m) ATS.
+              <span className="font-medium">PARK BRAKE</span> — Release. Confirm <span className="font-semibold">PARK BRK ON</span> advisory extinguishes on CAS.
             </li>
             <li>
-              <span className="font-medium">Landing gear</span> — UP (when reaching V<sub>Y</sub> but not below 200 ft (60 m) ATS).
+              <span className="font-medium">PFD menu</span> — Select MAG as required.
             </li>
             <li>
               <span className="font-medium">AFTER TAKE-OFF checks. See page 167.</span> — Complete.

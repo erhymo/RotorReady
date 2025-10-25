@@ -6,7 +6,7 @@ import { BackButton } from "@/app/components/BackButton";
 
 export default function Page() {
   return (
-    <Suspense fallback={<div className="min-h-screen bg-slate-50 dark:bg-zinc-900" />}> 
+    <Suspense fallback={<div className="min-h-screen bg-slate-50 dark:bg-zinc-900" />}>
       <PageInner />
     </Suspense>
   );
@@ -39,6 +39,16 @@ function PageInner() {
             If this procedure is modified, it may not be possible, if an engine fails in the Take-Off path, to carry out a safe OEI landing or achieve the scheduled OEI performance.
           </p>
         </section>
+        {/* Figure */}
+        <section aria-label="Figure" className="rounded-xl border bg-white dark:bg-zinc-900 dark:border-zinc-700 p-4">
+          <img
+            src="/aw169/procedures/ground-and-elevated-heliport-helideck-variable-tdp-procedure/offshore_elevated_helideck_take_off_normal_procedure_exact.svg"
+            alt="Figure NP 4: Take-Off Profile Variable TDP Procedure"
+            className="w-full h-auto"
+            onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
+          />
+        </section>
+
 
         {/* Steps 1-7 */}
         <section className="rounded-xl border bg-white dark:bg-zinc-900 dark:border-zinc-700 p-4">
@@ -104,15 +114,6 @@ function PageInner() {
           </ol>
         </section>
 
-        {/* Figure */}
-        <section aria-label="Figure" className="rounded-xl border bg-white dark:bg-zinc-900 dark:border-zinc-700 p-4">
-          <img
-            src="/aw169/procedures/ground-and-elevated-heliport-helideck-variable-tdp-procedure/figure-np-4-take-off-profile-variable-tdp-procedure.svg"
-            alt="Figure NP 4: Take-Off Profile Variable TDP Procedure"
-            className="w-full h-auto"
-            onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
-          />
-        </section>
 
         <footer className="text-xs text-zinc-500 dark:text-zinc-400">
           AW169 training reference. For training use only.

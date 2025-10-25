@@ -33,7 +33,7 @@ function PageInner() {
         {/* Figure under title */}
         <section aria-label="Figure" className="rounded-xl border bg-white dark:bg-zinc-900 dark:border-zinc-700 p-4">
           <img
-            src="/aw169/procedures/offshore-elevated-helideck-take-off-normal-procedure/figure-np-5-offshore-elevated-helideck-take-off-normal-procedure.svg"
+            src="/aw169/procedures/offshore-elevated-helideck-take-off-normal-procedure/offshore_elevated_helideck_take_off_profile_exact.svg"
             alt="Figure NP 5: Offshore / Elevated Helideck Take-Off Normal Procedure"
             className="w-full h-auto"
             onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}

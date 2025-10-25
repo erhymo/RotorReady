@@ -71,9 +71,9 @@ function ClearAreaTakeOffInner() {
         <section className="rounded-xl border bg-white dark:bg-zinc-900 dark:border-zinc-700 p-4">
           <div className="text-sm font-semibold text-slate-800 dark:text-zinc-100 mb-2">Take-Off</div>
           <div className="rounded-lg overflow-hidden border dark:border-zinc-700 bg-white dark:bg-zinc-900">
-            {/* Provide PNG/SVG asset at public/aw169/procedures/clear-area-take-off/figure-np3.png */}
+            {/* Provide PNG/SVG asset at public/aw169/procedures/clear-area-take-off/clear_area_take_off_exact.svg */}
             <img
-              src="/aw169/procedures/clear-area-take-off/figure-np3.png"
+              src="/aw169/procedures/clear-area-take-off/clear_area_take_off_exact.svg"
               alt="Figure NP 3: Take-Off Profile Clear Area"
               className="w-full h-auto"
               onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}

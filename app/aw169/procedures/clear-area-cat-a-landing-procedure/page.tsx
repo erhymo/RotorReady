@@ -6,7 +6,7 @@ import { BackButton } from "@/app/components/BackButton";
 
 export default function Page() {
   return (
-    <Suspense fallback={<div className=\"min-h-screen bg-slate-50 dark:bg-zinc-900\" />}> 
+    <Suspense fallback={<div className="min-h-screen bg-slate-50 dark:bg-zinc-900" />}>
       <PageInner />
     </Suspense>
   );

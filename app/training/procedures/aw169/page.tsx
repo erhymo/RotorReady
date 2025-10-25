@@ -6,6 +6,7 @@ export default function AW169ProceduresListPage() {
   const procedures = [
     { title: "CLEAR AREA TAKE-OFF PROCEDURE", href: "/aw169/procedures/clear-area-take-off?plist=1" },
     { title: "GROUND AND ELEVATED HELIPORT / HELIDECK VARIABLE TDP PROCEDURE", href: "/aw169/procedures/ground-and-elevated-heliport-helideck-variable-tdp-procedure?plist=1" },
+    { title: "OFFSHORE / ELEVATED HELIDECK TAKE-OFF NORMAL PROCEDURE", href: "/aw169/procedures/offshore-elevated-helideck-take-off-normal-procedure?plist=1" },
     { title: "ENGINE SHUTDOWN IN EMERGENCY", href: "/aw169/procedures/engine-shutdown-emergency?plist=1" },
     { title: "SINGLE ENGINE PROCEDURE", href: "/aw169/procedures/single-engine?plist=1" },
     { title: "ENGINE RE-LIGHT (IN FLIGHT)", href: "/aw169/procedures/engine-re-light?plist=1" },

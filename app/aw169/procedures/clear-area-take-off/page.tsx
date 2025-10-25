@@ -62,12 +62,6 @@ function ClearAreaTakeOffInner() {
           </div>
         </header>
 
-        <section className="rounded-xl border bg-white dark:bg-zinc-900 dark:border-zinc-700 p-4 text-sm text-slate-800 dark:text-zinc-100">
-          <div className="font-semibold text-center mb-1">Note</div>
-          <p>Radio altimeter heights are shown in the flight path profiles. Refer to Barometric altimeter when obstacles are present in the Take‑Off flight path.</p>
-        </section>
-
-
         <section className="rounded-xl border bg-white dark:bg-zinc-900 dark:border-zinc-700 p-4">
           <div className="text-sm font-semibold text-slate-800 dark:text-zinc-100 mb-2">Take-Off</div>
           <div className="rounded-lg overflow-hidden border dark:border-zinc-700 bg-white dark:bg-zinc-900">
@@ -80,6 +74,11 @@ function ClearAreaTakeOffInner() {
             />
           </div>
           <div className="mt-2 text-center text-xs text-slate-500 dark:text-zinc-400">Figure NP 3: Take-Off Profile Clear Area</div>
+        </section>
+
+        <section className="rounded-xl border bg-white dark:bg-zinc-900 dark:border-zinc-700 p-4 text-sm text-slate-800 dark:text-zinc-100">
+          <div className="font-semibold text-center mb-1">Note</div>
+          <p>Radio altimeter heights are shown in the flight path profiles. Refer to Barometric altimeter when obstacles are present in the Take‑Off flight path.</p>
         </section>
 
         <section className="space-y-3">

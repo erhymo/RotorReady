@@ -15,8 +15,11 @@ export default function Page() {
 function PageInner() {
   const router = useRouter();
   const sp = useSearchParams();
+  const cwp = sp.get("cwp");
   const plist = sp.get("plist");
+  const compactCWP = !!cwp && cwp !== "0" && cwp !== "false";
   const compactList = !!plist && plist !== "0" && plist !== "false";
+  const compact = compactCWP || compactList;
 
   function Content() {
     return (
@@ -26,6 +29,16 @@ function PageInner() {
             GROUND AND ELEVATED HELIPORT / HELIDECK VARIABLE TDP PROCEDURE
           </h1>
         </header>
+
+        {/* Figure */}
+        <section aria-label="Figure" className="rounded-xl border bg-white dark:bg-zinc-900 dark:border-zinc-700 p-4">
+          <img
+            src="/aw169/procedures/ground-and-elevated-heliport-helideck-variable-tdp-procedure/offshore_elevated_helideck_take_off_normal_procedure_exact.svg"
+            alt="Figure NP 4: Take-Off Profile Variable TDP Procedure"
+            className="w-full h-auto"
+            onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
+          />
+        </section>
 
         {/* CAUTION */}
         <section
@@ -39,17 +52,6 @@ function PageInner() {
             If this procedure is modified, it may not be possible, if an engine fails in the Take-Off path, to carry out a safe OEI landing or achieve the scheduled OEI performance.
           </p>
         </section>
-        {/* Figure */}
-        <section aria-label="Figure" className="rounded-xl border bg-white dark:bg-zinc-900 dark:border-zinc-700 p-4">
-          <img
-            src="/aw169/procedures/ground-and-elevated-heliport-helideck-variable-tdp-procedure/offshore_elevated_helideck_take_off_normal_procedure_exact.svg"
-            alt="Figure NP 4: Take-Off Profile Variable TDP Procedure"
-            className="w-full h-auto"
-            onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
-          />
-        </section>
-
-
         {/* Steps 1-7 */}
         <section className="rounded-xl border bg-white dark:bg-zinc-900 dark:border-zinc-700 p-4">
           <ol className="list-decimal pl-6 space-y-2 text-slate-800 dark:text-zinc-100">
@@ -122,7 +124,7 @@ function PageInner() {
     );
   }
 
-  if (compactList) {
+  if (compact) {
     return (
       <div
         className="fixed left-0 right-0 bottom-0 top-0 z-40 bg-white dark:bg-zinc-900 cursor-pointer"
@@ -130,9 +132,23 @@ function PageInner() {
         aria-label="Close procedure"
         onClick={() => {
           try {
-            const url = new URL(window.location.href);
-            url.searchParams.delete("plist");
-            router.replace(url.toString(), { scroll: false });
+            const before = window.location.pathname + window.location.search;
+            router.back();
+            setTimeout(() => {
+              try {
+                if (window.location.pathname + window.location.search === before) {
+                  if (compactList) {
+                    router.push('/training/procedures/aw169');
+                  } else {
+                    const sp2 = new URLSearchParams(window.location.search);
+                    const v = sp2.get('v') || '';
+                    const light = sp2.get('light') || '';
+                    const mem = sp2.get('mem') || '0';
+                    router.push(`/training/lights?resume=1&v=${encodeURIComponent(v)}&light=${encodeURIComponent(light)}&mem=${encodeURIComponent(mem)}&cwp=1`);
+                  }
+                }
+              } catch {}
+            }, 120);
           } catch {}
         }}
       >

@@ -18,7 +18,7 @@ export default function AW169ProceduresListPage() {
       <header className="sticky top-0 z-10 bg-white/80 dark:bg-zinc-900/90 backdrop-blur border-b dark:border-zinc-700">
         <div className="mx-auto max-w-3xl px-6 py-3 flex items-center justify-between">
           <h1 className="text-xl font-semibold text-slate-900 dark:text-zinc-100">AW169 · Procedures</h1>
-          <Link href="/training/lights" className="text-sm underline text-blue-600 dark:text-blue-400">Back to Training</Link>
+          <Link href="/" className="text-sm underline text-blue-600 dark:text-blue-400">Home</Link>
         </div>
       </header>
 

@@ -13,6 +13,7 @@ export default function AW169ProceduresListPage() {
     { title: "ENGINE RE-LIGHT (IN FLIGHT)", href: "/aw169/procedures/engine-re-light?plist=1" },
     { title: "GROUND OR ELEVATED HELIPAD APPROACH AND LANDING VARIABLE LDP PROCEDURE", href: "/aw169/procedures/ground-or-elevated-helipad-approach-and-landing-variable-ldp-procedure?plist=1" },
     { title: "OFFSHORE AND ELEVATED HELIDECK LANDING PROCEDURES", href: "/aw169/procedures/offshore-and-elevated-helideck-landing-procedures?plist=1" },
+    { title: "OFFSHORE / ELEVATED HELIDECK APPROACH AND NORMAL LANDING PROCEDURE", href: "/aw169/procedures/offshore-elevated-helideck-approach-and-normal-landing-procedure?plist=1" },
   ];
 
   return (

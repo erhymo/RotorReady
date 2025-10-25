@@ -3,12 +3,16 @@
 import { useRouter } from "next/navigation";
 import React from "react";
 
-export function BackButton({ className, label }: { className?: string; label?: string }) {
+export function BackButton({ className, label, to }: { className?: string; label?: string; to?: string }) {
   const router = useRouter();
   return (
     <button
       type="button"
       onClick={() => {
+        if (to) {
+          router.push(to);
+          return;
+        }
         try {
           const sp = new URLSearchParams(window.location.search);
           const resume = sp.get("resume");

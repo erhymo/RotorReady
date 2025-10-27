@@ -1,11 +1,38 @@
 "use client";
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
 import { compute } from "@/lib/calculations/aw169/ogeOeiHeadwind";
 
 export default function Page() {
   const [paStr, setPaStr] = useState("0");
-  const [oatStr, setOatStr] = useState("20");
-  const [windStr, setWindStr] = useState("10");
+  const [oatStr, setOatStr] = useState("15");
+  const [windStr, setWindStr] = useState("0");
+
+  const LS_KEY = "calc:aw169:oge-oei-headwind:v1";
+  const TTL_MS = 20 * 60 * 1000; // 20 minutes
+
+  // Restore from localStorage if fresh (< TTL)
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem(LS_KEY);
+      if (raw) {
+        const obj = JSON.parse(raw);
+        if (obj && typeof obj.savedAt === "number" && Date.now() - obj.savedAt < TTL_MS) {
+          if (typeof obj.paStr === "string") setPaStr(obj.paStr);
+          if (typeof obj.oatStr === "string") setOatStr(obj.oatStr);
+          if (typeof obj.windStr === "string") setWindStr(obj.windStr);
+        } else {
+          localStorage.removeItem(LS_KEY);
+        }
+      }
+    } catch {}
+  }, []);
+
+  // Persist on change
+  useEffect(() => {
+    try {
+      localStorage.setItem(LS_KEY, JSON.stringify({ paStr, oatStr, windStr, savedAt: Date.now() }));
+    } catch {}
+  }, [paStr, oatStr, windStr]);
 
   const pa = parseFloat(paStr);
   const oat = parseFloat(oatStr);

@@ -1,10 +1,14 @@
 "use client";
+import { useRouter } from "next/navigation";
+
 import { useMemo, useState, useEffect } from "react";
 import { compute } from "@/lib/calculations/aw169/ogeOeiHeadwind";
 
 export default function Page() {
   const [paStr, setPaStr] = useState("0");
   const [oatStr, setOatStr] = useState("15");
+  const router = useRouter();
+
   const [windStr, setWindStr] = useState("0");
 
   const LS_KEY = "calc:aw169:oge-oei-headwind:v1";
@@ -51,6 +55,12 @@ export default function Page() {
   return (
     <div className="max-w-3xl mx-auto p-6 space-y-6">
       <header>
+        <div className="mb-2">
+          <button type="button" onClick={() => router.back()} className="text-sm text-slate-600 dark:text-zinc-300 hover:underline">
+            ← Back
+          </button>
+        </div>
+
         <h1 className="text-2xl font-bold text-slate-900 dark:text-white">Hover Ceiling OGE Unfactored Headwind - OEI 2.5 min</h1>
         <p className="text-slate-600 dark:text-zinc-300 mt-1">Rotor speed: PLUS · Electrical load: 100% · OAT lines: -40..+50°C · Headwind treated as headwind component only</p>
       </header>

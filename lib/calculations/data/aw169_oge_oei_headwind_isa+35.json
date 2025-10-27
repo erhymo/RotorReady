@@ -1,0 +1,46 @@
+{
+  "metadata": {
+    "aircraft": "AW169",
+    "figure": "Figure S5-31 Hover Ceiling OGE Unfactored Headwind - OEI 2.5 min",
+    "source": "AW169 RFM Supplement 5 (External Hoist, Goodrich)",
+    "issue": "Issue 3 Rev. 1",
+    "page": "S5-55",
+    "oat": "ISA+35",
+    "rotorSpeed": "PLUS",
+    "electricalLoad": "100%"
+  },
+  "baseline_zero_wind": [
+    {"pa_ft": -1000, "max_gw_kg": 4400},
+    {"pa_ft": 0, "max_gw_kg": 4350},
+    {"pa_ft": 2000, "max_gw_kg": 4200},
+    {"pa_ft": 4000, "max_gw_kg": 4050},
+    {"pa_ft": 6000, "max_gw_kg": 3900},
+    {"pa_ft": 8000, "max_gw_kg": 3750},
+    {"pa_ft": 10000, "max_gw_kg": 3600},
+    {"pa_ft": 12000, "max_gw_kg": 3450},
+    {"pa_ft": 14000, "max_gw_kg": 3325},
+    {"pa_ft": 15000, "max_gw_kg": 3250}
+  ],
+  "headwind_increment_kg": [
+    {"kts": 0, "kg": 0},
+    {"kts": 5, "kg": 62},
+    {"kts": 10, "kg": 219},
+    {"kts": 15, "kg": 400},
+    {"kts": 20, "kg": 623},
+    {"kts": 25, "kg": 850},
+    {"kts": 30, "kg": 1047},
+    {"kts": 35, "kg": 1263},
+    {"kts": 40, "kg": 1504},
+    {"kts": 45, "kg": 1789},
+    {"kts": 50, "kg": 1965}
+  ],
+  "bounds": {
+    "pa_ft_min": -1000,
+    "pa_ft_max": 15000,
+    "gw_kg_min": 3300,
+    "gw_kg_max": 4900,
+    "headwind_kts_min": 0,
+    "headwind_kts_max": 50
+  }
+}
+

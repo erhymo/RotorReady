@@ -50,7 +50,8 @@ export function compute(inputs: Inputs): Result {
   const daClamped = clamp(da, paMin, paMax);
 
   const base = interpBase(daClamped);
-  const inc = interpHeadwind(kts);
+  const incRaw = interpHeadwind(kts);
+  const inc = 0.5 * incRaw; // planning credit: 50% of headwind benefit
   let maxGw = base + inc;
 
   maxGw = clamp(maxGw, data.bounds.gw_kg_min, data.bounds.gw_kg_max);

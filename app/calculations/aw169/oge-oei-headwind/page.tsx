@@ -85,6 +85,7 @@ export default function Page() {
       <div className="text-xs text-slate-500 dark:text-zinc-400 space-y-1">
         <div>Chart reference: AW169 RFM Supplement 5 (External Hoist, Goodrich) · {res.meta.figure} · Page {res.meta.page} · {res.meta.issue}</div>
         <div>Assumptions: OAT {res.meta.oat}, Rotor speed {res.meta.rotorSpeed}, Electrical load {res.meta.electricalLoad}. Headwind treated as headwind component.</div>
+        <div>Planning credit (QRH): Enter actual headwind; this tool automatically applies a 50% headwind credit for preflight planning (e.g., 15 kts -> half of the chart's weight increment).</div>
         <div>Disclaimer: For training/planning aid only. Verify against the RFM before flight.</div>
       </div>
     </div>

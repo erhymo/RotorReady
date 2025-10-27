@@ -3,11 +3,23 @@ import { useMemo, useState } from "react";
 import { compute } from "@/lib/calculations/aw169/ogeOeiHeadwind";
 
 export default function Page() {
-  const [gwKg, setGwKg] = useState(4200);
-  const [paFt, setPaFt] = useState(0);
-  const [wind, setWind] = useState(10);
+  const [gwStr, setGwStr] = useState("4200");
+  const [paStr, setPaStr] = useState("0");
+  const [windStr, setWindStr] = useState("10");
 
-  const res = useMemo(() => compute({ gwKg, paFt, headwindKts: wind }), [gwKg, paFt, wind]);
+  const gw = parseFloat(gwStr);
+  const pa = parseFloat(paStr);
+  const wind = parseFloat(windStr);
+
+  const res = useMemo(
+    () =>
+      compute({
+        gwKg: Number.isFinite(gw) ? gw : 0,
+        paFt: Number.isFinite(pa) ? pa : 0,
+        headwindKts: Number.isFinite(wind) ? wind : 0,
+      }),
+    [gw, pa, wind]
+  );
 
   return (
     <div className="max-w-3xl mx-auto p-6 space-y-6">
@@ -20,17 +32,17 @@ export default function Page() {
         <label className="block text-sm">
           <span className="text-slate-700 dark:text-zinc-200">Gross weight (kg)</span>
           <input type="number" className="mt-1 w-full rounded-md border bg-white/70 dark:bg-zinc-900/70 px-3 py-2"
-            value={gwKg} onChange={e=>setGwKg(parseFloat(e.target.value)||0)} />
+            value={gwStr} onChange={e => setGwStr(e.target.value)} />
         </label>
         <label className="block text-sm">
           <span className="text-slate-700 dark:text-zinc-200">Pressure altitude (ft)</span>
           <input type="number" className="mt-1 w-full rounded-md border bg-white/70 dark:bg-zinc-900/70 px-3 py-2"
-            value={paFt} onChange={e=>setPaFt(parseFloat(e.target.value)||0)} />
+            value={paStr} onChange={e => setPaStr(e.target.value)} />
         </label>
         <label className="block text-sm">
           <span className="text-slate-700 dark:text-zinc-200">Headwind (kts)</span>
           <input type="number" className="mt-1 w-full rounded-md border bg-white/70 dark:bg-zinc-900/70 px-3 py-2"
-            value={wind} onChange={e=>setWind(parseFloat(e.target.value)||0)} />
+            value={windStr} onChange={e => setWindStr(e.target.value)} />
         </label>
       </div>
 

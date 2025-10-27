@@ -38,8 +38,22 @@ export default function Page() {
         </label>
         <label className="block text-sm">
           <span className="text-slate-700 dark:text-zinc-200">OAT (°C)</span>
-          <input type="number" min={-40} max={50} step={1} className="mt-1 w-full rounded-md border bg-white/70 dark:bg-zinc-900/70 px-3 py-2"
-            value={oatStr} onChange={e => setOatStr(e.target.value)} />
+          <div className="mt-1 flex gap-2">
+            <input type="text" inputMode="numeric" pattern="-?[0-9]*" placeholder="e.g. -10" className="w-full rounded-md border bg-white/70 dark:bg-zinc-900/70 px-3 py-2"
+              value={oatStr} onChange={e => setOatStr(e.target.value.replace(/[^0-9-]/g, ''))} />
+            <div className="flex items-stretch gap-1">
+              <button type="button" className="px-3 rounded-md border bg-white/70 dark:bg-zinc-900/70" onClick={() => setOatStr(() => {
+                const v = parseFloat(oatStr);
+                const n = Number.isFinite(v) ? Math.max(-40, v - 1) : -1;
+                return String(n);
+              })}>–</button>
+              <button type="button" className="px-3 rounded-md border bg-white/70 dark:bg-zinc-900/70" onClick={() => setOatStr(() => {
+                const v = parseFloat(oatStr);
+                const n = Number.isFinite(v) ? Math.min(50, v + 1) : 1;
+                return String(n);
+              })}>+</button>
+            </div>
+          </div>
         </label>
         <label className="block text-sm">
           <span className="text-slate-700 dark:text-zinc-200">Headwind (kts)</span>

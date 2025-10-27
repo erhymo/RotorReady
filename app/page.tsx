@@ -97,6 +97,12 @@ export default function HomePage() {
           icon={<DownloadIcon className="h-4 w-4" />}
         />
         <Bar
+          href="/calculations"
+          title="Calculations"
+          description="Performance calculators (e.g., AW169 OEI OGE headwind)."
+          tone="slate"
+        />
+        <Bar
           href="/account"
           title="My Page"
           description="See progress, adjust helicopter preferences (locally stored)."

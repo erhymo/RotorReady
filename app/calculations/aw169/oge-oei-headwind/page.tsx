@@ -38,12 +38,12 @@ export default function Page() {
         </label>
         <label className="block text-sm">
           <span className="text-slate-700 dark:text-zinc-200">OAT (°C)</span>
-          <input type="number" className="mt-1 w-full rounded-md border bg-white/70 dark:bg-zinc-900/70 px-3 py-2"
+          <input type="number" min={-40} max={50} step={1} className="mt-1 w-full rounded-md border bg-white/70 dark:bg-zinc-900/70 px-3 py-2"
             value={oatStr} onChange={e => setOatStr(e.target.value)} />
         </label>
         <label className="block text-sm">
           <span className="text-slate-700 dark:text-zinc-200">Headwind (kts)</span>
-          <input type="number" className="mt-1 w-full rounded-md border bg-white/70 dark:bg-zinc-900/70 px-3 py-2"
+          <input type="number" min={0} max={50} step={1} className="mt-1 w-full rounded-md border bg-white/70 dark:bg-zinc-900/70 px-3 py-2"
             value={windStr} onChange={e => setWindStr(e.target.value)} />
         </label>
         <label className="block text-sm">

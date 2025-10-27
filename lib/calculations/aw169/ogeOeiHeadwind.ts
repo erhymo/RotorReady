@@ -55,7 +55,8 @@ export function compute(inputs: Inputs): Result {
 
   maxGw = clamp(maxGw, data.bounds.gw_kg_min, data.bounds.gw_kg_max);
 
-  const clamped = pa !== rawPa || oat !== rawOat || kts !== rawKts || daClamped !== da;
+  // Only treat user inputs as "clamped" for the UI notice; don't warn when only derived DA was bounded.
+  const clampedInputs = pa !== rawPa || oat !== rawOat || kts !== rawKts;
 
-  return { ok: true, maxGwKg: Math.round(maxGw), clamped, meta: data.metadata };
+  return { ok: true, maxGwKg: Math.round(maxGw), clamped: clampedInputs, meta: data.metadata };
 }

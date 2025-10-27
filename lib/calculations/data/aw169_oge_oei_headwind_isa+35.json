@@ -11,15 +11,20 @@
   },
   "baseline_zero_wind": [
     {"pa_ft": -1000, "max_gw_kg": 4400},
-    {"pa_ft": 0, "max_gw_kg": 4350},
+    {"pa_ft": -562, "max_gw_kg": 4250},
+    {"pa_ft": 0, "max_gw_kg": 4250},
     {"pa_ft": 2000, "max_gw_kg": 4200},
-    {"pa_ft": 4000, "max_gw_kg": 4050},
-    {"pa_ft": 6000, "max_gw_kg": 3900},
-    {"pa_ft": 8000, "max_gw_kg": 3750},
-    {"pa_ft": 10000, "max_gw_kg": 3600},
-    {"pa_ft": 12000, "max_gw_kg": 3450},
+    {"pa_ft": 3150, "max_gw_kg": 4000},
+    {"pa_ft": 4000, "max_gw_kg": 3920},
+    {"pa_ft": 5044, "max_gw_kg": 3800},
+    {"pa_ft": 5626, "max_gw_kg": 3700},
+    {"pa_ft": 6000, "max_gw_kg": 3650},
+    {"pa_ft": 8000, "max_gw_kg": 3500},
+    {"pa_ft": 8138, "max_gw_kg": 3450},
+    {"pa_ft": 10000, "max_gw_kg": 3380},
+    {"pa_ft": 12000, "max_gw_kg": 3340},
     {"pa_ft": 14000, "max_gw_kg": 3325},
-    {"pa_ft": 15000, "max_gw_kg": 3250}
+    {"pa_ft": 15000, "max_gw_kg": 3300}
   ],
   "headwind_increment_kg": [
     {"kts": 0, "kg": 0},

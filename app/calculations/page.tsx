@@ -1,5 +1,7 @@
 "use client";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+
 
 function Bar(props: { href: string; title: string; description: string }) {
   return (
@@ -14,11 +16,14 @@ function Bar(props: { href: string; title: string; description: string }) {
     </Link>
   );
 }
-
 export default function CalculationsHub() {
+  const router = useRouter();
   return (
     <div className="max-w-3xl mx-auto p-6 space-y-6">
       <header>
+        <div className="mb-2">
+          <button type="button" onClick={() => router.back()} className="text-sm text-slate-600 dark:text-zinc-300 hover:underline">← Back</button>
+        </div>
         <h1 className="text-2xl font-bold text-slate-900 dark:text-white">Calculations</h1>
         <p className="text-slate-600 dark:text-zinc-300 mt-1">Performance calculators based on aircraft RFM charts.</p>
       </header>

@@ -119,11 +119,11 @@ export default function WeatherDetail() {
                     </div>
                     <span className={`h-2.5 w-2.5 rounded-full ${wx?.green ? "bg-emerald-500" : "bg-slate-300 dark:bg-zinc-600"}`}></span>
                   </div>
-                  {(() => { const m= wx?.metarRaw ? parseIssueTimeUtc(wx.metarRaw) : null; const age = m ? minutesSince(m) : null; return age!=null ? (<div className="text-xs text-slate-500 dark:text-zinc-400">{age} min</div>) : null; })()}
+                  {(() => { const m= wx?.metarRaw ? parseIssueTimeUtc(wx.metarRaw) : null; const age = m ? minutesSince(m) : null; return age!=null ? (<div className="text-xs text-slate-500 dark:text-zinc-400">{age}min</div>) : null; })()}
                   <div className="text-sm text-slate-700 dark:text-zinc-200">
                     <span className="font-medium">METAR:</span> {wx?.metarRaw || <span className="text-slate-400">(loading…)</span>}
                   </div>
-                  {(() => { const t= wx?.tafRaw ? parseIssueTimeUtc(wx.tafRaw) : null; const age = t ? minutesSince(t) : null; return age!=null ? (<div className="text-xs text-slate-500 dark:text-zinc-400">{age} min</div>) : null; })()}
+                  {(() => { const t= wx?.tafRaw ? parseIssueTimeUtc(wx.tafRaw) : null; const age = t ? minutesSince(t) : null; return age!=null ? (<div className="text-xs text-slate-500 dark:text-zinc-400">{age}min</div>) : null; })()}
                   <div className="text-sm text-slate-700 dark:text-zinc-200">
                     <span className="font-medium">{wx?.isAMD ? "AMD TAF" : "TAF"}:</span> {wx?.tafRaw || <span className="text-slate-400">(loading…)</span>}
                   </div>
@@ -157,11 +157,11 @@ export default function WeatherDetail() {
                       </div>
                       <span className={`h-2.5 w-2.5 rounded-full ${wx?.green ? "bg-emerald-500" : "bg-slate-300 dark:bg-zinc-600"}`}></span>
                     </div>
-                    {(() => { const m= wx?.metarRaw ? parseIssueTimeUtc(wx.metarRaw) : null; const age = m ? minutesSince(m) : null; return age!=null ? (<div className="text-xs text-slate-500 dark:text-zinc-400">{age} min</div>) : null; })()}
+                    {(() => { const m= wx?.metarRaw ? parseIssueTimeUtc(wx.metarRaw) : null; const age = m ? minutesSince(m) : null; return age!=null ? (<div className="text-xs text-slate-500 dark:text-zinc-400">{age}min</div>) : null; })()}
                     <div className="text-sm text-slate-700 dark:text-zinc-200">
                       <span className="font-medium">METAR:</span> {wx?.metarRaw || <span className="text-slate-400">(loading…)</span>}
                     </div>
-                    {(() => { const t= wx?.tafRaw ? parseIssueTimeUtc(wx.tafRaw) : null; const age = t ? minutesSince(t) : null; return age!=null ? (<div className="text-xs text-slate-500 dark:text-zinc-400">{age} min</div>) : null; })()}
+                    {(() => { const t= wx?.tafRaw ? parseIssueTimeUtc(wx.tafRaw) : null; const age = t ? minutesSince(t) : null; return age!=null ? (<div className="text-xs text-slate-500 dark:text-zinc-400">{age}min</div>) : null; })()}
                     <div className="text-sm text-slate-700 dark:text-zinc-200">
                       <span className="font-medium">{wx?.isAMD ? "AMD TAF" : "TAF"}:</span> {wx?.tafRaw || <span className="text-slate-400">(loading…)</span>}
                     </div>

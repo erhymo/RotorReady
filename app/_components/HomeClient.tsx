@@ -107,6 +107,12 @@ export default function HomeClient() {
           description="Nearest ICAO airports in Norway. METAR/TAF + alternates."
           tone="slate"
         />
+        <Bar
+          href="/airports"
+          title="Airports"
+          description="Browse all Norwegian airports from Avinor AIS; see ATS & fuel opening hours."
+          tone="slate"
+        />
 
         <Bar
           href="/account"

@@ -17,8 +17,8 @@ const MANUAL: Record<string, { ats: string | null; fuel: string | null; note?: s
 };
 
 function aipUrlFor(icao: string): string {
-  // Known landing page for Avinor AIS. Parser will follow redirects/content.
-  return `https://avinor.no/ais`; // Placeholder root; per-airport deep links vary across releases
+  // Consolidated operational hours (ATS, Fuel, etc.) published by Avinor AIS
+  return 'https://aim-prod.avinor.no/OperationalHours/Latest/ops_hrs.html';
 }
 
 async function tryParseFromAIP(icao: string): Promise<{ ats: string | null; fuel: string | null } | null> {
@@ -29,14 +29,56 @@ async function tryParseFromAIP(icao: string): Promise<{ ats: string | null; fuel
         "User-Agent": "RotorReady/1.0 (+https://rotor-ready.vercel.app; contact: myhre.oyvind@gmail.com)",
         "Accept": "text/html,application/xhtml+xml",
       },
-      // Avoid caching upstream to respect our 12h cache only
       cache: "no-store",
     });
     if (!res.ok) return null;
     const html = await res.text();
-    // TODO: Implement robust selectors once stable per-airport URLs/DOM are confirmed.
-    // For now, return null to fall back to manual.
-    void html; // satisfy linter
+
+    // Convert HTML to a rough plain-text to make parsing resilient without DOM
+    const text = html
+      .replace(/<script[\s\S]*?<\/script>/gi, " ")
+      .replace(/<style[\s\S]*?<\/style>/gi, " ")
+      .replace(/<[^>]+>/g, "\n")
+      .replace(/&nbsp;/g, " ")
+      .replace(/\r/g, "")
+      .replace(/\t/g, " ")
+      .replace(/\n\n+/g, "\n");
+
+    function sectionBetween(src: string, startMarker: string, endMarkers: string[]): string | null {
+      const s = src.indexOf(startMarker);
+      if (s === -1) return null;
+      let e = -1;
+      for (const endMarker of endMarkers) {
+        const idx = src.indexOf(endMarker, s + startMarker.length);
+        if (idx !== -1 && (e === -1 || idx < e)) e = idx;
+      }
+      const end = e === -1 ? src.length : e;
+      return src.slice(s + startMarker.length, end);
+    }
+
+    function extractHr(section: string | null, icaoCode: string): string | null {
+      if (!section) return null;
+      const lines = section.split("\n").map(l => l.trim()).filter(Boolean);
+      for (let i = 0; i < lines.length; i++) {
+        if (lines[i].toUpperCase() === icaoCode) {
+          // HR is usually the next non-empty line that isn't a header
+          for (let j = i + 1; j < lines.length; j++) {
+            const l = lines[j];
+            if (!l || l === "AIRPORT" || l === "ICAO" || l === "HR" || l === "RMK:" || l.toUpperCase() === icaoCode) continue;
+            return l;
+          }
+        }
+      }
+      return null;
+    }
+
+    const atsSection = sectionBetween(text, "AD 2.3 Operational hours: ATS", ["AD 2.3 Operational hours: Fuel", "AD 2.6 Operational hours"]);
+    const fuelSection = sectionBetween(text, "AD 2.3 Operational hours: Fuel", ["AD 2.6 Operational hours", "AD 2.3 Operational hours: MET", "AD 2.3 Operational hours: De-Icing"]);
+
+    const ats = extractHr(atsSection, icao);
+    const fuel = extractHr(fuelSection, icao);
+
+    if (ats || fuel) return { ats: ats ?? null, fuel: fuel ?? null };
     return null;
   } catch {
     return null;
@@ -61,11 +103,13 @@ export async function GET(req: Request) {
     const manual = MANUAL[icao];
     let data: { ats: string | null; fuel: string | null; sourceUrl: string; source: "manual" | "aip"; updatedAt: string } | null = null;
 
-    if (manual) {
+    const parsed = await tryParseFromAIP(icao);
+    if (parsed) {
+      data = { ats: parsed.ats, fuel: parsed.fuel, sourceUrl: aipUrlFor(icao), source: "aip", updatedAt: new Date(now).toISOString() };
+    } else if (manual) {
       data = { ats: manual.ats, fuel: manual.fuel, sourceUrl: aipUrlFor(icao), source: "manual", updatedAt: new Date(now).toISOString() };
     } else {
-      const parsed = await tryParseFromAIP(icao);
-      data = { ats: parsed?.ats ?? null, fuel: parsed?.fuel ?? null, sourceUrl: aipUrlFor(icao), source: parsed ? "aip" : "manual", updatedAt: new Date(now).toISOString() };
+      data = { ats: null, fuel: null, sourceUrl: aipUrlFor(icao), source: "manual", updatedAt: new Date(now).toISOString() };
     }
 
     cache.set(key, { data, expires: now + TTL });

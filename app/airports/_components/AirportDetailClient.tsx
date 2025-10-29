@@ -7,7 +7,7 @@ import Link from "next/link";
 export default function AirportDetailClient() {
   const { icao: icaoParam } = useParams() as { icao: string };
   const icao = useMemo(() => (icaoParam || "").toString().toUpperCase(), [icaoParam]);
-  const [data, setData] = useState<{ ats: string | null; fuel: string | null; sourceUrl?: string } | null>(null);
+  const [data, setData] = useState<{ ats: string | null; fuel: string | null; sourceUrl?: string; updatedAt?: string } | null>(null);
   const [err, setErr] = useState<string | null>(null);
 
   useEffect(() => {
@@ -46,7 +46,7 @@ export default function AirportDetailClient() {
       </div>
 
       <div className="text-xs text-slate-500 dark:text-zinc-400">
-        Source: Avinor AIS. {data?.sourceUrl && (<a className="text-blue-600 hover:underline dark:text-blue-400" target="_blank" href={data.sourceUrl}>Open AIP</a>)}. Updated twice daily.
+        Source: Avinor AIS. {data?.sourceUrl && (<a className="text-blue-600 hover:underline dark:text-blue-400" target="_blank" href={data.sourceUrl}>Open AIP</a>)}. Updated twice daily{data?.updatedAt ? ` — Last updated: ${new Date(data.updatedAt).toLocaleString()}` : ''}.
       </div>
     </div>
   );

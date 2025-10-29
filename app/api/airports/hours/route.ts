@@ -59,13 +59,13 @@ export async function GET(req: Request) {
 
   try {
     const manual = MANUAL[icao];
-    let data: { ats: string | null; fuel: string | null; sourceUrl: string; source: "manual" | "aip" } | null = null;
+    let data: { ats: string | null; fuel: string | null; sourceUrl: string; source: "manual" | "aip"; updatedAt: string } | null = null;
 
     if (manual) {
-      data = { ats: manual.ats, fuel: manual.fuel, sourceUrl: aipUrlFor(icao), source: "manual" };
+      data = { ats: manual.ats, fuel: manual.fuel, sourceUrl: aipUrlFor(icao), source: "manual", updatedAt: new Date(now).toISOString() };
     } else {
       const parsed = await tryParseFromAIP(icao);
-      data = { ats: parsed?.ats ?? null, fuel: parsed?.fuel ?? null, sourceUrl: aipUrlFor(icao), source: parsed ? "aip" : "manual" };
+      data = { ats: parsed?.ats ?? null, fuel: parsed?.fuel ?? null, sourceUrl: aipUrlFor(icao), source: parsed ? "aip" : "manual", updatedAt: new Date(now).toISOString() };
     }
 
     cache.set(key, { data, expires: now + TTL });

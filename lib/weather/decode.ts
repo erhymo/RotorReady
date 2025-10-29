@@ -24,6 +24,29 @@ export function parseCeilingFt(raw: string): number | null {
   return Math.min(...layers);
 }
 
+// Parse issue time (UTC) from METAR/TAF raw using DDHHMMZ token.
+// Returns a Date in UTC; handles month rollover near month boundaries.
+export function parseIssueTimeUtc(raw: string, now: Date = new Date()): Date | null {
+  const m = raw.match(/\b(\d{2})(\d{2})(\d{2})Z\b/);
+  if (!m) return null;
+  const day = parseInt(m[1], 10);
+  const hour = parseInt(m[2], 10);
+  const min = parseInt(m[3], 10);
+  const y = now.getUTCFullYear();
+  const mon = now.getUTCMonth();
+  let d = new Date(Date.UTC(y, mon, day, hour, min, 0));
+  // If parsed time is >36h in the future (e.g., early month), roll back one month.
+  if (d.getTime() - now.getTime() > 36 * 3600 * 1000) {
+    d = new Date(Date.UTC(y, mon - 1, day, hour, min, 0));
+  }
+  return d;
+}
+
+export function minutesSince(date: Date, now: Date = new Date()): number {
+  const diffMs = now.getTime() - date.getTime();
+  return Math.max(0, Math.floor(diffMs / 60000));
+}
+
 export function parseVisibilityM(raw: string): number | null {
   if (/\bCAVOK\b/.test(raw)) return 10000;
   // Prefer visibility groups (four digits) not adjacent to '/'

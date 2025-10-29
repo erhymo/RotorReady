@@ -6,7 +6,7 @@ import Link from "next/link";
 
 import { NO_AIRPORTS } from "@/lib/airports/no_icao";
 import { distanceNm } from "@/lib/geo/haversine";
-import { parseCeilingFt } from "@/lib/weather/decode";
+import { parseCeilingFt, parseIssueTimeUtc, minutesSince } from "@/lib/weather/decode";
 
 import { NO_AIRPORT_FEATURES } from "@/lib/airports/no_features";
 
@@ -119,9 +119,11 @@ export default function WeatherDetail() {
                     </div>
                     <span className={`h-2.5 w-2.5 rounded-full ${wx?.green ? "bg-emerald-500" : "bg-slate-300 dark:bg-zinc-600"}`}></span>
                   </div>
+                  {(() => { const m= wx?.metarRaw ? parseIssueTimeUtc(wx.metarRaw) : null; const age = m ? minutesSince(m) : null; return age!=null ? (<div className="text-xs text-slate-500 dark:text-zinc-400">{age} min</div>) : null; })()}
                   <div className="text-sm text-slate-700 dark:text-zinc-200">
                     <span className="font-medium">METAR:</span> {wx?.metarRaw || <span className="text-slate-400">(loading…)</span>}
                   </div>
+                  {(() => { const t= wx?.tafRaw ? parseIssueTimeUtc(wx.tafRaw) : null; const age = t ? minutesSince(t) : null; return age!=null ? (<div className="text-xs text-slate-500 dark:text-zinc-400">{age} min</div>) : null; })()}
                   <div className="text-sm text-slate-700 dark:text-zinc-200">
                     <span className="font-medium">{wx?.isAMD ? "AMD TAF" : "TAF"}:</span> {wx?.tafRaw || <span className="text-slate-400">(loading…)</span>}
                   </div>
@@ -147,7 +149,7 @@ export default function WeatherDetail() {
               const f = NO_AIRPORT_FEATURES[a.icao];
               return (
                 <li key={a.icao} className="p-0">
-                  <Link href={`/weather/${a.icao}`} className="relative block px-4 py-4 space-y-3 hover:bg-slate-50 dark:hover:bg-zinc-900/50 transition-colors">
+                  <div className="relative block px-4 py-4 space-y-3">
                     <div className="flex items-center justify-between">
                       <div>
                         <div className="font-semibold">{a.icao} <span className="text-slate-600 dark:text-zinc-300 font-normal">{a.name}</span></div>
@@ -155,9 +157,11 @@ export default function WeatherDetail() {
                       </div>
                       <span className={`h-2.5 w-2.5 rounded-full ${wx?.green ? "bg-emerald-500" : "bg-slate-300 dark:bg-zinc-600"}`}></span>
                     </div>
+                    {(() => { const m= wx?.metarRaw ? parseIssueTimeUtc(wx.metarRaw) : null; const age = m ? minutesSince(m) : null; return age!=null ? (<div className="text-xs text-slate-500 dark:text-zinc-400">{age} min</div>) : null; })()}
                     <div className="text-sm text-slate-700 dark:text-zinc-200">
                       <span className="font-medium">METAR:</span> {wx?.metarRaw || <span className="text-slate-400">(loading…)</span>}
                     </div>
+                    {(() => { const t= wx?.tafRaw ? parseIssueTimeUtc(wx.tafRaw) : null; const age = t ? minutesSince(t) : null; return age!=null ? (<div className="text-xs text-slate-500 dark:text-zinc-400">{age} min</div>) : null; })()}
                     <div className="text-sm text-slate-700 dark:text-zinc-200">
                       <span className="font-medium">{wx?.isAMD ? "AMD TAF" : "TAF"}:</span> {wx?.tafRaw || <span className="text-slate-400">(loading…)</span>}
                     </div>
@@ -168,7 +172,7 @@ export default function WeatherDetail() {
                         {f?.rnp ? <span className="inline-flex items-center rounded border px-1.5 py-0.5 text-[10px] font-semibold border-slate-300 dark:border-zinc-700">RNP</span> : null}
                       </div>
                     </div>
-                  </Link>
+                  </div>
                 </li>
               );
             })}

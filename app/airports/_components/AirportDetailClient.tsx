@@ -45,6 +45,11 @@ export default function AirportDetailClient() {
         </div>
       </div>
 
+	      <div className="text-xs text-slate-500 dark:text-zinc-400">
+	        Note: Times without parentheses are winter time (UTC+1). Times in parentheses are summer time (UTC+2).
+	      </div>
+
+
       <div className="text-xs text-slate-500 dark:text-zinc-400">
         Source: Avinor AIS. {data?.sourceUrl && (<a className="text-blue-600 hover:underline dark:text-blue-400" target="_blank" href={data.sourceUrl}>Open AIP</a>)}. Updated twice daily{data?.updatedAt ? ` — Last updated: ${new Date(data.updatedAt).toLocaleString()}` : ''}.
       </div>

@@ -48,7 +48,10 @@ export default function WeatherHubClient() {
 
   return (
     <div className="max-w-3xl mx-auto p-6 space-y-4">
-      <h1 className="text-2xl font-bold text-slate-900 dark:text-white">Weather planning</h1>
+      <div className="flex items-center justify-between">
+        <h1 className="text-2xl font-bold text-slate-900 dark:text-white">Weather planning</h1>
+        <a href="/weather/all" className="text-sm text-blue-600 hover:underline dark:text-blue-400">All Airports</a>
+      </div>
       <p className="text-slate-600 dark:text-zinc-300">
         {geoErr ? "Location unavailable. Please open a specific airport (e.g. /weather/ENBR)." : "Finding your nearest airport…"}
       </p>

@@ -93,8 +93,9 @@ export default function WeatherDetail() {
   return (
     <div className="max-w-4xl mx-auto p-6 space-y-6">
       <header>
-        <div className="mb-2">
+        <div className="mb-2 flex items-center justify-between">
           <button type="button" onClick={() => router.back()} className="text-sm text-slate-600 dark:text-zinc-300 hover:underline">← Back</button>
+          <Link href="/weather/all" className="text-sm text-blue-600 hover:underline dark:text-blue-400">All Airports</Link>
         </div>
         <h1 className="text-2xl font-bold text-slate-900 dark:text-white">
           {airport.icao} <span className="text-slate-600 dark:text-zinc-300 font-normal">{airport.name}</span>

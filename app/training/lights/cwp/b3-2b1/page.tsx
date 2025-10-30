@@ -86,7 +86,10 @@ export default function Page() {
               <span className="inline-block h-2.5 w-2.5 rounded-full bg-neutral-700" aria-hidden />
               <h1 className="text-lg sm:text-xl font-semibold text-slate-900 dark:text-zinc-100">CWP-trainer · AS350 B3 2B1</h1>
             </div>
-            <Link href="/training/lights" className="text-sm underline text-blue-600 dark:text-blue-400">Back to Lights trainer</Link>
+            <div className="flex items-center gap-4">
+              <Link href="/" className="text-sm underline text-blue-600 dark:text-blue-400">Home</Link>
+              <Link href="/training/lights" className="text-sm underline text-blue-600 dark:text-blue-400">Back to Lights trainer</Link>
+            </div>
           </div>
 
           {/* Panel container: responsive, fills most of screen incl. landscape */}

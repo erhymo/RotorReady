@@ -95,12 +95,14 @@ export default function HomeClient() {
           tone="emerald"
           icon={<DownloadIcon className="h-4 w-4" />}
         />
-        <Bar
-          href="/calculations"
-          title="Calculations"
-          description="Performance calculators (e.g., AW169 OEI OGE headwind)."
-          tone="slate"
-        />
+        {activeVariant?.id === "AW169" && (
+          <Bar
+            href="/calculations"
+            title="Calculations"
+            description="Performance calculators (e.g., AW169 OEI OGE headwind)."
+            tone="slate"
+          />
+        )}
         <Bar
           href="/weather"
           title="Weather planning"

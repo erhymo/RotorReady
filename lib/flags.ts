@@ -1,5 +1,6 @@
 'use client';
-import { auth } from '@/lib/firebase/client';
+import { auth, db } from '@/lib/firebase/client';
+import { collection, addDoc } from 'firebase/firestore/lite';
 
 const QUEUE_KEY = 'rr_flags_queue';
 function loadQueue(): any[] {
@@ -20,8 +21,16 @@ async function flushQueue() {
       if (idToken) headers['Authorization'] = `Bearer ${idToken}`;
       const res = await fetch('/api/flags', { method: 'POST', headers, body: JSON.stringify(item) });
       if (!res.ok) throw new Error('HTTP '+res.status);
-    } catch {
-      rest.push(item);
+    } catch (e) {
+      // Fallback: write directly to Firestore from client (no Vercel server env needed)
+      let persisted = false;
+      try {
+        if (db) {
+          await addDoc(collection(db as any, 'flags'), item);
+          persisted = true;
+        }
+      } catch {}
+      if (!persisted) rest.push(item);
     }
   }
   saveQueue(rest);

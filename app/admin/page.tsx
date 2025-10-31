@@ -1,6 +1,8 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useState } from "react";
+import { db } from "@/lib/firebase/client";
+import { collection, getDocs } from "firebase/firestore/lite";
 
 const ADMIN_USERNAME = process.env.NEXT_PUBLIC_ADMIN_USERNAME || "admin";
 const ADMIN_PASSWORD = process.env.NEXT_PUBLIC_ADMIN_PASSWORD || "rotorready2025";
@@ -73,6 +75,8 @@ export default function AdminPage() {
   const [metrics, setMetrics] = useState<SubscriptionMetrics | null>(null);
   const [metricsLoading, setMetricsLoading] = useState(true);
   const [metricsError, setMetricsError] = useState<string | null>(null);
+  const [clientFallback, setClientFallback] = useState(false);
+
 
   const refreshMessages = useCallback(async () => {
     setMessagesLoading(true);
@@ -94,14 +98,56 @@ export default function AdminPage() {
 
   async function refreshFlags() {
     setFlagsLoading(true);
+    setFlagsError(null);
     try {
       const res = await fetch("/api/admin/flags", { cache: "no-store" });
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      const data = await res.json();
-      setFlags(Array.isArray(data?.flags) ? data.flags : []);
-      setFlagsError(null);
+      const data = await res.json().catch(() => ({}));
+      const serverFlags = Array.isArray(data?.flags) ? data.flags : [];
+      if (res.ok && !data?.error && serverFlags.length > 0) {
+        setFlags(serverFlags);
+        setClientFallback(false);
+        return;
+      }
+      // Fallback: try client Firestore (no Vercel env needed)
+      if (db) {
+        try {
+          const coll = collection(db as any, 'flags');
+          const snap = await getDocs(coll);
+          const list = snap.docs.map((d) => {
+            const doc: any = d.data();
+            const created = typeof doc.createdAt === 'string'
+              ? doc.createdAt
+              : (doc.createdAt?.toDate ? doc.createdAt.toDate().toISOString() : new Date().toISOString());
+            return {
+              id: d.id,
+              section: String(doc.section || ''),
+              sectionId: doc.sectionId || undefined,
+              questionId: String(doc.questionId || ''),
+              dataSource: doc.dataSource,
+              dataFile: doc.dataFile ?? null,
+              snapshot: doc.snapshot || undefined,
+              reason: doc.reason || undefined,
+              userId: doc.userId || undefined,
+              email: doc.email || undefined,
+              createdAt: created,
+              status: (doc.status as AdminFlag['status']) || 'open',
+            } as AdminFlag;
+          });
+          list.sort((a, b) => (a.createdAt < b.createdAt ? 1 : -1));
+          setFlags(list);
+          setClientFallback(true);
+          setFlagsError(data?.error || null);
+          return;
+        } catch (e: any) {
+          setFlags(serverFlags);
+          setFlagsError(data?.error || e?.message || 'Kunne ikke hente flagg');
+        }
+      } else {
+        setFlags(serverFlags);
+        setFlagsError(data?.error || 'Kunne ikke hente flagg (Firebase-klient mangler)');
+      }
     } catch (error: any) {
-      setFlagsError(error?.message || "Kunne ikke hente flaggede spørsmål");
+      setFlagsError(error?.message || 'Kunne ikke hente flaggede spørsmål');
     } finally {
       setFlagsLoading(false);
     }
@@ -464,6 +510,12 @@ export default function AdminPage() {
               <h2 className="text-lg font-semibold text-slate-900 dark:text-white">Flaggede spørsmål</h2>
               <p className="text-xs text-slate-500 dark:text-zinc-400">Spørsmål som er flagget fra quizer vises her for manuell vurdering.</p>
             </div>
+              {clientFallback && (
+                <p className="text-xs text-amber-600 dark:text-amber-400 mt-1">
+                  Midlertidig visning via Firebase-klient (uten server-kredentialer). Admin-aksjoner er deaktivert.
+                </p>
+              )}
+
             <button
               onClick={refreshFlags}
               disabled={flagsLoading}
@@ -541,14 +593,14 @@ export default function AdminPage() {
                     <div className="mt-4 flex flex-wrap gap-3">
                       <button
                         onClick={() => handleKeep(flag)}
-                        disabled={actionId === flag.id}
+                        disabled={actionId === flag.id || clientFallback}
                         className="rounded-lg bg-emerald-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-emerald-700 disabled:opacity-60"
                       >
                         Behold
                       </button>
                       <button
                         onClick={() => handleDelete(flag)}
-                        disabled={actionId === flag.id}
+                        disabled={actionId === flag.id || clientFallback}
                         className="rounded-lg bg-red-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-red-700 disabled:opacity-60"
                       >
                         Slett fra databasen

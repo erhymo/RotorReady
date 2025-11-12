@@ -10,6 +10,7 @@ export default function AirportsPage() {
       <div className="mb-2"><a href="/" className="text-sm text-slate-600 dark:text-zinc-300 hover:underline">← Back</a></div>
       <h1 className="text-2xl font-bold text-slate-900 dark:text-white">Airports</h1>
       <p className="text-slate-600 dark:text-zinc-300 mb-2">All Norwegian ICAO airports (source: Avinor AIS). Tap an airport to see ATS & Fuel opening hours.</p>
+      <p className="text-slate-600 dark:text-zinc-300 mb-2">Please cross-check current NOTAMs—temporary changes can override AIP data.</p>
       <div className="divide-y divide-slate-200 dark:divide-zinc-800 rounded-lg border border-slate-200 dark:border-zinc-800 overflow-hidden">
         {sorted.map((a) => (
           <Link

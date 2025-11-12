@@ -78,6 +78,8 @@ export default function AdminPage() {
   const [metricsError, setMetricsError] = useState<string | null>(null);
   const [clientFallback, setClientFallback] = useState(false);
 
+  const [copiedId, setCopiedId] = useState<string | null>(null);
+
 
   const refreshMessages = useCallback(async () => {
     setMessagesLoading(true);
@@ -549,7 +551,11 @@ export default function AdminPage() {
                     <div className="flex flex-wrap items-start justify-between gap-2">
                       <div>
                         <div className="text-xs uppercase tracking-wide text-slate-500 dark:text-zinc-400">{flag.section}</div>
-                        <div className="text-sm text-slate-600 dark:text-zinc-300">ID: {flag.questionId}</div>
+                        <button onClick={() => { try { navigator.clipboard?.writeText(flag.questionId); setCopiedId(flag.id); window.setTimeout(() => setCopiedId(null), 1200); } catch {} }}
+                                title="Click to copy ID"
+                                className="text-sm font-mono text-slate-600 hover:text-slate-800 dark:text-zinc-300 dark:hover:text-zinc-100">
+                          ID: {flag.questionId}{copiedId === flag.id ? " \u2713" : ""}
+                        </button>
                       </div>
                       <div className="text-xs text-slate-400 dark:text-zinc-500">
                         {new Date(flag.createdAt).toLocaleString()}

@@ -912,12 +912,10 @@
       "references": [],
       "difficulty": "hard",
       "tags": ["oxygen", "crew"]
-    }
+    },
 
 
 
-  ]
-,
     {
       "id": "AS350-VFR-091",
       "question": "Helicopter low flying exemptions allow operations below 500 ft when:",
@@ -1049,5 +1047,5 @@
       "tags": ["checklists", "procedures"]
     }
 
+  ]
 }
-

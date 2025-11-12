@@ -1,0 +1,200 @@
+[
+  {
+    "id": "gene",
+    "name": "GENE",
+    "severity": "caution",
+    "system": "ELECTRICAL",
+    "description": "DC generator offline or malfunction.",
+    "procedure": [
+      { "type": "action", "text": "1. Verify GEN switch ON; check volt/ammeter." },
+      { "type": "action", "text": "2. If GEN remains offline: Non-essential loads — OFF." },
+      { "type": "action", "text": "3. Land as soon as practicable." }
+    ],
+    "references": ["RFM H125 Section 3 – Emergency Procedures"],
+    "modelIds": ["H125_AS350_B3E"]
+  },
+  {
+    "id": "inv",
+    "name": "INV",
+    "severity": "caution",
+    "system": "ELECTRICAL",
+    "description": "Inverter failure.",
+    "procedure": [
+      { "type": "action", "text": "1. Check INVERTER switch; select operative inverter if available." },
+      { "type": "action", "text": "2. Reduce non-essential AC loads." },
+      { "type": "action", "text": "3. Land as soon as practicable." }
+    ],
+    "references": ["RFM H125 Section 3 – Emergency Procedures"],
+    "modelIds": ["H125_AS350_B3E"]
+  },
+  {
+    "id": "fuel",
+    "name": "FUEL",
+    "severity": "caution",
+    "system": "FUEL",
+    "description": "Low fuel level.",
+    "procedure": [
+      { "type": "action", "text": "1. Monitor fuel indications; consider fuel transfer if installed." },
+      { "type": "action", "text": "2. Plan to land as soon as practicable." }
+    ],
+    "references": ["RFM H125 Section 3 – Emergency Procedures"],
+    "modelIds": ["H125_AS350_B3E"]
+  },
+  {
+    "id": "fuel-p",
+    "name": "FUEL P",
+    "severity": "caution",
+    "system": "FUEL",
+    "description": "Low fuel pressure.",
+    "procedure": [
+      { "type": "action", "text": "1. Turn ON fuel pump(s) if off; check pressure." },
+      { "type": "action", "text": "2. If pressure not restored: Land as soon as practicable." }
+    ],
+    "references": ["RFM H125 Section 3 – Emergency Procedures"],
+    "modelIds": ["H125_AS350_B3E"]
+  },
+  {
+    "id": "fuel-filt",
+    "name": "FUEL FILT",
+    "severity": "caution",
+    "system": "FUEL",
+    "description": "Fuel filter contamination.",
+    "procedure": [
+      { "type": "action", "text": "1. Reduce power to minimize fuel flow if possible." },
+      { "type": "action", "text": "2. Land as soon as practicable; maintenance inspection required." }
+    ],
+    "references": ["RFM H125 Section 3 – Emergency Procedures"],
+    "modelIds": ["H125_AS350_B3E"]
+  },
+  {
+    "id": "pitot",
+    "name": "PITOT",
+    "severity": "caution",
+    "system": "PITOT/STATIC",
+    "description": "Pitot heat off/failure or pitot obstruction.",
+    "procedure": [
+      { "type": "action", "text": "1. PITOT HEAT — ON (check CB)." },
+      { "type": "action", "text": "2. If unreliable ASI suspected: Maintain safe attitude/NR; avoid IMC." }
+    ],
+    "references": ["RFM H125 Section 3 – Emergency Procedures"],
+    "modelIds": ["H125_AS350_B3E"]
+  },
+  {
+    "id": "horn",
+    "name": "HORN",
+    "severity": "caution",
+    "system": "AURAL WARNING",
+    "description": "Aural warning or horn fault.",
+    "procedure": [
+      { "type": "action", "text": "1. Identify source; silence if spurious per procedure." },
+      { "type": "action", "text": "2. Continue with caution; maintenance action required." }
+    ],
+    "references": ["RFM H125 Section 3 – Emergency Procedures"],
+    "modelIds": ["H125_AS350_B3E"]
+  },
+  {
+    "id": "door",
+    "name": "DOOR",
+    "severity": "caution",
+    "system": "AIRFRAME",
+    "description": "Door not properly closed or latch indication.",
+    "procedure": [
+      { "type": "action", "text": "1. If in flight: reduce speed; avoid abrupt maneuvers." },
+      { "type": "action", "text": "2. Land as soon as practicable; secure door." }
+    ],
+    "references": ["RFM H125 Section 3 – Emergency Procedures"],
+    "modelIds": ["H125_AS350_B3E"]
+  },
+  {
+    "id": "eng-chip",
+    "name": "ENG CHIP",
+    "severity": "caution",
+    "system": "ENGINE",
+    "description": "Engine chip detector contamination.",
+    "procedure": [
+      { "type": "action", "text": "1. Land as soon as practicable." },
+      { "type": "action", "text": "2. If abnormal engine indications/vibrations: Land immediately." }
+    ],
+    "references": ["RFM H125 Section 3 – Emergency Procedures"],
+    "modelIds": ["H125_AS350_B3E"]
+  },
+  {
+    "id": "mgb-temp",
+    "name": "MGB TEMP",
+    "severity": "caution",
+    "system": "TRANSMISSION",
+    "description": "Main gearbox oil temperature high.",
+    "procedure": [
+      { "type": "action", "text": "1. Reduce power and airspeed." },
+      { "type": "action", "text": "2. Land as soon as practicable; monitor TQ/NR." }
+    ],
+    "references": ["RFM H125 Section 3 – Emergency Procedures"],
+    "modelIds": ["H125_AS350_B3E"]
+  },
+  {
+    "id": "mgb-chip",
+    "name": "MGB CHIP",
+    "severity": "caution",
+    "system": "TRANSMISSION",
+    "description": "Main gearbox chip detected.",
+    "procedure": [
+      { "type": "action", "text": "1. Land as soon as practicable." },
+      { "type": "action", "text": "2. If associated with abnormal noise/vibration: Land immediately." }
+    ],
+    "references": ["RFM H125 Section 3 – Emergency Procedures"],
+    "modelIds": ["H125_AS350_B3E"]
+  },
+  {
+    "id": "tgb-chip",
+    "name": "TGB CHIP",
+    "severity": "caution",
+    "system": "TRANSMISSION",
+    "description": "Tail gearbox chip detected.",
+    "procedure": [
+      { "type": "action", "text": "1. Land as soon as practicable." },
+      { "type": "action", "text": "2. If abnormal noise/vibration: Land immediately." }
+    ],
+    "references": ["RFM H125 Section 3 – Emergency Procedures"],
+    "modelIds": ["H125_AS350_B3E"]
+  },
+  {
+    "id": "twt-grip",
+    "name": "TWT. GRIP",
+    "severity": "caution",
+    "system": "ENGINE",
+    "description": "Twist grip abnormal/locked indication.",
+    "procedure": [
+      { "type": "action", "text": "1. Check TWIST GRIP; ensure at FLY detent; avoid rapid movements." },
+      { "type": "action", "text": "2. Land as soon as practicable." }
+    ],
+    "references": ["RFM H125 Section 3 – Emergency Procedures"],
+    "modelIds": ["H125_AS350_B3E"]
+  },
+  {
+    "id": "gov-caution",
+    "name": "GOV",
+    "severity": "caution",
+    "system": "ENGINE GOVERNOR",
+    "description": "Minor FADEC/governor fault.",
+    "procedure": [
+      { "type": "action", "text": "1. Monitor NR and engine parameters; avoid abrupt power changes." },
+      { "type": "action", "text": "2. Land as soon as practicable." }
+    ],
+    "references": ["RFM H125 Section 3 – Emergency Procedures"],
+    "modelIds": ["H125_AS350_B3E"]
+  },
+  {
+    "id": "gov-failure",
+    "name": "GOV",
+    "severity": "warning",
+    "system": "ENGINE GOVERNOR",
+    "description": "Governor failure.",
+    "procedure": [
+      { "type": "action", "text": "1. Adjust TWIST GRIP to control NR manually as required." },
+      { "type": "action", "text": "2. Land as soon as practicable; if NR cannot be controlled: Land immediately." }
+    ],
+    "references": ["RFM H125 Section 3 – Emergency Procedures"],
+    "modelIds": ["H125_AS350_B3E"]
+  }
+]
+

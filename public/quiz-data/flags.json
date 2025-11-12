@@ -1,6 +1,27 @@
 {
   "flags": [
     {
+      "id": "test:q1:1761921242771",
+      "status": "open",
+      "createdAt": "2025-10-31T14:33:53.999Z",
+      "section": "test",
+      "sectionId": "test",
+      "questionId": "q1",
+      "dataSource": "sections",
+      "dataFile": "test.json",
+      "snapshot": {
+        "question": "Q?",
+        "options": [
+          "A",
+          "B"
+        ],
+        "answer": [
+          1
+        ]
+      },
+      "userId": "guest"
+    },
+    {
       "id": "limitations:lims-p18-003:1759170295493",
       "section": "limitations",
       "sectionId": "limitations",

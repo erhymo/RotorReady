@@ -93,7 +93,6 @@ export default function LightsTrainer() {
   const [idx, setIdx] = useState(0);
   const [memoryOnly, setMemoryOnly] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-  const [coming, setComing] = useState<Severity | null>(null);
   const [compactCWP, setCompactCWP] = useState(false);
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -301,12 +300,6 @@ export default function LightsTrainer() {
 
 
   const start = useCallback(async (severity: Severity) => {
-    // Temporarily hide lights training for AS350 B3e
-    if (activeVariant.id === "H125_AS350_B3E") {
-      setComing(severity);
-      try { setTimeout(() => setComing(null), 2000); } catch {}
-      return;
-    }
     // Access control: allow 5 starts when not logged in; unlimited when logged in
     const loggedIn = await isLoggedInAsync();
     if (!loggedIn) {
@@ -756,9 +749,6 @@ export default function LightsTrainer() {
                 >
                   {loading ? "Loading…" : `Start (${warningLights.length} available)`}
                 </button>
-                {isB3e && coming === "warning" && (
-                  <span className="text-sm text-slate-600 dark:text-zinc-300">Coming</span>
-                )}
                 {activeVariant.id === "AW169" && (
                   <button
                     onClick={startMemoryOnly}
@@ -802,9 +792,6 @@ export default function LightsTrainer() {
                 >
                   {loading ? "Loading…" : `Start (${cautionLights.length} available)`}
                 </button>
-                {isB3e && coming === "caution" && (
-                  <span className="text-sm text-slate-600 dark:text-zinc-300">Coming</span>
-                )}
               </div>
               {!cautionLights.length && !loading && (
                 <div className="text-sm text-slate-600 dark:text-zinc-300">
@@ -827,6 +814,22 @@ export default function LightsTrainer() {
                 </div>
               </section>
             )}
+
+            {activeVariant.id === "H125_AS350_B3E" && (
+              <section className="space-y-4 rounded-xl border bg-white p-6 shadow-sm dark:bg-zinc-900 dark:border-zinc-700">
+                <div className="flex items-center gap-2">
+                  <span className="inline-block h-2.5 w-2.5 rounded-full bg-neutral-700" aria-hidden />
+                  <h2 className="text-xl font-semibold text-slate-900 dark:text-zinc-100">CWP-trainer</h2>
+                </div>
+                <p className="text-sm text-slate-600 dark:text-zinc-300">AS350 B3e caution/warning panel — tap to train by pressing lights.</p>
+                <div>
+                  <Link href="/training/lights/cwp/b3e" className="inline-flex items-center rounded-md px-4 py-2 bg-black text-white font-medium hover:bg-black/90">
+                    Open CWP-trainer
+                  </Link>
+                </div>
+              </section>
+            )}
+
 
             {activeVariant.id === "AW169" && (
               <section className="space-y-4 rounded-xl border bg-white p-6 shadow-sm dark:bg-zinc-900 dark:border-zinc-700">

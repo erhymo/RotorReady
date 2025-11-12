@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import BackButton from "@/components/BackButton";
 import { auth, db } from "@/lib/firebase/client";
 import { onAuthStateChanged } from "firebase/auth";
-import { doc, getDoc } from "firebase/firestore";
+import { doc, getDoc } from "firebase/firestore/lite";
 import { listVariantsByProduct } from "@/lib/models/catalog";
 import { getStoredActiveModelVariantId, storeActiveModelVariantId, modelScopedKey } from "@/lib/models/storage";
 

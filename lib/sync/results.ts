@@ -12,7 +12,7 @@ export async function saveResult(rec: ResultRecord) {
   try {
     const { auth, db }: any = await import("@/lib/firebase/client");
     if (!auth?.currentUser) return;
-    const { collection, addDoc }: any = await import("firebase/" + "firestore");
+    const { collection, addDoc }: any = await import("firebase/firestore/lite");
     const ref = collection(db, "users", auth.currentUser.uid, "results");
     await addDoc(ref, rec);
   } catch {

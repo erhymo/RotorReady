@@ -1,0 +1,389 @@
+{
+  "items": [
+    {
+      "id": "H125-DS-201",
+      "question": "Which engine powers the AS350 B3e?",
+      "options": [
+        "Turbomeca Arriel 2D",
+        "Turbomeca Arriel 2B1",
+        "Pratt & Whitney PT6B",
+        "Rolls-Royce 250-C47"
+      ],
+      "answer": [0],
+      "explanation": "B3e is equipped with a Turbomeca Arriel 2D engine.",
+      "section": "description-and-systems",
+      "modelIds": ["H125_AS350_B3E"],
+      "manual": "RFM H125 Section 7.1",
+      "reference": "p. 7-3",
+      "difficulty": "easy",
+      "tags": [],
+      "references": ["RFM H125 Section 7.1 – p. 7-3"]
+    },
+    {
+      "id": "H125-DS-202",
+      "question": "What is the Arriel 2D maximum takeoff power rating (MTOP)?",
+      "options": [
+        "641 kW (860 SHP)",
+        "557 kW (747 SHP)",
+        "600 kW (805 SHP)",
+        "551 kW (739 SHP)"
+      ],
+      "answer": [0],
+      "explanation": "MTOP (uninstalled, ISA, sea level) is 641 kW (860 SHP).",
+      "section": "description-and-systems",
+      "modelIds": ["H125_AS350_B3E"],
+      "manual": "RFM H125 Section 7.1",
+      "reference": "p. 7-3",
+      "difficulty": "medium",
+      "tags": [],
+      "references": ["RFM H125 Section 7.1 – p. 7-3"]
+    },
+    {
+      "id": "H125-DS-203",
+      "question": "What is the Arriel 2D maximum continuous power rating (MCP)?",
+      "options": [
+        "551 kW (739 SHP)",
+        "557 kW (747 SHP)",
+        "530 kW (711 SHP)",
+        "600 kW (805 SHP)"
+      ],
+      "answer": [0],
+      "explanation": "MCP is 551 kW (739 SHP).",
+      "section": "description-and-systems",
+      "modelIds": ["H125_AS350_B3E"],
+      "manual": "RFM H125 Section 7.1",
+      "reference": "p. 7-3",
+      "difficulty": "easy",
+      "tags": [],
+      "references": ["RFM H125 Section 7.1 – p. 7-3"]
+    },
+    {
+      "id": "H125-DS-204",
+      "question": "What is the main rotor diameter on the AS350 B3e?",
+      "options": [
+        "10.69 m (35.07 ft)",
+        "9.86 m (32.35 ft)",
+        "11.22 m (36.81 ft)",
+        "12.94 m (42.45 ft)"
+      ],
+      "answer": [0],
+      "explanation": "The main rotor diameter is 10.69 m (35.07 ft).",
+      "section": "description-and-systems",
+      "modelIds": ["H125_AS350_B3E"],
+      "manual": "RFM H125 Section 7.1",
+      "reference": "p. 7-3",
+      "difficulty": "easy",
+      "tags": [],
+      "references": ["RFM H125 Section 7.1 – p. 7-3"]
+    },
+    {
+      "id": "H125-DS-205",
+      "question": "What is the nominal main rotor speed?",
+      "options": [
+        "386 rpm",
+        "410 rpm",
+        "360 rpm",
+        "420 rpm"
+      ],
+      "answer": [0],
+      "explanation": "Nominal NR is 386 rpm.",
+      "section": "description-and-systems",
+      "modelIds": ["H125_AS350_B3E"],
+      "manual": "RFM H125 Section 7.1",
+      "reference": "p. 7-3",
+      "difficulty": "easy",
+      "tags": [],
+      "references": ["RFM H125 Section 7.1 – p. 7-3"]
+    },
+    {
+      "id": "H125-DS-206",
+      "question": "What is the nominal tail rotor speed?",
+      "options": [
+        "2044 rpm",
+        "1900 rpm",
+        "2200 rpm",
+        "1700 rpm"
+      ],
+      "answer": [0],
+      "explanation": "Nominal tail rotor speed is 2044 rpm.",
+      "section": "description-and-systems",
+      "modelIds": ["H125_AS350_B3E"],
+      "manual": "RFM H125 Section 7.1",
+      "reference": "p. 7-3",
+      "difficulty": "medium",
+      "tags": [],
+      "references": ["RFM H125 Section 7.1 – p. 7-3"]
+    },
+    {
+      "id": "H125-DS-207",
+      "question": "What is the total fuel capacity?",
+      "options": [
+        "540 l (427 kg)",
+        "538 l (425 kg)",
+        "550 l (435 kg)",
+        "530 l (420 kg)"
+      ],
+      "answer": [0],
+      "explanation": "Total fuel capacity is 540 l (427 kg).",
+      "section": "description-and-systems",
+      "modelIds": ["H125_AS350_B3E"],
+      "manual": "RFM H125 Section 7.1",
+      "reference": "p. 7-3",
+      "difficulty": "easy",
+      "tags": [],
+      "references": ["RFM H125 Section 7.1 – p. 7-3"]
+    },
+    {
+      "id": "H125-DS-208",
+      "question": "What is the usable fuel in the standard tank?",
+      "options": [
+        "538.7 l (425.6 kg)",
+        "538 l (425 kg)",
+        "540 l (427 kg)",
+        "532 l (420 kg)"
+      ],
+      "answer": [0],
+      "explanation": "Usable fuel (standard tank) is 538.7 l (425.6 kg).",
+      "section": "description-and-systems",
+      "modelIds": ["H125_AS350_B3E"],
+      "manual": "RFM H125 Section 7.1",
+      "reference": "p. 7-3",
+      "difficulty": "easy",
+      "tags": [],
+      "references": ["RFM H125 Section 7.1 – p. 7-3"]
+    },
+    {
+      "id": "H125-DS-209",
+      "question": "What is the usable fuel in the crash resistant tank?",
+      "options": [
+        "538 l (425 kg)",
+        "538.7 l (425.6 kg)",
+        "540 l (427 kg)",
+        "532 l (420 kg)"
+      ],
+      "answer": [0],
+      "explanation": "Usable fuel (crash resistant tank) is 538 l (425 kg).",
+      "section": "description-and-systems",
+      "modelIds": ["H125_AS350_B3E"],
+      "manual": "RFM H125 Section 7.1",
+      "reference": "p. 7-3",
+      "difficulty": "easy",
+      "tags": [],
+      "references": ["RFM H125 Section 7.1 – p. 7-3"]
+    },
+    {
+      "id": "H125-DS-210",
+      "question": "On the Caution and Warning Panel, what do red and amber lights indicate?",
+      "options": [
+        "Red: immediate action; Amber: action can be delayed",
+        "Red: advisory; Amber: normal operation",
+        "Red: maintenance only; Amber: immediate action",
+        "Red: audio only; Amber: visual only"
+      ],
+      "answer": [0],
+      "explanation": "Red warning lights require immediate action; amber caution lights allow action to be delayed.",
+      "section": "description-and-systems",
+      "modelIds": ["H125_AS350_B3E"],
+      "manual": "RFM H125 Section 7.3",
+      "reference": "p. 7-1",
+      "difficulty": "easy",
+      "tags": [],
+      "references": ["RFM H125 Section 7.3 – p. 7-1"]
+    }
+,
+    {
+      "id": "H125-DS-211",
+      "question": "How are audio warnings activated?",
+      "options": [
+        "Set [HORN] to ON on the central console",
+        "Set [INV] to ON on the overhead panel",
+        "Set [GENE] to OFF on the console",
+        "Set [BATT] to ON on the console"
+      ],
+      "answer": [0],
+      "explanation": "Audio alarms are generated through the ICS and are activated when [HORN] is set to ON.",
+      "section": "description-and-systems",
+      "modelIds": ["H125_AS350_B3E"],
+      "manual": "RFM H125 Section 7.3",
+      "reference": "p. 7-1",
+      "difficulty": "easy",
+      "tags": [],
+      "references": ["RFM H125 Section 7.3 – p. 7-1"]
+    },
+    {
+      "id": "H125-DS-212",
+      "question": "What supplies the Caution and Warning Panel (CWP)?",
+      "options": [
+        "Dual 28 VDC power supply protected by circuit breakers",
+        "Single 115 VAC inverter-fed supply",
+        "Dual 115 VAC with transformer-rectifier",
+        "Single 12 VDC direct battery line"
+      ],
+      "answer": [0],
+      "explanation": "The CWP is supplied by a dual 28 VDC power supply and protected by circuit breakers.",
+      "section": "description-and-systems",
+      "modelIds": ["H125_AS350_B3E"],
+      "manual": "RFM H125 Section 7.3",
+      "reference": "p. 7-2",
+      "difficulty": "easy",
+      "tags": [],
+      "references": ["RFM H125 Section 7.3 – p. 7-2"]
+    },
+    {
+      "id": "H125-DS-213",
+      "question": "Where are WACS and FDR fault indicators installed (post MOD 07-20112 or MOD 07-20228)?",
+      "options": [
+        "On the overhead panel",
+        "On the CWP",
+        "On the instrument glare shield",
+        "In the RH cargo bay"
+      ],
+      "answer": [0],
+      "explanation": "WACS and FDR fault indicators are installed on the overhead panel.",
+      "section": "description-and-systems",
+      "modelIds": ["H125_AS350_B3E"],
+      "manual": "RFM H125 Section 7.3",
+      "reference": "p. 7-4",
+      "difficulty": "easy",
+      "tags": [],
+      "references": ["RFM H125 Section 7.3 – p. 7-4"]
+    },
+    {
+      "id": "H125-DS-214",
+      "question": "Which audio tone corresponds to an MTOP overlimit?",
+      "options": [
+        "Continuous low tone",
+        "Gong",
+        "Intermittent beep",
+        "Siren"
+      ],
+      "answer": [0],
+      "explanation": "ASU No.1 manages audio warnings: Gong for red alarms; continuous low tone for MTOP overlimit.",
+      "section": "description-and-systems",
+      "modelIds": ["H125_AS350_B3E"],
+      "manual": "RFM H125 Section 7.3",
+      "reference": "p. 7-3",
+      "difficulty": "medium",
+      "tags": [],
+      "references": ["RFM H125 Section 7.3 – p. 7-3"]
+    },
+    {
+      "id": "H125-DS-215",
+      "question": "How is the VEMD architected?",
+      "options": [
+        "Two processing modules (LANE 1 & LANE 2) and one display module",
+        "One processing module and two display modules",
+        "Three display modules and a single processing unit",
+        "Two FADEC channels and one display module"
+      ],
+      "answer": [0],
+      "explanation": "The VEMD comprises LANE 1, LANE 2 processing modules and a display module with two screens.",
+      "section": "description-and-systems",
+      "modelIds": ["H125_AS350_B3E"],
+      "manual": "RFM H125 Section 7.4",
+      "reference": "p. 7-1",
+      "difficulty": "easy",
+      "tags": [],
+      "references": ["RFM H125 Section 7.4 – p. 7-1"]
+    },
+    {
+      "id": "H125-DS-216",
+      "question": "Which operating modes are available on the VEMD?",
+      "options": [
+        "OPERATIONAL, CONFIGURATION, MAINTENANCE",
+        "NORMAL, TEST, DEBUG",
+        "STARTUP, FLIGHT, SHUTDOWN",
+        "PRIMARY, SECONDARY, BACKUP"
+      ],
+      "answer": [0],
+      "explanation": "Three modes: OPERATIONAL (engine/vehicle/FLI/flight report/engine power check), CONFIGURATION, and MAINTENANCE.",
+      "section": "description-and-systems",
+      "modelIds": ["H125_AS350_B3E"],
+      "manual": "RFM H125 Section 7.4",
+      "reference": "p. 7-1",
+      "difficulty": "medium",
+      "tags": [],
+      "references": ["RFM H125 Section 7.4 – p. 7-1"]
+    }
+,
+    {
+      "id": "H125-DS-217",
+      "question": "Where is the hydraulic cut-off switch located?",
+      "options": [
+        "On the collective grip (guarded switch)",
+        "On the overhead panel",
+        "On the cyclic grip",
+        "On the right breaker panel"
+      ],
+      "answer": [0],
+      "explanation": "The hydraulic cut-off switch is a guarded switch mounted on the collective grip.",
+      "section": "description-and-systems",
+      "modelIds": ["H125_AS350_B3E"],
+      "manual": "RFM H125 Section 7.5",
+      "reference": "p. 7-1",
+      "difficulty": "easy",
+      "tags": [],
+      "references": ["RFM H125 Section 7.5  p. 7-1"]
+    },
+    {
+      "id": "H125-DS-218",
+      "question": "Which sources supply the DC electrical network?",
+      "options": [
+        "Starter-generator, 15 Ah battery (optional second), 28 V EPU",
+        "Alternator, 24 V battery, AC generator",
+        "Two alternators and a 12 V battery",
+        "Transformer-rectifier unit and APU"
+      ],
+      "answer": [0],
+      "explanation": "The DC network is supplied by a starter-generator, a 15 Ah battery (optional second) and a 28 V external power unit.",
+      "section": "description-and-systems",
+      "modelIds": ["H125_AS350_B3E"],
+      "manual": "RFM H125 Section 7.11",
+      "reference": "p. 7-1",
+      "difficulty": "easy",
+      "tags": [],
+      "references": ["RFM H125 Section 7.11  p. 7-1"]
+    },
+    {
+      "id": "H125-DS-219",
+      "question": "What does the PITOT amber caution indicate?",
+      "options": [
+        "Pitot heating not operating, switch OFF or system failure",
+        "Static ports blocked by ice only",
+        "Altimeter misconfiguration",
+        "VEMD performance page not selected"
+      ],
+      "answer": [0],
+      "explanation": "An amber PITOT caution indicates the heating system is not operating, the [PITOT] switch is OFF, or the system has failed.",
+      "section": "description-and-systems",
+      "modelIds": ["H125_AS350_B3E"],
+      "manual": "RFM H125 Section 7.12",
+      "reference": "p. 7-1",
+      "difficulty": "easy",
+      "tags": [],
+      "references": ["RFM H125 Section 7.12  p. 7-1"]
+    },
+    {
+      "id": "H125-DS-220",
+      "question": "Post MOD 07-20039, what is the hydraulic system regulating pressure?",
+      "options": [
+        "60 bar (870 psi)",
+        "45 bar (652 psi)",
+        "50 bar (725 psi)",
+        "40 bar (580 psi)"
+      ],
+      "answer": [0],
+      "explanation": "The regulator is set to 60 bar (870 psi) post MOD 07-20039 (40 bar pre-mod).",
+      "section": "description-and-systems",
+      "modelIds": ["H125_AS350_B3E"],
+      "manual": "RFM H125 Section 7.10",
+      "reference": "p. 7-1",
+      "difficulty": "medium",
+      "tags": [],
+      "references": ["RFM H125 Section 7.10  p. 7-1"]
+    }
+
+
+  ]
+}
+

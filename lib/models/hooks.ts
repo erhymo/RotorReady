@@ -10,7 +10,7 @@ import {
   type ModelVariantDefinition,
 } from "@/lib/models/catalog";
 import { getStoredActiveModelVariantId, storeActiveModelVariantId } from "@/lib/models/storage";
-import { doc, getDoc } from "firebase/firestore";
+import { doc, getDoc } from "firebase/firestore/lite";
 
 type VariantSource = "default" | "local" | "user";
 type VariantListener = (variant: ModelVariantDefinition, source: VariantSource) => void;

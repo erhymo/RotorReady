@@ -50,6 +50,8 @@ export default function AvionicsQuestionPage() {
   const [session, setSession] = React.useState<Session | null>(null);
   const [selected, setSelected] = React.useState<number | null>(null);
   const total = session?.items.length ?? 0;
+  const [copied, setCopied] = React.useState(false);
+
   const { variant: activeVariant } = useActiveModelVariant();
 
   React.useEffect(() => {
@@ -102,6 +104,7 @@ export default function AvionicsQuestionPage() {
   const isCorrect = selected != null ? item.answer.includes(selected) : null;
 
   function choose(position: number) {
+    if (selected != null) return; // lock after first answer
     const current = loadSession();
     if (!current) return;
     current.answers[idx] = position;
@@ -171,7 +174,12 @@ export default function AvionicsQuestionPage() {
       </div>
 
       <div className="bg-white dark:bg-zinc-900 dark:border-zinc-700 dark:text-zinc-100 rounded-xl border p-4">
-        <p className="font-medium">{item.question}</p>
+        <div className="flex items-start justify-between gap-3">
+          <p className="font-medium flex-1">{item.question}</p>
+          <button onClick={() => { try { if (item?.id) { navigator.clipboard?.writeText(item.id); setCopied(true); window.setTimeout(() => setCopied(false), 1200); } } catch {} }} title="Click to copy ID" className="ml-2 text-[11px] font-mono text-gray-500 hover:text-gray-700 dark:text-zinc-400 dark:hover:text-zinc-200">
+            ID: {item.id}{copied ? " \u2713" : ""}
+          </button>
+        </div>
         <ul className="mt-3 space-y-2">
           {item.options.map((option, i) => {
             const chosen = selected === i;
@@ -181,6 +189,7 @@ export default function AvionicsQuestionPage() {
               <li key={i}>
                 <button
                   onClick={() => choose(i)}
+                  disabled={selected != null}
                   className={`w-full text-left px-4 py-3 rounded-lg border active:scale-[0.99] transition
                     ${chosen ? "ring-1 dark:ring-zinc-400" : ""}
                     ${(correct || (selected != null && !item.answer.includes(selected!) && item.answer.includes(i))) ? "bg-green-50 border-green-400 dark:bg-green-900 dark:border-green-600 dark:text-zinc-100" : ""}

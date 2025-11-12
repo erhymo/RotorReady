@@ -29,6 +29,9 @@ export default function ClientQuiz({ section, initial, resumeKey, amountToken, i
   const [flags, setFlags] = React.useState<boolean[]>(() => (initialFlags && initialFlags.length === initial.length) ? initialFlags : Array(initial.length).fill(false));
   const [done, setDone] = React.useState(false);
 
+  const [copied, setCopied] = React.useState(false);
+
+
   const q = initial[idx];
   const total = initial.length;
   const progress = Math.round(((idx + 1) / total) * 100);
@@ -65,6 +68,8 @@ export default function ClientQuiz({ section, initial, resumeKey, amountToken, i
       if (e.key.toLowerCase() === "f") toggleFlag();
     }
     window.addEventListener("keydown", onKey);
+
+
     return () => window.removeEventListener("keydown", onKey);
   });
 
@@ -81,6 +86,7 @@ export default function ClientQuiz({ section, initial, resumeKey, amountToken, i
       const nextIdx = idx + 1;
       setIdx(nextIdx);
       persistSnapshot(nextIdx, answers, flags);
+
     } else {
       try { localStorage.removeItem(resumeKey); } catch {}
       setDone(true);
@@ -186,7 +192,12 @@ export default function ClientQuiz({ section, initial, resumeKey, amountToken, i
       </div>
 
       <div className={card}>
-        <p className="font-medium">{q.question}</p>
+        <div className="flex items-start justify-between gap-3">
+          <p className="font-medium flex-1">{q.question}</p>
+          <button onClick={() => { try { if (q?.id) { navigator.clipboard?.writeText(q.id); setCopied(true); window.setTimeout(() => setCopied(false), 1200); } } catch {} }} title="Click to copy ID" className="ml-2 text-[11px] font-mono text-gray-500 hover:text-gray-700 dark:text-zinc-400 dark:hover:text-zinc-200">
+            ID: {q.id}{copied ? " \u2713" : ""}
+          </button>
+        </div>
         <ul className="mt-3 space-y-2">
           {q.options.map((opt, i) => {
             const chosen = answers[idx] === i;

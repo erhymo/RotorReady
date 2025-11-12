@@ -5,6 +5,7 @@
     "severity": "warning",
     "system": "ROTOR",
     "description": "Rotor under-speed.\nRotor speed more than 2% below the datum set by the FCS system (Power ON).\nRotor speed below 90% (Power OFF).",
+    "pageImage": "/training/lights/pages/aw169-rotor-low.svg",
     "procedure": [
       { "type": "note", "text": "+ Audio tone and 'ROTOR LOW ROTOR LOW' voice warning." },
       { "type": "action", "text": "1. Collective — Adjust to increase the rotor speed." },

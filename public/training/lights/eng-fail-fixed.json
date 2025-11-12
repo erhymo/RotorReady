@@ -5,6 +5,7 @@
     "severity": "warning",
     "system": "ENGINE SYSTEM",
     "description": "Engine is running at fixed power.",
+    "pageImage": "/training/lights/pages/aw169-eng-fail-fixed.svg",
     "procedure": [
       {
         "type": "note",

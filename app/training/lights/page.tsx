@@ -8,6 +8,7 @@ import { useActiveModelVariant } from "@/lib/models/hooks";
 import { getQuota, incQuota } from "@/lib/quota";
 import { isLoggedInAsync } from "@/lib/auth";
 
+
 type StepType = "note" | "action" | "branch" | "caution" | "warning" | "step";
 type Severity = "warning" | "caution";
 
@@ -87,7 +88,7 @@ export default function LightsTrainer() {
   const [all, setAll] = useState<LightItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [mode, setMode] = useState<Mode>("idle");
-  const [pickCounts, setPickCounts] = useState<{ warning: number | "all"; caution: number | "all" }>({ warning: 10, caution: 10 });
+  const [pickCounts, setPickCounts] = useState<{ warning: number | "all" }>({ warning: 10 });
   const [lastSeverity, setLastSeverity] = useState<Severity | null>(null);
   const [deck, setDeck] = useState<LightItem[]>([]);
   const [idx, setIdx] = useState(0);
@@ -186,7 +187,6 @@ export default function LightsTrainer() {
   }, [activeVariant.id, activeVariant.productId]);
 
   const warningLights = useMemo(() => all.filter((item) => item.severity === "warning"), [all]);
-  const cautionLights = useMemo(() => all.filter((item) => item.severity === "caution"), [all]);
 
   // Resume previous procedure context when returning from a linked procedure page
   useEffect(() => {
@@ -286,6 +286,45 @@ export default function LightsTrainer() {
     run();
   }, [searchParams, all, activeVariant.id, setActiveVariant]);
 
+  // AW169 memory-only crop from QRH pageImage (inline SVG crop)
+  const AW169_PAGE_W = 415.508;
+  const AW169_PAGE_H = 650.192;
+  const AW169_MEMORY_CROPS: Record<string, [number, number, number, number]> = {
+    "bag-fire-flight": [0.104171, 0.160992, 0.741213, 0.032206],
+    "bag-fire-ground": [0.104171, 0.160992, 0.741213, 0.032206],
+    "elec-fail-double-dc-gen": [0.105326, 0.236293, 0.741646, 0.061551],
+    "eng-drive-shaft-failure": [0.149658, 0.199658, 0.748433, 0.032298],
+    "eng-eecu-fail": [0.149658, 0.190984, 0.748433, 0.032298],
+    "eng-fail-fixed": [0.152113, 0.183417, 0.741791, 0.055368],
+    "eng-fire-flight": [0.105326, 0.190061, 0.741646, 0.219997],
+    "eng-fire-ground": [0.153123, 0.167175, 0.741646, 0.181516],
+    "eng-idle": [0.104171, 0.328758, 0.743812, 0.032298],
+    "eng-oil-press": [0.104171, 0.237216, 0.743812, 0.049185],
+    "eng-out": [0.101861, 0.205564, 0.748578, 0.032298],
+    "mgb-oil-press": [0.151824, 0.192091, 0.743812, 0.090712],
+    "mgb-oil-temp": [0.105326, 0.207133, 0.741646, 0.061459],
+    "rotor-high": [0.104171, 0.341954, 0.743812, 0.049185],
+    "rotor-low": [0.104171, 0.341954, 0.743812, 0.049185]
+  };
+
+  function AW169MemoryCrop({ item }: { item: LightItem }) {
+    const crop = (AW169_MEMORY_CROPS as any)[item.id] as [number, number, number, number] | undefined;
+    if (!crop) return null as any;
+    const [nx, ny, nw, nh] = crop;
+    const vbX = Math.max(0, Math.min(AW169_PAGE_W, nx * AW169_PAGE_W));
+    const vbY = Math.max(0, Math.min(AW169_PAGE_H, ny * AW169_PAGE_H));
+    const vbW = Math.max(10, Math.min(AW169_PAGE_W, nw * AW169_PAGE_W));
+    const vbH = Math.max(10, Math.min(AW169_PAGE_H, nh * AW169_PAGE_H));
+    const href = String(item.pageImage || "");
+    return (
+      <figure className="p-0 m-0 bg-transparent">
+        <svg viewBox={`${vbX} ${vbY} ${vbW} ${vbH}`} width="100%" xmlns="http://www.w3.org/2000/svg" className="block w-full h-auto">
+          <image href={href} width={AW169_PAGE_W} height={AW169_PAGE_H} preserveAspectRatio="xMidYMid meet" />
+        </svg>
+      </figure>
+    );
+  }
+
 
   const hasMemory = useCallback((item: LightItem) => {
     const steps = item.procedure || [];
@@ -293,13 +332,13 @@ export default function LightsTrainer() {
   }, []);
 
   const memoryCount = useMemo(
-    () => warningLights.filter((item) => activeVariant.id === "AW169" && hasMemory(item)).length,
-    [warningLights, activeVariant.id, hasMemory]
+    () => warningLights.filter((item) => activeVariant.id === "AW169" && (AW169_MEMORY_CROPS as any)[item.id]).length,
+    [warningLights, activeVariant.id]
   );
 
 
 
-  const start = useCallback(async (severity: Severity) => {
+  const start = useCallback(async (_severity: Severity) => {
     // Access control: allow 5 starts when not logged in; unlimited when logged in
     const loggedIn = await isLoggedInAsync();
     if (!loggedIn) {
@@ -310,17 +349,17 @@ export default function LightsTrainer() {
       }
       incQuota("lights");
     }
-    const pool = severity === "warning" ? warningLights : cautionLights;
+    const pool = warningLights;
     if (!pool.length) return;
-    const setting = pickCounts[severity];
+    const setting = pickCounts.warning;
     const shuffled = shuffle(pool);
     const n = setting === "all" ? shuffled.length : Math.min(shuffled.length, setting);
-    setDeck(shuffled.slice(0, n));
-    setLastSeverity(severity);
+    setDeck(shuffled.slice(0, n) as LightItem[]);
+    setLastSeverity("warning");
     setIdx(0);
     setMemoryOnly(false);
     setMode("light");
-  }, [warningLights, cautionLights, pickCounts, activeVariant.id]);
+  }, [warningLights, pickCounts, activeVariant.id]);
 
   const startMemoryOnly = useCallback(async () => {
     const loggedIn = await isLoggedInAsync();
@@ -334,11 +373,11 @@ export default function LightsTrainer() {
       }
       incQuota("lights");
     }
-    // AW169 only, all red lights that have memory items (at least one 'action' step)
-    const pool = warningLights.filter((item) => activeVariant.id === "AW169" && hasMemory(item));
+    // AW169 only: include ONLY lights that have a detected QRH memory box crop
+    const pool = warningLights.filter((item) => activeVariant.id === "AW169" && (AW169_MEMORY_CROPS as any)[item.id]);
     if (!pool.length) return;
     const shuffled = shuffle(pool);
-    const n = shuffled.length; // In memory-only mode, always include all available lights
+    const n = shuffled.length; // In memory-only mode, include all available memory-box lights
     setDeck(shuffled.slice(0, n));
     setLastSeverity("warning");
     setIdx(0);
@@ -348,12 +387,12 @@ export default function LightsTrainer() {
 
   const restart = useCallback(() => {
     const sev: Severity = lastSeverity ?? (deck[0]?.severity ?? "warning");
-    let pool = sev === "warning" ? warningLights : cautionLights;
+    let pool = warningLights;
     if (memoryOnly) {
-      pool = warningLights.filter((item) => activeVariant.id === "AW169" && hasMemory(item));
+      pool = warningLights.filter((item) => activeVariant.id === "AW169" && (AW169_MEMORY_CROPS as any)[item.id]);
     }
     if (!pool.length) return;
-    const setting = pickCounts[sev];
+    const setting = pickCounts.warning;
     const n = memoryOnly ? pool.length : (setting === "all" ? pool.length : Math.min(pool.length, setting));
     const key = `lights:lastOrders:${activeVariant.id}:${sev}:${n}:memory:${memoryOnly ? 1 : 0}`;
     const lastOrders = (() => {
@@ -366,10 +405,10 @@ export default function LightsTrainer() {
     }
     const updated = [...lastOrders, sig(next)].slice(-2);
     try { sessionStorage.setItem(key, JSON.stringify(updated)); } catch {}
-    setDeck(next);
+    setDeck(next as LightItem[]);
     setIdx(0);
     setMode("light");
-  }, [lastSeverity, deck, warningLights, cautionLights, pickCounts, activeVariant.id, memoryOnly, hasMemory]);
+  }, [lastSeverity, deck, warningLights, pickCounts, activeVariant.id, memoryOnly, hasMemory]);
 
 
 
@@ -677,8 +716,15 @@ export default function LightsTrainer() {
   }
 
 
+
+
+
   function ProcedureLikePDF({ item, flat = false, memoryOnly: memoryMode = false, hideReferences = false }: { item: LightItem; flat?: boolean; memoryOnly?: boolean; hideReferences?: boolean }) {
     if (item.pageImage) {
+      // If memory-only mode is active for AW169, render only the cropped memory box from the QRH page
+      if (memoryMode && activeVariant.id === "AW169") {
+        return <AW169MemoryCrop item={item} />;
+      }
       // On H125 in dark mode, inline SVG and strip its prefers-color-scheme: dark block
       // so the SVG stays in its light palette (darker ink) even when OS is dark (mobile Safari).
 
@@ -721,7 +767,7 @@ export default function LightsTrainer() {
         return () => { cancelled = true; };
       */
 
-      const fullBleed = activeVariant.id === "AW169" && item.id === "eng-fire-flight";
+      const fullBleed = activeVariant.id === "AW169" && item.severity === "warning" && !!item.pageImage;
       return (
         <figure className={fullBleed ? "bg-white dark:bg-zinc-900 p-0" : (flat ? "bg-white dark:bg-zinc-900 p-0" : `rounded-2xl border bg-white shadow ${ (isH125) ? "dark:bg-zinc-900/80 dark:border-zinc-600" : "dark:bg-zinc-900/80 dark:border-zinc-600" } p-4`)}>
           <div className={fullBleed ? "relative" : "relative overflow-hidden rounded-xl"}>
@@ -749,6 +795,11 @@ export default function LightsTrainer() {
     const afterTree = pair ? rest.slice(pair.startIndex + 2) : [];
 
     if (memoryMode) {
+      // In memory-only mode, for AW169 with pageImage, show a QRH-accurate cropped SVG excerpt
+      if (activeVariant.id === "AW169" && item.pageImage) {
+        return <AW169MemoryCrop item={item} />;
+      }
+      // Fallback (non-AW169 or without page image): render a clean table of memory actions
       return (
         <div className="space-y-6">
           {actions.length > 0 && (
@@ -890,16 +941,6 @@ export default function LightsTrainer() {
                 >
                   {loading ? "Loading…" : `Start (${warningLights.length} available)`}
                 </button>
-                {activeVariant.id === "AW169" && (
-                  <button
-                    onClick={startMemoryOnly}
-                    disabled={loading || memoryCount === 0}
-                    className="rounded-md px-4 py-2 bg-slate-900 text-white font-medium disabled:opacity-40"
-                    title="Train on memory items only for red lights"
-                  >
-                    {`Memory items only (${memoryCount})`}
-                  </button>
-                )}
               </div>
               {!warningLights.length && !loading && (
                 <div className="text-sm text-slate-600 dark:text-zinc-300">
@@ -908,38 +949,6 @@ export default function LightsTrainer() {
               )}
             </section>
 
-            <section className="space-y-4 rounded-xl border bg-white p-6 shadow-sm dark:bg-zinc-900 dark:border-zinc-700">
-              <div className="flex items-center gap-2">
-                <span className="inline-block h-2.5 w-2.5 rounded-full bg-amber-500" aria-hidden />
-                <h2 className="text-xl font-semibold text-slate-900 dark:text-zinc-100">Yellow Caution Lights – Trainer</h2>
-              </div>
-              <p className="text-sm text-slate-600 dark:text-zinc-300">Train on caution lights with the same workflow.</p>
-              <div className="flex flex-wrap items-center gap-3">
-                <label className="text-sm text-slate-600 dark:text-zinc-300">Amount:</label>
-                <select
-                  value={pickCounts.caution}
-                  onChange={(e) => setPickCounts((prev) => ({ ...prev, caution: e.target.value === "all" ? "all" : Number(e.target.value) }))}
-                  className="rounded-md border px-3 py-2 bg-white text-slate-900 border-slate-300 dark:bg-zinc-900 dark:text-zinc-100 dark:border-zinc-700"
-                >
-                  <option value={10}>10</option>
-                  <option value={20}>20</option>
-                  <option value={30}>30</option>
-                  <option value="all">All</option>
-                </select>
-                <button
-                  onClick={() => start("caution")}
-                  disabled={loading || !cautionLights.length}
-                  className="rounded-md px-4 py-2 bg-amber-500 text-amber-950 font-medium disabled:opacity-40 dark:bg-amber-400 dark:text-zinc-900"
-                >
-                  {loading ? "Loading…" : `Start (${cautionLights.length} available)`}
-                </button>
-              </div>
-              {!cautionLights.length && !loading && (
-                <div className="text-sm text-slate-600 dark:text-zinc-300">
-                  No caution lights found for the selected model.
-                </div>
-              )}
-            </section>
 
             {activeVariant.id === "H125_AS350_B3_2B1" && (
               <section className="space-y-4 rounded-xl border bg-white p-6 shadow-sm dark:bg-zinc-900 dark:border-zinc-700">
@@ -983,6 +992,27 @@ export default function LightsTrainer() {
                   <Link href="/training/lights/cwp/aw169" className="inline-flex items-center rounded-md px-4 py-2 bg-black text-white font-medium hover:bg-black/90">
                     Open CWP-trainer
                   </Link>
+                </div>
+              </section>
+            )}
+
+
+            {activeVariant.id === "AW169" && (
+              <section className="space-y-4 rounded-xl border bg-white p-6 shadow-sm dark:bg-zinc-900 dark:border-zinc-700">
+                <div className="flex items-center gap-2">
+                  <span className="inline-block h-2.5 w-2.5 rounded-full bg-neutral-700" aria-hidden />
+                  <h2 className="text-xl font-semibold text-slate-900 dark:text-zinc-100">Memory items – Trainer (AW169)</h2>
+                </div>
+                <p className="text-sm text-slate-600 dark:text-zinc-300">Tren kun på memory items fra QRH for røde lys.</p>
+                <div>
+                  <button
+                    onClick={startMemoryOnly}
+                    disabled={loading || memoryCount === 0}
+                    className="inline-flex items-center rounded-md px-4 py-2 bg-slate-900 text-white font-medium disabled:opacity-40 hover:bg-slate-800"
+                    title="Train on memory items only for red lights"
+                  >
+                    {loading ? "Loading…" : `Start memory items only (${memoryCount})`}
+                  </button>
                 </div>
               </section>
             )}
@@ -1075,14 +1105,14 @@ export default function LightsTrainer() {
 
         {isMobile && mode === "procedure" && current && !compactCWP && (
           <div ref={procOverlayRef} tabIndex={-1} className="fixed left-0 right-0 bottom-0 top-0 z-40 bg-white dark:bg-zinc-900">
-            <div className="h-full w-full overflow-y-auto" onClick={(e) => { try { const t = e.target as HTMLElement; if (t && t.closest('a,button,input,textarea,select,[data-prevent-back]')) return; if (activeVariant?.id === 'AW169' && current?.id === 'eng-fire-flight') { next(); } } catch {} }}>
-            {header}
+            <div className="h-full w-full overflow-y-auto" onClick={(e) => { try { const t = e.target as HTMLElement; if (t && t.closest('a,button,input,textarea,select,[data-prevent-back]')) return; if (activeVariant?.id === 'AW169' && current?.severity === 'warning' && current?.pageImage) { next(); } } catch {} }}>
+            {!(activeVariant.id === 'AW169' && memoryOnly && current?.pageImage) && header}
 
               <div className="px-0">
                 <ProcedureLikePDF item={current} flat memoryOnly={memoryOnly} />
               </div>
             </div>
-            {!(activeVariant.id === 'AW169' && current?.id === 'eng-fire-flight') && (
+            {!(activeVariant.id === 'AW169' && current?.severity === 'warning' && current?.pageImage) && (
               <div className="sticky bottom-0 bg-white/95 dark:bg-zinc-900/95 backdrop-blur border-t border-slate-200 dark:border-zinc-700">
                 <div className="max-w-none mx-auto p-4 flex items-center justify-between gap-8" style={{ paddingBottom: 'calc(1rem + env(safe-area-inset-bottom))' }}>
                   <button onClick={prev} disabled={!canPrev} className="rounded-lg px-5 py-3 border text-base font-semibold hover:bg-slate-50 active:bg-slate-100 disabled:opacity-40 dark:border-zinc-700 dark:text-zinc-100 dark:hover:bg-zinc-800 dark:active:bg-zinc-700" aria-label="Prev light">
@@ -1105,14 +1135,22 @@ export default function LightsTrainer() {
                 {renderText(current.description)}
               </div>
             )}
-            <ProcedureLikePDF item={current} memoryOnly={memoryOnly} />
-            <div className="sticky bottom-0 bg-white/80 dark:bg-transparent backdrop-blur border-t dark:border-blue-400">
-              <div className="max-w-3xl mx-auto p-4 flex items-center justify-between">
-                <button onClick={prev} disabled={!canPrev} className="rounded-lg px-4 py-2 border dark:text-zinc-100 dark:border-blue-400 disabled:opacity-40">Previous</button>
-                <div className="text-sm opacity-60 dark:text-zinc-300">→ for Next</div>
-                <button onClick={next} disabled={!canNext} className="rounded-lg px-4 py-2 bg-blue-600 text-white dark:bg-transparent dark:text-zinc-100 disabled:opacity-40">Next</button>
+            {(memoryOnly && activeVariant.id === 'AW169' && current?.pageImage) ? (
+              <div role="button" aria-label="Next" onClick={next} className="cursor-pointer select-none">
+                <ProcedureLikePDF item={current} memoryOnly />
               </div>
-            </div>
+            ) : (
+              <ProcedureLikePDF item={current} memoryOnly={memoryOnly} />
+            )}
+            {!(memoryOnly && activeVariant.id === 'AW169' && current?.pageImage) && (
+              <div className="sticky bottom-0 bg-white/80 dark:bg-transparent backdrop-blur border-t dark:border-blue-400">
+                <div className="max-w-3xl mx-auto p-4 flex items-center justify-between">
+                  <button onClick={prev} disabled={!canPrev} className="rounded-lg px-4 py-2 border dark:text-zinc-100 dark:border-blue-400 disabled:opacity-40">Previous</button>
+                  <div className="text-sm opacity-60 dark:text-zinc-300">→ for Next</div>
+                  <button onClick={next} disabled={!canNext} className="rounded-lg px-4 py-2 bg-blue-600 text-white dark:bg-transparent dark:text-zinc-100 disabled:opacity-40">Next</button>
+                </div>
+              </div>
+            )}
           </div>
         )}
         {mode === "done" && (

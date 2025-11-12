@@ -5,6 +5,7 @@
     "severity": "warning",
     "system": "ENGINE SYSTEM",
     "description": "Affected engine has flamed out.",
+    "pageImage": "/training/lights/pages/aw169-eng-out.svg",
     "procedure": [
       {
         "type": "note",

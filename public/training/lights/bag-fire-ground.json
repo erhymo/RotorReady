@@ -5,6 +5,7 @@
     "severity": "warning",
     "system": "FIRE",
     "description": "Baggage bay fire (ground).",
+    "pageImage": "/training/lights/pages/aw169-bag-fire-ground.svg",
     "procedure": [
       { "type": "note", "text": "+ \"WARNING WARNING\" voice warning." },
       { "type": "action", "text": "- Carry out EMERGENCY GROUND EGRESS procedure (see page 36)." }

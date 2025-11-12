@@ -5,6 +5,7 @@
     "severity": "warning",
     "system": "ELECTRICAL SYSTEM",
     "description": "Double DC Generator failure.",
+    "pageImage": "/training/lights/pages/aw169-elec-fail-double-dc-gen.svg",
     "procedure": [
       {
         "type": "note",

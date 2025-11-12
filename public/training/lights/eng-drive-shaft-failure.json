@@ -5,6 +5,7 @@
     "severity": "warning",
     "system": "ENGINE SYSTEM",
     "description": "Rapid decrease in engine 1(2) TQ to 0 with NF1(2) above NR.\nAffected engine should be automatically shutdown by overspeed protection system.",
+    "pageImage": "/training/lights/pages/aw169-eng-drive-shaft-failure.svg",
     "procedure": [
       {
         "type": "action",

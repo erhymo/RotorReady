@@ -5,6 +5,7 @@
     "severity": "warning",
     "system": "ENGINE SYSTEM",
     "description": "Associated engine oil pressure below or above limit.",
+    "pageImage": "/training/lights/pages/aw169-eng-oil-press.svg",
     "procedure": [
       {
         "type": "note",

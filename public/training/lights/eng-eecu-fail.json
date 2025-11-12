@@ -5,6 +5,7 @@
     "severity": "warning",
     "system": "ENGINE SYSTEM",
     "description": "EECU has run the engine down to IDLE.",
+    "pageImage": "/training/lights/pages/aw169-eng-eecu-fail.svg",
     "procedure": [
       {
         "type": "note",

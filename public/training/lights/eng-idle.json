@@ -5,6 +5,7 @@
     "severity": "warning",
     "system": "ENGINE SYSTEM",
     "description": "Warning triggered only with aircraft on ground.\n\nTake-Off commenced with associated engine at IDLE, OR associated ENG MODE knob at IDLE and collective not fully down, OR engine in APU mode.",
+    "pageImage": "/training/lights/pages/aw169-eng-idle.svg",
     "procedure": [
       {
         "type": "note",

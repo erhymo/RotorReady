@@ -5,6 +5,7 @@
     "severity": "warning",
     "system": "MGB",
     "description": "Oil pressure below limits at both engine MGB inputs or at one engine MGB input and in MGB oil system (less than 3.1 bar).",
+    "pageImage": "/training/lights/pages/aw169-mgb-oil-press.svg",
     "procedure": [
       { "type": "note", "text": "+ \"WARNING WARNING\" voice warning." },
       { "type": "action", "text": "1. TQ 1 & 2 — Reduce not to exceed 55/55%." },

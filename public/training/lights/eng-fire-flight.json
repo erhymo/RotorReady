@@ -5,6 +5,7 @@
     "severity": "warning",
     "system": "FIRE",
     "description": "Engine bay fire (flight).",
+    "pageImage": "/training/lights/pages/aw169-eng-fire-flight.svg",
     "procedure": [
       { "type": "note", "text": "+ Audio tone and 'ENGINE ONE (TWO) FIRE' voice warning." },
       { "type": "action", "text": "1. Confirm ENGINE FIRE light ON on engine control panel." },

@@ -537,6 +537,146 @@ export default function LightsTrainer() {
     }
   }
 
+  // AW169 QRH-style renderer for 1(2) ENG FIRE (FLIGHT)
+  function AW169EngFireFlightQRH({ item, renderText, memoryOnly }: { item: LightItem; renderText: (txt?: string) => any; memoryOnly: boolean }) {
+    const { notes, actions, rest } = splitProcedure(item.procedure || []);
+
+    if (memoryOnly) {
+      return (
+        <div className="space-y-6">
+          {actions.length > 0 && (
+            <section className="rounded-xl border-2 border-black dark:border-zinc-600 dark:bg-zinc-900/80 p-0 overflow-hidden">
+              <table className="w-full text-[15px]">
+                <tbody>
+                  {actions.map((a, i) => (
+                    <tr key={`${item.id}-mem-${i}`} className="border-b last:border-b-0 dark:border-zinc-700">
+                      <td className="w-12 align-top px-4 py-3 font-bold dark:text-zinc-100">{i + 1}.</td>
+                      <td className="align-top px-4 py-3 dark:text-zinc-100">{renderText((a as any).text)}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </section>
+          )}
+        </div>
+      );
+    }
+
+    // Extract the small "FIRE BTL LOW P" caution sentence so we can render a yellow pill inline
+    const idxLowP = rest.findIndex((s: any) => s.type === "caution" && /FIRE\s*BTL\s*LOW\s*P/i.test(String(s.text)));
+    const lowPCaution = idxLowP >= 0 ? (rest[idxLowP] as any) : null;
+    const remaining = idxLowP >= 0 ? rest.filter((_, i) => i !== idxLowP) : rest;
+
+    const pair = pickFirstBranchPair(remaining);
+    const beforeTree = pair ? remaining.slice(0, pair.startIndex) : remaining;
+    const afterTree = pair ? remaining.slice(pair.startIndex + 2) : [];
+
+    return (
+      <div className="space-y-6">
+        {/* Header row with red label and the "+ Audio tone …" text */}
+        <div className="flex items-start justify-between gap-4">
+          <span className="inline-flex items-center px-2.5 py-1 rounded-sm text-white bg-[#e3172b] text-[13px] font-semibold shadow-[0_0_0_1px_rgba(0,0,0,0.45)]">1(2) ENG FIRE</span>
+          {notes[0] && (
+            <div className="text-sm text-slate-800 dark:text-zinc-100">{renderText(notes[0].text)}</div>
+          )}
+        </div>
+
+        {/* Memory items table */}
+        <section className="rounded-xl border-2 border-black dark:border-zinc-600 dark:bg-zinc-900/80 p-0 overflow-hidden">
+          <table className="w-full text-[15px]">
+            <tbody>
+              {actions.map((a, i) => (
+                <tr key={`${item.id}-act-${i}`} className="border-b last:border-b-0 dark:border-zinc-700">
+                  <td className="w-12 align-top px-4 py-3 font-bold dark:text-zinc-100">{i + 1}.</td>
+                  <td className="align-top px-4 py-3 dark:text-zinc-100">{renderText((a as any).text)}</td>
+                </tr>
+              ))}
+              {lowPCaution && (
+                <tr>
+                  <td className="align-top px-4 py-3" />
+                  <td className="align-top px-4 py-3 text-sm">
+                    <span className="inline-block align-middle px-2.5 py-1 rounded-sm bg-[#ffcc00] text-black font-semibold border border-black mr-2">
+                      FIRE BTL LOW P
+                    </span>
+                    <span className="align-middle text-slate-700 dark:text-zinc-200">
+                      {renderText(String(lowPCaution.text).replace(/\s*FIRE\s*BTL\s*LOW\s*P\s*/i, "").trim())}
+                    </span>
+                  </td>
+                </tr>
+              )}
+            </tbody>
+          </table>
+        </section>
+
+        {(pair || beforeTree.length || afterTree.length) && (
+          <div className="flex items-center justify-center">
+            <div className="h-6 w-px bg-black dark:bg-zinc-100" />
+          </div>
+        )}
+
+        {beforeTree.length > 0 && (
+          <section className="space-y-2">{beforeTree.map((s, i) => <StepCard key={`${item.id}-pre-${i}`} step={s} />)}</section>
+        )}
+
+        {pair && (
+          <section className="relative">
+            <div className="absolute left-1/6 right-1/6 top-3 h-px bg-black dark:bg-zinc-100 mx-auto" />
+            <div className="grid grid-cols-2 gap-6">
+              <div className="relative">
+                <div className="flex justify-center">
+                  <div className="h-6 w-px bg-black dark:bg-zinc-100" />
+                </div>
+                <div className="mt-3 rounded-xl border p-4 bg-white dark:bg-zinc-900/80 dark:text-zinc-100">
+                  {pair.left.heading && (
+                    <div className="font-semibold mb-1">
+                      {pair.left.heading}
+                    </div>
+                  )}
+                  <div className="whitespace-pre-wrap">{renderText(pair.left.text)}</div>
+                </div>
+              </div>
+              <div className="relative">
+                <div className="flex justify-center">
+                  <div className="h-6 w-px bg-black dark:bg-zinc-100" />
+                </div>
+                <div className="mt-3 rounded-xl border p-4 bg-white dark:bg-zinc-900/80 dark:text-zinc-100">
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="inline-flex items-center px-2 py-0.5 rounded-sm text-white bg-[#e3172b] text-[12px] font-semibold">1(2) ENG FIRE</span>
+                    {pair.right.heading && <div className="text-sm font-semibold">{pair.right.heading.replace(/^\s*IF\s*1\(2\)\s*ENG\s*FIRE\s*/i, "IF ")}</div>}
+                  </div>
+                  <div className="whitespace-pre-wrap">{renderText(pair.right.text)}</div>
+                </div>
+              </div>
+            </div>
+          </section>
+        )}
+
+        {afterTree.length > 0 && (
+          <section className="space-y-2">
+            {afterTree.map((s, i) => {
+              if ((s as any).type === "caution") {
+                return (
+                  <div key={`${item.id}-post-${i}`} className="rounded-md border-2 border-black bg-[#ffe6a6] text-black p-3">
+                    <span className="inline-block px-2 py-0.5 rounded-sm bg-[#ffcc00] text-black font-bold border border-black mr-2">CAUTION</span>
+                    {renderText((s as any).text)}
+                  </div>
+                );
+              }
+              return <StepCard key={`${item.id}-post-${i}`} step={s} />;
+            })}
+          </section>
+        )}
+
+        <div className="flex items-center justify-center gap-6 pt-4">
+          <div className="h-px w-40 bg-black dark:bg-zinc-100" />
+          <div className="text-sm tracking-widest text-black dark:text-zinc-100">END</div>
+          <div className="h-px w-40 bg-black dark:bg-zinc-100" />
+        </div>
+      </div>
+    );
+  }
+
+
   function ProcedureLikePDF({ item, flat = false, memoryOnly: memoryMode = false, hideReferences = false }: { item: LightItem; flat?: boolean; memoryOnly?: boolean; hideReferences?: boolean }) {
     if (item.pageImage) {
       // On H125 in dark mode, inline SVG and strip its prefers-color-scheme: dark block
@@ -581,9 +721,10 @@ export default function LightsTrainer() {
         return () => { cancelled = true; };
       */
 
+      const fullBleed = activeVariant.id === "AW169" && item.id === "eng-fire-flight";
       return (
-        <figure className={flat ? "bg-white dark:bg-zinc-900 p-0" : `rounded-2xl border bg-white shadow ${ (isH125) ? "dark:bg-zinc-900/80 dark:border-zinc-600" : "dark:bg-zinc-900/80 dark:border-zinc-600" } p-4`}>
-          <div className="relative overflow-hidden rounded-xl">
+        <figure className={fullBleed ? "bg-white dark:bg-zinc-900 p-0" : (flat ? "bg-white dark:bg-zinc-900 p-0" : `rounded-2xl border bg-white shadow ${ (isH125) ? "dark:bg-zinc-900/80 dark:border-zinc-600" : "dark:bg-zinc-900/80 dark:border-zinc-600" } p-4`)}>
+          <div className={fullBleed ? "relative" : "relative overflow-hidden rounded-xl"}>
             <Image
               src={item.pageImage}
               alt={item.name}
@@ -905,7 +1046,23 @@ export default function LightsTrainer() {
             className="fixed left-0 right-0 bottom-0 top-0 z-40 bg-white dark:bg-zinc-900 cursor-pointer"
             role="button"
             aria-label="Close procedure"
-            onClick={() => { try { const before = window.location.pathname + window.location.search; router.back(); setTimeout(() => { try { if (window.location.pathname + window.location.search === before) { const v = activeVariant?.id; if (v === 'AW169') router.push('/training/lights/cwp/aw169'); else if (v === 'H125_AS350_B3_2B1') router.push('/training/lights/cwp/b3-2b1'); else router.push('/training/lights'); } } catch {} }, 120); } catch {} }}
+            onClick={() => {
+              try {
+                if (activeVariant?.id === "AW169" && current?.id === "eng-fire-flight") { next(); return; }
+                const before = window.location.pathname + window.location.search;
+                router.back();
+                setTimeout(() => {
+                  try {
+                    if (window.location.pathname + window.location.search === before) {
+                      const v = activeVariant?.id;
+                      if (v === 'AW169') router.push('/training/lights/cwp/aw169');
+                      else if (v === 'H125_AS350_B3_2B1') router.push('/training/lights/cwp/b3-2b1');
+                      else router.push('/training/lights');
+                    }
+                  } catch {}
+                }, 120);
+              } catch {}
+            }}
           >
             <div className="h-full w-full overflow-y-auto" onClickCapture={(e) => { const t = e.target as HTMLElement; if (t && t.closest('a,button,input,textarea,select,[data-prevent-back]')) { e.stopPropagation(); } }} onMouseDownCapture={(e) => { const t = e.target as HTMLElement; if (t && t.closest('a,button,input,textarea,select,[data-prevent-back]')) { e.stopPropagation(); } }} onTouchStartCapture={(e) => { const t = e.target as HTMLElement; if (t && t.closest('a,button,input,textarea,select,[data-prevent-back]')) { e.stopPropagation(); } }}>
               <div className="px-0">
@@ -919,42 +1076,46 @@ export default function LightsTrainer() {
 
         {isMobile && mode === "procedure" && current && !compactCWP && (
           <div ref={procOverlayRef} tabIndex={-1} className="fixed left-0 right-0 bottom-0 top-0 z-40 bg-white dark:bg-zinc-900">
-            <div className="h-full w-full overflow-y-auto">
+            <div className="h-full w-full overflow-y-auto" onClick={(e) => { try { const t = e.target as HTMLElement; if (t && t.closest('a,button,input,textarea,select,[data-prevent-back]')) return; if (activeVariant?.id === 'AW169' && current?.id === 'eng-fire-flight') { next(); } } catch {} }}>
             {header}
 
               <div className="px-0">
                 <ProcedureLikePDF item={current} flat memoryOnly={memoryOnly} />
               </div>
             </div>
-            <div className="sticky bottom-0 bg-white/95 dark:bg-zinc-900/95 backdrop-blur border-t border-slate-200 dark:border-zinc-700">
-              <div className="max-w-none mx-auto p-4 flex items-center justify-between gap-8" style={{ paddingBottom: 'calc(1rem + env(safe-area-inset-bottom))' }}>
-                <button onClick={prev} disabled={!canPrev} className="rounded-lg px-5 py-3 border text-base font-semibold hover:bg-slate-50 active:bg-slate-100 disabled:opacity-40 dark:border-zinc-700 dark:text-zinc-100 dark:hover:bg-zinc-800 dark:active:bg-zinc-700" aria-label="Prev light">
-                  ← Prev
-                </button>
-                <button onClick={next} disabled={!canNext} className="rounded-lg px-5 py-3 border bg-blue-600 text-white text-base font-semibold hover:bg-blue-500 active:bg-blue-600 disabled:opacity-40" aria-label="Next light">
-                  Next →
-                </button>
+            {!(activeVariant.id === 'AW169' && current?.id === 'eng-fire-flight') && (
+              <div className="sticky bottom-0 bg-white/95 dark:bg-zinc-900/95 backdrop-blur border-t border-slate-200 dark:border-zinc-700">
+                <div className="max-w-none mx-auto p-4 flex items-center justify-between gap-8" style={{ paddingBottom: 'calc(1rem + env(safe-area-inset-bottom))' }}>
+                  <button onClick={prev} disabled={!canPrev} className="rounded-lg px-5 py-3 border text-base font-semibold hover:bg-slate-50 active:bg-slate-100 disabled:opacity-40 dark:border-zinc-700 dark:text-zinc-100 dark:hover:bg-zinc-800 dark:active:bg-zinc-700" aria-label="Prev light">
+                    ← Prev
+                  </button>
+                  <button onClick={next} disabled={!canNext} className="rounded-lg px-5 py-3 border bg-blue-600 text-white text-base font-semibold hover:bg-blue-500 active:bg-blue-600 disabled:opacity-40" aria-label="Next light">
+                    Next →
+                  </button>
+                </div>
               </div>
-            </div>
+            )}
           </div>
         )
         }
 
         {!isMobile && mode === "procedure" && current && !compactCWP && (
-          <div className="space-y-6">
+          <div className="space-y-6" onClick={(e) => { try { const t = e.target as HTMLElement; if (t && t.closest('a,button,input,textarea,select,[data-prevent-back]')) return; if (activeVariant?.id === 'AW169' && current?.id === 'eng-fire-flight') { next(); } } catch {} }}>
             {!memoryOnly && current.description && !current.pageImage && (
               <div className="rounded-xl border bg-white dark:bg-blue-900/40 dark:text-zinc-100 dark:border-blue-400 p-4 text-[15px] md:text-[16px]">
                 {renderText(current.description)}
               </div>
             )}
             <ProcedureLikePDF item={current} memoryOnly={memoryOnly} />
-            <div className="sticky bottom-0 bg-white/80 dark:bg-transparent backdrop-blur border-t dark:border-blue-400">
-              <div className="max-w-3xl mx-auto p-4 flex items-center justify-between">
-                <button onClick={prev} disabled={!canPrev} className="rounded-lg px-4 py-2 border dark:text-zinc-100 dark:border-blue-400 disabled:opacity-40">Previous</button>
-                <div className="text-sm opacity-60 dark:text-zinc-300">→ for Next</div>
-                <button onClick={next} disabled={!canNext} className="rounded-lg px-4 py-2 bg-blue-600 text-white dark:bg-transparent dark:text-zinc-100 disabled:opacity-40">Next</button>
+            {!(activeVariant.id === 'AW169' && current?.id === 'eng-fire-flight') && (
+              <div className="sticky bottom-0 bg-white/80 dark:bg-transparent backdrop-blur border-t dark:border-blue-400">
+                <div className="max-w-3xl mx-auto p-4 flex items-center justify-between">
+                  <button onClick={prev} disabled={!canPrev} className="rounded-lg px-4 py-2 border dark:text-zinc-100 dark:border-blue-400 disabled:opacity-40">Previous</button>
+                  <div className="text-sm opacity-60 dark:text-zinc-300">→ for Next</div>
+                  <button onClick={next} disabled={!canNext} className="rounded-lg px-4 py-2 bg-blue-600 text-white dark:bg-transparent dark:text-zinc-100 disabled:opacity-40">Next</button>
+                </div>
               </div>
-            </div>
+            )}
           </div>
         )}
         {mode === "done" && (

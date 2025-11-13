@@ -1,12 +1,13 @@
 [
   {
     "id": "eng-idle",
-    "name": "ENGINE IDLE",
+    "name": "ENG IDLE",
     "severity": "warning",
-    "system": "ENGINE",
-    "description": "Engine idle condition.",
+    "system": "ENG",
+    "description": "",
     "pageImage": "/training/lights/pages/aw189-eng-idle.svg",
-    "modelIds": ["AW189"]
+    "modelIds": [
+      "AW189"
+    ]
   }
 ]
-

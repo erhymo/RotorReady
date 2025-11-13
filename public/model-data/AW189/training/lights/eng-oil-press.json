@@ -1,0 +1,13 @@
+[
+  {
+    "id": "eng-oil-press",
+    "name": "ENG OIL PRESS",
+    "severity": "warning",
+    "system": "ENG",
+    "description": "",
+    "pageImage": "/training/lights/pages/aw189-eng-oil-press.svg",
+    "modelIds": [
+      "AW189"
+    ]
+  }
+]

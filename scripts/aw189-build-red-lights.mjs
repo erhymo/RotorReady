@@ -17,8 +17,10 @@ const TARGETS = [
   { id: 'bag-fire-ground',  label: 'BAG', anyHints: ['FIRE','BAGGAGE'] },
   { id: 'elec-fail-double-dc-gen', label: 'ELEC FAIL', anyHints: ['DOUBLE DC','DOUBLE DC GENERATOR','2 DC GEN'] },
   { id: 'eng-drive-shaft-failure', label: 'DRIVE SHAFT', anyHints: ['FAIL'] },
-  { id: 'eng-eecu-fail',    label: 'EECU', anyHints: ['FAIL'] },
-  { id: 'eng-fail-fixed',   label: 'ENG FAIL', anyHints: ['FIXED'] },
+  // EECU FAIL is a CAUTION (yellow) on AW189 → exclude from red warning targets
+  // { id: 'eng-eecu-fail',    label: 'EECU', anyHints: ['FAIL'] },
+  // AW189 uses ENG GOV LOSS instead of ENG FAIL (FIXED)
+  { id: 'eng-gov-loss',     label: '1(2) ENG GOV LOSS' },
   { id: 'eng-idle',         label: 'ENG IDLE' },
   { id: 'eng-oil-press',    label: 'ENG OIL PRESS' },
   { id: 'eng-out',          label: 'ENG OUT' },
@@ -270,8 +272,8 @@ function normalizeRect(rect, pageW, pageH) {
 
 function pageMatches(linesU, target) {
   // Focus on the top-of-page heading area to avoid matching index/summary pages
-  const header = linesU.slice(0, 12);
-  const bad = /(TABLE OF CONTENTS|CONTENTS|INDEX|ABBREVIATIONS|GLOSSARY)/;
+  const header = linesU.slice(0, 14);
+  const bad = /(TABLE OF CONTENTS|CONTENTS|INDEX|ABBREVIATIONS|GLOSSARY)/i;
   if (header.some((s) => bad.test(s))) return false;
 
   const hasLabel = header.some((s) => s.includes(target.label));
@@ -288,6 +290,18 @@ function pageMatches(linesU, target) {
   }
   if (target.id === 'eng-fire-ground' || target.id === 'bag-fire-ground') {
     if (!header.some((s) => /(GROUND|ON\s+GROUND)/.test(s))) return false;
+  }
+
+  // Disambiguate ROTOR HIGH vs ROTOR LOW: require only the specific one to be present in header
+  if (target.id === 'rotor-high') {
+    const hasHigh = header.some((s) => /ROTOR\s+HIGH/.test(s));
+    const hasLow = header.some((s) => /ROTOR\s+LOW/.test(s));
+    if (!hasHigh || hasLow) return false;
+  }
+  if (target.id === 'rotor-low') {
+    const hasLow = header.some((s) => /ROTOR\s+LOW/.test(s));
+    const hasHigh = header.some((s) => /ROTOR\s+HIGH/.test(s));
+    if (!hasLow || hasHigh) return false;
   }
 
   return true;
@@ -320,23 +334,95 @@ async function main() {
   const data = new Uint8Array(fs.readFileSync(QRH_PDF));
   const doc = await pdfjs.getDocument({ data, disableFontFace: true }).promise;
 
-  const pagesText = [];
+  // Preload uppercase text per page for fast scanning
+  const pagesUpper = [];
   for (let p = 1; p <= doc.numPages; p++) {
     const lines = await extractPageLines(doc, p);
-    pagesText.push(lines.map(s => s.toUpperCase()));
+    pagesUpper.push(lines.map((s) => s.toUpperCase()));
   }
+
+  // 1) Locate the "TABLE OF CAS WARNING MESSAGES" page (user referenced Emerg-Malfunc Page 11)
+  let casTablePage = -1;
+  for (let p = 1; p <= pagesUpper.length; p++) {
+    const U = pagesUpper[p - 1];
+    if (U.some((s) => s.includes('TABLE OF CAS WARNING MESSAGES'))) {
+      casTablePage = p;
+      break;
+    }
+  }
+  if (casTablePage < 0) {
+    console.error('Could not find "TABLE OF CAS WARNING MESSAGES" page in QRH.');
+    process.exit(2);
+  }
+
+  // Use authoritative mapping from the CAS WARNING table (Emerg-Malfunc Page 11)
+  const labelToPrinted = {
+    'ROTOR LOW': 37,
+    '1(2) ENG OUT': 17,
+    '1(2) ENG FIRE': 29,
+    'ROTOR HIGH': 37,
+    '1(2) ENG IDLE': 18,
+    '1(2) ENG GOV LOSS': 19,
+    'MGB OIL PRESS': 39,
+    'MGB OIL TEMP': 38,
+    '1(2) ENG OIL P LOW': 20,
+    'ELEC FAIL': 13,
+    'BAG FIRE': 31,
+  };
+
+  // Helper: find the document page for a given printed Emerg-Malfunc page number
+  function findDocPageForEmergPrinted(n) {
+    const needle = `PAGE ${n}`;
+    for (let p = 1; p <= pagesUpper.length; p++) {
+      if (p === casTablePage) continue; // never return the CAS table page itself
+      const U = pagesUpper[p - 1];
+      const tail = U.slice(Math.max(0, U.length - 8)); // look only at footer area
+      const footerHasPrintedAndEmerg = tail.some((s) => s.includes(needle) && (s.includes('EMERG') || s.includes('EMERGENCY PROCEDURES')));
+      if (footerHasPrintedAndEmerg) return p;
+    }
+    return -1;
+  }
+
+  // Map our known AW189 red lights to labels found in the CAS table
+  const ID_TO_TABLE_LABEL = {
+    'eng-fire-flight': '1(2) ENG FIRE',
+    'eng-fire-ground': '1(2) ENG FIRE',
+    'bag-fire-flight': 'BAG FIRE',
+    'bag-fire-ground': 'BAG FIRE',
+    'elec-fail-double-dc-gen': 'ELEC FAIL',
+    'eng-gov-loss': '1(2) ENG GOV LOSS',
+    'eng-idle': '1(2) ENG IDLE',
+    'eng-oil-press': '1(2) ENG OIL P LOW',
+    'eng-out': '1(2) ENG OUT',
+    'mgb-oil-press': 'MGB OIL PRESS',
+    'mgb-oil-temp': 'MGB OIL TEMP',
+    'rotor-high': 'ROTOR HIGH',
+    'rotor-low': 'ROTOR LOW',
+    // Note: ENG DRIVE SHAFT FAILURE is not listed in the CAS WARNING table (likely not a red CAS warning on AW189)
+  };
+
+  const filteredTargets = TARGETS.filter((t) => ID_TO_TABLE_LABEL[t.id]);
 
   const found = {};
   const memoryCrops = {};
 
-  for (const t of TARGETS) {
-    // scan pages for candidates
-    for (let p = 1; p <= pagesText.length; p++) {
-      const U = pagesText[p-1];
-      if (!pageMatches(U, t)) continue;
-      // Render page (accept header match) and try to detect memory crop opportunistically
-      const { svgText, pageW, pageH } = await renderSvg(QRH_PDF, p);
-      found[t.id] = p;
+  for (const t of filteredTargets) {
+    const tableLabel = ID_TO_TABLE_LABEL[t.id];
+    const printed = labelToPrinted[tableLabel];
+    if (!printed) {
+      console.warn(`[skip] No printed page mapping for ${t.id} (${tableLabel})`);
+      continue;
+    }
+    const docPage = findDocPageForEmergPrinted(printed);
+    if (docPage < 0) {
+      console.warn(`[skip] Could not locate document page for printed Emerg-Malfunc Page ${printed} (${t.id})`);
+      continue;
+    }
+
+    try {
+      const { svgText, pageW, pageH } = await renderSvg(QRH_PDF, docPage);
+      found[t.id] = docPage;
+      console.log(`[map] ${t.id} -> printed ${printed} (doc page ${docPage})`);
       try {
         let rect = findMemoryRectFromRed(svgText, pageW, pageH);
         if (!rect) {
@@ -349,10 +435,8 @@ async function main() {
       fs.mkdirSync(OUT_PAGES_DIR, { recursive: true });
       const outSvg = path.join(OUT_PAGES_DIR, `aw189-${t.id}.svg`);
       fs.writeFileSync(outSvg, svgText, 'utf8');
-      break;
-    }
-    if (!found[t.id]) {
-      console.warn(`No page found with memory box for ${t.id} (${t.label})`);
+    } catch (e) {
+      console.warn(`[render-failed] ${t.id} printed ${printed} doc ${docPage}:`, e?.message || e);
     }
   }
 
@@ -365,7 +449,7 @@ async function main() {
   // Create minimal light JSON files in model-data
   fs.mkdirSync(OUT_MODEL_DATA, { recursive: true });
   const manifest = [];
-  for (const t of TARGETS) {
+  for (const t of filteredTargets) {
     if (!found[t.id]) continue; // only include those with page/memory found
     const item = [{
       id: t.id,
@@ -393,8 +477,9 @@ function guessNameFromId(id) {
     'bag-fire-ground': 'BAG FIRE',
     'elec-fail-double-dc-gen': 'ELEC FAIL (DOUBLE DC GEN)',
     'eng-drive-shaft-failure': 'ENG DRIVE SHAFT FAILURE',
-    'eng-eecu-fail': 'ENG EECU FAIL',
-    'eng-fail-fixed': 'ENG FAIL (FIXED)',
+    // 'eng-eecu-fail': 'ENG EECU FAIL', // excluded (caution)
+    // 'eng-fail-fixed': 'ENG FAIL (FIXED)', // replaced by ENG GOV LOSS
+    'eng-gov-loss': '1 (2) ENG GOV LOSS',
     'eng-idle': 'ENG IDLE',
     'eng-oil-press': 'ENG OIL PRESS',
     'eng-out': 'ENG OUT',
@@ -410,6 +495,7 @@ function guessSystemFromId(id) {
   if (id.includes('elec')) return 'ELEC';
   if (id.includes('mgb')) return 'MGB';
   if (id.includes('rotor')) return 'ROTOR';
+  if (id.includes('eng-')) return 'ENG';
   if (id.includes('oil')) return 'ENG';
   if (id.includes('eecu')) return 'ENG';
   if (id.includes('drive-shaft')) return 'ENG';

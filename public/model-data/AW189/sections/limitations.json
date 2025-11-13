@@ -1,0 +1,70 @@
+{
+  "items": [
+    {
+      "id": "aw189-lims-001",
+      "section": "LIMITATIONS",
+      "type": "single",
+      "question": "What is the maximum number of occupants in the cabin?",
+      "options": ["16", "17", "19", "21"],
+      "answer": [2],
+      "explanation": "Maximum number of occupants in cabin shall not exceed 19.",
+      "references": ["RFM Sec 1: Number of Occupants (p.1-1/1-2)"],
+      "tags": ["occupants", "limitations"],
+      "source": "AW189 RFM",
+      "modelIds": ["AW189"]
+    },
+    {
+      "id": "aw189-lims-002",
+      "section": "LIMITATIONS",
+      "type": "single",
+      "question": "Maximum gross weight for towing or taxi is?",
+      "options": ["8250 kg", "8300 kg", "8350 kg", "8400 kg"],
+      "answer": [2],
+      "explanation": "Maximum gross weight for towing or taxi is 8350 kg.",
+      "references": ["RFM Sec 1: Weight and CG Limitations (p.1-2)"],
+      "tags": ["weight", "limitations"],
+      "source": "AW189 RFM",
+      "modelIds": ["AW189"]
+    },
+    {
+      "id": "aw189-lims-003",
+      "section": "LIMITATIONS",
+      "type": "single",
+      "question": "What is the maximum gross weight for CAT B take-off/landing?",
+      "options": ["8250 kg", "8300 kg", "8350 kg", "8400 kg"],
+      "answer": [1],
+      "explanation": "Maximum gross weight for CAT B take-off/landing is 8300 kg.",
+      "references": ["RFM Sec 1: Weight and CG Limitations (p.1-2)"],
+      "tags": ["weight", "categoryB", "limitations"],
+      "source": "AW189 RFM",
+      "modelIds": ["AW189"]
+    },
+    {
+      "id": "aw189-lims-004",
+      "section": "LIMITATIONS",
+      "type": "single",
+      "question": "Minimum flight/rotor running gross weight?",
+      "options": ["5200 kg", "5400 kg", "5600 kg", "5800 kg"],
+      "answer": [1],
+      "explanation": "Minimum flight/rotor running gross weight is 5400 kg.",
+      "references": ["RFM Sec 1: Weight and CG Limitations (p.1-3)"],
+      "tags": ["weight", "limitations"],
+      "source": "AW189 RFM",
+      "modelIds": ["AW189"]
+    },
+    {
+      "id": "aw189-lims-005",
+      "section": "LIMITATIONS",
+      "type": "single",
+      "question": "What is the minimum flight weight when Hd is less than −5000 ft?",
+      "options": ["5400 kg", "5600 kg", "5800 kg", "6000 kg"],
+      "answer": [3],
+      "explanation": "Minimum flight weight for Hd less than −5000 ft is 6000 kg.",
+      "references": ["RFM Sec 1: Weight and CG Limitations (p.1-3)"],
+      "tags": ["weight", "limitations"],
+      "source": "AW189 RFM",
+      "modelIds": ["AW189"]
+    }
+  ]
+}
+

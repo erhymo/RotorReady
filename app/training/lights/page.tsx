@@ -124,25 +124,31 @@ export default function LightsTrainer() {
           manifests.push("/training/lights/manifest.json");
         }
 
-        let files: string[] = [];
+        let variantFiles: string[] = [];
+        let fallbackFiles: string[] = [];
         for (const url of manifests) {
           try {
             const res = await fetch(url, { cache: "no-store" });
             if (!res.ok) continue;
             const data = await res.json();
-            if (Array.isArray(data?.files)) {
-              files = data.files;
-              break;
+            const isVariant = url.startsWith("/model-data/");
+            if (Array.isArray((data as any)?.files)) {
+              const list = (data as any).files as string[];
+              if (isVariant) variantFiles.push(...list);
+              else fallbackFiles = list;
+              continue;
             }
             if (Array.isArray(data)) {
-              files = data;
-              break;
+              if (isVariant) variantFiles.push(...(data as any[] as string[]));
+              else fallbackFiles = data as any[] as string[];
+              continue;
             }
           } catch (err) {
             console.warn("Kunne ikke lese manifest", url, err);
           }
         }
 
+        let files: string[] = variantFiles.length ? Array.from(new Set(variantFiles)) : fallbackFiles;
         if (!files.length && activeVariant.productId !== "H125") {
           files = ["/training/lights/all-lights.json"];
         }
@@ -1066,6 +1072,21 @@ export default function LightsTrainer() {
                 <p className="text-sm text-slate-600 dark:text-zinc-300">AW169 warning panel — tap to train by pressing lights.</p>
                 <div>
                   <Link href="/training/lights/cwp/aw169" className="inline-flex items-center rounded-md px-4 py-2 bg-black text-white font-medium hover:bg-black/90">
+                    Open CWP-trainer
+                  </Link>
+                </div>
+              </section>
+            )}
+
+            {activeVariant.id === "AW189" && (
+              <section className="space-y-4 rounded-xl border bg-white p-6 shadow-sm dark:bg-zinc-900 dark:border-zinc-700">
+                <div className="flex items-center gap-2">
+                  <span className="inline-block h-2.5 w-2.5 rounded-full bg-neutral-700" aria-hidden />
+                  <h2 className="text-xl font-semibold text-slate-900 dark:text-zinc-100">CWP-trainer</h2>
+                </div>
+                <p className="text-sm text-slate-600 dark:text-zinc-300">AW189 warning panel — tap to train by pressing lights.</p>
+                <div>
+                  <Link href="/training/lights/cwp/aw189" className="inline-flex items-center rounded-md px-4 py-2 bg-black text-white font-medium hover:bg-black/90">
                     Open CWP-trainer
                   </Link>
                 </div>

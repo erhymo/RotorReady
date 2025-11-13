@@ -5,7 +5,6 @@ import { useRouter } from "next/navigation";
 import { loadAllQuestions } from "@/lib/loadAllQuestions";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 import { modelScopedKey } from "@/lib/models/storage";
-
 import TopBarBackButton from "@/components/TopBarBackButton";
 
 type QuizItem = {
@@ -57,8 +56,7 @@ function shuffleOptionsForItem(it: QuizItem): QuizItem {
   return { ...it, options, answer };
 }
 
-
-export default function LimitationsStart() {
+export default function StartClient() {
   const router = useRouter();
   const [amount, setAmount] = React.useState<AmountOption>(20);
   const [loading, setLoading] = React.useState(false);
@@ -84,7 +82,6 @@ export default function LimitationsStart() {
   }, [activeVariant.id]);
 
   async function getData(): Promise<{items: QuizItem[]}> {
-    // Load and merge all questions from all-questions/
     const items = await loadAllQuestions(activeVariant.id);
     return { items };
   }
@@ -92,12 +89,6 @@ export default function LimitationsStart() {
   async function startQuiz() {
     setLoading(true); setErr(null);
     try {
-      // Paywall bypass for utvikling/testing
-      // const paid = await isPaidAsync();
-      // if (!paid) {
-      //   const used = getQuota("limitations");
-      //   if (used >= 3) { router.push("/paywall?from=/limitations-quiz"); return; }
-      // }
       const data = await getData();
       const base = amount === "all"
         ? shuffle<QuizItem>(data.items)
@@ -123,7 +114,6 @@ export default function LimitationsStart() {
         flags: Array(randomized.length).fill(false) as boolean[]
       };
       sessionStorage.setItem("limq_session", JSON.stringify(session));
-      // if (!paid) incQuota("limitations");
       router.push("/limitations-quiz/1");
     } catch(e:any) {
       setErr(e?.message || "Could not start quiz");
@@ -218,3 +208,4 @@ export default function LimitationsStart() {
     </div>
   );
 }
+

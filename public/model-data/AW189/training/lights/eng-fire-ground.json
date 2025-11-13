@@ -1,12 +1,13 @@
 [
   {
     "id": "eng-fire-ground",
-    "name": "ENGINE FIRE (GROUND)",
+    "name": "1(2) ENG FIRE",
     "severity": "warning",
     "system": "FIRE",
-    "description": "Engine fire on ground.",
+    "description": "",
     "pageImage": "/training/lights/pages/aw189-eng-fire-ground.svg",
-    "modelIds": ["AW189"]
+    "modelIds": [
+      "AW189"
+    ]
   }
 ]
-

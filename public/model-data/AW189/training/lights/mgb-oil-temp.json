@@ -4,9 +4,10 @@
     "name": "MGB OIL TEMP",
     "severity": "warning",
     "system": "MGB",
-    "description": "Main gearbox oil temperature.",
+    "description": "",
     "pageImage": "/training/lights/pages/aw189-mgb-oil-temp.svg",
-    "modelIds": ["AW189"]
+    "modelIds": [
+      "AW189"
+    ]
   }
 ]
-

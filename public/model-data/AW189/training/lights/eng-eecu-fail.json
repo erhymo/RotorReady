@@ -1,12 +1,13 @@
 [
   {
     "id": "eng-eecu-fail",
-    "name": "ENGINE EECU FAIL",
+    "name": "ENG EECU FAIL",
     "severity": "warning",
-    "system": "ENGINE",
-    "description": "EECU failure.",
+    "system": "ENG",
+    "description": "",
     "pageImage": "/training/lights/pages/aw189-eng-eecu-fail.svg",
-    "modelIds": ["AW189"]
+    "modelIds": [
+      "AW189"
+    ]
   }
 ]
-

@@ -4,9 +4,10 @@
     "name": "ROTOR LOW",
     "severity": "warning",
     "system": "ROTOR",
-    "description": "Rotor RPM low.",
+    "description": "",
     "pageImage": "/training/lights/pages/aw189-rotor-low.svg",
-    "modelIds": ["AW189"]
+    "modelIds": [
+      "AW189"
+    ]
   }
 ]
-

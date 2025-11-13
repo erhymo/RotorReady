@@ -1,12 +1,13 @@
 [
   {
     "id": "bag-fire-ground",
-    "name": "BAG FIRE (GROUND)",
+    "name": "BAG FIRE",
     "severity": "warning",
     "system": "FIRE",
-    "description": "Baggage compartment fire on ground.",
+    "description": "",
     "pageImage": "/training/lights/pages/aw189-bag-fire-ground.svg",
-    "modelIds": ["AW189"]
+    "modelIds": [
+      "AW189"
+    ]
   }
 ]
-

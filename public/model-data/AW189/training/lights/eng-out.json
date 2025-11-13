@@ -1,12 +1,12 @@
 [
   {
     "id": "eng-out",
-    "name": "ENGINE OUT",
+    "name": "ENG OUT",
     "severity": "warning",
-    "system": "ENGINE",
-    "description": "Engine out condition.",
+    "description": "",
     "pageImage": "/training/lights/pages/aw189-eng-out.svg",
-    "modelIds": ["AW189"]
+    "modelIds": [
+      "AW189"
+    ]
   }
 ]
-

@@ -269,13 +269,27 @@ function normalizeRect(rect, pageW, pageH) {
 }
 
 function pageMatches(linesU, target) {
-  const hasLabel = linesU.some(s => s.includes(target.label));
+  // Focus on the top-of-page heading area to avoid matching index/summary pages
+  const header = linesU.slice(0, 12);
+  const bad = /(TABLE OF CONTENTS|CONTENTS|INDEX|ABBREVIATIONS|GLOSSARY)/;
+  if (header.some((s) => bad.test(s))) return false;
+
+  const hasLabel = header.some((s) => s.includes(target.label));
   if (!hasLabel) return false;
+
   if (target.anyHints && target.anyHints.length) {
-    const hasHint = target.anyHints.some(h => linesU.some(s => s.includes(h)));
+    const hasHint = target.anyHints.some((h) => header.some((s) => s.includes(h)));
     if (!hasHint) return false;
   }
-  // Prefer head-zone matches, but accept any-page matches for AW189
+
+  // Disambiguate FLIGHT vs GROUND when applicable
+  if (target.id === 'eng-fire-flight' || target.id === 'bag-fire-flight') {
+    if (!header.some((s) => /(FLIGHT|IN\s+FLIGHT)/.test(s))) return false;
+  }
+  if (target.id === 'eng-fire-ground' || target.id === 'bag-fire-ground') {
+    if (!header.some((s) => /(GROUND|ON\s+GROUND)/.test(s))) return false;
+  }
+
   return true;
 }
 
@@ -320,25 +334,17 @@ async function main() {
     for (let p = 1; p <= pagesText.length; p++) {
       const U = pagesText[p-1];
       if (!pageMatches(U, t)) continue;
-      // Render and detect memory box
+      // Render page (accept header match) and try to detect memory crop opportunistically
       const { svgText, pageW, pageH } = await renderSvg(QRH_PDF, p);
-      // First try AW189-specific red-bar detection; then fallback to thin-frame detection
-      let rect = findMemoryRectFromRed(svgText, pageW, pageH);
-      if (t.id === 'eng-fire-flight' && rect) {
-        console.log(`[debug-rect] p=${p} rect=${JSON.stringify(rect)}`);
-      }
-      if (!rect) {
-        // Debug: count red rects for visibility
-        if (t.id === 'eng-fire-flight') {
-          const reds = parseRedRects(svgText);
-          console.log(`[debug] p=${p} red-rects=${reds.length}`);
-        }
-        const bands = parseBands(svgText);
-        rect = findMemoryRect(bands, pageW, pageH);
-      }
-      if (!rect) continue; // not a procedure page with memory box
       found[t.id] = p;
-      memoryCrops[t.id] = normalizeRect(rect, pageW, pageH);
+      try {
+        let rect = findMemoryRectFromRed(svgText, pageW, pageH);
+        if (!rect) {
+          const bands = parseBands(svgText);
+          rect = findMemoryRect(bands, pageW, pageH);
+        }
+        if (rect) memoryCrops[t.id] = normalizeRect(rect, pageW, pageH);
+      } catch {}
       // Write page SVG
       fs.mkdirSync(OUT_PAGES_DIR, { recursive: true });
       const outSvg = path.join(OUT_PAGES_DIR, `aw189-${t.id}.svg`);

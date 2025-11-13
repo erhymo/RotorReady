@@ -4,9 +4,10 @@
     "name": "ROTOR HIGH",
     "severity": "warning",
     "system": "ROTOR",
-    "description": "Rotor RPM high.",
+    "description": "",
     "pageImage": "/training/lights/pages/aw189-rotor-high.svg",
-    "modelIds": ["AW189"]
+    "modelIds": [
+      "AW189"
+    ]
   }
 ]
-

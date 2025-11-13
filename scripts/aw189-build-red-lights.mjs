@@ -383,6 +383,16 @@ async function main() {
     return -1;
   }
 
+  // Prefer exact header match (disambiguates FLIGHT vs GROUND) when available
+  function findDocPageByHeader(id, label, anyHints) {
+    const target = { id, label, anyHints };
+    for (let p = 1; p <= pagesUpper.length; p++) {
+      const U = pagesUpper[p - 1];
+      if (pageMatches(U, target)) return p;
+    }
+    return -1;
+  }
+
   // Map our known AW189 red lights to labels found in the CAS table
   const ID_TO_TABLE_LABEL = {
     'eng-fire-flight': '1(2) ENG FIRE',
@@ -409,20 +419,21 @@ async function main() {
   for (const t of filteredTargets) {
     const tableLabel = ID_TO_TABLE_LABEL[t.id];
     const printed = labelToPrinted[tableLabel];
-    if (!printed) {
-      console.warn(`[skip] No printed page mapping for ${t.id} (${tableLabel})`);
-      continue;
+    // Prefer header-based disambiguation (e.g., FLIGHT vs GROUND) when available
+    let docPage = findDocPageByHeader(t.id, tableLabel, t.anyHints);
+    if (docPage < 0 && printed) {
+      docPage = findDocPageForEmergPrinted(printed);
     }
-    const docPage = findDocPageForEmergPrinted(printed);
     if (docPage < 0) {
-      console.warn(`[skip] Could not locate document page for printed Emerg-Malfunc Page ${printed} (${t.id})`);
+      console.warn(`[skip] Could not locate document page for ${t.id} (${tableLabel})`);
       continue;
     }
 
     try {
       const { svgText, pageW, pageH } = await renderSvg(QRH_PDF, docPage);
       found[t.id] = docPage;
-      console.log(`[map] ${t.id} -> printed ${printed} (doc page ${docPage})`);
+      const printedNote = printed ? ` (printed ${printed})` : '';
+      console.log(`[map] ${t.id} -> doc page ${docPage}${printedNote}`);
       try {
         let rect = findMemoryRectFromRed(svgText, pageW, pageH);
         if (!rect) {
@@ -436,7 +447,7 @@ async function main() {
       const outSvg = path.join(OUT_PAGES_DIR, `aw189-${t.id}.svg`);
       fs.writeFileSync(outSvg, svgText, 'utf8');
     } catch (e) {
-      console.warn(`[render-failed] ${t.id} printed ${printed} doc ${docPage}:`, e?.message || e);
+      console.warn(`[render-failed] ${t.id} (doc ${docPage}):`, e?.message || e);
     }
   }
 
@@ -475,13 +486,13 @@ function guessNameFromId(id) {
     'eng-fire-ground': '1(2) ENG FIRE',
     'bag-fire-flight': 'BAG FIRE',
     'bag-fire-ground': 'BAG FIRE',
-    'elec-fail-double-dc-gen': 'ELEC FAIL (DOUBLE DC GEN)',
+    'elec-fail-double-dc-gen': 'ELEC FAIL',
     'eng-drive-shaft-failure': 'ENG DRIVE SHAFT FAILURE',
     // 'eng-eecu-fail': 'ENG EECU FAIL', // excluded (caution)
     // 'eng-fail-fixed': 'ENG FAIL (FIXED)', // replaced by ENG GOV LOSS
-    'eng-gov-loss': '1 (2) ENG GOV LOSS',
+    'eng-gov-loss': '1(2) ENG GOV LOSS',
     'eng-idle': 'ENG IDLE',
-    'eng-oil-press': 'ENG OIL PRESS',
+    'eng-oil-press': '1(2) ENG OIL P LOW',
     'eng-out': 'ENG OUT',
     'mgb-oil-press': 'MGB OIL PRESS',
     'mgb-oil-temp': 'MGB OIL TEMP',

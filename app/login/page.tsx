@@ -18,7 +18,7 @@ function LoginInner() {
 
 
   async function onSubmit(e: React.FormEvent) {
-    e.preventDefault(); setErr(""); setVeri("");
+    e.preventDefault(); setErr("");
     if (!auth) {
       setErr("Innlogging er utilgjengelig for øyeblikket. Prøv igjen senere.");
       return;

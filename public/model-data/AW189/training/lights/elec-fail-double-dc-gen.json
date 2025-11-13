@@ -1,7 +1,7 @@
 [
   {
     "id": "elec-fail-double-dc-gen",
-    "name": "ELEC FAIL (DOUBLE DC GEN)",
+    "name": "ELEC FAIL",
     "severity": "warning",
     "system": "ELEC",
     "description": "",

@@ -76,3 +76,17 @@ dist
 # Temporary folders
 tmp/
 temp/
+
+
+# Large local source PDFs/exports (do not commit)
+RFM AW169/
+AS350 B3 E/
+
+
+# Local source PDFs (root)
+/AW189/
+/R44 2 POH/
+/aw189/
+
+# PWA fallback bundles change per build; do not track
+public/fallback-*.js

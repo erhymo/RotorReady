@@ -1,6 +1,6 @@
 'use client';
 import { initializeApp, getApps, getApp, type FirebaseApp } from 'firebase/app';
-import { getAuth, signInAnonymously } from 'firebase/auth';
+import { getAuth } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore/lite';
 
 const firebaseConfig = {
@@ -31,7 +31,8 @@ try {
   if (hasValidConfig()) {
     firebaseApp = getApps().length ? getApp() : initializeApp(firebaseConfig as any);
     auth = getAuth(firebaseApp);
-    try { if (typeof window !== 'undefined' && !auth.currentUser) { void signInAnonymously(auth).catch(() => {}); } } catch {}
+    // Note: Do not auto sign in anonymously at startup; wait for real session to restore.
+    // If anonymous access is needed for a specific feature, sign in there on-demand.
     db = getFirestore(firebaseApp);
   } else {
     // Running locally without env vars: leave undefined so callers can guard

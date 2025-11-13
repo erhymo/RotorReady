@@ -15,7 +15,7 @@ function LoginInner() {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
   const [err, setErr] = React.useState("");
-  const [veri, setVeri] = React.useState("");
+
 
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault(); setErr(""); setVeri("");
@@ -26,7 +26,7 @@ function LoginInner() {
     try {
       const cred = await signInWithEmailAndPassword(auth, email, password);
       if (!cred.user.emailVerified) {
-        setVeri("E-post ikke verifisert. Sender verifiseringslink…");
+
         try { await sendEmailVerification(cred.user); } catch {}
         // Redirect til hovedsiden
         router.push("/account");
@@ -69,7 +69,7 @@ function LoginInner() {
           onChange={e=>setPassword(e.target.value)}
         />
         {err && <div className="text-sm text-red-600 dark:text-red-400">{err}</div>}
-        {veri && <div className="text-sm text-amber-700 dark:text-amber-300">{veri}</div>}
+
         <button type="submit" className="w-full rounded bg-blue-600 text-white py-2 font-medium">Logg inn</button>
       </form>
       <div className="text-sm"><a className="underline dark:text-zinc-100" href="/signup">Opprett konto</a></div>

@@ -24,7 +24,7 @@ export const MODEL_VARIANTS: ModelVariantDefinition[] = [
     label: "AW189",
     description: "Leonardo AW189 – lang rekkevidde og kapasitet.",
     productId: "AW189",
-    status: "coming_soon",
+    status: "available",
   },
   {
     id: "AW139",

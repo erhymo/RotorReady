@@ -1,0 +1,12 @@
+[
+  {
+    "id": "bag-fire-flight",
+    "name": "BAG FIRE (FLIGHT)",
+    "severity": "warning",
+    "system": "FIRE",
+    "description": "Baggage compartment fire in flight.",
+    "pageImage": "/training/lights/pages/aw189-bag-fire-flight.svg",
+    "modelIds": ["AW189"]
+  }
+]
+

@@ -1,0 +1,12 @@
+[
+  {
+    "id": "eng-drive-shaft-failure",
+    "name": "ENGINE DRIVE SHAFT FAILURE",
+    "severity": "warning",
+    "system": "ENGINE",
+    "description": "Engine drive shaft failure.",
+    "pageImage": "/training/lights/pages/aw189-eng-drive-shaft-failure.svg",
+    "modelIds": ["AW189"]
+  }
+]
+

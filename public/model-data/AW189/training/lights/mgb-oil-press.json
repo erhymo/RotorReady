@@ -1,0 +1,12 @@
+[
+  {
+    "id": "mgb-oil-press",
+    "name": "MGB OIL PRESS",
+    "severity": "warning",
+    "system": "MGB",
+    "description": "Main gearbox oil pressure.",
+    "pageImage": "/training/lights/pages/aw189-mgb-oil-press.svg",
+    "modelIds": ["AW189"]
+  }
+]
+

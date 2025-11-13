@@ -1,0 +1,17 @@
+{
+  "files": [
+    "/model-data/AW189/training/lights/bag-fire-flight.json",
+    "/model-data/AW189/training/lights/bag-fire-ground.json",
+    "/model-data/AW189/training/lights/eng-drive-shaft-failure.json",
+    "/model-data/AW189/training/lights/eng-eecu-fail.json",
+    "/model-data/AW189/training/lights/eng-fire-ground.json",
+    "/model-data/AW189/training/lights/eng-idle.json",
+    "/model-data/AW189/training/lights/eng-out.json",
+    "/model-data/AW189/training/lights/mgb-oil-press.json",
+    "/model-data/AW189/training/lights/mgb-oil-temp.json",
+    "/model-data/AW189/training/lights/rotor-high.json",
+    "/model-data/AW189/training/lights/rotor-low.json",
+    "/model-data/AW189/training/lights/eng-fail-fixed.json",
+    "/model-data/AW189/training/lights/eng-fire-flight.json"
+  ]
+}

@@ -1,0 +1,12 @@
+[
+  {
+    "id": "eng-fail-fixed",
+    "name": "ENGINE FAIL (FIXED PITCH)",
+    "severity": "warning",
+    "system": "ENGINE",
+    "description": "Engine failure fixed pitch.",
+    "pageImage": "/training/lights/pages/aw189-eng-fail-fixed.svg",
+    "modelIds": ["AW189"]
+  }
+]
+

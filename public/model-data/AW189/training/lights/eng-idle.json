@@ -1,0 +1,12 @@
+[
+  {
+    "id": "eng-idle",
+    "name": "ENGINE IDLE",
+    "severity": "warning",
+    "system": "ENGINE",
+    "description": "Engine idle condition.",
+    "pageImage": "/training/lights/pages/aw189-eng-idle.svg",
+    "modelIds": ["AW189"]
+  }
+]
+

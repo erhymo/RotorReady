@@ -42,7 +42,7 @@ export default function ClientUserMenu() {
     return <div className="h-8 w-8 rounded-full bg-slate-200 dark:bg-zinc-700 animate-pulse" />;
   }
 
-  if (!user) {
+  if (!user || (user as any)?.isAnonymous) {
     return (
       <div className="flex items-center gap-3">
         <Link
@@ -55,6 +55,11 @@ export default function ClientUserMenu() {
     );
   }
 
+  const providerEmail = user?.providerData?.find((p) => p.email)?.email || "";
+  const labelBase = (user.displayName || user.email || providerEmail || "").trim();
+  const label = labelBase ? (labelBase.includes("@") ? labelBase.split("@")[0] : labelBase) : "Logged in";
+  const initial = (label[0] || "U").toUpperCase();
+
   return (
     <div className="relative">
       <div className="flex items-center gap-3">
@@ -63,10 +68,10 @@ export default function ClientUserMenu() {
           className="flex items-center gap-2 rounded-lg p-2 hover:bg-slate-100 dark:hover:bg-zinc-800 transition-colors"
         >
           <div className="h-8 w-8 rounded-full bg-blue-600 dark:bg-blue-500 flex items-center justify-center text-white text-sm font-medium">
-            {user.email?.[0]?.toUpperCase() || "U"}
+            {initial}
           </div>
           <span className="text-sm font-medium text-slate-700 dark:text-zinc-200">
-            {user.displayName || user.email?.split("@")[0] || "User"}
+            {label}
           </span>
         </button>
       </div>
@@ -75,13 +80,13 @@ export default function ClientUserMenu() {
         <div className="absolute right-0 top-full mt-2 w-48 rounded-lg border border-slate-200 dark:border-zinc-700 bg-white dark:bg-zinc-800 shadow-lg z-50">
           <div className="p-3 border-b border-slate-200 dark:border-zinc-700">
             <div className="text-sm font-medium text-slate-900 dark:text-white">
-              {user.displayName || "User"}
+              {label}
             </div>
             <div className="text-xs text-slate-500 dark:text-zinc-400">
-              {user.email}
+              {user.email || providerEmail}
             </div>
           </div>
-          
+
           <div className="p-1">
             <Link
               href="/account"

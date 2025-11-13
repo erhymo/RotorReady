@@ -1,11 +1,9 @@
 "use client";
+
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { toggleTheme as toggleThemeLib, setThemeSource as setThemeSourceLib, getEffectiveTheme as getEffectiveThemeLib, onThemeChange as onThemeChangeLib, applyTheme as applyThemeLib } from "@/lib/theme";
 import { useRouter } from "next/navigation";
 import BackButton from "@/components/BackButton";
-import { auth, db } from "@/lib/firebase/client";
-import { onAuthStateChanged } from "firebase/auth";
-import { doc, getDoc } from "firebase/firestore/lite";
 import { listVariantsByProduct } from "@/lib/models/catalog";
 import { getStoredActiveModelVariantId, storeActiveModelVariantId, modelScopedKey } from "@/lib/models/storage";
 
@@ -233,69 +231,91 @@ export default function AccountPage() {
     const picked = modelHistory || legacyHistory || null;
     if (picked) setHistory(picked);
 
-    if (!auth) {
-      setAuthChecked(true);
-      setLoggedIn(false);
-      return;
-    }
-
     let cancelled = false;
     let resolved = false;
+    let cleanup: (() => void) | null = null;
 
-    const applyState = (user: typeof auth.currentUser, entitlements?: Record<string, unknown>) => {
-      if (cancelled) return;
-      setEmail(user?.email || null);
-      setUserUid(user?.uid || null);
-      setLoggedIn(Boolean(user));
-      if (entitlements) {
-        setEnts(entitlements as {AW169?:boolean; AW189?:boolean; AW139?:boolean; H125?:boolean});
-      } else {
-        setEnts({});
-      }
-      resolved = true;
-      setAuthChecked(true);
-    };
-
-    const loadEntitlements = async (user: typeof auth.currentUser) => {
-      if (!user || !db) return {} as Record<string, unknown>;
+    (async () => {
       try {
-        const snap = await getDoc(doc(db, "users", user.uid));
-        return snap.data()?.entitlements || {};
-      } catch {
-        return {} as Record<string, unknown>;
-      }
-    };
+        const [{ onAuthStateChanged }, { auth, db }] = await Promise.all([
+          import("firebase/auth"),
+          import("@/lib/firebase/client"),
+        ]);
 
-    const handleUser = async (user: typeof auth.currentUser) => {
-      applyState(user);
-      if (user) {
-        const entitlements = await loadEntitlements(user);
-        if (!cancelled) {
-          setEnts(entitlements as {AW169?:boolean; AW189?:boolean; AW139?:boolean; H125?:boolean});
+        if (!auth) {
+          if (!cancelled) {
+            setAuthChecked(true);
+            setLoggedIn(false);
+          }
+          return;
         }
-      } else {
-        setConversation(null);
+
+        const applyState = (user: any, entitlements?: Record<string, unknown>) => {
+          if (cancelled) return;
+          setEmail(user?.email || null);
+          setUserUid(user?.uid || null);
+          setLoggedIn(Boolean(user));
+          if (entitlements) {
+            setEnts(entitlements as {AW169?:boolean; AW189?:boolean; AW139?:boolean; H125?:boolean});
+          } else {
+            setEnts({});
+          }
+          resolved = true;
+          setAuthChecked(true);
+        };
+
+        const loadEntitlements = async (user: any) => {
+          if (!user || !db) return {} as Record<string, unknown>;
+          try {
+            const { doc, getDoc } = await import("firebase/firestore/lite");
+            const snap = await getDoc(doc(db, "users", user.uid));
+            return snap.data()?.entitlements || {};
+          } catch {
+            return {} as Record<string, unknown>;
+          }
+        };
+
+        const handleUser = async (user: any) => {
+          applyState(user);
+          if (user) {
+            const entitlements = await loadEntitlements(user);
+            if (!cancelled) {
+              setEnts(entitlements as {AW169?:boolean; AW189?:boolean; AW139?:boolean; H125?:boolean});
+            }
+          } else {
+            setConversation(null);
+          }
+        };
+
+        const unsubscribe = onAuthStateChanged(auth, (user) => {
+          handleUser(user as any);
+        });
+
+        if (auth.currentUser) {
+          handleUser(auth.currentUser);
+        }
+
+        const fallbackTimer = setTimeout(() => {
+          if (!resolved && !cancelled) {
+            setAuthChecked(true);
+          }
+        }, 5000);
+
+        cleanup = () => {
+          cancelled = true;
+          clearTimeout(fallbackTimer);
+          try { unsubscribe(); } catch {}
+        };
+      } catch (e) {
+        if (!cancelled) {
+          setAuthChecked(true);
+        }
       }
-    };
-
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      handleUser(user);
-    });
-
-    if (auth.currentUser) {
-      handleUser(auth.currentUser);
-    }
-
-    const fallbackTimer = setTimeout(() => {
-      if (!resolved && !cancelled) {
-        setAuthChecked(true);
-      }
-    }, 5000);
+    })();
 
     return () => {
       cancelled = true;
-      clearTimeout(fallbackTimer);
-      if (typeof unsubscribe === "function") unsubscribe();
+      try { cleanup?.(); } catch {}
     };
   }, []);
 
@@ -415,6 +435,7 @@ export default function AccountPage() {
     try { storeActiveModelVariantId(id); } catch {}
     // Forsøk å lagre på server dersom bruker er innlogget, med ID-token
     try {
+      const { auth } = await import("@/lib/firebase/client");
       const user = auth?.currentUser;
       if (user) {
         const token = await user.getIdToken();
@@ -489,6 +510,19 @@ export default function AccountPage() {
                 AW169 {ents.AW169 ? "✓" : ""}
               </button>
 
+              <button
+                type="button"
+                key="AW189"
+                onClick={() => selectVariant("AW189")}
+                className={`px-3 py-1 rounded-lg border text-sm transition ${
+                  activeVariantId === "AW189"
+                    ? "border-emerald-400 bg-emerald-50 text-emerald-700"
+                    : "bg-white dark:bg-zinc-900 dark:text-zinc-100 hover:border-slate-300 dark:hover:border-zinc-600"
+                }`}
+              >
+                AW189 {ents.AW189 ? "✓" : ""}
+              </button>
+
               {h125Variants.map((v) => {
                 const coming = v.status === "coming_soon";
                 const hasH125 = Boolean(ents.H125);
@@ -522,7 +556,11 @@ export default function AccountPage() {
             <button
               className="px-4 py-2 rounded bg-gray-800 text-white text-sm hover:bg-gray-900 mt-2"
               onClick={async () => {
-                await import("firebase/auth").then(({ getAuth, signOut }) => signOut(getAuth(auth.app)));
+                const [{ signOut }, { auth }] = await Promise.all([
+                  import("firebase/auth"),
+                  import("@/lib/firebase/client"),
+                ]);
+                await signOut(auth!);
                 window.location.href = "/";
               }}
 
@@ -663,13 +701,16 @@ export default function AccountPage() {
           className="rounded-lg bg-red-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-red-700"
           onClick={async () => {
             try {
+              const [{ signOut }, { auth }] = await Promise.all([
+                import("firebase/auth"),
+                import("@/lib/firebase/client"),
+              ]);
               if (!auth?.currentUser) { alert("You must be logged in."); return; }
               if (!confirm("Are you sure you want to permanently delete your account? This cannot be undone.")) return;
               const token = await auth.currentUser.getIdToken();
               const res = await fetch("/api/account/delete", { method: "POST", headers: { Authorization: `Bearer ${token}` } });
               if (!res.ok) { const t = await res.text(); throw new Error(t || "Failed to delete"); }
-              // Sign out on client and redirect
-              await import("firebase/auth").then(({ getAuth, signOut }) => signOut(getAuth(auth.app)));
+              await signOut(auth);
               window.location.href = "/";
             } catch (e: any) {
               alert(e?.message || "Could not delete account.");

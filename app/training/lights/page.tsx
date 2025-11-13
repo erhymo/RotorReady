@@ -331,10 +331,16 @@ export default function LightsTrainer() {
     return steps.some((s) => s.type === "action");
   }, []);
 
-  const memoryCount = useMemo(
-    () => warningLights.filter((item) => activeVariant.id === "AW169" && (AW169_MEMORY_CROPS as any)[item.id]).length,
-    [warningLights, activeVariant.id]
-  );
+  const memoryCount = useMemo(() => {
+    if (activeVariant.id === "AW169") {
+      return warningLights.filter((item) => (AW169_MEMORY_CROPS as any)[item.id]).length;
+    }
+    if (activeVariant.id === "AW189") {
+      // Until we have explicit memory markers for AW189, include all red lights
+      return warningLights.length;
+    }
+    return 0;
+  }, [warningLights, activeVariant.id]);
 
 
 
@@ -364,7 +370,6 @@ export default function LightsTrainer() {
   const startMemoryOnly = useCallback(async () => {
     const loggedIn = await isLoggedInAsync();
 
-
     if (!loggedIn) {
       const used = getQuota("lights");
       if (used >= 5) {
@@ -373,11 +378,19 @@ export default function LightsTrainer() {
       }
       incQuota("lights");
     }
-    // AW169 only: include ONLY lights that have a detected QRH memory box crop
-    const pool = warningLights.filter((item) => activeVariant.id === "AW169" && (AW169_MEMORY_CROPS as any)[item.id]);
+
+    let pool: LightItem[] = [];
+    if (activeVariant.id === "AW169") {
+      // Include ONLY lights that have a detected QRH memory box crop
+      pool = warningLights.filter((item) => (AW169_MEMORY_CROPS as any)[item.id]);
+    } else if (activeVariant.id === "AW189") {
+      // Until explicit memory items exist for AW189, include all red lights
+      pool = warningLights;
+    }
+
     if (!pool.length) return;
     const shuffled = shuffle(pool);
-    const n = shuffled.length; // In memory-only mode, include all available memory-box lights
+    const n = shuffled.length;
     setDeck(shuffled.slice(0, n));
     setLastSeverity("warning");
     setIdx(0);
@@ -389,7 +402,13 @@ export default function LightsTrainer() {
     const sev: Severity = lastSeverity ?? (deck[0]?.severity ?? "warning");
     let pool = warningLights;
     if (memoryOnly) {
-      pool = warningLights.filter((item) => activeVariant.id === "AW169" && (AW169_MEMORY_CROPS as any)[item.id]);
+      if (activeVariant.id === "AW169") {
+        pool = warningLights.filter((item) => (AW169_MEMORY_CROPS as any)[item.id]);
+      } else if (activeVariant.id === "AW189") {
+        pool = warningLights;
+      } else {
+        pool = [] as LightItem[];
+      }
     }
     if (!pool.length) return;
     const setting = pickCounts.warning;
@@ -701,6 +720,7 @@ export default function LightsTrainer() {
                   </div>
                 );
               }
+
               return <StepCard key={`${item.id}-post-${i}`} step={s} />;
             })}
           </section>
@@ -721,6 +741,61 @@ export default function LightsTrainer() {
 
   function ProcedureLikePDF({ item, flat = false, memoryOnly: memoryMode = false, hideReferences = false }: { item: LightItem; flat?: boolean; memoryOnly?: boolean; hideReferences?: boolean }) {
     if (item.pageImage) {
+    // Memory-only: override default image rendering for specific variants
+    if (memoryMode) {
+      // AW169: show QRH-accurate cropped memory box
+      if (activeVariant.id === "AW169" && item.pageImage) {
+        return <AW169MemoryCrop item={item} />;
+      }
+      const { actions } = splitProcedure(item.procedure || []);
+      // AW189: show our own framed table layout (no QRH image)
+      if (activeVariant.id === "AW189") {
+        return (
+          <div className="space-y-6">
+            <section className="rounded-xl border-2 border-black dark:border-zinc-600 dark:bg-zinc-900/80 p-0 overflow-hidden">
+              <table className="w-full text-[15px]">
+                <tbody>
+                  {actions.length > 0 ? (
+                    actions.map((a, i) => (
+                      <tr key={`${item.id}-mem-${i}`} className="border-b last:border-b-0 dark:border-zinc-700">
+                        <td className="w-12 align-top px-4 py-3 font-bold dark:text-zinc-100">{i + 1}.</td>
+                        <td className="align-top px-4 py-3 dark:text-zinc-100">{renderText((a as any).text)}</td>
+                      </tr>
+                    ))
+                  ) : (
+                    <tr>
+                      <td className="align-top px-4 py-3 dark:text-zinc-100" colSpan={2}>
+                        Memory items for this light will be added. Tap to reveal full QRH page.
+                      </td>
+                    </tr>
+                  )}
+                </tbody>
+              </table>
+            </section>
+          </div>
+        );
+      }
+      // Fallback (non-AW169): render a clean table of memory actions
+      return (
+        <div className="space-y-6">
+          {actions.length > 0 && (
+            <section className="rounded-xl border-2 border-black dark:border-zinc-600 dark:bg-zinc-900/80 p-0 overflow-hidden">
+              <table className="w-full text-[15px]">
+                <tbody>
+                  {actions.map((a, i) => (
+                    <tr key={`${item.id}-mem-${i}`} className="border-b last:border-b-0 dark:border-zinc-700">
+                      <td className="w-12 align-top px-4 py-3 font-bold dark:text-zinc-100">{i + 1}.</td>
+                      <td className="align-top px-4 py-3 dark:text-zinc-100">{renderText((a as any).text)}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </section>
+          )}
+        </div>
+      );
+    }
+
       // If memory-only mode is active for AW169, render only the cropped memory box from the QRH page
       if (memoryMode && activeVariant.id === "AW169") {
         return <AW169MemoryCrop item={item} />;
@@ -775,6 +850,7 @@ export default function LightsTrainer() {
               src={item.pageImage}
               alt={item.name}
               width={1200}
+
               height={1600}
               className={`w-full h-auto transition ${item.severity === "warning" ? "dark:brightness-110 dark:contrast-125 dark:saturate-150" : "dark:brightness-110 dark:contrast-120 dark:saturate-140"}`}
               priority
@@ -997,11 +1073,11 @@ export default function LightsTrainer() {
             )}
 
 
-            {activeVariant.id === "AW169" && (
+            {(activeVariant.id === "AW169" || activeVariant.id === "AW189") && (
               <section className="space-y-4 rounded-xl border bg-white p-6 shadow-sm dark:bg-zinc-900 dark:border-zinc-700">
                 <div className="flex items-center gap-2">
                   <span className="inline-block h-2.5 w-2.5 rounded-full bg-neutral-700" aria-hidden />
-                  <h2 className="text-xl font-semibold text-slate-900 dark:text-zinc-100">Memory items – Trainer (AW169)</h2>
+                  <h2 className="text-xl font-semibold text-slate-900 dark:text-zinc-100">Memory items – Trainer ({activeVariant.id})</h2>
                 </div>
                 <p className="text-sm text-slate-600 dark:text-zinc-300">Tren kun på memory items fra QRH for røde lys.</p>
                 <div>

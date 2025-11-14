@@ -31,7 +31,7 @@ export const MODEL_VARIANTS: ModelVariantDefinition[] = [
     label: "AW139",
     description: "Leonardo AW139 – medium twin.",
     productId: "AW139",
-    status: "coming_soon",
+    status: "available",
   },
   {
     id: "H125_AS350_B3_2B1",

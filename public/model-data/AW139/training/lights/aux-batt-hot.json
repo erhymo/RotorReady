@@ -1,0 +1,12 @@
+[
+  {
+    "id": "aux-batt-hot",
+    "name": "AUX BATT HOT",
+    "severity": "warning",
+    "description": "",
+    "pageImage": "/training/lights/pages/aw139-aux-batt-hot.svg",
+    "modelIds": [
+      "AW139"
+    ]
+  }
+]

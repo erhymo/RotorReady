@@ -118,9 +118,12 @@ async function main() {
   const manifest = [];
 
   for (const light of LIGHTS) {
-    let docPage = findDocPageByHeader(pagesUpper, light.casLabel.toUpperCase());
-    if (docPage < 0 && light.printed) {
+    let docPage = -1;
+    if (light.printed) {
       docPage = findDocPageForEmergPrinted(pagesUpper, casTablePage, light.printed);
+    }
+    if (docPage < 0) {
+      docPage = findDocPageByHeader(pagesUpper, light.casLabel.toUpperCase());
     }
     if (docPage < 0) {
       console.warn(`[skip] Could not locate page for ${light.id} (${light.casLabel})`);

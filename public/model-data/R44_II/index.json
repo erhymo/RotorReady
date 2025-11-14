@@ -15,6 +15,10 @@
     {
       "id": "performance",
       "title": "Performance"
+    },
+    {
+      "id": "weight_and_balance",
+      "title": "Weight and Balance"
     }
   ]
 }

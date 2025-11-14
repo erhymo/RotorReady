@@ -1,4 +1,4 @@
-export type RotorModelId = "AW169" | "AW189" | "AW139" | "H125";
+export type RotorModelId = "AW169" | "AW189" | "AW139" | "H125" | "R44_II";
 
 export type PriceTier = "standard" | "discount";
 
@@ -51,6 +51,16 @@ const MODEL_CONFIGS: RotorModelConfig[] = [
     priceEnv: {
       standard: "STRIPE_PRICE_H125_STANDARD",
       discount: "STRIPE_PRICE_H125_DISCOUNT",
+    },
+  },
+  {
+    id: "R44_II",
+    label: "Robinson R44 II",
+    description: "Robinson R44 II – Training content.",
+    trialDays: 10,
+    priceEnv: {
+      standard: "STRIPE_PRICE_R44_II_STANDARD",
+      discount: "STRIPE_PRICE_R44_II_DISCOUNT",
     },
   },
 ];

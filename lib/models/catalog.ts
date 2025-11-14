@@ -1,4 +1,4 @@
-export type ProductId = "AW169" | "AW189" | "AW139" | "H125";
+export type ProductId = "AW169" | "AW189" | "AW139" | "H125" | "R44_II";
 
 export type ModelStatus = "available" | "coming_soon";
 
@@ -47,6 +47,13 @@ export const MODEL_VARIANTS: ModelVariantDefinition[] = [
     productId: "H125",
     status: "available",
   },
+  {
+    id: "R44_II",
+    label: "R44 II",
+    description: "Robinson R44 II – training content.",
+    productId: "R44_II",
+    status: "available",
+  },
 ];
 
 export const DEFAULT_MODEL_VARIANT_ID = "AW169";
@@ -69,5 +76,11 @@ export function listVariantsByProduct(productId: ProductId): ModelVariantDefinit
 }
 
 export function isProductId(value: unknown): value is ProductId {
-  return value === "AW169" || value === "AW189" || value === "AW139" || value === "H125";
+  return (
+    value === "AW169" ||
+    value === "AW189" ||
+    value === "AW139" ||
+    value === "H125" ||
+    value === "R44_II"
+  );
 }

@@ -1,0 +1,238 @@
+=== DOC PAGE 37 (ROTOR LOW) ===
+AW139-QRH
+ROTOR UNDER-SPEED
+ROTOR LOW + Audio Tone and
+Voice Warning
+Rotor RPM below limit
+- Check NR on PFD
+Tone and ROTOR LOW
+Power ON: below 98% (AEO), or 90% (OEI)
+Power OFF: below 95%
+If rotor speed low
+- Lower collective to increase rotor speed RTR XMSN
+CTRLS
+- Refer to Engine Emergency and Malfunction drills if relevant
+ROTOR-OVERSPEED
++ Audio Tone and
+ROTOR HIGH
+Voice Warning
+Rotor RPM above limit
+- Check NR on PFD
+Tone and “ROTOR HIGH”
+Power ON: above 104% (AEO and OEI)
+Power OFF: above 110%
+If rotor speed high
+- Raise collective to decrease rotor speed
+- Refer to engine Emergency and Malfunction drills if relevant
+Printed copy not contractually maintained by Leonardo Helicopters
+Rev. 21 Emerg-Malfunc Page 29
+
+=== DOC PAGE 37 (ROTOR HIGH) ===
+AW139-QRH
+ROTOR UNDER-SPEED
+ROTOR LOW + Audio Tone and
+Voice Warning
+Rotor RPM below limit
+- Check NR on PFD
+Tone and ROTOR LOW
+Power ON: below 98% (AEO), or 90% (OEI)
+Power OFF: below 95%
+If rotor speed low
+- Lower collective to increase rotor speed RTR XMSN
+CTRLS
+- Refer to Engine Emergency and Malfunction drills if relevant
+ROTOR-OVERSPEED
++ Audio Tone and
+ROTOR HIGH
+Voice Warning
+Rotor RPM above limit
+- Check NR on PFD
+Tone and “ROTOR HIGH”
+Power ON: above 104% (AEO and OEI)
+Power OFF: above 110%
+If rotor speed high
+- Raise collective to decrease rotor speed
+- Refer to engine Emergency and Malfunction drills if relevant
+Printed copy not contractually maintained by Leonardo Helicopters
+Rev. 21 Emerg-Malfunc Page 29
+
+=== DOC PAGE 20 (1(2) EEC FAIL) ===
+AW139-QRH
+SINGLE ENGINE FAILURE IN HOVER
+GENERAL
+The height loss during a single engine failure flyaway from hover for combi-
+nations of weight, altitude and temperature conditions is shown in Perf
+page 86 for weights up to 6400 kg. (for aircraft configured for operation
+between 6400 kg and 6800 kg see Supplement 50). The chart does not
+NG FAIL include any ground clearance height. If the hover height is greater than the
+HT DWN height loss plus the ground clearance height required (15 ft minimum) then
+a flyaway capability exists and the Flyaway Procedure should be followed.
+The height loss is valid provided the flyaway manoeuvre is initiated within 1
+second from engine failure recognition. Printed copy not contractually maintained by Leonardo Helicopters
+If a flyaway capability does not exist the landing/ditching procedure should
+be followed.
+Note
+If the helicopter weight, at the time of engine failure, is less or
+equal to the Hover OGE 2.5 min OEI weight, an engine failure in
+the hover will result in no height loss provided that the pilot does
+not intervene on the flight controls.
+FLYAWAY PROCEDURE
+1. Collective/ — Rotate nose down in 1 second to an attitude of -20°
+Cyclic control Recover pitch attitude to 5° nose up in approximately
+5 seconds. Maintain this attitude while using the col-
+lective to droop the NR to a minimum of 90% NR, if
+necessary, to arrest the descent.
+2. Acceleration — Maintain pitch attitude at 5° nose up and accelerate
+to V (40 KIAS).
+TOSS
+3. At V TOSS — When the aircraft has achieved V TOSS (40 KIAS)
+and a positive rate of climb lower collective to
+recover initial hover NR to continue climb.
+4. Climb — Continue climb and accelerate to Vy or as required.
+Note
+Following the flyaway procedure the height loss indicated on the
+chart, for give ambient conditions and aircraft weight, guar-
+antees that VTOSS (40 KIAS) will be achieved and , after accel-
+erating to Vy, a subsequent minimum Rate of Climb of 150 fpm
+is assured.
+Emerg-Malfunc Page 18 Rev. 4
+
+=== DOC PAGE 16 (MAIN BATT HOT) ===
+AW139-QRH
+Services available on ESSENTIAL BUS 1 AND 2
+DC ESS BUS 1 DC ESS BUS 2
+BAGGAGE FIRE DETECT ADM 2
+BUS CONTROL 1 AUTO FLOAT CONTROL
+EAPS 1 AUX BATT CHARGE
+ELEC
+EEC 1 BUS CONTROL 2
+EEC 1 FAIL INDICATION CARGO HOOK EMERG RELEASE
+EMERG LIGHT CLOCK PLT
+EMERG FLOAT CONTROL (MANUAL) COCKPIT PLT LIGHT
+EMERG FLOAT POWER EAPS 2
+ENG 1 FIRE DETECTION EEC2
+ENG 1 FIRE EXTINGUISHER EEC 2 FAIL INDICATION
+ENG 1 IGNITER & START ELT
+FCU 1 ENG 2 FIRE DETECTION Printed copy not contractually maintained by Leonardo Helicopters
+FDR/CVR ENG 2 FIRE EXTINGUISHER
+FUEL PUMP 1 ENG 2 IGNITER & START
+FUEL SHUT OFF VALVE 1
+EXT SPKR CONTROL
+FORCE TRIM
+FADEC GSE
+GCU 2
+FCU 2
+ENG GOV CONTROL
+FUEL PUMP 2
+HYD SYS 1 & SOV 1&2
+FUEL SHUT OFF VALVE 2
+ICS PLT (PLT ICS IN BKUP MODE)
+FUEL X FEED
+LANDING LIGHT CONTROL
+GCU 1
+LANDING LIGHT POWER
+HOIST CUTTER 2
+LDG GEAR CONTROL
+HOIST ICS OPERATOR
+LDG GEAR INDICATION
+HYD SYS 2
+MAIN BATT CHARGE
+INSTRUMENT PANEL ILLUM.
+MAU 2 (PRI POWER)
+LDG GEAR EMERG DOWN
+MRC 1 (VHF 1)
+LINEAR ACTUATOR 2
+MRC 2 (XPDR)
+MAU 2 (AUX POWER)
+NLG STEERING LOCK
+MRC 2 (NIM2, VHF2, NAV2)
+PLT MFD
+STBY 1 ATT PFD PLT CONTROL
+TAIL POS LIGHT PITOT 2 FAIL INDICATION
+TRANS CHIP BURNER PITOT 2 HEAT
+PLT PFD
+RTR BRK
+MAIN AND AUXILIARY BATTERY HOT
+MAIN BATT HOT + Voice Warning
+Main battery temperature exceeding limits
+- Switch BATTERY MAIN OFF
+- Continue Flight
+AUX BATT HOT + Voice Warning
+Auxiliary battery temperature exceeding limits
+- Switch BATTERY AUX OFF
+- Continue flight
+AUX-MAIN BATT HOT + Voice Warning
+Auxiliary and Main battery temperature exceeding limits
+- Switch BATTERY AUX OFF, Switch BATTERY MAIN OFF
+- Continue flight
+Emerg-Malfunc Page 14
+
+=== DOC PAGE 16 (AUX BATT HOT) ===
+AW139-QRH
+Services available on ESSENTIAL BUS 1 AND 2
+DC ESS BUS 1 DC ESS BUS 2
+BAGGAGE FIRE DETECT ADM 2
+BUS CONTROL 1 AUTO FLOAT CONTROL
+EAPS 1 AUX BATT CHARGE
+ELEC
+EEC 1 BUS CONTROL 2
+EEC 1 FAIL INDICATION CARGO HOOK EMERG RELEASE
+EMERG LIGHT CLOCK PLT
+EMERG FLOAT CONTROL (MANUAL) COCKPIT PLT LIGHT
+EMERG FLOAT POWER EAPS 2
+ENG 1 FIRE DETECTION EEC2
+ENG 1 FIRE EXTINGUISHER EEC 2 FAIL INDICATION
+ENG 1 IGNITER & START ELT
+FCU 1 ENG 2 FIRE DETECTION Printed copy not contractually maintained by Leonardo Helicopters
+FDR/CVR ENG 2 FIRE EXTINGUISHER
+FUEL PUMP 1 ENG 2 IGNITER & START
+FUEL SHUT OFF VALVE 1
+EXT SPKR CONTROL
+FORCE TRIM
+FADEC GSE
+GCU 2
+FCU 2
+ENG GOV CONTROL
+FUEL PUMP 2
+HYD SYS 1 & SOV 1&2
+FUEL SHUT OFF VALVE 2
+ICS PLT (PLT ICS IN BKUP MODE)
+FUEL X FEED
+LANDING LIGHT CONTROL
+GCU 1
+LANDING LIGHT POWER
+HOIST CUTTER 2
+LDG GEAR CONTROL
+HOIST ICS OPERATOR
+LDG GEAR INDICATION
+HYD SYS 2
+MAIN BATT CHARGE
+INSTRUMENT PANEL ILLUM.
+MAU 2 (PRI POWER)
+LDG GEAR EMERG DOWN
+MRC 1 (VHF 1)
+LINEAR ACTUATOR 2
+MRC 2 (XPDR)
+MAU 2 (AUX POWER)
+NLG STEERING LOCK
+MRC 2 (NIM2, VHF2, NAV2)
+PLT MFD
+STBY 1 ATT PFD PLT CONTROL
+TAIL POS LIGHT PITOT 2 FAIL INDICATION
+TRANS CHIP BURNER PITOT 2 HEAT
+PLT PFD
+RTR BRK
+MAIN AND AUXILIARY BATTERY HOT
+MAIN BATT HOT + Voice Warning
+Main battery temperature exceeding limits
+- Switch BATTERY MAIN OFF
+- Continue Flight
+AUX BATT HOT + Voice Warning
+Auxiliary battery temperature exceeding limits
+- Switch BATTERY AUX OFF
+- Continue flight
+AUX-MAIN BATT HOT + Voice Warning
+Auxiliary and Main battery temperature exceeding limits
+- Switch BATTERY AUX OFF, Switch BATTERY MAIN OFF
+- Continue flight
+Emerg-Malfunc Page 14

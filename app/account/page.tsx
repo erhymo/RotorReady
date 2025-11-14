@@ -176,7 +176,7 @@ export default function AccountPage() {
   }
   const router = useRouter();
   const [history, setHistory] = useState<Summary[]>([]);
-  const [ents, setEnts] = useState<{AW169?:boolean; AW189?:boolean; AW139?:boolean; H125?:boolean}>({});
+  const [ents, setEnts] = useState<{AW169?:boolean; AW189?:boolean; AW139?:boolean; H125?:boolean; R44_II?:boolean}>({});
   const [email, setEmail] = useState<string | null>(null);
   const [loggedIn, setLoggedIn] = useState(false);
   const [authChecked, setAuthChecked] = useState(false);
@@ -256,7 +256,7 @@ export default function AccountPage() {
           setUserUid(user?.uid || null);
           setLoggedIn(Boolean(user));
           if (entitlements) {
-            setEnts(entitlements as {AW169?:boolean; AW189?:boolean; AW139?:boolean; H125?:boolean});
+            setEnts(entitlements as {AW169?:boolean; AW189?:boolean; AW139?:boolean; H125?:boolean; R44_II?:boolean});
           } else {
             setEnts({});
           }
@@ -534,6 +534,19 @@ export default function AccountPage() {
                 }`}
               >
                 AW189 {ents.AW189 ? "✓" : ""}
+              </button>
+
+              <button
+                type="button"
+                key="R44_II"
+                onClick={() => selectVariant("R44_II")}
+                className={`px-3 py-1 rounded-lg border text-sm transition ${
+                  activeVariantId === "R44_II"
+                    ? "border-emerald-400 bg-emerald-50 text-emerald-700"
+                    : "bg-white dark:bg-zinc-900 dark:text-zinc-100 hover:border-slate-300 dark:hover:border-zinc-600"
+                }`}
+              >
+                R44 II Raven {ents.R44_II ? "✓" : ""}
               </button>
 
               {h125Variants.map((v) => {

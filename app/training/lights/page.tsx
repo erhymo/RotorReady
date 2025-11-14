@@ -120,7 +120,9 @@ export default function LightsTrainer() {
           `/model-data/${activeVariant.id}/training/lights/manifest.json`,
           `/model-data/${activeVariant.id}/training/lights.json`,
         ];
-        if (activeVariant.productId !== "H125") {
+        // Global AW169 lights (QRH-based) should only be used when training AW169,
+        // not as a fallback dataset for other models like R44 II.
+        if (activeVariant.id === "AW169") {
           manifests.push("/training/lights/manifest.json");
         }
 

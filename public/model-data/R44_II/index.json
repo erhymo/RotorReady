@@ -11,6 +11,10 @@
     {
       "id": "normal_procedures",
       "title": "Normal Procedures"
+    },
+    {
+      "id": "performance",
+      "title": "Performance"
     }
   ]
 }

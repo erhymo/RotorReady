@@ -50,9 +50,10 @@ export default function QuizTypeSelectPage() {
   const [error, setError] = useState<string | null>(null);
 
   const dynamicVariant =
-    activeVariant.productId === "H125" ||
-    activeVariant.id === "AW169" ||
-    activeVariant.id === "R44_II";
+    !!activeVariant &&
+    (activeVariant.productId === "H125" ||
+      activeVariant.id === "AW169" ||
+      activeVariant.id === "R44_II");
 
   useEffect(() => {
     if (!dynamicVariant || variantLoading) {

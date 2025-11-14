@@ -512,6 +512,19 @@ export default function AccountPage() {
 
               <button
                 type="button"
+                key="AW139"
+                onClick={() => selectVariant("AW139")}
+                className={`px-3 py-1 rounded-lg border text-sm transition ${
+                  activeVariantId === "AW139"
+                    ? "border-emerald-400 bg-emerald-50 text-emerald-700"
+                    : "bg-white dark:bg-zinc-900 dark:text-zinc-100 hover:border-slate-300 dark:hover:border-zinc-600"
+                }`}
+              >
+                AW139 {ents.AW139 ? "✓" : ""}
+              </button>
+
+              <button
+                type="button"
                 key="AW189"
                 onClick={() => selectVariant("AW189")}
                 className={`px-3 py-1 rounded-lg border text-sm transition ${

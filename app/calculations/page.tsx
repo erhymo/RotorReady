@@ -41,6 +41,11 @@ export default function CalculationsHub() {
           title="Conversions"
           description="Convert speed, distance, altitude, weight and Jet A-1 fuel for quick planning."
         />
+        <Bar
+          href="/calculations/aw169/true-airspeed"
+          title="True Airspeed"
+          description="Compute TAS from IAS, pressure altitude and outside air temperature."
+        />
       </section>
     </div>
   );

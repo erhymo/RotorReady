@@ -5,6 +5,7 @@
     { "id": "engine-systems", "title": "Engine, Fuel, Lubricants, Hydraulics & System Limitations" },
     { "id": "emergency_procedures", "title": "Emergency Procedures" },
     { "id": "normal_procedures", "title": "Normal Procedures" },
+    { "id": "performance", "title": "Performance" },
     { "id": "air_law", "title": "Air Law (EASA)" }
   ]
 }

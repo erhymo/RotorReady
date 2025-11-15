@@ -38,7 +38,7 @@ export default function CalculationsHub() {
         />
         <Bar
           href="/calculations/aw169/unit-conversions"
-          title="AW169 unit conversions"
+          title="Conversions"
           description="Convert speed, distance, altitude, weight and Jet A-1 fuel for quick planning."
         />
       </section>

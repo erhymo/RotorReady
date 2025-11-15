@@ -51,7 +51,7 @@ export default function ConversionsPage() {
             &lt;- Back
           </button>
         </div>
-        <h1 className="text-2xl font-bold text-slate-900 dark:text-white">AW169 unit conversions</h1>
+        <h1 className="text-2xl font-bold text-slate-900 dark:text-white">Conversions</h1>
         <p className="text-slate-600 dark:text-zinc-300 mt-1 text-sm">
           Quick unit conversions for planning: speed, distance, altitude, weight and Jet A-1 fuel.
           For training use only - always cross-check with your SOP and performance data.

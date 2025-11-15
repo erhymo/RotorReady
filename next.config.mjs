@@ -16,9 +16,9 @@ const withPWA = withPWAInit({
   },
   runtimeCaching: [
     {
-      // Quiz JSON and model JSON: serve from cache first for offline
+      // Quiz JSON and model JSON: network first for freshness, fall back to cache for offline
       urlPattern: ({ url }) => url.pathname.startsWith('/quiz-data/') || url.pathname.startsWith('/model-data/'),
-      handler: 'CacheFirst',
+      handler: 'NetworkFirst',
       options: {
         cacheName: 'quiz-json',
         expiration: { maxEntries: 400, maxAgeSeconds: 60 * 60 * 24 * 30 },

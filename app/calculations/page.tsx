@@ -36,6 +36,11 @@ export default function CalculationsHub() {
           title="HOVER CEILING OUT OF GROUND EFFECT UNFACTORED HEADWIND OEI 2.5 min"
           description="AW169 (ISA+35). Find max gross weight and available weight from PA and headwind."
         />
+        <Bar
+          href="/calculations/aw169/unit-conversions"
+          title="AW169 unit conversions"
+          description="Convert speed, distance, altitude, weight and Jet A-1 fuel for quick planning."
+        />
       </section>
     </div>
   );

@@ -150,7 +150,11 @@ export default function WeatherDetail() {
                         {wx.tafChunks.map((chunk, idx) => (
                           <span
                             key={idx}
-                            className={`inline-flex items-center rounded-full border px-2 py-0.5 text-[11px] font-medium ${TAF_STATUS_CLASS[chunk.status]}`}
+                            className={`inline-flex items-center rounded-full border px-2 py-0.5 text-[11px] font-medium ${
+                              chunk.visibilityM != null || chunk.ceilingFt != null
+                                ? TAF_STATUS_CLASS[chunk.status]
+                                : "bg-slate-100 text-slate-700 border-slate-200 dark:bg-zinc-900/40 dark:text-zinc-200 dark:border-zinc-700"
+                            }`}
                           >
                             {chunk.text}
                           </span>
@@ -229,7 +233,11 @@ export default function WeatherDetail() {
                           {wx.tafChunks.map((chunk, idx) => (
                             <span
                               key={idx}
-                              className={`inline-flex items-center rounded-full border px-2 py-0.5 text-[11px] font-medium ${TAF_STATUS_CLASS[chunk.status]}`}
+                              className={`inline-flex items-center rounded-full border px-2 py-0.5 text-[11px] font-medium ${
+                                chunk.visibilityM != null || chunk.ceilingFt != null
+                                  ? TAF_STATUS_CLASS[chunk.status]
+                                  : "bg-slate-100 text-slate-700 border-slate-200 dark:bg-zinc-900/40 dark:text-zinc-200 dark:border-zinc-700"
+                              }`}
                             >
                               {chunk.text}
                             </span>
@@ -266,8 +274,8 @@ export default function WeatherDetail() {
 
       <div className="text-xs text-slate-500 dark:text-zinc-400 space-y-1">
         <div>
-          Provider: MET Norway (tafmetar/1.0). TAF segments are colored using standard ILS CAT I minima:
-          green = no alternate, yellow = 1 alternate, red = 2 alternates (below minima) based on visibility and ceiling only.
+          Provider: MET Norway (tafmetar/1.0). TAF segments with explicit visibility/ceiling values are color-coded
+          using standard ILS CAT I minima: green = no alternate, yellow = 1 alternate, red = 2 alternates (below minima).
         </div>
         <div>Auto-refresh every 2 minutes.</div>
       </div>

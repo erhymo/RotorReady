@@ -1,3 +1,5 @@
+import type { AirportMinima } from "../airports/no_minima";
+
 export type DecodedMetar = {
   ceilingFt: number | null;
   visibilityM: number | null;
@@ -96,20 +98,59 @@ export function decodeMetar(raw: string): DecodedMetar {
   return { ceilingFt, visibilityM, status };
 }
 
-export type TafChunk = { text: string; status: "green" | "yellow" | "red"; ceilingFt: number | null; visibilityM: number | null; belowAlternate: boolean };
+export type TafChunk = {
+  text: string;
+  status: "green" | "yellow" | "red";
+  ceilingFt: number | null;
+  visibilityM: number | null;
+  alternatesRequired: 0 | 1 | 2;
+};
 
-export function decodeTafChunks(raw: string, opts?: { ceilingMinimaFt?: number; visMinimaM?: number; yellowFactor?: number }): TafChunk[] {
+export function decodeTafChunks(raw: string, minima: AirportMinima): TafChunk[] {
   if (!raw) return [];
-  // Remove leading "TAF" and airport/time headers for cleaner chunks
-  const cleaned = raw.replace(/^TAF\s+AMD\s+|^TAF\s+/i, "").replace(/^\w{4}\s+\d{4}Z\s+\d{4}\/\d{4}\s+/i, "");
+  // Remove leading TAF and airport/time headers for cleaner chunks
+  const cleaned = raw
+    .replace(/^TAF\s+AMD\s+|^TAF\s+/i, "")
+    .replace(/^\w{4}\s+\d{4}Z\s+\d{4}\/\d{4}\s+/i, "");
   // Split into chunks at common TAF delimiters but keep the delimiter with the chunk via lookahead
   const parts = cleaned.split(/\s+(?=(?:BECMG|TEMPO|PROB\d{2}|FM\d{4})\b)/g);
-  return parts.map((p) => {
-    const ceilingFt = parseCeilingFt(p);
-    const visibilityM = parseVisibilityM(p);
-    const status = deriveStatus(ceilingFt, visibilityM, opts);
-    const belowAlternate = status === "red"; // placeholder: same as minima for now
-    return { text: p, status, ceilingFt, visibilityM, belowAlternate } as TafChunk;
-  });
+  return parts
+    .map((p) => p.trim())
+    .filter((p) => p.length > 0)
+    .map((p) => {
+      const ceilingFt = parseCeilingFt(p);
+      const visibilityM = parseVisibilityM(p);
+      const { status, alternatesRequired } = classifyTafStatus(ceilingFt, visibilityM, minima);
+      return { text: p, status, ceilingFt, visibilityM, alternatesRequired };
+    });
+}
+
+function classifyTafStatus(
+  ceilingFt: number | null,
+  visM: number | null,
+  minima: AirportMinima
+): { status: "green" | "yellow" | "red"; alternatesRequired: 0 | 1 | 2 } {
+  const { minRvr, minCeiling, noAltRvr, noAltCeiling } = minima;
+
+  // If visibility is missing, treat as unknown but above minima => require 1 alternate
+  if (visM == null) {
+    return { status: "yellow", alternatesRequired: 1 };
+  }
+
+  const ceilingOkMin = ceilingFt == null || ceilingFt >= minCeiling;
+  const ceilingOkNoAlt = ceilingFt == null || ceilingFt >= noAltCeiling;
+
+  // Green: no alternate (VMC with margins)
+  if (visM >= noAltRvr && ceilingOkNoAlt) {
+    return { status: "green", alternatesRequired: 0 };
+  }
+
+  // Yellow: 1 alternate (above minima but not meeting no-alternate margins)
+  if (visM >= minRvr && ceilingOkMin) {
+    return { status: "yellow", alternatesRequired: 1 };
+  }
+
+  // Red: 2 alternates (below minima on vis or ceiling)
+  return { status: "red", alternatesRequired: 2 };
 }
 

@@ -5,17 +5,27 @@ import { useRouter, useParams } from "next/navigation";
 import Link from "next/link";
 
 import { NO_AIRPORTS } from "@/lib/airports/no_icao";
-import { distanceNm } from "@/lib/geo/haversine";
-import { parseCeilingFt, parseIssueTimeUtc, minutesSince } from "@/lib/weather/decode";
-
 import { NO_AIRPORT_FEATURES } from "@/lib/airports/no_features";
+import { getAirportMinima } from "@/lib/airports/no_minima";
+import { distanceNm } from "@/lib/geo/haversine";
+import { decodeTafChunks, parseIssueTimeUtc, minutesSince } from "@/lib/weather/decode";
+import type { TafChunk } from "@/lib/weather/decode";
 
 type Wx = {
   icao: string;
   metarRaw?: string;
   tafRaw?: string;
-  green?: boolean;
+  tafChunks?: TafChunk[];
   isAMD?: boolean;
+};
+
+const TAF_STATUS_CLASS: Record<"green" | "yellow" | "red", string> = {
+  green:
+    "bg-emerald-50 text-emerald-700 border-emerald-200 dark:bg-emerald-950/40 dark:text-emerald-300 dark:border-emerald-700",
+  yellow:
+    "bg-amber-50 text-amber-800 border-amber-200 dark:bg-amber-950/40 dark:text-amber-300 dark:border-amber-700",
+  red:
+    "bg-red-50 text-red-800 border-red-200 dark:bg-red-950/40 dark:text-red-300 dark:border-red-700",
 };
 
 export default function WeatherDetail() {
@@ -29,9 +39,9 @@ export default function WeatherDetail() {
     const list = NO_AIRPORTS
       .filter((a) => a.icao !== airport.icao)
       .map((a) => ({ ...a, distNm: distanceNm(airport.lat, airport.lon, a.lat, a.lon) }))
-      .filter((a) => a.distNm <= 150)
+      .filter((a) => a.distNm <= 200)
       .sort((a, b) => a.distNm - b.distNm)
-      .slice(0, 4);
+      .slice(0, 5);
     return list as typeof NO_AIRPORTS;
   }, [airport]);
 
@@ -48,15 +58,12 @@ export default function WeatherDetail() {
             const res = await fetch(`/api/weather/metar-taf?icao=${a.icao}`, { cache: "no-store" });
             if (!res.ok) throw new Error(`HTTP ${res.status}`);
             const json = await res.json();
-            const metarRaw: string | undefined = json?.metar?.raw;
-            const tafRaw: string | undefined = json?.taf?.raw;
-            const metarCeil = metarRaw ? parseCeilingFt(metarRaw) : null;
-            const tafCeil = tafRaw ? parseCeilingFt(tafRaw) : null;
-            const metarOk = metarRaw ? (metarCeil == null ? true : metarCeil > 1500) : false;
-            const tafOk = tafRaw ? (tafCeil == null ? true : tafCeil > 1500) : null;
-            const green = tafRaw ? (metarOk && !!tafOk) : metarOk;
+            const metarRaw: string | undefined = json?.metar?.raw || undefined;
+            const tafRaw: string | undefined = json?.taf?.raw || undefined;
+            const minima = getAirportMinima(a.icao);
+            const tafChunks: TafChunk[] | undefined = tafRaw ? decodeTafChunks(tafRaw, minima) : undefined;
             const isAMD: boolean | undefined = json?.taf?.isAMD ?? undefined;
-            return [a.icao, { icao: a.icao, metarRaw, tafRaw, green, isAMD } as Wx] as const;
+            return [a.icao, { icao: a.icao, metarRaw, tafRaw, tafChunks, isAMD } as Wx] as const;
           } catch (e) {
             console.warn("wx fetch failed", a.icao, e);
             return [a.icao, { icao: a.icao }] as const;
@@ -100,7 +107,7 @@ export default function WeatherDetail() {
         <h1 className="text-2xl font-bold text-slate-900 dark:text-white">
           {airport.icao} <span className="text-slate-600 dark:text-zinc-300 font-normal">{airport.name}</span>
         </h1>
-        <p className="text-slate-600 dark:text-zinc-300 mt-1">METAR/TAF for selected airport and 4 nearest alternates.</p>
+        <p className="text-slate-600 dark:text-zinc-300 mt-1">METAR and TAF (color-coded) for selected airport and 5 nearest alternates within 200 nm.</p>
       </header>
 
       <section className="space-y-6">
@@ -118,21 +125,56 @@ export default function WeatherDetail() {
                       <div className="font-semibold">{a.icao} <span className="text-slate-600 dark:text-zinc-300 font-normal">{a.name}</span></div>
                       {/* primary has no distance line */}
                     </div>
-                    <span className={`h-2.5 w-2.5 rounded-full ${wx?.green ? "bg-emerald-500" : "bg-slate-300 dark:bg-zinc-600"}`}></span>
                   </div>
-                  {(() => { const m= wx?.metarRaw ? parseIssueTimeUtc(wx.metarRaw) : null; const age = m ? minutesSince(m) : null; return age!=null ? (<div className="text-xs text-slate-500 dark:text-zinc-400">{age}min</div>) : null; })()}
+                  {(() => {
+                    const m = wx?.metarRaw ? parseIssueTimeUtc(wx.metarRaw) : null;
+                    const age = m ? minutesSince(m) : null;
+                    return age != null ? (
+                      <div className="text-xs text-slate-500 dark:text-zinc-400">{age}min</div>
+                    ) : null;
+                  })()}
                   <div className="text-sm text-slate-700 dark:text-zinc-200">
                     <span className="font-medium">METAR:</span> {wx?.metarRaw || <span className="text-slate-400">(loading…)</span>}
                   </div>
-                  {(() => { const t= wx?.tafRaw ? parseIssueTimeUtc(wx.tafRaw) : null; const age = t ? minutesSince(t) : null; return age!=null ? (<div className="text-xs text-slate-500 dark:text-zinc-400">{age}min</div>) : null; })()}
+                  {(() => {
+                    const t = wx?.tafRaw ? parseIssueTimeUtc(wx.tafRaw) : null;
+                    const age = t ? minutesSince(t) : null;
+                    return age != null ? (
+                      <div className="text-xs text-slate-500 dark:text-zinc-400">{age}min</div>
+                    ) : null;
+                  })()}
                   <div className="text-sm text-slate-700 dark:text-zinc-200">
-                    <span className="font-medium">{wx?.isAMD ? "AMD TAF" : "TAF"}:</span> {wx?.tafRaw || <span className="text-slate-400">(loading…)</span>}
+                    <span className="font-medium">{wx?.isAMD ? "AMD TAF" : "TAF"}:</span>
+                    {wx?.tafChunks && wx.tafChunks.length > 0 ? (
+                      <div className="mt-1 flex flex-wrap gap-1">
+                        {wx.tafChunks.map((chunk, idx) => (
+                          <span
+                            key={idx}
+                            className={`inline-flex items-center rounded-full border px-2 py-0.5 text-[11px] font-medium ${TAF_STATUS_CLASS[chunk.status]}`}
+                          >
+                            {chunk.text}
+                          </span>
+                        ))}
+                      </div>
+                    ) : (
+                      <span className="text-slate-400"> {wx?.tafRaw || "(loading…)"}</span>
+                    )}
                   </div>
                   <div className="text-xs text-slate-600 dark:text-zinc-300 flex items-center gap-3">
-                    <div>RWY: <span className="font-medium">{f?.runways?.join(", ") || "—"}</span></div>
+                    <div>
+                      RWY: <span className="font-medium">{f?.runways?.join(", ") || "—"}</span>
+                    </div>
                     <div className="flex gap-1">
-                      {f?.ils ? <span className="inline-flex items-center rounded border px-1.5 py-0.5 text-[10px] font-semibold border-slate-300 dark:border-zinc-700">ILS</span> : null}
-                      {f?.rnp ? <span className="inline-flex items-center rounded border px-1.5 py-0.5 text-[10px] font-semibold border-slate-300 dark:border-zinc-700">RNP</span> : null}
+                      {f?.ils ? (
+                        <span className="inline-flex items-center rounded border px-1.5 py-0.5 text-[10px] font-semibold border-slate-300 dark:border-zinc-700">
+                          ILS
+                        </span>
+                      ) : null}
+                      {f?.rnp ? (
+                        <span className="inline-flex items-center rounded border px-1.5 py-0.5 text-[10px] font-semibold border-slate-300 dark:border-zinc-700">
+                          RNP
+                        </span>
+                      ) : null}
                     </div>
                   </div>
                 </>
@@ -141,9 +183,11 @@ export default function WeatherDetail() {
           </div>
         </div>
 
-        {/* Alternates within 150 nm */}
+        {/* Alternates within 200 nm */}
         <div className="pt-2">
-          <div className="text-xs uppercase tracking-wide text-slate-500 dark:text-zinc-400 mb-2">Alternates within 150 nm</div>
+          <div className="text-xs uppercase tracking-wide text-slate-500 dark:text-zinc-400 mb-2">
+            Alternates within 200 nm (5 nearest)
+          </div>
           <ul className="divide-y rounded-xl border">
             {alternates.map((a) => {
               const wx = data[a.icao];
@@ -153,24 +197,63 @@ export default function WeatherDetail() {
                   <div className="relative block px-4 py-4 space-y-3">
                     <div className="flex items-center justify-between">
                       <div>
-                        <div className="font-semibold">{a.icao} <span className="text-slate-600 dark:text-zinc-300 font-normal">{a.name}</span></div>
-                        <div className="text-xs text-slate-500 dark:text-zinc-400">{distanceNm(airport.lat, airport.lon, a.lat, a.lon).toFixed(0)} nm</div>
+                        <div className="font-semibold">
+                          {a.icao} <span className="text-slate-600 dark:text-zinc-300 font-normal">{a.name}</span>
+                        </div>
+                        <div className="text-xs text-slate-500 dark:text-zinc-400">
+                          {distanceNm(airport.lat, airport.lon, a.lat, a.lon).toFixed(0)} nm
+                        </div>
                       </div>
-                      <span className={`h-2.5 w-2.5 rounded-full ${wx?.green ? "bg-emerald-500" : "bg-slate-300 dark:bg-zinc-600"}`}></span>
                     </div>
-                    {(() => { const m= wx?.metarRaw ? parseIssueTimeUtc(wx.metarRaw) : null; const age = m ? minutesSince(m) : null; return age!=null ? (<div className="text-xs text-slate-500 dark:text-zinc-400">{age}min</div>) : null; })()}
+                    {(() => {
+                      const m = wx?.metarRaw ? parseIssueTimeUtc(wx.metarRaw) : null;
+                      const age = m ? minutesSince(m) : null;
+                      return age != null ? (
+                        <div className="text-xs text-slate-500 dark:text-zinc-400">{age}min</div>
+                      ) : null;
+                    })()}
                     <div className="text-sm text-slate-700 dark:text-zinc-200">
                       <span className="font-medium">METAR:</span> {wx?.metarRaw || <span className="text-slate-400">(loading…)</span>}
                     </div>
-                    {(() => { const t= wx?.tafRaw ? parseIssueTimeUtc(wx.tafRaw) : null; const age = t ? minutesSince(t) : null; return age!=null ? (<div className="text-xs text-slate-500 dark:text-zinc-400">{age}min</div>) : null; })()}
+                    {(() => {
+                      const t = wx?.tafRaw ? parseIssueTimeUtc(wx.tafRaw) : null;
+                      const age = t ? minutesSince(t) : null;
+                      return age != null ? (
+                        <div className="text-xs text-slate-500 dark:text-zinc-400">{age}min</div>
+                      ) : null;
+                    })()}
                     <div className="text-sm text-slate-700 dark:text-zinc-200">
-                      <span className="font-medium">{wx?.isAMD ? "AMD TAF" : "TAF"}:</span> {wx?.tafRaw || <span className="text-slate-400">(loading…)</span>}
+                      <span className="font-medium">{wx?.isAMD ? "AMD TAF" : "TAF"}:</span>
+                      {wx?.tafChunks && wx.tafChunks.length > 0 ? (
+                        <div className="mt-1 flex flex-wrap gap-1">
+                          {wx.tafChunks.map((chunk, idx) => (
+                            <span
+                              key={idx}
+                              className={`inline-flex items-center rounded-full border px-2 py-0.5 text-[11px] font-medium ${TAF_STATUS_CLASS[chunk.status]}`}
+                            >
+                              {chunk.text}
+                            </span>
+                          ))}
+                        </div>
+                      ) : (
+                        <span className="text-slate-400"> {wx?.tafRaw || "(loading…)"}</span>
+                      )}
                     </div>
                     <div className="text-xs text-slate-600 dark:text-zinc-300 flex items-center gap-3">
-                      <div>RWY: <span className="font-medium">{f?.runways?.join(", ") || "—"}</span></div>
+                      <div>
+                        RWY: <span className="font-medium">{f?.runways?.join(", ") || "—"}</span>
+                      </div>
                       <div className="flex gap-1">
-                        {f?.ils ? <span className="inline-flex items-center rounded border px-1.5 py-0.5 text-[10px] font-semibold border-slate-300 dark:border-zinc-700">ILS</span> : null}
-                        {f?.rnp ? <span className="inline-flex items-center rounded border px-1.5 py-0.5 text-[10px] font-semibold border-slate-300 dark:border-zinc-700">RNP</span> : null}
+                        {f?.ils ? (
+                          <span className="inline-flex items-center rounded border px-1.5 py-0.5 text-[10px] font-semibold border-slate-300 dark:border-zinc-700">
+                            ILS
+                          </span>
+                        ) : null}
+                        {f?.rnp ? (
+                          <span className="inline-flex items-center rounded border px-1.5 py-0.5 text-[10px] font-semibold border-slate-300 dark:border-zinc-700">
+                            RNP
+                          </span>
+                        ) : null}
                       </div>
                     </div>
                   </div>
@@ -182,8 +265,11 @@ export default function WeatherDetail() {
       </section>
 
       <div className="text-xs text-slate-500 dark:text-zinc-400 space-y-1">
-        <div>Provider: MET Norway (tafmetar/1.0). Green dot = METAR ceiling &gt; 1500 ft and TAF (any period) has no BKN/OVC/VV below 1500 ft. If TAF is missing, METAR alone is used.</div>
-        <div>Auto-refresh every 2 minutes. Privacy: Uses browser geolocation (with permission); no location data is sent to the server.</div>
+        <div>
+          Provider: MET Norway (tafmetar/1.0). TAF segments are colored using standard ILS CAT I minima:
+          green = no alternate, yellow = 1 alternate, red = 2 alternates (below minima) based on visibility and ceiling only.
+        </div>
+        <div>Auto-refresh every 2 minutes.</div>
       </div>
     </div>
   );

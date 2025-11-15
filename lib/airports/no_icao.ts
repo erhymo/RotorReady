@@ -26,6 +26,19 @@ export const NO_AIRPORTS: Airport[] = [
   { icao: "ENSD", name: "Sandane/Anda", lat: 61.8300, lon: 6.1050 },
   { icao: "ENOV", name: "Ørsta–Volda/Hovden", lat: 62.1800, lon: 6.0740 },
   { icao: "ENFL", name: "Florø", lat: 61.5836, lon: 5.0247 },
-  { icao: "ENMH", name: "Mehamn", lat: 71.0297, lon: 27.8267 }
+  { icao: "ENMH", name: "Mehamn", lat: 71.0297, lon: 27.8267 },
+  { icao: "ENBN", name: "Brønnøysund/Brønnøysund", lat: 65.46111, lon: 12.2175 },
+  { icao: "ENST", name: "Sandnessjøen/Stokka", lat: 65.95667, lon: 12.46889 },
+  { icao: "ENRA", name: "Mo i Rana/Røssvoll", lat: 66.36389, lon: 14.30167 },
+  { icao: "ENNM", name: "Namsos/Høknesøra", lat: 64.47222, lon: 11.57861 },
+  { icao: "ENRM", name: "Rørvik/Ryum", lat: 64.83833, lon: 11.14611 },
+  { icao: "ENLK", name: "Leknes", lat: 68.15406, lon: 13.61572 },
+  { icao: "ENSK", name: "Stokmarknes/Skagen", lat: 68.58056, lon: 15.03333 },
+  { icao: "ENSH", name: "Svolvær/Helle", lat: 68.244817, lon: 14.668 },
+  { icao: "ENRS", name: "Røst", lat: 67.52755, lon: 12.10577 },
+  { icao: "ENHV", name: "Honningsvåg/Valan", lat: 71.008922, lon: 25.977639 },
+  { icao: "ENHK", name: "Hasvik", lat: 70.48667, lon: 22.13972 },
+  { icao: "ENBS", name: "Båtsfjord", lat: 70.60028, lon: 29.69278 },
+  { icao: "ENVD", name: "Vadsø", lat: 70.065227, lon: 29.841058 }
 ];
 

@@ -49,6 +49,14 @@ export function minutesSince(date: Date, now: Date = new Date()): number {
   return Math.max(0, Math.floor(diffMs / 60000));
 }
 
+export function formatAgeMinutes(totalMinutes: number): string {
+  const hours = Math.floor(totalMinutes / 60);
+  const minutes = totalMinutes % 60;
+  if (hours <= 0) return `${minutes} min`;
+  if (minutes === 0) return `${hours} h`;
+  return `${hours} h ${minutes} min`;
+}
+
 export function parseVisibilityM(raw: string): number | null {
   if (/\bCAVOK\b/.test(raw)) return 10000;
   // Prefer visibility groups (four digits) not adjacent to '/'

@@ -8,7 +8,7 @@ import { NO_AIRPORTS } from "@/lib/airports/no_icao";
 import { NO_AIRPORT_FEATURES } from "@/lib/airports/no_features";
 import { getAirportMinima } from "@/lib/airports/no_minima";
 import { distanceNm } from "@/lib/geo/haversine";
-import { decodeTafChunks, parseIssueTimeUtc, minutesSince } from "@/lib/weather/decode";
+import { decodeTafChunks, parseIssueTimeUtc, minutesSince, formatAgeMinutes } from "@/lib/weather/decode";
 import type { TafChunk } from "@/lib/weather/decode";
 
 type Wx = {
@@ -130,7 +130,7 @@ export default function WeatherDetail() {
                     const m = wx?.metarRaw ? parseIssueTimeUtc(wx.metarRaw) : null;
                     const age = m ? minutesSince(m) : null;
                     return age != null ? (
-                      <div className="text-xs text-slate-500 dark:text-zinc-400">{age}min</div>
+                      <div className="text-xs text-slate-500 dark:text-zinc-400">{formatAgeMinutes(age)}</div>
                     ) : null;
                   })()}
                   <div className="text-sm text-slate-700 dark:text-zinc-200">
@@ -140,7 +140,7 @@ export default function WeatherDetail() {
                     const t = wx?.tafRaw ? parseIssueTimeUtc(wx.tafRaw) : null;
                     const age = t ? minutesSince(t) : null;
                     return age != null ? (
-                      <div className="text-xs text-slate-500 dark:text-zinc-400">{age}min</div>
+                      <div className="text-xs text-slate-500 dark:text-zinc-400">{formatAgeMinutes(age)}</div>
                     ) : null;
                   })()}
                   <div className="text-sm text-slate-700 dark:text-zinc-200">
@@ -213,7 +213,7 @@ export default function WeatherDetail() {
                       const m = wx?.metarRaw ? parseIssueTimeUtc(wx.metarRaw) : null;
                       const age = m ? minutesSince(m) : null;
                       return age != null ? (
-                        <div className="text-xs text-slate-500 dark:text-zinc-400">{age}min</div>
+                        <div className="text-xs text-slate-500 dark:text-zinc-400">{formatAgeMinutes(age)}</div>
                       ) : null;
                     })()}
                     <div className="text-sm text-slate-700 dark:text-zinc-200">
@@ -223,7 +223,7 @@ export default function WeatherDetail() {
                       const t = wx?.tafRaw ? parseIssueTimeUtc(wx.tafRaw) : null;
                       const age = t ? minutesSince(t) : null;
                       return age != null ? (
-                        <div className="text-xs text-slate-500 dark:text-zinc-400">{age}min</div>
+                        <div className="text-xs text-slate-500 dark:text-zinc-400">{formatAgeMinutes(age)}</div>
                       ) : null;
                     })()}
                     <div className="text-sm text-slate-700 dark:text-zinc-200">

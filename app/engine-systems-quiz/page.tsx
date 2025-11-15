@@ -232,11 +232,11 @@ export default function EngineSystemsStart() {
       {resumeInfo && (
         <div className="rounded-xl border-l-4 border-emerald-600 bg-emerald-50/40 dark:border-emerald-400 dark:bg-emerald-900/40 p-4 flex items-center gap-3">
           <div className="flex-1">
-            <div className="font-semibold text-slate-900 dark:text-white">Fortsett økt</div>
-            <div className="text-sm text-gray-600 dark:text-zinc-100">Du er på spørsmål {resumeInfo.idx + 1} av {resumeInfo.total} ({String(resumeInfo.amountToken)}).</div>
+            <div className="font-semibold text-slate-900 dark:text-white">Resume session</div>
+            <div className="text-sm text-gray-600 dark:text-zinc-100">You are on question {resumeInfo.idx + 1} of {resumeInfo.total} ({String(resumeInfo.amountToken)}).</div>
           </div>
-          <button onClick={handleResumeContinue} className="px-3 py-2 rounded-lg bg-emerald-600 text-white">Fortsett</button>
-          <button onClick={handleResumeReset} className="px-3 py-2 rounded-lg bg-slate-200 dark:bg-zinc-700 dark:text-white">Start på nytt</button>
+          <button onClick={handleResumeContinue} className="px-3 py-2 rounded-lg bg-emerald-600 text-white">Continue</button>
+          <button onClick={handleResumeReset} className="px-3 py-2 rounded-lg bg-slate-200 dark:bg-zinc-700 dark:text-white">Start over</button>
         </div>
       )}
 

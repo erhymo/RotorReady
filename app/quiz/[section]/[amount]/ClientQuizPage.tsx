@@ -234,10 +234,10 @@ export default function ClientQuizPage({ section, amount }: { section: string; a
           }
         }
       } catch {
-        // Ignorer og pr f8v nettverk
+        // Ignore and try network
       }
 
-      // 2) Deretter fors f8k nettverk som vanlig
+      // 2) Then try network as usual
       const urls = [
         `/model-data/${activeVariant.id}/sections/${section}.json`,
         `/quiz-data/sections/${section}.json`,
@@ -301,12 +301,12 @@ export default function ClientQuizPage({ section, amount }: { section: string; a
           setError(null);
           return;
         } catch (error) {
-          console.warn("Kunne ikke laste", url, error);
+          console.warn("Could not load", url, error);
           continue;
         }
       }
       if (!cancelled) {
-        setError("Fant ikke spørsmål for valgt modell");
+        setError("No questions found for selected model");
       }
     }
 
@@ -322,13 +322,13 @@ export default function ClientQuizPage({ section, amount }: { section: string; a
       <div className="min-h-screen grid place-items-center p-8 dark:bg-zinc-900 dark:text-zinc-100">
         <div className="text-center">
           <div className="text-2xl font-bold mb-2">{error}</div>
-          <div className="text-slate-600 dark:text-zinc-300">Seksjon &ldquo;{section}&rdquo;</div>
+          <div className="text-slate-600 dark:text-zinc-300">Section &ldquo;{section}&rdquo;</div>
         </div>
       </div>
     );
   }
   if (!questions) {
-    return <div className="min-h-screen grid place-items-center p-8 text-center dark:bg-zinc-900 dark:text-zinc-100">Laster spørsmål ...</div>;
+    return <div className="min-h-screen grid place-items-center p-8 text-center dark:bg-zinc-900 dark:text-zinc-100">Loading questions ...</div>;
   }
   return (
     <ClientQuiz

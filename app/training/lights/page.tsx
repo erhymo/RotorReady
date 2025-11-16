@@ -499,20 +499,6 @@ export default function LightsTrainer() {
 
   const current = deck[idx];
 
-  const procedureItem = useMemo(() => {
-    if (!current) return current;
-    const hasProcedureRefs =
-      Array.isArray((current as any).procedure) &&
-      (current as any).procedure.some((s: any) =>
-        /ENGINE SHUTDOWN IN EMERGENCY|SINGLE ENGINE PROCEDURE/i.test(String(s?.text ?? ""))
-      );
-    if (activeVariant.id === "AW169" && !memoryOnly && hasProcedureRefs) {
-      return { ...(current as any), pageImage: undefined } as LightItem;
-    }
-    return current;
-  }, [current, activeVariant.id, memoryOnly]);
-
-
   const reveal = useCallback(() => {
     if (!current) return;
     setMode("procedure");
@@ -1225,7 +1211,7 @@ export default function LightsTrainer() {
             <div className="h-full w-full overflow-y-auto" onClickCapture={(e) => { const t = e.target as HTMLElement; if (t && t.closest('a,button,input,textarea,select,[data-prevent-back]')) { e.stopPropagation(); } }} onMouseDownCapture={(e) => { const t = e.target as HTMLElement; if (t && t.closest('a,button,input,textarea,select,[data-prevent-back]')) { e.stopPropagation(); } }} onTouchStartCapture={(e) => { const t = e.target as HTMLElement; if (t && t.closest('a,button,input,textarea,select,[data-prevent-back]')) { e.stopPropagation(); } }}>
               <div className="px-0">
                 <div className={`${!isMobile ? "max-w-3xl mx-auto my-6 px-4" : ""}`}>
-                  <ProcedureLikePDF item={procedureItem || current} flat memoryOnly={memoryOnly} hideReferences />
+                  <ProcedureLikePDF item={current} flat memoryOnly={memoryOnly} hideReferences />
                 </div>
               </div>
             </div>
@@ -1238,7 +1224,7 @@ export default function LightsTrainer() {
             {!(activeVariant.id === 'AW169' && memoryOnly && current?.pageImage) && header}
 
               <div className="px-0">
-                <ProcedureLikePDF item={procedureItem || current} flat memoryOnly={memoryOnly} />
+                <ProcedureLikePDF item={current} flat memoryOnly={memoryOnly} />
               </div>
             </div>
             {!(activeVariant.id === 'AW169' && current?.severity === 'warning' && current?.pageImage) && (
@@ -1266,10 +1252,10 @@ export default function LightsTrainer() {
             )}
             {(memoryOnly && activeVariant.id === 'AW169' && current?.pageImage) ? (
               <div role="button" aria-label="Next" onClick={next} className="cursor-pointer select-none">
-                <ProcedureLikePDF item={procedureItem || current} memoryOnly />
+                <ProcedureLikePDF item={current} memoryOnly />
               </div>
             ) : (
-              <ProcedureLikePDF item={procedureItem || current} memoryOnly={memoryOnly} />
+              <ProcedureLikePDF item={current} memoryOnly={memoryOnly} />
             )}
             {!(memoryOnly && activeVariant.id === 'AW169' && current?.pageImage) && (
               <div className="sticky bottom-0 bg-white/80 dark:bg-transparent backdrop-blur border-t dark:border-blue-400">

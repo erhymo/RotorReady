@@ -750,6 +750,44 @@ export default function LightsTrainer() {
     if (item.pageImage) {
     // Memory-only: override default image rendering for specific variants
     if (memoryMode) {
+      if (activeVariant.id === "AW169") {
+        const { actions } = splitProcedure(item.procedure || []);
+        return (
+          <div className="flex items-center justify-center min-h-[65vh] px-4">
+            <section className="w-full max-w-2xl rounded-xl border border-slate-300 dark:border-zinc-500 bg-transparent">
+              <table className="w-full text-[15px]">
+                <tbody>
+                  {actions.length > 0 ? (
+                    actions.map((a, i) => (
+                      <tr
+                        key={`${item.id}-mem-${i}`}
+                        className="border-b last:border-b-0 border-slate-200 dark:border-zinc-700"
+                      >
+                        <td className="w-12 align-top px-4 py-3 font-bold text-slate-900 dark:text-zinc-100">
+                          {i + 1}.
+                        </td>
+                        <td className="align-top px-4 py-3 text-slate-900 dark:text-zinc-100">
+                          {renderText((a as any).text)}
+                        </td>
+                      </tr>
+                    ))
+                  ) : (
+                    <tr>
+                      <td
+                        className="align-top px-4 py-3 text-slate-900 dark:text-zinc-100"
+                        colSpan={2}
+                      >
+                        Memory items for this light will be added. Tap to reveal full QRH page.
+                      </td>
+                    </tr>
+                  )}
+                </tbody>
+              </table>
+            </section>
+          </div>
+        );
+      }
+
       // AW169: show QRH-accurate cropped memory box
       if (activeVariant.id === "AW169" && item.pageImage) {
         return <AW169MemoryCrop item={item} />;
@@ -840,6 +878,43 @@ export default function LightsTrainer() {
               + '.branchCaution,.caution,.orange{fill:orange !important}\n'
               + '</style>';
             const finalSvg = withBg.replace(/<\/svg>\s*$/, style + '</svg>');
+    if (activeVariant.id === "AW169") {
+      return (
+        <div className="flex items-center justify-center min-h-[65vh] px-4">
+          <section className="w-full max-w-2xl rounded-xl border border-slate-300 dark:border-zinc-500 bg-transparent">
+            <table className="w-full text-[15px]">
+              <tbody>
+                {actions.length > 0 ? (
+                  actions.map((a, i) => (
+                    <tr
+                      key={`${item.id}-mem-${i}`}
+                      className="border-b last:border-b-0 border-slate-200 dark:border-zinc-700"
+                    >
+                      <td className="w-12 align-top px-4 py-3 font-bold text-slate-900 dark:text-zinc-100">
+                        {i + 1}.
+                      </td>
+                      <td className="align-top px-4 py-3 text-slate-900 dark:text-zinc-100">
+                        {renderText((a as any).text)}
+                      </td>
+                    </tr>
+                  ))
+                ) : (
+                  <tr>
+                    <td
+                      className="align-top px-4 py-3 text-slate-900 dark:text-zinc-100"
+                      colSpan={2}
+                    >
+                      Memory items for this light will be added. Tap to reveal full QRH page.
+                    </td>
+                  </tr>
+                )}
+              </tbody>
+            </table>
+          </section>
+        </div>
+      );
+    }
+
             if (!cancelled) setSvgHtml(finalSvg);
           } catch {
             if (!cancelled) setSvgHtml(null);
@@ -850,6 +925,7 @@ export default function LightsTrainer() {
       */
 
       const fullBleed = activeVariant.id === "AW169" && item.severity === "warning" && !!item.pageImage;
+
       return (
         <figure className={fullBleed ? "bg-white dark:bg-zinc-900 p-0" : (flat ? "bg-white dark:bg-zinc-900 p-0" : `rounded-2xl border bg-white shadow ${ (isH125) ? "dark:bg-zinc-900/80 dark:border-zinc-600" : "dark:bg-zinc-900/80 dark:border-zinc-600" } p-4`)}>
           <div className={fullBleed ? "relative" : "relative overflow-hidden rounded-xl"}>
@@ -857,7 +933,6 @@ export default function LightsTrainer() {
               src={item.pageImage}
               alt={item.name}
               width={1200}
-
               height={1600}
               className={`w-full h-auto transition ${item.severity === "warning" ? "dark:brightness-110 dark:contrast-125 dark:saturate-150" : "dark:brightness-110 dark:contrast-120 dark:saturate-140"}`}
               priority

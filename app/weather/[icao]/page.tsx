@@ -36,13 +36,25 @@ export default function WeatherDetail() {
 
   const alternates = useMemo(() => {
     if (!airport) return [] as typeof NO_AIRPORTS;
-    const list = NO_AIRPORTS
+    const withDist = NO_AIRPORTS
       .filter((a) => a.icao !== airport.icao)
-      .map((a) => ({ ...a, distNm: distanceNm(airport.lat, airport.lon, a.lat, a.lon) }))
-      .filter((a) => a.distNm <= 200)
-      .sort((a, b) => a.distNm - b.distNm)
-      .slice(0, 5);
-    return list as typeof NO_AIRPORTS;
+      .map((a) => ({
+        ...a,
+        distNm: distanceNm(airport.lat, airport.lon, a.lat, a.lon),
+      }))
+      .filter((a) => a.distNm <= 200);
+
+    const ilsFirst = withDist
+      .filter((a) => NO_AIRPORT_FEATURES[a.icao]?.ils)
+      .sort((a, b) => a.distNm - b.distNm);
+
+    const nonIls = withDist
+      .filter((a) => !NO_AIRPORT_FEATURES[a.icao]?.ils)
+      .sort((a, b) => a.distNm - b.distNm);
+
+    const ordered = [...ilsFirst, ...nonIls].slice(0, 5).map(({ distNm, ...rest }) => rest);
+
+    return ordered as typeof NO_AIRPORTS;
   }, [airport]);
 
   const [data, setData] = useState<Record<string, Wx>>({});

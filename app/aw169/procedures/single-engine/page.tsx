@@ -57,7 +57,38 @@ function SingleEngineProcedureInner() {
           </div>
           <ol className="list-decimal pl-6 text-sm text-slate-800 dark:text-zinc-100">
             <li>
-              Carry out <span className="font-semibold">ENGINE SHUTDOWN IN EMERGENCY</span> procedure.
+              Carry out{" "}
+              <Link
+                href={{
+                  pathname: "/aw169/procedures/engine-shutdown-emergency",
+                  query: {
+                    resume: "1",
+                    v: sp.get("v") || "AW169",
+                    light: sp.get("light") || "",
+                    mem: sp.get("mem") || "0",
+                    cwp: "1",
+                  },
+                }}
+                onClick={() => {
+                  try {
+                    sessionStorage.setItem(
+                      "lights:resume",
+                      JSON.stringify({
+                        variantId: sp.get("v") || "AW169",
+                        lightId: sp.get("light") || "",
+                        memoryOnly: (sp.get("mem") || "0") === "1",
+                        idx: 0,
+                        deck: [sp.get("light") || ""],
+                        lastSeverity: "warning",
+                      })
+                    );
+                  } catch {}
+                }}
+                className="font-semibold underline text-blue-600 dark:text-blue-400"
+              >
+                ENGINE SHUTDOWN IN EMERGENCY
+              </Link>{" "}
+              procedure.
             </li>
           </ol>
         </section>

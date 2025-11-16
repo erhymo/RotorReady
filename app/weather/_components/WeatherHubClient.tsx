@@ -143,6 +143,7 @@ export default function WeatherHubClient() {
                           </div>
                         )}
                       </div>
+                      {/* Defined day/night transition times are shown on the detail page header only */}
                     </div>
                     {(() => {
                       const m = wx?.metarRaw ? parseIssueTimeUtc(wx.metarRaw) : null;

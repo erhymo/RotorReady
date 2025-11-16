@@ -17,7 +17,8 @@ const withPWA = withPWAInit({
   runtimeCaching: [
     {
       // Quiz JSON and model JSON: network first for freshness, fall back to cache for offline
-      urlPattern: ({ url }) => url.pathname.startsWith('/quiz-data/') || url.pathname.startsWith('/model-data/'),
+      urlPattern: ({ url }) =>
+        url.pathname.startsWith('/quiz-data/') || url.pathname.startsWith('/model-data/'),
       handler: 'NetworkFirst',
       options: {
         cacheName: 'quiz-json',
@@ -26,21 +27,26 @@ const withPWA = withPWAInit({
     },
     {
       // Static assets and icons
-      urlPattern: ({ request }) => request.destination === 'image' || request.destination === 'style' || request.destination === 'font',
+      urlPattern: ({ request }) =>
+        request.destination === 'image' ||
+        request.destination === 'style' ||
+        request.destination === 'font',
       handler: 'StaleWhileRevalidate',
       options: { cacheName: 'assets' },
     },
     {
-      // HTML navigations
-      urlPattern: ({ request }) => request.mode === 'navigate',
-      handler: 'NetworkFirst',
-      options: { cacheName: 'pages' },
-    },
-    {
       // Ensure quiz amount-selection pages are cached and available offline
+      // Place this before the generic navigate handler so /quiz/* navigations
+      // reuse the 'quiz-pages' cache that we warm up from the Offline page.
       urlPattern: ({ url }) => url.pathname.startsWith('/quiz/'),
       handler: 'NetworkFirst',
       options: { cacheName: 'quiz-pages' },
+    },
+    {
+      // HTML navigations (fallback for all other pages)
+      urlPattern: ({ request }) => request.mode === 'navigate',
+      handler: 'NetworkFirst',
+      options: { cacheName: 'pages' },
     },
   ],
 });

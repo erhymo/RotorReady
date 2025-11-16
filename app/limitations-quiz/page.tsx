@@ -20,6 +20,9 @@ type QuizItem = {
   tags?: string[];
 };
 
+
+const SECTION_ID = "limitations" as const;
+
 const AMOUNT_OPTIONS = [10, 20, 30, 40, 50, "all"] as const;
 
 type AmountOption = (typeof AMOUNT_OPTIONS)[number];
@@ -72,8 +75,8 @@ export default function LimitationsStart() {
     setTotalLoading(true);
     (async () => {
       try {
-        const items = await loadAllQuestions(activeVariant.id);
-        if (!cancelled) setTotalCount(items.length);
+        const data = await getData();
+        if (!cancelled) setTotalCount((data?.items || []).length);
       } catch {
         if (!cancelled) setTotalCount(0);
       } finally {
@@ -84,9 +87,14 @@ export default function LimitationsStart() {
   }, [activeVariant.id]);
 
   async function getData(): Promise<{items: QuizItem[]}> {
-    // Load and merge all questions from all-questions/
     const items = await loadAllQuestions(activeVariant.id);
-    return { items };
+    const filtered = items.filter((item: any) => {
+      const sectionCandidates = [item.section, item.sectionId, item.sectionID]
+        .filter(Boolean)
+        .map((value) => String(value).toLowerCase().replace(/\s+/g, "_"));
+      return sectionCandidates.includes(SECTION_ID);
+    });
+    return { items: filtered };
   }
 
   async function startQuiz() {

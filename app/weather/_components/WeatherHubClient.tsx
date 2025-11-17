@@ -17,6 +17,14 @@ type Wx = {
   isAMD?: boolean;
 };
 
+type DayNight = {
+  hasData: boolean;
+  dayStartLocal?: string | null; // civil twilight begin (morning)
+  nightStartLocal?: string | null; // civil twilight end (evening)
+  sunriseLocal?: string | null;
+  sunsetLocal?: string | null;
+};
+
 const TAF_STATUS_CLASS: Record<"green" | "yellow" | "red", string> = {
   green:
     "bg-emerald-50 text-emerald-700 border-emerald-200 dark:bg-emerald-950/40 dark:text-emerald-300 dark:border-emerald-700",
@@ -31,6 +39,7 @@ export default function WeatherHubClient() {
   const [pos, setPos] = useState<{ lat: number; lon: number } | null>(null);
   const [geoErr, setGeoErr] = useState<string | null>(null);
   const [primaryWx, setPrimaryWx] = useState<Wx | null>(null);
+  const [primaryDayNight, setPrimaryDayNight] = useState<DayNight | null>(null);
 
   useEffect(() => {
     if (!navigator.geolocation) {
@@ -85,6 +94,7 @@ export default function WeatherHubClient() {
       } catch (e) {
         console.warn("wx fetch failed", primary?.icao, e);
         if (active) setPrimaryWx(null);
+
       }
     }
     load();
@@ -94,6 +104,56 @@ export default function WeatherHubClient() {
       clearInterval(id);
     };
   }, [primary?.icao, geoErr]);
+  // Load defined day/night and twilight intervals for the nearest airport (same as detail page header)
+  useEffect(() => {
+    let active = true;
+
+    async function loadDayNight() {
+      if (!primary || geoErr) {
+        if (active) setPrimaryDayNight(null);
+        return;
+      }
+
+      const features = NO_AIRPORT_FEATURES[primary.icao];
+      const allowDayNight = features?.ils || primary.icao === "ENHF";
+      if (!allowDayNight) {
+        if (active) setPrimaryDayNight(null);
+        return;
+      }
+
+      try {
+        const res = await fetch(`/api/weather/daynight?icao=${primary.icao}`, { cache: "no-store" });
+        if (!res.ok) {
+          if (active) setPrimaryDayNight(null);
+          return;
+        }
+        const json = await res.json();
+        if (!active) return;
+
+        if (!json?.hasData) {
+          setPrimaryDayNight({ hasData: false });
+        } else {
+          setPrimaryDayNight({
+            hasData: true,
+            dayStartLocal: json.dayStartLocal || null,
+            nightStartLocal: json.nightStartLocal || null,
+            sunriseLocal: json.sunriseLocal || null,
+            sunsetLocal: json.sunsetLocal || null,
+          });
+        }
+      } catch {
+        if (active) setPrimaryDayNight(null);
+      }
+    }
+
+    loadDayNight();
+
+    return () => {
+      active = false;
+    };
+  }, [primary?.icao, geoErr]);
+
+
 
   const sortedByIcao = useMemo(() => {
     return [...NO_AIRPORTS].sort((a, b) => a.icao.localeCompare(b.icao));
@@ -143,7 +203,22 @@ export default function WeatherHubClient() {
                           </div>
                         )}
                       </div>
-                      {/* Defined day/night transition times are shown on the detail page header only */}
+                      {primaryDayNight?.hasData && (
+                        <div className="flex flex-col items-end text-xs text-slate-600 dark:text-zinc-300">
+                          {primaryDayNight.dayStartLocal && primaryDayNight.sunriseLocal && (
+                            <div className="flex items-center gap-1">
+                              <span>{"\u2600"}</span>
+                              <span>{primaryDayNight.dayStartLocal} - {primaryDayNight.sunriseLocal}</span>
+                            </div>
+                          )}
+                          {primaryDayNight.sunsetLocal && primaryDayNight.nightStartLocal && (
+                            <div className="flex items-center gap-1">
+                              <span>{"\u263E"}</span>
+                              <span>{primaryDayNight.sunsetLocal} - {primaryDayNight.nightStartLocal}</span>
+                            </div>
+                          )}
+                        </div>
+                      )}
                     </div>
                     {(() => {
                       const m = wx?.metarRaw ? parseIssueTimeUtc(wx.metarRaw) : null;

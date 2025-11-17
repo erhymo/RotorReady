@@ -7,10 +7,14 @@ type DayNightPayload = {
   icao: string;
   hasData: boolean;
   provider: string;
-  dayStartUtc?: string | null;
-  nightStartUtc?: string | null;
+  dayStartUtc?: string | null; // civil twilight begin (morning)
+  nightStartUtc?: string | null; // civil twilight end (evening)
+  sunriseUtc?: string | null;
+  sunsetUtc?: string | null;
   dayStartLocal?: string | null;
   nightStartLocal?: string | null;
+  sunriseLocal?: string | null;
+  sunsetLocal?: string | null;
   error?: string;
 };
 
@@ -53,8 +57,9 @@ export async function GET(req: Request) {
   }
 
   const features = NO_AIRPORT_FEATURES[icao];
-  // Only provide data for ILS airports (large airports)
-  if (!features?.ils) {
+  // Only provide data for ILS airports (large airports), plus Hammerfest (ENHF) which we use frequently
+  const allowDayNight = features?.ils || icao === "ENHF";
+  if (!allowDayNight) {
     const payload: DayNightPayload = {
       icao,
       hasData: false,
@@ -95,6 +100,8 @@ export async function GET(req: Request) {
 
     const beginIso: string | null = json.results?.civil_twilight_begin ?? null;
     const endIso: string | null = json.results?.civil_twilight_end ?? null;
+    const sunriseIso: string | null = json.results?.sunrise ?? null;
+    const sunsetIso: string | null = json.results?.sunset ?? null;
 
     const payload: DayNightPayload = {
       icao,
@@ -102,8 +109,12 @@ export async function GET(req: Request) {
       provider: "sunrise-sunset.org",
       dayStartUtc: beginIso,
       nightStartUtc: endIso,
+      sunriseUtc: sunriseIso,
+      sunsetUtc: sunsetIso,
       dayStartLocal: formatLocalOslo(beginIso),
       nightStartLocal: formatLocalOslo(endIso),
+      sunriseLocal: formatLocalOslo(sunriseIso),
+      sunsetLocal: formatLocalOslo(sunsetIso),
     };
 
     cache.set(key, { data: payload, expires: now + CACHE_TTL_MS });
@@ -115,8 +126,12 @@ export async function GET(req: Request) {
       provider: "sunrise-sunset.org",
       dayStartUtc: null,
       nightStartUtc: null,
+      sunriseUtc: null,
+      sunsetUtc: null,
       dayStartLocal: null,
       nightStartLocal: null,
+      sunriseLocal: null,
+      sunsetLocal: null,
       error: String(err?.message || err),
     };
     return NextResponse.json(payload, { status: 502 });

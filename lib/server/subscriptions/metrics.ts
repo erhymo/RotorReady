@@ -6,6 +6,16 @@ import { listRotorModels, type RotorModelId } from "./models";
 
 export type SubscriptionMetrics = {
   totalUsers: number;
+  /**
+   * Number of users that currently have access to at least one model
+   * (active / trialing / within grace on past_due).
+   */
+  subscribers: number;
+  /**
+   * Total number of active model subscriptions across all users
+   * (counts each model with access separately).
+   */
+  totalSubscriptions: number;
   totals: {
     active: number;
     trials: number;
@@ -30,18 +40,22 @@ export async function getSubscriptionMetrics(): Promise<SubscriptionMetrics> {
   const perModel = Object.fromEntries(listRotorModels().map((model) => [model.id, emptyCounters()])) as SubscriptionMetrics["perModel"];
   const totals = emptyCounters();
   let totalUsers = 0;
+  let subscribers = 0;
 
   const snapshot = await adminDb.collection("users").select("subscriptions").get();
   snapshot.forEach((doc) => {
     totalUsers += 1;
     const subscriptions = (doc.data()?.subscriptions || {}) as Record<string, ModelSubscriptionState>;
     const now = new Date();
+    let userHasAccess = false;
+
     for (const [modelId, state] of Object.entries(subscriptions)) {
       if (!perModel[modelId as RotorModelId]) continue;
       const access = computeEntitlementAccess(state, now);
       if (access) {
         perModel[modelId as RotorModelId].active += 1;
         totals.active += 1;
+        userHasAccess = true;
       }
       if (state?.status === "trialing") {
         perModel[modelId as RotorModelId].trials += 1;
@@ -52,10 +66,16 @@ export async function getSubscriptionMetrics(): Promise<SubscriptionMetrics> {
         totals.pastDue += 1;
       }
     }
+
+    if (userHasAccess) {
+      subscribers += 1;
+    }
   });
 
   return {
     totalUsers,
+    subscribers,
+    totalSubscriptions: totals.active,
     totals,
     perModel,
   };

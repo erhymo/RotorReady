@@ -332,6 +332,18 @@ export default function AdminPage() {
               <p className="text-xs text-slate-500 dark:text-zinc-400">
                 Total brukere: {metrics?.totalUsers ?? 0}
               </p>
+              {metrics && (
+                <div className="mt-1 grid grid-cols-2 gap-2 text-[11px] text-slate-600 dark:text-zinc-400">
+                  <div>
+                    <div className="font-semibold text-slate-800 dark:text-zinc-100">Abonnenter</div>
+                    <div>{metrics.subscribers}</div>
+                  </div>
+                  <div>
+                    <div className="font-semibold text-slate-800 dark:text-zinc-100">Subscriptions</div>
+                    <div>{metrics.totalSubscriptions}</div>
+                  </div>
+                </div>
+              )}
             </div>
             <button
               onClick={refreshMetrics}

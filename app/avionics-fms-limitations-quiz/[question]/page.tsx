@@ -5,7 +5,8 @@ import TopBarBackButton from "@/components/TopBarBackButton";
 import Link from "next/link";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 
-import { reportFlag } from "@/lib/flags";
+import { reportFlag, type FlagPayload } from "@/lib/flags";
+import FlagReasonDialog from "@/components/FlagReasonDialog";
 
 type Item = {
   id: string;
@@ -50,6 +51,8 @@ export default function AvionicsQuestionPage() {
   const [session, setSession] = React.useState<Session | null>(null);
   const [selected, setSelected] = React.useState<number | null>(null);
   const total = session?.items.length ?? 0;
+  const [pendingFlag, setPendingFlag] = React.useState<FlagPayload | null>(null);
+
   const [copied, setCopied] = React.useState(false);
 
   const { variant: activeVariant } = useActiveModelVariant();
@@ -121,7 +124,7 @@ export default function AvionicsQuestionPage() {
     saveSession(current);
     setSession({ ...current });
     if (nowFlagged) {
-      reportFlag({
+      const basePayload: FlagPayload = {
         section: current.section,
         sectionId: "avionics_fms_limitations",
         questionId: item.id,
@@ -134,7 +137,8 @@ export default function AvionicsQuestionPage() {
           references: item.references,
           answer: item.answer,
         },
-      });
+      };
+      setPendingFlag(basePayload);
     }
   }
 
@@ -229,6 +233,14 @@ export default function AvionicsQuestionPage() {
         >
           {idx + 1 >= total ? "Finish" : "Next"}
         </button>
+        <FlagReasonDialog
+          payload={pendingFlag}
+          onComplete={(payload) => {
+            if (!payload) return;
+            reportFlag(payload);
+            setPendingFlag(null);
+          }}
+        />
       </div>
 
       <p className="text-xs text-gray-500 dark:text-zinc-400">Keyboard: 1–4 select, ←/→ navigation, Enter = next, F = flag.</p>

@@ -2,10 +2,11 @@
 import * as React from "react";
 import { useParams, useRouter } from "next/navigation";
 
-import { reportFlag } from "@/lib/flags";
+import { reportFlag, type FlagPayload } from "@/lib/flags";
 import TopBarBackButton from "@/components/TopBarBackButton";
 import Link from "next/link";
 import { useActiveModelVariant } from "@/lib/models/hooks";
+import FlagReasonDialog from "@/components/FlagReasonDialog";
 
 const SESSION_KEY = "emergq_session";
 const SECTION_ID = "emergency_procedures";
@@ -52,6 +53,8 @@ export default function EmergencyQuestionPage() {
   const [session, setSession] = React.useState<Session | null>(null);
   const [selected, setSelected] = React.useState<number | null>(null);
   const total = session?.items.length ?? 0;
+  const [pendingFlag, setPendingFlag] = React.useState<FlagPayload | null>(null);
+
   const [copied, setCopied] = React.useState(false);
 
   const { variant: activeVariant } = useActiveModelVariant();
@@ -109,7 +112,7 @@ export default function EmergencyQuestionPage() {
     saveSession(s);
     setSession({ ...s });
     if (nowFlagged) {
-      reportFlag({
+      const basePayload: FlagPayload = {
         section: s.section,
         sectionId: SECTION_ID,
         questionId: item.id,
@@ -122,7 +125,8 @@ export default function EmergencyQuestionPage() {
           references: item.references,
           answer: item.answer,
         },
-      });
+      };
+      setPendingFlag(basePayload);
     }
   }
 
@@ -229,6 +233,14 @@ export default function EmergencyQuestionPage() {
         >
           Next
         </button>
+        <FlagReasonDialog
+          payload={pendingFlag}
+          onComplete={(payload) => {
+            if (!payload) return;
+            reportFlag(payload);
+            setPendingFlag(null);
+          }}
+        />
       </div>
 
       <p className="text-xs text-gray-500 dark:text-zinc-400">Keyboard: 1–4 select, ←/→ navigation, Enter = next, F = flag.</p>

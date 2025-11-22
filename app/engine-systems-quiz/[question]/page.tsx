@@ -2,10 +2,11 @@
 import * as React from "react";
 import { useParams, useRouter } from "next/navigation";
 
-import { reportFlag } from "@/lib/flags";
+import { reportFlag, type FlagPayload } from "@/lib/flags";
 import TopBarBackButton from "@/components/TopBarBackButton";
 import Link from "next/link";
 import { useActiveModelVariant } from "@/lib/models/hooks";
+import FlagReasonDialog from "@/components/FlagReasonDialog";
 
 import { modelScopedKey } from "@/lib/models/storage";
 
@@ -38,6 +39,8 @@ export default function EngineQuestionPage() {
   const [session, setSession] = React.useState<Session | null>(null);
   const [selected, setSelected] = React.useState<number | null>(null);
   const total = session?.items.length ?? 0;
+  const [pendingFlag, setPendingFlag] = React.useState<FlagPayload | null>(null);
+
   const [copied, setCopied] = React.useState(false);
 
   function resumeKeyFor(amountToken: string) {
@@ -120,7 +123,7 @@ export default function EngineQuestionPage() {
     saveSession(s); setSession({ ...s });
     updateResume();
     if (nowFlagged) {
-      reportFlag({
+      const basePayload: FlagPayload = {
         section: s.section,
         sectionId: "engine-systems",
         questionId: item.id,
@@ -133,7 +136,8 @@ export default function EngineQuestionPage() {
           references: item.references,
           answer: item.answer,
         },
-      });
+      };
+      setPendingFlag(basePayload);
     }
   }
   function next() {
@@ -222,6 +226,15 @@ export default function EngineQuestionPage() {
       <div className="flex items-center justify-between">
         <button onClick={prev} disabled={idx===0} className="px-4 py-2 rounded-lg border bg-white dark:bg-zinc-900 dark:text-zinc-100 dark:border-zinc-700 disabled:opacity-50">Previous</button>
         <span className="text-gray-500 dark:text-zinc-400">→ for Next</span>
+      <FlagReasonDialog
+        payload={pendingFlag}
+        onComplete={(payload) => {
+          if (!payload) return;
+          reportFlag(payload);
+          setPendingFlag(null);
+        }}
+      />
+
         <button onClick={next} className="px-4 py-2 rounded-lg bg-gray-900 text-white dark:bg-zinc-900 dark:text-zinc-100">{idx+1>=total ? "Finish" : "Next"}</button>
       </div>
 

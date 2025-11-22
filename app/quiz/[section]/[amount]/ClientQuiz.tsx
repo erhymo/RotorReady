@@ -5,7 +5,8 @@ import TopBarBackButton from "@/components/TopBarBackButton";
 import Link from "next/link";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 import { modelScopedKey } from "@/lib/models/storage";
-import { reportFlag } from "@/lib/flags";
+import { reportFlag, type FlagPayload } from "@/lib/flags";
+import FlagReasonDialog from "@/components/FlagReasonDialog";
 
 export type QuizItem = {
   id: string;
@@ -30,6 +31,8 @@ export default function ClientQuiz({ section, initial, resumeKey, amountToken, i
   const [done, setDone] = React.useState(false);
 
   const [copied, setCopied] = React.useState(false);
+  const [pendingFlag, setPendingFlag] = React.useState<FlagPayload | null>(null);
+
 
 
   const q = initial[idx];
@@ -110,7 +113,7 @@ export default function ClientQuiz({ section, initial, resumeKey, amountToken, i
     // persist progress
     persistSnapshot(idx, answers, next);
     if (nowFlagged && q) {
-      reportFlag({
+      const basePayload: FlagPayload = {
         section,
         sectionId: q.sectionId || section,
         questionId: q.id,
@@ -123,7 +126,8 @@ export default function ClientQuiz({ section, initial, resumeKey, amountToken, i
           references: q.references,
           answer: q.answer,
         },
-      });
+      };
+      setPendingFlag(basePayload);
     }
   }
 
@@ -241,6 +245,15 @@ export default function ClientQuiz({ section, initial, resumeKey, amountToken, i
       <div className="w-full flex items-center justify-between py-4 px-4 border-t border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-900">
         <button onClick={handlePrev} disabled={idx===0} className="px-4 py-2 rounded-lg border bg-white dark:bg-zinc-900 dark:text-zinc-100 dark:border-zinc-700 disabled:opacity-50">Previous</button>
         <span className="text-gray-500 dark:text-zinc-400">→ for Next</span>
+      <FlagReasonDialog
+        payload={pendingFlag}
+        onComplete={(payload) => {
+          if (!payload) return;
+          reportFlag(payload);
+          setPendingFlag(null);
+        }}
+      />
+
         <button onClick={handleNext} disabled={answers[idx] === undefined} className="px-4 py-2 rounded-lg bg-gray-900 text-white dark:bg-zinc-900 dark:text-zinc-100 disabled:opacity-50">{idx < initial.length - 1 ? "Next" : "Finish"}</button>
       </div>
       <p className="mt-2 text-xs text-gray-500 dark:text-zinc-400">Keyboard: 1–4 select, ←/→ navigation, Enter = next, F = flag.</p>

@@ -2,9 +2,10 @@
 import * as React from "react";
 import { useParams, useRouter } from "next/navigation";
 import TopBarBackButton from "@/components/TopBarBackButton";
-import { reportFlag } from "@/lib/flags";
+import { reportFlag, type FlagPayload } from "@/lib/flags";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 import { modelScopedKey } from "@/lib/models/storage";
+import FlagReasonDialog from "@/components/FlagReasonDialog";
 
 type Item = {
   id: string;
@@ -39,6 +40,8 @@ export default function H125QuestionPage() {
   const [selected, setSelected] = React.useState<number | null>(null);
 
   const total = session?.items.length ?? 0;
+  const [pendingFlag, setPendingFlag] = React.useState<FlagPayload | null>(null);
+
   const [copied, setCopied] = React.useState(false);
 
 
@@ -117,7 +120,7 @@ export default function H125QuestionPage() {
     updateResume();
     const nowFlagged = !session?.flags[index];
     if (nowFlagged) {
-      reportFlag({
+      const basePayload: FlagPayload = {
         section: session!.section,
         sectionId: section,
         questionId: item.id,
@@ -130,7 +133,8 @@ export default function H125QuestionPage() {
           references: item.references,
           answer: item.answer,
         },
-      });
+      };
+      setPendingFlag(basePayload);
     }
   }
   function next() {
@@ -226,6 +230,15 @@ export default function H125QuestionPage() {
         <button onClick={prev} disabled={index===0} className="px-4 py-2 rounded-lg border bg-white dark:bg-zinc-900 dark:text-zinc-100 dark:border-zinc-700 disabled:opacity-50">Previous</button>
         <span className="text-gray-500 dark:text-zinc-400">→ for Next</span>
         <div className="flex items-center gap-2">
+      <FlagReasonDialog
+        payload={pendingFlag}
+        onComplete={(payload) => {
+          if (!payload) return;
+          reportFlag(payload);
+          setPendingFlag(null);
+        }}
+      />
+
           <button onClick={next} disabled={selected==null} className="px-4 py-2 rounded-lg bg-gray-900 text-white dark:bg-zinc-900 dark:text-zinc-100 disabled:opacity-50">Next</button>
         </div>
       </div>

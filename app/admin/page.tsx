@@ -63,6 +63,13 @@ type SubscriptionMetrics = {
   }>;
 };
 
+type TrafficMetrics = {
+  totalTrackedUsers: number;
+  activeLast7Days: number;
+  activeLast30Days: number;
+  activeToday: number;
+};
+
 export default function AdminPage() {
   const [conversations, setConversations] = useState<AdminConversation[]>([]);
   const [messagesLoading, setMessagesLoading] = useState(true);
@@ -77,6 +84,10 @@ export default function AdminPage() {
   const [metrics, setMetrics] = useState<SubscriptionMetrics | null>(null);
   const [metricsLoading, setMetricsLoading] = useState(true);
   const [metricsError, setMetricsError] = useState<string | null>(null);
+  const [trafficMetrics, setTrafficMetrics] = useState<TrafficMetrics | null>(null);
+  const [trafficLoading, setTrafficLoading] = useState(true);
+  const [trafficError, setTrafficError] = useState<string | null>(null);
+  const [trafficRange, setTrafficRange] = useState<"7d" | "30d" | "all">("7d");
   const [clientFallback, setClientFallback] = useState(false);
 
   const [copiedId, setCopiedId] = useState<string | null>(null);
@@ -183,6 +194,26 @@ export default function AdminPage() {
   useEffect(() => {
     refreshMetrics();
   }, [refreshMetrics]);
+
+  const refreshTraffic = useCallback(async () => {
+    setTrafficLoading(true);
+    setTrafficError(null);
+    try {
+      const res = await fetch("/api/admin/traffic", { cache: "no-store" });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json().catch(() => ({}));
+      const metrics: TrafficMetrics | null = data?.metrics ?? null;
+      setTrafficMetrics(metrics);
+    } catch (error: any) {
+      setTrafficError(error?.message || "Kunne ikke hente trafikkstatistikk");
+    } finally {
+      setTrafficLoading(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    refreshTraffic();
+  }, [refreshTraffic]);
 
   async function reviewFlag(id: string, status: "reviewed-OK" | "rejected") {
     const res = await fetch("/api/admin/flags/review", {
@@ -336,12 +367,12 @@ export default function AdminPage() {
               {metrics && (
                 <div className="mt-1 grid grid-cols-2 gap-2 text-[11px] text-slate-600 dark:text-zinc-400">
                   <div>
-                    <div className="font-semibold text-slate-800 dark:text-zinc-100">Abonnenter</div>
-                    <div>{metrics.subscribers}</div>
+                    <div className="font-semibold text-slate-800 dark:text-zinc-100">Abonnenter (aktive)</div>
+                    <div>{metrics.totals.active}</div>
                   </div>
                   <div>
-                    <div className="font-semibold text-slate-800 dark:text-zinc-100">Subscriptions</div>
-                    <div>{metrics.totalSubscriptions}</div>
+                    <div className="font-semibold text-slate-800 dark:text-zinc-100">Subscriptions (totalt)</div>
+                    <div>{metrics.totals.active + metrics.totals.trials + metrics.totals.pastDue}</div>
                   </div>
                 </div>
               )}
@@ -392,6 +423,84 @@ export default function AdminPage() {
             </div>
           ) : (
             <p className="text-sm text-slate-600 dark:text-zinc-300">Ingen abonnementstall tilgjengelige.</p>
+          )}
+        </section>
+
+        <section className="rounded-2xl border border-slate-200 bg-white/90 p-6 shadow-sm backdrop-blur dark:border-zinc-800 dark:bg-zinc-900/80 dark:text-zinc-100 space-y-4">
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <div>
+              <h2 className="text-lg font-semibold text-slate-900 dark:text-white">Trafikk</h2>
+              <p className="text-xs text-slate-500 dark:text-zinc-400">
+                Unike brukere siste uke vs. 30 dager og total trafikk inn i appen.
+              </p>
+            </div>
+            <button
+              onClick={refreshTraffic}
+              disabled={trafficLoading}
+              className="rounded-lg border border-slate-300 px-3 py-1.5 text-sm font-medium text-slate-700 transition hover:bg-slate-100 disabled:opacity-60 dark:border-zinc-700 dark:text-zinc-200 dark:hover:bg-zinc-800"
+            >
+              Oppdater
+            </button>
+          </div>
+
+          <div className="flex flex-wrap gap-2 text-xs">
+            <button
+              type="button"
+              onClick={() => setTrafficRange("7d")}
+              className={`rounded-full px-3 py-1 border text-[11px] font-medium transition ${trafficRange === "7d" ? "border-blue-500 bg-blue-50 text-blue-700 dark:border-blue-400 dark:bg-blue-900/40 dark:text-blue-100" : "border-slate-300 text-slate-600 hover:bg-slate-100 dark:border-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-800"}`}
+            >
+              Siste 7 dager
+            </button>
+            <button
+              type="button"
+              onClick={() => setTrafficRange("30d")}
+              className={`rounded-full px-3 py-1 border text-[11px] font-medium transition ${trafficRange === "30d" ? "border-blue-500 bg-blue-50 text-blue-700 dark:border-blue-400 dark:bg-blue-900/40 dark:text-blue-100" : "border-slate-300 text-slate-600 hover:bg-slate-100 dark:border-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-800"}`}
+            >
+              Siste 30 dager
+            </button>
+            <button
+              type="button"
+              onClick={() => setTrafficRange("all")}
+              className={`rounded-full px-3 py-1 border text-[11px] font-medium transition ${trafficRange === "all" ? "border-blue-500 bg-blue-50 text-blue-700 dark:border-blue-400 dark:bg-blue-900/40 dark:text-blue-100" : "border-slate-300 text-slate-600 hover:bg-slate-100 dark:border-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-800"}`}
+            >
+              All time
+            </button>
+          </div>
+
+          {trafficError && (
+            <div className="rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-700 dark:border-red-500/40 dark:bg-red-900/30 dark:text-red-200">
+              {trafficError}
+            </div>
+          )}
+
+          {trafficLoading ? (
+            <p className="text-sm text-slate-600 dark:text-zinc-300">Laster trafikkstatistikk…</p>
+          ) : !trafficMetrics ? (
+            <p className="text-sm text-slate-600 dark:text-zinc-300">Ingen trafikkdata tilgjengelig ennå.</p>
+          ) : (
+            <div className="grid gap-4 md:grid-cols-3 mt-2">
+              <div className="rounded-xl border border-slate-200 bg-white/80 p-4 text-sm dark:border-zinc-700 dark:bg-zinc-900/70">
+                <div className="text-xs font-medium uppercase tracking-wide text-slate-500 dark:text-zinc-400">Totalt sporet</div>
+                <div className="mt-2 text-2xl font-semibold text-slate-900 dark:text-white">
+                  {trafficMetrics.totalTrackedUsers}
+                </div>
+                <p className="mt-1 text-[11px] text-slate-500 dark:text-zinc-400">Brukere vi har sett minst én gang.</p>
+              </div>
+              <div className="rounded-xl border border-slate-200 bg-white/80 p-4 text-sm dark:border-zinc-700 dark:bg-zinc-900/70">
+                <div className="text-xs font-medium uppercase tracking-wide text-slate-500 dark:text-zinc-400">Aktive siste 7 dager</div>
+                <div className="mt-2 text-2xl font-semibold text-slate-900 dark:text-white">
+                  {trafficMetrics.activeLast7Days}
+                </div>
+                <p className="mt-1 text-[11px] text-slate-500 dark:text-zinc-400">Unike brukere som har vært innom siste uke.</p>
+              </div>
+              <div className="rounded-xl border border-slate-200 bg-white/80 p-4 text-sm dark:border-zinc-700 dark:bg-zinc-900/70">
+                <div className="text-xs font-medium uppercase tracking-wide text-slate-500 dark:text-zinc-400">Aktive siste 30 dager</div>
+                <div className="mt-2 text-2xl font-semibold text-slate-900 dark:text-white">
+                  {trafficMetrics.activeLast30Days}
+                </div>
+                <p className="mt-1 text-[11px] text-slate-500 dark:text-zinc-400">Gir deg et bredere bilde av trafikken inn.</p>
+              </div>
+            </div>
           )}
         </section>
 

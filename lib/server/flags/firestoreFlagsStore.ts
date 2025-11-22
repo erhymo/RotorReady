@@ -33,23 +33,40 @@ function toIso(input: any): string {
 export async function listFlags(): Promise<AdminFlag[]> {
   // Order newest first; tolerate missing fields
   const snap = await adminDb.collection(COLLECTION).orderBy("createdAt", "desc").get();
-  return snap.docs.map((d) => {
-    const data = d.data() || {};
-    return {
-      id: d.id,
-      section: String(data.section || ""),
-      sectionId: data.sectionId || undefined,
-      questionId: String(data.questionId || ""),
-      dataSource: data.dataSource,
-      dataFile: data.dataFile ?? null,
-      snapshot: data.snapshot || undefined,
-      reason: data.reason || undefined,
-      userId: data.userId || undefined,
-      email: data.email || undefined,
-      createdAt: toIso(data.createdAt),
-      status: (data.status as AdminFlag["status"]) || "open",
-    } satisfies AdminFlag;
-  });
+  const docs = snap.docs;
+
+  return Promise.all(
+    docs.map(async (d) => {
+      const data = d.data() || {};
+      const userId: string | undefined = data.userId || undefined;
+      let email: string | undefined = data.email || undefined;
+
+      // Best effort: slå opp e-post dersom vi bare har UID lagret
+      if (!email && userId && userId !== "guest") {
+        try {
+          const u = await adminAuth.getUser(userId);
+          email = u.email || undefined;
+        } catch {
+          // Ignorer feil; vi viser i så fall fortsatt UID i admin
+        }
+      }
+
+      return {
+        id: d.id,
+        section: String(data.section || ""),
+        sectionId: data.sectionId || undefined,
+        questionId: String(data.questionId || ""),
+        dataSource: data.dataSource,
+        dataFile: data.dataFile ?? null,
+        snapshot: data.snapshot || undefined,
+        reason: data.reason || undefined,
+        userId,
+        email,
+        createdAt: toIso(data.createdAt),
+        status: (data.status as AdminFlag["status"]) || "open",
+      } satisfies AdminFlag;
+    })
+  );
 }
 
 export async function addFlag(payload: Omit<AdminFlag, "id" | "createdAt" | "status"> & Partial<Pick<AdminFlag, "status" | "createdAt">>) {

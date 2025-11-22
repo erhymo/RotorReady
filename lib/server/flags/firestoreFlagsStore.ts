@@ -17,6 +17,7 @@ export type AdminFlag = {
   reason?: string;
   userId?: string;
   email?: string;
+  name?: string;
   createdAt: string;
   status: "open" | "reviewed-OK" | "rejected";
 };
@@ -40,14 +41,43 @@ export async function listFlags(): Promise<AdminFlag[]> {
       const data = d.data() || {};
       const userId: string | undefined = data.userId || undefined;
       let email: string | undefined = data.email || undefined;
+      let name: string | undefined = (data as any).name || undefined;
 
-      // Best effort: slå opp e-post dersom vi bare har UID lagret
-      if (!email && userId && userId !== "guest") {
+      // Best effort: slå opp navn/epost dersom vi bare har UID lagret
+      if (userId && userId !== "guest" && (!email || !name)) {
+        // 1) Prøv å hente fra Firebase Auth
         try {
           const u = await adminAuth.getUser(userId);
-          email = u.email || undefined;
+          if (!email) email = u.email || undefined;
+          if (!name) name = u.displayName || undefined;
         } catch {
-          // Ignorer feil; vi viser i så fall fortsatt UID i admin
+          // Ignorer feil; vi prøver andre kilder under
+        }
+
+        // 2) Fallback: prøv Firestore users-profil for e-post
+        if (!email) {
+          try {
+            const userDoc = await adminDb.collection("users").doc(userId).get();
+            const udata = userDoc.data() as any | undefined;
+            const docEmail = udata?.email;
+            if (docEmail && typeof docEmail === "string") {
+              email = docEmail;
+            }
+          } catch {
+            // Ignorer; da bruker vi UID som før
+          }
+        }
+      }
+
+      // Backfill navn/epost på flagg-dokumentet for raskere senere oppslag
+      const updates: Record<string, unknown> = {};
+      if (email && email !== data.email) updates.email = email;
+      if (name && name !== (data as any).name) updates.name = name;
+      if (Object.keys(updates).length > 0) {
+        try {
+          await d.ref.update(updates);
+        } catch {
+          // Ignorer skrivefeil; dette er kun en forbedring
         }
       }
 
@@ -62,6 +92,7 @@ export async function listFlags(): Promise<AdminFlag[]> {
         reason: data.reason || undefined,
         userId,
         email,
+        name,
         createdAt: toIso(data.createdAt),
         status: (data.status as AdminFlag["status"]) || "open",
       } satisfies AdminFlag;
@@ -101,6 +132,7 @@ export async function addFlag(payload: Omit<AdminFlag, "id" | "createdAt" | "sta
     reason: data.reason ?? payload.reason,
     userId: data.userId ?? payload.userId,
     email: data.email ?? enrichedEmail,
+    name: (data as any).name ?? (payload as any).name,
     createdAt: toIso(data.createdAt) || now,
     status: (data.status as AdminFlag["status"]) || "open",
   } as AdminFlag;

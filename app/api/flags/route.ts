@@ -28,6 +28,7 @@ type Flag = {
   reason?: string;
   userId?: string; // 'guest' eller faktisk id senere
   email?: string;
+  name?: string;
   createdAt: string;
   status: "open"|"reviewed-OK"|"rejected";
 };
@@ -39,7 +40,7 @@ async function getAuthContext(req: Request) {
   try {
     const { adminAuth } = await import('@/lib/firebase/admin');
     const decoded = await adminAuth.verifyIdToken(token);
-    return { uid: decoded.uid, email: decoded.email || undefined };
+    return { uid: decoded.uid, email: decoded.email || undefined, name: decoded.name || decoded.displayName || undefined };
   } catch {
     return null;
   }
@@ -62,8 +63,9 @@ export async function POST(req: Request) {
     snapshot: payload.snapshot,
     reason: payload.reason,
     userId: ctx?.uid || 'guest',
-    // Only include email when verified via token
+    // Only include email/name when verified via token
     email: ctx?.email || undefined,
+    name: ctx?.name || undefined,
     createdAt: payload.createdAt || new Date().toISOString(),
     status: 'open',
   };

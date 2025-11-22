@@ -65,8 +65,9 @@ export async function reportFlag(payload: FlagPayload) {
   const data = {
     ...payload,
     userId: auth?.currentUser?.uid || 'guest',
-    // email sendes med for bakoverkomp., server ignorerer og beriker selv
+    // email/name sendes med for bakoverkomp., server ignorerer og beriker selv
     email: auth?.currentUser?.email || undefined,
+    name: auth?.currentUser?.displayName || undefined,
     createdAt: new Date().toISOString(),
     status: 'open',
   } as any;

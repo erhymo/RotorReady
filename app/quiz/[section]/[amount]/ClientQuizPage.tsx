@@ -75,51 +75,8 @@ export default function ClientQuizPage({ section, amount }: { section: string; a
           updatedAt: Date.now(),
         };
         localStorage.setItem(resumeKey, JSON.stringify(snapshot));
-
-      // 0a) Resume existing session if present
-      try {
-        const amountToken = amount ?? "all";
-        const resumeKey = `${modelScopedKey("quiz:resume", activeVariant.id)}:${section}:${amountToken}`;
-        const rawSnap = localStorage.getItem(resumeKey);
-        if (!cancelled && rawSnap) {
-          const snap = JSON.parse(rawSnap);
-          if (Array.isArray(snap.items) && snap.items.length) {
-            // Do not reshuffle; use saved items order
-            const items: QuizItem[] = snap.items;
-            if (isH125) {
-              const key = `${modelScopedKey("h125q_session", activeVariant.id)}:${section}`;
-              const session = {
-                section,
-                createdAt: new Date().toISOString(),
-                items,
-                answers: Array(items.length).fill(null) as Array<number|null>,
-                flags: Array(items.length).fill(false) as boolean[],
-                amountToken: String(amountToken),
-              };
-              if (Array.isArray(snap.answers) && snap.answers.length === items.length) {
-                session.answers = snap.answers.map((a: any) => (a == null ? null : Number(a)));
-              }
-              if (Array.isArray(snap.flags) && snap.flags.length === items.length) {
-                session.flags = snap.flags as boolean[];
-              }
-              sessionStorage.setItem(key, JSON.stringify(session));
-              const idx = Math.min(Math.max(0, Number(snap.idx ?? 0)), items.length - 1);
-              router.replace(`/quiz/${encodeURIComponent(section)}/h125/${idx + 1}`);
-              return;
-            } else {
-              setQuestions(items);
-              const idx = Math.min(Math.max(0, Number(snap.idx ?? 0)), items.length - 1);
-              const answers = Array.isArray(snap.answers) && snap.answers.length === items.length ? (snap.answers as (number|undefined)[]) : Array(items.length).fill(undefined);
-              const flags = Array.isArray(snap.flags) && snap.flags.length === items.length ? (snap.flags as boolean[]) : Array(items.length).fill(false);
-              setResume({ idx, answers, flags });
-              setError(null);
-              return;
-            }
-          }
-        }
       } catch {}
 
-      } catch {}
       const session = {
         section,
         createdAt: new Date().toISOString(),
@@ -133,6 +90,54 @@ export default function ClientQuizPage({ section, amount }: { section: string; a
     }
 
     async function load() {
+      // 0a) Resume existing session if present (all sections, også "All")
+      try {
+        const amountToken = amount ?? "all";
+        const resumeKey = `${modelScopedKey("quiz:resume", activeVariant.id)}:${section}:${amountToken}`;
+        const rawSnap = localStorage.getItem(resumeKey);
+        if (!cancelled && rawSnap) {
+          const snap = JSON.parse(rawSnap);
+          if (Array.isArray(snap.items) && snap.items.length) {
+            const items: QuizItem[] = snap.items;
+            if (isH125) {
+              const key = `${modelScopedKey("h125q_session", activeVariant.id)}:${section}`;
+              const session = {
+                section,
+                createdAt: new Date().toISOString(),
+                items,
+                answers: Array(items.length).fill(null) as Array<number | null>,
+                flags: Array(items.length).fill(false) as boolean[],
+                amountToken: String(amountToken),
+              } as any;
+              if (Array.isArray(snap.answers) && snap.answers.length === items.length) {
+                session.answers = snap.answers.map((a: any) => (a == null ? null : Number(a)));
+              }
+              if (Array.isArray(snap.flags) && snap.flags.length === items.length) {
+                session.flags = snap.flags as boolean[];
+              }
+              sessionStorage.setItem(key, JSON.stringify(session));
+              const idx = Math.min(Math.max(0, Number(snap.idx ?? 0)), items.length - 1);
+              router.replace(`/quiz/${encodeURIComponent(section)}/h125/${idx + 1}`);
+              return;
+            } else {
+              setQuestions(items);
+              const idx = Math.min(Math.max(0, Number(snap.idx ?? 0)), items.length - 1);
+              const answers =
+                Array.isArray(snap.answers) && snap.answers.length === items.length
+                  ? (snap.answers as (number | undefined)[])
+                  : Array(items.length).fill(undefined);
+              const flags =
+                Array.isArray(snap.flags) && snap.flags.length === items.length
+                  ? (snap.flags as boolean[])
+                  : Array(items.length).fill(false);
+              setResume({ idx, answers, flags });
+              setError(null);
+              return;
+            }
+          }
+        }
+      } catch {}
+
       // Fetch soft-deleted (blocked) question IDs so we can filter them out
       let blocked = new Set<string>();
       try {

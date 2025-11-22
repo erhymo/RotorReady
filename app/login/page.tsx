@@ -3,7 +3,7 @@ import * as React from "react";
 import { Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { auth, db } from "@/lib/firebase/client";
-import { signInWithEmailAndPassword, sendEmailVerification } from "firebase/auth";
+import { signInWithEmailAndPassword, sendEmailVerification, sendPasswordResetEmail } from "firebase/auth";
 import { doc, setDoc, getDoc, deleteDoc } from "firebase/firestore";
 import { mapAuthError } from "@/lib/auth/errors";
 
@@ -15,6 +15,7 @@ function LoginInner() {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
   const [err, setErr] = React.useState("");
+  const [resetMsg, setResetMsg] = React.useState("");
 
 
   async function onSubmit(e: React.FormEvent) {
@@ -51,6 +52,29 @@ function LoginInner() {
     }
   }
 
+
+
+  async function onForgotPassword(e: React.MouseEvent<HTMLButtonElement>) {
+    e.preventDefault();
+    setErr("");
+    setResetMsg("");
+    if (!auth) {
+      setErr("Tilbakestilling av passord er utilgjengelig for øyeblikket. Prøv igjen senere.");
+      return;
+    }
+    if (!email) {
+      setErr("Skriv inn e-postadressen din først.");
+      return;
+    }
+    try {
+      await sendPasswordResetEmail(auth, email);
+      setResetMsg("Hvis denne e-posten er registrert, har vi sendt deg en e-post med en lenke for å tilbakestille passordet.");
+    } catch (e: any) {
+      console.error("Password reset error:", e);
+      setErr(mapAuthError(e?.code) || e?.message || "Kunne ikke sende tilbakestillingslenke");
+    }
+  }
+
   return (
     <div className="max-w-sm mx-auto p-6 rounded-2xl space-y-3 border-l-4 border-blue-600 bg-blue-50/40 dark:border-blue-400 dark:bg-blue-900/40">
       <h1 className="text-2xl font-bold dark:text-zinc-100">Logg inn</h1>
@@ -69,8 +93,16 @@ function LoginInner() {
           onChange={e=>setPassword(e.target.value)}
         />
         {err && <div className="text-sm text-red-600 dark:text-red-400">{err}</div>}
+        {resetMsg && <div className="text-sm text-emerald-700 dark:text-emerald-400">{resetMsg}</div>}
 
         <button type="submit" className="w-full rounded bg-blue-600 text-white py-2 font-medium">Logg inn</button>
+        <button
+          type="button"
+          onClick={onForgotPassword}
+          className="w-full text-sm text-blue-700 dark:text-blue-300 underline mt-1"
+        >
+          Glemt passord?
+        </button>
       </form>
       <div className="text-sm"><a className="underline dark:text-zinc-100" href="/signup">Opprett konto</a></div>
     </div>

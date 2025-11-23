@@ -74,6 +74,16 @@ export default function HomeClient() {
             icon={<BookIcon className="h-4 w-4" />}
           />
         )}
+        {activeVariant?.id === "AW169" && (
+          <Bar
+            href="/aw169/quick-reference"
+            title="Quick Reference"
+            description="Key AW169 RFM limitations and numbers for quick reference."
+            tone="slate"
+            icon={<BookIcon className="h-4 w-4" />}
+          />
+        )}
+
 
       </section>
 

@@ -146,47 +146,6 @@ const data = {
       },
     ],
   },
-  hydraulics: {
-    title: "Hydraulic System Limits",
-    items: [
-      {
-        label: "Hydraulic fluid temperature (°C)",
-        lines: [
-          "Min for starting: -40 °C",
-          "Ground operation range: -40 to -21 °C",
-          "Min normal operation: -20 °C",
-          "Normal operating range: -20 to 119 °C",
-          "Cautionary range: 120 to 134 °C",
-          "Max cautionary: 134 °C",
-          "Max for take-off: 119 °C",
-        ],
-      },
-      {
-        label: "Hydraulic fluid pressure (bar)",
-        lines: [
-          "Min cautionary: 163 bar",
-          "Cautionary range: 163 to 184 bar",
-          "Normal operation range: 185 to 227 bar",
-          "Cautionary range: 228 to 235 bar",
-          "Max cautionary: 235 bar",
-        ],
-      },
-    ],
-  },
-  fuel: {
-    title: "Fuel Temperature Limits",
-    items: [
-      {
-        label: "Minimum fuel temperature",
-        lines: [
-          "JET A: -29 °C (-20 °F)",
-          "JET A-1: -29 °C (-20 °F)",
-          "JP-8, JP-8+100: -29 °C (-20 °F)",
-          "No. 3 Jet Fuel: -29 °C (-20 °F)",
-        ],
-      },
-    ],
-  },
   engineOil: {
     title: "Engine Oil Limits",
     items: [
@@ -271,8 +230,6 @@ export default function AW169QuickReferencePage() {
         <GroupCard title={data.airspeed.title} items={data.airspeed.items} />
         <GroupCard title={data.ground.title} items={data.ground.items} />
         <GroupCard title={data.itt.title} items={data.itt.items} />
-        <GroupCard title={data.hydraulics.title} items={data.hydraulics.items} />
-        <GroupCard title={data.fuel.title} items={data.fuel.items} />
         <GroupCard title={data.engineOil.title} items={data.engineOil.items} />
         <GroupCard title={data.weight.title} items={data.weight.items} />
       </main>

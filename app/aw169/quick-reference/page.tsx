@@ -14,7 +14,6 @@ const data = {
           "Max 30 min: 111%",
           "Transient 10 s: 125%",
         ],
-        ref: "RFM Sec 1 – TORQUE (TQ %) AEO ≤ 90 KIAS",
       },
       {
         label: "AEO > 90 KIAS",
@@ -22,7 +21,6 @@ const data = {
           "Max continuous: 100%",
           "Transient 10 s: 125%",
         ],
-        ref: "RFM Sec 1 – TORQUE (TQ %) AEO > 90 KIAS",
       },
       {
         label: "OEI",
@@ -32,7 +30,6 @@ const data = {
           "Max 2.5 min: 174%",
           "Transient 10 s: 192%",
         ],
-        ref: "RFM Sec 1 – TORQUE (TQ %) OEI",
       },
     ],
   },
@@ -42,11 +39,10 @@ const data = {
       {
         label: "AEO power-on",
         lines: [
-          "Variable governing with PLUS-mode (see Fig. 1‑10)",
+          "Variable governing with PLUS-mode",
           "Transient min: 90%",
           "Transient max: 107%",
         ],
-        ref: "RFM Sec 1 – ROTOR SPEED LIMITATIONS AEO POWER‑ON",
       },
       {
         label: "OEI power-on",
@@ -58,7 +54,6 @@ const data = {
           "Max continuous: 105%",
           "Transient max: 107%",
         ],
-        ref: "RFM Sec 1 – ROTOR SPEED LIMITATIONS OEI POWER‑ON",
       },
       {
         label: "Power-off",
@@ -66,7 +61,6 @@ const data = {
           "Transient min: 85%",
           "Min continuous: 90%",
         ],
-        ref: "RFM Sec 1 – ROTOR SPEED LIMITATIONS POWER‑OFF",
       },
     ],
   },
@@ -83,7 +77,6 @@ const data = {
           "Max wipers: 140 KIAS",
           "Min autorotation: 50 KIAS",
         ],
-        ref: "RFM Sec 1 – AIRSPEED LIMITATIONS",
       },
     ],
   },
@@ -99,7 +92,6 @@ const data = {
           "Left wing low: 10°",
           "Right wing low: 10°",
         ],
-        ref: "RFM Sec 1 – SLOPE LIMITATIONS",
       },
       {
         label: "Wheel brake & parking",
@@ -107,7 +99,6 @@ const data = {
           "Max running speed for wheel brake application: 40 knots GS",
           "Parking on dry, paved slopes up to 12° permitted for max 20 hours.",
         ],
-        ref: "RFM Sec 1 – WHEEL BRAKE LIMITATIONS",
       },
       {
         label: "Ground speed (selected)",
@@ -117,14 +108,12 @@ const data = {
           "Rolling take-off / running landing: 30 knots GS",
           "Max emergency landing speed: 50 knots GS",
         ],
-        ref: "RFM Sec 1 – GROUND SPEED LIMITATIONS",
       },
       {
         label: "Wind for engine/rotor start & stop",
         lines: [
           "If forecast wind exceeds 50 knots, park in sheltered area or hangar.",
         ],
-        ref: "RFM Sec 1 – WIND SPEED LIMITATIONS FOR ENGINE/ROTOR START/STOP",
       },
     ],
   },
@@ -137,7 +126,6 @@ const data = {
           "Max for start: 750 °C",
           "Transient 2 s: up to 825 °C",
         ],
-        ref: "RFM Sec 1 – ITT (1st engine start)",
       },
       {
         label: "AEO",
@@ -147,7 +135,6 @@ const data = {
           "Max 30 min: 930 °C (107.1%)",
           "Transient 20 s: 941 °C (108.4%)",
         ],
-        ref: "RFM Sec 1 – ITT AEO",
       },
       {
         label: "OEI",
@@ -156,7 +143,67 @@ const data = {
           "2.5 min: 942–1020 °C (108.5–117.5%)",
           "Max 2.5 min: 1020 °C (117.5%)",
         ],
-        ref: "RFM Sec 1 – ITT OEI",
+      },
+    ],
+  },
+  hydraulics: {
+    title: "Hydraulic System Limits",
+    items: [
+      {
+        label: "Hydraulic fluid temperature (°C)",
+        lines: [
+          "Min for starting: -40 °C",
+          "Ground operation range: -40 to -21 °C",
+          "Min normal operation: -20 °C",
+          "Normal operating range: -20 to 119 °C",
+          "Cautionary range: 120 to 134 °C",
+          "Max cautionary: 134 °C",
+          "Max for take-off: 119 °C",
+        ],
+      },
+      {
+        label: "Hydraulic fluid pressure (bar)",
+        lines: [
+          "Min cautionary: 163 bar",
+          "Cautionary range: 163 to 184 bar",
+          "Normal operation range: 185 to 227 bar",
+          "Cautionary range: 228 to 235 bar",
+          "Max cautionary: 235 bar",
+        ],
+      },
+    ],
+  },
+  fuel: {
+    title: "Fuel Temperature Limits",
+    items: [
+      {
+        label: "Minimum fuel temperature",
+        lines: [
+          "JET A: -29 °C (-20 °F)",
+          "JET A-1: -29 °C (-20 °F)",
+          "JP-8, JP-8+100: -29 °C (-20 °F)",
+          "No. 3 Jet Fuel: -29 °C (-20 °F)",
+        ],
+      },
+    ],
+  },
+  engineOil: {
+    title: "Engine Oil Limits",
+    items: [
+      {
+        label: "Engine oil pressure (bar)",
+        lines: [
+          "Normal range: 5.1–18.1 bar",
+          "Transient max (20 s): 21.0 bar",
+          "Transient min (20 s): 2.6 bar",
+        ],
+      },
+      {
+        label: "Engine oil temperature (°C)",
+        lines: [
+          "Normal range: -40 to 135 °C",
+          "Cautionary range: 135 to 160 °C (1 min)",
+        ],
       },
     ],
   },
@@ -170,7 +217,6 @@ const data = {
           "Max gross weight for CAT B take-off / landing: 4600 kg",
           "Min flight / rotor-running gross weight: 3300 kg",
         ],
-        ref: "RFM Sec 1 – WEIGHT AND CG LIMITATIONS",
       },
       {
         label: "Increased gross weight (Supplement 30)",
@@ -178,13 +224,12 @@ const data = {
           "Max gross weight for towing / taxi: 4850 kg",
           "Max gross weight for take-off / landing: 4800 kg",
         ],
-        ref: "RFM Supp 30 – WEIGHT AND CG LIMITATIONS (4800 kg)",
       },
     ],
   },
 };
 
-function GroupCard({ title, items }: { title: string; items: { label: string; lines: string[]; ref: string }[] }) {
+function GroupCard({ title, items }: { title: string; items: { label: string; lines: string[] }[] }) {
   return (
     <section className="rounded-xl border bg-white dark:bg-zinc-900 dark:border-zinc-700 p-4 space-y-3">
       <h2 className="text-base font-semibold text-slate-900 dark:text-zinc-100">{title}</h2>
@@ -197,7 +242,6 @@ function GroupCard({ title, items }: { title: string; items: { label: string; li
                 <li key={l}>{l}</li>
               ))}
             </ul>
-            <div className="text-xs text-slate-500 dark:text-zinc-400 mt-1">{item.ref}</div>
           </div>
         ))}
       </div>
@@ -227,6 +271,9 @@ export default function AW169QuickReferencePage() {
         <GroupCard title={data.airspeed.title} items={data.airspeed.items} />
         <GroupCard title={data.ground.title} items={data.ground.items} />
         <GroupCard title={data.itt.title} items={data.itt.items} />
+        <GroupCard title={data.hydraulics.title} items={data.hydraulics.items} />
+        <GroupCard title={data.fuel.title} items={data.fuel.items} />
+        <GroupCard title={data.engineOil.title} items={data.engineOil.items} />
         <GroupCard title={data.weight.title} items={data.weight.items} />
       </main>
     </div>

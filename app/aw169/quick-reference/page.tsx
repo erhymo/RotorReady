@@ -7,7 +7,7 @@ const data = {
     title: "Transmission Torque (TQ %)",
     items: [
       {
-        label: "AEO ≤ 90 KIAS",
+        label: "AEO 90 KIAS and below",
         lines: [
           "Max continuous: 100%",
           "30 min: 101–111%",
@@ -16,7 +16,7 @@ const data = {
         ],
       },
       {
-        label: "AEO > 90 KIAS",
+        label: "AEO above 90 KIAS",
         lines: [
           "Max continuous: 100%",
           "Transient 10 s: 125%",
@@ -70,9 +70,9 @@ const data = {
       {
         label: "General",
         lines: [
-          "Max airspeed AEO with TQ > 100%: 90 KIAS",
+          "Max airspeed AEO with TQ above 100%: 90 KIAS",
           "IFR Vmini: 50 KIAS",
-          "Max IFR approach: 130 KIAS ≤ 5000 ft, then −2 kt / 1000 ft",
+          "Max IFR approach: 130 KIAS at and below 5000 ft, then minus 2 kt / 1000 ft above",
           "Max with one AP failed: 120 KIAS",
           "Max wipers: 140 KIAS",
           "Min autorotation: 50 KIAS",

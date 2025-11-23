@@ -36,31 +36,6 @@ const data = {
       },
     ],
   },
-  ng: {
-    title: "Gas Generator Speed (NG %)",
-    items: [
-      {
-        label: "AEO",
-        lines: [
-          "Max continuous: 96.5%",
-          "30 min: 96.6–98.2%",
-          "Max 30 min: 98.2%",
-          "Transient 20 s: 98.9%",
-        ],
-        ref: "RFM Sec 1 – GAS GENERATOR SPEED (NG %) AEO",
-      },
-      {
-        label: "OEI",
-        lines: [
-          "Max continuous: 98.9%",
-          "2.5 min: 99–100.7%",
-          "Max 2.5 min: 100.7%",
-          "Transient 5 s: 101.2%",
-        ],
-        ref: "RFM Sec 1 – GAS GENERATOR SPEED (NG %) OEI",
-      },
-    ],
-  },
   nr: {
     title: "Rotor Speed (NR %)",
     items: [
@@ -112,40 +87,6 @@ const data = {
       },
     ],
   },
-  environment: {
-    title: "Environment & Flight Envelope",
-    items: [
-      {
-        label: "Altitude & temperature (basic configuration)",
-        lines: [
-          "Maximum operating altitude: see RFM Figure 1‑6",
-          "Minimum operating altitude: see RFM Figure 1‑6",
-          "Maximum take‑off/landing altitude: see RFM Figure 1‑6",
-          "Maximum outside air temperature (OAT): see RFM Figure 1‑6",
-          "Minimum outside air temperature (OAT): see RFM Figure 1‑6",
-        ],
-        ref: "RFM Sec 1 – ALTITUDE & OAT LIMITATIONS (Figure 1‑6)",
-      },
-      {
-        label: "Altitude & temperature (4800 kg, Supp. 30)",
-        lines: [
-          "Maximum operating altitude: see RFM Figure S30‑5",
-          "Minimum operating altitude: see RFM Figure S30‑5",
-          "Maximum take‑off/landing altitude: see RFM Figure S30‑5",
-        ],
-        ref: "RFM Supp. 30 – ALTITUDE & OAT LIMITATIONS (Figure S30‑5)",
-      },
-      {
-        label: "Icing & cold temperature",
-        lines: [
-          "Flight into known icing conditions is prohibited.",
-          "Flight into freezing rain and freezing fog is prohibited.",
-          "With hydraulic fluid temperature below +20 °C the pilot must fly attentive.",
-        ],
-        ref: "RFM Sec 1 – COLD TEMPERATURE & ICING LIMITATIONS",
-      },
-    ],
-  },
   ground: {
     title: "Ground & Handling Limits",
     items: [
@@ -171,9 +112,9 @@ const data = {
       {
         label: "Ground speed (selected)",
         lines: [
-          "On paved surfaces: see RFM Figure 1‑8",
+          "On paved surfaces (dry, paved): max taxi speed 40 knots GS, rolling take-off / running landing 60 knots GS, max emergency landing speed 60 knots GS",
           "On prepared grass: max taxi speed 20 knots GS",
-          "Rolling take‑off / running landing: 30 knots GS",
+          "Rolling take-off / running landing: 30 knots GS",
           "Max emergency landing speed: 50 knots GS",
         ],
         ref: "RFM Sec 1 – GROUND SPEED LIMITATIONS",
@@ -181,7 +122,6 @@ const data = {
       {
         label: "Wind for engine/rotor start & stop",
         lines: [
-          "Maximum wind speed for engine/rotor start/stop: see RFM Figure 1‑9",
           "If forecast wind exceeds 50 knots, park in sheltered area or hangar.",
         ],
         ref: "RFM Sec 1 – WIND SPEED LIMITATIONS FOR ENGINE/ROTOR START/STOP",
@@ -283,10 +223,8 @@ export default function AW169QuickReferencePage() {
         </p>
 
         <GroupCard title={data.torque.title} items={data.torque.items} />
-        <GroupCard title={data.ng.title} items={data.ng.items} />
         <GroupCard title={data.nr.title} items={data.nr.items} />
         <GroupCard title={data.airspeed.title} items={data.airspeed.items} />
-        <GroupCard title={data.environment.title} items={data.environment.items} />
         <GroupCard title={data.ground.title} items={data.ground.items} />
         <GroupCard title={data.itt.title} items={data.itt.items} />
         <GroupCard title={data.weight.title} items={data.weight.items} />

@@ -122,9 +122,9 @@ export default function ClientQuizPage({ section, amount }: { section: string; a
             } else {
               setQuestions(items);
               const idx = Math.min(Math.max(0, Number(snap.idx ?? 0)), items.length - 1);
-              const answers =
+              const answers: (number | undefined)[] =
                 Array.isArray(snap.answers) && snap.answers.length === items.length
-                  ? (snap.answers as (number | undefined)[])
+                  ? (snap.answers as any[]).map((a) => (a == null ? undefined : Number(a)))
                   : Array(items.length).fill(undefined);
               const flags =
                 Array.isArray(snap.flags) && snap.flags.length === items.length

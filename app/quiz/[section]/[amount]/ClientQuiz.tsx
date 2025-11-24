@@ -26,8 +26,16 @@ export default function ClientQuiz({ section, initial, resumeKey, amountToken, i
   const { variant: activeVariant } = useActiveModelVariant();
 
   const [idx, setIdx] = React.useState<number>(initialIdx);
-  const [answers, setAnswers] = React.useState<(number | undefined)[]>(() => (initialAnswers && initialAnswers.length === initial.length) ? initialAnswers : Array(initial.length).fill(undefined));
-  const [flags, setFlags] = React.useState<boolean[]>(() => (initialFlags && initialFlags.length === initial.length) ? initialFlags : Array(initial.length).fill(false));
+  const [answers, setAnswers] = React.useState<(number | undefined)[]>(() =>
+    initialAnswers && initialAnswers.length === initial.length
+      ? initialAnswers.map((a) => (a == null ? undefined : a))
+      : Array(initial.length).fill(undefined)
+  );
+  const [flags, setFlags] = React.useState<boolean[]>(() =>
+    initialFlags && initialFlags.length === initial.length
+      ? initialFlags
+      : Array(initial.length).fill(false)
+  );
   const [done, setDone] = React.useState(false);
 
   const [copied, setCopied] = React.useState(false);

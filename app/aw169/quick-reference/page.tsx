@@ -117,6 +117,26 @@ const data = {
       },
     ],
   },
+  enhancedPerformance: {
+    title: "Enhanced Performance",
+    items: [
+      {
+        label: "AEO",
+        lines: [
+          "Max takeoff TQ: 122%",
+          "Max transient TQ: 132%",
+        ],
+      },
+      {
+        label: "OEI",
+        lines: [
+          "Max continuous TQ: 148%",
+          "Max 2.5 min TQ: 185%",
+          "Max transient TQ: 195%",
+        ],
+      },
+    ],
+  },
   itt: {
     title: "Inlet / Inter Turbine Temperature (ITT °C)",
     items: [
@@ -226,6 +246,7 @@ export default function AW169QuickReferencePage() {
         </p>
 
         <GroupCard title={data.torque.title} items={data.torque.items} />
+        <GroupCard title={data.enhancedPerformance.title} items={data.enhancedPerformance.items} />
         <GroupCard title={data.nr.title} items={data.nr.items} />
         <GroupCard title={data.airspeed.title} items={data.airspeed.items} />
         <GroupCard title={data.ground.title} items={data.ground.items} />

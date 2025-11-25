@@ -8,6 +8,7 @@ import { isLoggedInAsync } from "@/lib/auth";
 import TopBarBackButton from "@/components/TopBarBackButton";
 
 const SECTION = "Avionics & FMS Limitations" as const;
+const SECTION_ID = "avionics-fms-limitations" as const;
 const DATA_URL = "/quiz-data/sections/avionics_fms_limitations.json" as const;
 const AMOUNT_OPTIONS = [10, 20, 30, 40, 50, "all"] as const;
 
@@ -84,8 +85,14 @@ export default function AvionicsFmsQuizStart() {
   const [loading, setLoading] = React.useState(false);
   const [err, setErr] = React.useState<string | null>(null);
   const { variant: activeVariant } = useActiveModelVariant();
+  const [resumeInfo, setResumeInfo] = React.useState<{
+    amountToken: string;
+    idx: number;
+    total: number;
+  } | null>(null);
   const [totalCount, setTotalCount] = React.useState<number|null>(null);
   const [totalLoading, setTotalLoading] = React.useState(false);
+
   React.useEffect(() => {
     let cancelled = false;
     setTotalLoading(true);
@@ -99,6 +106,45 @@ export default function AvionicsFmsQuizStart() {
         if (!cancelled) setTotalLoading(false);
       }
     })();
+    return () => { cancelled = true; };
+  }, [activeVariant.id]);
+
+  React.useEffect(() => {
+    let cancelled = false;
+    try {
+      const prefix = `${modelScopedKey("quiz:resume", activeVariant.id)}:${SECTION_ID}:`;
+      const matches: { key: string; snap: any }[] = [];
+      if (typeof window !== "undefined" && window.localStorage) {
+        for (let i = 0; i < localStorage.length; i++) {
+          const key = localStorage.key(i);
+          if (!key || !key.startsWith(prefix)) continue;
+          const raw = localStorage.getItem(key);
+          if (!raw) continue;
+          let snap: any;
+          try {
+            snap = JSON.parse(raw);
+          } catch {
+            continue;
+          }
+          if (!Array.isArray(snap?.items) || !snap.items.length) continue;
+          matches.push({ key, snap });
+        }
+      }
+      if (!cancelled) {
+        if (matches.length) {
+          matches.sort((a, b) => Number(b.snap?.updatedAt || 0) - Number(a.snap?.updatedAt || 0));
+          const top = matches[0];
+          const amountToken = String(top.snap?.amount ?? top.key.substring(prefix.length));
+          const total = Array.isArray(top.snap?.items) ? top.snap.items.length : 0;
+          const idx = Math.min(Math.max(0, Number(top.snap?.idx ?? 0)), Math.max(0, total - 1));
+          setResumeInfo({ amountToken, idx, total });
+        } else {
+          setResumeInfo(null);
+        }
+      }
+    } catch {
+      if (!cancelled) setResumeInfo(null);
+    }
     return () => { cancelled = true; };
   }, [activeVariant.id]);
 
@@ -154,6 +200,8 @@ export default function AvionicsFmsQuizStart() {
       try { lastOrders = JSON.parse(sessionStorage.getItem(key) || "[]"); } catch {}
       let items = base;
       if (lastOrders.includes(signature(items))) {
+
+
         items = shuffle(items);
       }
       const updated = [...lastOrders, signature(items)].slice(-2);
@@ -161,14 +209,34 @@ export default function AvionicsFmsQuizStart() {
 
       const randomized = items.map(shuffleOptionsForItem);
 
+      const amountToken = amount === "all" ? "all" : String(amount);
+
       const session = {
         section: SECTION,
         createdAt: new Date().toISOString(),
         items: randomized,
         answers: Array(randomized.length).fill(null) as Array<number | null>,
         flags: Array(randomized.length).fill(false) as boolean[],
+        amountToken,
       };
       sessionStorage.setItem("avionics_session", JSON.stringify(session));
+
+      try {
+        const resumeKey = `${modelScopedKey("quiz:resume", activeVariant.id)}:${SECTION_ID}:${amountToken}`;
+        const snapshot = {
+          section: SECTION_ID,
+          variantId: activeVariant.id,
+          amount: amountToken,
+          items: randomized,
+          idx: 0,
+          answers: Array(randomized.length).fill(undefined),
+          flags: Array(randomized.length).fill(false),
+          startedAt: Date.now(),
+          updatedAt: Date.now(),
+        };
+        localStorage.setItem(resumeKey, JSON.stringify(snapshot));
+      } catch {}
+
       router.push("/avionics-fms-limitations-quiz/1");
     } catch (error: any) {
       setErr(error?.message || "Could not start quiz");
@@ -200,6 +268,48 @@ export default function AvionicsFmsQuizStart() {
       }
     }
   }
+
+  async function handleResumeContinue() {
+    if (!resumeInfo) return;
+    try {
+      const loggedIn = await isLoggedInAsync();
+      if (!loggedIn) {
+        router.push(`/paywall?from=${encodeURIComponent('/avionics-fms-limitations-quiz')}`);
+        return;
+      }
+      const key = `${modelScopedKey("quiz:resume", activeVariant.id)}:${SECTION_ID}:${resumeInfo.amountToken}`;
+      const raw = localStorage.getItem(key);
+      if (!raw) return;
+      const snap = JSON.parse(raw);
+      if (!Array.isArray(snap?.items) || !snap.items.length) return;
+      const session = {
+        section: SECTION,
+        createdAt: new Date().toISOString(),
+        items: snap.items,
+        answers: Array(snap.items.length).fill(null) as Array<number | null>,
+        flags: Array(snap.items.length).fill(false) as boolean[],
+        amountToken: String(resumeInfo.amountToken),
+      };
+      if (Array.isArray(snap.answers) && snap.answers.length === snap.items.length) {
+        session.answers = snap.answers.map((a: any) => (a == null ? null : Number(a)));
+      }
+      if (Array.isArray(snap.flags) && snap.flags.length === snap.items.length) {
+        session.flags = snap.flags as boolean[];
+      }
+      sessionStorage.setItem("avionics_session", JSON.stringify(session));
+      router.push(`/avionics-fms-limitations-quiz/${resumeInfo.idx + 1}`);
+    } catch {}
+  }
+
+  function handleResumeReset() {
+    if (!resumeInfo) return;
+    try {
+      const key = `${modelScopedKey("quiz:resume", activeVariant.id)}:${SECTION_ID}:${resumeInfo.amountToken}`;
+      localStorage.removeItem(key);
+    } catch {}
+    setResumeInfo(null);
+  }
+
 
   return (
     <div className="max-w-xl mx-auto p-4 space-y-4">
@@ -237,6 +347,30 @@ export default function AvionicsFmsQuizStart() {
           {loading ? "Starting…" : "Start"}
         </button>
       </div>
+
+	      {resumeInfo && (
+	        <div className="rounded-xl border-l-4 border-emerald-600 bg-emerald-50/40 dark:border-emerald-400 dark:bg-emerald-900/40 p-4 flex items-center gap-3">
+	          <div className="flex-1">
+	            <div className="font-semibold text-slate-900 dark:text-white">Resume session</div>
+	            <div className="text-sm text-gray-600 dark:text-zinc-100">
+	              You are on question {resumeInfo.idx + 1} of {resumeInfo.total} ({String(resumeInfo.amountToken)}).
+	            </div>
+	          </div>
+	          <button
+	            onClick={handleResumeContinue}
+	            className="px-3 py-2 rounded-lg bg-emerald-600 text-white"
+	          >
+	            Continue
+	          </button>
+	          <button
+	            onClick={handleResumeReset}
+	            className="px-3 py-2 rounded-lg bg-slate-200 dark:bg-zinc-700 dark:text-white"
+	          >
+	            Start over
+	          </button>
+	        </div>
+	      )}
+
       {err && <p className="text-red-600 text-sm dark:text-red-400">{err}</p>}
       <div className="rounded-xl border-l-4 border-emerald-600 bg-emerald-50/40 dark:border-emerald-400 dark:bg-emerald-900/40 p-4">
         <div className="flex items-center justify-between gap-3">

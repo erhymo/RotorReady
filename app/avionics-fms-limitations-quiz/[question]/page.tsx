@@ -4,9 +4,12 @@ import { useParams, useRouter } from "next/navigation";
 import TopBarBackButton from "@/components/TopBarBackButton";
 import Link from "next/link";
 import { useActiveModelVariant } from "@/lib/models/hooks";
+import { modelScopedKey } from "@/lib/models/storage";
 
 import { reportFlag, type FlagPayload } from "@/lib/flags";
 import FlagReasonDialog from "@/components/FlagReasonDialog";
+
+const SECTION_ID = "avionics-fms-limitations" as const;
 
 type Item = {
   id: string;
@@ -27,6 +30,7 @@ type Session = {
   items: Item[];
   answers: Array<number | null>;
   flags: boolean[];
+  amountToken?: string;
   error?: string;
 };
 
@@ -38,6 +42,36 @@ function loadSession(): Session | null {
     return null;
   }
 }
+function updateResumeSnapshot(variantId: string, idx: number, s: Session) {
+  if (!s || !Array.isArray(s.items) || !s.items.length) return;
+  const amountToken = s.amountToken;
+  if (!amountToken) return;
+  try {
+    const resumeKey = `${modelScopedKey("quiz:resume", variantId)}:${SECTION_ID}:${amountToken}`;
+    const snapshot = {
+      section: SECTION_ID,
+      variantId,
+      amount: amountToken,
+      items: s.items,
+      idx,
+      answers: s.answers.map((a) => (a == null ? undefined : Number(a))),
+      flags: s.flags,
+      startedAt: s.createdAt ? Date.parse(s.createdAt) || Date.now() : Date.now(),
+      updatedAt: Date.now(),
+    };
+    localStorage.setItem(resumeKey, JSON.stringify(snapshot));
+  } catch {}
+}
+
+function clearResumeSnapshot(variantId: string, s: Session | null) {
+  if (!s?.amountToken) return;
+  try {
+    const resumeKey = `${modelScopedKey("quiz:resume", variantId)}:${SECTION_ID}:${s.amountToken}`;
+    localStorage.removeItem(resumeKey);
+  } catch {}
+}
+
+
 
 function saveSession(session: Session) {
   sessionStorage.setItem("avionics_session", JSON.stringify(session));
@@ -73,6 +107,7 @@ export default function AvionicsQuestionPage() {
     }
     setSession(current);
     setSelected(current.answers[idx] ?? null);
+    updateResumeSnapshot(activeVariant.id, idx, current);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [idx]);
 
@@ -114,6 +149,7 @@ export default function AvionicsQuestionPage() {
     saveSession(current);
     setSession(current);
     setSelected(position);
+    updateResumeSnapshot(activeVariant.id, idx, current);
   }
 
   function toggleFlag() {
@@ -123,6 +159,7 @@ export default function AvionicsQuestionPage() {
     const nowFlagged = current.flags[idx];
     saveSession(current);
     setSession({ ...current });
+    updateResumeSnapshot(activeVariant.id, idx, current);
     if (nowFlagged) {
       const basePayload: FlagPayload = {
         section: current.section,
@@ -143,12 +180,31 @@ export default function AvionicsQuestionPage() {
   }
 
   function next() {
-    if (idx + 1 >= total) router.push("/avionics-fms-limitations-quiz/result");
-    else router.push(`/avionics-fms-limitations-quiz/${idx + 2}`);
+    const current = loadSession() || session;
+    if (!current) {
+      router.push("/avionics-fms-limitations-quiz");
+      return;
+    }
+    if (idx + 1 >= total) {
+      clearResumeSnapshot(activeVariant.id, current);
+      router.push("/avionics-fms-limitations-quiz/result");
+    } else {
+      updateResumeSnapshot(activeVariant.id, idx + 1, current);
+      router.push(`/avionics-fms-limitations-quiz/${idx + 2}`);
+    }
   }
 
   function prev() {
-    if (idx > 0) router.push(`/avionics-fms-limitations-quiz/${idx}`);
+    const current = loadSession() || session;
+    if (!current) {
+      router.push("/avionics-fms-limitations-quiz");
+      return;
+    }
+    if (idx > 0) {
+      const targetIdx = idx - 1;
+      updateResumeSnapshot(activeVariant.id, targetIdx, current);
+      router.push(`/avionics-fms-limitations-quiz/${targetIdx + 1}`);
+    }
   }
 
   const progress = total ? Math.round(((idx + 1) / total) * 100) : 0;

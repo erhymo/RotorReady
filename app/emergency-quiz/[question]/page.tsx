@@ -6,6 +6,7 @@ import { reportFlag, type FlagPayload } from "@/lib/flags";
 import TopBarBackButton from "@/components/TopBarBackButton";
 import Link from "next/link";
 import { useActiveModelVariant } from "@/lib/models/hooks";
+import { modelScopedKey } from "@/lib/models/storage";
 import FlagReasonDialog from "@/components/FlagReasonDialog";
 
 const SESSION_KEY = "emergq_session";
@@ -30,6 +31,7 @@ type Session = {
   items: Item[];
   answers: Array<number | null>;
   flags: boolean[];
+  amountToken?: string;
 };
 
 function loadSession(): Session | null {
@@ -43,6 +45,35 @@ function loadSession(): Session | null {
 
 function saveSession(s: Session) {
   sessionStorage.setItem(SESSION_KEY, JSON.stringify(s));
+}
+
+function updateResumeSnapshot(variantId: string, idx: number, s: Session) {
+  if (!s || !Array.isArray(s.items) || !s.items.length) return;
+  const amountToken = s.amountToken;
+  if (!amountToken) return;
+  try {
+    const resumeKey = `${modelScopedKey("quiz:resume", variantId)}:${SECTION_ID}:${amountToken}`;
+    const snapshot = {
+      section: SECTION_ID,
+      variantId,
+      amount: amountToken,
+      items: s.items,
+      idx,
+      answers: s.answers.map((a) => (a == null ? undefined : Number(a))),
+      flags: s.flags,
+      startedAt: s.createdAt ? Date.parse(s.createdAt) || Date.now() : Date.now(),
+      updatedAt: Date.now(),
+    };
+    localStorage.setItem(resumeKey, JSON.stringify(snapshot));
+  } catch {}
+}
+
+function clearResumeSnapshot(variantId: string, s: Session | null) {
+  if (!s?.amountToken) return;
+  try {
+    const resumeKey = `${modelScopedKey("quiz:resume", variantId)}:${SECTION_ID}:${s.amountToken}`;
+    localStorage.removeItem(resumeKey);
+  } catch {}
 }
 
 export default function EmergencyQuestionPage() {
@@ -71,6 +102,7 @@ export default function EmergencyQuestionPage() {
     }
     setSession(s);
     setSelected(s.answers[idx] ?? null);
+    updateResumeSnapshot(activeVariant.id, idx, s);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [idx]);
 
@@ -102,6 +134,7 @@ export default function EmergencyQuestionPage() {
     saveSession(s);
     setSession(s);
     setSelected(i);
+    updateResumeSnapshot(activeVariant.id, idx, s);
   }
 
   function toggleFlag() {
@@ -111,6 +144,7 @@ export default function EmergencyQuestionPage() {
     const nowFlagged = s.flags[idx];
     saveSession(s);
     setSession({ ...s });
+    updateResumeSnapshot(activeVariant.id, idx, s);
     if (nowFlagged) {
       const basePayload: FlagPayload = {
         section: s.section,
@@ -131,12 +165,31 @@ export default function EmergencyQuestionPage() {
   }
 
   function next() {
-    if (idx + 1 >= total) router.push("/emergency-quiz/result");
-    else router.push(`/emergency-quiz/${idx + 2}`);
+    const s = loadSession() || session;
+    if (!s) {
+      router.push("/emergency-quiz");
+      return;
+    }
+    if (idx + 1 >= total) {
+      clearResumeSnapshot(activeVariant.id, s);
+      router.push("/emergency-quiz/result");
+    } else {
+      updateResumeSnapshot(activeVariant.id, idx + 1, s);
+      router.push(`/emergency-quiz/${idx + 2}`);
+    }
   }
 
   function prev() {
-    if (idx > 0) router.push(`/emergency-quiz/${idx}`);
+    const s = loadSession() || session;
+    if (!s) {
+      router.push("/emergency-quiz");
+      return;
+    }
+    if (idx > 0) {
+      const targetIdx = idx - 1;
+      updateResumeSnapshot(activeVariant.id, targetIdx, s);
+      router.push(`/emergency-quiz/${targetIdx + 1}`);
+    }
   }
 
   const progress = Math.round(((idx + 1) / total) * 100);

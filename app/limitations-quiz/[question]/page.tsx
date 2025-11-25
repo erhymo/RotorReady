@@ -4,9 +4,12 @@ import { useParams, useRouter } from "next/navigation";
 import TopBarBackButton from "@/components/TopBarBackButton";
 import Link from "next/link";
 import { useActiveModelVariant } from "@/lib/models/hooks";
+import { modelScopedKey } from "@/lib/models/storage";
 
 import { reportFlag, type FlagPayload } from "@/lib/flags";
 import FlagReasonDialog from "@/components/FlagReasonDialog";
+
+const SECTION_ID = "limitations" as const;
 
 type Item = {
   id: string;
@@ -20,12 +23,51 @@ type Item = {
   printedPage?: number;
   __file?: string;
 };
-type Session = { section: string; createdAt: string; items: Item[]; answers: Array<number|null>; flags: boolean[] };
+
+type Session = {
+  section: string;
+  createdAt: string;
+  items: Item[];
+  answers: Array<number | null>;
+  flags: boolean[];
+  amountToken?: string;
+};
 
 function loadSession(): Session | null {
   try { const raw = sessionStorage.getItem("limq_session"); return raw ? JSON.parse(raw) as Session : null; } catch { return null; }
 }
 function saveSession(s: Session) { sessionStorage.setItem("limq_session", JSON.stringify(s)); }
+
+function updateResumeSnapshot(variantId: string, idx: number, s: Session) {
+  if (!s || !Array.isArray(s.items) || !s.items.length) return;
+  const amountToken = s.amountToken;
+  if (!amountToken) return;
+  try {
+    const resumeKey = `${modelScopedKey("quiz:resume", variantId)}:${SECTION_ID}:${amountToken}`;
+    const snapshot = {
+      section: SECTION_ID,
+      variantId,
+      amount: amountToken,
+      items: s.items,
+      idx,
+      answers: s.answers.map((a) => (a == null ? undefined : Number(a))),
+      flags: s.flags,
+      startedAt: s.createdAt ? Date.parse(s.createdAt) || Date.now() : Date.now(),
+      updatedAt: Date.now(),
+    };
+    localStorage.setItem(resumeKey, JSON.stringify(snapshot));
+  } catch {}
+}
+
+function clearResumeSnapshot(variantId: string, s: Session | null) {
+  if (!s?.amountToken) return;
+  try {
+    const resumeKey = `${modelScopedKey("quiz:resume", variantId)}:${SECTION_ID}:${s.amountToken}`;
+    localStorage.removeItem(resumeKey);
+  } catch {}
+}
+
+
 
 export default function QuestionPage() {
   const router = useRouter();
@@ -47,6 +89,7 @@ export default function QuestionPage() {
     if (idx >= s.items.length) { router.replace("/limitations-quiz/result"); return; }
     setSession(s);
     setSelected(s.answers[idx] ?? null);
+    updateResumeSnapshot(activeVariant.id, idx, s);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [idx]);
 
@@ -77,12 +120,14 @@ export default function QuestionPage() {
     const s = loadSession(); if (!s) return;
     s.answers[idx] = i;
     saveSession(s); setSession(s); setSelected(i);
+    updateResumeSnapshot(activeVariant.id, idx, s);
   }
   function toggleFlag() {
     const s = loadSession(); if (!s) return;
     s.flags[idx] = !s.flags[idx];
     const nowFlagged = s.flags[idx];
     saveSession(s); setSession({ ...s });
+    updateResumeSnapshot(activeVariant.id, idx, s);
     if (nowFlagged) {
       const basePayload: FlagPayload = {
         section: s.section,
@@ -102,11 +147,30 @@ export default function QuestionPage() {
     }
   }
   function next() {
-    if (idx + 1 >= total) router.push("/limitations-quiz/result");
-    else router.push(`/limitations-quiz/${idx + 2}`);
+    const s = loadSession() || session;
+    if (!s) {
+      router.push("/limitations-quiz");
+      return;
+    }
+    if (idx + 1 >= total) {
+      clearResumeSnapshot(activeVariant.id, s);
+      router.push("/limitations-quiz/result");
+    } else {
+      updateResumeSnapshot(activeVariant.id, idx + 1, s);
+      router.push(`/limitations-quiz/${idx + 2}`);
+    }
   }
   function prev() {
-    if (idx > 0) router.push(`/limitations-quiz/${idx}`);
+    const s = loadSession() || session;
+    if (!s) {
+      router.push("/limitations-quiz");
+      return;
+    }
+    if (idx > 0) {
+      const targetIdx = idx - 1;
+      updateResumeSnapshot(activeVariant.id, targetIdx, s);
+      router.push(`/limitations-quiz/${targetIdx + 1}`);
+    }
   }
 
   const progress = Math.round(((idx+1) / total) * 100);

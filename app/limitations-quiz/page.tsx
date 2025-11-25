@@ -68,8 +68,11 @@ export default function LimitationsStart() {
   const [err, setErr] = React.useState<string | null>(null);
   const { variant: activeVariant } = useActiveModelVariant();
 
-  const [totalCount, setTotalCount] = React.useState<number|null>(null);
+  const [resumeInfo, setResumeInfo] = React.useState<{ amountToken: string; idx: number; total: number } | null>(null);
+
+  const [totalCount, setTotalCount] = React.useState<number | null>(null);
   const [totalLoading, setTotalLoading] = React.useState(false);
+
   React.useEffect(() => {
     let cancelled = false;
     setTotalLoading(true);
@@ -83,9 +86,44 @@ export default function LimitationsStart() {
         if (!cancelled) setTotalLoading(false);
       }
     })();
-    return () => { cancelled = true; };
+    return () => {
+      cancelled = true;
+    };
   }, [activeVariant.id]);
 
+  React.useEffect(() => {
+    let cancelled = false;
+    try {
+      const prefix = `${modelScopedKey("quiz:resume", activeVariant.id)}:${SECTION_ID}:`;
+      const matches: { key: string; snap: any }[] = [];
+      for (let i = 0; i < (typeof window !== "undefined" ? localStorage.length : 0); i++) {
+        const key = localStorage.key(i);
+        if (!key || !key.startsWith(prefix)) continue;
+        try {
+          const raw = localStorage.getItem(key);
+          if (!raw) continue;
+          const snap = JSON.parse(raw);
+          if (!Array.isArray(snap?.items) || !snap.items.length) continue;
+          matches.push({ key, snap });
+        } catch {}
+      }
+      if (!cancelled) {
+        if (matches.length) {
+          matches.sort((a, b) => Number(b.snap?.updatedAt || 0) - Number(a.snap?.updatedAt || 0));
+          const top = matches[0];
+          const amountToken = String(top.snap?.amount ?? top.key.substring(prefix.length));
+          const total = Array.isArray(top.snap?.items) ? top.snap.items.length : 0;
+          const idx = Math.min(Math.max(0, Number(top.snap?.idx ?? 0)), Math.max(0, total - 1));
+          setResumeInfo({ amountToken, idx, total });
+        } else {
+          setResumeInfo(null);
+        }
+      }
+    } catch {}
+    return () => {
+      cancelled = true;
+    };
+  }, [activeVariant.id]);
   async function getData(): Promise<{items: QuizItem[]}> {
     const items = await loadAllQuestions(activeVariant.id);
     const filtered = items.filter((item: any) => {
@@ -98,7 +136,8 @@ export default function LimitationsStart() {
   }
 
   async function startQuiz() {
-    setLoading(true); setErr(null);
+    setLoading(true);
+    setErr(null);
     try {
       // Paywall bypass for utvikling/testing
       // const paid = await isPaidAsync();
@@ -123,22 +162,75 @@ export default function LimitationsStart() {
 
       const randomized = items.map(shuffleOptionsForItem);
 
+      const amountToken = amount === "all" ? "all" : String(amount);
       const session = {
         section: "limitations",
         createdAt: new Date().toISOString(),
         items: randomized,
-        answers: Array(randomized.length).fill(null) as Array<number|null>,
-        flags: Array(randomized.length).fill(false) as boolean[]
+        answers: Array(randomized.length).fill(null) as Array<number | null>,
+        flags: Array(randomized.length).fill(false) as boolean[],
+        amountToken,
       };
       sessionStorage.setItem("limq_session", JSON.stringify(session));
+      try {
+        const resumeKey = `${modelScopedKey("quiz:resume", activeVariant.id)}:${SECTION_ID}:${amountToken}`;
+        const snapshot = {
+          section: SECTION_ID,
+          variantId: activeVariant.id,
+          amount: amountToken,
+          items: randomized,
+          idx: 0,
+          answers: Array(randomized.length).fill(undefined),
+          flags: Array(randomized.length).fill(false),
+          startedAt: Date.now(),
+          updatedAt: Date.now(),
+        };
+        localStorage.setItem(resumeKey, JSON.stringify(snapshot));
+      } catch {}
       // if (!paid) incQuota("limitations");
       router.push("/limitations-quiz/1");
-    } catch(e:any) {
+    } catch (e: any) {
       setErr(e?.message || "Could not start quiz");
     } finally {
       setLoading(false);
     }
   }
+  function handleResumeContinue() {
+    if (!resumeInfo) return;
+    try {
+      const key = `${modelScopedKey("quiz:resume", activeVariant.id)}:${SECTION_ID}:${resumeInfo.amountToken}`;
+      const raw = localStorage.getItem(key);
+      if (!raw) return;
+      const snap = JSON.parse(raw);
+      if (!Array.isArray(snap?.items) || !snap.items.length) return;
+      const session = {
+        section: "limitations",
+        createdAt: new Date().toISOString(),
+        items: snap.items,
+        answers: Array(snap.items.length).fill(null) as Array<number | null>,
+        flags: Array(snap.items.length).fill(false) as boolean[],
+        amountToken: String(resumeInfo.amountToken),
+      } as any;
+      if (Array.isArray(snap.answers) && snap.answers.length === snap.items.length) {
+        session.answers = snap.answers.map((a: any) => (a == null ? null : Number(a)));
+      }
+      if (Array.isArray(snap.flags) && snap.flags.length === snap.items.length) {
+        session.flags = snap.flags as boolean[];
+      }
+      sessionStorage.setItem("limq_session", JSON.stringify(session));
+      router.push(`/limitations-quiz/${resumeInfo.idx + 1}`);
+    } catch {}
+  }
+
+  function handleResumeReset() {
+    if (!resumeInfo) return;
+    try {
+      const key = `${modelScopedKey("quiz:resume", activeVariant.id)}:${SECTION_ID}:${resumeInfo.amountToken}`;
+      localStorage.removeItem(key);
+    } catch {}
+    setResumeInfo(null);
+  }
+
 
   function startWrongOnly() {
     const lowerKey = `${modelScopedKey("rr_progress_last_wrong", activeVariant.id)}:limitations`;
@@ -212,6 +304,19 @@ export default function LimitationsStart() {
           {loading ? "Starting…" : "Start"}
         </button>
       </div>
+      {resumeInfo && (
+        <div className="rounded-xl border-l-4 border-emerald-600 bg-emerald-50/40 dark:border-emerald-400 dark:bg-emerald-900/40 p-4 flex items-center gap-3">
+          <div className="flex-1">
+            <div className="font-semibold text-slate-900 dark:text-white">Resume session</div>
+            <div className="text-sm text-gray-600 dark:text-zinc-100">
+              You are on question {resumeInfo.idx + 1} of {resumeInfo.total} ({String(resumeInfo.amountToken)}).
+            </div>
+          </div>
+          <button onClick={handleResumeContinue} className="px-3 py-2 rounded-lg bg-emerald-600 text-white">Continue</button>
+          <button onClick={handleResumeReset} className="px-3 py-2 rounded-lg bg-slate-200 dark:bg-zinc-700 dark:text-white">Start over</button>
+        </div>
+      )}
+
       {err && <p className="text-red-600 text-sm">{err}</p>}
       <div className="rounded-xl border-l-4 border-emerald-600 bg-emerald-50/40 dark:border-emerald-400 dark:bg-emerald-900/40 p-4">
         <div className="flex items-center justify-between">

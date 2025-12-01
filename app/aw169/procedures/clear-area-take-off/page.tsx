@@ -56,7 +56,7 @@ function ClearAreaTakeOffInner() {
               <div className="flex items-baseline">
                 <span>Airspeed</span>
                 <span className="mx-2 flex-1 border-b border-dotted border-slate-400/80 dark:border-zinc-500/60" />
-                <span className="font-semibold">20 KIAS</span>
+                  <span className="font-semibold">35 KIAS</span>
               </div>
             </div>
           </div>

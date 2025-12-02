@@ -40,6 +40,23 @@ function PageInner() {
           />
         </section>
 
+	        {/* LDP summary */}
+	        <section className="rounded-xl border bg-white p-4 dark:bg-zinc-900 dark:border-zinc-700">
+	          <h2 className="text-xl font-semibold text-slate-900 dark:text-zinc-100">Landing decision point (LDP)</h2>
+	          <div className="mt-2 space-y-2 text-slate-800 dark:text-zinc-100">
+	            <div className="flex items-baseline">
+	              <span>Height</span>
+	              <span className="mx-2 flex-1 border-b border-dotted border-slate-400/80 dark:border-zinc-500/60" />
+	              <span className="font-semibold">30 ft ALS</span>
+	            </div>
+	            <div className="flex items-baseline">
+	              <span>Groundspeed</span>
+	              <span className="mx-2 flex-1 border-b border-dotted border-slate-400/80 dark:border-zinc-500/60" />
+	              <span className="font-semibold">12 kts</span>
+	            </div>
+	          </div>
+	        </section>
+
         {/* Steps */}
         <section className="rounded-xl border bg-white p-4 dark:bg-zinc-900 dark:border-zinc-700">
           <h2 className="text-lg font-semibold text-slate-900 dark:text-zinc-100">Procedure</h2>

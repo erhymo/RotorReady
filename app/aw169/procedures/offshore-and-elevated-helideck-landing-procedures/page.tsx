@@ -30,6 +30,21 @@ function PageInner() {
           </h1>
         </header>
 
+	        {/* Figure under title */}
+	        <section
+	          aria-label="Figure"
+	          className="rounded-xl border bg-white dark:bg-zinc-900 dark:border-zinc-700 p-4"
+	        >
+	          <img
+	            src="/aw169/procedures/offshore-elevated-helideck-take-off-normal-procedure/offshore_elevated_helideck_take_off_profile_exact.svg"
+	            alt="OFFSHORE / ELEVATED HELIDECK TAKE-OFF NORMAL PROCEDURE profile"
+	            className="w-full h-auto"
+	            onError={(e) => {
+	              (e.currentTarget as HTMLImageElement).style.display = "none";
+	            }}
+	          />
+	        </section>
+
         {/* Wind limitations */}
         <section className="rounded-xl border bg-white p-4 dark:bg-zinc-900 dark:border-zinc-700">
           <h2 className="text-xl font-semibold text-slate-900 dark:text-zinc-100">Wind limitations</h2>

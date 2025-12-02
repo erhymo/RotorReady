@@ -40,14 +40,26 @@ function PageInner() {
           />
         </section>
 
-        {/* Landing Decision Point (LDP) */}
-        <section className="rounded-xl border bg-white p-4 dark:bg-zinc-900 dark:border-zinc-700">
-          <h2 className="text-lg font-semibold text-slate-900 dark:text-zinc-100">Landing Decision Point (LDP)</h2>
-          <div className="mt-2 text-slate-800 dark:text-zinc-100">
-            <p>Height ..................................................................................... 50 ft (15 m) ALS</p>
-            <p>Airspeed............................................................................................... 40 KIAS</p>
-            <p>Rate of Descent ................................................................ Less than 350 ft/min</p>
-          </div>
+	        {/* Landing Decision Point (LDP) */}
+	        <section className="rounded-xl border bg-white p-4 dark:bg-zinc-900 dark:border-zinc-700">
+	          <h2 className="text-lg font-semibold text-slate-900 dark:text-zinc-100">Landing Decision Point (LDP)</h2>
+	          <div className="mt-2 space-y-2 text-slate-800 dark:text-zinc-100">
+	            <div className="flex items-baseline">
+	              <span>Height</span>
+	              <span className="mx-2 flex-1 border-b border-dotted border-slate-400/80 dark:border-zinc-500/60" />
+	              <span className="font-semibold">50 ft (15 m) ALS</span>
+	            </div>
+	            <div className="flex items-baseline">
+	              <span>Airspeed</span>
+	              <span className="mx-2 flex-1 border-b border-dotted border-slate-400/80 dark:border-zinc-500/60" />
+	              <span className="font-semibold">40 KIAS</span>
+	            </div>
+	            <div className="flex items-baseline">
+	              <span>Rate of Descent</span>
+	              <span className="mx-2 flex-1 border-b border-dotted border-slate-400/80 dark:border-zinc-500/60" />
+	              <span className="font-semibold">Less than 350 ft/min</span>
+	            </div>
+	          </div>
           <div className="mt-3 rounded-xl border bg-white p-4 text-sm dark:bg-zinc-900 dark:border-zinc-700">
             <div className="font-semibold">Note</div>
             <p className="mt-1">

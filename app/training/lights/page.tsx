@@ -1367,65 +1367,73 @@ export default function LightsTrainer() {
 	              href="/training/lights/cwp/aw169"
 	            />
 
-	            <>
-	              <LightsBar
-	                tone="slate"
-	                title="Memory items  Trainer (AW169)"
-	                description="Train only on QRH memory items. Tap to choose red or amber items."
-	                onClick={() => setShowMemoryMenu((prev) => !prev)}
-	              />
-	              {showMemoryMenu && (
-	                <div className="space-y-3 pl-3 border-l border-slate-200 dark:border-zinc-700">
-	                  <LightsBar
-	                    tone="amber"
-	                    title="Red memory items"
-	                    description="QRH memory items for red warning lights."
-	                    actionLabel={
-	                      loading
-	                        ? "Loading"
-	                        : memoryCount
-	                        ? `Start (${memoryCount} items)`
-	                        : "No red memory items"
-	                    }
-	                    onClick={startMemoryOnly}
-	                    disabled={loading || memoryCount === 0}
-	                  />
+		            <>
+		              <LightsBar
+		                tone="slate"
+		                title="Memory items – Trainer (AW169)"
+		                description="Train only on QRH memory items. Tap to choose red or amber items."
+		                onClick={() => setShowMemoryMenu((prev) => !prev)}
+		              />
+		              {showMemoryMenu && (
+		                <div className="space-y-3 pl-3 border-l border-slate-200 dark:border-zinc-700">
+		                  {/* RED: random trainer */}
 		                  <LightsBar
 		                    tone="amber"
-		                    title="Amber (yellow) memory items"
-		                    description="QRH memory items for amber caution lights (coming soon)."
-		                    disabled
+		                    title="Red memory items"
+		                    description="QRH memory items for red warning lights."
+		                    actionLabel={
+		                      loading
+		                        ? "Loading…"
+		                        : memoryCount
+		                        ? `Start (${memoryCount} items)`
+		                        : "No red memory items"
+		                    }
+		                    onClick={startMemoryOnly}
+		                    disabled={loading || memoryCount === 0}
 		                  />
+		                  {/* RED: per-item browse (CWP-style grid) */}
 		                  <LightsBar
 		                    tone="amber"
 		                    title="Red memory items"
 		                    description="Browse red QRH memory items one by one."
 		                    actionLabel={
 		                      loading
-		                        ? "Loading"
+		                        ? "Loading…"
 		                        : memoryCount
 		                        ? "Browse"
 		                        : "No red memory items"
 		                    }
-		                    onClick={() =>
-		                      setMemoryGridSeverity((prev) => (prev === "warning" ? null : "warning"))
-		                    }
+		                    onClick={() => setMemoryGridSeverity("warning")}
 		                    disabled={loading || memoryCount === 0}
 		                  />
+		                  {/* AMBER: random trainer */}
+		                  <LightsBar
+		                    tone="amber"
+		                    title="Amber (yellow) memory items"
+		                    description="QRH memory items for amber caution lights."
+		                    actionLabel={
+		                      loading
+		                        ? "Loading…"
+		                        : amberMemoryCount
+		                        ? `Start (${amberMemoryCount} items)`
+		                        : "No amber memory items"
+		                    }
+		                    onClick={startAmberMemoryOnly}
+		                    disabled={loading || amberMemoryCount === 0}
+		                  />
+		                  {/* AMBER: per-item browse (CWP-style grid) */}
 		                  <LightsBar
 		                    tone="amber"
 		                    title="Amber (yellow) memory items"
 		                    description="Browse amber QRH memory items one by one."
 		                    actionLabel={
 		                      loading
-		                        ? "Loading"
+		                        ? "Loading…"
 		                        : amberMemoryCount
 		                        ? "Browse"
 		                        : "No amber memory items"
 		                    }
-		                    onClick={() =>
-		                      setMemoryGridSeverity((prev) => (prev === "caution" ? null : "caution"))
-		                    }
+		                    onClick={() => setMemoryGridSeverity("caution")}
 		                    disabled={loading || amberMemoryCount === 0}
 		                  />
 		                  {memoryGridSeverity && (

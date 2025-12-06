@@ -163,6 +163,7 @@ export default function LightsTrainer() {
 	  const [idx, setIdx] = useState(0);
 	  const [memoryOnly, setMemoryOnly] = useState(false);
 	  const [showMemoryMenu, setShowMemoryMenu] = useState(false);
+	  const [memoryGridSeverity, setMemoryGridSeverity] = useState<Severity | null>(null);
 	  const [isMobile, setIsMobile] = useState(false);
 	  const [compactCWP, setCompactCWP] = useState(false);
 	  const [pickCounts, setPickCounts] = useState<{ warning: "all" | number }>({ warning: "all" });
@@ -265,7 +266,23 @@ export default function LightsTrainer() {
     };
   }, [activeVariant.id, activeVariant.productId]);
 
-  const warningLights = useMemo(() => all.filter((item) => item.severity === "warning"), [all]);
+	  const warningLights = useMemo(() => all.filter((item) => item.severity === "warning"), [all]);
+
+	  const aw169RedMemoryLights = useMemo(
+	    () =>
+	      activeVariant.id === "AW169"
+	        ? warningLights.filter((item) => (AW169_MEMORY_CROPS as any)[item.id])
+	        : [],
+	    [warningLights, activeVariant.id]
+	  );
+
+	  const aw169AmberMemoryLights = useMemo(
+	    () =>
+	      activeVariant.id === "AW169"
+	        ? all.filter((item) => item.severity === "caution" && (AW169_MEMORY_CROPS as any)[item.id])
+	        : [],
+	    [all, activeVariant.id]
+	  );
 
   // Resume previous procedure context when returning from a linked procedure page
   useEffect(() => {
@@ -410,18 +427,21 @@ export default function LightsTrainer() {
     return steps.some((s) => s.type === "action");
   }, []);
 
-  const memoryCount = useMemo(() => {
-    if (activeVariant.id === "AW169") {
-      return warningLights.filter((item) => (AW169_MEMORY_CROPS as any)[item.id]).length;
-    }
-    if (activeVariant.id === "AW189") {
-      // Until we have explicit memory markers for AW189, include all red lights
-      return warningLights.length;
-    }
-    return 0;
-  }, [warningLights, activeVariant.id]);
+	  const memoryCount = useMemo(() => {
+	    if (activeVariant.id === "AW169") {
+	      return aw169RedMemoryLights.length;
+	    }
+	    if (activeVariant.id === "AW189") {
+	      // Until we have explicit memory markers for AW189, include all red lights
+	      return warningLights.length;
+	    }
+	    return 0;
+	  }, [aw169RedMemoryLights, warningLights, activeVariant.id]);
 
-
+	  const amberMemoryCount = useMemo(
+	    () => (activeVariant.id === "AW169" ? aw169AmberMemoryLights.length : 0),
+	    [aw169AmberMemoryLights, activeVariant.id]
+	  );
 
 		  const start = useCallback(async (_severity: Severity) => {
     // Access control: allow 5 starts when not logged in; unlimited when logged in
@@ -461,58 +481,101 @@ export default function LightsTrainer() {
       incQuota("lights");
     }
 
-    let pool: LightItem[] = [];
-    if (activeVariant.id === "AW169") {
-      // Include ONLY lights that have a detected QRH memory box crop
-      pool = warningLights.filter((item) => (AW169_MEMORY_CROPS as any)[item.id]);
-    } else if (activeVariant.id === "AW189") {
-      // Until explicit memory items exist for AW189, include all red lights
-      pool = warningLights;
-    }
+	    let pool: LightItem[] = [];
+	    if (activeVariant.id === "AW169") {
+	      // Include ONLY lights that have a detected QRH memory box crop
+	      pool = aw169RedMemoryLights;
+	    } else if (activeVariant.id === "AW189") {
+	      // Until explicit memory items exist for AW189, include all red lights
+	      pool = warningLights;
+	    }
 
-    if (!pool.length) return;
-    const shuffled = shuffle(pool);
-    const n = shuffled.length;
-    setDeck(shuffled.slice(0, n));
-    setLastSeverity("warning");
-    setIdx(0);
-    setMemoryOnly(true);
-    setMode("light");
-  }, [warningLights, activeVariant.id, hasMemory]);
+	    if (!pool.length) return;
+	    const shuffled = shuffle(pool);
+	    const n = shuffled.length;
+	    setDeck(shuffled.slice(0, n));
+	    setLastSeverity("warning");
+	    setIdx(0);
+	    setMemoryOnly(true);
+	    setMode("light");
+	  }, [aw169RedMemoryLights, warningLights, activeVariant.id]);
 
-  const restart = useCallback(() => {
-    const sev: Severity = lastSeverity ?? (deck[0]?.severity ?? "warning");
-    let pool = warningLights;
-    if (memoryOnly) {
-      if (activeVariant.id === "AW169") {
-        pool = warningLights.filter((item) => (AW169_MEMORY_CROPS as any)[item.id]);
-      } else if (activeVariant.id === "AW189") {
-        pool = warningLights;
-      } else {
-        pool = [] as LightItem[];
-      }
-    }
+	  const startAmberMemoryOnly = useCallback(async () => {
+	    const loggedIn = await isLoggedInAsync();
+
+	    if (!loggedIn) {
+	      const used = getQuota("lights");
+	      if (used >= 5) {
+	        try { window.location.href = `/paywall?from=${encodeURIComponent('/training/lights')}`; } catch {}
+	        return;
+	      }
+	      incQuota("lights");
+	    }
+
+	    if (activeVariant.id !== "AW169") return;
+	    const pool = aw169AmberMemoryLights;
+	    if (!pool.length) return;
+	    const shuffled = shuffle(pool);
+	    const n = shuffled.length;
+	    setDeck(shuffled.slice(0, n));
+	    setLastSeverity("caution");
+	    setIdx(0);
+	    setMemoryOnly(true);
+	    setMode("light");
+	  }, [activeVariant.id, aw169AmberMemoryLights]);
+
+		  const restart = useCallback(() => {
+	    const sev: Severity = lastSeverity ?? (deck[0]?.severity ?? "warning");
+	    let pool = warningLights;
+	    if (memoryOnly) {
+	      if (activeVariant.id === "AW169") {
+	        pool = aw169RedMemoryLights;
+	      } else if (activeVariant.id === "AW189") {
+	        pool = warningLights;
+	      } else {
+	        pool = [] as LightItem[];
+	      }
+	    }
 	    if (!pool.length) return;
 		    const n = deck.length || pool.length;
-    const key = `lights:lastOrders:${activeVariant.id}:${sev}:${n}:memory:${memoryOnly ? 1 : 0}`;
-    const lastOrders = (() => {
-      try { return JSON.parse(sessionStorage.getItem(key) || "[]"); } catch { return []; }
-    })() as string[];
-    const sig = (arr: LightItem[]) => arr.map((x) => x.id).join(",");
-    let next = shuffle(pool).slice(0, n);
-    if (lastOrders.includes(sig(next))) {
-      next = shuffle(pool).slice(0, n);
-    }
-    const updated = [...lastOrders, sig(next)].slice(-2);
-    try { sessionStorage.setItem(key, JSON.stringify(updated)); } catch {}
-	    setDeck(next as LightItem[]);
+	    const key = `lights:lastOrders:${activeVariant.id}:${sev}:${n}:memory:${memoryOnly ? 1 : 0}`;
+	    const lastOrders = (() => {
+	      try { return JSON.parse(sessionStorage.getItem(key) || "[]"); } catch { return []; }
+	    })() as string[];
+	    const sig = (arr: LightItem[]) => arr.map((x) => x.id).join(",");
+	    let next = shuffle(pool).slice(0, n);
+	    if (lastOrders.includes(sig(next))) {
+	      next = shuffle(pool).slice(0, n);
+	    }
+	    const updated = [...lastOrders, sig(next)].slice(-2);
+	    try { sessionStorage.setItem(key, JSON.stringify(updated)); } catch {}
+		    setDeck(next as LightItem[]);
+		    setIdx(0);
+		    setMode("light");
+		  }, [lastSeverity, deck, warningLights, activeVariant.id, memoryOnly, hasMemory, aw169RedMemoryLights]);
+
+	  async function openMemoryItem(item: LightItem) {
+	    const loggedIn = await isLoggedInAsync();
+
+	    if (!loggedIn) {
+	      const used = getQuota("lights");
+	      if (used >= 5) {
+	        try { window.location.href = `/paywall?from=${encodeURIComponent('/training/lights')}`; } catch {}
+	        return;
+	      }
+	      incQuota("lights");
+	    }
+
+	    setDeck([item]);
+	    setLastSeverity(item.severity as Severity);
 	    setIdx(0);
+	    setMemoryOnly(true);
 	    setMode("light");
-	  }, [lastSeverity, deck, warningLights, activeVariant.id, memoryOnly, hasMemory]);
+	    setShowMemoryMenu(false);
+	    setMemoryGridSeverity(null);
+	  }
 
-
-
-  const renderText = useCallback((text?: string) => {
+	  const renderText = useCallback((text?: string) => {
     if (!text) return null as any;
     if (activeVariant.id !== "AW169") return text as any;
     const re = /(SINGLE ENGINE PROCEDURE|ENGINE SHUTDOWN IN EMERGENCY)/gi;
@@ -1327,15 +1390,112 @@ export default function LightsTrainer() {
 	                    onClick={startMemoryOnly}
 	                    disabled={loading || memoryCount === 0}
 	                  />
-	                  <LightsBar
-	                    tone="amber"
-	                    title="Amber (yellow) memory items"
-	                    description="QRH memory items for amber caution lights (coming soon)."
-	                    disabled
-	                  />
-	                </div>
-	              )}
-	            </>
+		                  <LightsBar
+		                    tone="amber"
+		                    title="Amber (yellow) memory items"
+		                    description="QRH memory items for amber caution lights (coming soon)."
+		                    disabled
+		                  />
+		                  <LightsBar
+		                    tone="amber"
+		                    title="Red memory items"
+		                    description="Browse red QRH memory items one by one."
+		                    actionLabel={
+		                      loading
+		                        ? "Loading"
+		                        : memoryCount
+		                        ? "Browse"
+		                        : "No red memory items"
+		                    }
+		                    onClick={() =>
+		                      setMemoryGridSeverity((prev) => (prev === "warning" ? null : "warning"))
+		                    }
+		                    disabled={loading || memoryCount === 0}
+		                  />
+		                  <LightsBar
+		                    tone="amber"
+		                    title="Amber (yellow) memory items"
+		                    description="Browse amber QRH memory items one by one."
+		                    actionLabel={
+		                      loading
+		                        ? "Loading"
+		                        : amberMemoryCount
+		                        ? "Browse"
+		                        : "No amber memory items"
+		                    }
+		                    onClick={() =>
+		                      setMemoryGridSeverity((prev) => (prev === "caution" ? null : "caution"))
+		                    }
+		                    disabled={loading || amberMemoryCount === 0}
+		                  />
+		                  {memoryGridSeverity && (
+		                    <div className="pt-2">
+		                      <div className="rounded-xl border bg-white p-4 shadow-sm dark:bg-zinc-900 dark:border-zinc-700">
+		                        <div className="flex items-center justify-between mb-3">
+		                          <div className="flex items-center gap-2">
+		                            <span
+		                              className={`inline-block h-2.5 w-2.5 rounded-full ${
+		                                memoryGridSeverity === "warning" ? "bg-red-600" : "bg-amber-500"
+		                              }`}
+		                              aria-hidden
+		                            />
+		                            <h3 className="text-sm font-semibold text-slate-900 dark:text-zinc-100">
+		                              {memoryGridSeverity === "warning"
+		                                ? "Select a red memory item"
+		                                : "Select an amber (yellow) memory item"}
+		                            </h3>
+		                          </div>
+		                          <button
+		                            type="button"
+		                            onClick={() => setMemoryGridSeverity(null)}
+		                            className="text-xs text-slate-500 hover:text-slate-700 dark:text-zinc-400 dark:hover:text-zinc-200 underline"
+		                          >
+		                            Close
+		                          </button>
+		                        </div>
+		                        {(() => {
+		                          const items =
+		                            memoryGridSeverity === "warning"
+		                              ? aw169RedMemoryLights
+		                              : aw169AmberMemoryLights;
+		                          if (!items.length) {
+		                            return (
+		                              <p className="text-xs text-slate-600 dark:text-zinc-300">
+		                                {memoryGridSeverity === "warning"
+		                                  ? "No red memory items available yet."
+		                                  : "No amber memory items available yet."}
+		                              </p>
+		                            );
+		                          }
+		                          return (
+		                            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3">
+		                              {items.map((item) => (
+		                                <button
+		                                  key={item.id}
+		                                  type="button"
+		                                  onClick={() => openMemoryItem(item)}
+		                                  className={`relative select-none rounded-md sm:rounded-lg flex items-center justify-center text-center font-semibold tracking-wide h-20 sm:h-20 md:h-24 overflow-hidden ${
+		                                    memoryGridSeverity === "warning"
+		                                      ? "bg-neutral-900 ring-1 ring-white/10 text-red-600 dark:text-red-200 [text-shadow:0_0_12px_rgba(255,85,85,0.6)]"
+		                                      : "bg-neutral-900 ring-1 ring-white/10 text-amber-400 dark:text-amber-200 [text-shadow:0_0_12px_rgba(251,191,36,0.6)]"
+		                                  } cursor-pointer hover:opacity-95 active:opacity-90`}
+		                                  aria-label={displayName(item)}
+		                                  title={displayName(item)}
+		                                >
+		                                  <span className="px-1 leading-tight whitespace-pre-line break-words text-[11px] sm:text-[12px] md:text-sm">
+		                                    {displayName(item).toUpperCase()}
+		                                  </span>
+		                                </button>
+		                              ))}
+		                            </div>
+		                          );
+		                        })()}
+		                      </div>
+		                    </div>
+		                  )}
+		                </div>
+		              )}
+		            </>
 	          </div>
 	        )}
         {mode === "light" && current && (

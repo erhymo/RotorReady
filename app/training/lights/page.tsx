@@ -180,12 +180,13 @@ export default function LightsTrainer() {
 	  const [loading, setLoading] = useState(true);
 	  const [mode, setMode] = useState<Mode>("idle");
 	  const [lastSeverity, setLastSeverity] = useState<Severity | null>(null);
-	  const [deck, setDeck] = useState<LightItem[]>([]);
-	  const [idx, setIdx] = useState(0);
-	  const [memoryOnly, setMemoryOnly] = useState(false);
-	  const [showMemoryMenu, setShowMemoryMenu] = useState(false);
-	  const [memoryGridSeverity, setMemoryGridSeverity] = useState<Severity | null>(null);
-	  const [isMobile, setIsMobile] = useState(false);
+		  const [deck, setDeck] = useState<LightItem[]>([]);
+		  const [idx, setIdx] = useState(0);
+		  const [memoryOnly, setMemoryOnly] = useState(false);
+		  const [showMemoryMenu, setShowMemoryMenu] = useState(false);
+		  const [memoryGridSeverity, setMemoryGridSeverity] = useState<Severity | null>(null);
+		  const [returnToMemoryGrid, setReturnToMemoryGrid] = useState<Severity | null>(null);
+		  const [isMobile, setIsMobile] = useState(false);
 	  const [compactCWP, setCompactCWP] = useState(false);
 	  const [pickCounts, setPickCounts] = useState<{ warning: "all" | number }>({ warning: "all" });
   useEffect(() => {
@@ -570,6 +571,7 @@ export default function LightsTrainer() {
 	    setLastSeverity(item.severity as Severity);
 	    setIdx(0);
 	    setMemoryOnly(true);
+		    setReturnToMemoryGrid(item.severity as Severity);
 		    setMode("procedure");
 	    setShowMemoryMenu(false);
 	    setMemoryGridSeverity(null);
@@ -643,14 +645,28 @@ export default function LightsTrainer() {
     }
   }, [current]);
 
-  const next = useCallback(() => {
-    if (idx + 1 >= deck.length) {
-      setMode("done");
-      return;
-    }
-    setIdx((i) => i + 1);
-    setMode("light");
-  }, [idx, deck.length]);
+		  const next = useCallback(() => {
+		    if (idx + 1 >= deck.length) {
+		      // If this was a single-memory-item session started from Browse on AW169,
+		      // go back to the corresponding memory grid instead of the generic "done" screen.
+		      if (
+		        memoryOnly &&
+		        activeVariant.id === "AW169" &&
+		        deck.length === 1 &&
+		        returnToMemoryGrid
+		      ) {
+		        setShowMemoryMenu(true);
+		        setMemoryGridSeverity(returnToMemoryGrid);
+		        setReturnToMemoryGrid(null);
+		        setMode("idle");
+		        return;
+		      }
+		      setMode("done");
+		      return;
+		    }
+		    setIdx((i) => i + 1);
+		    setMode("light");
+		  }, [idx, deck.length, memoryOnly, activeVariant.id, returnToMemoryGrid, setShowMemoryMenu, setMemoryGridSeverity, setReturnToMemoryGrid]);
 
   const prev = useCallback(() => {
     if (idx <= 0) return;

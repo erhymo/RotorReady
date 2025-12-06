@@ -106,7 +106,7 @@ export default function EngineSystemsStart() {
 
   async function getData() {
     const items = await loadAllQuestions(activeVariant.id);
-    // Filtrer spørsmål for denne seksjonen: kun de med "eng syst" i section (case-insensitiv, robust)
+    // Filter questions for this section: only those with "eng syst" in section (case-insensitive, robust)
     const filtered = items.filter((q: any) =>
       (q.section || "").toLowerCase().replace(/[^a-z]/g, "").includes("engsyst")
     );

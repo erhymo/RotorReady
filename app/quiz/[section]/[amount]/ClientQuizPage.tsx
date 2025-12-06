@@ -90,7 +90,7 @@ export default function ClientQuizPage({ section, amount }: { section: string; a
     }
 
     async function load() {
-      // 0a) Resume existing session if present (all sections, også "All")
+      // 0a) Resume existing session if present (all sections, including "All")
       try {
         const amountToken = amount ?? "all";
         const resumeKey = `${modelScopedKey("quiz:resume", activeVariant.id)}:${section}:${amountToken}`;
@@ -148,7 +148,7 @@ export default function ClientQuizPage({ section, amount }: { section: string; a
         }
       } catch {}
 
-      // 0) Sjekk om det finnes en sesjons-override (f.eks. "Øv kun på feil")
+      // 0) Check if there is a session override (e.g. "Practice only incorrect questions")
       try {
         const overrideKey = `${modelScopedKey("quiz_session_override", activeVariant.id)}:${section}`;
         const raw = sessionStorage.getItem(overrideKey);
@@ -158,7 +158,7 @@ export default function ClientQuizPage({ section, amount }: { section: string; a
             const allowed = data.items.filter(it => !blocked.has(it.id));
             let shuffled = shuffle(allowed);
             let limited = typeof amount === "number" ? shuffled.slice(0, amount) : shuffled;
-            // unngå samme rekkefølge som siste to runder
+            // avoid the same order as the previous two rounds
             try {
               const key = `quiz:lastOrders:${activeVariant.id}:${section}:${amount ?? "all"}`;
               const lastOrders: string[] = JSON.parse(sessionStorage.getItem(key) || "[]");
@@ -170,9 +170,9 @@ export default function ClientQuizPage({ section, amount }: { section: string; a
               const updated = [...lastOrders, signature(limited)].slice(-2);
               sessionStorage.setItem(key, JSON.stringify(updated));
             } catch {}
-            // randomiser alternativer pr. spørsmål
+            // randomize alternatives per question
             const randomized = limited.map(shuffleOptionsForItem);
-            // merk kildefil hvis mulig er ukjent i override; la være undefined
+            // mark source file if possible is unknown in override; leave as undefined
             if (isH125) return goH125(randomized);
             setQuestions(randomized);
             setError(null);
@@ -182,7 +182,7 @@ export default function ClientQuizPage({ section, amount }: { section: string; a
         }
       } catch {}
 
-      // 'All' aggregator: hent random på tvers av alle kapitler for valgt modell
+      // 'All' aggregator: get random questions across all chapters for the selected model
       if (section === "all") {
         try {
           const all = await loadAllQuestions(activeVariant.id);
@@ -190,7 +190,7 @@ export default function ClientQuizPage({ section, amount }: { section: string; a
           const single = all.filter((q: any) => Array.isArray(q.options) && Array.isArray(q.answer) && q.answer.length === 1);
           let shuffled = shuffle(single as QuizItem[]);
           let limited = typeof amount === "number" ? shuffled.slice(0, amount) : shuffled;
-          // Unngå identisk rekkefølge som siste to runder for denne kombinasjonen
+          // Avoid an identical order as the previous two rounds for this combination
           try {
             const key = `quiz:lastOrders:${activeVariant.id}:${section}:${amount ?? "all"}`;
             const lastOrders: string[] = JSON.parse(sessionStorage.getItem(key) || "[]");
@@ -212,7 +212,7 @@ export default function ClientQuizPage({ section, amount }: { section: string; a
         }
       }
 
-      // 1) Forsøk lokalt (offline) først
+      // 1) Try locally (offline) first
       try {
         const offline = loadSectionOffline<{ items?: QuizItem[] }>(section, activeVariant.id);
         if (!cancelled && offline && Array.isArray(offline.items)) {

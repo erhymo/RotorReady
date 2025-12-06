@@ -21,7 +21,7 @@ function LoginInner() {
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault(); setErr("");
     if (!auth) {
-      setErr("Innlogging er utilgjengelig for øyeblikket. Prøv igjen senere.");
+      setErr("Login is currently unavailable. Please try again later.");
       return;
     }
     try {
@@ -59,16 +59,16 @@ function LoginInner() {
     setErr("");
     setResetMsg("");
     if (!auth) {
-      setErr("Tilbakestilling av passord er utilgjengelig for øyeblikket. Prøv igjen senere.");
+      setErr("Password reset is currently unavailable. Please try again later.");
       return;
     }
     if (!email) {
-      setErr("Skriv inn e-postadressen din først.");
+      setErr("Enter your email address first.");
       return;
     }
     try {
       await sendPasswordResetEmail(auth, email);
-      setResetMsg("Hvis denne e-posten er registrert, har vi sendt deg en e-post med en lenke for å tilbakestille passordet.");
+      setResetMsg("If this email is registered, we've sent you an email with a link to reset your password.");
     } catch (e: any) {
       console.error("Password reset error:", e);
       setErr(mapAuthError(e?.code) || e?.message || "Kunne ikke sende tilbakestillingslenke");

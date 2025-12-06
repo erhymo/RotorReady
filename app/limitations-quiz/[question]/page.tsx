@@ -208,7 +208,7 @@ export default function QuestionPage() {
             const isAnswered = selected != null;
             const isCorrect = isAnswered && item.answer.includes(i);
             const isWrong = isAnswered && chosen && !isCorrect;
-            // Marker riktig svar grønt hvis man har svart feil
+            // Highlight the correct answer in green if the user answered incorrectly
             const highlightCorrect = isAnswered && !item.answer.includes(selected!) && item.answer.includes(i);
             return (
               <li key={i}>

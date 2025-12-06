@@ -71,7 +71,7 @@ export default function EngineQuestionPage() {
     const s = loadSession();
     if (!s) { router.replace("/engine-systems-quiz"); return; }
     if (!s.items?.length) {
-      setSession({ ...s, error: "Ingen spørsmål funnet i denne quizen." });
+      setSession({ ...s, error: "No questions found in this quiz." });
       return;
     }
     if (idx >= s.items.length) { router.replace("/engine-systems-quiz/result"); return; }

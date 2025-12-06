@@ -1,5 +1,5 @@
 
-import type { Metadata } from "next";
+	import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
@@ -9,12 +9,11 @@ import AnalyticsProvider from "@/components/AnalyticsProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata: Metadata = {
-  title: "RotorReady – Your rotorwing training app",
-  description: "Your rotorwing training app",
-  manifest: "/site.webmanifest",
-  themeColor: "#111827",
-  icons: {
+	export const metadata: Metadata = {
+	  title: "RotorReady – Your rotorwing training app",
+	  description: "Your rotorwing training app",
+	  manifest: "/site.webmanifest",
+	  icons: {
     icon: [
       { url: "/icon-192x192.png", type: "image/png", sizes: "192x192" },
       { url: "/icon-512x512.png", type: "image/png", sizes: "512x512" },
@@ -30,6 +29,10 @@ export const metadata: Metadata = {
     statusBarStyle: "default"
   }
 };
+
+	export const viewport: Viewport = {
+	  themeColor: "#111827",
+	};
 
 export default function RootLayout({
   children,

@@ -41,8 +41,8 @@ export default async function AdminDashboard() {
     <div className="max-w-5xl mx-auto p-4 space-y-8">
       <h1 className="text-2xl font-bold">Admin dashboard</h1>
 
-      <section className="bg-white dark:bg-zinc-900 dark:border-zinc-700 rounded-xl p-4 shadow border">
-        <h2 className="font-semibold">Seksjoner</h2>
+	      <section className="bg-white dark:bg-zinc-900 dark:border-zinc-700 rounded-xl p-4 shadow border">
+	        <h2 className="font-semibold">Sections</h2>
         <ul className="list-disc ml-5">
           {sections?.map((s: Section) => (
             <li key={s.id} className="mt-1">
@@ -51,13 +51,13 @@ export default async function AdminDashboard() {
             </li>
           ))}
         </ul>
-        <div className="mt-3 flex gap-2 flex-wrap">
-          <a href="/admin/qrh-publish" className="px-3 py-2 rounded bg-blue-600 text-white text-sm">QRH Publish</a>
-          <a href="/admin/flags?status=open" className="px-3 py-2 rounded border text-sm">Flags</a>
-          <a href="/admin/generated" className="px-3 py-2 rounded border text-sm">Generated ({genCount})</a>
-          <a href="/api/admin/flags/dedupe" className="px-3 py-2 rounded border text-sm" title="Forhåndsvis duplikater">Preview flag dedupe</a>
-          <a href="/api/admin/flags/dedupe?confirm=1" className="px-3 py-2 rounded border text-sm text-red-700" title="Slett duplikater (irreversibelt)">Run flag dedupe</a>
-        </div>
+	        <div className="mt-3 flex gap-2 flex-wrap">
+	          <a href="/admin/qrh-publish" className="px-3 py-2 rounded bg-blue-600 text-white text-sm">QRH Publish</a>
+	          <a href="/admin/flags?status=open" className="px-3 py-2 rounded border text-sm">Flags</a>
+	          <a href="/admin/generated" className="px-3 py-2 rounded border text-sm">Generated ({genCount})</a>
+	          <a href="/api/admin/flags/dedupe" className="px-3 py-2 rounded border text-sm" title="Preview duplicates">Preview flag dedupe</a>
+	          <a href="/api/admin/flags/dedupe?confirm=1" className="px-3 py-2 rounded border text-sm text-red-700" title="Delete duplicates (irreversible)">Run flag dedupe</a>
+	        </div>
       </section>
       {flagsWarning && (
         <div className="bg-yellow-50 border border-yellow-300 text-yellow-800 px-4 py-3 rounded">
@@ -66,14 +66,14 @@ export default async function AdminDashboard() {
       )}
 
 
-      <section className="bg-white dark:bg-zinc-900 dark:border-zinc-700 rounded-xl p-4 shadow border">
-        <h2 className="font-semibold mb-2">Flaggede spørsmål — åpne ({openFlags.length})</h2>
-        {openFlags.length === 0 ? <p className="text-gray-600">Ingen åpne flagg.</p> : (
+	      <section className="bg-white dark:bg-zinc-900 dark:border-zinc-700 rounded-xl p-4 shadow border">
+	        <h2 className="font-semibold mb-2">Flagged questions — open ({openFlags.length})</h2>
+	        {openFlags.length === 0 ? <p className="text-gray-600">No open flags.</p> : (
           <ul className="space-y-3">
             {openFlags.map((f: Flag) => (
               <li key={f.id} className="border dark:border-zinc-700 rounded-lg p-3">
                 <div className="text-sm"><b>ID:</b> {f.questionId} <span className="text-gray-500">[{f.section}]</span></div>
-                <div className="text-xs text-gray-600">Av: {f.name || f.email || f.userId || 'ukjent'} — {new Date(f.createdAt).toLocaleString('nb-NO', { timeZone: 'Europe/Oslo', weekday: 'long', year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' })} — status: {f.status}</div>
+	                <div className="text-xs text-gray-600">By: {f.name || f.email || f.userId || 'unknown'} — {new Date(f.createdAt).toLocaleString('en-GB', { timeZone: 'Europe/Oslo', weekday: 'long', year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' })} — status: {f.status}</div>
                 {f.reason && <div className="text-sm mt-1">{f.reason}</div>}
               </li>
             ))}
@@ -81,14 +81,14 @@ export default async function AdminDashboard() {
         )}
       </section>
 
-      <section className="bg-white dark:bg-zinc-900 dark:border-zinc-700 rounded-xl p-4 shadow border">
-        <h2 className="font-semibold">Kontaktmeldinger</h2>
+	      <section className="bg-white dark:bg-zinc-900 dark:border-zinc-700 rounded-xl p-4 shadow border">
+	        <h2 className="font-semibold">Contact messages</h2>
         <pre className="text-sm bg-gray-50 dark:bg-zinc-800 p-3 rounded border overflow-auto">{JSON.stringify(messages, null, 2)}</pre>
       </section>
 
-      <form action="/api/auth/logout" method="post">
-        <button className="rounded bg-gray-800 text-white px-4 py-2">Logg ut</button>
-      </form>
+	      <form action="/api/auth/logout" method="post">
+	        <button className="rounded bg-gray-800 text-white px-4 py-2">Log out</button>
+	      </form>
     </div>
   );
 }

@@ -266,7 +266,7 @@ export default function LimitationsStart() {
       sessionStorage.setItem("limq_session", JSON.stringify(data));
       router.push("/limitations-quiz/1");
     } catch {
-      alert("Kunne ikke laste lagret feilsett. Slett og prøv igjen.");
+      alert("Could not load saved incorrect set. Delete and try again.");
       if (lower) localStorage.removeItem(lowerKey);
       if (upper) localStorage.removeItem(upperKey);
       if (activeVariant.id === "AW169") {

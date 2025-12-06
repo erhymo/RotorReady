@@ -26,7 +26,7 @@ async function fetchSection(id: string, variantId: string) {
 }
 
 async function deriveSectionPayload(id: string, variantId: string) {
-  // Faller tilbake til å bygge et kapittel fra spørsmålsbanken når fil ikke finnes
+  // Fall back to building a chapter from the question bank when the file does not exist
   const items = await loadAllQuestions(variantId);
   const norm = (s: any) => String(s || "").toLowerCase();
   let filtered: any[] = [];
@@ -46,7 +46,7 @@ async function deriveSectionPayload(id: string, variantId: string) {
   } else if (id === "procedures") {
     filtered = items.filter((q: any) => norm(q.section).includes("procedur"));
   }
-  // Generisk fallback: match på normalisert seksjons-ID (f.eks. "normal_procedures")
+  // Generic fallback: match on normalized section ID (e.g. "normal_procedures")
   if (!filtered.length) {
     const toId = (v: any) => String(v || "").toLowerCase().replace(/\s+/g, "_").replace(/[^a-z0-9_]/g, "");
     const target = toId(id);
@@ -86,7 +86,7 @@ async function fetchAvailableSections(variantId: string, productId: string): Pro
     });
     return merged;
   }
-  // For alle produkter: slå sammen seksjonsliste fra modellspesifikk og global index, og filtrer bort "all"
+  // For all products: merge section list from model-specific and global index, and filter out "all"
   const urls = [`/model-data/${variantId}/index.json`, "/quiz-data/index.json"];
   const collected: Section[] = [];
   for (const url of urls) {
@@ -157,7 +157,7 @@ export default function OfflinePage() {
   }, [activeVariant.id, variantLoading]);
 
 
-  // Etter at seksjoner er lastet: hent antall spørsmål per seksjon (automatisk og modell-spesifikt)
+  // After sections are loaded: fetch question count per section (automatic and model-specific)
   useEffect(() => {
     if (variantLoading) return;
     if (!sections.length) { setCounts({}); return; }
@@ -200,13 +200,13 @@ export default function OfflinePage() {
   async function downloadSectionOffline(section: Section) {
     updateStatus(section.id, `Laster ned "${section.title}"…`);
     try {
-      // 1) Forsøk å hente standard seksjonsfil (modell- eller global)
+      // 1) Try to fetch the standard section file (model-specific or global)
       let data: any | null = null;
       try {
         data = await fetchSection(section.id, activeVariant.id);
       } catch {}
 
-      // 2) Fallback for AW169 og andre kapitler uten egen seksjonsfil: bygg fra spørsmålsbanken
+      // 2) Fallback for AW169 and other chapters without their own section file: build from the question bank
       if (!data) {
         const built = await deriveSectionPayload(section.id, activeVariant.id);
         if (Array.isArray(built.items) && built.items.length > 0) {
@@ -221,7 +221,7 @@ export default function OfflinePage() {
       updateStatus(section.id, `✓ "${section.title}" lagret for offline bruk`);
     } catch (error) {
       console.warn("Kunne ikke laste ned seksjon offline", section.id, error);
-      updateStatus(section.id, "❌ Klarte ikke å laste ned");
+      updateStatus(section.id, "❌ Failed to download");
     }
   }
 
@@ -344,7 +344,7 @@ export default function OfflinePage() {
           <section className="rounded-xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-4 mt-6 space-y-3">
             <h2 className="font-semibold">Nedlastede kapitler</h2>
             {offlineIds.length === 0 ? (
-              <p className="text-sm text-slate-600 dark:text-zinc-300">Ingen kapitler lastet ned ennå.</p>
+              <p className="text-sm text-slate-600 dark:text-zinc-300">No chapters downloaded yet.</p>
             ) : (
               <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {offlineIds.map((id) => {

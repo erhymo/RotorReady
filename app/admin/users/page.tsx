@@ -73,7 +73,7 @@ export default async function AdminUsersPage() {
         <header className="flex items-center justify-between gap-3">
           <div>
             <h1 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-white">Brukere (e-post)</h1>
-            <p className="text-xs text-slate-600 dark:text-zinc-300">Nyeste først. Kun e-post, ingen andre data.</p>
+            <p className="text-xs text-slate-600 dark:text-zinc-300">Newest first. Email only, no other data.</p>
           </div>
           <a href="/admin" className="rounded-lg border border-slate-300 px-3 py-1.5 text-sm font-medium text-slate-700 transition hover:bg-slate-100 dark:border-zinc-700 dark:text-zinc-200 dark:hover:bg-zinc-800" aria-label="Tilbake til admin">Tilbake</a>
         </header>

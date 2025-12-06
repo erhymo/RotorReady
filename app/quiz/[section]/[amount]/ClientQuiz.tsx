@@ -139,7 +139,7 @@ export default function ClientQuiz({ section, initial, resumeKey, amountToken, i
     }
   }
 
-  // Persist "last wrong" set so SectionPage → "Øv kun på feil" works for alle seksjoner
+  // Persist "last wrong" set so SectionPage → "Practice only incorrect" works for all sections
   React.useEffect(() => {
     if (!done) return;
     try {
@@ -163,7 +163,7 @@ export default function ClientQuiz({ section, initial, resumeKey, amountToken, i
     } catch {}
   }, [done]);
 
-  if (!q) return <div className="p-8 text-center dark:bg-zinc-900 dark:text-zinc-100">Laster spørsmål ...</div>;
+  if (!q) return <div className="p-8 text-center dark:bg-zinc-900 dark:text-zinc-100">Loading questions ...</div>;
   if (done) {
     const correct = answers.filter((a, i) => a === (initial[i].answer[0] ?? -1)).length;
     const percent = Math.round((correct / initial.length) * 100);

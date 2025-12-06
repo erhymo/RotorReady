@@ -108,7 +108,7 @@ export default function SectionPage() {
 
     return () => { cancelled = true; };
   }, [activeVariant.id, variantLoading, routeSection]);
-  // Oppdag om valgt seksjon faktisk har spørsmål (lokalt eller på nett)
+  // Detect whether the selected section actually has questions (locally or online)
   useEffect(() => {
     if (variantLoading) return;
     if (!selected?.id) return;
@@ -119,7 +119,7 @@ export default function SectionPage() {
         setHasQuestions(true);
         return;
       }
-      // 1) Lokal/offline først
+  // 1) Local/offline first
       try {
         const { loadSectionOffline } = await import("@/lib/offline");
         const offline = loadSectionOffline<{ items?: unknown[] }>(selected.id, activeVariant.id);

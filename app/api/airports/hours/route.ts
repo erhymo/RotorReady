@@ -8,9 +8,9 @@ const MANUAL: Record<string, { ats: string | null; fuel: string | null; note?: s
   ENGM: { ats: "H24", fuel: "H24 (Jet A-1)", note: "Indicative; check AIP/NOTAM" }, // Oslo Gardermoen
   ENBR: { ats: "H24", fuel: "H24 (Jet A-1)", note: "Indicative; check AIP/NOTAM" }, // Bergen Flesland
   ENZV: { ats: "H24", fuel: "H24 (Jet A-1)", note: "Indicative; check AIP/NOTAM" }, // Stavanger Sola
-  ENVA: { ats: "H24", fuel: "H24 (Jet A-1)", note: "Indicative; check AIP/NOTAM" }, // Trondheim Værnes
-  ENBO: { ats: "H24", fuel: "H24 (Jet A-1)", note: "Indicative; check AIP/NOTAM" }, // Bodø
-  ENTC: { ats: "H24", fuel: "H24 (Jet A-1)", note: "Indicative; check AIP/NOTAM" }, // Tromsø
+  ENVA: { ats: "H24", fuel: "H24 (Jet A-1)", note: "Indicative; check AIP/NOTAM" }, // Trondheim Vaernes
+  ENBO: { ats: "H24", fuel: "H24 (Jet A-1)", note: "Indicative; check AIP/NOTAM" }, // Bodo
+  ENTC: { ats: "H24", fuel: "H24 (Jet A-1)", note: "Indicative; check AIP/NOTAM" }, // Tromso
   ENTO: { ats: "0600-2300", fuel: "0600-2300 (Jet A-1)", note: "Indicative; check AIP/NOTAM" }, // Torp
   ENCN: { ats: "0600-2300", fuel: "0600-2300 (Jet A-1)", note: "Indicative; check AIP/NOTAM" }, // Kjevik
   ENAL: { ats: "0600-2300", fuel: "0600-2300 (Jet A-1)", note: "Indicative; check AIP/NOTAM" }, // Vigra

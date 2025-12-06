@@ -62,6 +62,6 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "Ukjent handling" }, { status: 400 });
   } catch (error: any) {
     console.error("Abonnementshandling feilet", error);
-    return NextResponse.json({ error: error?.message || "Klarte ikke å oppdatere abonnement" }, { status: 500 });
+    return NextResponse.json({ error: error?.message || "Failed to update subscription" }, { status: 500 });
   }
 }

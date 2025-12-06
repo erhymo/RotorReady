@@ -98,7 +98,7 @@ export default function AvionicsQuestionPage() {
       return;
     }
     if (!current.items?.length) {
-      setSession({ ...current, error: "Ingen spørsmål funnet i denne quizen." });
+      setSession({ ...current, error: "No questions found in this quiz." });
       return;
     }
     if (idx >= current.items.length) {

@@ -38,12 +38,12 @@ export async function POST(req: Request) {
   }
 
   if (variant.status === "coming_soon") {
-    return NextResponse.json({ error: "Modellen er ikke tilgjengelig ennå" }, { status: 409 });
+    return NextResponse.json({ error: "The model is not available yet" }, { status: 409 });
   }
 
   const doc = await getUserSubscriptionDoc(user.uid);
   if (hasActiveTrial(doc, body.productId)) {
-    return NextResponse.json({ error: "Du har allerede en aktiv prøveperiode for denne modellen" }, { status: 409 });
+    return NextResponse.json({ error: "You already have an active trial for this model" }, { status: 409 });
   }
 
   await startTrialForProduct(user.uid, body.productId, variant.id, TRIAL_DAYS);

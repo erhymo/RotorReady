@@ -1193,7 +1193,7 @@ export default function LightsTrainer() {
                   <span className="inline-block h-2.5 w-2.5 rounded-full bg-neutral-700" aria-hidden />
                   <h2 className="text-xl font-semibold text-slate-900 dark:text-zinc-100">Memory items – Trainer ({activeVariant.id})</h2>
                 </div>
-                <p className="text-sm text-slate-600 dark:text-zinc-300">Tren kun på memory items fra QRH for røde lys.</p>
+                <p className="text-sm text-slate-600 dark:text-zinc-300">Train only on memory items from the QRH for red lights.</p>
                 <div>
                   <button
                     onClick={startMemoryOnly}

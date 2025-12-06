@@ -22,7 +22,7 @@ export default function EngineQuizResult() {
     } catch {}
   }, [router, activeVariant.id]);
 
-  if (!session) return <div className="max-w-xl mx-auto p-4 dark:text-zinc-100">Laster…</div>;
+	if (!session) return <div className="max-w-xl mx-auto p-4 dark:text-zinc-100">Loading…</div>;
 
   const total = session.items.length;
   const correct = session.answers.filter((a: number|null, i: number) => a != null && session.items[i].answer.includes(a)).length;

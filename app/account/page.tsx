@@ -190,20 +190,38 @@ export default function AccountPage() {
   const [sendingMessage, setSendingMessage] = useState(false);
 
 
-  const loadConversation = useCallback(async (uid: string) => {
-    setConversationLoading(true);
-    setConversationError(null);
-    try {
-      const res = await fetch(`/api/messages?uid=${encodeURIComponent(uid)}`, { cache: "no-store" });
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      const data = await res.json();
-      setConversation(data?.conversation || null);
-    } catch (error: any) {
-      setConversationError(error?.message || "Could not load messages");
-    } finally {
-      setConversationLoading(false);
-    }
-  }, []);
+		  const loadConversation = useCallback(async (uid: string) => {
+	    setConversationLoading(true);
+	    setConversationError(null);
+	    try {
+	      const headers: Record<string, string> = {};
+	      try {
+	        const { auth } = await import("@/lib/firebase/client");
+	        const user = auth?.currentUser;
+	        if (user && user.uid === uid) {
+	          const token = await user.getIdToken().catch(() => null);
+	          if (token) {
+	            headers.Authorization = `Bearer ${token}`;
+	          }
+	        }
+	      } catch {
+	        // If we cannot obtain a token, the API will return 401 and we surface a friendly error.
+	      }
+		      const res = await fetch(`/api/messages`, { cache: "no-store", headers });
+		      if (!res.ok) {
+		        if (res.status === 401) {
+		          throw new Error("You are no longer signed in. Reload the page and sign in again.");
+		        }
+		        throw new Error(`HTTP ${res.status}`);
+		      }
+	      const data = await res.json();
+	      setConversation(data?.conversation || null);
+	    } catch (error: any) {
+	      setConversationError(error?.message || "Could not load messages");
+	    } finally {
+	      setConversationLoading(false);
+	    }
+	  }, []);
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
@@ -339,35 +357,56 @@ export default function AccountPage() {
     return [...conversation.messages].sort((a, b) => (a.createdAt > b.createdAt ? 1 : -1));
   }, [conversation]);
 
-  const handleSendMessage = useCallback(async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    if (!userUid) {
-      setConversationError("Du må være innlogget for å sende meldinger.");
-      return;
-    }
-    const trimmed = messageText.trim();
-    if (!trimmed) return;
-    setSendingMessage(true);
-    setConversationError(null);
-    try {
-      const res = await fetch("/api/messages", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ uid: userUid, email, message: trimmed }),
-      });
-      if (!res.ok) {
-        const text = await res.text();
-        throw new Error(text || "Kunne ikke sende melding");
-      }
-      const data = await res.json();
-      setConversation(data?.conversation || null);
-      setMessageText("");
-    } catch (error: any) {
-      setConversationError(error?.message || "Kunne ikke sende melding");
-    } finally {
-      setSendingMessage(false);
-    }
-  }, [email, messageText, userUid]);
+		  const handleSendMessage = useCallback(async (event: React.FormEvent<HTMLFormElement>) => {
+		    event.preventDefault();
+		    if (!userUid) {
+		      setConversationError("You must be signed in to send messages.");
+		      return;
+		    }
+		    const trimmed = messageText.trim();
+		    if (!trimmed) return;
+		    let token: string | null = null;
+	    try {
+	      const { auth } = await import("@/lib/firebase/client");
+	      const user = auth?.currentUser;
+	      if (!user || user.uid !== userUid) {
+	        setConversationError("You are no longer signed in. Reload the page and sign in again.");
+	        return;
+	      }
+	      token = await user.getIdToken().catch(() => null);
+	      if (!token) {
+	        setConversationError("Couldn't obtain a login token. Reload the page and try again.");
+	        return;
+	      }
+	    } catch (error: any) {
+	      setConversationError(error?.message || "Couldn't prepare login for messaging.");
+	      return;
+	    }
+	    setSendingMessage(true);
+	    setConversationError(null);
+	    try {
+	      const headers: Record<string, string> = {
+	        "Content-Type": "application/json",
+	        Authorization: `Bearer ${token!}`,
+	      };
+	      const res = await fetch("/api/messages", {
+	        method: "POST",
+	        headers,
+	        body: JSON.stringify({ email, message: trimmed }),
+	      });
+	      if (!res.ok) {
+	        const text = await res.text();
+	        throw new Error(text || "Couldn't send message");
+	      }
+	      const data = await res.json();
+	      setConversation(data?.conversation || null);
+	      setMessageText("");
+	    } catch (error: any) {
+	      setConversationError(error?.message || "Couldn't send message");
+	    } finally {
+	      setSendingMessage(false);
+	    }
+	  }, [email, messageText, userUid]);
 
   const unreadUserMessages = conversation?.messages?.filter((msg) => msg.from === "admin" && !msg.readByUser).length ?? 0;
 
@@ -430,10 +469,10 @@ export default function AccountPage() {
 
   const h125Variants = listVariantsByProduct("H125");
   const activeVariantId = getStoredActiveModelVariantId();
-  const selectVariant = async (id: string) => {
-    // Lagre lokalt umiddelbart for sømløs opplevelse
-    try { storeActiveModelVariantId(id); } catch {}
-    // Forsøk å lagre på server dersom bruker er innlogget, med ID-token
+	  const selectVariant = async (id: string) => {
+	    // Store locally immediately for a seamless experience
+	    try { storeActiveModelVariantId(id); } catch {}
+	    // Try to persist on the server if the user is signed in, using ID token
     try {
       const { auth } = await import("@/lib/firebase/client");
       const user = auth?.currentUser;

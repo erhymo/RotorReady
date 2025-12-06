@@ -5,9 +5,6 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { db } from "@/lib/firebase/client";
 import { collection, getDocs } from "firebase/firestore/lite";
 
-const ADMIN_USERNAME = process.env.NEXT_PUBLIC_ADMIN_USERNAME || "admin";
-const ADMIN_PASSWORD = process.env.NEXT_PUBLIC_ADMIN_PASSWORD || "rotorready2025";
-
 type AdminFlag = {
   id: string;
   section: string;
@@ -93,7 +90,7 @@ export default function AdminPage() {
   const [copiedId, setCopiedId] = useState<string | null>(null);
 
 
-  const refreshMessages = useCallback(async () => {
+	  const refreshMessages = useCallback(async () => {
     setMessagesLoading(true);
     setMessagesError(null);
     try {
@@ -104,8 +101,8 @@ export default function AdminPage() {
       setConversations(list);
       setMessagesError(null);
       setSelectedUserId((prev) => prev && list.some((conv) => conv.userId === prev) ? prev : (list[0]?.userId ?? null));
-    } catch (error: any) {
-      setMessagesError(error?.message || "Kunne ikke hente meldinger");
+	    } catch (error: any) {
+	      setMessagesError(error?.message || "Could not fetch messages");
     } finally {
       setMessagesLoading(false);
     }
@@ -161,8 +158,8 @@ export default function AdminPage() {
         setFlags(serverFlags);
         setFlagsError(data?.error || 'Kunne ikke hente flagg (Firebase-klient mangler)');
       }
-    } catch (error: any) {
-      setFlagsError(error?.message || 'Kunne ikke hente flaggede spørsmål');
+	    } catch (error: any) {
+	      setFlagsError(error?.message || 'Could not fetch flagged questions');
     } finally {
       setFlagsLoading(false);
     }
@@ -176,8 +173,8 @@ export default function AdminPage() {
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const data = await res.json();
       setMetrics(data?.metrics ?? null);
-    } catch (error: any) {
-      setMetricsError(error?.message || "Kunne ikke hente abonnementstall");
+	    } catch (error: any) {
+	      setMetricsError(error?.message || "Could not fetch subscription metrics");
     } finally {
       setMetricsLoading(false);
     }
@@ -204,8 +201,8 @@ export default function AdminPage() {
       const data = await res.json().catch(() => ({}));
       const metrics: TrafficMetrics | null = data?.metrics ?? null;
       setTrafficMetrics(metrics);
-    } catch (error: any) {
-      setTrafficError(error?.message || "Kunne ikke hente trafikkstatistikk");
+	    } catch (error: any) {
+	      setTrafficError(error?.message || "Could not fetch traffic statistics");
     } finally {
       setTrafficLoading(false);
     }
@@ -216,12 +213,12 @@ export default function AdminPage() {
   }, [refreshTraffic]);
 
   async function reviewFlag(id: string, status: "reviewed-OK" | "rejected") {
-    const res = await fetch("/api/admin/flags/review", {
+	    const res = await fetch("/api/admin/flags/review", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ id, status }),
-    });
-    if (!res.ok) throw new Error("Kunne ikke oppdatere flaggstatus");
+	    });
+	    if (!res.ok) throw new Error("Could not update flag status");
   }
 
   async function handleKeep(flag: AdminFlag) {
@@ -229,8 +226,8 @@ export default function AdminPage() {
     try {
       await reviewFlag(flag.id, "reviewed-OK");
       setFlags((prev) => prev.map((f) => (f.id === flag.id ? { ...f, status: "reviewed-OK" } : f)));
-    } catch (error: any) {
-      setFlagsError(error?.message || "Klarte ikke å markere som beholdt");
+	    } catch (error: any) {
+	      setFlagsError(error?.message || "Could not mark question as kept");
     } finally {
       setActionId(null);
     }
@@ -249,14 +246,14 @@ export default function AdminPage() {
           dataFile: flag.dataFile,
         }),
       });
-      if (!res.ok) {
-        const text = await res.text();
-        throw new Error(text || "Klarte ikke å slette spørsmål");
-      }
+	      if (!res.ok) {
+	        const text = await res.text();
+	        throw new Error(text || "Could not delete question");
+	      }
       await reviewFlag(flag.id, "rejected");
       setFlags((prev) => prev.map((f) => (f.id === flag.id ? { ...f, status: "rejected" } : f)));
-    } catch (error: any) {
-      setFlagsError(error?.message || "Klarte ikke å slette spørsmål");
+	    } catch (error: any) {
+	      setFlagsError(error?.message || "Could not delete question");
     } finally {
       setActionId(null);
     }
@@ -293,8 +290,8 @@ export default function AdminPage() {
           });
         }
       }
-    } catch (error) {
-      console.warn("Kunne ikke markere meldinger som lest", error);
+	    } catch (error) {
+	      console.warn("Could not mark messages as read", error);
     }
   }, []);
 
@@ -328,8 +325,8 @@ export default function AdminPage() {
         setReplyText("");
         setSelectedUserId(data.conversation.userId);
       }
-    } catch (error: any) {
-      setMessagesError(error?.message || "Kunne ikke sende svar");
+	    } catch (error: any) {
+	      setMessagesError(error?.message || "Could not send reply");
     } finally {
       setReplying(false);
     }
@@ -353,27 +350,27 @@ export default function AdminPage() {
         <header className="space-y-1">
           <h1 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">Admin</h1>
           <p className="text-sm text-slate-600 dark:text-zinc-300">
-            Gå gjennom meldinger fra brukere, svar direkte og håndter flaggede spørsmål.
+	            Review messages from users, reply directly, and handle flagged questions.
           </p>
         </header>
 
         <section className="rounded-2xl border border-slate-200 bg-white/90 p-6 shadow-sm backdrop-blur dark:border-zinc-800 dark:bg-zinc-900/80 dark:text-zinc-100 space-y-4">
           <div className="flex flex-wrap items-center justify-between gap-3">
-            <div>
-              <h2 className="text-lg font-semibold text-slate-900 dark:text-white">Abonnement</h2>
-              <p className="text-xs text-slate-500 dark:text-zinc-400">
-                Total brukere: {metrics?.totalUsers ?? 0}
-              </p>
+	            <div>
+	              <h2 className="text-lg font-semibold text-slate-900 dark:text-white">Subscriptions</h2>
+	              <p className="text-xs text-slate-500 dark:text-zinc-400">
+	                Total users: {metrics?.totalUsers ?? 0}
+	              </p>
               {metrics && (
                 <div className="mt-1 grid grid-cols-2 gap-2 text-[11px] text-slate-600 dark:text-zinc-400">
-                  <div>
-                    <div className="font-semibold text-slate-800 dark:text-zinc-100">Abonnenter (aktive)</div>
-                    <div>{metrics.totals.active}</div>
-                  </div>
-                  <div>
-                    <div className="font-semibold text-slate-800 dark:text-zinc-100">Subscriptions (totalt)</div>
-                    <div>{metrics.totals.active + metrics.totals.trials + metrics.totals.pastDue}</div>
-                  </div>
+	                  <div>
+	                    <div className="font-semibold text-slate-800 dark:text-zinc-100">Subscribers (active)</div>
+	                    <div>{metrics.totals.active}</div>
+	                  </div>
+	                  <div>
+	                    <div className="font-semibold text-slate-800 dark:text-zinc-100">Subscriptions (total)</div>
+	                    <div>{metrics.totals.active + metrics.totals.trials + metrics.totals.pastDue}</div>
+	                  </div>
                 </div>
               )}
             </div>
@@ -382,7 +379,7 @@ export default function AdminPage() {
               disabled={metricsLoading}
               className="rounded-lg border border-slate-300 px-3 py-1.5 text-sm font-medium text-slate-700 transition hover:bg-slate-100 disabled:opacity-60 dark:border-zinc-700 dark:text-zinc-200 dark:hover:bg-zinc-800"
             >
-              Oppdater
+	              Refresh
             </button>
           </div>
 
@@ -392,20 +389,20 @@ export default function AdminPage() {
             </div>
           )}
 
-          {metricsLoading ? (
-            <p className="text-sm text-slate-600 dark:text-zinc-300">Laster abonnementstall…</p>
-          ) : metrics ? (
+	          {metricsLoading ? (
+	            <p className="text-sm text-slate-600 dark:text-zinc-300">Loading subscription metrics…</p>
+	          ) : metrics ? (
             <div className="space-y-4">
-              <div className="flex flex-wrap gap-3 text-xs font-medium text-slate-700 dark:text-zinc-300">
-                <span className="rounded-full bg-emerald-100 px-3 py-1 text-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-200">
-                  Aktive: {metrics.totals.active}
-                </span>
-                <span className="rounded-full bg-blue-100 px-3 py-1 text-blue-800 dark:bg-blue-900/40 dark:text-blue-200">
-                  Prøveperiode: {metrics.totals.trials}
-                </span>
-                <span className="rounded-full bg-amber-100 px-3 py-1 text-amber-800 dark:bg-amber-900/40 dark:text-amber-200">
-                  Betaling feilet: {metrics.totals.pastDue}
-                </span>
+	              <div className="flex flex-wrap gap-3 text-xs font-medium text-slate-700 dark:text-zinc-300">
+	                <span className="rounded-full bg-emerald-100 px-3 py-1 text-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-200">
+	                  Active: {metrics.totals.active}
+	                </span>
+	                <span className="rounded-full bg-blue-100 px-3 py-1 text-blue-800 dark:bg-blue-900/40 dark:text-blue-200">
+	                  Trial period: {metrics.totals.trials}
+	                </span>
+	                <span className="rounded-full bg-amber-100 px-3 py-1 text-amber-800 dark:bg-amber-900/40 dark:text-amber-200">
+	                  Payment failed: {metrics.totals.pastDue}
+	                </span>
               </div>
               <div className="space-y-2">
                 {Object.entries(metrics.perModel).map(([modelId, counts]) => (
@@ -414,33 +411,33 @@ export default function AdminPage() {
                     className="flex flex-wrap items-center justify-between gap-2 rounded-lg border border-slate-200 bg-white/70 px-3 py-2 text-sm dark:border-zinc-700 dark:bg-zinc-900/60"
                   >
                     <span className="font-semibold text-slate-900 dark:text-white">{modelId}</span>
-                    <span className="text-xs text-slate-600 dark:text-zinc-400">
-                      Aktive {counts.active} • Prøve {counts.trials} • Feilet {counts.pastDue}
-                    </span>
+	                    <span className="text-xs text-slate-600 dark:text-zinc-400">
+	                      Active {counts.active} • Trials {counts.trials} • Failed {counts.pastDue}
+	                    </span>
                   </div>
                 ))}
               </div>
             </div>
-          ) : (
-            <p className="text-sm text-slate-600 dark:text-zinc-300">Ingen abonnementstall tilgjengelige.</p>
-          )}
+	          ) : (
+	            <p className="text-sm text-slate-600 dark:text-zinc-300">No subscription metrics available.</p>
+	          )}
         </section>
 
         <section className="rounded-2xl border border-slate-200 bg-white/90 p-6 shadow-sm backdrop-blur dark:border-zinc-800 dark:bg-zinc-900/80 dark:text-zinc-100 space-y-4">
           <div className="flex flex-wrap items-center justify-between gap-3">
-            <div>
-              <h2 className="text-lg font-semibold text-slate-900 dark:text-white">Trafikk</h2>
-              <p className="text-xs text-slate-500 dark:text-zinc-400">
-                Unike brukere siste uke vs. 30 dager og total trafikk inn i appen.
-              </p>
+	            <div>
+	              <h2 className="text-lg font-semibold text-slate-900 dark:text-white">Traffic</h2>
+	              <p className="text-xs text-slate-500 dark:text-zinc-400">
+	                Unique users last week vs. 30 days and total traffic into the app.
+	              </p>
             </div>
-            <button
-              onClick={refreshTraffic}
-              disabled={trafficLoading}
-              className="rounded-lg border border-slate-300 px-3 py-1.5 text-sm font-medium text-slate-700 transition hover:bg-slate-100 disabled:opacity-60 dark:border-zinc-700 dark:text-zinc-200 dark:hover:bg-zinc-800"
-            >
-              Oppdater
-            </button>
+	            <button
+	              onClick={refreshTraffic}
+	              disabled={trafficLoading}
+	              className="rounded-lg border border-slate-300 px-3 py-1.5 text-sm font-medium text-slate-700 transition hover:bg-slate-100 disabled:opacity-60 dark:border-zinc-700 dark:text-zinc-200 dark:hover:bg-zinc-800"
+	            >
+	              Refresh
+	            </button>
           </div>
 
           <div className="flex flex-wrap gap-2 text-xs">
@@ -448,16 +445,16 @@ export default function AdminPage() {
               type="button"
               onClick={() => setTrafficRange("7d")}
               className={`rounded-full px-3 py-1 border text-[11px] font-medium transition ${trafficRange === "7d" ? "border-blue-500 bg-blue-50 text-blue-700 dark:border-blue-400 dark:bg-blue-900/40 dark:text-blue-100" : "border-slate-300 text-slate-600 hover:bg-slate-100 dark:border-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-800"}`}
-            >
-              Siste 7 dager
-            </button>
+	            >
+	              Last 7 days
+	            </button>
             <button
               type="button"
               onClick={() => setTrafficRange("30d")}
               className={`rounded-full px-3 py-1 border text-[11px] font-medium transition ${trafficRange === "30d" ? "border-blue-500 bg-blue-50 text-blue-700 dark:border-blue-400 dark:bg-blue-900/40 dark:text-blue-100" : "border-slate-300 text-slate-600 hover:bg-slate-100 dark:border-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-800"}`}
-            >
-              Siste 30 dager
-            </button>
+	            >
+	              Last 30 days
+	            </button>
             <button
               type="button"
               onClick={() => setTrafficRange("all")}
@@ -473,51 +470,51 @@ export default function AdminPage() {
             </div>
           )}
 
-          {trafficLoading ? (
-            <p className="text-sm text-slate-600 dark:text-zinc-300">Laster trafikkstatistikk…</p>
-          ) : !trafficMetrics ? (
-            <p className="text-sm text-slate-600 dark:text-zinc-300">Ingen trafikkdata tilgjengelig ennå.</p>
-          ) : (
+	          {trafficLoading ? (
+	            <p className="text-sm text-slate-600 dark:text-zinc-300">Loading traffic statistics…</p>
+	          ) : !trafficMetrics ? (
+	            <p className="text-sm text-slate-600 dark:text-zinc-300">No traffic data available yet.</p>
+	          ) : (
             <div className="grid gap-4 md:grid-cols-3 mt-2">
               <div className="rounded-xl border border-slate-200 bg-white/80 p-4 text-sm dark:border-zinc-700 dark:bg-zinc-900/70">
-                <div className="text-xs font-medium uppercase tracking-wide text-slate-500 dark:text-zinc-400">Totalt sporet</div>
+	                <div className="text-xs font-medium uppercase tracking-wide text-slate-500 dark:text-zinc-400">Total tracked</div>
                 <div className="mt-2 text-2xl font-semibold text-slate-900 dark:text-white">
                   {trafficMetrics.totalTrackedUsers}
                 </div>
-                <p className="mt-1 text-[11px] text-slate-500 dark:text-zinc-400">Brukere vi har sett minst én gang.</p>
+	                <p className="mt-1 text-[11px] text-slate-500 dark:text-zinc-400">Users we have seen at least once.</p>
               </div>
               <div className="rounded-xl border border-slate-200 bg-white/80 p-4 text-sm dark:border-zinc-700 dark:bg-zinc-900/70">
-                <div className="text-xs font-medium uppercase tracking-wide text-slate-500 dark:text-zinc-400">Aktive siste 7 dager</div>
+	                <div className="text-xs font-medium uppercase tracking-wide text-slate-500 dark:text-zinc-400">Active last 7 days</div>
                 <div className="mt-2 text-2xl font-semibold text-slate-900 dark:text-white">
                   {trafficMetrics.activeLast7Days}
                 </div>
-                <p className="mt-1 text-[11px] text-slate-500 dark:text-zinc-400">Unike brukere som har vært innom siste uke.</p>
+	                <p className="mt-1 text-[11px] text-slate-500 dark:text-zinc-400">Unique users who have visited in the last week.</p>
               </div>
               <div className="rounded-xl border border-slate-200 bg-white/80 p-4 text-sm dark:border-zinc-700 dark:bg-zinc-900/70">
-                <div className="text-xs font-medium uppercase tracking-wide text-slate-500 dark:text-zinc-400">Aktive siste 30 dager</div>
+	                <div className="text-xs font-medium uppercase tracking-wide text-slate-500 dark:text-zinc-400">Active last 30 days</div>
                 <div className="mt-2 text-2xl font-semibold text-slate-900 dark:text-white">
                   {trafficMetrics.activeLast30Days}
                 </div>
-                <p className="mt-1 text-[11px] text-slate-500 dark:text-zinc-400">Gir deg et bredere bilde av trafikken inn.</p>
+	                <p className="mt-1 text-[11px] text-slate-500 dark:text-zinc-400">Gives you a broader picture of traffic into the app.</p>
               </div>
             </div>
           )}
         </section>
 
-        <section className="rounded-2xl border border-slate-200 bg-white/90 p-6 shadow-sm backdrop-blur dark:border-zinc-800 dark:bg-zinc-900/80 dark:text-zinc-100 space-y-4">
-          <div className="flex flex-wrap items-center justify-between gap-3">
-            <div>
-              <h2 className="text-lg font-semibold text-slate-900 dark:text-white">Meldinger</h2>
-              <p className="text-xs text-slate-500 dark:text-zinc-400">Uleste meldinger: {unreadMessages}</p>
-            </div>
-            <button
-              onClick={refreshMessages}
-              disabled={messagesLoading}
-              className="rounded-lg border border-slate-300 px-3 py-1.5 text-sm font-medium text-slate-700 transition hover:bg-slate-100 disabled:opacity-60 dark:border-zinc-700 dark:text-zinc-200 dark:hover:bg-zinc-800"
-            >
-              Oppdater
-            </button>
-          </div>
+	        <section className="rounded-2xl border border-slate-200 bg-white/90 p-6 shadow-sm backdrop-blur dark:border-zinc-800 dark:bg-zinc-900/80 dark:text-zinc-100 space-y-4">
+	          <div className="flex flex-wrap items-center justify-between gap-3">
+	            <div>
+	              <h2 className="text-lg font-semibold text-slate-900 dark:text-white">Messages</h2>
+	              <p className="text-xs text-slate-500 dark:text-zinc-400">Unread messages: {unreadMessages}</p>
+	            </div>
+	            <button
+	              onClick={refreshMessages}
+	              disabled={messagesLoading}
+	              className="rounded-lg border border-slate-300 px-3 py-1.5 text-sm font-medium text-slate-700 transition hover:bg-slate-100 disabled:opacity-60 dark:border-zinc-700 dark:text-zinc-200 dark:hover:bg-zinc-800"
+	            >
+	              Refresh
+	            </button>
+	          </div>
 
           {messagesError && (
             <div className="rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-700 dark:border-red-500/40 dark:bg-red-900/30 dark:text-red-200">
@@ -525,11 +522,11 @@ export default function AdminPage() {
             </div>
           )}
 
-          {messagesLoading ? (
-            <p className="text-sm text-slate-600 dark:text-zinc-300">Laster meldinger…</p>
-          ) : conversations.length === 0 ? (
-            <p className="text-sm text-slate-600 dark:text-zinc-300">Ingen meldinger sendt inn ennå.</p>
-          ) : (
+	          {messagesLoading ? (
+	            <p className="text-sm text-slate-600 dark:text-zinc-300">Loading messages…</p>
+	          ) : conversations.length === 0 ? (
+	            <p className="text-sm text-slate-600 dark:text-zinc-300">No messages submitted yet.</p>
+	          ) : (
             <div className="grid gap-4 lg:grid-cols-[260px,1fr]">
               <div className="space-y-2">
                 {conversations.map((conv) => {
@@ -557,10 +554,10 @@ export default function AdminPage() {
                         )}
                       </div>
                       {lastMessage && (
-                        <div className="mt-1 text-xs text-slate-500 dark:text-zinc-400 truncate">
-                          {lastMessage.from === "admin" ? "Du: " : "Bruker: "}
-                          {lastMessage.body.slice(0, 60)}{lastMessage.body.length > 60 ? "…" : ""}
-                        </div>
+	                      <div className="mt-1 text-xs text-slate-500 dark:text-zinc-400 truncate">
+	                        {lastMessage.from === "admin" ? "You: " : "User: "}
+	                        {lastMessage.body.slice(0, 60)}{lastMessage.body.length > 60 ? "…" : ""}
+	                      </div>
                       )}
                       <div className="mt-1 text-xs text-slate-400 dark:text-zinc-500">
                         {new Date(conv.updatedAt).toLocaleString()}
@@ -576,9 +573,9 @@ export default function AdminPage() {
                       <div className="text-sm font-semibold text-slate-900 dark:text-white">
                         {selectedConversation.userEmail || selectedConversation.userId}
                       </div>
-                      <div className="text-xs text-slate-500 dark:text-zinc-400">
-                        Oppdatert {new Date(selectedConversation.updatedAt).toLocaleString()}
-                      </div>
+	                      <div className="text-xs text-slate-500 dark:text-zinc-400">
+	                        Updated {new Date(selectedConversation.updatedAt).toLocaleString()}
+	                      </div>
                     </div>
                     <div className="flex-1 space-y-3 overflow-y-auto pr-1">
                       {selectedConversation.messages.map((msg) => {
@@ -593,62 +590,62 @@ export default function AdminPage() {
                               }`}
                             >
                               <div className="whitespace-pre-wrap leading-relaxed">{msg.body}</div>
-                              <div className={`mt-2 text-xs ${isAdmin ? "text-blue-100" : "text-slate-500 dark:text-zinc-400"}`}>
-                                {isAdmin ? "RotorReady" : "Bruker"} — {new Date(msg.createdAt).toLocaleString()}
-                              </div>
+	                              <div className={`mt-2 text-xs ${isAdmin ? "text-blue-100" : "text-slate-500 dark:text-zinc-400"}`}>
+	                                {isAdmin ? "RotorReady" : "User"} — {new Date(msg.createdAt).toLocaleString()}
+	                              </div>
                             </div>
                           </div>
                         );
                       })}
                     </div>
                     <form onSubmit={handleReply} className="space-y-3">
-                      <textarea
-                        className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100 dark:focus:border-blue-400 dark:focus:ring-blue-900/60"
-                        placeholder="Skriv svaret ditt…"
-                        value={replyText}
-                        onChange={(event) => setReplyText(event.target.value)}
-                        rows={4}
-                        disabled={replying}
-                      />
-                      <div className="flex items-center justify-end gap-2">
-                        <button
-                          type="submit"
-                          disabled={replying || !replyText.trim() || !selectedConversation}
-                          className="rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-blue-700 disabled:opacity-60 dark:bg-blue-500 dark:hover:bg-blue-600"
-                        >
-                          {replying ? "Sender…" : "Send svar"}
-                        </button>
-                      </div>
+	                      <textarea
+	                        className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100 dark:focus:border-blue-400 dark:focus:ring-blue-900/60"
+	                        placeholder="Write your reply…"
+	                        value={replyText}
+	                        onChange={(event) => setReplyText(event.target.value)}
+	                        rows={4}
+	                        disabled={replying}
+	                      />
+	                      <div className="flex items-center justify-end gap-2">
+	                        <button
+	                          type="submit"
+	                          disabled={replying || !replyText.trim() || !selectedConversation}
+	                          className="rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-blue-700 disabled:opacity-60 dark:bg-blue-500 dark:hover:bg-blue-600"
+	                        >
+	                          {replying ? "Sending…" : "Send reply"}
+	                        </button>
+	                      </div>
                     </form>
                   </div>
                 ) : (
-                  <p className="text-sm text-slate-600 dark:text-zinc-300">Velg en samtale for å lese og svare.</p>
+	                  <p className="text-sm text-slate-600 dark:text-zinc-300">Select a conversation to read and reply.</p>
                 )}
               </div>
             </div>
           )}
         </section>
 
-        <section className="rounded-2xl border border-slate-200 bg-white/90 p-6 shadow-sm backdrop-blur dark:border-zinc-800 dark:bg-zinc-900/80 dark:text-zinc-100">
-          <div className="flex items-center justify-between gap-3">
-            <div>
-              <h2 className="text-lg font-semibold text-slate-900 dark:text-white">Flaggede spørsmål</h2>
-              <p className="text-xs text-slate-500 dark:text-zinc-400">Spørsmål som er flagget fra quizer vises her for manuell vurdering.</p>
-            </div>
-              {clientFallback && (
-                <p className="text-xs text-amber-600 dark:text-amber-400 mt-1">
-                  Midlertidig visning via Firebase-klient (uten server-kredentialer). Admin-aksjoner er deaktivert.
-                </p>
-              )}
+	        <section className="rounded-2xl border border-slate-200 bg-white/90 p-6 shadow-sm backdrop-blur dark:border-zinc-800 dark:bg-zinc-900/80 dark:text-zinc-100">
+	          <div className="flex items-center justify-between gap-3">
+	            <div>
+	              <h2 className="text-lg font-semibold text-slate-900 dark:text-white">Flagged questions</h2>
+	              <p className="text-xs text-slate-500 dark:text-zinc-400">Questions flagged from quizzes are shown here for manual review.</p>
+	            </div>
+	              {clientFallback && (
+	                <p className="text-xs text-amber-600 dark:text-amber-400 mt-1">
+	                  Temporary display via Firebase client (without server credentials). Admin actions are disabled.
+	                </p>
+	              )}
 
-            <button
-              onClick={refreshFlags}
-              disabled={flagsLoading}
-              className="rounded-lg border border-slate-300 px-3 py-1.5 text-sm font-medium text-slate-700 transition hover:bg-slate-100 disabled:opacity-60 dark:border-zinc-700 dark:text-zinc-200 dark:hover:bg-zinc-800"
-            >
-              Oppdater
-            </button>
-          </div>
+	            <button
+	              onClick={refreshFlags}
+	              disabled={flagsLoading}
+	              className="rounded-lg border border-slate-300 px-3 py-1.5 text-sm font-medium text-slate-700 transition hover:bg-slate-100 disabled:opacity-60 dark:border-zinc-700 dark:text-zinc-200 dark:hover:bg-zinc-800"
+	            >
+	              Refresh
+	            </button>
+	          </div>
 
           {flagsError && (
             <div className="mt-4 rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-700 dark:border-red-500/40 dark:bg-red-900/30 dark:text-red-200">
@@ -656,11 +653,11 @@ export default function AdminPage() {
             </div>
           )}
 
-          {flagsLoading ? (
-            <p className="mt-6 text-sm text-slate-600 dark:text-zinc-300">Laster flaggede spørsmål …</p>
-          ) : openFlags.length === 0 ? (
-            <p className="mt-6 text-sm text-slate-600 dark:text-zinc-300">Ingen åpne flagg akkurat nå.</p>
-          ) : (
+	          {flagsLoading ? (
+	            <p className="mt-6 text-sm text-slate-600 dark:text-zinc-300">Loading flagged questions …</p>
+	          ) : openFlags.length === 0 ? (
+	            <p className="mt-6 text-sm text-slate-600 dark:text-zinc-300">No open flags right now.</p>
+	          ) : (
             <ul className="mt-6 space-y-4">
               {openFlags.map((flag) => {
                 const snapshot = flag.snapshot || {};
@@ -683,9 +680,9 @@ export default function AdminPage() {
                         {new Date(flag.createdAt).toLocaleString()}
                       </div>
                     </div>
-                    <div className="mt-3 text-base font-semibold text-slate-900 dark:text-white">
-                      {snapshot.question || "(Spørsmålstekst mangler)"}
-                    </div>
+	                    <div className="mt-3 text-base font-semibold text-slate-900 dark:text-white">
+	                      {snapshot.question || "(Question text missing)"}
+	                    </div>
                     {snapshot.options && snapshot.options.length > 0 && (
                       <ul className="mt-3 space-y-1 text-sm">
                         {snapshot.options.map((option, index) => {
@@ -706,34 +703,34 @@ export default function AdminPage() {
                         })}
                       </ul>
                     )}
-                    {snapshot.explanation && (
-                      <p className="mt-3 text-sm text-slate-600 dark:text-zinc-300">
-                        Forklaring: {snapshot.explanation}
-                      </p>
-                    )}
-                    {flag.reason && (
-                      <p className="mt-2 text-sm text-amber-700 dark:text-amber-300">Brukerkommentar: {flag.reason}</p>
-                    )}
-                    <div className="mt-4 flex flex-wrap items-center gap-2 text-xs text-slate-500 dark:text-zinc-400">
-                      <span>Kilde: {flag.dataSource === "all-questions" ? "Master (all-questions)" : (flag.sectionId || flag.section)}</span>
-                      {(flag.name || flag.email || flag.userId) && <span>• Rapportert av: {flag.name || flag.email || flag.userId}</span>}
-                      {flag.dataFile && <span>• Fil: {flag.dataFile}</span>}
-                    </div>
+	                    {snapshot.explanation && (
+	                      <p className="mt-3 text-sm text-slate-600 dark:text-zinc-300">
+	                        Explanation: {snapshot.explanation}
+	                      </p>
+	                    )}
+	                    {flag.reason && (
+	                      <p className="mt-2 text-sm text-amber-700 dark:text-amber-300">User comment: {flag.reason}</p>
+	                    )}
+	                    <div className="mt-4 flex flex-wrap items-center gap-2 text-xs text-slate-500 dark:text-zinc-400">
+	                      <span>Source: {flag.dataSource === "all-questions" ? "Master (all-questions)" : (flag.sectionId || flag.section)}</span>
+	                      {(flag.name || flag.email || flag.userId) && <span>• Reported by: {flag.name || flag.email || flag.userId}</span>}
+	                      {flag.dataFile && <span>• File: {flag.dataFile}</span>}
+	                    </div>
                     <div className="mt-4 flex flex-wrap gap-3">
-                      <button
-                        onClick={() => handleKeep(flag)}
-                        disabled={actionId === flag.id || clientFallback}
-                        className="rounded-lg bg-emerald-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-emerald-700 disabled:opacity-60"
-                      >
-                        Behold
-                      </button>
-                      <button
-                        onClick={() => handleDelete(flag)}
-                        disabled={actionId === flag.id || clientFallback}
-                        className="rounded-lg bg-red-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-red-700 disabled:opacity-60"
-                      >
-                        Slett fra databasen
-                      </button>
+	                      <button
+	                        onClick={() => handleKeep(flag)}
+	                        disabled={actionId === flag.id || clientFallback}
+	                        className="rounded-lg bg-emerald-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-emerald-700 disabled:opacity-60"
+	                      >
+	                        Keep
+	                      </button>
+	                      <button
+	                        onClick={() => handleDelete(flag)}
+	                        disabled={actionId === flag.id || clientFallback}
+	                        className="rounded-lg bg-red-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-red-700 disabled:opacity-60"
+	                      >
+	                        Delete from database
+	                      </button>
                     </div>
                   </li>
                 );
@@ -752,34 +749,31 @@ export default function AdminPage() {
         </section>
 
         <section className="rounded-2xl border border-slate-200 bg-white/90 p-6 shadow-sm backdrop-blur dark:border-zinc-800 dark:bg-zinc-900/80 dark:text-zinc-100">
-          <h2 className="text-lg font-semibold text-slate-900 dark:text-white">Påloggingsinfo</h2>
-          <p className="mt-3 text-sm text-slate-600 dark:text-zinc-300">
-            Standard admin-bruker: <span className="font-mono">{ADMIN_USERNAME}</span>
-          </p>
-          <p className="mt-1 text-sm text-slate-600 dark:text-zinc-300">
-            Standard passord: <span className="font-mono">{ADMIN_PASSWORD}</span>
-          </p>
-          <p className="mt-3 text-xs text-slate-500 dark:text-zinc-400">
-            Tips: Sett miljøvariablene <span className="font-mono">NEXT_PUBLIC_ADMIN_USERNAME</span> og <span className="font-mono">NEXT_PUBLIC_ADMIN_PASSWORD</span> for å overstyre disse verdiene.
-          </p>
+          <h2 className="text-lg font-semibold text-slate-900 dark:text-white">Login information</h2>
+        <p className="mt-3 text-sm text-slate-600 dark:text-zinc-300">
+          Admin username and password are configured via the server environment variables <span className="font-mono">ADMIN_USERNAME</span> and <span className="font-mono">ADMIN_PASSWORD</span>.
+        </p>
+        <p className="mt-3 text-xs text-slate-500 dark:text-zinc-400">
+          In development you can use the default user <span className="font-mono">admin</span> / <span className="font-mono">rotorready2025</span> if custom variables are not set.
+        </p>
         </section>
 
         <section className="rounded-2xl border border-slate-200 bg-white/90 p-4 shadow-sm backdrop-blur dark:border-zinc-800 dark:bg-zinc-900/80 dark:text-zinc-100">
           <button
             onClick={() => { window.location.href = "/admin/users"; }}
             className="w-full flex items-center justify-between rounded-xl border border-slate-200 bg-white/70 px-4 py-3 text-left transition hover:bg-slate-100 dark:border-zinc-700 dark:bg-zinc-900/60 dark:hover:bg-zinc-800"
-            aria-label="Åpne brukerliste (e-post)"
+            aria-label="Open user list (email)"
           >
             <div>
               <div className="text-sm font-semibold text-slate-900 dark:text-white">Brukere (e-post)</div>
-              <div className="text-xs text-slate-600 dark:text-zinc-400">Klikk for å åpne full oversikt nederst på siden</div>
+              <div className="text-xs text-slate-600 dark:text-zinc-400">Click to open the full overview at the bottom of the page</div>
             </div>
             <span className="text-slate-400">›</span>
           </button>
         </section>
 
         <footer className="text-xs text-slate-500 dark:text-zinc-400">
-          Flere verktøy og paneler kommer her etter hvert.
+          More tools and panels will be added here over time.
         </footer>
       </div>
     </div>

@@ -1,7 +1,7 @@
 //
 // Admin authentication logic:
 // - In development (NODE_ENV=development): No authentication required for /admin/* or /api/admin/*
-// - In production: Requires signed HttpOnly cookie rr_session; legacy fallback accepts value "ok" if no secret configured
+// - In production: Requires signed HttpOnly cookie rr_session; legacy "ok" value is no longer accepted
 //
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
@@ -57,9 +57,6 @@ export async function middleware(req: NextRequest) {
   if (secret && token) {
     const v = await verifyAdminToken(token, secret);
     ok = v.valid;
-  } else if (token === "ok") {
-    // Legacy fallback when secret not set (prevents lockout)
-    ok = true;
   }
 
   if (!ok) {

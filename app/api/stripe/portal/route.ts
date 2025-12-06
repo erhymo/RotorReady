@@ -26,6 +26,6 @@ export async function POST(req: Request) {
     return NextResponse.json({ url: session.url });
   } catch (error: any) {
     console.error("Failed to create billing portal session", error);
-    return NextResponse.json({ error: error?.message || "Kunne ikke åpne Stripe portal" }, { status: 500 });
+    return NextResponse.json({ error: error?.message || "Could not open Stripe portal" }, { status: 500 });
   }
 }

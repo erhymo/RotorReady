@@ -9,6 +9,10 @@ export default function AW169ProceduresListPage() {
     { title: "CLEAR AREA CAT A LANDING PROCEDURE", href: "/aw169/procedures/clear-area-cat-a-landing-procedure?plist=1" },
 
     // Ground
+    {
+      title: "GROUND AND ELEVATED HELIPORT / HELIDECK VERTICAL PROCEDURE",
+      href: "/aw169/procedures/ground-and-elevated-heliport-helideck-vertical-procedure?plist=1",
+    },
     { title: "GROUND AND ELEVATED HELIPORT / HELIDECK VARIABLE TDP PROCEDURE", href: "/aw169/procedures/ground-and-elevated-heliport-helideck-variable-tdp-procedure?plist=1" },
     { title: "GROUND OR ELEVATED HELIPAD APPROACH AND LANDING VARIABLE LDP PROCEDURE", href: "/aw169/procedures/ground-or-elevated-helipad-approach-and-landing-variable-ldp-procedure?plist=1" },
 

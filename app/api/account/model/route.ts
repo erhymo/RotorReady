@@ -23,7 +23,7 @@ export async function POST(req: Request) {
   }
 
   if (variant.status === "coming_soon") {
-    return NextResponse.json({ error: "Modellen er ikke tilgjengelig ennå" }, { status: 409 });
+    return NextResponse.json({ error: "The model is not available yet" }, { status: 409 });
   }
 
   await setActiveModelVariant(user.uid, variant.id);

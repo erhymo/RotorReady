@@ -570,7 +570,7 @@ export default function LightsTrainer() {
 	    setLastSeverity(item.severity as Severity);
 	    setIdx(0);
 	    setMemoryOnly(true);
-	    setMode("light");
+		    setMode("procedure");
 	    setShowMemoryMenu(false);
 	    setMemoryGridSeverity(null);
 	  }
@@ -1437,8 +1437,8 @@ export default function LightsTrainer() {
 		                    disabled={loading || amberMemoryCount === 0}
 		                  />
 		                  {memoryGridSeverity && (
-		                    <div className="pt-2">
-		                      <div className="rounded-xl border bg-white p-4 shadow-sm dark:bg-zinc-900 dark:border-zinc-700">
+		                    <div className="fixed inset-0 z-40 flex items-center justify-center bg-black/60 backdrop-blur-sm">
+		                      <div className="w-full max-w-3xl max-h-[90vh] overflow-y-auto rounded-2xl border bg-white p-4 shadow-lg dark:bg-zinc-900 dark:border-zinc-700">
 		                        <div className="flex items-center justify-between mb-3">
 		                          <div className="flex items-center gap-2">
 		                            <span

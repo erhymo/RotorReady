@@ -40,6 +40,27 @@ const COLORS = {
   caution: { bg: "bg-amber-500", ring: "ring-amber-400", text: "text-white" }
 } as const;
 
+// AW169 QRH memory box crop coordinates (normalized to QRH page image)
+const AW169_PAGE_W = 415.508;
+const AW169_PAGE_H = 650.192;
+const AW169_MEMORY_CROPS: Record<string, [number, number, number, number]> = {
+  "bag-fire-flight": [0.104171, 0.160992, 0.741213, 0.032206],
+  "bag-fire-ground": [0.104171, 0.160992, 0.741213, 0.032206],
+  "elec-fail-double-dc-gen": [0.105326, 0.236293, 0.741646, 0.061551],
+  "eng-drive-shaft-failure": [0.149658, 0.199658, 0.748433, 0.032298],
+  "eng-eecu-fail": [0.149658, 0.190984, 0.748433, 0.032298],
+  "eng-fail-fixed": [0.152113, 0.183417, 0.741791, 0.055368],
+  "eng-fire-flight": [0.105326, 0.190061, 0.741646, 0.219997],
+  "eng-fire-ground": [0.153123, 0.167175, 0.741646, 0.181516],
+  "eng-idle": [0.104171, 0.328758, 0.743812, 0.032298],
+  "eng-oil-press": [0.104171, 0.237216, 0.743812, 0.049185],
+  "eng-out": [0.101861, 0.205564, 0.748578, 0.032298],
+  "mgb-oil-press": [0.151824, 0.192091, 0.743812, 0.090712],
+  "mgb-oil-temp": [0.105326, 0.207133, 0.741646, 0.061459],
+  "rotor-high": [0.104171, 0.341954, 0.743812, 0.049185],
+  "rotor-low": [0.104171, 0.341954, 0.743812, 0.049185]
+};
+
 function shuffle<T>(arr: T[]): T[] {
   const a = [...arr];
   for (let i = a.length - 1; i > 0; i--) {
@@ -382,27 +403,6 @@ export default function LightsTrainer() {
     run();
   }, [searchParams, all, activeVariant.id, setActiveVariant]);
 
-  // AW169 memory-only crop from QRH pageImage (inline SVG crop)
-  const AW169_PAGE_W = 415.508;
-  const AW169_PAGE_H = 650.192;
-  const AW169_MEMORY_CROPS: Record<string, [number, number, number, number]> = {
-    "bag-fire-flight": [0.104171, 0.160992, 0.741213, 0.032206],
-    "bag-fire-ground": [0.104171, 0.160992, 0.741213, 0.032206],
-    "elec-fail-double-dc-gen": [0.105326, 0.236293, 0.741646, 0.061551],
-    "eng-drive-shaft-failure": [0.149658, 0.199658, 0.748433, 0.032298],
-    "eng-eecu-fail": [0.149658, 0.190984, 0.748433, 0.032298],
-    "eng-fail-fixed": [0.152113, 0.183417, 0.741791, 0.055368],
-    "eng-fire-flight": [0.105326, 0.190061, 0.741646, 0.219997],
-    "eng-fire-ground": [0.153123, 0.167175, 0.741646, 0.181516],
-    "eng-idle": [0.104171, 0.328758, 0.743812, 0.032298],
-    "eng-oil-press": [0.104171, 0.237216, 0.743812, 0.049185],
-    "eng-out": [0.101861, 0.205564, 0.748578, 0.032298],
-    "mgb-oil-press": [0.151824, 0.192091, 0.743812, 0.090712],
-    "mgb-oil-temp": [0.105326, 0.207133, 0.741646, 0.061459],
-    "rotor-high": [0.104171, 0.341954, 0.743812, 0.049185],
-    "rotor-low": [0.104171, 0.341954, 0.743812, 0.049185]
-  };
-
   function AW169MemoryCrop({ item }: { item: LightItem }) {
     const crop = (AW169_MEMORY_CROPS as any)[item.id] as [number, number, number, number] | undefined;
     if (!crop) return null as any;
@@ -549,10 +549,10 @@ export default function LightsTrainer() {
 	    }
 	    const updated = [...lastOrders, sig(next)].slice(-2);
 	    try { sessionStorage.setItem(key, JSON.stringify(updated)); } catch {}
-		    setDeck(next as LightItem[]);
-		    setIdx(0);
-		    setMode("light");
-		  }, [lastSeverity, deck, warningLights, activeVariant.id, memoryOnly, hasMemory, aw169RedMemoryLights]);
+			    setDeck(next as LightItem[]);
+			    setIdx(0);
+			    setMode("light");
+			  }, [lastSeverity, deck, warningLights, activeVariant.id, memoryOnly, aw169RedMemoryLights]);
 
 	  async function openMemoryItem(item: LightItem) {
 	    const loggedIn = await isLoggedInAsync();

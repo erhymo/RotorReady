@@ -1363,10 +1363,10 @@ export default function LightsTrainer() {
 	          </div>
 	        )}
 
-	        {mode === "idle" && activeVariant.id === "AW169" && (
+		        {mode === "idle" && activeVariant.id === "AW169" && (
 	          <div className="space-y-4">
 	            <LightsBar
-	              tone="amber"
+		              tone="red"
 	              title="Red Warning Lights  Trainer"
 	              description="Practice all red warning lights in random order. Tap to start."
 	              actionLabel={
@@ -1394,7 +1394,7 @@ export default function LightsTrainer() {
 		                <div className="space-y-3 pl-3 border-l border-slate-200 dark:border-zinc-700">
 		                  {/* RED: random trainer */}
 		                  <LightsBar
-		                    tone="amber"
+		                    tone="red"
 		                    title="Red memory items"
 		                    description="QRH memory items for red warning lights."
 		                    actionLabel={
@@ -1409,7 +1409,7 @@ export default function LightsTrainer() {
 		                  />
 		                  {/* RED: per-item browse (CWP-style grid) */}
 		                  <LightsBar
-		                    tone="amber"
+		                    tone="red"
 		                    title="Red memory items"
 		                    description="Browse red QRH memory items one by one."
 		                    actionLabel={

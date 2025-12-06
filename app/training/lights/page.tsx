@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState, useCallback, useRef } from "react";
+import type { ReactNode } from "react";
 import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
@@ -65,36 +66,106 @@ function splitProcedure(steps: ProcedureStep[]) {
 }
 
 function pickFirstBranchPair(steps: ProcedureStep[]) {
-  for (let i = 0; i < steps.length - 1; i++) {
-    if (steps[i].type === "branch" && steps[i + 1].type === "branch") {
-      return { left: steps[i] as Extract<ProcedureStep, { type: "branch" }>, right: steps[i + 1] as Extract<ProcedureStep, { type: "branch" }>, startIndex: i };
-    }
-  }
-  return null;
+	  for (let i = 0; i < steps.length - 1; i++) {
+	    if (steps[i].type === "branch" && steps[i + 1].type === "branch") {
+	      return {
+	        left: steps[i] as Extract<ProcedureStep, { type: "branch" }>,
+	        right: steps[i + 1] as Extract<ProcedureStep, { type: "branch" }>,
+	        startIndex: i,
+	      };
+	    }
+	  }
+	  return null;
 }
 
+function LightsBar(props: {
+	  title: string;
+	  description: string;
+	  tone?: "blue" | "amber" | "slate" | "emerald" | "red";
+	  icon?: ReactNode;
+	  href?: string;
+	  onClick?: () => void;
+	  actionLabel?: string;
+	  disabled?: boolean;
+}) {
+	  const tones: Record<string, string> = {
+	    blue: "border-blue-600 bg-blue-50/40 hover:bg-blue-50 dark:border-blue-400 dark:bg-blue-900/40 dark:hover:bg-blue-900/60",
+	    amber: "border-amber-500 bg-amber-50/40 hover:bg-amber-50 dark:border-amber-400 dark:bg-amber-900/40 dark:hover:bg-amber-900/60",
+	    slate: "border-slate-500 bg-slate-50/40 hover:bg-slate-50 dark:border-zinc-700 dark:bg-zinc-800/60 dark:hover:bg-zinc-700/80",
+	    emerald: "border-emerald-600 bg-emerald-50/40 hover:bg-emerald-50 dark:border-emerald-400 dark:bg-emerald-900/40 dark:hover:bg-emerald-900/60",
+	    red: "border-red-600 bg-red-50/40 hover:bg-red-50 dark:border-red-500 dark:bg-red-900/40 dark:hover:bg-red-900/60",
+	  };
+	  const tone = tones[props.tone || "slate"];
+	  const base =
+	    "group w-full rounded-xl border-l-4 " +
+	    tone +
+	    " transition block focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-zinc-900";
+	  const inner = (
+	    <div className="px-5 py-4 flex items-start justify-between gap-4">
+	      <div className="flex items-start gap-3">
+	        {props.icon && (
+	          <span className="inline-grid place-items-center h-8 w-8 rounded-lg bg-white/70 text-slate-700 dark:bg-zinc-900/80 dark:text-zinc-100">
+	            {props.icon}
+	          </span>
+	        )}
+	        <div>
+	          <div className="font-semibold text-slate-900 dark:text-zinc-100">{props.title}</div>
+	          <div className="text-sm text-slate-600 dark:text-zinc-300 mt-0.5">{props.description}</div>
+	        </div>
+	      </div>
+	      <div className="flex items-center gap-2 text-slate-400 dark:text-zinc-400 text-sm">
+	        {props.actionLabel && (
+	          <span className="font-medium text-slate-700 dark:text-zinc-200">{props.actionLabel}</span>
+	        )}
+	        <span className="text-xl transition-transform group-hover:translate-x-0.5">&gt;</span>
+	      </div>
+	    </div>
+	  );
+	  if (props.href) {
+	    return (
+	      <Link
+	        href={props.href}
+	        prefetch={false}
+	        className={`${base} ${props.disabled ? "opacity-50 pointer-events-none" : ""}`}
+	      >
+	        {inner}
+	      </Link>
+	    );
+	  }
+	  return (
+	    <button
+	      type="button"
+	      onClick={props.disabled ? undefined : props.onClick}
+	      className={`${base} text-left ${props.disabled ? "opacity-50 cursor-not-allowed" : ""}`}
+	      disabled={props.disabled}
+	    >
+	      {inner}
+	    </button>
+	  );
+}
 
-  function displayName(item: LightItem): string {
-    if (item.id.endsWith("-flight")) return `${item.name} (in flight)`;
-    if (item.id.endsWith("-ground")) return `${item.name} (on ground)`;
-    return item.name;
-  }
+	  function displayName(item: LightItem): string {
+	    if (item.id.endsWith("-flight")) return `${item.name} (in flight)`;
+	    if (item.id.endsWith("-ground")) return `${item.name} (on ground)`;
+	    return item.name;
+	  }
 
 export default function LightsTrainer() {
-  const router = useRouter();
-  const { variant: activeVariant, setActiveVariant } = useActiveModelVariant();
-  const isH125 = activeVariant.productId === "H125";
-  const isB3e = activeVariant.id === "H125_AS350_B3E";
-  const [all, setAll] = useState<LightItem[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [mode, setMode] = useState<Mode>("idle");
-  const [pickCounts, setPickCounts] = useState<{ warning: number | "all" }>({ warning: 10 });
-  const [lastSeverity, setLastSeverity] = useState<Severity | null>(null);
-  const [deck, setDeck] = useState<LightItem[]>([]);
-  const [idx, setIdx] = useState(0);
-  const [memoryOnly, setMemoryOnly] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
-  const [compactCWP, setCompactCWP] = useState(false);
+	  const router = useRouter();
+	  const { variant: activeVariant, setActiveVariant } = useActiveModelVariant();
+	  const isH125 = activeVariant.productId === "H125";
+	  const isB3e = activeVariant.id === "H125_AS350_B3E";
+	  const [all, setAll] = useState<LightItem[]>([]);
+	  const [loading, setLoading] = useState(true);
+	  const [mode, setMode] = useState<Mode>("idle");
+	  const [lastSeverity, setLastSeverity] = useState<Severity | null>(null);
+	  const [deck, setDeck] = useState<LightItem[]>([]);
+	  const [idx, setIdx] = useState(0);
+	  const [memoryOnly, setMemoryOnly] = useState(false);
+	  const [showMemoryMenu, setShowMemoryMenu] = useState(false);
+	  const [isMobile, setIsMobile] = useState(false);
+	  const [compactCWP, setCompactCWP] = useState(false);
+	  const [pickCounts, setPickCounts] = useState<{ warning: "all" | number }>({ warning: "all" });
   useEffect(() => {
     if (typeof window === "undefined") return;
     const mql = window.matchMedia?.("(max-width: 640px)");
@@ -352,7 +423,7 @@ export default function LightsTrainer() {
 
 
 
-  const start = useCallback(async (_severity: Severity) => {
+		  const start = useCallback(async (_severity: Severity) => {
     // Access control: allow 5 starts when not logged in; unlimited when logged in
     const loggedIn = await isLoggedInAsync();
     if (!loggedIn) {
@@ -363,17 +434,20 @@ export default function LightsTrainer() {
       }
       incQuota("lights");
     }
-    const pool = warningLights;
-    if (!pool.length) return;
-    const setting = pickCounts.warning;
-    const shuffled = shuffle(pool);
-    const n = setting === "all" ? shuffled.length : Math.min(shuffled.length, setting);
-    setDeck(shuffled.slice(0, n) as LightItem[]);
+	    const pool = warningLights;
+	    if (!pool.length) return;
+	    const shuffled = shuffle(pool);
+	    let n = shuffled.length;
+	    if (activeVariant.id !== "AW169") {
+	      const desired = pickCounts.warning === "all" ? shuffled.length : pickCounts.warning;
+	      n = Math.min(shuffled.length, desired);
+	    }
+	    setDeck(shuffled.slice(0, n) as LightItem[]);
     setLastSeverity("warning");
-    setIdx(0);
-    setMemoryOnly(false);
-    setMode("light");
-  }, [warningLights, pickCounts, activeVariant.id]);
+	    setIdx(0);
+	    setMemoryOnly(false);
+	    setMode("light");
+		  }, [warningLights, activeVariant.id, pickCounts.warning]);
 
   const startMemoryOnly = useCallback(async () => {
     const loggedIn = await isLoggedInAsync();
@@ -418,9 +492,8 @@ export default function LightsTrainer() {
         pool = [] as LightItem[];
       }
     }
-    if (!pool.length) return;
-    const setting = pickCounts.warning;
-    const n = memoryOnly ? pool.length : (setting === "all" ? pool.length : Math.min(pool.length, setting));
+	    if (!pool.length) return;
+		    const n = deck.length || pool.length;
     const key = `lights:lastOrders:${activeVariant.id}:${sev}:${n}:memory:${memoryOnly ? 1 : 0}`;
     const lastOrders = (() => {
       try { return JSON.parse(sessionStorage.getItem(key) || "[]"); } catch { return []; }
@@ -432,10 +505,10 @@ export default function LightsTrainer() {
     }
     const updated = [...lastOrders, sig(next)].slice(-2);
     try { sessionStorage.setItem(key, JSON.stringify(updated)); } catch {}
-    setDeck(next as LightItem[]);
-    setIdx(0);
-    setMode("light");
-  }, [lastSeverity, deck, warningLights, pickCounts, activeVariant.id, memoryOnly, hasMemory]);
+	    setDeck(next as LightItem[]);
+	    setIdx(0);
+	    setMode("light");
+	  }, [lastSeverity, deck, warningLights, activeVariant.id, memoryOnly, hasMemory]);
 
 
 
@@ -1072,7 +1145,7 @@ export default function LightsTrainer() {
   <div className="min-h-screen bg-slate-50 dark:bg-zinc-900">
       {!isMobile && mode !== "idle" && current && !(compactCWP && mode === "procedure") && header}
       <main className="mx-auto max-w-3xl p-6 space-y-6">
-        {mode === "idle" && (
+	        {mode === "idle" && activeVariant.id !== "AW169" && (
           <div className="space-y-6">
             <section className="space-y-4 rounded-xl border bg-white p-6 shadow-sm dark:bg-zinc-900 dark:border-zinc-700">
               <div className="flex items-center gap-2">
@@ -1208,8 +1281,63 @@ export default function LightsTrainer() {
             )}
 
 
-          </div>
-        )}
+	          </div>
+	        )}
+
+	        {mode === "idle" && activeVariant.id === "AW169" && (
+	          <div className="space-y-4">
+	            <LightsBar
+	              tone="amber"
+	              title="Red Warning Lights  Trainer"
+	              description="Practice all red warning lights in random order. Tap to start."
+	              actionLabel={
+	                loading ? "Loading" : warningLights.length ? `Start (${warningLights.length} lights)` : "No red lights"
+	              }
+	              onClick={() => start("warning")}
+	              disabled={loading || !warningLights.length}
+	            />
+
+	            <LightsBar
+	              tone="slate"
+	              title="CWP-trainer"
+	              description="AW169 warning panel  tap to train by pressing lights."
+	              href="/training/lights/cwp/aw169"
+	            />
+
+	            <>
+	              <LightsBar
+	                tone="slate"
+	                title="Memory items  Trainer (AW169)"
+	                description="Train only on QRH memory items. Tap to choose red or amber items."
+	                onClick={() => setShowMemoryMenu((prev) => !prev)}
+	              />
+	              {showMemoryMenu && (
+	                <div className="space-y-3 pl-3 border-l border-slate-200 dark:border-zinc-700">
+	                  <LightsBar
+	                    tone="amber"
+	                    title="Red memory items"
+	                    description="QRH memory items for red warning lights."
+	                    actionLabel={
+	                      loading
+	                        ? "Loading"
+	                        : memoryCount
+	                        ? `Start (${memoryCount} items)`
+	                        : "No red memory items"
+	                    }
+	                    onClick={startMemoryOnly}
+	                    disabled={loading || memoryCount === 0}
+	                  />
+	                  <LightsBar
+	                    tone="amber"
+	                    title="Amber (yellow) memory items"
+	                    description="QRH memory items for amber caution lights (coming soon)."
+	                    disabled
+	                  />
+	                </div>
+	              )}
+	            </>
+	          </div>
+	        )}
         {mode === "light" && current && (
           <div className="space-y-6">
             <button

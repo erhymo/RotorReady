@@ -15,6 +15,18 @@ export const config = {
 export async function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
 
+  // Allow PWA service worker and related assets on all hosts without
+  // canonical-domain redirect. Service workers must be served directly
+  // from the origin without a cross-origin redirect, otherwise browsers
+  // will refuse to register them and offline mode will not work.
+  if (
+    pathname === "/sw.js" ||
+    pathname.startsWith("/workbox-") ||
+    pathname.startsWith("/fallback-")
+  ) {
+    return NextResponse.next();
+  }
+
   // Canonical domain redirect (production only)
   try {
     const host = req.headers.get("host") || "";

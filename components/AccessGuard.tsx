@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { useRouter, usePathname } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "@/lib/firebase/client";
 import { useActiveModelVariant } from "@/lib/models/hooks";
@@ -25,7 +25,6 @@ function msFromDays(days: number) {
 
 export default function AccessGuard({ children }: { children: React.ReactNode }) {
   const router = useRouter();
-  const pathname = usePathname();
   const { variant, loading: variantLoading } = useActiveModelVariant();
   const [allowed, setAllowed] = useState<boolean | null>(null);
 
@@ -41,7 +40,10 @@ export default function AccessGuard({ children }: { children: React.ReactNode })
     }
     function block() {
       setAllowed(false);
-      const from = typeof pathname === "string" ? pathname : "/";
+      const from =
+        typeof window !== "undefined" && typeof window.location?.pathname === "string"
+          ? window.location.pathname || "/"
+          : "/";
       router.push(`/signup?from=${encodeURIComponent(from)}`);
     }
 
@@ -94,7 +96,7 @@ export default function AccessGuard({ children }: { children: React.ReactNode })
     return () => {
       if (unsub) unsub();
     };
-  }, [variantLoading, variant?.productId, pathname, router]);
+  }, [variantLoading, variant?.productId, router]);
 
   if (allowed !== true) return null;
   return <>{children}</>;

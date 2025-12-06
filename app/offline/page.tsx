@@ -25,9 +25,9 @@ async function fetchSection(id: string, variantId: string) {
   throw new Error("Could not fetch section");
 }
 
-async function deriveSectionPayload(id: string, variantId: string) {
+async function deriveSectionPayload(id: string, variantId: string, allItems?: any[]) {
   // Fall back to building a chapter from the question bank when the file does not exist
-  const items = await loadAllQuestions(variantId);
+  const items = allItems ?? (await loadAllQuestions(variantId));
   const norm = (s: any) => String(s || "").toLowerCase();
   let filtered: any[] = [];
   if (id === "limitations") {
@@ -117,6 +117,7 @@ export default function OfflinePage() {
   const [loadingSections, setLoadingSections] = useState(true);
   const [sectionsError, setSectionsError] = useState<string | null>(null);
   const [counts, setCounts] = useState<Record<string, number>>({});
+  const [allQuestions, setAllQuestions] = useState<any[] | null>(null);
   // Gating midlertidig deaktivert – alltid tilgang til offline
   const { variant: activeVariant, loading: variantLoading } = useActiveModelVariant();
 
@@ -132,6 +133,25 @@ export default function OfflinePage() {
     } catch {
       setOfflineIds([]);
     }
+  }, [activeVariant.id, variantLoading]);
+
+  // Preload the full question bank once per variant so we can cheaply derive
+  // synthetic sections (limitations, performance, etc.) without reloading
+  // everything for each section.
+  useEffect(() => {
+    if (variantLoading) return;
+    let cancelled = false;
+    (async () => {
+      try {
+        const items = await loadAllQuestions(activeVariant.id);
+        if (!cancelled) setAllQuestions(items);
+      } catch {
+        if (!cancelled) setAllQuestions(null);
+      }
+    })();
+    return () => {
+      cancelled = true;
+    };
   }, [activeVariant.id, variantLoading]);
 
   useEffect(() => {
@@ -160,21 +180,39 @@ export default function OfflinePage() {
   // After sections are loaded: fetch question count per section (automatic and model-specific)
   useEffect(() => {
     if (variantLoading) return;
-    if (!sections.length) { setCounts({}); return; }
+    if (!sections.length) {
+      setCounts({});
+      return;
+    }
     let cancelled = false;
     (async () => {
-      const entries = await Promise.all(sections.map(async (s) => {
-        try {
-          const data = await fetchSection(s.id, activeVariant.id).catch(() => null);
-          if (data && Array.isArray(data.items)) return [s.id, data.items.length] as const;
-          const built = await deriveSectionPayload(s.id, activeVariant.id).catch(() => ({ items: [] }));
-          return [s.id, Array.isArray(built.items) ? built.items.length : 0] as const;
-        } catch { return [s.id, 0] as const; }
-      }));
+      const entries = await Promise.all(
+        sections.map(async (s) => {
+          try {
+            const data = await fetchSection(s.id, activeVariant.id).catch(() => null);
+            if (data && Array.isArray(data.items)) return [s.id, data.items.length] as const;
+
+            // Uten forhåndslastet question bank hopper vi over dyr fallback og
+            // viser 0 inntil allQuestions er klar.
+            if (!allQuestions) return [s.id, 0] as const;
+
+            const built = await deriveSectionPayload(
+              s.id,
+              activeVariant.id,
+              allQuestions,
+            ).catch(() => ({ items: [] }));
+            return [s.id, Array.isArray(built.items) ? built.items.length : 0] as const;
+          } catch {
+            return [s.id, 0] as const;
+          }
+        }),
+      );
       if (!cancelled) setCounts(Object.fromEntries(entries));
     })();
-    return () => { cancelled = true; };
-  }, [sections, activeVariant.id, variantLoading]);
+    return () => {
+      cancelled = true;
+    };
+  }, [sections, activeVariant.id, variantLoading, allQuestions]);
 
   const availableIdSet = useMemo(() => new Set(sections.map((s) => s.id)), [sections]);
   const otherOfflineIds = useMemo(
@@ -208,7 +246,11 @@ export default function OfflinePage() {
 
       // 2) Fallback for AW169 and other chapters without their own section file: build from the question bank
       if (!data) {
-        const built = await deriveSectionPayload(section.id, activeVariant.id);
+        const built = await deriveSectionPayload(
+          section.id,
+          activeVariant.id,
+          allQuestions ?? undefined,
+        );
         if (Array.isArray(built.items) && built.items.length > 0) {
           data = built;
         }

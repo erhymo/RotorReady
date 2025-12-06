@@ -11,19 +11,37 @@ async function fetchJson<T = unknown>(url: string): Promise<T | null> {
   }
 }
 
+// Simple in-memory caches so expensive aggregations are only done once per
+// variant during a session. This improves perceived speed when multiple views
+// (Offline, quiz "All", section counts) all need the full question bank.
+const allQuestionsPromiseCache = new Map<string, Promise<any[]>>();
+let blockedSetPromise: Promise<Set<string>> | null = null;
+
 async function fetchBlockedSet(): Promise<Set<string>> {
+  if (blockedSetPromise) return blockedSetPromise;
+  blockedSetPromise = (async () => {
+    try {
+      const res = await fetch("/api/blocked-questions", { cache: "no-store" });
+      if (!res.ok) return new Set<string>();
+      const data = await res.json();
+      const ids: string[] = Array.isArray(data?.ids) ? data.ids : [];
+      return new Set(ids);
+    } catch {
+      return new Set<string>();
+    }
+  })();
+
   try {
-    const res = await fetch("/api/blocked-questions", { cache: "no-store" });
-    if (!res.ok) return new Set();
-    const data = await res.json();
-    const ids: string[] = Array.isArray(data?.ids) ? data.ids : [];
-    return new Set(ids);
-  } catch {
-    return new Set();
+    return await blockedSetPromise;
+  } catch (error) {
+    // On failure, clear the cache so a later call can retry.
+    console.warn("Kunne ikke hente blokkert-spørsmål-liste", error);
+    blockedSetPromise = null;
+    return new Set<string>();
   }
 }
 
-export async function loadAllQuestions(variantId?: string): Promise<any[]> {
+async function computeAllQuestions(variantId?: string): Promise<any[]> {
   const all: any[] = [];
 
   // 1) Modell-spesifikke kapitler fra index.json for varianten
@@ -115,4 +133,19 @@ export async function loadAllQuestions(variantId?: string): Promise<any[]> {
   // 5) Soft-delete (blocklist)
   const blockedSet = await fetchBlockedSet();
   return variantFiltered.filter((q) => !blockedSet.has(q?.id));
+}
+
+export async function loadAllQuestions(variantId?: string): Promise<any[]> {
+  const key = variantId || "__all__";
+  const existing = allQuestionsPromiseCache.get(key);
+  if (existing) return existing;
+
+  const promise = computeAllQuestions(variantId).catch((error) => {
+    // If the aggregation fails, don't keep a rejected promise cached.
+    allQuestionsPromiseCache.delete(key);
+    throw error;
+  });
+
+  allQuestionsPromiseCache.set(key, promise);
+  return promise;
 }

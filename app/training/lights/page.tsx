@@ -5,6 +5,7 @@ import type { ReactNode } from "react";
 import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
+import TopBarBackButton from "@/components/TopBarBackButton";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 import { getQuota, incQuota } from "@/lib/quota";
 import { isLoggedInAsync } from "@/lib/auth";
@@ -1220,10 +1221,15 @@ export default function LightsTrainer() {
     return <div className="min-h-screen bg-slate-50 dark:bg-zinc-900" />;
   }
 
-  return (
-  <div className="min-h-screen bg-slate-50 dark:bg-zinc-900">
-      {!isMobile && mode !== "idle" && current && !(compactCWP && mode === "procedure") && header}
-      <main className="mx-auto max-w-3xl p-6 space-y-6">
+	  return (
+	    <div className="min-h-screen bg-slate-50 dark:bg-zinc-900">
+	      <div className="sticky top-0 z-10 bg-white/80 dark:bg-zinc-900/90 backdrop-blur border-b dark:border-zinc-700">
+	        <div className="mx-auto max-w-3xl px-6 py-3">
+	          <TopBarBackButton href="/" label="Back" />
+	        </div>
+	      </div>
+	      {!isMobile && mode !== "idle" && current && !(compactCWP && mode === "procedure") && header}
+	      <main className="mx-auto max-w-3xl p-6 space-y-6">
 	        {mode === "idle" && activeVariant.id !== "AW169" && (
           <div className="space-y-6">
             <section className="space-y-4 rounded-xl border bg-white p-6 shadow-sm dark:bg-zinc-900 dark:border-zinc-700">

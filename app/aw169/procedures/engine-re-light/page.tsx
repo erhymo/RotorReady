@@ -21,6 +21,28 @@ function EngineRelightInner() {
   const compactList = !!plist && plist !== "0" && plist !== "false";
   const compact = compactCWP || compactList;
 
+  const handleClose = () => {
+    try {
+      const before = window.location.pathname + window.location.search;
+      router.back();
+      setTimeout(() => {
+        try {
+          if (window.location.pathname + window.location.search === before) {
+            if (compactList) {
+              router.push('/training/procedures/aw169');
+            } else {
+              const sp2 = new URLSearchParams(window.location.search);
+              const v = sp2.get('v') || '';
+              const light = sp2.get('light') || '';
+              const mem = sp2.get('mem') || '0';
+              router.push(`/training/lights?resume=1&v=${encodeURIComponent(v)}&light=${encodeURIComponent(light)}&mem=${encodeURIComponent(mem)}&cwp=1`);
+            }
+          }
+        } catch {}
+      }, 120);
+    } catch {}
+  };
+
   function Content() {
     return (
       <main className="mx-auto max-w-3xl p-6 space-y-6">
@@ -72,33 +94,28 @@ function EngineRelightInner() {
         className="fixed left-0 right-0 bottom-0 top-0 z-40 bg-white dark:bg-zinc-900 cursor-pointer"
         role="button"
         aria-label="Close procedure"
-        onClick={() => {
-          try {
-            const before = window.location.pathname + window.location.search;
-            router.back();
-            setTimeout(() => {
-              try {
-                if (window.location.pathname + window.location.search === before) {
-                  if (compactList) {
-                    router.push('/training/procedures/aw169');
-                  } else {
-                    const sp2 = new URLSearchParams(window.location.search);
-                    const v = sp2.get('v') || '';
-                    const light = sp2.get('light') || '';
-                    const mem = sp2.get('mem') || '0';
-                    router.push(`/training/lights?resume=1&v=${encodeURIComponent(v)}&light=${encodeURIComponent(light)}&mem=${encodeURIComponent(mem)}&cwp=1`);
-                  }
-                }
-              } catch {}
-            }, 120);
-          } catch {}
-        }}
+        onClick={handleClose}
       >
         <div
           className="h-full w-full overflow-y-auto"
-          onClickCapture={(e) => { const t = e.target as HTMLElement; if (t && t.closest('a,button,input,textarea,select,[data-prevent-back]')) { e.stopPropagation(); } }}
-          onMouseDownCapture={(e) => { const t = e.target as HTMLElement; if (t && t.closest('a,button,input,textarea,select,[data-prevent-back]')) { e.stopPropagation(); } }}
-          onTouchStartCapture={(e) => { const t = e.target as HTMLElement; if (t && t.closest('a,button,input,textarea,select,[data-prevent-back]')) { e.stopPropagation(); } }}
+          onClickCapture={(e) => {
+            const t = e.target as HTMLElement;
+            if (t && t.closest('a,button,input,textarea,select,[data-prevent-back]')) {
+              e.stopPropagation();
+            }
+          }}
+          onMouseDownCapture={(e) => {
+            const t = e.target as HTMLElement;
+            if (t && t.closest('a,button,input,textarea,select,[data-prevent-back]')) {
+              e.stopPropagation();
+            }
+          }}
+          onTouchStartCapture={(e) => {
+            const t = e.target as HTMLElement;
+            if (t && t.closest('a,button,input,textarea,select,[data-prevent-back]')) {
+              e.stopPropagation();
+            }
+          }}
         >
           <Content />
         </div>

@@ -69,11 +69,11 @@ export default function Header() {
 	          >
 	            Account
 	          </Link>
-	          {/* User menu + desktop info bell stacked under the account name */}
-	          <div className="relative flex flex-col items-end gap-1">
+	          {/* User menu; on desktop, show info bell under the account name without moving it */}
+	          <div className="relative">
 	            <ClientUserMenu />
 	            {showInfoBell && (
-	              <div>
+	              <div className="absolute right-0 top-full mt-2 hidden md:block">
 	                <InfoBell />
 	              </div>
 	            )}

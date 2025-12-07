@@ -28,17 +28,17 @@ export default function InfoPage() {
 	        router.push("/");
 	      }}
 	    >
-      <header className="flex items-center justify-between gap-3">
+	      <header className="flex items-center justify-between gap-3">
         <div>
           <h1 className="text-xl font-semibold text-slate-900 dark:text-white">Information</h1>
           <p className="text-xs text-slate-600 dark:text-zinc-300 mt-1">
             Latest notes and disclaimers for RotorReady.
           </p>
         </div>
-        <Link
-          href="/"
-          className="rounded-lg border border-slate-300 bg-white px-3 py-1.5 text-sm font-medium text-slate-700 shadow-sm transition hover:bg-slate-50 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100 dark:hover:bg-zinc-800"
-        >
+	        <Link
+	          href="/"
+	          className="mr-10 rounded-lg border border-slate-300 bg-white px-3 py-1.5 text-sm font-medium text-slate-700 shadow-sm transition hover:bg-slate-50 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100 dark:hover:bg-zinc-800"
+	        >
           Home
         </Link>
       </header>

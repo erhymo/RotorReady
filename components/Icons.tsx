@@ -1,7 +1,5 @@
 import * as React from "react";
 
-type IconProps = React.SVGProps<SVGSVGElement> & { className?: string };
-
 export function BoltIcon(props: React.SVGProps<SVGSVGElement>) {
 	return (
 		<svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" {...props}>
@@ -34,3 +32,11 @@ export function DownloadIcon(props: React.SVGProps<SVGSVGElement>) {
 		</svg>
 	);
 }
+
+	export function BellIcon(props: React.SVGProps<SVGSVGElement>) {
+		return (
+			<svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" {...props}>
+				<path d="M10 2a4 4 0 0 0-4 4v1.09c0 .516-.164 1.02-.47 1.433L4.3 9.8A2 2 0 0 0 6 13h8a2 2 0 0 0 1.7-3.2l-1.23-1.277A2.5 2.5 0 0 1 14 7.09V6a4 4 0 0 0-4-4zM8.75 14.5a1.25 1.25 0 1 0 2.5 0h-2.5z" />
+			</svg>
+		);
+	}

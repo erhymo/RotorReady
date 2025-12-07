@@ -26,7 +26,7 @@ export default function Header() {
           </div>
         </Link>
 
-        {/* Home */}
+	        {/* Home */}
         <Link
           href="/"
           className="ml-2 inline-flex items-center gap-2 rounded-lg border border-slate-300 bg-white px-3 py-1 text-sm font-semibold text-slate-800 shadow-sm transition hover:border-slate-400 hover:bg-slate-50 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100 dark:hover:border-zinc-600 dark:hover:bg-zinc-800"
@@ -38,10 +38,13 @@ export default function Header() {
           Home
         </Link>
 
-	        {/* Active model indicator + info bell */}
-	        <div className="flex flex-col items-start gap-1">
+	        {/* Active model indicator */}
+	        <div className="relative flex items-center">
 	          <ClientActiveModelBadge />
-	          <InfoBell />
+	          {/* Info bell stacked directly under the active model badge */}
+	          <div className="absolute right-0 top-full mt-1">
+	            <InfoBell />
+	          </div>
 	        </div>
 
         {/* Right-side nav (hidden on mobile to avoid horizontal scroll) */}

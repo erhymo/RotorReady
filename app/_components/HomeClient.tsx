@@ -46,8 +46,11 @@ export default function HomeClient() {
 	      // ignore
 	    }
 	  }, []);
-  return (<>
+	  return (<>
 	      <div className="fixed top-4 right-4 z-50 flex flex-col items-end gap-2">
+	        <span className="inline-flex items-center gap-1 rounded-full border border-emerald-600/40 bg-emerald-100 text-emerald-800 dark:bg-emerald-900/50 dark:text-emerald-200 px-2.5 py-1 text-xs font-medium select-none">
+	          In production
+	        </span>
 	        <Link
 	          href="/info"
 	          prefetch={false}
@@ -60,9 +63,6 @@ export default function HomeClient() {
 	        >
 	          <BellIcon className="h-4 w-4" />
 	        </Link>
-	        <span className="inline-flex items-center gap-1 rounded-full border border-emerald-600/40 bg-emerald-100 text-emerald-800 dark:bg-emerald-900/50 dark:text-emerald-200 px-2.5 py-1 text-xs font-medium select-none">
-	          In production
-	        </span>
 	      </div>
 
     <div className="max-w-5xl mx-auto p-6 space-y-8">

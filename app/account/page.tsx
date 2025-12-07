@@ -752,11 +752,6 @@ export default function AccountPage() {
           <li>RotorReady is an independent training application. It is not an officially approved trainer.</li>
           <li>Always use the QRH/AFM and your operator's procedures as the primary source. Do not make operational decisions based on the app alone.</li>
         </ul>
-        <div>
-          <a className="inline-flex items-center gap-2 rounded-lg border border-slate-300 px-3 py-1.5 text-sm text-slate-700 hover:bg-slate-100 dark:border-zinc-700 dark:text-zinc-200 dark:hover:bg-zinc-800" href="https://github.com/erhymo/RotorReady#readme" target="_blank" rel="noreferrer">
-            Read the README (details on usage, privacy, and technical)
-          </a>
-        </div>
       </section>
 
       <section className="rounded-2xl border border-red-200 bg-red-50 p-6 shadow-sm dark:border-red-500/40 dark:bg-red-900/20 dark:text-red-100 space-y-3">

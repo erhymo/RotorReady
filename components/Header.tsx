@@ -1,11 +1,17 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import ClientUserMenu from "./ClientUserMenu";
 import ClientActiveModelBadge from "./ClientActiveModelBadge";
 import InfoBell from "./InfoBell";
 
 
 export default function Header() {
-  return (
+	  const pathname = usePathname();
+	  const showInfoBell = pathname === "/";
+
+	  return (
     <div className="w-full border-b border-slate-200/70 bg-white/60 backdrop-blur supports-[backdrop-filter]:bg-white/40 dark:bg-zinc-950/90 dark:border-zinc-800 dark:text-zinc-100">
 	      <div className="mx-auto flex h-16 max-w-6xl items-center gap-4 px-6">
         {/* Logo / Brand */}
@@ -38,14 +44,16 @@ export default function Header() {
           Home
         </Link>
 
-	        {/* Active model indicator */}
-	        <div className="relative flex items-center">
-	          <ClientActiveModelBadge />
-	          {/* Info bell stacked directly under the active model badge, but a bit further down */}
-	          <div className="absolute right-0 top-full mt-3">
-	            <InfoBell />
-	          </div>
-	        </div>
+		        {/* Active model indicator */}
+		        <div className="relative flex items-center">
+		          <ClientActiveModelBadge />
+		          {/* Info bell stacked directly under the active model badge, but a bit further down (home page only) */}
+		          {showInfoBell && (
+		            <div className="absolute right-0 top-full mt-3">
+		              <InfoBell />
+		            </div>
+		          )}
+		        </div>
 
         {/* Right-side nav (hidden on mobile to avoid horizontal scroll) */}
         <nav className="ml-auto hidden md:flex items-center gap-4 text-sm">

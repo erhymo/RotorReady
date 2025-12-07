@@ -35,9 +35,14 @@ export default function HomeClient() {
   const { variant: activeVariant } = useActiveModelVariant();
   const hasCheckout = Boolean(process.env.NEXT_PUBLIC_STRIPE_PRICE_ID);
 	  const [hasUnreadInfo, setHasUnreadInfo] = useState(false);
-  useEffect(() => {
-    fetch("/quiz-data/versions/data-version.json").then(r=>r.json()).then(setVer).catch(()=>{});
-  }, []);
+
+	  useEffect(() => {
+	    fetch("/quiz-data/versions/data-version.json")
+	      .then((r) => r.json())
+	      .then(setVer)
+	      .catch(() => {});
+	  }, []);
+
 	  useEffect(() => {
 	    try {
 	      const stored = window.localStorage.getItem(INFO_STORAGE_KEY);
@@ -46,32 +51,38 @@ export default function HomeClient() {
 	      // ignore
 	    }
 	  }, []);
-	  return (<>
-	      <div className="fixed top-4 right-4 z-50 flex flex-col items-end gap-2">
-	        <span className="inline-flex items-center gap-1 rounded-full border border-emerald-600/40 bg-emerald-100 text-emerald-800 dark:bg-emerald-900/50 dark:text-emerald-200 px-2.5 py-1 text-xs font-medium select-none">
-	          In production
-	        </span>
-	        <Link
-	          href="/info"
-	          prefetch={false}
-	          className={`inline-flex h-9 w-9 items-center justify-center rounded-full border text-xs shadow-sm transition ${
-	            hasUnreadInfo
-	              ? "border-emerald-500 bg-emerald-100 text-emerald-800 dark:border-emerald-400 dark:bg-emerald-900/60 dark:text-emerald-100"
-	              : "border-slate-300 bg-white text-slate-500 hover:bg-slate-50 dark:border-zinc-700 dark:bg-zinc-900/80 dark:text-zinc-300 dark:hover:bg-zinc-800"
-	          }`}
-	          aria-label={hasUnreadInfo ? "New information available" : "Information"}
-	        >
-	          <BellIcon className="h-4 w-4" />
-	        </Link>
+
+	  return (
+	    <div className="max-w-5xl mx-auto p-6 space-y-8">
+	      <header>
+	        <h1 className="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">RotorReady</h1>
+	        <p className="mt-2 text-slate-600 dark:text-zinc-300">
+	          Train smarter. Faster repetition for lights and limitations. Offline support for operations without
+	          internet.
+	        </p>
+	      </header>
+
+	      <div className="mt-2 flex justify-end">
+	        <div className="flex flex-col items-end gap-2">
+	          <span className="inline-flex items-center gap-1 rounded-full border border-emerald-600/40 bg-emerald-100 px-2.5 py-1 text-xs font-medium text-emerald-800 dark:bg-emerald-900/50 dark:text-emerald-200 select-none">
+	            In production
+	          </span>
+	          <Link
+	            href="/info"
+	            prefetch={false}
+	            className={`inline-flex h-9 w-9 items-center justify-center rounded-full border text-xs shadow-sm transition ${
+	              hasUnreadInfo
+	                ? "border-emerald-500 bg-emerald-100 text-emerald-800 dark:border-emerald-400 dark:bg-emerald-900/60 dark:text-emerald-100"
+	                : "border-slate-300 bg-white text-slate-500 hover:bg-slate-50 dark:border-zinc-700 dark:bg-zinc-900/80 dark:text-zinc-300 dark:hover:bg-zinc-800"
+	            }`}
+	            aria-label={hasUnreadInfo ? "New information available" : "Information"}
+	          >
+	            <BellIcon className="h-4 w-4" />
+	          </Link>
+	        </div>
 	      </div>
 
-    <div className="max-w-5xl mx-auto p-6 space-y-8">
-      <header>
-  <h1 className="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">RotorReady</h1>
-  <p className="text-slate-600 dark:text-zinc-300 mt-2">Train smarter. Faster repetition for lights and limitations. Offline support for operations without internet.</p>
-      </header>
-
-      <section className="space-y-3">
+	      <section className="space-y-3">
         <h2 className="text-sm font-semibold text-slate-700 dark:text-zinc-200 uppercase">Training Modes</h2>
         <Bar
           href="/training/lights"
@@ -155,12 +166,14 @@ export default function HomeClient() {
         />
       </section>
 
-      {ver && (
-        <footer className="pt-2 text-xs text-slate-500 dark:text-zinc-400">
-          <div>Data: {ver.version} — QRH: {ver.qrhVersion} — RFM: {ver.rfmVersion}</div>
-        </footer>
-      )}
-    </div>
-  </> );
-}
+	      {ver && (
+	        <footer className="pt-2 text-xs text-slate-500 dark:text-zinc-400">
+	          <div>
+	            Data: {ver.version} — QRH: {ver.qrhVersion} — RFM: {ver.rfmVersion}
+	          </div>
+	        </footer>
+	      )}
+	    </div>
+	  );
+	}
 

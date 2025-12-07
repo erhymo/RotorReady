@@ -2,12 +2,14 @@
 
 import { useEffect } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 import { useActiveModelVariant } from "@/lib/models/hooks";
 import { INFO_STORAGE_KEY, LATEST_INFO_VERSION } from "@/lib/info/infoConstants";
 
 export default function InfoPage() {
   const { variant } = useActiveModelVariant();
+	  const router = useRouter();
 
   useEffect(() => {
     try {
@@ -19,8 +21,13 @@ export default function InfoPage() {
 
   const isAw169 = variant?.id === "AW169";
 
-  return (
-    <div className="max-w-3xl mx-auto p-6 space-y-6">
+	  return (
+	    <div
+	      className="max-w-3xl mx-auto p-6 space-y-6 cursor-pointer"
+	      onClick={() => {
+	        router.push("/");
+	      }}
+	    >
       <header className="flex items-center justify-between gap-3">
         <div>
           <h1 className="text-xl font-semibold text-slate-900 dark:text-white">Information</h1>

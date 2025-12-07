@@ -275,15 +275,20 @@ export default function OfflinePage() {
 
   async function prefetchAllQuestionsAssets() {
     try {
-      const r = await fetch('/quiz-data/all-questions/manifest.json', { cache: 'no-store' });
-      if (r.ok) {
-        const arr = await r.json();
-        if (Array.isArray(arr)) {
-          await Promise.all(
-            arr.map((f) => fetch(`/quiz-data/all-questions/${f}`, { cache: 'no-store' }).catch(() => {}))
-          );
-        }
-      }
+	      // Kuraterte all-questions-banker er i praksis AW169-spesifikke. For
+	      // andre modeller vil de uansett bli filtrert bort, så vi dropper å
+	      // laste dem for å spare båndbredde og parsing.
+	      if (activeVariant.productId === "AW169") {
+	        const r = await fetch('/quiz-data/all-questions/manifest.json', { cache: 'no-store' });
+	        if (r.ok) {
+	          const arr = await r.json();
+	          if (Array.isArray(arr)) {
+	            await Promise.all(
+	              arr.map((f) => fetch(`/quiz-data/all-questions/${f}`, { cache: 'no-store' }).catch(() => {}))
+	            );
+	          }
+	        }
+	      }
       // Priming index files helps future navigation offline
       await fetch(`/model-data/${activeVariant.id}/index.json`, { cache: 'no-store' }).catch(() => {});
       await fetch('/quiz-data/index.json', { cache: 'no-store' }).catch(() => {});

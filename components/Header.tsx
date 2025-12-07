@@ -44,23 +44,41 @@ export default function Header() {
           Home
         </Link>
 
-		        {/* Active model indicator */}
+		        {/* Active model indicator (mobile + desktop), with info bell only visible under it on small screens */}
 		        <div className="relative flex items-center">
 		          <ClientActiveModelBadge />
-		          {/* Info bell stacked directly under the active model badge, but a bit further down (home page only) */}
+		          {/* Info bell stacked directly under the active model badge on home, mobile only */}
 		          {showInfoBell && (
-		            <div className="absolute right-0 top-full mt-4">
+		            <div className="absolute right-0 top-full mt-4 md:hidden">
 		              <InfoBell />
 		            </div>
 		          )}
 		        </div>
 
-        {/* Right-side nav (hidden on mobile to avoid horizontal scroll) */}
-        <nav className="ml-auto hidden md:flex items-center gap-4 text-sm">
-          <Link href="/offline" className="text-slate-700 hover:text-slate-900 dark:text-zinc-200 dark:hover:text-white">Offline</Link>
-          <Link href="/account" className="text-slate-700 hover:text-slate-900 dark:text-zinc-200 dark:hover:text-white">Account</Link>
-          <ClientUserMenu />
-        </nav>
+	        {/* Right-side nav (hidden on mobile to avoid horizontal scroll) */}
+	        <nav className="ml-auto hidden md:flex items-center gap-4 text-sm">
+	          <Link
+	            href="/offline"
+	            className="text-slate-700 hover:text-slate-900 dark:text-zinc-200 dark:hover:text-white"
+	          >
+	            Offline
+	          </Link>
+	          <Link
+	            href="/account"
+	            className="text-slate-700 hover:text-slate-900 dark:text-zinc-200 dark:hover:text-white"
+	          >
+	            Account
+	          </Link>
+	          {/* User menu + desktop info bell stacked under the account name */}
+	          <div className="relative flex flex-col items-end gap-1">
+	            <ClientUserMenu />
+	            {showInfoBell && (
+	              <div>
+	                <InfoBell />
+	              </div>
+	            )}
+	          </div>
+	        </nav>
       </div>
     </div>
   );

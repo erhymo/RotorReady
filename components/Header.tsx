@@ -49,7 +49,7 @@ export default function Header() {
 		          <ClientActiveModelBadge />
 		          {/* Info bell stacked directly under the active model badge, but a bit further down (home page only) */}
 		          {showInfoBell && (
-		            <div className="absolute right-0 top-full mt-3">
+		            <div className="absolute right-0 top-full mt-4">
 		              <InfoBell />
 		            </div>
 		          )}

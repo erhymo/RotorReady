@@ -1,6 +1,8 @@
 "use client";
 
+import { useState } from "react";
 import { BackButton } from "@/app/components/BackButton";
+import AW169_ABBREVIATIONS from "@/data/aw169/abbreviations";
 
 const data = {
   torque: {
@@ -229,13 +231,21 @@ function GroupCard({ title, items }: { title: string; items: { label: string; li
 }
 
 export default function AW169QuickReferencePage() {
+  const [showAbbr, setShowAbbr] = useState(false);
+
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-zinc-900">
       <div className="sticky top-0 z-10 bg-white/80 dark:bg-zinc-900/90 backdrop-blur border-b dark:border-zinc-700">
         <div className="mx-auto max-w-3xl px-6 py-3 flex items-center justify-between gap-3">
           <BackButton label="Home" to="/" />
           <h1 className="text-sm font-semibold tracking-widest opacity-80">AW169 QUICK REFERENCE</h1>
-          <div className="w-[64px]" aria-hidden />
+          <button
+            type="button"
+            onClick={() => setShowAbbr((v) => !v)}
+            className="px-3 py-1 rounded border text-xs font-medium bg-white hover:bg-slate-50 dark:bg-zinc-900 dark:text-zinc-100 dark:border-zinc-700"
+          >
+            ABBR
+          </button>
         </div>
       </div>
 
@@ -244,6 +254,23 @@ export default function AW169QuickReferencePage() {
           For training use only. This is an informal quick reference of selected AW169 RFM limitations. Always use the
           official RFM / QRH as primary reference.
         </p>
+
+        {showAbbr && (
+          <section className="rounded-xl border bg-white dark:bg-zinc-900 dark:border-zinc-700 p-4 space-y-3">
+            <h2 className="text-base font-semibold text-slate-900 dark:text-zinc-100">Abbreviations</h2>
+            <ul className="divide-y divide-slate-200 dark:divide-zinc-700 rounded-xl border border-slate-200 dark:border-zinc-700 overflow-hidden">
+              {AW169_ABBREVIATIONS.map((row, i) => (
+                <li
+                  key={`${row.abbr}-${i}`}
+                  className="flex items-start gap-4 bg-white dark:bg-zinc-900 px-4 py-3 text-sm text-slate-800 dark:text-zinc-100"
+                >
+                  <div className="w-32 shrink-0 font-mono font-semibold">{row.abbr}</div>
+                  <div className="flex-1 text-slate-700 dark:text-zinc-200">{row.meaning}</div>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
 
         <GroupCard title={data.torque.title} items={data.torque.items} />
         <GroupCard title={data.enhancedPerformance.title} items={data.enhancedPerformance.items} />

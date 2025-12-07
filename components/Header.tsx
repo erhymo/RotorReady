@@ -41,8 +41,8 @@ export default function Header() {
 	        {/* Active model indicator */}
 	        <div className="relative flex items-center">
 	          <ClientActiveModelBadge />
-	          {/* Info bell stacked directly under the active model badge */}
-	          <div className="absolute right-0 top-full mt-1">
+	          {/* Info bell stacked directly under the active model badge, but a bit further down */}
+	          <div className="absolute right-0 top-full mt-3">
 	            <InfoBell />
 	          </div>
 	        </div>

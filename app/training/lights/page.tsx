@@ -1229,8 +1229,8 @@ export default function LightsTrainer() {
 	        </div>
 	      </div>
 	      {!isMobile && mode !== "idle" && current && !(compactCWP && mode === "procedure") && header}
-	      <main className="mx-auto max-w-3xl p-6 space-y-6">
-	        {mode === "idle" && activeVariant.id !== "AW169" && (
+		      <main className="mx-auto max-w-3xl p-6 space-y-6">
+		        {mode === "idle" && activeVariant.id !== "AW169" && activeVariant.id !== "AW139" && (
           <div className="space-y-6">
             <section className="space-y-4 rounded-xl border bg-white p-6 shadow-sm dark:bg-zinc-900 dark:border-zinc-700">
               <div className="flex items-center gap-2">
@@ -1366,10 +1366,32 @@ export default function LightsTrainer() {
             )}
 
 
-	          </div>
-	        )}
-
-		        {mode === "idle" && activeVariant.id === "AW169" && (
+			          </div>
+			        )}
+		
+			        {mode === "idle" && activeVariant.id === "AW139" && (
+			          <div className="space-y-4">
+			            <LightsBar
+			              tone="red"
+			              title="Red Warning Lights  Trainer"
+			              description="Practice all red warning lights in random order. Tap to start."
+			              actionLabel={
+			                loading ? "Loading" : warningLights.length ? `Start (${warningLights.length} lights)` : "No red lights"
+			              }
+			              onClick={() => start("warning")}
+			              disabled={loading || !warningLights.length}
+			            />
+			
+			            <LightsBar
+			              tone="slate"
+			              title="CWP-trainer"
+			              description="AW139 warning panel  tap to train by pressing lights."
+			              href="/training/lights/cwp/aw139"
+			            />
+			          </div>
+			        )}
+		
+			        {mode === "idle" && activeVariant.id === "AW169" && (
 	          <div className="space-y-4">
 	            <LightsBar
 		              tone="red"

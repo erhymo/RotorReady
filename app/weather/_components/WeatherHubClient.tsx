@@ -87,7 +87,7 @@ export default function WeatherHubClient() {
           let tafRaw: string | undefined;
           let isAMD: boolean | undefined;
 
-          // 1) Try nearest Norwegian airport first (fast, no external lookup)
+          // 1) Try nearest Norwegian airport first (fast, no external lookup when in/near Norway)
           const nearestNo = nearestSorted[0];
           if (nearestNo) {
             const resNo = await fetch(`/api/weather/metar-taf?icao=${nearestNo.icao}`, { cache: "no-store" });
@@ -101,7 +101,7 @@ export default function WeatherHubClient() {
           }
 
           // 2) If we did not get a valid ICAO (e.g. user not near Norway or Norwegian METAR missing),
-          //    fall back to CheckWX nearest-to-lat/lon endpoint via a dedicated API route.
+          //    fall back to CheckWX nearest-to-lat/lon endpoint via a dedicated API route (global).
           if (!icao) {
             const res = await fetch(`/api/weather/nearest-global?lat=${pos.lat}&lon=${pos.lon}`, { cache: "no-store" });
             if (!res.ok) throw new Error(`HTTP ${res.status}`);
@@ -194,7 +194,7 @@ export default function WeatherHubClient() {
         <div>
           <h1 className="text-2xl font-bold text-slate-900 dark:text-white">Weather planning</h1>
           <p className="text-slate-600 dark:text-zinc-300 text-sm mt-1">
-            Nearest airport at the top (if location is available), then full list of Norwegian airports.
+            Nearest airport at the top (if location is available), plus the full list of Norwegian airports below.
           </p>
         </div>
         <a
@@ -320,7 +320,7 @@ export default function WeatherHubClient() {
       )}
 
       <section className="space-y-2">
-        <h2 className="text-sm font-semibold text-slate-700 dark:text-zinc-200">All Norwegian airports</h2>
+        <h2 className="text-sm font-semibold text-slate-700 dark:text-zinc-200">Norwegian airports</h2>
         <ul className="divide-y rounded-xl border">
           {sortedByIcao.map((a) => (
             <li key={a.icao} className="p-0">

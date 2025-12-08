@@ -39,6 +39,7 @@ export default function WeatherHubClient() {
   const [pos, setPos] = useState<{ lat: number; lon: number } | null>(null);
   const [geoErr, setGeoErr] = useState<string | null>(null);
   const [primaryWx, setPrimaryWx] = useState<Wx | null>(null);
+    const [globalAlternates, setGlobalAlternates] = useState<Wx[]>([]);
   const [primaryDayNight, setPrimaryDayNight] = useState<DayNight | null>(null);
 
     useEffect(() => {
@@ -71,7 +72,17 @@ export default function WeatherHubClient() {
 
     const primary = useMemo(() => (nearestSorted.length ? nearestSorted[0] : null), [nearestSorted]);
 
-    // Load METAR/TAF for the nearest airport (global via CheckWX lat/lon when outside Norway)
+    const inNorway = useMemo(() => {
+      const nearest = nearestSorted[0];
+      if (!pos || !nearest || nearest.distNm == null) return null;
+      // If your position is within ~250 nm of the closest Norwegian airport,
+      // we treat you as "in the Norwegian area" for Weather Planning.
+      return nearest.distNm < 250;
+    }, [nearestSorted, pos]);
+
+    // Load METAR/TAF for the nearest airport.
+    // - If you are in/near Norway: use nearest Norwegian airport (NO_AIRPORTS).
+    // - Otherwise: use CheckWX nearest-to-lat/lon globally.
     useEffect(() => {
       let active = true;
 
@@ -87,29 +98,45 @@ export default function WeatherHubClient() {
           let tafRaw: string | undefined;
           let isAMD: boolean | undefined;
 
-          // 1) Try nearest Norwegian airport first (fast, no external lookup when in/near Norway)
-          const nearestNo = nearestSorted[0];
-          if (nearestNo) {
-            const resNo = await fetch(`/api/weather/metar-taf?icao=${nearestNo.icao}`, { cache: "no-store" });
-            if (resNo.ok) {
-              const json = await resNo.json();
-              icao = nearestNo.icao;
-              metarRaw = json?.metar?.raw || undefined;
-              tafRaw = json?.taf?.raw || undefined;
-              isAMD = json?.taf?.isAMD ?? undefined;
+          if (inNorway) {
+            const nearestNo = nearestSorted[0];
+            if (!nearestNo) {
+              if (active) setPrimaryWx(null);
+              return;
             }
-          }
-
-          // 2) If we did not get a valid ICAO (e.g. user not near Norway or Norwegian METAR missing),
-          //    fall back to CheckWX nearest-to-lat/lon endpoint via a dedicated API route (global).
-          if (!icao) {
-            const res = await fetch(`/api/weather/nearest-global?lat=${pos.lat}&lon=${pos.lon}`, { cache: "no-store" });
-            if (!res.ok) throw new Error(`HTTP ${res.status}`);
-            const json = await res.json();
-            icao = json?.icao || null;
+            const resNo = await fetch(`/api/weather/metar-taf?icao=${nearestNo.icao}`, { cache: "no-store" });
+            if (!resNo.ok) throw new Error(`HTTP ${resNo.status}`);
+            const json = await resNo.json();
+            icao = nearestNo.icao;
             metarRaw = json?.metar?.raw || undefined;
             tafRaw = json?.taf?.raw || undefined;
             isAMD = json?.taf?.isAMD ?? undefined;
+            if (active) setGlobalAlternates([]);
+          } else {
+            const res = await fetch(`/api/weather/nearest-global?lat=${pos.lat}&lon=${pos.lon}`, { cache: "no-store" });
+            if (!res.ok) throw new Error(`HTTP ${res.status}`);
+            const json = await res.json();
+            const primaryJson = json?.primary || json;
+            icao = primaryJson?.icao || json?.icao || null;
+            metarRaw = primaryJson?.metar?.raw || json?.metar?.raw || undefined;
+            tafRaw = primaryJson?.taf?.raw || json?.taf?.raw || undefined;
+            isAMD = primaryJson?.taf?.isAMD ?? json?.taf?.isAMD ?? undefined;
+
+            if (active && Array.isArray(json?.alternates)) {
+              const mapped: Wx[] = json.alternates
+                .map((alt: any) => {
+                  const altIcao: string | undefined = alt?.icao || alt?.station?.icao || undefined;
+                  if (!altIcao) return null;
+                  const altMetar: string | undefined = alt?.metar?.raw || undefined;
+                  const altTaf: string | undefined = alt?.taf?.raw || undefined;
+                  const altIsAMD: boolean | undefined = alt?.taf?.isAMD ?? undefined;
+                  return { icao: altIcao, metarRaw: altMetar, tafRaw: altTaf, isAMD: altIsAMD } as Wx;
+                })
+                .filter((x: Wx | null): x is Wx => x !== null);
+              setGlobalAlternates(mapped);
+            } else if (active) {
+              setGlobalAlternates([]);
+            }
           }
 
           const minima = icao ? getAirportMinima(icao) : undefined;
@@ -122,7 +149,10 @@ export default function WeatherHubClient() {
           }
         } catch (e) {
           console.warn("wx fetch failed (global)", e);
-          if (active) setPrimaryWx(null);
+          if (active) {
+            setPrimaryWx(null);
+            setGlobalAlternates([]);
+          }
         }
       }
 
@@ -132,7 +162,7 @@ export default function WeatherHubClient() {
         active = false;
         clearInterval(id);
       };
-    }, [pos?.lat, pos?.lon, geoErr, nearestSorted]);
+    }, [pos?.lat, pos?.lon, geoErr, inNorway, nearestSorted]);
   // Load defined day/night and twilight intervals for the nearest airport (same as detail page header)
   useEffect(() => {
     let active = true;
@@ -194,7 +224,7 @@ export default function WeatherHubClient() {
         <div>
           <h1 className="text-2xl font-bold text-slate-900 dark:text-white">Weather planning</h1>
           <p className="text-slate-600 dark:text-zinc-300 text-sm mt-1">
-            Nearest airport at the top (if location is available), plus the full list of Norwegian airports below.
+            Nearest airport at the top (if location is available).
           </p>
         </div>
         <a
@@ -205,7 +235,8 @@ export default function WeatherHubClient() {
         </a>
       </header>
 
-      {primary && !geoErr && (
+      {/* Nearest airport card (Norway only) */}
+      {inNorway && primary && !geoErr && primaryWx && primaryWx.icao === primary.icao && (
         <section className="space-y-3">
           <h2 className="text-sm font-semibold text-slate-700 dark:text-zinc-200">Nearest airport</h2>
           <button
@@ -216,7 +247,7 @@ export default function WeatherHubClient() {
             <div className="relative block px-4 py-4 space-y-3">
               {(() => {
                 const a = primary;
-                const wx = primaryWx && primaryWx.icao === a.icao ? primaryWx : null;
+                const wx = primaryWx;
                 const f = NO_AIRPORT_FEATURES[a.icao];
                 return (
                   <>
@@ -313,31 +344,99 @@ export default function WeatherHubClient() {
         </section>
       )}
 
+      {/* Nearest airport card when outside Norway (global only, with nearby alternates) */}
+      {!geoErr && inNorway === false && primaryWx && (
+        <section className="space-y-4">
+          <div className="space-y-3">
+            <h2 className="text-sm font-semibold text-slate-700 dark:text-zinc-200">Nearest airport</h2>
+            <div className="w-full rounded-xl border px-4 py-4 space-y-3">
+              <div className="flex items-center justify-between">
+                <div>
+                  <div className="font-semibold">{primaryWx.icao || "(unknown)"}</div>
+                </div>
+              </div>
+              {(() => {
+                const m = primaryWx.metarRaw ? parseIssueTimeUtc(primaryWx.metarRaw) : null;
+                const age = m ? minutesSince(m) : null;
+                return age != null ? (
+                  <div className="text-xs text-slate-500 dark:text-zinc-400">{formatAgeMinutes(age)}</div>
+                ) : null;
+              })()}
+              <div className="text-sm text-slate-700 dark:text-zinc-200">
+                <span className="font-medium">METAR:</span>{" "}
+                {primaryWx.metarRaw || <span className="text-slate-400">(loading...)</span>}
+              </div>
+              {(() => {
+                const t = primaryWx.tafRaw ? parseIssueTimeUtc(primaryWx.tafRaw) : null;
+                const age = t ? minutesSince(t) : null;
+                return age != null ? (
+                  <div className="text-xs text-slate-500 dark:text-zinc-400">{formatAgeMinutes(age)}</div>
+                ) : null;
+              })()}
+              <div className="text-sm text-slate-700 dark:text-zinc-200">
+                <span className="font-medium">{primaryWx.isAMD ? "AMD TAF" : "TAF"}:</span>
+                <span className="ml-1">
+                  {primaryWx.tafRaw || <span className="text-slate-400">(loading...)</span>}
+                </span>
+              </div>
+            </div>
+          </div>
+
+          {globalAlternates.length > 0 && (
+            <div className="space-y-2">
+              <h3 className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-zinc-400">
+                Nearby airports
+              </h3>
+              <div className="space-y-2">
+                {globalAlternates.map((wx, idx) => (
+                  <div
+                    key={`${wx.icao}-${idx}`}
+                    className="w-full rounded-xl border px-4 py-3 space-y-2 text-sm text-slate-700 dark:text-zinc-200"
+                  >
+                    <div className="font-semibold">{wx.icao}</div>
+                    <div>
+                      <span className="font-medium">METAR:</span>{" "}
+                      {wx.metarRaw || <span className="text-slate-400">(loading...)</span>}
+                    </div>
+                    <div>
+                      <span className="font-medium">{wx.isAMD ? "AMD TAF" : "TAF"}:</span>{" "}
+                      {wx.tafRaw || <span className="text-slate-400">(loading...)</span>}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+        </section>
+      )}
+
       {geoErr && (
         <p className="text-xs text-slate-500 dark:text-zinc-400">
           Location unavailable: {geoErr}. You can still browse all airports below.
         </p>
       )}
 
-      <section className="space-y-2">
-        <h2 className="text-sm font-semibold text-slate-700 dark:text-zinc-200">Norwegian airports</h2>
-        <ul className="divide-y rounded-xl border">
-          {sortedByIcao.map((a) => (
-            <li key={a.icao} className="p-0">
-              <button
-                type="button"
-                onClick={() => router.push(`/weather/${a.icao}`)}
-                className="w-full text-left px-4 py-2 flex items-center justify-between hover:bg-slate-50 dark:hover:bg-zinc-900/40 transition"
-              >
-                <span>
-                  <span className="font-semibold">{a.icao}</span>{" "}
-                  <span className="text-slate-600 dark:text-zinc-300 text-sm">{a.name}</span>
-                </span>
-              </button>
-            </li>
-          ))}
-        </ul>
-      </section>
+      {inNorway && (
+        <section className="space-y-2">
+          <h2 className="text-sm font-semibold text-slate-700 dark:text-zinc-200">Norwegian airports</h2>
+          <ul className="divide-y rounded-xl border">
+            {sortedByIcao.map((a) => (
+              <li key={a.icao} className="p-0">
+                <button
+                  type="button"
+                  onClick={() => router.push(`/weather/${a.icao}`)}
+                  className="w-full text-left px-4 py-2 flex items-center justify-between hover:bg-slate-50 dark:hover:bg-zinc-900/40 transition"
+                >
+                  <span>
+                    <span className="font-semibold">{a.icao}</span>{" "}
+                    <span className="text-slate-600 dark:text-zinc-300 text-sm">{a.name}</span>
+                  </span>
+                </button>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
     </div>
   );
 }

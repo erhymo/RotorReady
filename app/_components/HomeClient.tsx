@@ -118,13 +118,13 @@ function Bar(props: { href: string; title: string; description: string; tone?: "
         <Bar
           href="/weather"
           title="Weather planning"
-          description="Nearest ICAO airports in Norway. METAR/TAF + alternates."
+	          description="Nearest ICAO airports with METAR/TAF and alternates."
           tone="slate"
         />
         <Bar
           href="/airports"
           title="Airports"
-          description="Browse all Norwegian airports from Avinor AIS; see ATS & fuel opening hours."
+	          description="Browse airports from Avinor AIS; see ATS & fuel opening hours."
           tone="slate"
         />
 

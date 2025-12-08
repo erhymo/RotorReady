@@ -41,69 +41,98 @@ export default function WeatherHubClient() {
   const [primaryWx, setPrimaryWx] = useState<Wx | null>(null);
   const [primaryDayNight, setPrimaryDayNight] = useState<DayNight | null>(null);
 
-  useEffect(() => {
-    if (!navigator.geolocation) {
-      setGeoErr("Geolocation not supported");
-      return;
-    }
-    navigator.geolocation.getCurrentPosition(
-      (res) => {
-        setPos({ lat: res.coords.latitude, lon: res.coords.longitude });
-      },
-      (err) => setGeoErr(err.message),
-      { enableHighAccuracy: false, maximumAge: 60_000, timeout: 8_000 }
-    );
-  }, []);
-
-  const nearestSorted = useMemo(() => {
-    const list = NO_AIRPORTS.map((a) => ({
-      ...a,
-      distNm: pos ? distanceNm(pos.lat, pos.lon, a.lat, a.lon) : null,
-    }));
-    list.sort((a, b) => {
-      if (a.distNm == null && b.distNm == null) return a.icao.localeCompare(b.icao);
-      if (a.distNm == null) return 1;
-      if (b.distNm == null) return -1;
-      return a.distNm - b.distNm;
-    });
-    return list;
-  }, [pos]);
-
-  const primary = useMemo(() => (nearestSorted.length ? nearestSorted[0] : null), [nearestSorted]);
-
-  // Load METAR/TAF for the nearest airport (if geolocation is available)
-  useEffect(() => {
-    let active = true;
-    async function load() {
-      if (!primary || geoErr) {
-        if (active) setPrimaryWx(null);
+    useEffect(() => {
+      if (!navigator.geolocation) {
+        setGeoErr("Geolocation not supported");
         return;
       }
-      try {
-        const res = await fetch(`/api/weather/metar-taf?icao=${primary.icao}`, { cache: "no-store" });
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        const json = await res.json();
-        const metarRaw: string | undefined = json?.metar?.raw || undefined;
-        const tafRaw: string | undefined = json?.taf?.raw || undefined;
-        const minima = getAirportMinima(primary.icao);
-        const tafChunks: TafChunk[] | undefined = tafRaw ? decodeTafChunks(tafRaw, minima) : undefined;
-        const isAMD: boolean | undefined = json?.taf?.isAMD ?? undefined;
-        if (active) {
-          setPrimaryWx({ icao: primary.icao, metarRaw, tafRaw, tafChunks, isAMD });
-        }
-      } catch (e) {
-        console.warn("wx fetch failed", primary?.icao, e);
-        if (active) setPrimaryWx(null);
+      navigator.geolocation.getCurrentPosition(
+        (res) => {
+          setPos({ lat: res.coords.latitude, lon: res.coords.longitude });
+        },
+        (err) => setGeoErr(err.message),
+        { enableHighAccuracy: false, maximumAge: 60_000, timeout: 8_000 }
+      );
+    }, []);
 
+    const nearestSorted = useMemo(() => {
+      const list = NO_AIRPORTS.map((a) => ({
+        ...a,
+        distNm: pos ? distanceNm(pos.lat, pos.lon, a.lat, a.lon) : null,
+      }));
+      list.sort((a, b) => {
+        if (a.distNm == null && b.distNm == null) return a.icao.localeCompare(b.icao);
+        if (a.distNm == null) return 1;
+        if (b.distNm == null) return -1;
+        return a.distNm - b.distNm;
+      });
+      return list;
+    }, [pos]);
+
+    const primary = useMemo(() => (nearestSorted.length ? nearestSorted[0] : null), [nearestSorted]);
+
+    // Load METAR/TAF for the nearest airport (global via CheckWX lat/lon when outside Norway)
+    useEffect(() => {
+      let active = true;
+
+      async function load() {
+        if (!pos || geoErr) {
+          if (active) setPrimaryWx(null);
+          return;
+        }
+
+        try {
+          let icao: string | null = null;
+          let metarRaw: string | undefined;
+          let tafRaw: string | undefined;
+          let isAMD: boolean | undefined;
+
+          // 1) Try nearest Norwegian airport first (fast, no external lookup)
+          const nearestNo = nearestSorted[0];
+          if (nearestNo) {
+            const resNo = await fetch(`/api/weather/metar-taf?icao=${nearestNo.icao}`, { cache: "no-store" });
+            if (resNo.ok) {
+              const json = await resNo.json();
+              icao = nearestNo.icao;
+              metarRaw = json?.metar?.raw || undefined;
+              tafRaw = json?.taf?.raw || undefined;
+              isAMD = json?.taf?.isAMD ?? undefined;
+            }
+          }
+
+          // 2) If we did not get a valid ICAO (e.g. user not near Norway or Norwegian METAR missing),
+          //    fall back to CheckWX nearest-to-lat/lon endpoint via a dedicated API route.
+          if (!icao) {
+            const res = await fetch(`/api/weather/nearest-global?lat=${pos.lat}&lon=${pos.lon}`, { cache: "no-store" });
+            if (!res.ok) throw new Error(`HTTP ${res.status}`);
+            const json = await res.json();
+            icao = json?.icao || null;
+            metarRaw = json?.metar?.raw || undefined;
+            tafRaw = json?.taf?.raw || undefined;
+            isAMD = json?.taf?.isAMD ?? undefined;
+          }
+
+          const minima = icao ? getAirportMinima(icao) : undefined;
+          const tafChunks: TafChunk[] | undefined = tafRaw && minima ? decodeTafChunks(tafRaw, minima) : undefined;
+
+          if (active && icao) {
+            setPrimaryWx({ icao, metarRaw, tafRaw, tafChunks, isAMD });
+          } else if (active) {
+            setPrimaryWx(null);
+          }
+        } catch (e) {
+          console.warn("wx fetch failed (global)", e);
+          if (active) setPrimaryWx(null);
+        }
       }
-    }
-    load();
-    const id = setInterval(load, 120_000);
-    return () => {
-      active = false;
-      clearInterval(id);
-    };
-  }, [primary?.icao, geoErr]);
+
+      load();
+      const id = setInterval(load, 120_000);
+      return () => {
+        active = false;
+        clearInterval(id);
+      };
+    }, [pos?.lat, pos?.lon, geoErr, nearestSorted]);
   // Load defined day/night and twilight intervals for the nearest airport (same as detail page header)
   useEffect(() => {
     let active = true;

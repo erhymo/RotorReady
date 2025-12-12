@@ -67,33 +67,42 @@ function Bar(props: { href: string; title: string; description: string; tone?: "
 	          tone="blue"
 	          icon={<BookIcon className="h-4 w-4" />}
 	        />
-	        {activeVariant?.id === "AW169" && (
-	          <Bar
-	            href="/training/procedures/aw169"
-	            title="Procedures"
-	            description="Browse AW169 procedures. Tap inside a procedure to return to the list."
-	            tone="emerald"
-	            icon={<BookIcon className="h-4 w-4" />}
-	          />
-	        )}
-	        {activeVariant?.id === "AW169" && (
-	          <Bar
-	            href="/aw169/quick-reference"
-	            title="Quick Reference"
-	            description="Key AW169 RFM limitations and numbers for quick reference."
-	            tone="slate"
-	            icon={<BookIcon className="h-4 w-4" />}
-	          />
-	        )}
-	        {activeVariant?.id === "H125_AS350_B3_2B1" && (
-	          <Bar
-	            href="/h125-as350-b3-2b1/quick-reference"
-	            title="Quick Reference"
-	            description="Selected H125 / AS350 B3 (2B1) RFM limitations and numbers for quick reference."
-	            tone="slate"
-	            icon={<BookIcon className="h-4 w-4" />}
-	          />
-	        )}
+        {activeVariant?.id === "AW169" && (
+          <Bar
+            href="/training/procedures/aw169"
+            title="Procedures"
+            description="Browse AW169 procedures. Tap inside a procedure to return to the list."
+            tone="emerald"
+            icon={<BookIcon className="h-4 w-4" />}
+          />
+        )}
+        {activeVariant?.id === "AW169" && (
+          <Bar
+            href="/aw169/quick-reference"
+            title="Quick Reference"
+            description="Key AW169 RFM limitations and numbers for quick reference."
+            tone="slate"
+            icon={<BookIcon className="h-4 w-4" />}
+          />
+        )}
+        {activeVariant?.id === "H125_AS350_B3_2B1" && (
+          <>
+            <Bar
+              href="/training/procedures/h125-as350-b3-2b1"
+              title="Procedures"
+              description="Browse H125 / AS350 B3 (2B1) procedures. Tap inside a procedure to return to the list."
+              tone="emerald"
+              icon={<BookIcon className="h-4 w-4" />}
+            />
+            <Bar
+              href="/h125-as350-b3-2b1/quick-reference"
+              title="Quick Reference"
+              description="Selected H125 / AS350 B3 (2B1) RFM limitations and numbers for quick reference."
+              tone="slate"
+              icon={<BookIcon className="h-4 w-4" />}
+            />
+          </>
+        )}
 		        {activeVariant?.id === "H125_AS350_B3E" && (
 		          <Bar
 		            href="/h125-as350-b3e/quick-reference"

@@ -52,42 +52,49 @@ function Bar(props: { href: string; title: string; description: string; tone?: "
 	      </header>
 
 	      <section className="space-y-3">
-        <h2 className="text-sm font-semibold text-slate-700 dark:text-zinc-200 uppercase">Training Modes</h2>
-        <Bar
-          href="/training/lights"
-          title="Emergency and Malfunction"
-          description="Practice emergency and malfunction procedures. Lights and Procedures."
-          tone="amber"
-          icon={<BoltIcon className="h-4 w-4" />}
-        />
-        <Bar
-          href="/quiz"
-          title="Quiz"
-          description="Choose which quiz to take: limitations, performance, procedures, etc."
-          tone="blue"
-          icon={<BookIcon className="h-4 w-4" />}
-        />
-        {activeVariant?.id === "AW169" && (
-          <Bar
-            href="/training/procedures/aw169"
-            title="Procedures"
-            description="Browse AW169 procedures. Tap inside a procedure to return to the list."
-            tone="emerald"
-            icon={<BookIcon className="h-4 w-4" />}
-          />
-        )}
-        {activeVariant?.id === "AW169" && (
-          <Bar
-            href="/aw169/quick-reference"
-            title="Quick Reference"
-            description="Key AW169 RFM limitations and numbers for quick reference."
-            tone="slate"
-            icon={<BookIcon className="h-4 w-4" />}
-          />
-        )}
-
-
-      </section>
+	        <h2 className="text-sm font-semibold text-slate-700 dark:text-zinc-200 uppercase">Training Modes</h2>
+	        <Bar
+	          href="/training/lights"
+	          title="Emergency and Malfunction"
+	          description="Practice emergency and malfunction procedures. Lights and Procedures."
+	          tone="amber"
+	          icon={<BoltIcon className="h-4 w-4" />}
+	        />
+	        <Bar
+	          href="/quiz"
+	          title="Quiz"
+	          description="Choose which quiz to take: limitations, performance, procedures, etc."
+	          tone="blue"
+	          icon={<BookIcon className="h-4 w-4" />}
+	        />
+	        {activeVariant?.id === "AW169" && (
+	          <Bar
+	            href="/training/procedures/aw169"
+	            title="Procedures"
+	            description="Browse AW169 procedures. Tap inside a procedure to return to the list."
+	            tone="emerald"
+	            icon={<BookIcon className="h-4 w-4" />}
+	          />
+	        )}
+	        {activeVariant?.id === "AW169" && (
+	          <Bar
+	            href="/aw169/quick-reference"
+	            title="Quick Reference"
+	            description="Key AW169 RFM limitations and numbers for quick reference."
+	            tone="slate"
+	            icon={<BookIcon className="h-4 w-4" />}
+	          />
+	        )}
+	        {activeVariant?.id === "H125_AS350_B3_2B1" && (
+	          <Bar
+	            href="/h125-as350-b3-2b1/quick-reference"
+	            title="Quick Reference"
+	            description="Selected H125 / AS350 B3 (2B1) RFM limitations and numbers for quick reference."
+	            tone="slate"
+	            icon={<BookIcon className="h-4 w-4" />}
+	          />
+	        )}
+	      </section>
 
       <section className="space-y-3">
         <h2 className="text-sm font-semibold text-slate-700 dark:text-zinc-200 uppercase">Tools</h2>

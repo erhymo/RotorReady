@@ -162,24 +162,78 @@
       "source": "R44 II POH",
       "modelIds": ["R44_II"]
     },
-    {
-      "id": "r44ii-wb-010",
-      "section": "WEIGHT AND BALANCE",
-      "type": "single",
-      "question": "How is the center of gravity location (arm) for the loaded helicopter determined in the sample loading calculation?",
-      "options": [
-        "By dividing total weight by total moment",
-        "By dividing total moment by total weight",
-        "By subtracting empty weight from total moment",
-        "By averaging the longitudinal and lateral arms"
-      ],
-      "answer": [1],
-      "explanation": "Section 6 explains in the sample loading calculation that CG location (arm) for the loaded helicopter is determined by dividing total moment by total weight.",
-      "references": ["R44 II POH Sec 6: SAMPLE LOADING CALCULATION (p.6-6 to 6-7)"],
-      "tags": ["weight-and-balance", "CG", "calculation"],
-      "source": "R44 II POH",
-      "modelIds": ["R44_II"]
-    }
-  ]
-}
+	    {
+	      "id": "r44ii-wb-010",
+	      "section": "WEIGHT AND BALANCE",
+	      "type": "single",
+	      "question": "How is the center of gravity location (arm) for the loaded helicopter determined in the sample loading calculation?",
+	      "options": [
+	        "By dividing total weight by total moment",
+	        "By dividing total moment by total weight",
+	        "By subtracting empty weight from total moment",
+	        "By averaging the longitudinal and lateral arms"
+	      ],
+	      "answer": [1],
+	      "explanation": "Section 6 explains in the sample loading calculation that CG location (arm) for the loaded helicopter is determined by dividing total moment by total weight.",
+	      "references": ["R44 II POH Sec 6: SAMPLE LOADING CALCULATION (p.6-6 to 6-7)"],
+	      "tags": ["weight-and-balance", "CG", "calculation"],
+	      "source": "R44 II POH",
+	      "modelIds": ["R44_II"]
+	    },
+	    {
+	      "id": "r44ii-wb-011",
+	      "section": "WEIGHT AND BALANCE",
+	      "type": "single",
+	      "question": "According to the WEIGHT AND BALANCE DEFINITIONS in Section 1, where is the longitudinal reference datum for the R44 II located?",
+	      "options": [
+	        "At the main rotor shaft centerline",
+	        "100 inches forward of the main rotor shaft centerline",
+	        "At the tail rotor hub",
+	        "At fuselage station 0 at the nose"
+	      ],
+	      "answer": [1],
+	      "explanation": "Section 1 WEIGHT AND BALANCE DEFINITIONS state that the longitudinal reference datum for the R44 II is 100 inches forward of the main rotor shaft centerline.",
+	      "references": ["R44 II POH Sec 1: WEIGHT AND BALANCE DEFINITIONS (p.1-7)"],
+	      "tags": ["weight-and-balance", "reference-datum", "definitions"],
+	      "source": "R44 II POH",
+	      "modelIds": ["R44_II"]
+	    },
+	    {
+	      "id": "r44ii-wb-012",
+	      "section": "WEIGHT AND BALANCE",
+	      "type": "single",
+	      "question": "In the WEIGHT AND BALANCE DEFINITIONS of Section 1, how is arm defined?",
+	      "options": [
+	        "Horizontal distance from the reference datum to the center of gravity of an item",
+	        "Product of an item's weight and its station number",
+	        "Vertical distance between skid height and rotor disc",
+	        "Difference between two adjacent station numbers"
+	      ],
+	      "answer": [0],
+	      "explanation": "Section 1 defines arm as the horizontal distance from a reference datum to the center of gravity (CG) of an item.",
+	      "references": ["R44 II POH Sec 1: WEIGHT AND BALANCE DEFINITIONS (p.1-7)"],
+	      "tags": ["weight-and-balance", "arm", "definitions"],
+	      "source": "R44 II POH",
+	      "modelIds": ["R44_II"]
+	    },
+	    {
+	      "id": "r44ii-wb-013",
+	      "section": "WEIGHT AND BALANCE",
+	      "type": "single",
+	      "question": "How is unusable fuel defined in the WEIGHT AND BALANCE DEFINITIONS of Section 1?",
+	      "options": [
+	        "Fuel available for flight planning",
+	        "Fuel remaining in the tank that cannot reliably provide uninterrupted fuel flow in the critical flight attitude",
+	        "Fuel that may only be used for taxi, run-up, and hover checks",
+	        "Fuel carried in auxiliary tanks located outside the approved CG envelope"
+	      ],
+	      "answer": [1],
+	      "explanation": "The WEIGHT AND BALANCE DEFINITIONS define unusable fuel as fuel remaining in the tank that cannot reliably provide uninterrupted fuel flow in the critical flight attitude.",
+	      "references": ["R44 II POH Sec 1: WEIGHT AND BALANCE DEFINITIONS (p.1-7)"],
+	      "tags": ["weight-and-balance", "fuel", "definitions"],
+	      "source": "R44 II POH",
+	      "modelIds": ["R44_II"]
+	    }
+	  ]
+	}
 

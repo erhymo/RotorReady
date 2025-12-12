@@ -162,23 +162,59 @@
       "source": "R44 II POH",
       "modelIds": ["R44_II"]
     },
-    {
-      "id": "r44ii-perf-010",
-      "section": "PERFORMANCE",
-      "type": "single",
-      "question": "According to the Height-Velocity diagram in the Performance section, what general guidance is given regarding the shaded areas?",
-      "options": [
-        "Use shaded areas for best performance",
-        "Operate only in shaded areas during training",
-        "Avoid operation in shaded areas",
-        "Stay below the shaded areas at all times"
-      ],
-      "answer": [2],
-      "explanation": "The HEIGHT-VELOCITY DIAGRAM for the R44 II is annotated with the instruction AVOID OPERATION IN SHADED AREAS.",
-      "references": ["R44 II POH Sec 5: HEIGHT-VELOCITY DIAGRAM (p.5-5)"],
-      "tags": ["performance", "height-velocity", "caution"],
-      "source": "R44 II POH",
-      "modelIds": ["R44_II"]
-    }
-  ]
-}
+	    {
+	      "id": "r44ii-perf-010",
+	      "section": "PERFORMANCE",
+	      "type": "single",
+	      "question": "According to the Height-Velocity diagram in the Performance section, what general guidance is given regarding the shaded areas?",
+	      "options": [
+	        "Use shaded areas for best performance",
+	        "Operate only in shaded areas during training",
+	        "Avoid operation in shaded areas",
+	        "Stay below the shaded areas at all times"
+	      ],
+	      "answer": [2],
+	      "explanation": "The HEIGHT-VELOCITY DIAGRAM for the R44 II is annotated with the instruction AVOID OPERATION IN SHADED AREAS.",
+	      "references": ["R44 II POH Sec 5: HEIGHT-VELOCITY DIAGRAM (p.5-5)"],
+	      "tags": ["performance", "height-velocity", "caution"],
+	      "source": "R44 II POH",
+	      "modelIds": ["R44_II"]
+	    },
+	    {
+	      "id": "r44ii-perf-011",
+	      "section": "PERFORMANCE",
+	      "type": "single",
+	      "question": "According to the PERFORMANCE DEFINITIONS in Section 1, how is calibrated airspeed (KCAS) defined?",
+	      "options": [
+	        "Indicated airspeed corrected for instrument and position error",
+	        "True airspeed corrected for altitude and temperature",
+	        "Indicated airspeed corrected for temperature only",
+	        "Groundspeed corrected for wind and slope"
+	      ],
+	      "answer": [0],
+	      "explanation": "In the PERFORMANCE DEFINITIONS of Section 1, calibrated airspeed (KCAS) is defined as indicated airspeed corrected for instrument and position error.",
+	      "references": ["R44 II POH Sec 1: PERFORMANCE DEFINITIONS (p.1-6)"],
+	      "tags": ["performance", "airspeed", "definitions"],
+	      "source": "R44 II POH",
+	      "modelIds": ["R44_II"]
+	    },
+	    {
+	      "id": "r44ii-perf-012",
+	      "section": "PERFORMANCE",
+	      "type": "single",
+	      "question": "According to the PERFORMANCE DEFINITIONS in Section 1, what does critical altitude mean?",
+	      "options": [
+	        "The altitude below which engine failure is most likely",
+	        "The altitude where VNE must first be reduced because of density altitude",
+	        "The altitude at which full throttle produces maximum allowable power (MCP or TOP)",
+	        "The altitude where hovering ceiling equals service ceiling"
+	      ],
+	      "answer": [2],
+	      "explanation": "Section 1 PERFORMANCE DEFINITIONS defines critical altitude as the altitude at which full throttle produces maximum allowable power (MCP or TOP).",
+	      "references": ["R44 II POH Sec 1: PERFORMANCE DEFINITIONS (p.1-6)"],
+	      "tags": ["performance", "critical-altitude", "definitions"],
+	      "source": "R44 II POH",
+	      "modelIds": ["R44_II"]
+	    }
+	  ]
+	}

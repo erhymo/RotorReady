@@ -553,8 +553,7 @@ export default function AccountPage() {
                 type="button"
                 key="AW139"
                 onClick={() => selectVariant("AW139")}
-	                disabled
-	                className={`px-3 py-1 rounded-lg border text-sm transition ${
+		                className={`px-3 py-1 rounded-lg border text-sm transition ${
 	                  activeVariantId === "AW139"
 	                    ? "border-emerald-400 bg-emerald-50 text-emerald-700"
 	                    : "bg-white dark:bg-zinc-900 dark:text-zinc-100 hover:border-slate-300 dark:hover:border-zinc-600"

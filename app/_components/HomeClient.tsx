@@ -94,6 +94,15 @@ function Bar(props: { href: string; title: string; description: string; tone?: "
 	            icon={<BookIcon className="h-4 w-4" />}
 	          />
 	        )}
+		        {activeVariant?.id === "H125_AS350_B3E" && (
+		          <Bar
+		            href="/h125-as350-b3e/quick-reference"
+		            title="Quick Reference"
+		            description="Selected H125 / AS350 B3e RFM limitations and numbers for quick reference."
+		            tone="slate"
+		            icon={<BookIcon className="h-4 w-4" />}
+		          />
+		        )}
 	      </section>
 
       <section className="space-y-3">

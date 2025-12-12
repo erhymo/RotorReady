@@ -549,23 +549,17 @@ export default function AccountPage() {
                 AW169 {ents.AW169 ? "✓" : ""}
               </button>
 
-              <button
+                            <button
                 type="button"
                 key="AW139"
                 onClick={() => selectVariant("AW139")}
-		                className={`px-3 py-1 rounded-lg border text-sm transition ${
-	                  activeVariantId === "AW139"
-	                    ? "border-emerald-400 bg-emerald-50 text-emerald-700"
-	                    : "bg-white dark:bg-zinc-900 dark:text-zinc-100 hover:border-slate-300 dark:hover:border-zinc-600"
-	                } opacity-60 cursor-not-allowed`}
+                className={`px-3 py-1 rounded-lg border text-sm transition ${
+                  activeVariantId === "AW139"
+                    ? "border-emerald-400 bg-emerald-50 text-emerald-700"
+                    : "bg-white dark:bg-zinc-900 dark:text-zinc-100 hover:border-slate-300 dark:hover-border-zinc-600"
+                }`}
               >
-	                <span className="inline-flex items-center gap-1">
-	                  <span>AW139 {ents.AW139 ? "✓" : ""}</span>
-	                  <span aria-hidden className="text-xs">🔒</span>
-	                  <span className="ml-1 inline-flex items-center rounded-full border border-amber-400/70 bg-amber-50 px-1.5 py-0.5 text-[10px] font-semibold text-amber-700 dark:border-amber-500/40 dark:bg-amber-900/30 dark:text-amber-200">
-	                    Coming soon
-	                  </span>
-	                </span>
+                AW139 {ents.AW139 ? "✓" : ""}
               </button>
 
               <button

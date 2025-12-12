@@ -1016,6 +1016,410 @@
       "reference": "s. 4.8-1",
       "difficulty": "easy",
       "tags": ["cold", "cwp"]
+    },
+    {
+      "id": "AS350-OPS-003",
+      "question": "Flight planning for the AS350 B3 must comply with which sections of the flight manual?",
+      "options": [
+        "Only Section 2 (Limitations)",
+        "Only Section 5 (Performance data)",
+        "Sections 2, 5, 6 and applicable supplements",
+        "Sections 3 and 7 only"
+      ],
+      "answer": [2],
+      "explanation": "Section 4.1 states that flight planning must comply with limitations and performance in Sections 2, 5, 6 and supplements.",
+      "section": "normal_procedures",
+      "modelIds": ["H125_AS350_B3_2B1"],
+      "manual": "AS350 B3 RFM Section 4.1",
+      "reference": "s. 4.1-1",
+      "difficulty": "medium",
+      "tags": ["planning"]
+    },
+    {
+      "id": "AS350-PREFLT-011",
+      "question": "During the interior check, what is the required status of fuses or breakers?",
+      "options": [
+        "All pulled to OFF",
+        "All set",
+        "Only essential breakers set",
+        "All tripped to check indications"
+      ],
+      "answer": [1],
+      "explanation": "The interior check requires that fuses or breakers are \"All set\".",
+      "section": "normal_procedures",
+      "modelIds": ["H125_AS350_B3_2B1"],
+      "manual": "AS350 B3 RFM Section 4.2",
+      "reference": "s. 4.2-4",
+      "difficulty": "easy",
+      "tags": ["interior", "electrical"]
+    },
+    {
+      "id": "AS350-PREFLT-012",
+      "question": "During the interior check, what should be done with loads and objects carried in the cabin?",
+      "options": [
+        "Left where they are",
+        "Placed on seats for easy access",
+        "Stowed and secured",
+        "Removed from the helicopter"
+      ],
+      "answer": [2],
+      "explanation": "Interior check requires all loads and objects carried to be stowed and secured.",
+      "section": "normal_procedures",
+      "modelIds": ["H125_AS350_B3_2B1"],
+      "manual": "AS350 B3 RFM Section 4.2",
+      "reference": "s. 4.2-4",
+      "difficulty": "easy",
+      "tags": ["interior", "loads"]
+    },
+    {
+      "id": "AS350-PREFLT-013",
+      "question": "Before starting the preflight check, what must be done with any picketing items (blanks, covers, blade socks)?",
+      "options": [
+        "They may remain installed for protection",
+        "Only blade socks are removed",
+        "All picketing items must be removed",
+        "Only pitot covers are removed"
+      ],
+      "answer": [2],
+      "explanation": "Section 4.2 states: 'Remove all picketing items if applicable' before the preflight check.",
+      "section": "normal_procedures",
+      "modelIds": ["H125_AS350_B3_2B1"],
+      "manual": "AS350 B3 RFM Section 4.2",
+      "reference": "s. 4.2-1",
+      "difficulty": "medium",
+      "tags": ["picketing", "preflight"]
+    },
+    {
+      "id": "AS350-PREFLT-014",
+      "question": "During the interior check, what must be verified about the fire extinguisher?",
+      "options": [
+        "Bottle pressure only",
+        "Location under the pilot seat",
+        "Secured and checked",
+        "Removed for inspection"
+      ],
+      "answer": [2],
+      "explanation": "The interior check item is: 'Fire extinguisher - Secured - Checked'.",
+      "section": "normal_procedures",
+      "modelIds": ["H125_AS350_B3_2B1"],
+      "manual": "AS350 B3 RFM Section 4.2",
+      "reference": "s. 4.2-4",
+      "difficulty": "easy",
+      "tags": ["interior", "fire extinguisher"]
+    },
+    {
+      "id": "AS350-PREFLT-015",
+      "question": "What cabin condition is required during the interior check?",
+      "options": [
+        "Cabin free of loose objects but cleaning is optional",
+        "Cabin clean",
+        "Cabin floor covered with protective mats",
+        "Cabin darkened for NVG operations"
+      ],
+      "answer": [1],
+      "explanation": "The interior check begins with 'Cabin - Clean'.",
+      "section": "normal_procedures",
+      "modelIds": ["H125_AS350_B3_2B1"],
+      "manual": "AS350 B3 RFM Section 4.2",
+      "reference": "s. 4.2-4",
+      "difficulty": "easy",
+      "tags": ["interior", "cabin"]
+    },
+    {
+      "id": "AS350-START-022",
+      "question": "During engine prestart, what is the required status of the ICS and GPS navigation system?",
+      "options": ["OFF", "ON", "STANDBY", "TEST"],
+      "answer": [1],
+      "explanation": "Engine prestart checklist: 'ICS and GPS nav. system - ON'.",
+      "section": "normal_procedures",
+      "modelIds": ["H125_AS350_B3_2B1"],
+      "manual": "AS350 B3 RFM Section 4.3",
+      "reference": "s. 4.3-1",
+      "difficulty": "easy",
+      "tags": ["start", "ICS", "GPS"]
+    },
+    {
+      "id": "AS350-START-023",
+      "question": "During engine prestart for night flight, how should the external electric mirror (if fitted) be set?",
+      "options": [
+        "Folded inboard",
+        "Set to avoid dazzling",
+        "Set fully upward",
+        "No specific requirement"
+      ],
+      "answer": [1],
+      "explanation": "Prestart item: 'Electric mirror (if fitted) - SET to avoid dazzling (night flight)'.",
+      "section": "normal_procedures",
+      "modelIds": ["H125_AS350_B3_2B1"],
+      "manual": "AS350 B3 RFM Section 4.3",
+      "reference": "s. 4.3-1",
+      "difficulty": "medium",
+      "tags": ["start", "night", "mirror"]
+    },
+    {
+      "id": "AS350-START-024",
+      "question": "What must be done with the [W/LT TEST] or [W/LT TST] switch during engine prestart?",
+      "options": [
+        "Leave it OFF",
+        "Set it to AUTO",
+        "Perform the warning light test",
+        "Press and hold for 30 seconds"
+      ],
+      "answer": [2],
+      "explanation": "Prestart checklist: '[W/LT TEST] or [W/LT TST] - PERFORM'.",
+      "section": "normal_procedures",
+      "modelIds": ["H125_AS350_B3_2B1"],
+      "manual": "AS350 B3 RFM Section 4.3",
+      "reference": "s. 4.3-1",
+      "difficulty": "medium",
+      "tags": ["start", "warning lights"]
+    },
+    {
+      "id": "AS350-RUNUP-015",
+      "question": "When minimum engine oil temperature is reached during run-up, what should be done with the twist grip?",
+      "options": [
+        "Keep it at IDLE",
+        "Move it to FLIGHT position",
+        "Move it to OFF",
+        "Cycle it between IDLE and FLIGHT"
+      ],
+      "answer": [1],
+      "explanation": "Run-up checklist: 'When minimum engine oil temperature is reached: Twist grip - FLIGHT position'.",
+      "section": "normal_procedures",
+      "modelIds": ["H125_AS350_B3_2B1"],
+      "manual": "AS350 B3 RFM Section 4.3",
+      "reference": "s. 4.3-4",
+      "difficulty": "easy",
+      "tags": ["run-up", "twist grip"]
+    },
+    {
+      "id": "AS350-RUNUP-016",
+      "question": "Why must the collective be correctly locked before hydraulic accumulator and isolation checks?",
+      "options": [
+        "To prevent main rotor blade droop on the ground",
+        "Because if not locked, the collective can move up when accumulators are depleted or the hydraulic cut-off switch is set to OFF",
+        "To reduce pilot workload during checks",
+        "To avoid overloading the servo-controls"
+      ],
+      "answer": [1],
+      "explanation": "The caution in the run-up section warns that if the collective is not locked, it will move up when accumulators are depleted or HYD cut-off is set to OFF.",
+      "section": "normal_procedures",
+      "modelIds": ["H125_AS350_B3_2B1"],
+      "manual": "AS350 B3 RFM Section 4.3",
+      "reference": "s. 4.3-4",
+      "difficulty": "medium",
+      "tags": ["run-up", "hydraulic", "caution"]
+    },
+    {
+      "id": "AS350-BEFORETO-023",
+      "question": "How should the collective and cyclic friction locks be set before takeoff?",
+      "options": [
+        "Fully released so controls move freely with no friction",
+        "Fully locked so controls cannot move",
+        "As required so that friction loads are felt when moving the flight controls",
+        "Set to AUTO mode"
+      ],
+      "answer": [2],
+      "explanation": "Before-takeoff checklist: 'Collective, cyclic friction locks - AS REQUIRED' with a note to feel friction loads when moving the controls.",
+      "section": "normal_procedures",
+      "modelIds": ["H125_AS350_B3_2B1"],
+      "manual": "AS350 B3 RFM Section 4.4",
+      "reference": "s. 4.4-1",
+      "difficulty": "medium",
+      "tags": ["takeoff", "friction"]
+    },
+    {
+      "id": "AS350-BEFORETO-024",
+      "question": "What is the required landing light setting in the before-takeoff check?",
+      "options": ["OFF", "ON", "AS REQUIRED", "FLASH"],
+      "answer": [2],
+      "explanation": "Before-takeoff checklist: 'Landing light - AS REQUIRED'.",
+      "section": "normal_procedures",
+      "modelIds": ["H125_AS350_B3_2B1"],
+      "manual": "AS350 B3 RFM Section 4.4",
+      "reference": "s. 4.4-1",
+      "difficulty": "easy",
+      "tags": ["takeoff", "lights"]
+    },
+    {
+      "id": "AS350-CLIMB-002",
+      "question": "How does the recommended climb speed Vy vary with altitude in knots?",
+      "options": [
+        "65 kt at 0 Hp, increased 1 kt per 1000 ft",
+        "65 kt at 0 Hp, decreased 1 kt per 1000 ft",
+        "60 kt at 0 Hp, decreased 1 kt per 1000 ft",
+        "70 kt at 0 Hp, decreased 2 kt per 1000 ft"
+      ],
+      "answer": [1],
+      "explanation": "Section 4.5 gives Vy as IAS 65 kt at 0 Hp minus 1 kt per 1000 ft.",
+      "section": "normal_procedures",
+      "modelIds": ["H125_AS350_B3_2B1"],
+      "manual": "AS350 B3 RFM Section 4.5",
+      "reference": "s. 4.5-1",
+      "difficulty": "medium",
+      "tags": ["climb", "Vy"]
+    },
+    {
+      "id": "AS350-MAN-004",
+      "question": "When operating in maximum power configuration, what is recommended before initiating a turn?",
+      "options": [
+        "Increase collective slightly before the turn",
+        "Decrease collective slightly before the turn",
+        "Reduce IAS below Vy",
+        "Switch [HYD TEST] ON"
+      ],
+      "answer": [1],
+      "explanation": "Section 4.5 (Operation in maximum power configuration) calls for decreasing collective slightly before initiating a turn.",
+      "section": "normal_procedures",
+      "modelIds": ["H125_AS350_B3_2B1"],
+      "manual": "AS350 B3 RFM Section 4.5",
+      "reference": "s. 4.5-1",
+      "difficulty": "medium",
+      "tags": ["maneuvers", "power"]
+    },
+    {
+      "id": "AS350-APP-009",
+      "question": "During the approach check, what must be done with all parameters?",
+      "options": [
+        "Set them to maximum continuous rating",
+        "Check all parameters",
+        "Reduce them to idle",
+        "No action is required"
+      ],
+      "answer": [1],
+      "explanation": "The approach checklist item is: 'All parameters - CHECK'.",
+      "section": "normal_procedures",
+      "modelIds": ["H125_AS350_B3_2B1"],
+      "manual": "AS350 B3 RFM Section 4.5",
+      "reference": "s. 4.5-2",
+      "difficulty": "easy",
+      "tags": ["approach", "parameters"]
+    },
+    {
+      "id": "AS350-SHUT-017",
+      "question": "During engine and rotor shutdown, what must be done with [PITOT], [HORN] and the landing light?",
+      "options": [
+        "Leave them ON for cooling",
+        "Set them to OFF",
+        "Set them to AUTO",
+        "Leave them as configured in cruise"
+      ],
+      "answer": [1],
+      "explanation": "Shutdown checklist: '[PITOT], [HORN], landing light - OFF'.",
+      "section": "normal_procedures",
+      "modelIds": ["H125_AS350_B3_2B1"],
+      "manual": "AS350 B3 RFM Section 4.6",
+      "reference": "s. 4.6-1",
+      "difficulty": "easy",
+      "tags": ["shutdown", "lights"]
+    },
+    {
+      "id": "AS350-SHUT-018",
+      "question": "At which rotor speed should [GEN] or [GENE] be switched OFF during shutdown?",
+      "options": [
+        "At any NR",
+        "When NR \u2264 200 rpm",
+        "When NR \u2264 170 rpm in high wind or NR \u2264 140 rpm in normal conditions",
+        "Only after the rotor has stopped"
+      ],
+      "answer": [2],
+      "explanation": "Section 4.6 calls for [GEN] or [GENE] OFF at NR \u2264 170 rpm (high wind) or NR \u2264 140 rpm (normal conditions).",
+      "section": "normal_procedures",
+      "modelIds": ["H125_AS350_B3_2B1"],
+      "manual": "AS350 B3 RFM Section 4.6",
+      "reference": "s. 4.6-1",
+      "difficulty": "medium",
+      "tags": ["shutdown", "generator"]
+    },
+    {
+      "id": "AS350-SHUT-019",
+      "question": "Before leaving the helicopter after shutdown, what is stated regarding pitot, static ports, air intake and exhaust covers, and blade socks?",
+      "options": [
+        "They must always be removed",
+        "They must always be installed",
+        "Fit or remove them as required",
+        "Only pitot and static ports may be covered"
+      ],
+      "answer": [2],
+      "explanation": "The shutdown checklist ends with 'Pitot, static ports, air intake and exhaust covers, blade socks as required'.",
+      "section": "normal_procedures",
+      "modelIds": ["H125_AS350_B3_2B1"],
+      "manual": "AS350 B3 RFM Section 4.6",
+      "reference": "s. 4.6-2",
+      "difficulty": "easy",
+      "tags": ["shutdown", "covers"]
+    },
+    {
+      "id": "AS350-WIND-008",
+      "question": "When parking in high wind, how must the rotor be positioned and secured?",
+      "options": [
+        "Rotor brake released with blades free to weather-vane",
+        "Rotor brake applied with one blade at 12 o'clock and blade socks kept installed until start-up",
+        "Rotor brake applied with one blade at 3 o'clock",
+        "Rotor fully folded and tied to the tail boom"
+      ],
+      "answer": [1],
+      "explanation": "High wind operation: park head into wind, maintain rotor brake applied with one blade at 12 o'clock and keep blade socks until start-up.",
+      "section": "normal_procedures",
+      "modelIds": ["H125_AS350_B3_2B1"],
+      "manual": "AS350 B3 RFM Section 4.8",
+      "reference": "s. 4.8-1",
+      "difficulty": "medium",
+      "tags": ["wind", "parking"]
+    },
+    {
+      "id": "AS350-WIND-009",
+      "question": "During high-wind operations, how must the hydraulic checks in the run-up be performed?",
+      "options": [
+        "With twist grip in IDLE and NR below nominal",
+        "With twist grip in FLIGHT position and NR at nominal speed",
+        "With engines stopped using battery power only",
+        "With rotor brake applied"
+      ],
+      "answer": [1],
+      "explanation": "High wind operation run-up check: perform hydraulic checks with the twist grip in FLIGHT position and NR at nominal speed.",
+      "section": "normal_procedures",
+      "modelIds": ["H125_AS350_B3_2B1"],
+      "manual": "AS350 B3 RFM Section 4.8",
+      "reference": "s. 4.8-1",
+      "difficulty": "medium",
+      "tags": ["wind", "run-up"]
+    },
+    {
+      "id": "AS350-COLD-004",
+      "question": "Which engine oil is recommended for low temperature operation?",
+      "options": [
+        "Mineral 10W-40",
+        "3 cSt synthetic oil",
+        "Any aviation oil",
+        "20W-50 mineral oil"
+      ],
+      "answer": [1],
+      "explanation": "The cold weather operation note recommends use of 3 cSt synthetic oil for low temperature operation.",
+      "section": "normal_procedures",
+      "modelIds": ["H125_AS350_B3_2B1"],
+      "manual": "AS350 B3 RFM Section 4.8",
+      "reference": "s. 4.8-1",
+      "difficulty": "medium",
+      "tags": ["cold", "oil"]
+    },
+    {
+      "id": "AS350-COLD-005",
+      "question": "In cold weather operation, what should be done with the twist grip once engine oil temperature is at or above 0 \u00b0C and ENG P has been checked on the CWP?",
+      "options": [
+        "Keep the twist grip at IDLE",
+        "Move the twist grip to FLIGHT position",
+        "Shut down the engine",
+        "Repeat the start-up procedure"
+      ],
+      "answer": [1],
+      "explanation": "Cold weather start-up procedure: once engine oil temperature is \u2265 0 \u00b0C and ENG P is checked, set twist grip to FLIGHT position.",
+      "section": "normal_procedures",
+      "modelIds": ["H125_AS350_B3_2B1"],
+      "manual": "AS350 B3 RFM Section 4.8",
+      "reference": "s. 4.8-1",
+      "difficulty": "medium",
+      "tags": ["cold", "twist grip"]
     }
   ]
 }

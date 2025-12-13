@@ -133,8 +133,9 @@ const PROCEDURES: Record<string, ProcedureDefinition> = {
       {
         left: "Engine power check (hover)",
         right: <>
-          Verify that torque required in HIGE is compatible with take-off and landing environment and weight, using Section 5.1
-          guidance as applicable.
+	          In HIGE at about 5&nbsp;ft (1.5&nbsp;m) before initiating forward flight, raise collective slightly to confirm that Ng can
+	          increase by at least 1&nbsp;% without exceeding the maximum transient rating, and that the torque required is compatible
+	          with the take-off/landing environment and weight (Section&nbsp;5.1).
         </>,
       },
       {
@@ -156,6 +157,14 @@ const PROCEDURES: Record<string, ProcedureDefinition> = {
         right: <>
           Accelerate towards Vy for best rate of climb. As a guide, Vy is approximately 65&nbsp;kt IAS at sea level and decreases by
           about 1&nbsp;kt for each 1000&nbsp;ft of pressure altitude (≈ 120&nbsp;km/h minus 2&nbsp;km/h per 300&nbsp;m).
+        </>,
+      },
+      {
+        left: "HV avoidance (high gross weight)",
+        right: <>
+	          At high internal gross weight, use HIGE power to accelerate along the take-off path until IAS reaches about
+	          40&nbsp;kt, then begin the climb so as to clear roughly 20&nbsp;ft (6&nbsp;m) at around 50&nbsp;kt (93&nbsp;km/h), in line with
+	          the height–velocity diagram guidance (SUP.28).
         </>,
       },
       {
@@ -313,7 +322,11 @@ const PROCEDURES: Record<string, ProcedureDefinition> = {
       },
       {
         left: "Landing",
-        right: <>Lower collective smoothly to touch down, maintaining attitude and heading with cyclic and pedals.</>,
+        right: <>
+	          Lower collective smoothly to touch down, maintaining attitude and heading with cyclic and pedals. For any planned
+	          running landing in normal operations, keep ground speed well below the 40&nbsp;kt (74&nbsp;km/h) running landing
+	          limitation (Section&nbsp;2.3).
+        </>,
       },
       {
         left: "After landing",
@@ -336,8 +349,11 @@ const PROCEDURES: Record<string, ProcedureDefinition> = {
       {
         left: "Rotor stop",
         right: <>
-          Allow rotor to decelerate per limitations. If rotor brake is used, apply it below approximately 170&nbsp;rpm in high
-          wind conditions or below 140&nbsp;rpm in normal conditions, as specified in Section 4.6.
+	          Allow rotor to decelerate per limitations. If rotor brake is used, apply it below approximately 170&nbsp;rpm in high
+	          wind conditions or below 140&nbsp;rpm in normal conditions, as specified in Section 4.6. In high-wind operations,
+	          starting and stopping the rotor has been demonstrated up to about 40&nbsp;kt (74&nbsp;km/h) from any direction and
+	          50&nbsp;kt (93&nbsp;km/h) headwind; for winds above roughly 40&nbsp;kt, park the helicopter into wind and tie it down
+	          per Section&nbsp;4.8.
         </>,
       },
       {
@@ -381,8 +397,17 @@ const PROCEDURES: Record<string, ProcedureDefinition> = {
       {
         left: "Corrected t4 margin",
         right: <>
-          When necessary, compute corrected t4 margin using the Hp/OAT correction table; if the corrected margin is negative,
-          result is acceptable.
+	          When necessary, compute corrected t4 margin using the Hp/OAT correction table. This correction only applies when the
+	          initial T4 margin is  +35&nbsp; b0C; if the corrected margin is negative the result is acceptable, whereas a
+	          T4 margin greater than +35&nbsp; b0C means the engine condition is unsatisfactory.
+        </>,
+      },
+      {
+        left: "VEMD screen failure (both screens)",
+        right: <>
+	          If both VEMD screens fail, the maximum authorized power is the power required to maintain level flight while
+	          following the law IAS = 100&nbsp;kt at 0&nbsp;Hp minus 2&nbsp;kt per 1000&nbsp;ft (or 185&nbsp;km/h minus 4&nbsp;km/h per
+	          300&nbsp;m), as described in Section&nbsp;3.5.
         </>,
       },
       {
@@ -469,8 +494,10 @@ const PROCEDURES: Record<string, ProcedureDefinition> = {
       {
         left: "Autorotative landing",
         right: <>
-          On a suitable area, perform an autorotative landing according to the ENGINE FLAME-OUT autorotation procedure (Section
-          3.2), with twist grip at IDLE during descent.
+	          On a suitable area, perform an autorotative landing according to the ENGINE FLAME-OUT autorotation procedure (Section
+	          3.2): maintain about Vy in the descent, flare at roughly 70&nbsp;ft (21&nbsp;m), level at around 20	625&nbsp;ft
+	          (6	628&nbsp;m) and cushion the touchdown with collective. Over water, aim to ditch with IAS below 30&nbsp;kt
+	          (56&nbsp;km/h) and minimum rate of descent, and keep the twist grip at IDLE during the descent.
         </>,
       },
       {

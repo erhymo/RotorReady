@@ -42,6 +42,13 @@ const PROCEDURES: Record<string, ProcedureDefinition> = {
         right: <>Check weight, CG and loading are within Section 2 limitations; record any exceedance as required by Section 4.1.</>,
       },
       {
+        left: "Fuel tank drain (first flight)",
+        right: <>
+          Before the first flight of the day and if OAT is at or above 0&nbsp;°C, bleed the fuel tank at the drain point and confirm no
+          leakage at the bleed valve.
+        </>,
+      },
+      {
         left: "Cabin and cargo",
         right: <>Secure baggage and cabin freight in accordance with cabin loading instructions and placards.</>,
       },
@@ -119,7 +126,9 @@ const PROCEDURES: Record<string, ProcedureDefinition> = {
       },
       {
         left: "Hover",
-        right: <>Establish a stable hover in HIGE. Check attitude, power required and control response.</>,
+        right: <>
+          Establish a stable hover in HIGE at around 5&nbsp;ft (1.5&nbsp;m). Check attitude, power required and control response.
+        </>,
       },
       {
         left: "Engine power check (hover)",
@@ -144,7 +153,10 @@ const PROCEDURES: Record<string, ProcedureDefinition> = {
       },
       {
         left: "Airspeed",
-        right: <>Accelerate towards Vy as recommended in Section 5.1 for best rate of climb.</>,
+        right: <>
+          Accelerate towards Vy for best rate of climb. As a guide, Vy is approximately 65&nbsp;kt IAS at sea level and decreases by
+          about 1&nbsp;kt for each 1000&nbsp;ft of pressure altitude (≈ 120&nbsp;km/h minus 2&nbsp;km/h per 300&nbsp;m).
+        </>,
       },
       {
         left: "Power management",
@@ -167,15 +179,15 @@ const PROCEDURES: Record<string, ProcedureDefinition> = {
 	      {
 	        left: "Climb configuration",
 	        right: <>
-	          From initial climb, establish the helicopter in a stable climb attitude with NR in the normal range and power within
-	          the recommended continuous or take-off ratings.
+          Above about 100&nbsp;ft (30&nbsp;m) AGL, establish a stable climb attitude with NR in the normal range and power within
+          the recommended continuous or take-off ratings.
 	        </>,
 	      },
 	      {
 	        left: "Airspeed",
 	        right: <>
-	          Maintain a climb speed close to Vy or as required by obstacle clearance and ATC; refer to Section 5.1 for detailed
-	          performance.
+          For maximum climb performance, use Vy. As a guide, Vy ≈ 65&nbsp;kt IAS at sea level, reducing by about 1&nbsp;kt per 1000&nbsp;ft
+          of pressure altitude (≈ 120&nbsp;km/h minus 2&nbsp;km/h per 300&nbsp;m). Adjust as required for obstacles and ATC.
 	        </>,
 	      },
 	      {
@@ -209,6 +221,13 @@ const PROCEDURES: Record<string, ProcedureDefinition> = {
 	          a reference.
 	        </>,
 	      },
+      {
+        left: "Noise abatement (sensitive areas)",
+        right: <>
+          Over noise-sensitive areas, the complementary manual recommends IAS ≈ 110&nbsp;kt (204&nbsp;km/h) for OAT +25&nbsp;°C, adjusted
+          slightly with temperature, and at least 1000&nbsp;ft AGL where possible.
+        </>,
+      },
 	      {
 	        left: "Trim and workload",
 	        right: <>Trim the helicopter for hands-light flight where possible to reduce pilot workload and improve stability.</>,
@@ -246,8 +265,9 @@ const PROCEDURES: Record<string, ProcedureDefinition> = {
 	      {
 	        left: "Speed and rate of descent",
 	        right: <>
-	          Adjust cyclic and collective to achieve a stabilized descent profile with appropriate airspeed and rate of descent for
-	          the intended approach.
+          Adjust cyclic and collective to achieve a stabilized descent profile. For noise-sensitive helipads, use about
+          60&nbsp;kt (111&nbsp;km/h) with a rate of descent close to 1000&nbsp;ft/min; for approaches near sensitive areas but landing
+          elsewhere, use Vy with around 500&nbsp;ft/min as a reference.
 	        </>,
 	      },
 	      {
@@ -260,8 +280,9 @@ const PROCEDURES: Record<string, ProcedureDefinition> = {
 	      {
 	        left: "Joining the approach",
 	        right: <>
-	          Transition from en-route descent to the final approach by aligning with the landing site, confirming wind and
-	          obstacles and configuring lights and avionics as required.
+          Transition from en-route descent to the final approach by aligning with the landing site, confirming wind and
+          obstacles and configuring lights and avionics as required. Plan to be around 100&nbsp;ft (30&nbsp;m) AGL when reducing
+          towards a HIGE hover at roughly 5&nbsp;ft (1.5&nbsp;m).
 	        </>,
 	      },
 	      {
@@ -280,7 +301,11 @@ const PROCEDURES: Record<string, ProcedureDefinition> = {
       },
       {
         left: "Descent and approach speed",
-        right: <>Plan a stabilized approach, managing airspeed and rate of descent within normal envelopes.</>,
+        right: <>
+          Plan a stabilized approach, managing airspeed and rate of descent within normal envelopes. As a guide, begin the
+          approach around Vy (see climb section) and, in noise-sensitive areas, consider 60&nbsp;kt (111&nbsp;km/h) with a rate of
+          descent close to 1000&nbsp;ft/min or Vy with about 500&nbsp;ft/min when approaching a helipad near sensitive areas.
+        </>,
       },
       {
         left: "Hover and positioning",
@@ -310,7 +335,10 @@ const PROCEDURES: Record<string, ProcedureDefinition> = {
       },
       {
         left: "Rotor stop",
-        right: <>Allow rotor to decelerate per limitations; if rotor brake is used, apply only within specified NR range.</>,
+        right: <>
+          Allow rotor to decelerate per limitations. If rotor brake is used, apply it below approximately 170&nbsp;rpm in high
+          wind conditions or below 140&nbsp;rpm in normal conditions, as specified in Section 4.6.
+        </>,
       },
       {
         left: "Electrical power",
@@ -448,8 +476,9 @@ const PROCEDURES: Record<string, ProcedureDefinition> = {
       {
         left: "Loss of tail rotor control",
         right: <>
-          In case of pedal jamming/loss of control, set IAS around 70 kt in level flight, use HYD TEST / ACCU TST as described in
-          Section 3.3 §2 and carry out a shallow running landing with slight left sideslip.
+          In case of pedal jamming/loss of control, avoid airspeeds below about 20&nbsp;kt, especially near the ground. Set IAS
+          around 70&nbsp;kt (130&nbsp;km/h) in level flight, use HYD TEST / ACCU TST as described in Section 3.3 §2 and carry out a
+          shallow running landing with slight left sideslip.
         </>,
       },
     ],

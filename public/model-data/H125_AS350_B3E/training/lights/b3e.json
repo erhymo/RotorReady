@@ -6,26 +6,26 @@
     "system": "FIRE",
     "description": "Fire in engine bay.",
     "procedure": [
-      { "type": "branch", "heading": "At Start-up:", "text": "" },
-      { "type": "action", "text": "1. Engine starting selector - OFF position." },
-      { "type": "action", "text": "2. Emergency fuel shut-off handle - AFT." },
-      { "type": "action", "text": "3. [FUEL PUMP] - OFF." },
-      { "type": "action", "text": "4. [CRANK] - PRESS (10 sec.)." },
-      { "type": "action", "text": "5. Rotor brake - APPLY (<= 170 rpm)." },
-      { "type": "action", "text": "6. [BATT] - OFF." },
-      { "type": "action", "text": "7. Evacuate aircraft and fight fire from outside." },
-      { "type": "branch", "heading": "Hover, Takeoff, Final:", "text": "LAND IMMEDIATELY. Carry out a no hover powered landing. Once on ground, apply same procedure as above." },
-      { "type": "branch", "heading": "In Flight:", "text": "" },
-      { "type": "action", "text": "1. Collective - LOWER." },
-      { "type": "action", "text": "2. IAS - Vy." },
-      { "type": "action", "text": "3. Autorotation procedure - APPLY." },
-      { "type": "action", "text": "4. Emergency fuel shut-off handle - AFT." },
-      { "type": "action", "text": "5. [FUEL PUMP] - CHECK OFF." },
-      { "type": "action", "text": "6. Engine starting selector - OFF position." },
-      { "type": "branch", "heading": "After Landing:", "text": "" },
-      { "type": "action", "text": "7. Rotor brake - APPLY (<= 170 rpm)." },
-      { "type": "action", "text": "8. [BATT] - OFF." },
-      { "type": "action", "text": "9. Evacuate aircraft and fight fire from outside." }
+      {
+        "type": "branch",
+        "heading": "At Start-up:",
+        "text": "1. Engine starting selector ........................ OFF position 2. Emergency fuel shut-off handle....................................... AFT 3. [FUEL PUMP] .......................................... OFF 4. [CRANK] .................................................. PRESS (10 sec.) 5. Rotor brake .............................................. APPLY (<= 170 rpm) 6. [BATT] ..................................................... OFF 7. Evacuate aircraft and fight fire from outside."
+      },
+      {
+        "type": "branch",
+        "heading": "Hover, Takeoff, Final:",
+        "text": "LAND IMMEDIATELY. Carry out a no hover powered landing. Once on ground, apply same procedure as above."
+      },
+      {
+        "type": "branch",
+        "heading": "In Flight:",
+        "text": "LAND IMMEDIATELY 1. Collective ................................................ LOWER 2. IAS ........................................................... Vy 3. Autorotation procedure ......................... APPLY 4. Emergency fuel shut-off handle ........... AFT 5. [FUEL PUMP] .......................................... CHECK OFF 6. Engine starting selector ........................ OFF position."
+      },
+      {
+        "type": "branch",
+        "heading": "After Landing:",
+        "text": "7. Rotor brake .............................................. APPLY (<= 170 rpm) 8. [BATT] ..................................................... OFF 9. Evacuate aircraft and fight fire from outside."
+      }
     ],
     "references": ["RFM H125 Section 3 - Emergency Procedures - p. 3.6"],
     "modelIds": ["H125_AS350_B3E"]

@@ -9,10 +9,10 @@
       { "type": "branch", "heading": "At Start-up:", "text": "" },
       { "type": "action", "text": "1. Engine starting selector - OFF position." },
       { "type": "action", "text": "2. Emergency fuel shut-off handle - AFT." },
-      { "type": "action", "text": "3. [FUEL P] - OFF." },
+      { "type": "action", "text": "3. [FUEL PUMP] - OFF." },
       { "type": "action", "text": "4. [CRANK] - PRESS (10 sec.)." },
       { "type": "action", "text": "5. Rotor brake - APPLY (<= 170 rpm)." },
-      { "type": "action", "text": "6. [EMER SW] - OFF." },
+      { "type": "action", "text": "6. [BATT] - OFF." },
       { "type": "action", "text": "7. Evacuate aircraft and fight fire from outside." },
       { "type": "branch", "heading": "Hover, Takeoff, Final:", "text": "LAND IMMEDIATELY. Carry out a no hover powered landing. Once on ground, apply same procedure as above." },
       { "type": "branch", "heading": "In Flight:", "text": "" },
@@ -20,11 +20,11 @@
       { "type": "action", "text": "2. IAS - Vy." },
       { "type": "action", "text": "3. Autorotation procedure - APPLY." },
       { "type": "action", "text": "4. Emergency fuel shut-off handle - AFT." },
-      { "type": "action", "text": "5. [FUEL P] - CHECK OFF." },
+      { "type": "action", "text": "5. [FUEL PUMP] - CHECK OFF." },
       { "type": "action", "text": "6. Engine starting selector - OFF position." },
       { "type": "branch", "heading": "After Landing:", "text": "" },
       { "type": "action", "text": "7. Rotor brake - APPLY (<= 170 rpm)." },
-      { "type": "action", "text": "8. [EMER SW] - OFF." },
+      { "type": "action", "text": "8. [BATT] - OFF." },
       { "type": "action", "text": "9. Evacuate aircraft and fight fire from outside." }
     ],
     "references": ["RFM H125 Section 3 - Emergency Procedures - p. 3.6"],
@@ -35,12 +35,11 @@
     "name": "ENG P",
     "severity": "warning",
     "system": "ENGINE",
-    "description": "Engine oil pressure low.",
+    "description": "Engine oil pressure below limit.",
     "procedure": [
-      { "type": "branch", "heading": "If ENG P light ON:", "text": "" },
-      { "type": "action", "text": "1. Autorotation procedure - APPLY." },
-      { "type": "action", "text": "2. Land immediately." },
-      { "type": "action", "text": "3. Shut down engine, time permitting." }
+      { "type": "action", "text": "Oil pressure .......................... CHECK gauge." },
+      { "type": "branch", "heading": "If LOW or NIL:", "text": "LAND IMMEDIATELY. Autorotation procedure - APPLY. Shut down engine, time permitting." },
+      { "type": "branch", "heading": "If NORMAL:", "text": "LAND AS SOON AS PRACTICABLE." }
     ],
     "references": ["RFM H125 Section 3 - Emergency Procedures - p. 3.5"],
     "modelIds": ["H125_AS350_B3E"]
@@ -50,9 +49,12 @@
     "name": "MGB OIL P",
     "severity": "warning",
     "system": "TRANSMISSION",
-    "description": "Main gearbox oil pressure low.",
+    "description": "Main Gear Box low oil pressure < 1 bar (14.5 psi).",
     "procedure": [
-      { "type": "action", "text": "1. Land immediately." }
+      { "type": "action", "text": "1. Collective ............................... REDUCE power." },
+      { "type": "action", "text": "2. LAND AS SOON AS POSSIBLE." },
+      { "type": "action", "text": "3. If a safe landing is not possible, continue flight to the nearest appropriate landing site, reduce power to fly at minimum power speed (Vy)." },
+      { "type": "action", "text": "4. NOTE: At low power (Vy) a maximum of 55 min. of simulated flight time has been demonstrated during bench tests." }
     ],
     "references": ["RFM H125 Section 3 - Emergency Procedures - p. 3.6"],
     "modelIds": ["H125_AS350_B3E"]
@@ -62,9 +64,12 @@
     "name": "MGB TEMP",
     "severity": "warning",
     "system": "TRANSMISSION",
-    "description": "Main gearbox oil temperature high.",
+    "description": "Main Gear Box oil overheating (> 115 C).",
     "procedure": [
-      { "type": "branch", "heading": "If MGB TEMP:", "text": "Land as soon as possible." }
+      { "type": "action", "text": "1. IAS ...................................... SET TO Vy." },
+      { "type": "action", "text": "2. CWP ................................... MONITOR." },
+      { "type": "action", "text": "3. LAND AS SOON AS PRACTICABLE." },
+      { "type": "action", "text": "4. LAND AS SOON AS POSSIBLE." }
     ],
     "references": ["RFM H125 Section 3 - Emergency Procedures - p. 3.6"],
     "modelIds": ["H125_AS350_B3E"]
@@ -74,9 +79,10 @@
     "name": "MGB CHIP",
     "severity": "warning",
     "system": "TRANSMISSION",
-    "description": "Metal particles detected in main gearbox oil.",
+    "description": "Metal particles in MGB oil circuit.",
     "procedure": [
-      { "type": "action", "text": "1. Land as soon as possible." }
+      { "type": "action", "text": "1. Collective ................................ REDUCE power and MONITOR." },
+      { "type": "action", "text": "2. LAND AS SOON AS POSSIBLE." }
     ],
     "references": ["RFM H125 Section 3 - Emergency Procedures - p. 3.6"],
     "modelIds": ["H125_AS350_B3E"]
@@ -86,9 +92,12 @@
     "name": "ENG CHIP",
     "severity": "warning",
     "system": "ENGINE",
-    "description": "Metal particles detected in engine oil.",
+    "description": "Metal particles in engine oil circuit.",
     "procedure": [
-      { "type": "action", "text": "1. Land as soon as possible." }
+      { "type": "action", "text": "1. Collective   ............................... REDUCE power." },
+      { "type": "action", "text": "2. LAND AS SOON AS POSSIBLE." },
+      { "type": "action", "text": "3. Low power approach and landing. Be prepared in case of a loss of engine power." },
+      { "type": "action", "text": "4. NOTE: Takeoff is prohibited until checks specified in engine manufacturer maintenance manual have been completed." }
     ],
     "references": ["RFM H125 Section 3 - Emergency Procedures - p. 3.6"],
     "modelIds": ["H125_AS350_B3E"]
@@ -98,12 +107,13 @@
     "name": "ROTOR LOW",
     "severity": "warning",
     "system": "ROTOR",
-    "description": "Rotor speed below safe range.",
+    "description": "Rotor speed below normal operating range (NR < 360 rpm).",
     "procedure": [
-      { "type": "action", "text": "1. Lower collective." },
-      { "type": "branch", "heading": "If NR not recovered:", "text": "Autorotation - APPLY." }
+      { "type": "action", "text": "1. Collective ...................................................... REDUCE to maintain NR in normal operating range or power within limitations." },
+      { "type": "action", "text": "2. Engine parameters   ....................................... CHECK." },
+      { "type": "action", "text": "3. Apply procedure according to the situation." }
     ],
-    "references": ["RFM H125 Section 3 - Emergency Procedures - p. 3.5"],
+    "references": ["RFM H125 Section 3 - Emergency Procedures - 3.1 Audio warnings"],
     "modelIds": ["H125_AS350_B3E"]
   },
   {
@@ -111,12 +121,14 @@
     "name": "ENG OUT",
     "severity": "warning",
     "system": "ENGINE",
-    "description": "Engine flame-out (loss of Ng).",
+    "description": "Engine flame-out / loss of engine power.",
     "procedure": [
-      { "type": "branch", "heading": "In Cruise:", "text": "Autorotation procedure - APPLY." },
-      { "type": "branch", "heading": "In Hover IGE:", "text": "Collective - reduce to cushion landing." }
+      { "type": "branch", "heading": "Cruise flight - Autorotation procedure over land:", "text": "1. Collective ................................................... REDUCE to maintain NR in normal operating range. 2. IAS   ............................................................... Vy. After loss of tail rotor thrust: 3. Twist grip ................................................... IDLE position. 4. Maneuver the aircraft into the wind on final approach. At height ≈ 70 ft (21 m): 5. Cyclic ......................................................... FLARE. At 20/25 ft (6/8 m) and at constant attitude: 6. Collective .................................................. GRADUALLY INCREASE to reduce the rate of descent and forward speed. 7. Cyclic ......................................................... FORWARD to adopt a slightly nose-up landing attitude (< 10°). 8. Pedals   ........................................................ ADJUST to cancel any sideslip tendency. 9. Collective .................................................. INCREASE to cushion touch-down. After touch-down: 10. Cyclic, collective, pedals   ............................ ADJUST to control ground run. Once the aircraft has stopped: 11. Collective .................................................. FULL LOW PITCH. 12. Rotor brake ................................................ APPLY below 170 rotor rpm." },
+      { "type": "branch", "heading": "Cruise flight - Autorotation procedure over water:", "text": "Apply same procedure as over land, except items 10, 11 and 12, but maneuver to head the aircraft equally between the wind and wave direction on final approach. Ditch with minimum forward speed (IAS < 30 kt (56 km/h)) and rate of descent. Then apply following check list for items 10, 11, 12. After touch-down: 10. Collective ................................................... MAINTAIN. 11. Forward doors jettison handles   .................. PULL-UP. 12. Doors ......................................................... JETTISON or OPEN. 13. Rotor brake ................................................ APPLY. Abandon aircraft once the rotor has stopped." },
+      { "type": "branch", "heading": "Hover IGE:", "text": "1. Collective ........................................................ MAINTAIN. 2. Pedals ............................................................. CONTROL YAW. 3. Collective ........................................................ INCREASE as needed to cushion touch-down." },
+      { "type": "branch", "heading": "Hover OGE:", "text": "WARNING: SAFE AUTOROTATIVE LANDING CANNOT BE ENSURED IN CASE OF A FAILURE IN HOGE BELOW THE TOP POINT OF THE HV DIAGRAM (REFER TO SECTION 5.1) OR IN CONFINED AREA. 1. Collective ........................................................ FULL LOW PITCH. When NR stops decreasing: 2. Cyclic .............................................................. FORWARD to gain airspeed according to available height. 3. Autorotation procedure..................................... APPLY." }
     ],
-    "references": ["RFM H125 Section 3 - Emergency Procedures - p. 3.2"],
+    "references": ["RFM H125 Section 3 - Emergency Procedures - 3.2 Engine flame-out"],
     "modelIds": ["H125_AS350_B3E"]
   },
   {
@@ -124,9 +136,11 @@
     "name": "FUEL",
     "severity": "warning",
     "system": "FUEL",
-    "description": "Fuel quantity critically low.",
+    "description": "Fuel quantity < 48 kg (106 lb).",
     "procedure": [
-      { "type": "action", "text": "1. Land as soon as possible." }
+      { "type": "action", "text": "1. LAND AS SOON AS POSSIBLE." },
+      { "type": "action", "text": "2. NOTE: 15 min. of flight time remains at MCP." },
+      { "type": "action", "text": "3. WARNING: AVOID LARGE ATTITUDE CHANGES AS THIS COULD LEAD TO AN ENGINE FLAME-OUT." }
     ],
     "references": ["RFM H125 Section 3 - Emergency Procedures - p. 3.6"],
     "modelIds": ["H125_AS350_B3E"]
@@ -136,10 +150,13 @@
     "name": "HYDR",
     "severity": "warning",
     "system": "HYDRAULIC",
-    "description": "Hydraulic system pressure low.",
+    "description": "Loss of hydraulic pressure or Low hydraulic pressure.",
     "procedure": [
-      { "type": "action", "text": "1. Maintain 40-60 KIAS." },
-      { "type": "action", "text": "2. Land as soon as practicable." }
+      { "type": "action", "text": "WARNING: DO NOT USE [ACCU TST] PUSHBUTTON AS THIS WILL DEPRESSURIZE THE YAW LOAD COMPENSATOR RESULTING IN HEAVY PEDAL CONTROL LOADS. FAILURE TO COMPLY WITH THE FOLLOWING PROCEDURE MAY LEAD TO LOSS OF CONTROL." },
+      { "type": "branch", "heading": "HIGE, Takeoff, Final (if landing within 30 sec. is possible):", "text": "1. Land normally. 2. Collective ........................... LOCK. 3. Twist grip............................. IDLE position. 4. Shutdown procedure ........... APPLY." },
+      { "type": "branch", "heading": "In flight:", "text": "1. Set and maintain angle of bank below 30 degrees. 2. Avoid abrupt maneuvers. Then, smoothly: 3. IAS ...................................... SET between 40 and 60 KIAS (74 km/h and 111 km/h). NOTE: Hydraulic failure safety speed: 40 to 60 KIAS (74 km/h and 111 km/h). Once hydraulic failure safety speed is established: 4. Hydraulic cut-off switch (collective grip) ................... OFF. WARNING: AS CONTROL LOADS INCREASE, BE CAREFUL NOT TO INADVERTENTLY MOVE TWIST GRIP OUT OF FLIGHT POSITION (TWT GRIP LIGHT OFF). Pilot has to exert forces on collective increase or decrease around no force feedback point, and on forward and left cyclic. LAND AS SOON AS POSSIBLE." },
+      { "type": "branch", "heading": "Approach and landing:", "text": "NOTE: Accumulators will compensate hydraulic pressure loss for a limited operation of the main rotor controls allowing to secure flight conditions and to establish hydraulic failure safety speed. Airspeed may be increased beyond safety speed as necessary but control loads will increase with speed. WARNING: DO NOT ATTEMPT TO CARRY OUT HOVER FLIGHT OR ANY LOW SPEED MANEUVER BECAUSE THE INTENSITY AND DIRECTION OF THE CONTROL FEEDBACK FORCE WILL CHANGE RAPIDLY. FAILURE TO COMPLY MAY RESULT IN POOR AIRCRAFT CONTROL AND POSSIBLE LOSS OF CONTROL. Over a clear and flat area: - Set IAS between 40 and 60 KIAS (74 km/h and 111 km/h). - Perform a flat approach into the wind. - Make a slow no-hover running landing at around 10 kt ground speed (18.5 km/h). - Do not hover or taxi without hydraulic pressure." },
+      { "type": "branch", "heading": "After landing:", "text": "- Collective ......................... LOCK. - Twist grip ......................... IDLE position. - Shutdown procedure ........ APPLY." }
     ],
     "references": ["RFM H125 Section 3 - Emergency Procedures - p. 3.6"],
     "modelIds": ["H125_AS350_B3E"]
@@ -149,10 +166,12 @@
     "name": "BAT TEMP",
     "severity": "warning",
     "system": "ELEC",
-    "description": "Battery temperature high.",
+    "description": "Battery temperature above maximum.",
     "procedure": [
-      { "type": "action", "text": "1. BAT - OFF." },
-      { "type": "action", "text": "2. Land as soon as possible." }
+      { "type": "action", "text": "1. [BATT]   ....................................................................... OFF." },
+      { "type": "action", "text": "2. U bus voltage ............................................................. CHECK." },
+      { "type": "action", "text": "3. If U bus voltage ABOVE Umax: [BATT] ON, [GENE] OFF, Unnecessary equipment OFF." },
+      { "type": "action", "text": "4. LAND AS SOON AS PRACTICABLE." }
     ],
     "references": ["RFM H125 Section 3 - Emergency Procedures - p. 3.6"],
     "modelIds": ["H125_AS350_B3E"]

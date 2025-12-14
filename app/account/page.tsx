@@ -589,7 +589,7 @@ export default function AccountPage() {
                 const coming = v.status === "coming_soon";
                 const hasH125 = Boolean(ents.H125);
                 const isActive = activeVariantId === v.id;
-                const label = v.label.replace("H125 / ", "AS350 ");
+	            const label = v.label.includes("/") ? v.label.split("/")[1].trim() : v.label;
                 return (
                   <button
                     type="button"

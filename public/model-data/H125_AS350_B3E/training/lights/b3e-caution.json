@@ -4,13 +4,16 @@
     "name": "GENE",
     "severity": "caution",
     "system": "ELECTRICAL",
-    "description": "DC generator offline or malfunction.",
+    "description": "DC generator off line.",
     "procedure": [
-      { "type": "action", "text": "1. Verify GEN switch ON; check volt/ammeter." },
-      { "type": "action", "text": "2. If GEN remains offline: Non-essential loads — OFF." },
-      { "type": "action", "text": "3. Land as soon as practicable." }
+      { "type": "action", "text": "1. U bus on VEMD ................. CHECK." },
+      { "type": "action", "text": "2. [GENE] ............................... CHECK ON." },
+      { "type": "branch", "heading": "If [GENE] ON:", "text": "'GENE RST' circuit breaker ........ CHECK not popped out. [GENE RST] ................. PRESS. Unnecessary equipment ........ OFF. U bus on VEMD ................. MONITOR. LAND AS SOON AS PRACTICABLE." },
+      { "type": "branch", "heading": "If [GENE] NOT ON:", "text": "Unnecessary equipment ........ OFF. U bus on VEMD ................. MONITOR. LAND AS SOON AS PRACTICABLE or CONTINUE FLIGHT as per operational judgment." },
+      { "type": "action", "text": "WARNING: IF THE BATTERY FAILS, THE VEMD WILL GO OUT AND NR/N2 INDICATION IS LOST. APPLY THE PROCEDURE FOR FAILURE OF BOTH SCREENS (SECTION 3.5 § 1 VEMD SCREEN FAILURE). AVOID AUTOROTATION, PERFORM A SHALLOW APPROACH WITH A CAUTIOUS LANDING." },
+      { "type": "action", "text": "NOTE: GENE comes on if the DC system is supplied with external power." }
     ],
-    "references": ["RFM H125 Section 3 – Emergency Procedures"],
+    "references": ["RFM H125 Section 3 – Emergency Procedures – 3.6.4"],
     "modelIds": ["H125_AS350_B3E"]
   },
   {
@@ -18,13 +21,12 @@
     "name": "INV",
     "severity": "caution",
     "system": "ELECTRICAL",
-    "description": "Inverter failure.",
+    "description": "AC power supply failure.",
     "procedure": [
-      { "type": "action", "text": "1. Check INVERTER switch; select operative inverter if available." },
-      { "type": "action", "text": "2. Reduce non-essential AC loads." },
-      { "type": "action", "text": "3. Land as soon as practicable." }
+      { "type": "action", "text": "1. [INV] ........................................ CHECK ON." },
+      { "type": "branch", "heading": "If loss of all AC consumers:", "text": "[INV] ........................................ ON. NOTE: AFCS disengages automatically (if installed). Controls ............... HANDS ON. CONTINUE FLIGHT." }
     ],
-    "references": ["RFM H125 Section 3 – Emergency Procedures"],
+    "references": ["RFM H125 Section 3 – Emergency Procedures – 3.6.4"],
     "modelIds": ["H125_AS350_B3E"]
   },
   {
@@ -32,12 +34,13 @@
     "name": "FUEL",
     "severity": "caution",
     "system": "FUEL",
-    "description": "Low fuel level.",
+    "description": "Fuel quantity < 48 kg (106 lb).",
     "procedure": [
-      { "type": "action", "text": "1. Monitor fuel indications; consider fuel transfer if installed." },
-      { "type": "action", "text": "2. Plan to land as soon as practicable." }
+      { "type": "action", "text": "1. LAND AS SOON AS POSSIBLE." },
+      { "type": "action", "text": "2. NOTE: 15 min. of flight time remains at MCP." },
+      { "type": "action", "text": "3. WARNING: AVOID LARGE ATTITUDE CHANGES AS THIS COULD LEAD TO AN ENGINE FLAME-OUT." }
     ],
-    "references": ["RFM H125 Section 3 – Emergency Procedures"],
+    "references": ["RFM H125 Section 3 – Emergency Procedures – 3.6.5"],
     "modelIds": ["H125_AS350_B3E"]
   },
   {
@@ -47,10 +50,10 @@
     "system": "FUEL",
     "description": "Low fuel pressure.",
     "procedure": [
-      { "type": "action", "text": "1. Turn ON fuel pump(s) if off; check pressure." },
-      { "type": "action", "text": "2. If pressure not restored: Land as soon as practicable." }
+      { "type": "branch", "heading": "In flight:", "text": "1. Collective ....................................... REDUCE POWER. 2. [FUEL P] or [FUEL PUMP] .......... ON. LAND AS SOON AS POSSIBLE. Low power approach and landing." },
+      { "type": "action", "text": "WARNING: BE PREPARED IN CASE OF AN ENGINE FLAME-OUT." }
     ],
-    "references": ["RFM H125 Section 3 – Emergency Procedures"],
+    "references": ["RFM H125 Section 3 – Emergency Procedures – 3.6.5"],
     "modelIds": ["H125_AS350_B3E"]
   },
   {
@@ -58,12 +61,12 @@
     "name": "FUEL FILT",
     "severity": "caution",
     "system": "FUEL",
-    "description": "Fuel filter contamination.",
+    "description": "Fuel filter pre-clogged.",
     "procedure": [
-      { "type": "action", "text": "1. Reduce power to minimize fuel flow if possible." },
-      { "type": "action", "text": "2. Land as soon as practicable; maintenance inspection required." }
+      { "type": "branch", "heading": "Continuously on (pre-clogging level 2 reached):", "text": "WARNING: FUEL FILTER BY-PASS OPENING LEADS TO CONTAMINATION OF THE FUEL LINES AND THE GOVERNOR, WHICH MAY INDUCE N1 OSCILLATIONS, LIMITED POWER OR POSSIBLY FLAME-OUT. LAND AS SOON AS PRACTICABLE. VEMD ................... MONITOR N1. If N1 oscillations occur: LAND IMMEDIATELY." },
+      { "type": "branch", "heading": "Flashing at idle or during starting or shutdown (pre-clogging level 1):", "text": "One flight of 3 hours maximum flight time can be performed before maintenance action." }
     ],
-    "references": ["RFM H125 Section 3 – Emergency Procedures"],
+    "references": ["RFM H125 Section 3 – Emergency Procedures – 3.6.5"],
     "modelIds": ["H125_AS350_B3E"]
   },
   {
@@ -71,12 +74,12 @@
     "name": "PITOT",
     "severity": "caution",
     "system": "PITOT/STATIC",
-    "description": "Pitot heat off/failure or pitot obstruction.",
+    "description": "Pitot heating not operative.",
     "procedure": [
-      { "type": "action", "text": "1. PITOT HEAT — ON (check CB)." },
-      { "type": "action", "text": "2. If unreliable ASI suspected: Maintain safe attitude/NR; avoid IMC." }
+      { "type": "action", "text": "1. [PITOT] ............................... CHECK ON." },
+      { "type": "branch", "heading": "If PITOT heating confirmed:", "text": "Monitor airspeed indicator. [PITOT] ................ ON. CONTINUE FLIGHT." }
     ],
-    "references": ["RFM H125 Section 3 – Emergency Procedures"],
+    "references": ["RFM H125 Section 3 – Emergency Procedures – 3.6.6"],
     "modelIds": ["H125_AS350_B3E"]
   },
   {
@@ -84,12 +87,12 @@
     "name": "HORN",
     "severity": "caution",
     "system": "AURAL WARNING",
-    "description": "Aural warning or horn fault.",
+    "description": "Aural warning not operative / Aural warning failure.",
     "procedure": [
-      { "type": "action", "text": "1. Identify source; silence if spurious per procedure." },
-      { "type": "action", "text": "2. Continue with caution; maintenance action required." }
+      { "type": "branch", "heading": "Aural warning not operative:", "text": "[HORN] ............................... CHECK ON." },
+      { "type": "branch", "heading": "Aural warning failure:", "text": "[HORN] ............................... ON. CONTINUE FLIGHT." }
     ],
-    "references": ["RFM H125 Section 3 – Emergency Procedures"],
+    "references": ["RFM H125 Section 3 – Emergency Procedures – 3.6.6"],
     "modelIds": ["H125_AS350_B3E"]
   },
   {
@@ -97,12 +100,13 @@
     "name": "DOOR",
     "severity": "caution",
     "system": "AIRFRAME",
-    "description": "Door not properly closed or latch indication.",
+    "description": "One or both cargo hold doors unlocked.",
     "procedure": [
-      { "type": "action", "text": "1. If in flight: reduce speed; avoid abrupt maneuvers." },
-      { "type": "action", "text": "2. Land as soon as practicable; secure door." }
+      { "type": "action", "text": "1. Airspeed ............................ REDUCE to 70 kt (130 km/h)." },
+      { "type": "action", "text": "2. LAND AS SOON AS PRACTICABLE." },
+      { "type": "action", "text": "3. Descent and approach at low rate of descent." }
     ],
-    "references": ["RFM H125 Section 3 – Emergency Procedures"],
+    "references": ["RFM H125 Section 3 – Emergency Procedures – 3.6.6"],
     "modelIds": ["H125_AS350_B3E"]
   },
   {
@@ -110,12 +114,14 @@
     "name": "ENG CHIP",
     "severity": "caution",
     "system": "ENGINE",
-    "description": "Engine chip detector contamination.",
+    "description": "Metal particles in engine oil circuit.",
     "procedure": [
-      { "type": "action", "text": "1. Land as soon as practicable." },
-      { "type": "action", "text": "2. If abnormal engine indications/vibrations: Land immediately." }
+      { "type": "action", "text": "Collective   ............................... REDUCE power." },
+      { "type": "action", "text": "LAND AS SOON AS POSSIBLE." },
+      { "type": "action", "text": "Low power approach and landing. Be prepared in case of a loss of engine power." },
+      { "type": "action", "text": "NOTE: Takeoff is prohibited until checks specified in engine manufacturer maintenance manual have been completed." }
     ],
-    "references": ["RFM H125 Section 3 – Emergency Procedures"],
+    "references": ["RFM H125 Section 3 – Emergency Procedures – 3.6.1"],
     "modelIds": ["H125_AS350_B3E"]
   },
   {
@@ -123,12 +129,14 @@
     "name": "MGB TEMP",
     "severity": "caution",
     "system": "TRANSMISSION",
-    "description": "Main gearbox oil temperature high.",
+    "description": "Main Gear Box oil overheating (> 115 C).",
     "procedure": [
-      { "type": "action", "text": "1. Reduce power and airspeed." },
-      { "type": "action", "text": "2. Land as soon as practicable; monitor TQ/NR." }
+      { "type": "action", "text": "1. IAS ...................................... SET TO Vy." },
+      { "type": "action", "text": "2. CWP ................................... MONITOR." },
+      { "type": "action", "text": "3. LAND AS SOON AS PRACTICABLE." },
+      { "type": "action", "text": "4. LAND AS SOON AS POSSIBLE." }
     ],
-    "references": ["RFM H125 Section 3 – Emergency Procedures"],
+    "references": ["RFM H125 Section 3 – Emergency Procedures – 3.6.2"],
     "modelIds": ["H125_AS350_B3E"]
   },
   {
@@ -136,12 +144,12 @@
     "name": "MGB CHIP",
     "severity": "caution",
     "system": "TRANSMISSION",
-    "description": "Main gearbox chip detected.",
+    "description": "Metal particles in MGB oil circuit.",
     "procedure": [
-      { "type": "action", "text": "1. Land as soon as practicable." },
-      { "type": "action", "text": "2. If associated with abnormal noise/vibration: Land immediately." }
+      { "type": "action", "text": "1. Collective ................................ REDUCE power and MONITOR." },
+      { "type": "action", "text": "2. LAND AS SOON AS POSSIBLE." }
     ],
-    "references": ["RFM H125 Section 3 – Emergency Procedures"],
+    "references": ["RFM H125 Section 3 – Emergency Procedures – 3.6.2"],
     "modelIds": ["H125_AS350_B3E"]
   },
   {
@@ -149,12 +157,12 @@
     "name": "TGB CHIP",
     "severity": "caution",
     "system": "TRANSMISSION",
-    "description": "Tail gearbox chip detected.",
+    "description": "Metal particles in TGB oil circuit.",
     "procedure": [
-      { "type": "action", "text": "1. Land as soon as practicable." },
-      { "type": "action", "text": "2. If abnormal noise/vibration: Land immediately." }
+      { "type": "action", "text": "1. Avoid prolonged hovering." },
+      { "type": "action", "text": "2. CONTINUE FLIGHT." }
     ],
-    "references": ["RFM H125 Section 3 – Emergency Procedures"],
+    "references": ["RFM H125 Section 3 – Emergency Procedures – 3.6.2"],
     "modelIds": ["H125_AS350_B3E"]
   },
   {
@@ -162,12 +170,12 @@
     "name": "TWT. GRIP",
     "severity": "caution",
     "system": "ENGINE",
-    "description": "Twist grip abnormal/locked indication.",
+    "description": "Twist grip out of FLIGHT position.",
     "procedure": [
-      { "type": "action", "text": "1. Check TWIST GRIP; ensure at FLY detent; avoid rapid movements." },
-      { "type": "action", "text": "2. Land as soon as practicable." }
+      { "type": "action", "text": "Twist grip .............................. TURN to FLIGHT position." },
+      { "type": "action", "text": "CONTINUE FLIGHT." }
     ],
-    "references": ["RFM H125 Section 3 – Emergency Procedures"],
+    "references": ["RFM H125 Section 3 – Emergency Procedures – 3.6.1"],
     "modelIds": ["H125_AS350_B3E"]
   },
   {
@@ -175,12 +183,12 @@
     "name": "GOV",
     "severity": "caution",
     "system": "ENGINE GOVERNOR",
-    "description": "Minor FADEC/governor fault.",
+    "description": "Minor FADEC failure.",
     "procedure": [
-      { "type": "action", "text": "1. Monitor NR and engine parameters; avoid abrupt power changes." },
-      { "type": "action", "text": "2. Land as soon as practicable." }
+      { "type": "branch", "heading": "Continuously on:", "text": "Governing function degraded. 1. Collective ....................... AVOID abrupt power changes. 2. IAS .................................. MAINTAIN below VNE power off. LAND AS SOON AS PRACTICABLE. On ground: Do not start engine." },
+      { "type": "branch", "heading": "Flashing at idle or during starting or shutdown:", "text": "Governor redundancy failure, no impact on governing function. Start-up procedure: Abort, refer to Maintenance Manual. Autorotation training: Cancel training, return to base." }
     ],
-    "references": ["RFM H125 Section 3 – Emergency Procedures"],
+    "references": ["RFM H125 Section 3 – Emergency Procedures – 3.6.1"],
     "modelIds": ["H125_AS350_B3E"]
   },
   {
@@ -188,12 +196,13 @@
     "name": "GOV",
     "severity": "warning",
     "system": "ENGINE GOVERNOR",
-    "description": "Governor failure.",
+    "description": "Major governor failure. Emergency mode (EBCAU) engaged.",
     "procedure": [
-      { "type": "action", "text": "1. Adjust TWIST GRIP to control NR manually as required." },
-      { "type": "action", "text": "2. Land as soon as practicable; if NR cannot be controlled: Land immediately." }
+      { "type": "branch", "heading": "In flight:", "text": "1. Flight parameters ...................... CHECK, apply VEMD failure of both screens procedure, if required (see NOTE below). Emergency mode (EBCAU) automatically self-engages. GOV illuminates. 2. Collective ................................... AVOID abrupt changes. If N1 still available: Maintain N1 > 80% Hp below 20000 ft (6096 m). Maintain N1 > 85% Hp at or above 20000 ft (6096 m). LAND AS SOON AS PRACTICABLE. 3. Approach and Landing: If N1 not available: - Lower collective to maintain NR in normal operating range. Make a powered approach. Avoid steep angle. 4. After touch down, shut-down: Collective .................................... SLOWLY down to low pitch. Engine starting selector ................ OFF." },
+      { "type": "branch", "heading": "During engine starting:", "text": "Engine starting selector .................. OFF position immediately." },
+      { "type": "action", "text": "NOTE: This failure can also result in loss of Delta N1, N1, TRQ, TOT parameters and engine oil temperature and pressure indications on the VEMD. On VEHICLE page: FF and END." }
     ],
-    "references": ["RFM H125 Section 3 – Emergency Procedures"],
+    "references": ["RFM H125 Section 3 – Emergency Procedures – 3.6.1"],
     "modelIds": ["H125_AS350_B3E"]
   }
 ]

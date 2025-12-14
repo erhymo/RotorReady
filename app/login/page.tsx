@@ -46,10 +46,10 @@ function LoginInner() {
         }
       } catch {}
       router.push("/account");
-    } catch (e: any) {
-        console.error('Login error:', e);
-        setErr(mapAuthError(e?.code) || e?.message || "Klarte ikke logge inn");
-    }
+	  } catch (e: any) {
+	      console.error('Login error:', e);
+	      setErr(mapAuthError(e?.code) || e?.message || "Could not sign in");
+	  }
   }
 
 
@@ -69,51 +69,51 @@ function LoginInner() {
     try {
       await sendPasswordResetEmail(auth, email);
       setResetMsg("If this email is registered, we've sent you an email with a link to reset your password.");
-    } catch (e: any) {
-      console.error("Password reset error:", e);
-      setErr(mapAuthError(e?.code) || e?.message || "Kunne ikke sende tilbakestillingslenke");
-    }
+	  } catch (e: any) {
+	      console.error("Password reset error:", e);
+	      setErr(mapAuthError(e?.code) || e?.message || "Could not send reset link");
+	  }
   }
 
-  return (
-    <div className="max-w-sm mx-auto p-6 rounded-2xl space-y-3 border-l-4 border-blue-600 bg-blue-50/40 dark:border-blue-400 dark:bg-blue-900/40">
-      <h1 className="text-2xl font-bold dark:text-zinc-100">Logg inn</h1>
+	  return (
+	    <div className="max-w-sm mx-auto p-6 rounded-2xl space-y-3 border-l-4 border-blue-600 bg-blue-50/40 dark:border-blue-400 dark:bg-blue-900/40">
+	      <h1 className="text-2xl font-bold dark:text-zinc-100">Log in</h1>
       <form onSubmit={onSubmit} className="space-y-3">
-        <input
-          className="w-full border rounded px-3 py-2 dark:bg-blue-900 dark:border-blue-400 dark:text-zinc-100 placeholder:text-gray-500 dark:placeholder:text-zinc-300"
-          placeholder="E-post"
-          value={email}
-          onChange={e=>setEmail(e.target.value)}
-        />
-        <input
-          className="w-full border rounded px-3 py-2 dark:bg-blue-900 dark:border-blue-400 dark:text-zinc-100 placeholder:text-gray-500 dark:placeholder:text-zinc-300"
-          placeholder="Passord"
-          type="password"
-          value={password}
-          onChange={e=>setPassword(e.target.value)}
-        />
+	        <input
+	          className="w-full border rounded px-3 py-2 dark:bg-blue-900 dark:border-blue-400 dark:text-zinc-100 placeholder:text-gray-500 dark:placeholder:text-zinc-300"
+	          placeholder="Email"
+	          value={email}
+	          onChange={e=>setEmail(e.target.value)}
+	        />
+	        <input
+	          className="w-full border rounded px-3 py-2 dark:bg-blue-900 dark:border-blue-400 dark:text-zinc-100 placeholder:text-gray-500 dark:placeholder:text-zinc-300"
+	          placeholder="Password"
+	          type="password"
+	          value={password}
+	          onChange={e=>setPassword(e.target.value)}
+	        />
         {err && <div className="text-sm text-red-600 dark:text-red-400">{err}</div>}
         {resetMsg && <div className="text-sm text-emerald-700 dark:text-emerald-400">{resetMsg}</div>}
 
-        <button type="submit" className="w-full rounded bg-blue-600 text-white py-2 font-medium">Logg inn</button>
-        <button
-          type="button"
-          onClick={onForgotPassword}
-          className="w-full text-sm text-blue-700 dark:text-blue-300 underline mt-1"
-        >
-          Glemt passord?
-        </button>
+	        <button type="submit" className="w-full rounded bg-blue-600 text-white py-2 font-medium">Log in</button>
+	        <button
+	          type="button"
+	          onClick={onForgotPassword}
+	          className="w-full text-sm text-blue-700 dark:text-blue-300 underline mt-1"
+	        >
+	          Forgot password?
+	        </button>
       </form>
-      <div className="text-sm"><a className="underline dark:text-zinc-100" href="/signup">Opprett konto</a></div>
+	      <div className="text-sm"><a className="underline dark:text-zinc-100" href="/signup">Create account</a></div>
     </div>
   );
 }
 
 export default function LoginPage() {
-  return (
-    <Suspense fallback={<div className="p-6 text-center">Laster…</div>}>
-      <LoginInner />
-    </Suspense>
-  );
-}
+	  return (
+	    <Suspense fallback={<div className="p-6 text-center">Loading…</div>}>
+	      <LoginInner />
+	    </Suspense>
+	  );
+	}
 export const dynamic = "force-dynamic";

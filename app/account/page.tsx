@@ -338,13 +338,6 @@ export default function AccountPage() {
   }, []);
 
   useEffect(() => {
-    if (!authChecked || loggedIn) return;
-    if (typeof window !== "undefined") {
-      router.replace(`/login?next=${encodeURIComponent("/account")}`);
-    }
-  }, [authChecked, loggedIn, router]);
-
-  useEffect(() => {
     if (!userUid) {
       setConversation(null);
       return;
@@ -410,12 +403,9 @@ export default function AccountPage() {
 
   const unreadUserMessages = conversation?.messages?.filter((msg) => msg.from === "admin" && !msg.readByUser).length ?? 0;
 
-  if (!authChecked) {
-    return <div className="p-8 text-center text-lg text-slate-700 dark:text-zinc-200">Loading…</div>;
-  }
-  if (!loggedIn) {
-    return <div className="p-8 text-center text-lg text-slate-700 dark:text-zinc-200">Redirecting to login…</div>;
-  }
+	  if (!authChecked) {
+	    return <div className="p-8 text-center text-lg text-slate-700 dark:text-zinc-200">Loading…</div>;
+	  }
 
   const attempts = history.length;
   const formatSection = (value: string) => {

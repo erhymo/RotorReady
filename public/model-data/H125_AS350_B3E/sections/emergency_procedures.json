@@ -630,6 +630,143 @@
       "references": ["RFM AS350 Section 3.1 – General – p. 3-2"],
       "difficulty": "medium",
       "tags": ["audio-warnings"]
+    },
+    {
+      "id": "H125-EMG-054",
+      "question": "In case of engine flame-out in cruise flight over land, what is the correct sequence of the first three immediate actions?",
+      "options": [
+        "Collective – REDUCE; IAS – set Vy; Twist grip – IDLE",
+        "IAS – set Vy; Collective – REDUCE; Twist grip – IDLE",
+        "Twist grip – IDLE; IAS – set Vy; Collective – REDUCE",
+        "Collective – REDUCE; Twist grip – IDLE; IAS – set Vy"
+      ],
+      "answer": [0],
+      "explanation": "Section 3.2 states that after engine flame-out in cruise, the pilot must first REDUCE collective to maintain NR, then set IAS to Vy, then move the twist grip to IDLE.",
+      "section": "emergency_procedures",
+      "modelIds": ["H125_AS350_B3E"],
+      "manual": "RFM AS350 Section 3.2 – Engine flame-out",
+      "reference": "p. 3-1",
+      "references": ["RFM AS350 Section 3.2 – Engine flame-out – p. 3-1"],
+      "difficulty": "medium",
+      "tags": ["engine-flame-out","autorotation"]
+    },
+    {
+      "id": "H125-EMG-055",
+      "question": "During an autorotation landing over land after engine flame-out, which combination of control actions is recommended at approximately 20–25 ft (6–8 m)?",
+      "options": [
+        "Collective – gradually increase; Cyclic – forward to adopt a slightly nose-up attitude (< 10°); Pedals – adjust to cancel sideslip",
+        "Collective – reduce fully; Cyclic – full aft; Pedals – centered",
+        "Collective – maintain; Cyclic – neutral; Pedals – full right pedal",
+        "Collective – increase then immediately reduce to full low pitch; Cyclic – neutral; Pedals – adjust"
+      ],
+      "answer": [0],
+      "explanation": "Section 3.2 specifies that at 20–25 ft the pilot should gradually increase collective to reduce rate of descent and speed, move the cyclic forward to a slightly nose-up attitude (< 10°), and adjust pedals to remove any sideslip.",
+      "section": "emergency_procedures",
+      "modelIds": ["H125_AS350_B3E"],
+      "manual": "RFM AS350 Section 3.2 – Engine flame-out",
+      "reference": "p. 3-1",
+      "references": ["RFM AS350 Section 3.2 – Engine flame-out – p. 3-1"],
+      "difficulty": "medium",
+      "tags": ["engine-flame-out","autorotation"]
+    },
+    {
+      "id": "H125-EMG-056",
+      "question": "Immediately after touchdown in an autorotation landing over land, what should the pilot do with collective, cyclic and pedals?",
+      "options": [
+        "Adjust collective, cyclic and pedals to control the ground run",
+        "Move cyclic fully aft and collective to full low pitch",
+        "Apply rotor brake immediately regardless of NR",
+        "Lower collective to idle stop and center cyclic without pedal input"
+      ],
+      "answer": [0],
+      "explanation": "In Section 3.2 the checklist states that after touchdown the pilot must adjust cyclic, collective and pedals to control the ground run before placing collective to full low pitch.",
+      "section": "emergency_procedures",
+      "modelIds": ["H125_AS350_B3E"],
+      "manual": "RFM AS350 Section 3.2 – Engine flame-out",
+      "reference": "p. 3-1",
+      "references": ["RFM AS350 Section 3.2 – Engine flame-out – p. 3-1"],
+      "difficulty": "easy",
+      "tags": ["engine-flame-out","autorotation"]
+    },
+    {
+      "id": "H125-EMG-057",
+      "question": "During autorotation over water after engine flame-out, what is the maximum indicated airspeed recommended at ditching?",
+      "options": ["30 kt IAS", "40 kt IAS", "50 kt IAS", "60 kt IAS"],
+      "answer": [0],
+      "explanation": "Section 3.2 states that during autorotation over water the helicopter should ditch with minimum forward speed, IAS less than 30 kt, and minimum rate of descent.",
+      "section": "emergency_procedures",
+      "modelIds": ["H125_AS350_B3E"],
+      "manual": "RFM AS350 Section 3.2 – Engine flame-out",
+      "reference": "p. 3-2",
+      "references": ["RFM AS350 Section 3.2 – Engine flame-out – p. 3-2"],
+      "difficulty": "medium",
+      "tags": ["engine-flame-out","over-water"]
+    },
+    {
+      "id": "H125-EMG-058",
+      "question": "In case of engine flame-out in hover IGE, which sequence of actions is recommended?",
+      "options": [
+        "Collective – MAINTAIN; Pedals – CONTROL YAW; Collective – INCREASE as needed to cushion touchdown",
+        "Collective – FULL LOW PITCH; Cyclic – forward; Pedals – neutral",
+        "Collective – reduce fully; Twist grip – IDLE; Cyclic – flare",
+        "Collective – MAINTAIN; Apply rotor brake; Pedals – centered"
+      ],
+      "answer": [0],
+      "explanation": "The hover IGE subsection of Section 3.2 specifies that after engine flame-out the pilot should maintain collective, control yaw with pedals, then increase collective as needed to cushion the touchdown.",
+      "section": "emergency_procedures",
+      "modelIds": ["H125_AS350_B3E"],
+      "manual": "RFM AS350 Section 3.2 – Engine flame-out",
+      "reference": "p. 3-2",
+      "references": ["RFM AS350 Section 3.2 – Engine flame-out – p. 3-2"],
+      "difficulty": "medium",
+      "tags": ["engine-flame-out","hover"]
+    },
+    {
+      "id": "H125-EMG-059",
+      "question": "In case of engine flame-out in hover OGE (clear area, outside the HV diagram), what is the first collective action according to the procedure?",
+      "options": ["Collective – FULL LOW PITCH", "Collective – MAINTAIN", "Collective – INCREASE to cushion touchdown", "Collective – set to mid position"],
+      "answer": [0],
+      "explanation": "For hover OGE outside the HV diagram, Section 3.2 states that the first action is to lower collective to FULL LOW PITCH before using cyclic to gain airspeed and applying the autorotation procedure.",
+      "section": "emergency_procedures",
+      "modelIds": ["H125_AS350_B3E"],
+      "manual": "RFM AS350 Section 3.2 – Engine flame-out",
+      "reference": "p. 3-2",
+      "references": ["RFM AS350 Section 3.2 – Engine flame-out – p. 3-2"],
+      "difficulty": "easy",
+      "tags": ["engine-flame-out","hover"]
+    },
+    {
+      "id": "H125-EMG-060",
+      "question": "After engine flame-out, what is the correct order of the first three actions in the in-flight relighting procedure?",
+      "options": [
+        "[FUEL P] or [FUEL PUMP] – ON; [GENE] – OFF; Engine starting selector – OFF then ON",
+        "[GENE] – OFF; [FUEL P] or [FUEL PUMP] – ON; Engine starting selector – OFF then ON",
+        "Engine starting selector – OFF then ON; [FUEL P] or [FUEL PUMP] – ON; [GENE] – OFF",
+        "[FUEL P] or [FUEL PUMP] – ON; Engine starting selector – ON; [GENE] – OFF"
+      ],
+      "answer": [0],
+      "explanation": "Section 3.2 (In-flight relighting) specifies that the pilot must first switch the fuel pump ON, then switch the generator OFF, then set the engine starting selector OFF and back to ON to start the automatic relight sequence.",
+      "section": "emergency_procedures",
+      "modelIds": ["H125_AS350_B3E"],
+      "manual": "RFM AS350 Section 3.2 – Engine flame-out",
+      "reference": "p. 3-3",
+      "references": ["RFM AS350 Section 3.2 – Engine flame-out – p. 3-3"],
+      "difficulty": "medium",
+      "tags": ["engine-flame-out","relight"]
+    },
+    {
+      "id": "H125-EMG-061",
+      "question": "What is the minimum height required to complete the in-flight relighting procedure after an engine flame-out?",
+      "options": ["1000 ft (300 m)", "500 ft (150 m)", "1500 ft (450 m)", "2000 ft (600 m)"],
+      "answer": [0],
+      "explanation": "At the end of the in-flight relighting procedure, Section 3.2 notes that at least 1000 ft (300 m) are necessary to complete the relight after flame-out.",
+      "section": "emergency_procedures",
+      "modelIds": ["H125_AS350_B3E"],
+      "manual": "RFM AS350 Section 3.2 – Engine flame-out",
+      "reference": "p. 3-3",
+      "references": ["RFM AS350 Section 3.2 – Engine flame-out – p. 3-3"],
+      "difficulty": "easy",
+      "tags": ["engine-flame-out","relight"]
     }
   ]
 }

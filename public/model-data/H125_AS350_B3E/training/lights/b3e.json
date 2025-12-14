@@ -5,6 +5,7 @@
     "severity": "warning",
     "system": "FIRE",
     "description": "Fire in engine bay.",
+    "pageImage": "/training/lights/pages/h125-eng-fire.svg",
     "procedure": [
       {
         "type": "branch",
@@ -36,6 +37,7 @@
     "severity": "warning",
     "system": "ENGINE",
     "description": "Engine oil pressure below limit.",
+    "pageImage": "/training/lights/pages/h125-eng-oil-press.svg",
     "procedure": [
       { "type": "action", "text": "Oil pressure .......................... CHECK gauge." },
       { "type": "branch", "heading": "If LOW or NIL:", "text": "LAND IMMEDIATELY. Autorotation procedure - APPLY. Shut down engine, time permitting." },
@@ -50,6 +52,7 @@
     "severity": "warning",
     "system": "TRANSMISSION",
     "description": "Main Gear Box low oil pressure < 1 bar (14.5 psi).",
+    "pageImage": "/training/lights/pages/h125-mgb-p.svg",
     "procedure": [
       { "type": "action", "text": "1. Collective ............................... REDUCE power." },
       { "type": "action", "text": "2. LAND AS SOON AS POSSIBLE." },
@@ -65,6 +68,7 @@
     "severity": "warning",
     "system": "TRANSMISSION",
     "description": "Main Gear Box oil overheating (> 115 C).",
+    "pageImage": "/training/lights/pages/h125-mgb-temp.svg",
     "procedure": [
       { "type": "action", "text": "1. IAS ...................................... SET TO Vy." },
       { "type": "action", "text": "2. CWP ................................... MONITOR." },
@@ -80,6 +84,7 @@
     "severity": "warning",
     "system": "TRANSMISSION",
     "description": "Metal particles in MGB oil circuit.",
+    "pageImage": "/training/lights/pages/h125-mgb-chip.svg",
     "procedure": [
       { "type": "action", "text": "1. Collective ................................ REDUCE power and MONITOR." },
       { "type": "action", "text": "2. LAND AS SOON AS POSSIBLE." }
@@ -93,6 +98,7 @@
     "severity": "warning",
     "system": "ENGINE",
     "description": "Metal particles in engine oil circuit.",
+    "pageImage": "/training/lights/pages/h125-eng-chip.svg",
     "procedure": [
       { "type": "action", "text": "1. Collective   ............................... REDUCE power." },
       { "type": "action", "text": "2. LAND AS SOON AS POSSIBLE." },
@@ -137,6 +143,7 @@
     "severity": "warning",
     "system": "FUEL",
     "description": "Fuel quantity < 48 kg (106 lb).",
+    "pageImage": "/training/lights/pages/h125-fuel.svg",
     "procedure": [
       { "type": "action", "text": "1. LAND AS SOON AS POSSIBLE." },
       { "type": "action", "text": "2. NOTE: 15 min. of flight time remains at MCP." },
@@ -151,6 +158,7 @@
     "severity": "warning",
     "system": "HYDRAULIC",
     "description": "Loss of hydraulic pressure or Low hydraulic pressure.",
+    "pageImage": "/training/lights/pages/h125-hydr.svg",
     "procedure": [
       { "type": "action", "text": "WARNING: DO NOT USE [ACCU TST] PUSHBUTTON AS THIS WILL DEPRESSURIZE THE YAW LOAD COMPENSATOR RESULTING IN HEAVY PEDAL CONTROL LOADS. FAILURE TO COMPLY WITH THE FOLLOWING PROCEDURE MAY LEAD TO LOSS OF CONTROL." },
       { "type": "branch", "heading": "HIGE, Takeoff, Final (if landing within 30 sec. is possible):", "text": "1. Land normally. 2. Collective ........................... LOCK. 3. Twist grip............................. IDLE position. 4. Shutdown procedure ........... APPLY." },
@@ -167,6 +175,7 @@
     "severity": "warning",
     "system": "ELEC",
     "description": "Battery temperature above maximum.",
+    "pageImage": "/training/lights/pages/h125-batt-temp.svg",
     "procedure": [
       { "type": "action", "text": "1. [BATT]   ....................................................................... OFF." },
       { "type": "action", "text": "2. U bus voltage ............................................................. CHECK." },

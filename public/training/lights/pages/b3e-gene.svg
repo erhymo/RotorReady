@@ -38,17 +38,17 @@
   <line x1="300" y1="285" x2="300" y2="330" stroke="black" stroke-width="1.2" marker-end="url(#arrow)"/>
   <text x="180" y="360" font-family="Arial, sans-serif" font-size="22" font-weight="bold">LAND AS SOON AS PRACTICABLE.</text>
 
-  <!-- NO branch -->
-  <line x1="720" y1="112" x2="720" y2="155" stroke="black" stroke-width="1.2" marker-end="url(#arrow)"/>
-  <text x="700" y="175" font-family="Arial, sans-serif" font-size="16">[GENE] NOT ON</text>
-
-  <text x="560" y="205" font-family="Arial, sans-serif" font-size="18">Unnecessary equipment ........ OFF.</text>
-  <text x="560" y="230" font-family="Arial, sans-serif" font-size="18">U bus on VEMD ........................ MONITOR.</text>
-
-  <line x1="660" y1="235" x2="660" y2="285" stroke="black" stroke-width="1.2" marker-end="url(#arrow)"/>
-  <text x="560" y="315" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="green">LAND AS SOON AS PRACTICABLE</text>
-  <text x="560" y="340" font-family="Arial, sans-serif" font-size="16" fill="green">or CONTINUE FLIGHT as per operational</text>
-  <text x="560" y="360" font-family="Arial, sans-serif" font-size="16" fill="green">judgment.</text>
+	  <!-- NO branch -->
+	  <line x1="700" y1="112" x2="700" y2="155" stroke="black" stroke-width="1.2" marker-end="url(#arrow)"/>
+	  <text x="680" y="178" font-family="Arial, sans-serif" font-size="16">[GENE] NOT ON</text>
+	  
+	  <text x="460" y="215" font-family="Arial, sans-serif" font-size="18">Unnecessary equipment ........ OFF.</text>
+	  <text x="460" y="245" font-family="Arial, sans-serif" font-size="18">U bus on VEMD ........................ MONITOR.</text>
+	  
+	  <line x1="520" y1="252" x2="520" y2="302" stroke="black" stroke-width="1.2" marker-end="url(#arrow)"/>
+	  <text x="460" y="335" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="green">LAND AS SOON AS PRACTICABLE</text>
+	  <text x="460" y="360" font-family="Arial, sans-serif" font-size="16" fill="green">or CONTINUE FLIGHT as per</text>
+	  <text x="460" y="380" font-family="Arial, sans-serif" font-size="16" fill="green">operational judgment.</text>
 
   <!-- Warning about battery / VEMD -->
   <text x="180" y="410" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="orange">WARNING</text>

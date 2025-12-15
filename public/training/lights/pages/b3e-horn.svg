@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="440" viewBox="0 0 820 440" role="img" aria-label="HORN – AS350 B3e aural warning not operative or failed">
+  <rect width="100%" height="100%" fill="white" />
+  <style>
+    .frame { fill: none; stroke: #111; stroke-width: 1.5; }
+    .text { font-family: Arial, Helvetica, sans-serif; fill: #111; }
+    .heading { font-weight: 700; font-size: 18px; }
+    .body { font-size: 15px; }
+    .tile { fill: #000; stroke: #111; stroke-width: 1; }
+    .tileText { font-family: Arial, Helvetica, sans-serif; font-size: 22px; font-weight: 700; fill: #ffcc00; text-anchor: middle; }
+  </style>
+
+  <rect x="10" y="10" width="800" height="420" class="frame" />
+  <line x1="190" y1="10" x2="190" y2="430" stroke="#111" stroke-width="1.5" />
+
+  <!-- Left column -->
+  <rect x="55" y="60" width="100" height="70" rx="4" class="tile" />
+  <text x="105" y="100" class="tileText">HORN</text>
+
+  <text x="30" y="170" class="text body">Aural warning not operative or failed.</text>
+
+  <!-- Right column -->
+  <text x="210" y="60" class="text heading">HORN – Aural warning</text>
+
+  <text x="210" y="100" class="text heading">Aural warning not operative:</text>
+  <text x="220" y="125" class="text body">- [HORN] ............................... CHECK ON.</text>
+
+  <text x="210" y="165" class="text heading">Aural warning failure:</text>
+  <text x="220" y="190" class="text body">- [HORN] ............................... ON.</text>
+  <text x="220" y="215" class="text body">- CONTINUE FLIGHT.</text>
+
+  <text x="30" y="405" class="text body" font-size="12">RFM H125 AS350 B3e – Section 3.6 – HORN</text>
+</svg>

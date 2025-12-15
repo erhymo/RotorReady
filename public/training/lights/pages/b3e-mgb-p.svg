@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="520" viewBox="0 0 820 520" role="img" aria-label="MGB OIL P – AS350 B3e main gearbox low oil pressure">
+  <rect width="100%" height="100%" fill="white" />
+  <style>
+    .frame { fill: none; stroke: #111; stroke-width: 1.5; }
+    .text { font-family: Arial, Helvetica, sans-serif; fill: #111; }
+    .heading { font-weight: 700; font-size: 18px; }
+    .body { font-size: 15px; }
+    .tile { fill: #000; stroke: #111; stroke-width: 1; }
+    .tileText { font-family: Arial, Helvetica, sans-serif; font-size: 22px; font-weight: 700; fill: #ff2d2d; text-anchor: middle; }
+  </style>
+
+  <rect x="10" y="10" width="800" height="500" class="frame" />
+  <line x1="190" y1="10" x2="190" y2="510" stroke="#111" stroke-width="1.5" />
+
+  <!-- Left column -->
+  <rect x="40" y="60" width="120" height="70" rx="4" class="tile" />
+  <text x="100" y="95" class="tileText">MGB</text>
+  <text x="100" y="120" class="tileText">OIL P</text>
+
+  <text x="30" y="170" class="text body">Main gearbox low oil pressure.</text>
+
+  <!-- Right column -->
+  <text x="210" y="60" class="text heading">MGB OIL P – Main gearbox low oil pressure</text>
+
+  <text x="210" y="100" class="text body">1. Collective ............................... REDUCE power.</text>
+  <text x="210" y="125" class="text body">2. LAND AS SOON AS POSSIBLE.</text>
+  <text x="210" y="150" class="text body">3. If a safe landing is not possible, continue flight</text>
+  <text x="228" y="173" class="text body">to the nearest appropriate landing site and</text>
+  <text x="228" y="196" class="text body">reduce power to fly at minimum power speed</text>
+  <text x="228" y="219" class="text body">(Vy).</text>
+
+  <text x="210" y="255" class="text body">NOTE: At low power (Vy) a maximum of fifty-five</text>
+  <text x="228" y="278" class="text body">minutes of simulated flight time has been</text>
+  <text x="228" y="301" class="text body">demonstrated during bench tests.</text>
+
+  <text x="30" y="490" class="text body" font-size="12">RFM H125 AS350 B3e – Section 3.6 – MGB OIL P</text>
+</svg>

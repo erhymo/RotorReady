@@ -23,7 +23,7 @@
     "severity": "caution",
     "system": "ELECTRICAL",
     "description": "AC power supply failure.",
-    "pageImage": "/training/lights/pages/h125-inv.svg",
+    "pageImage": "/training/lights/pages/b3e-inv.svg",
     "procedure": [
       { "type": "action", "text": "1. [INV] ........................................ CHECK ON." },
       { "type": "branch", "heading": "If loss of all AC consumers:", "text": "[INV] ........................................ ON. NOTE: AFCS disengages automatically (if installed). Controls ............... HANDS ON. CONTINUE FLIGHT." }
@@ -37,7 +37,7 @@
     "severity": "caution",
     "system": "FUEL",
     "description": "Fuel quantity < 48 kg (106 lb).",
-    "pageImage": "/training/lights/pages/h125-fuel.svg",
+    "pageImage": "/training/lights/pages/b3e-fuel.svg",
     "procedure": [
       { "type": "action", "text": "1. LAND AS SOON AS POSSIBLE." },
       { "type": "action", "text": "2. NOTE: 15 min. of flight time remains at MCP." },
@@ -52,7 +52,7 @@
     "severity": "caution",
     "system": "FUEL",
     "description": "Low fuel pressure.",
-    "pageImage": "/training/lights/pages/h125-fuel-p.svg",
+    "pageImage": "/training/lights/pages/b3e-fuel-p.svg",
     "procedure": [
       { "type": "branch", "heading": "In flight:", "text": "1. Collective ....................................... REDUCE POWER. 2. [FUEL P] or [FUEL PUMP] .......... ON. LAND AS SOON AS POSSIBLE. Low power approach and landing." },
       { "type": "action", "text": "WARNING: BE PREPARED IN CASE OF AN ENGINE FLAME-OUT." }
@@ -80,7 +80,7 @@
     "severity": "caution",
     "system": "PITOT/STATIC",
     "description": "Pitot heating not operative.",
-    "pageImage": "/training/lights/pages/h125-pitot.svg",
+    "pageImage": "/training/lights/pages/b3e-pitot.svg",
     "procedure": [
       { "type": "action", "text": "1. [PITOT] ............................... CHECK ON." },
       { "type": "branch", "heading": "If PITOT heating confirmed:", "text": "Monitor airspeed indicator. [PITOT] ................ ON. CONTINUE FLIGHT." }
@@ -94,7 +94,7 @@
     "severity": "caution",
     "system": "AURAL WARNING",
     "description": "Aural warning not operative / Aural warning failure.",
-    "pageImage": "/training/lights/pages/h125-horn.svg",
+    "pageImage": "/training/lights/pages/b3e-horn.svg",
     "procedure": [
       { "type": "branch", "heading": "Aural warning not operative:", "text": "[HORN] ............................... CHECK ON." },
       { "type": "branch", "heading": "Aural warning failure:", "text": "[HORN] ............................... ON. CONTINUE FLIGHT." }
@@ -108,7 +108,7 @@
     "severity": "caution",
     "system": "AIRFRAME",
     "description": "One or both cargo hold doors unlocked.",
-    "pageImage": "/training/lights/pages/h125-door.svg",
+    "pageImage": "/training/lights/pages/b3e-door.svg",
     "procedure": [
       { "type": "action", "text": "1. Airspeed ............................ REDUCE to 70 kt (130 km/h)." },
       { "type": "action", "text": "2. LAND AS SOON AS PRACTICABLE." },
@@ -123,7 +123,7 @@
     "severity": "caution",
     "system": "ENGINE",
     "description": "Metal particles in engine oil circuit.",
-    "pageImage": "/training/lights/pages/h125-eng-chip.svg",
+    "pageImage": "/training/lights/pages/b3e-eng-chip.svg",
     "procedure": [
       { "type": "action", "text": "Collective   ............................... REDUCE power." },
       { "type": "action", "text": "LAND AS SOON AS POSSIBLE." },
@@ -139,7 +139,7 @@
     "severity": "caution",
     "system": "TRANSMISSION",
     "description": "Main Gear Box oil overheating (> 115 C).",
-    "pageImage": "/training/lights/pages/h125-mgb-temp.svg",
+    "pageImage": "/training/lights/pages/b3e-mgb-temp.svg",
     "procedure": [
       { "type": "action", "text": "1. IAS ...................................... SET TO Vy." },
       { "type": "action", "text": "2. CWP ................................... MONITOR." },
@@ -155,7 +155,7 @@
     "severity": "caution",
     "system": "TRANSMISSION",
     "description": "Metal particles in MGB oil circuit.",
-    "pageImage": "/training/lights/pages/h125-mgb-chip.svg",
+    "pageImage": "/training/lights/pages/b3e-mgb-chip.svg",
     "procedure": [
       { "type": "action", "text": "1. Collective ................................ REDUCE power and MONITOR." },
       { "type": "action", "text": "2. LAND AS SOON AS POSSIBLE." }
@@ -169,7 +169,7 @@
     "severity": "caution",
     "system": "TRANSMISSION",
     "description": "Metal particles in TGB oil circuit.",
-    "pageImage": "/training/lights/pages/h125-tgb-chip.svg",
+    "pageImage": "/training/lights/pages/b3e-tgb-chip.svg",
     "procedure": [
       { "type": "action", "text": "1. Avoid prolonged hovering." },
       { "type": "action", "text": "2. CONTINUE FLIGHT." }
@@ -183,7 +183,7 @@
     "severity": "caution",
     "system": "ENGINE",
     "description": "Twist grip out of FLIGHT position.",
-    "pageImage": "/training/lights/pages/h125-twt-grip.svg",
+    "pageImage": "/training/lights/pages/b3e-twt-grip.svg",
     "procedure": [
       { "type": "action", "text": "Twist grip .............................. TURN to FLIGHT position." },
       { "type": "action", "text": "CONTINUE FLIGHT." }
@@ -197,7 +197,7 @@
     "severity": "caution",
     "system": "ENGINE GOVERNOR",
     "description": "Minor FADEC failure.",
-    "pageImage": "/training/lights/pages/h125-gov-caution.svg",
+    "pageImage": "/training/lights/pages/b3e-gov-caution.svg",
     "procedure": [
       { "type": "branch", "heading": "Continuously on:", "text": "Governing function degraded. 1. Collective ....................... AVOID abrupt power changes. 2. IAS .................................. MAINTAIN below VNE power off. LAND AS SOON AS PRACTICABLE. On ground: Do not start engine." },
       { "type": "branch", "heading": "Flashing at idle or during starting or shutdown:", "text": "Governor redundancy failure, no impact on governing function. Start-up procedure: Abort, refer to Maintenance Manual. Autorotation training: Cancel training, return to base." }

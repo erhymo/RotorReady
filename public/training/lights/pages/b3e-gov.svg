@@ -84,9 +84,9 @@
   <text class="small" x="245" y="803" fill="var(--note-text)">parameters and engine oil temperature and pressure</text>
   <text class="small" x="245" y="823" fill="var(--note-text)">indications on the VEMD.</text>
 
-  <!-- During engine starting -->
-  <text class="h3" x="240" y="870">-  DURING ENGINE STARTING:</text>
-  <text class="body" x="240" y="898">Engine starting selector .......... OFF position immediately.</text>
+	  <!-- During engine starting -->
+	  <text class="h3" x="240" y="910">-  DURING ENGINE STARTING:</text>
+	  <text class="body" x="240" y="940">Engine starting selector .......... OFF position immediately.</text>
 
   <text class="small muted" x="60" y="1000">APPROVED</text>
   <text class="small muted" x="350" y="1000">350 B3e</text>

@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 1100" width="820" height="1100" role="img" aria-label="HYDR – AS350 B3e hydraulic failure procedures">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 1700" width="820" height="1700" role="img" aria-label="HYDR – AS350 B3e hydraulic failure procedures">
   <rect width="100%" height="100%" fill="white"/>
   <style>
     :root {
@@ -13,7 +13,7 @@
     .heading { font:700 20px/1.3 Arial, Helvetica, sans-serif; fill:var(--accent); }
   </style>
 
-  <rect x="12" y="12" width="796" height="1076" class="frame"/>
+	  <rect x="12" y="12" width="796" height="1676" class="frame"/>
 
   <!-- Left panel -->
   <rect x="40" y="60" width="120" height="70" class="tile" rx="3"/>
@@ -66,8 +66,8 @@
     <text x="20" y="910" class="heading">LAND AS SOON AS POSSIBLE</text>
   </g>
 
-  <!-- Approach / landing / after landing block -->
-  <g transform="translate(190,690)">
+	  <!-- Approach / landing / after landing block -->
+	  <g transform="translate(190,980)">
     <text x="20" y="60" class="body" font-weight="700">NOTE</text>
     <text x="20" y="85" class="body">Accumulators will compensate hydraulic pressure loss for a</text>
     <text x="20" y="110" class="body">limited operation of the main rotor controls allowing to secure</text>
@@ -99,5 +99,5 @@
     <text x="40" y="675" class="body">- Shutdown procedure ...... APPLY.</text>
   </g>
 
-  <text x="30" y="1060" class="body" font-size="12">RFM H125 AS350 B3e – Section 3.6 – Hydraulic system (24-05)</text>
+	  <text x="30" y="1670" class="body" font-size="12">RFM H125 AS350 B3e – Section 3.6 – Hydraulic system (24-05)</text>
 </svg>

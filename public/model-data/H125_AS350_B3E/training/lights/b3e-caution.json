@@ -5,7 +5,7 @@
     "severity": "caution",
     "system": "ELECTRICAL",
     "description": "DC generator off line.",
-    "pageImage": "/training/lights/pages/h125-gene.svg",
+    "pageImage": "/training/lights/pages/b3e-gene.svg",
     "procedure": [
       { "type": "action", "text": "1. U bus on VEMD ................. CHECK." },
       { "type": "action", "text": "2. [GENE] ............................... CHECK ON." },
@@ -66,7 +66,7 @@
     "severity": "caution",
     "system": "FUEL",
     "description": "Fuel filter pre-clogged.",
-    "pageImage": "/training/lights/pages/h125-fuel-filt.svg",
+    "pageImage": "/training/lights/pages/b3e-fuel-filt.svg",
     "procedure": [
       { "type": "branch", "heading": "Continuously on (pre-clogging level 2 reached):", "text": "WARNING: FUEL FILTER BY-PASS OPENING LEADS TO CONTAMINATION OF THE FUEL LINES AND THE GOVERNOR, WHICH MAY INDUCE N1 OSCILLATIONS, LIMITED POWER OR POSSIBLY FLAME-OUT. LAND AS SOON AS PRACTICABLE. VEMD ................... MONITOR N1. If N1 oscillations occur: LAND IMMEDIATELY." },
       { "type": "branch", "heading": "Flashing at idle or during starting or shutdown (pre-clogging level 1):", "text": "One flight of 3 hours maximum flight time can be performed before maintenance action." }
@@ -211,7 +211,7 @@
     "severity": "warning",
     "system": "ENGINE GOVERNOR",
     "description": "Major governor failure. Emergency mode (EBCAU) engaged.",
-    "pageImage": "/training/lights/pages/h125-gov.svg",
+    "pageImage": "/training/lights/pages/b3e-gov.svg",
     "procedure": [
       { "type": "branch", "heading": "In flight:", "text": "1. Flight parameters ...................... CHECK, apply VEMD failure of both screens procedure, if required (see NOTE below). Emergency mode (EBCAU) automatically self-engages. GOV illuminates. 2. Collective ................................... AVOID abrupt changes. If N1 still available: Maintain N1 > 80% Hp below 20000 ft (6096 m). Maintain N1 > 85% Hp at or above 20000 ft (6096 m). LAND AS SOON AS PRACTICABLE. 3. Approach and Landing: If N1 not available: - Lower collective to maintain NR in normal operating range. Make a powered approach. Avoid steep angle. 4. After touch down, shut-down: Collective .................................... SLOWLY down to low pitch. Engine starting selector ................ OFF." },
       { "type": "branch", "heading": "During engine starting:", "text": "Engine starting selector .................. OFF position immediately." },

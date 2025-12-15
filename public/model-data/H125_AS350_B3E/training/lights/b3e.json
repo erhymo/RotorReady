@@ -5,7 +5,7 @@
     "severity": "warning",
     "system": "FIRE",
     "description": "Fire in engine bay.",
-    "pageImage": "/training/lights/pages/h125-eng-fire.svg",
+    "pageImage": "/training/lights/pages/b3e-eng-fire.svg",
     "procedure": [
       {
         "type": "branch",
@@ -158,7 +158,7 @@
     "severity": "warning",
     "system": "HYDRAULIC",
     "description": "Loss of hydraulic pressure or Low hydraulic pressure.",
-    "pageImage": "/training/lights/pages/h125-hydr.svg",
+    "pageImage": "/training/lights/pages/b3e-hydr.svg",
     "procedure": [
       { "type": "action", "text": "WARNING: DO NOT USE [ACCU TST] PUSHBUTTON AS THIS WILL DEPRESSURIZE THE YAW LOAD COMPENSATOR RESULTING IN HEAVY PEDAL CONTROL LOADS. FAILURE TO COMPLY WITH THE FOLLOWING PROCEDURE MAY LEAD TO LOSS OF CONTROL." },
       { "type": "branch", "heading": "HIGE, Takeoff, Final (if landing within 30 sec. is possible):", "text": "1. Land normally. 2. Collective ........................... LOCK. 3. Twist grip............................. IDLE position. 4. Shutdown procedure ........... APPLY." },
@@ -175,7 +175,7 @@
     "severity": "warning",
     "system": "ELEC",
     "description": "Battery temperature above maximum.",
-    "pageImage": "/training/lights/pages/h125-batt-temp.svg",
+    "pageImage": "/training/lights/pages/b3e-batt-temp.svg",
     "procedure": [
       { "type": "action", "text": "1. [BATT]   ....................................................................... OFF." },
       { "type": "action", "text": "2. U bus voltage ............................................................. CHECK." },

@@ -63,7 +63,7 @@
     "modelIds": ["H125_AS350_B3E"]
   },
   {
-    "id": "mgb-temp",
+    "id": "mgb-temp-warning",
     "name": "MGB TEMP",
     "severity": "warning",
     "system": "TRANSMISSION",
@@ -79,7 +79,7 @@
     "modelIds": ["H125_AS350_B3E"]
   },
   {
-    "id": "mgb-chip",
+    "id": "mgb-chip-warning",
     "name": "MGB CHIP",
     "severity": "warning",
     "system": "TRANSMISSION",
@@ -93,7 +93,7 @@
     "modelIds": ["H125_AS350_B3E"]
   },
   {
-    "id": "eng-chip",
+    "id": "eng-chip-warning",
     "name": "ENG CHIP",
     "severity": "warning",
     "system": "ENGINE",
@@ -138,7 +138,7 @@
     "modelIds": ["H125_AS350_B3E"]
   },
   {
-    "id": "fuel",
+    "id": "fuel-warning",
     "name": "FUEL",
     "severity": "warning",
     "system": "FUEL",

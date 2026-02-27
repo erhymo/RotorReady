@@ -33,7 +33,7 @@ const GRID: Slot[][] = [
   [
     { label: "FUEL\nP", id: "fuel-p", severity: "caution" },
     { empty: true },
-    { label: "BATT", severity: "caution" },
+    { label: "BATT", severity: "caution" }, // TODO: add id when BATT procedure is created
     { label: "HORN", id: "horn", severity: "caution" },
     { label: "DOOR", id: "door", severity: "caution" },
     { label: "MGB\nCHIP", id: "mgb-chip", severity: "caution" },

@@ -10,6 +10,26 @@ import { buildInitialQuizResumeSession, buildQuizResumeSession, clearQuizResumeS
 import TopBarBackButton from "@/components/TopBarBackButton";
 
 const SECTION = "ENGINE, FUEL, LUBRICANTS, HYDRAULICS & SYSTEM LIMITATIONS";
+const engineSystemsQuestionsPromiseCache = new Map<string, Promise<any[]>>();
+
+function matchesEngineSystemsQuestion(item: { section?: unknown }) {
+  return String(item.section || "").toLowerCase().replace(/[^a-z]/g, "").includes("engsyst");
+}
+
+async function loadEngineSystemsQuestions(variantId: string): Promise<any[]> {
+  const existing = engineSystemsQuestionsPromiseCache.get(variantId);
+  if (existing) return existing;
+
+  const promise = loadAllQuestions(variantId)
+    .then((items) => items.filter(matchesEngineSystemsQuestion))
+    .catch((error) => {
+      engineSystemsQuestionsPromiseCache.delete(variantId);
+      throw error;
+    });
+
+  engineSystemsQuestionsPromiseCache.set(variantId, promise);
+  return promise;
+}
 
 const AMOUNT_OPTIONS = [10, 20, 30, 40, 50, "all"] as const;
 
@@ -80,12 +100,8 @@ export default function EngineSystemsStart() {
 
 
   async function getData() {
-    const items = await loadAllQuestions(activeVariant.id);
-    // Filter questions for this section: only those with "eng syst" in section (case-insensitive, robust)
-    const filtered = items.filter((q: any) =>
-      (q.section || "").toLowerCase().replace(/[^a-z]/g, "").includes("engsyst")
-    );
-    return { items: filtered };
+    const items = await loadEngineSystemsQuestions(activeVariant.id);
+    return { items };
   }
 
   async function startQuiz() {

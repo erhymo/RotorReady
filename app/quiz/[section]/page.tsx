@@ -8,6 +8,75 @@ import { clearQuizResumeSnapshot, findLatestQuizResumeInfo } from "@/lib/quiz/re
 import TopBarBackButton from "@/components/TopBarBackButton";
 
 type Section = { id: string; title: string };
+type ActiveVariantInfo = { id: string; productId: string };
+
+const networkSectionItemsPromiseCache = new Map<string, Promise<any[] | null>>();
+let blockedQuestionsPromise: Promise<Set<string>> | null = null;
+
+function filterItemsForVariant(items: any[], activeVariant: ActiveVariantInfo) {
+  return items.filter((q: any) => {
+    if (Array.isArray(q.modelIds)) return q.modelIds.includes(activeVariant.id);
+    if (Array.isArray(q.models)) return q.models.includes(activeVariant.id);
+    if (activeVariant.productId && Array.isArray(q.productIds)) return q.productIds.includes(activeVariant.productId);
+    if (activeVariant.productId && typeof q.productId === "string") return q.productId === activeVariant.productId;
+    return activeVariant.productId === "AW169";
+  });
+}
+
+async function loadNetworkSectionItems(sectionId: string, activeVariant: ActiveVariantInfo): Promise<any[] | null> {
+  const key = `${activeVariant.id}:${activeVariant.productId}:${sectionId}`;
+  const existing = networkSectionItemsPromiseCache.get(key);
+  if (existing) return existing;
+
+  const promise = (async () => {
+    const urls = [
+      `/model-data/${activeVariant.id}/sections/${sectionId}.json`,
+      `/quiz-data/sections/${sectionId}.json`,
+    ];
+    for (const url of urls) {
+      try {
+        const res = await fetch(url, { cache: "no-store" });
+        if (!res.ok) continue;
+        const data = await res.json();
+        if (!data || !Array.isArray(data.items)) continue;
+        const items = url.startsWith("/quiz-data")
+          ? filterItemsForVariant(data.items as any[], activeVariant)
+          : (data.items as any[]);
+        if (items.length) return items;
+      } catch {}
+    }
+    return null;
+  })().catch((error) => {
+    networkSectionItemsPromiseCache.delete(key);
+    throw error;
+  });
+
+  networkSectionItemsPromiseCache.set(key, promise);
+  return promise;
+}
+
+async function loadBlockedQuestionSet(): Promise<Set<string>> {
+  if (blockedQuestionsPromise) return blockedQuestionsPromise;
+  blockedQuestionsPromise = (async () => {
+    try {
+      const res = await fetch("/api/blocked-questions", { cache: "no-store" });
+      if (!res.ok) return new Set<string>();
+      const data = await res.json();
+      const ids: string[] = Array.isArray(data?.ids) ? data.ids : [];
+      return new Set(ids);
+    } catch {
+      return new Set<string>();
+    }
+  })();
+
+  try {
+    return await blockedQuestionsPromise;
+  } catch {
+    blockedQuestionsPromise = null;
+    return new Set<string>();
+  }
+}
+
 const AMOUNT_OPTIONS = [
   { value: 10, label: "10" },
   { value: 20, label: "20" },
@@ -130,35 +199,10 @@ export default function SectionPage() {
           return;
         }
       } catch {}
-      // 2) Nettverk
-      const urls = [
-        `/model-data/${activeVariant.id}/sections/${selected.id}.json`,
-        `/quiz-data/sections/${selected.id}.json`,
-      ];
-      for (const url of urls) {
-        try {
-          const res = await fetch(url, { cache: "no-store" });
-          if (!res.ok) continue;
-          const data = await res.json();
-          if (data && Array.isArray(data.items)) {
-            let items = data.items as any[];
-            // When checking global repository, filter items to this active variant/product to avoid false positives
-            if (url.startsWith("/quiz-data")) {
-              items = items.filter((q: any) => {
-                if (Array.isArray(q.modelIds)) return q.modelIds.includes(activeVariant.id);
-                if (Array.isArray(q.models)) return q.models.includes(activeVariant.id);
-                if (activeVariant.productId && Array.isArray(q.productIds)) return q.productIds.includes(activeVariant.productId);
-                if (activeVariant.productId && typeof q.productId === "string") return q.productId === activeVariant.productId;
-                // Default-allow only for AW169 (legacy)
-                return activeVariant.productId === "AW169";
-              });
-            }
-            if (items.length > 0) {
-              if (!cancelled) setHasQuestions(true);
-              return;
-            }
-          }
-        } catch {}
+      const items = await loadNetworkSectionItems(selected.id, activeVariant);
+      if (!cancelled && items?.length) {
+        setHasQuestions(true);
+        return;
       }
       if (!cancelled) setHasQuestions(false);
     })();
@@ -188,44 +232,11 @@ export default function SectionPage() {
           const offline = mod.loadSectionOffline<{ items?: any[] }>(selected.id, activeVariant.id);
           if (offline && Array.isArray(offline.items)) items = offline.items;
         } catch {}
-        // Fallback to network (model-specific, then global with variant filter)
         if (!items) {
-          const urls = [
-            `/model-data/${activeVariant.id}/sections/${selected.id}.json`,
-            `/quiz-data/sections/${selected.id}.json`,
-          ];
-          for (const url of urls) {
-            try {
-              const res = await fetch(url, { cache: "no-store" });
-              if (!res.ok) continue;
-              const data = await res.json();
-              if (data && Array.isArray(data.items)) {
-                let sourceItems: any[] = data.items;
-                if (url.startsWith("/quiz-data")) {
-                  sourceItems = sourceItems.filter((q: any) => {
-                    if (Array.isArray(q.modelIds)) return q.modelIds.includes(activeVariant.id);
-                    if (Array.isArray(q.models)) return q.models.includes(activeVariant.id);
-                    if (activeVariant.productId && Array.isArray(q.productIds)) return q.productIds.includes(activeVariant.productId);
-                    if (activeVariant.productId && typeof q.productId === "string") return q.productId === activeVariant.productId;
-                    return activeVariant.productId === "AW169"; // default-allow legacy
-                  });
-                }
-                if (sourceItems.length) { items = sourceItems; break; }
-              }
-            } catch {}
-          }
+          items = await loadNetworkSectionItems(selected.id, activeVariant);
         }
         if (!items) { if (!cancelled) setTotalCount(0); return; }
-        // Apply blocklist
-        let blocked = new Set<string>();
-        try {
-          const res = await fetch("/api/blocked-questions", { cache: "no-store" });
-          if (res.ok) {
-            const data = await res.json();
-            const ids: string[] = Array.isArray(data?.ids) ? data.ids : [];
-            blocked = new Set(ids);
-          }
-        } catch {}
+        const blocked = await loadBlockedQuestionSet();
         const allowed = items.filter((it: any) => it && !blocked.has(it.id));
         if (!cancelled) setTotalCount(allowed.length);
       } finally {

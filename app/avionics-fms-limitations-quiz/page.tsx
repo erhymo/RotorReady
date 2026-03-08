@@ -11,6 +11,7 @@ import TopBarBackButton from "@/components/TopBarBackButton";
 const SECTION = "Avionics & FMS Limitations" as const;
 const SECTION_ID = "avionics-fms-limitations" as const;
 const DATA_URL = "/quiz-data/sections/avionics_fms_limitations.json" as const;
+const avionicsQuestionsPromiseCache = new Map<string, Promise<QuizItem[]>>();
 const AMOUNT_OPTIONS = [10, 20, 30, 40, 50, "all"] as const;
 
 type AmountOption = (typeof AMOUNT_OPTIONS)[number];
@@ -80,6 +81,51 @@ function matchesVariant(item: QuizItem, variantId: string, productId: string): b
   return productId === "AW169";
 }
 
+async function loadAvionicsFmsQuestions(variantId: string, productId: string): Promise<QuizItem[]> {
+  const key = `${variantId}:${productId}`;
+  const existing = avionicsQuestionsPromiseCache.get(key);
+  if (existing) return existing;
+
+  const promise = (async () => {
+    let blocked = new Set<string>();
+    try {
+      const r = await fetch("/api/blocked-questions", { cache: "no-store" });
+      if (r.ok) {
+        const j = await r.json();
+        blocked = new Set<string>(Array.isArray(j?.ids) ? j.ids : []);
+      }
+    } catch {}
+
+    const urls = [
+      `/model-data/${variantId}/sections/avionics_fms_limitations.json`,
+      DATA_URL,
+    ];
+    for (const url of urls) {
+      try {
+        const res = await fetch(url, { cache: "no-store" });
+        if (!res.ok) continue;
+        const payload = await res.json();
+        if (!payload.items || !Array.isArray(payload.items)) continue;
+        const filtered = (payload.items as QuizItem[])
+          .filter((item) => matchesVariant(item, variantId, productId))
+          .filter((item) => item && !blocked.has(item.id));
+        if (!filtered.length) continue;
+        return filtered;
+      } catch (error) {
+        console.warn("Could not load", url, error);
+      }
+    }
+
+    throw new Error("Found no questions for Avionics & FMS");
+  })().catch((error) => {
+    avionicsQuestionsPromiseCache.delete(key);
+    throw error;
+  });
+
+  avionicsQuestionsPromiseCache.set(key, promise);
+  return promise;
+}
+
 export default function AvionicsFmsQuizStart() {
   const router = useRouter();
   const [amount, setAmount] = React.useState<AmountOption>(20);
@@ -119,33 +165,8 @@ export default function AvionicsFmsQuizStart() {
 
 
   async function getData(): Promise<{ items: QuizItem[] }> {
-    // Fetch blocked (soft-deleted) questions and filter them out
-    let blocked = new Set<string>();
-    try {
-      const r = await fetch('/api/blocked-questions', { cache: 'no-store' });
-      if (r.ok) { const j = await r.json(); blocked = new Set<string>(Array.isArray(j?.ids) ? j.ids : []); }
-    } catch {}
-
-    const urls = [
-      `/model-data/${activeVariant.id}/sections/avionics_fms_limitations.json`,
-      DATA_URL,
-    ];
-    for (const url of urls) {
-      try {
-        const res = await fetch(url, { cache: "no-store" });
-        if (!res.ok) continue;
-        const payload = await res.json();
-        if (!payload.items || !Array.isArray(payload.items)) continue;
-        const filtered = (payload.items as QuizItem[])
-          .filter((item) => matchesVariant(item, activeVariant.id, activeVariant.productId))
-          .filter((item) => item && !blocked.has(item.id));
-        if (!filtered.length) continue;
-        return { items: filtered };
-      } catch (error) {
-        console.warn("Could not load", url, error);
-      }
-    }
-    throw new Error("Found no questions for Avionics & FMS");
+    const items = await loadAvionicsFmsQuestions(activeVariant.id, activeVariant.productId);
+    return { items };
   }
 
   async function startQuiz() {

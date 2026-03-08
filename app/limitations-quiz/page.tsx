@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { useRouter } from "next/navigation";
-import { loadAllQuestions } from "@/lib/loadAllQuestions";
+import { loadQuestionsForSectionId } from "@/lib/loadAllQuestions";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 import { clearLimitationsWrongOnlyRawStorage, loadLimitationsWrongOnlySession } from "@/lib/quiz/limitationsWrongOnly";
 import { buildInitialQuizResumeSession, buildQuizResumeSession, clearQuizResumeSnapshot, findLatestQuizResumeInfo, getQuizResumeStorageKey, readQuizResumeSnapshot, writeQuizResumeSnapshot } from "@/lib/quiz/resumeSnapshot";
@@ -101,14 +101,8 @@ export default function LimitationsStart() {
     };
   }, [activeVariant.id]);
   async function getData(): Promise<{items: QuizItem[]}> {
-    const items = await loadAllQuestions(activeVariant.id);
-    const filtered = items.filter((item: any) => {
-      const sectionCandidates = [item.section, item.sectionId, item.sectionID]
-        .filter(Boolean)
-        .map((value) => String(value).toLowerCase().replace(/\s+/g, "_"));
-      return sectionCandidates.includes(SECTION_ID);
-    });
-    return { items: filtered };
+    const items = await loadQuestionsForSectionId<QuizItem>(SECTION_ID, activeVariant.id);
+    return { items };
   }
 
   async function startQuiz() {

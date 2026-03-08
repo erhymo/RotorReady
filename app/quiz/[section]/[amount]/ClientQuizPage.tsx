@@ -9,6 +9,7 @@ import { modelScopedKey } from "@/lib/models/storage";
 import { clearQuizOverrideSession, readQuizOverrideSession } from "@/lib/quiz/overrideSession";
 import { buildInitialQuizResumeSession, buildQuizResumeSession, getQuizResumeStorageKey, readQuizResumeSnapshot, writeQuizResumeSnapshot } from "@/lib/quiz/resumeSnapshot";
 
+type ActiveVariantInfo = { id: string; productId?: string };
 type QuizItem = {
   id: string;
   section: string;
@@ -21,6 +22,10 @@ type QuizItem = {
   __file?: string;
 };
 
+let blockedQuestionsPromise: Promise<Set<string>> | null = null;
+const singleChoiceQuestionsPromiseCache = new Map<string, Promise<QuizItem[]>>();
+const networkSectionItemsPromiseCache = new Map<string, Promise<QuizItem[]>>();
+
 
 function shuffle<T>(arr: T[]): T[] {
   const copy = [...arr];
@@ -31,6 +36,111 @@ function shuffle<T>(arr: T[]): T[] {
   return copy;
 }
 function signature(items: QuizItem[]) { return items.map(it => it.id).join(","); }
+
+function matchesActiveVariant(item: any, activeVariant: ActiveVariantInfo) {
+  if (Array.isArray(item.modelIds)) return item.modelIds.includes(activeVariant.id);
+  if (Array.isArray(item.models)) return item.models.includes(activeVariant.id);
+  if (activeVariant.productId && Array.isArray(item.productIds)) return item.productIds.includes(activeVariant.productId);
+  if (activeVariant.productId && typeof item.productId === "string") return item.productId === activeVariant.productId;
+  return activeVariant.productId === "AW169";
+}
+
+function parseSectionPayload(raw: string) {
+  try {
+    return JSON.parse(raw);
+  } catch {
+    return JSON.parse(raw.replace(/[\u0000-\u001F]/g, " "));
+  }
+}
+
+async function loadBlockedQuestionSet(): Promise<Set<string>> {
+  if (blockedQuestionsPromise) return blockedQuestionsPromise;
+
+  blockedQuestionsPromise = (async () => {
+    try {
+      const res = await fetch("/api/blocked-questions", { cache: "no-store" });
+      if (!res.ok) return new Set<string>();
+      const data = await res.json();
+      return new Set<string>(Array.isArray(data?.ids) ? data.ids : []);
+    } catch {
+      return new Set<string>();
+    }
+  })();
+
+  try {
+    return await blockedQuestionsPromise;
+  } catch {
+    blockedQuestionsPromise = null;
+    return new Set<string>();
+  }
+}
+
+async function loadSingleChoiceQuestions(variantId: string): Promise<QuizItem[]> {
+  const existing = singleChoiceQuestionsPromiseCache.get(variantId);
+  if (existing) return existing;
+
+  const promise = loadAllQuestions(variantId)
+    .then((items) => items.filter((q: any) => Array.isArray(q.options) && Array.isArray(q.answer) && q.answer.length === 1) as QuizItem[])
+    .catch((error) => {
+      singleChoiceQuestionsPromiseCache.delete(variantId);
+      throw error;
+    });
+
+  singleChoiceQuestionsPromiseCache.set(variantId, promise);
+  return promise;
+}
+
+async function loadNetworkSectionItems(section: string, activeVariant: ActiveVariantInfo): Promise<QuizItem[]> {
+  const key = `${activeVariant.id}:${activeVariant.productId ?? ""}:${section}`;
+  const existing = networkSectionItemsPromiseCache.get(key);
+  if (existing) return existing;
+
+  const promise = (async () => {
+    const blocked = await loadBlockedQuestionSet();
+    const urls = [
+      `/model-data/${activeVariant.id}/sections/${section}.json`,
+      `/quiz-data/sections/${section}.json`,
+    ];
+
+    for (const url of urls) {
+      try {
+        const res = await fetch(url, { cache: "no-store" });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
+        const raw = await res.text();
+        const data = parseSectionPayload(raw);
+        if (!data.items || !Array.isArray(data.items)) throw new Error("Ugyldig dataformat");
+
+        let sourceItems: QuizItem[] = data.items as QuizItem[];
+        if (url.startsWith("/quiz-data")) {
+          sourceItems = sourceItems.filter((item) => matchesActiveVariant(item, activeVariant));
+          if (!sourceItems.length) throw new Error("No items for active variant in global section");
+        }
+
+        const allowed = sourceItems.filter((item) => item && !blocked.has(item.id));
+        if (!allowed.length) throw new Error("No items after blocklist");
+
+        return allowed.map((item) => ({
+          ...item,
+          __file: url.startsWith("/model-data")
+            ? `model-data/${activeVariant.id}/sections/${section}.json`
+            : `quiz-data/sections/${section}.json`
+        }));
+      } catch (error) {
+        console.warn("Could not load", url, error);
+      }
+    }
+
+    throw new Error("No questions found for selected model");
+  })().catch((error) => {
+    networkSectionItemsPromiseCache.delete(key);
+    throw error;
+  });
+
+  networkSectionItemsPromiseCache.set(key, promise);
+  return promise;
+}
+
 function shuffleOptionsForItem(it: QuizItem): QuizItem {
   if (!Array.isArray(it.options) || !Array.isArray(it.answer)) return it;
   const idx = it.options.map((_, i) => i);
@@ -105,15 +215,7 @@ export default function ClientQuizPage({ section, amount }: { section: string; a
         }
       } catch {}
 
-      // Fetch soft-deleted (blocked) question IDs so we can filter them out
-      let blocked = new Set<string>();
-      try {
-        const res = await fetch('/api/blocked-questions', { cache: 'no-store' });
-        if (res.ok) {
-          const data = await res.json();
-          blocked = new Set<string>(Array.isArray(data?.ids) ? data.ids : []);
-        }
-      } catch {}
+      const blocked = await loadBlockedQuestionSet();
 
       // 0) Check if there is a session override (e.g. "Practice only incorrect questions")
       try {
@@ -148,9 +250,7 @@ export default function ClientQuizPage({ section, amount }: { section: string; a
       // 'All' aggregator: get random questions across all chapters for the selected model
       if (section === "all") {
         try {
-          const all = await loadAllQuestions(activeVariant.id);
-          // bare single-choice
-          const single = all.filter((q: any) => Array.isArray(q.options) && Array.isArray(q.answer) && q.answer.length === 1);
+          const single = await loadSingleChoiceQuestions(activeVariant.id);
           let shuffled = shuffle(single as QuizItem[]);
           let limited = typeof amount === "number" ? shuffled.slice(0, amount) : shuffled;
           // Avoid an identical order as the previous two rounds for this combination
@@ -206,73 +306,29 @@ export default function ClientQuizPage({ section, amount }: { section: string; a
       }
 
       // 2) Then try network as usual
-      const urls = [
-        `/model-data/${activeVariant.id}/sections/${section}.json`,
-        `/quiz-data/sections/${section}.json`,
-      ];
-      for (const url of urls) {
+      try {
+        const enriched = await loadNetworkSectionItems(section, activeVariant);
+        if (cancelled) return;
+
+        let shuffled = shuffle(enriched);
+        let limited = typeof amount === "number" ? shuffled.slice(0, amount) : shuffled;
         try {
-          const res = await fetch(url, { cache: "no-store" });
-          if (!res.ok) throw new Error(`HTTP ${res.status}`);
-          const raw = await res.text();
-          let data: any;
-          try {
-            data = JSON.parse(raw);
-          } catch {
-            // Sanitize control characters (e.g. \u0013, \u0015) that may appear in copied references
-            const cleaned = raw.replace(/[\u0000-\u001F]/g, " ");
-            data = JSON.parse(cleaned);
+          const key = `quiz:lastOrders:${activeVariant.id}:${section}:${amount ?? "all"}`;
+          const lastOrders: string[] = JSON.parse(sessionStorage.getItem(key) || "[]");
+          if (lastOrders.includes(signature(limited))) {
+            shuffled = shuffle(limited);
+            limited = typeof amount === "number" ? shuffled.slice(0, amount) : shuffled;
           }
-          if (!data.items || !Array.isArray(data.items)) throw new Error("Ugyldig dataformat");
-          if (cancelled) return;
+          const updated = [...lastOrders, signature(limited)].slice(-2);
+          sessionStorage.setItem(key, JSON.stringify(updated));
+        } catch {}
+        const randomized = limited.map(shuffleOptionsForItem);
+        if (isH125) return goH125(randomized);
+        setQuestions(randomized);
+        setError(null);
+        return;
+      } catch {}
 
-          // If we are loading from the global quiz-data fallback, filter items to the active variant/product
-          let sourceItems: QuizItem[] = data.items as QuizItem[];
-          const isGlobal = url.startsWith("/quiz-data");
-          if (isGlobal) {
-            sourceItems = sourceItems.filter((q: any) => {
-              if (Array.isArray(q.modelIds)) return q.modelIds.includes(activeVariant.id);
-              if (Array.isArray(q.models)) return q.models.includes(activeVariant.id);
-              if (activeVariant.productId && Array.isArray(q.productIds)) return q.productIds.includes(activeVariant.productId);
-              if (activeVariant.productId && typeof q.productId === "string") return q.productId === activeVariant.productId;
-              // Default-allow only for AW169 (legacy sections without explicit scoping)
-              return activeVariant.productId === "AW169";
-            });
-            // If nothing matches for this variant, try next URL
-            if (!sourceItems.length) throw new Error("No items for active variant in global section");
-          }
-
-          const allowed = (sourceItems as QuizItem[]).filter((it) => it && !blocked.has(it.id));
-          if (!allowed.length) throw new Error("No items after blocklist");
-          const enriched: QuizItem[] = allowed.map((it: QuizItem) => ({
-            ...it,
-            __file: url.startsWith("/model-data")
-              ? `model-data/${activeVariant.id}/sections/${section}.json`
-              : `quiz-data/sections/${section}.json`
-          }));
-
-          let shuffled = shuffle(enriched);
-          let limited = typeof amount === "number" ? shuffled.slice(0, amount) : shuffled;
-          try {
-            const key = `quiz:lastOrders:${activeVariant.id}:${section}:${amount ?? "all"}`;
-            const lastOrders: string[] = JSON.parse(sessionStorage.getItem(key) || "[]");
-            if (lastOrders.includes(signature(limited))) {
-              shuffled = shuffle(limited);
-              limited = typeof amount === "number" ? shuffled.slice(0, amount) : shuffled;
-            }
-            const updated = [...lastOrders, signature(limited)].slice(-2);
-            sessionStorage.setItem(key, JSON.stringify(updated));
-          } catch {}
-          const randomized = limited.map(shuffleOptionsForItem);
-          if (isH125) return goH125(randomized);
-          setQuestions(randomized);
-          setError(null);
-          return;
-        } catch (error) {
-          console.warn("Could not load", url, error);
-          continue;
-        }
-      }
       if (!cancelled) {
         setError("No questions found for selected model");
       }
@@ -283,7 +339,7 @@ export default function ClientQuizPage({ section, amount }: { section: string; a
     return () => {
       cancelled = true;
     };
-  }, [section, amount, activeVariant.id, variantLoading]);
+  }, [section, amount, activeVariant.id, activeVariant.productId, variantLoading]);
 
   if (error) {
     return (

@@ -1,6 +1,26 @@
 import { onAuthStateChanged } from "firebase/auth";
 
+const E2E_LOGIN_OVERRIDE_KEY = "rr_e2e_logged_in";
+
+function hasE2ELoginOverride(): boolean {
+  if (typeof window === "undefined") return false;
+
+  const hostname = window.location.hostname;
+  const isLocalHost = hostname === "localhost" || hostname === "127.0.0.1";
+  const isAutomation = typeof navigator !== "undefined" && navigator.webdriver;
+
+  if (!isLocalHost && !isAutomation) return false;
+
+  try {
+    return window.localStorage.getItem(E2E_LOGIN_OVERRIDE_KEY) === "1";
+  } catch {
+    return false;
+  }
+}
+
 export async function isLoggedInAsync(timeoutMs = 3000): Promise<boolean> {
+  if (hasE2ELoginOverride()) return true;
+
   try {
     const { auth } = await import("@/lib/firebase/client");
     if (!auth) return false;

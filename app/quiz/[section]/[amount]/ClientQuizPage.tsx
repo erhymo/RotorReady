@@ -6,7 +6,7 @@ import { useActiveModelVariant } from "@/lib/models/hooks";
 import { loadSectionOffline } from "@/lib/offline";
 import { loadAllQuestions } from "@/lib/loadAllQuestions";
 import { modelScopedKey } from "@/lib/models/storage";
-import { buildQuizResumeSession, getQuizResumeStorageKey, readQuizResumeSnapshot, writeQuizResumeSnapshot } from "@/lib/quiz/resumeSnapshot";
+import { buildInitialQuizResumeSession, buildQuizResumeSession, getQuizResumeStorageKey, readQuizResumeSnapshot, writeQuizResumeSnapshot } from "@/lib/quiz/resumeSnapshot";
 
 type QuizItem = {
   id: string;
@@ -74,11 +74,7 @@ export default function ClientQuizPage({ section, amount }: { section: string; a
 
       const session = {
         section,
-        createdAt: new Date().toISOString(),
-        items,
-        answers: Array(items.length).fill(null) as Array<number|null>,
-        flags: Array(items.length).fill(false) as boolean[],
-        amountToken: String(amountToken),
+        ...buildInitialQuizResumeSession(items, amountToken),
       };
       sessionStorage.setItem(sessionKey, JSON.stringify(session));
       router.replace(`/quiz/${encodeURIComponent(section)}/h125/1`);

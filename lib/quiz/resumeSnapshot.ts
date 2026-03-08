@@ -149,6 +149,32 @@ export function buildQuizResumeSession<TItem>(
   };
 }
 
+export function buildInitialQuizResumeSession<TItem>(
+  items: TItem[],
+  amountToken?: string | null,
+): QuizResumeSessionLike<TItem> {
+  return {
+    createdAt: new Date().toISOString(),
+    items,
+    answers: Array(items.length).fill(null),
+    flags: Array(items.length).fill(false),
+    amountToken,
+  };
+}
+
+export function buildValidatedQuizResumeSession<TItem>(
+  snapshot: QuizResumeState<TItem>,
+  isAnswerValid: (answer: number, item: TItem, index: number) => boolean,
+): QuizResumeSessionLike<TItem> {
+  return {
+    ...buildQuizResumeSession(snapshot),
+    answers: snapshot.items.map((item, index) => {
+      const answer = snapshot.answers[index];
+      return typeof answer === "number" && isAnswerValid(answer, item, index) ? answer : null;
+    }),
+  };
+}
+
 function normalizeStartedAt(startedAt?: StartedAtInput) {
   if (typeof startedAt === "number" && Number.isFinite(startedAt)) return startedAt;
   if (startedAt instanceof Date) {

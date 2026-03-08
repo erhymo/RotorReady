@@ -1,6 +1,21 @@
 'use client';
-import { auth, db } from '@/lib/firebase/client';
-import { collection, addDoc } from 'firebase/firestore/lite';
+
+let firebaseClientPromise: Promise<typeof import('@/lib/firebase/client')> | null = null;
+let firestoreLitePromise: Promise<typeof import('firebase/firestore/lite')> | null = null;
+
+function loadFirebaseClient() {
+  if (!firebaseClientPromise) {
+    firebaseClientPromise = import('@/lib/firebase/client');
+  }
+  return firebaseClientPromise;
+}
+
+function loadFirestoreLite() {
+  if (!firestoreLitePromise) {
+    firestoreLitePromise = import('firebase/firestore/lite');
+  }
+  return firestoreLitePromise;
+}
 
 const QUEUE_KEY = 'rr_flags_queue';
 function loadQueue(): any[] {
@@ -13,6 +28,7 @@ let initDone = false;
 async function flushQueue() {
   const q = loadQueue(); if (!q.length) return;
   const rest: any[] = [];
+  const { auth, db } = await loadFirebaseClient().catch(() => ({ auth: undefined, db: undefined }));
   // fetch ID token once per flush; refresh per item if needed
   const idToken = auth?.currentUser ? await auth.currentUser.getIdToken().catch(() => null) : null;
   for (const item of q) {
@@ -26,6 +42,7 @@ async function flushQueue() {
       let persisted = false;
       try {
         if (db) {
+          const { collection, addDoc } = await loadFirestoreLite();
           await addDoc(collection(db as any, 'flags'), item);
           persisted = true;
         }
@@ -62,6 +79,7 @@ export type FlagPayload = {
 
 export async function reportFlag(payload: FlagPayload) {
   ensureInit();
+  const { auth } = await loadFirebaseClient().catch(() => ({ auth: undefined }));
   const data = {
     ...payload,
     userId: auth?.currentUser?.uid || 'guest',

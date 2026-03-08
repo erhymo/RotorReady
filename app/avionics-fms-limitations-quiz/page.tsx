@@ -1,18 +1,18 @@
 "use client";
 import * as React from "react";
 import { useRouter } from "next/navigation";
-import { loadBlockedQuestionSet } from "@/lib/blockedQuestions";
+import { loadQuestionsForSectionId } from "@/lib/loadAllQuestions";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 import { modelScopedKey } from "@/lib/models/storage";
 import { isLoggedInAsync } from "@/lib/auth";
-import { buildInitialQuizResumeSession, buildQuizResumeSession, clearQuizResumeSnapshot, findLatestQuizResumeInfo, getQuizResumeStorageKey, readQuizResumeSnapshot, writeQuizResumeSnapshot } from "@/lib/quiz/resumeSnapshot";
+import { buildInitialQuizResumeSession, buildValidatedQuizResumeSession, clearQuizResumeSnapshot, findLatestQuizResumeInfo, readQuizResumeSnapshot, writeQuizResumeSnapshot } from "@/lib/quiz/resumeSnapshot";
 
 import TopBarBackButton from "@/components/TopBarBackButton";
 
+const SESSION_KEY = "avionics_session" as const;
 const SECTION = "Avionics & FMS Limitations" as const;
 const SECTION_ID = "avionics-fms-limitations" as const;
-const DATA_URL = "/quiz-data/sections/avionics_fms_limitations.json" as const;
-const avionicsQuestionsPromiseCache = new Map<string, Promise<QuizItem[]>>();
+const DATA_SECTION_ID = "avionics_fms_limitations" as const;
 const AMOUNT_OPTIONS = [10, 20, 30, 40, 50, "all"] as const;
 
 type AmountOption = (typeof AMOUNT_OPTIONS)[number];
@@ -65,61 +65,6 @@ function shuffleOptionsForItem(it: QuizItem): QuizItem {
   return { ...it, options, answer };
 }
 
-
-function matchesVariant(item: QuizItem, variantId: string, productId: string): boolean {
-  if (Array.isArray(item.modelIds)) {
-    return item.modelIds.includes(variantId);
-  }
-  if (Array.isArray(item.models)) {
-    return item.models.includes(variantId);
-  }
-  if (Array.isArray(item.productIds)) {
-    return item.productIds.includes(productId);
-  }
-  if (typeof item.productId === "string") {
-    return item.productId === productId;
-  }
-  return productId === "AW169";
-}
-
-async function loadAvionicsFmsQuestions(variantId: string, productId: string): Promise<QuizItem[]> {
-  const key = `${variantId}:${productId}`;
-  const existing = avionicsQuestionsPromiseCache.get(key);
-  if (existing) return existing;
-
-  const promise = (async () => {
-    const blocked = await loadBlockedQuestionSet();
-
-    const urls = [
-      `/model-data/${variantId}/sections/avionics_fms_limitations.json`,
-      DATA_URL,
-    ];
-    for (const url of urls) {
-      try {
-        const res = await fetch(url, { cache: "no-store" });
-        if (!res.ok) continue;
-        const payload = await res.json();
-        if (!payload.items || !Array.isArray(payload.items)) continue;
-        const filtered = (payload.items as QuizItem[])
-          .filter((item) => matchesVariant(item, variantId, productId))
-          .filter((item) => item && !blocked.has(item.id));
-        if (!filtered.length) continue;
-        return filtered;
-      } catch (error) {
-        console.warn("Could not load", url, error);
-      }
-    }
-
-    throw new Error("Found no questions for Avionics & FMS");
-  })().catch((error) => {
-    avionicsQuestionsPromiseCache.delete(key);
-    throw error;
-  });
-
-  avionicsQuestionsPromiseCache.set(key, promise);
-  return promise;
-}
-
 export default function AvionicsFmsQuizStart() {
   const router = useRouter();
   const [amount, setAmount] = React.useState<AmountOption>(20);
@@ -151,15 +96,45 @@ export default function AvionicsFmsQuizStart() {
   }, [activeVariant.id]);
 
   React.useEffect(() => {
-    let cancelled = false;
-    const latestResume = findLatestQuizResumeInfo(activeVariant.id, SECTION_ID);
-    if (!cancelled) setResumeInfo(latestResume);
-    return () => { cancelled = true; };
+    setResumeInfo(findLatestQuizResumeInfo(activeVariant.id, SECTION_ID));
   }, [activeVariant.id]);
 
 
   async function getData(): Promise<{ items: QuizItem[] }> {
-    const items = await loadAvionicsFmsQuestions(activeVariant.id, activeVariant.productId);
+    let items = await loadQuestionsForSectionId<QuizItem>(DATA_SECTION_ID, activeVariant.id);
+
+    if (!items.length) {
+      const urls = [
+        `/model-data/${activeVariant.id}/sections/${DATA_SECTION_ID}.json`,
+        `/quiz-data/sections/${DATA_SECTION_ID}.json`,
+      ];
+
+      for (const url of urls) {
+        try {
+          const res = await fetch(url, { cache: "no-store" });
+          const text = await res.text();
+
+          try {
+            const json = JSON.parse(text);
+            if (json && Array.isArray(json.items) && json.items.length) {
+              items = json.items as QuizItem[];
+              break;
+            }
+          } catch {
+            const match = text.match(/"items"\s*:\s*(\[[\s\S]*?\])/);
+            if (!match) continue;
+            try {
+              const parsed = JSON.parse(match[1]);
+              if (Array.isArray(parsed) && parsed.length) {
+                items = parsed as QuizItem[];
+                break;
+              }
+            } catch {}
+          }
+        } catch {}
+      }
+    }
+
     return { items };
   }
 
@@ -179,7 +154,7 @@ export default function AvionicsFmsQuizStart() {
         ? shuffle(data.items)
         : sample(data.items, Math.min(amount, data.items.length));
 
-      const key = `quiz:lastOrders:${activeVariant.id}:${SECTION}:${amount === "all" ? "all" : amount}`;
+      const key = `quiz:lastOrders:${activeVariant.id}:${SECTION_ID}:${amount === "all" ? "all" : amount}`;
       let lastOrders: string[] = [];
       try { lastOrders = JSON.parse(sessionStorage.getItem(key) || "[]"); } catch {}
       let items = base;
@@ -196,10 +171,10 @@ export default function AvionicsFmsQuizStart() {
       const amountToken = amount === "all" ? "all" : String(amount);
 
       const session = {
-        section: SECTION,
+        section: SECTION_ID,
         ...buildInitialQuizResumeSession(randomized, amountToken),
       };
-      sessionStorage.setItem("avionics_session", JSON.stringify(session));
+      sessionStorage.setItem(SESSION_KEY, JSON.stringify(session));
 
       writeQuizResumeSnapshot({
         section: SECTION_ID,
@@ -234,10 +209,10 @@ export default function AvionicsFmsQuizStart() {
       const data = JSON.parse(raw) as { items?: QuizItem[] };
       const items = Array.isArray(data.items) ? data.items : [];
       const session = {
-        section: SECTION,
+        section: SECTION_ID,
         ...buildInitialQuizResumeSession(items),
       };
-      sessionStorage.setItem("avionics_session", JSON.stringify(session));
+      sessionStorage.setItem(SESSION_KEY, JSON.stringify(session));
       router.push("/avionics-fms-limitations-quiz/1");
     } catch {
       alert("Could not load saved wrong-answer set. Delete and try again.");
@@ -257,14 +232,19 @@ export default function AvionicsFmsQuizStart() {
         return;
       }
       const snap = readQuizResumeSnapshot<QuizItem>(activeVariant.id, SECTION_ID, resumeInfo.amountToken);
-      if (!snap) return;
+      if (!snap) {
+        setResumeInfo(null);
+        return;
+      }
       const session = {
-        section: SECTION,
-        ...buildQuizResumeSession(snap),
+        section: SECTION_ID,
+        ...buildValidatedQuizResumeSession(snap, (answer, item) => answer >= 0 && answer < item.options.length),
       };
-      sessionStorage.setItem("avionics_session", JSON.stringify(session));
+      sessionStorage.setItem(SESSION_KEY, JSON.stringify(session));
       router.push(`/avionics-fms-limitations-quiz/${snap.idx + 1}`);
-    } catch {}
+    } catch {
+      setResumeInfo(null);
+    }
   }
 
   function handleResumeReset() {

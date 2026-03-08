@@ -8,6 +8,9 @@ import { useActiveModelVariant } from "@/lib/models/hooks";
 import { modelScopedKey } from "@/lib/models/storage";
 import TopBarBackButton from "@/components/TopBarBackButton";
 
+const SESSION_KEY = "avionics_session";
+const WRONG_ONLY_SECTION_KEY = "avionics-fms-limitations";
+
 type Item = {
   id: string;
   question: string;
@@ -28,7 +31,7 @@ type Session = {
 
 function loadSession(): Session | null {
   try {
-    const raw = sessionStorage.getItem("avionics_session");
+    const raw = sessionStorage.getItem(SESSION_KEY);
     return raw ? (JSON.parse(raw) as Session) : null;
   } catch {
     return null;
@@ -36,8 +39,18 @@ function loadSession(): Session | null {
 }
 
 export default function AvionicsResultPage() {
-  const [session] = useState<Session | null>(() => loadSession());
+  const [session, setSession] = useState<Session | null>(null);
   const { variant: activeVariant } = useActiveModelVariant();
+
+  useEffect(() => {
+    const timeoutId = window.setTimeout(() => {
+      setSession(loadSession());
+    }, 0);
+
+    return () => {
+      window.clearTimeout(timeoutId);
+    };
+  }, []);
 
   const { total, correct, wrongIdx } = useMemo(() => {
     if (!session) return { total: 0, correct: 0, wrongIdx: [] as number[] };
@@ -58,19 +71,20 @@ export default function AvionicsResultPage() {
     const percent = total ? (correct / total) * 100 : 0;
     const record = { section: session.section, total, correct, percent, at: new Date().toISOString() };
 
-    try {
-      const historyKey = modelScopedKey("rr_progress", activeVariant.id);
-      const raw = localStorage.getItem(historyKey);
-      const arr = raw ? JSON.parse(raw) : [];
-      arr.push(record);
-      localStorage.setItem(historyKey, JSON.stringify(arr));
-      if (activeVariant.id === "AW169") {
-        localStorage.removeItem("rr_progress");
-      }
-    } catch {}
+    const historyKey = modelScopedKey("rr_progress", activeVariant.id);
+    const historyRaw = localStorage.getItem(historyKey);
+    const history = historyRaw ? JSON.parse(historyRaw) : [];
+    history.push(record);
+    localStorage.setItem(historyKey, JSON.stringify(history));
+    if (activeVariant.id === "AW169") {
+      localStorage.removeItem("rr_progress");
+    }
 
-    const sectionKey = "avionics-fms-limitations";
-    const scopedKey = `${modelScopedKey("rr_progress_last_wrong", activeVariant.id)}:${sectionKey}`;
+    const prefix = modelScopedKey("rr_progress_last_wrong", activeVariant.id);
+    const storageKey = `${prefix}:${WRONG_ONLY_SECTION_KEY}`;
+    const legacyKey = activeVariant.id === "AW169"
+      ? `rr_progress_last_wrong:${WRONG_ONLY_SECTION_KEY}`
+      : null;
 
     if (wrongIdx.length) {
       const items = wrongIdx.map((index) => session.items[index]);
@@ -80,15 +94,13 @@ export default function AvionicsResultPage() {
         createdAt: new Date().toISOString(),
         answers: Array(items.length).fill(null),
       };
-      localStorage.setItem(scopedKey, JSON.stringify(wrongSession));
-      if (activeVariant.id === "AW169") {
-        localStorage.setItem(`rr_progress_last_wrong:${sectionKey}`, JSON.stringify(wrongSession));
+      localStorage.setItem(storageKey, JSON.stringify(wrongSession));
+      if (legacyKey) {
+        localStorage.setItem(legacyKey, JSON.stringify(wrongSession));
       }
     } else {
-      localStorage.removeItem(scopedKey);
-      if (activeVariant.id === "AW169") {
-        localStorage.removeItem(`rr_progress_last_wrong:${sectionKey}`);
-      }
+      localStorage.removeItem(storageKey);
+      if (legacyKey) localStorage.removeItem(legacyKey);
     }
 
     try {
@@ -97,6 +109,8 @@ export default function AvionicsResultPage() {
   }, [session, total, correct, wrongIdx, activeVariant.id]);
 
   if (!session) return <div className="max-w-xl mx-auto p-4">No active session.</div>;
+
+  const percent = total ? Math.round((correct / total) * 100) : 0;
 
   return (
     <div className="max-w-2xl mx-auto p-4 space-y-4">
@@ -107,7 +121,7 @@ export default function AvionicsResultPage() {
       <div className="rounded-xl border-l-4 border-blue-600 bg-blue-50/40 dark:border-blue-400 dark:bg-gradient-to-r dark:from-blue-900 dark:to-blue-800/80 p-4 shadow-lg dark:text-white">
         <div>Answered: <b>{total}</b></div>
         <div>Correct: <b>{correct}</b></div>
-        <div>Percent: <b>{Math.round((correct / total) * 100)}%</b></div>
+        <div>Percent: <b>{percent}%</b></div>
       </div>
 
       <div className="flex gap-2">

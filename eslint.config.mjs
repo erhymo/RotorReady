@@ -17,8 +17,6 @@ export default defineConfig([
     "build/**",
     "dist/**",
     "scripts/**",
-    "temp-disabled/**",
-    "stripe-backup/**",
     "next-env.d.ts",
   ]),
 ]);

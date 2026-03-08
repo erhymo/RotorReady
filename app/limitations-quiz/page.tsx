@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { loadAllQuestions } from "@/lib/loadAllQuestions";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 import { modelScopedKey } from "@/lib/models/storage";
-import { clearQuizResumeSnapshot, findLatestQuizResumeInfo, getQuizResumeStorageKey, readQuizResumeSnapshot, writeQuizResumeSnapshot } from "@/lib/quiz/resumeSnapshot";
+import { buildQuizResumeSession, clearQuizResumeSnapshot, findLatestQuizResumeInfo, getQuizResumeStorageKey, readQuizResumeSnapshot, writeQuizResumeSnapshot } from "@/lib/quiz/resumeSnapshot";
 
 import TopBarBackButton from "@/components/TopBarBackButton";
 
@@ -172,12 +172,8 @@ export default function LimitationsStart() {
       if (!snap) return;
       const session = {
         section: "limitations",
-        createdAt: new Date().toISOString(),
-        items: snap.items,
-        answers: snap.answers.map((answer) => (answer == null ? null : answer)) as Array<number | null>,
-        flags: snap.flags,
-        amountToken: snap.amountToken,
-      } as any;
+        ...buildQuizResumeSession(snap),
+      };
       sessionStorage.setItem("limq_session", JSON.stringify(session));
       router.push(`/limitations-quiz/${snap.idx + 1}`);
     } catch {}

@@ -137,6 +137,18 @@ export function readQuizResumeSnapshot<TItem>(
   }
 }
 
+export function buildQuizResumeSession<TItem>(
+  snapshot: QuizResumeState<TItem>,
+): QuizResumeSessionLike<TItem> {
+  return {
+    createdAt: new Date().toISOString(),
+    items: snapshot.items,
+    answers: snapshot.answers.map((answer) => (answer == null ? null : answer)),
+    flags: snapshot.flags,
+    amountToken: snapshot.amountToken,
+  };
+}
+
 function normalizeStartedAt(startedAt?: StartedAtInput) {
   if (typeof startedAt === "number" && Number.isFinite(startedAt)) return startedAt;
   if (startedAt instanceof Date) {

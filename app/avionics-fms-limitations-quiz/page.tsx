@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 import { modelScopedKey } from "@/lib/models/storage";
 import { isLoggedInAsync } from "@/lib/auth";
-import { clearQuizResumeSnapshot, findLatestQuizResumeInfo, getQuizResumeStorageKey, readQuizResumeSnapshot, writeQuizResumeSnapshot } from "@/lib/quiz/resumeSnapshot";
+import { buildQuizResumeSession, clearQuizResumeSnapshot, findLatestQuizResumeInfo, getQuizResumeStorageKey, readQuizResumeSnapshot, writeQuizResumeSnapshot } from "@/lib/quiz/resumeSnapshot";
 
 import TopBarBackButton from "@/components/TopBarBackButton";
 
@@ -244,11 +244,7 @@ export default function AvionicsFmsQuizStart() {
       if (!snap) return;
       const session = {
         section: SECTION,
-        createdAt: new Date().toISOString(),
-        items: snap.items,
-        answers: snap.answers.map((answer) => (answer == null ? null : answer)) as Array<number | null>,
-        flags: snap.flags,
-        amountToken: snap.amountToken,
+        ...buildQuizResumeSession(snap),
       };
       sessionStorage.setItem("avionics_session", JSON.stringify(session));
       router.push(`/avionics-fms-limitations-quiz/${snap.idx + 1}`);

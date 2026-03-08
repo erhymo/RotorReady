@@ -6,7 +6,7 @@ import { useActiveModelVariant } from "@/lib/models/hooks";
 import { loadSectionOffline } from "@/lib/offline";
 import { loadAllQuestions } from "@/lib/loadAllQuestions";
 import { modelScopedKey } from "@/lib/models/storage";
-import { getQuizResumeStorageKey, readQuizResumeSnapshot, writeQuizResumeSnapshot } from "@/lib/quiz/resumeSnapshot";
+import { buildQuizResumeSession, getQuizResumeStorageKey, readQuizResumeSnapshot, writeQuizResumeSnapshot } from "@/lib/quiz/resumeSnapshot";
 
 type QuizItem = {
   id: string;
@@ -94,12 +94,8 @@ export default function ClientQuizPage({ section, amount }: { section: string; a
             const key = `${modelScopedKey("h125q_session", activeVariant.id)}:${section}`;
             const session = {
               section,
-              createdAt: new Date().toISOString(),
-              items: snap.items,
-              answers: snap.answers.map((answer) => (answer == null ? null : answer)) as Array<number | null>,
-              flags: snap.flags,
-              amountToken: snap.amountToken,
-            } as any;
+              ...buildQuizResumeSession(snap),
+            };
             sessionStorage.setItem(key, JSON.stringify(session));
             router.replace(`/quiz/${encodeURIComponent(section)}/h125/${snap.idx + 1}`);
             return;

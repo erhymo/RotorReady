@@ -5,7 +5,7 @@ import { loadAllQuestions } from "@/lib/loadAllQuestions";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 import { modelScopedKey } from "@/lib/models/storage";
 import { isLoggedInAsync } from "@/lib/auth";
-import { clearQuizResumeSnapshot, findLatestQuizResumeInfo, getQuizResumeStorageKey, readQuizResumeSnapshot, writeQuizResumeSnapshot } from "@/lib/quiz/resumeSnapshot";
+import { buildQuizResumeSession, clearQuizResumeSnapshot, findLatestQuizResumeInfo, getQuizResumeStorageKey, readQuizResumeSnapshot, writeQuizResumeSnapshot } from "@/lib/quiz/resumeSnapshot";
 
 import TopBarBackButton from "@/components/TopBarBackButton";
 
@@ -160,12 +160,8 @@ export default function EngineSystemsStart() {
       if (!snap) return;
       const session = {
         section: SECTION,
-        createdAt: new Date().toISOString(),
-        items: snap.items,
-        answers: snap.answers.map((answer) => (answer == null ? null : answer)) as Array<number | null>,
-        flags: snap.flags,
-        amountToken: snap.amountToken,
-      } as any;
+        ...buildQuizResumeSession(snap),
+      };
       sessionStorage.setItem("engineq_session", JSON.stringify(session));
       router.push(`/engine-systems-quiz/${snap.idx + 1}`);
     } catch {}

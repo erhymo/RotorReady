@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import BackButton from "@/components/BackButton";
 import { listVariantsByProduct } from "@/lib/models/catalog";
 import { getStoredActiveModelVariantId, storeActiveModelVariantId, modelScopedKey } from "@/lib/models/storage";
+import { writeQuizOverrideSession } from "@/lib/quiz/overrideSession";
 
 type Summary = { section: string; total: number; correct: number; percent: number; at: string };
 type WrongSession = { section?: string; createdAt?: string | number; items?: unknown[] };
@@ -166,8 +167,7 @@ export default function AccountPage() {
     // Use generic ClientQuiz override session under a virtual section id
     const virtualSection = "all_wrong";
     try {
-      const overrideKey = `${modelScopedKey("quiz_session_override", variantId)}:${virtualSection}`;
-      sessionStorage.setItem(overrideKey, JSON.stringify({ items: normalizedItems }));
+      writeQuizOverrideSession(variantId, virtualSection, normalizedItems);
       window.location.href = `/quiz/${encodeURIComponent(virtualSection)}/all`;
     } catch (e) {
       console.warn("Could not start mixed wrong-only session", e);

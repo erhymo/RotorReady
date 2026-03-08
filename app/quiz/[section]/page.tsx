@@ -3,6 +3,7 @@ import { useRouter, useParams } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 import { modelScopedKey } from "@/lib/models/storage";
+import { writeQuizOverrideSession } from "@/lib/quiz/overrideSession";
 import { clearQuizResumeSnapshot, findLatestQuizResumeInfo } from "@/lib/quiz/resumeSnapshot";
 import TopBarBackButton from "@/components/TopBarBackButton";
 
@@ -301,8 +302,7 @@ export default function SectionPage() {
     }
     try {
       const items = combinedItems ?? (JSON.parse(raw!).items || []);
-      const overrideKey = `${modelScopedKey("quiz_session_override", activeVariant.id)}:${id}`;
-      sessionStorage.setItem(overrideKey, JSON.stringify({ items }));
+      writeQuizOverrideSession(activeVariant.id, id, items);
       router.push(`/quiz/${encodeURIComponent(id)}/all`);
     } catch {
       alert("Could not load saved wrong-answer set. Delete and try again.");

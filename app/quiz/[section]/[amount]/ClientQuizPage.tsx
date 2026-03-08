@@ -6,6 +6,7 @@ import { useActiveModelVariant } from "@/lib/models/hooks";
 import { loadSectionOffline } from "@/lib/offline";
 import { loadAllQuestions } from "@/lib/loadAllQuestions";
 import { modelScopedKey } from "@/lib/models/storage";
+import { clearQuizOverrideSession, readQuizOverrideSession } from "@/lib/quiz/overrideSession";
 import { buildInitialQuizResumeSession, buildQuizResumeSession, getQuizResumeStorageKey, readQuizResumeSnapshot, writeQuizResumeSnapshot } from "@/lib/quiz/resumeSnapshot";
 
 type QuizItem = {
@@ -116,12 +117,9 @@ export default function ClientQuizPage({ section, amount }: { section: string; a
 
       // 0) Check if there is a session override (e.g. "Practice only incorrect questions")
       try {
-        const overrideKey = `${modelScopedKey("quiz_session_override", activeVariant.id)}:${section}`;
-        const raw = sessionStorage.getItem(overrideKey);
-        if (!cancelled && raw) {
-          const data = JSON.parse(raw) as { items?: QuizItem[] };
-          if (Array.isArray(data.items) && data.items.length) {
-            const allowed = data.items.filter(it => !blocked.has(it.id));
+        const override = readQuizOverrideSession<QuizItem>(activeVariant.id, section);
+        if (!cancelled && override?.items.length) {
+            const allowed = override.items.filter(it => !blocked.has(it.id));
             let shuffled = shuffle(allowed);
             let limited = typeof amount === "number" ? shuffled.slice(0, amount) : shuffled;
             // avoid the same order as the previous two rounds
@@ -142,9 +140,8 @@ export default function ClientQuizPage({ section, amount }: { section: string; a
             if (isH125) return goH125(randomized);
             setQuestions(randomized);
             setError(null);
-            sessionStorage.removeItem(overrideKey);
+            clearQuizOverrideSession(activeVariant.id, section);
             return;
-          }
         }
       } catch {}
 

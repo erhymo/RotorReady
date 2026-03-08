@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 import { modelScopedKey } from "@/lib/models/storage";
 import { isLoggedInAsync } from "@/lib/auth";
-import { buildQuizResumeSession, clearQuizResumeSnapshot, findLatestQuizResumeInfo, getQuizResumeStorageKey, readQuizResumeSnapshot, writeQuizResumeSnapshot } from "@/lib/quiz/resumeSnapshot";
+import { buildInitialQuizResumeSession, buildQuizResumeSession, clearQuizResumeSnapshot, findLatestQuizResumeInfo, getQuizResumeStorageKey, readQuizResumeSnapshot, writeQuizResumeSnapshot } from "@/lib/quiz/resumeSnapshot";
 
 import TopBarBackButton from "@/components/TopBarBackButton";
 
@@ -182,11 +182,7 @@ export default function AvionicsFmsQuizStart() {
 
       const session = {
         section: SECTION,
-        createdAt: new Date().toISOString(),
-        items: randomized,
-        answers: Array(randomized.length).fill(null) as Array<number | null>,
-        flags: Array(randomized.length).fill(false) as boolean[],
-        amountToken,
+        ...buildInitialQuizResumeSession(randomized, amountToken),
       };
       sessionStorage.setItem("avionics_session", JSON.stringify(session));
 

@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { loadAllQuestions } from "@/lib/loadAllQuestions";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 import { modelScopedKey } from "@/lib/models/storage";
-import { buildQuizResumeSession, clearQuizResumeSnapshot, findLatestQuizResumeInfo, getQuizResumeStorageKey, readQuizResumeSnapshot, writeQuizResumeSnapshot } from "@/lib/quiz/resumeSnapshot";
+import { buildInitialQuizResumeSession, buildQuizResumeSession, clearQuizResumeSnapshot, findLatestQuizResumeInfo, getQuizResumeStorageKey, readQuizResumeSnapshot, writeQuizResumeSnapshot } from "@/lib/quiz/resumeSnapshot";
 
 import TopBarBackButton from "@/components/TopBarBackButton";
 
@@ -141,11 +141,7 @@ export default function LimitationsStart() {
       const amountToken = amount === "all" ? "all" : String(amount);
       const session = {
         section: "limitations",
-        createdAt: new Date().toISOString(),
-        items: randomized,
-        answers: Array(randomized.length).fill(null) as Array<number | null>,
-        flags: Array(randomized.length).fill(false) as boolean[],
-        amountToken,
+        ...buildInitialQuizResumeSession(randomized, amountToken),
       };
       sessionStorage.setItem("limq_session", JSON.stringify(session));
       writeQuizResumeSnapshot({

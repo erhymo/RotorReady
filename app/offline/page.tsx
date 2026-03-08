@@ -6,28 +6,43 @@ import { loadAllQuestions } from "@/lib/loadAllQuestions";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 
 type Section = { id: string; title: string };
+type SectionPayload = { items: any[] };
 
-async function fetchSection(id: string, variantId: string) {
-  const urls = [`/model-data/${variantId}/sections/${id}.json`, `/quiz-data/sections/${id}.json`];
-  for (const url of urls) {
-    try {
-      const res = await fetch(url, { cache: "no-store" });
-      if (!res.ok) continue;
-      const raw = await res.text();
-      try {
-        return JSON.parse(raw);
-      } catch {
-        const cleaned = raw.replace(/[\u0000-\u001F]/g, " ");
-        return JSON.parse(cleaned);
-      }
-    } catch {}
-  }
-  throw new Error("Could not fetch section");
+const sectionFilePromiseCache = new Map<string, Promise<{ items?: any[] } | null>>();
+const derivedSectionPayloadPromiseCache = new Map<string, Promise<SectionPayload>>();
+
+function getSectionCacheKey(id: string, variantId: string) {
+  return `${variantId}:${id}`;
 }
 
-async function deriveSectionPayload(id: string, variantId: string, allItems?: any[]) {
-  // Fall back to building a chapter from the question bank when the file does not exist
-  const items = allItems ?? (await loadAllQuestions(variantId));
+async function fetchSection(id: string, variantId: string): Promise<{ items?: any[] } | null> {
+  const key = getSectionCacheKey(id, variantId);
+  const existing = sectionFilePromiseCache.get(key);
+  if (existing) return existing;
+
+  const urls = [`/model-data/${variantId}/sections/${id}.json`, `/quiz-data/sections/${id}.json`];
+  const promise = (async () => {
+    for (const url of urls) {
+      try {
+        const res = await fetch(url, { cache: "no-store" });
+        if (!res.ok) continue;
+        const raw = await res.text();
+        try {
+          return JSON.parse(raw);
+        } catch {
+          const cleaned = raw.replace(/[\u0000-\u001F]/g, " ");
+          return JSON.parse(cleaned);
+        }
+      } catch {}
+    }
+    return null;
+  })();
+
+  sectionFilePromiseCache.set(key, promise);
+  return promise;
+}
+
+function buildDerivedSectionItems(id: string, items: any[]): any[] {
   const norm = (s: any) => String(s || "").toLowerCase();
   let filtered: any[] = [];
   if (id === "limitations") {
@@ -46,7 +61,6 @@ async function deriveSectionPayload(id: string, variantId: string, allItems?: an
   } else if (id === "procedures") {
     filtered = items.filter((q: any) => norm(q.section).includes("procedur"));
   }
-  // Generic fallback: match on normalized section ID (e.g. "normal_procedures")
   if (!filtered.length) {
     const toId = (v: any) => String(v || "").toLowerCase().replace(/\s+/g, "_").replace(/[^a-z0-9_]/g, "");
     const target = toId(id);
@@ -57,7 +71,37 @@ async function deriveSectionPayload(id: string, variantId: string, allItems?: an
       return candidates.includes(target);
     });
   }
-  return { items: filtered };
+  return filtered;
+}
+
+async function deriveSectionPayload(id: string, variantId: string, allItems?: any[]): Promise<SectionPayload> {
+  const key = getSectionCacheKey(id, variantId);
+  const existing = derivedSectionPayloadPromiseCache.get(key);
+  if (existing) return existing;
+
+  const promise = Promise.resolve(allItems ?? loadAllQuestions(variantId))
+    .then((items) => ({ items: buildDerivedSectionItems(id, items) }))
+    .catch((error) => {
+      derivedSectionPayloadPromiseCache.delete(key);
+      throw error;
+    });
+
+  derivedSectionPayloadPromiseCache.set(key, promise);
+  return promise;
+}
+
+async function resolveOfflineSectionPayload(
+  id: string,
+  variantId: string,
+  options?: { allItems?: any[] | null; allowDerivedFallback?: boolean },
+): Promise<SectionPayload | { items?: any[] } | null> {
+  const data = await fetchSection(id, variantId);
+  if (data && Array.isArray(data.items)) return data;
+
+  if (!options?.allowDerivedFallback) return null;
+
+  const built = await deriveSectionPayload(id, variantId, options?.allItems ?? undefined).catch(() => ({ items: [] }));
+  return Array.isArray(built.items) && built.items.length > 0 ? built : null;
 }
 
 // sections are now resolved dynamically from index.json (model-level and global)
@@ -189,19 +233,17 @@ export default function OfflinePage() {
       const entries = await Promise.all(
         sections.map(async (s) => {
           try {
-            const data = await fetchSection(s.id, activeVariant.id).catch(() => null);
-            if (data && Array.isArray(data.items)) return [s.id, data.items.length] as const;
-
-            // Uten forhåndslastet question bank hopper vi over dyr fallback og
-            // viser 0 inntil allQuestions er klar.
-            if (!allQuestions) return [s.id, 0] as const;
-
-            const built = await deriveSectionPayload(
+            const data = await resolveOfflineSectionPayload(
               s.id,
               activeVariant.id,
-              allQuestions,
-            ).catch(() => ({ items: [] }));
-            return [s.id, Array.isArray(built.items) ? built.items.length : 0] as const;
+              {
+                allItems: allQuestions,
+                // Uten forhåndslastet question bank hopper vi over dyr fallback og
+                // viser 0 inntil allQuestions er klar.
+                allowDerivedFallback: Boolean(allQuestions),
+              },
+            );
+            return [s.id, Array.isArray(data?.items) ? data.items.length : 0] as const;
           } catch {
             return [s.id, 0] as const;
           }
@@ -238,23 +280,10 @@ export default function OfflinePage() {
   async function downloadSectionOffline(section: Section) {
     updateStatus(section.id, `Laster ned "${section.title}"…`);
     try {
-      // 1) Try to fetch the standard section file (model-specific or global)
-      let data: any | null = null;
-      try {
-        data = await fetchSection(section.id, activeVariant.id);
-      } catch {}
-
-      // 2) Fallback for AW169 and other chapters without their own section file: build from the question bank
-      if (!data) {
-        const built = await deriveSectionPayload(
-          section.id,
-          activeVariant.id,
-          allQuestions ?? undefined,
-        );
-        if (Array.isArray(built.items) && built.items.length > 0) {
-          data = built;
-        }
-      }
+      const data = await resolveOfflineSectionPayload(section.id, activeVariant.id, {
+        allItems: allQuestions,
+        allowDerivedFallback: true,
+      });
 
       if (!data) throw new Error("Ingen data for valgt kapittel");
 

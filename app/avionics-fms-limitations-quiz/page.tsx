@@ -1,6 +1,7 @@
 "use client";
 import * as React from "react";
 import { useRouter } from "next/navigation";
+import { loadBlockedQuestionSet } from "@/lib/blockedQuestions";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 import { modelScopedKey } from "@/lib/models/storage";
 import { isLoggedInAsync } from "@/lib/auth";
@@ -87,14 +88,7 @@ async function loadAvionicsFmsQuestions(variantId: string, productId: string): P
   if (existing) return existing;
 
   const promise = (async () => {
-    let blocked = new Set<string>();
-    try {
-      const r = await fetch("/api/blocked-questions", { cache: "no-store" });
-      if (r.ok) {
-        const j = await r.json();
-        blocked = new Set<string>(Array.isArray(j?.ids) ? j.ids : []);
-      }
-    } catch {}
+    const blocked = await loadBlockedQuestionSet();
 
     const urls = [
       `/model-data/${variantId}/sections/avionics_fms_limitations.json`,

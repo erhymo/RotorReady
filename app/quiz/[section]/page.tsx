@@ -1,6 +1,7 @@
 "use client";
 import { useRouter, useParams } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
+import { loadBlockedQuestionSet } from "@/lib/blockedQuestions";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 import { modelScopedKey } from "@/lib/models/storage";
 import { writeQuizOverrideSession } from "@/lib/quiz/overrideSession";
@@ -11,7 +12,6 @@ type Section = { id: string; title: string };
 type ActiveVariantInfo = { id: string; productId: string };
 
 const networkSectionItemsPromiseCache = new Map<string, Promise<any[] | null>>();
-let blockedQuestionsPromise: Promise<Set<string>> | null = null;
 
 function filterItemsForVariant(items: any[], activeVariant: ActiveVariantInfo) {
   return items.filter((q: any) => {
@@ -53,28 +53,6 @@ async function loadNetworkSectionItems(sectionId: string, activeVariant: ActiveV
 
   networkSectionItemsPromiseCache.set(key, promise);
   return promise;
-}
-
-async function loadBlockedQuestionSet(): Promise<Set<string>> {
-  if (blockedQuestionsPromise) return blockedQuestionsPromise;
-  blockedQuestionsPromise = (async () => {
-    try {
-      const res = await fetch("/api/blocked-questions", { cache: "no-store" });
-      if (!res.ok) return new Set<string>();
-      const data = await res.json();
-      const ids: string[] = Array.isArray(data?.ids) ? data.ids : [];
-      return new Set(ids);
-    } catch {
-      return new Set<string>();
-    }
-  })();
-
-  try {
-    return await blockedQuestionsPromise;
-  } catch {
-    blockedQuestionsPromise = null;
-    return new Set<string>();
-  }
 }
 
 const AMOUNT_OPTIONS = [

@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import ClientQuiz from "./ClientQuiz";
+import { loadBlockedQuestionSet } from "@/lib/blockedQuestions";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 import { loadSectionOffline } from "@/lib/offline";
 import { loadAllQuestions } from "@/lib/loadAllQuestions";
@@ -22,7 +23,6 @@ type QuizItem = {
   __file?: string;
 };
 
-let blockedQuestionsPromise: Promise<Set<string>> | null = null;
 const singleChoiceQuestionsPromiseCache = new Map<string, Promise<QuizItem[]>>();
 const networkSectionItemsPromiseCache = new Map<string, Promise<QuizItem[]>>();
 
@@ -50,28 +50,6 @@ function parseSectionPayload(raw: string) {
     return JSON.parse(raw);
   } catch {
     return JSON.parse(raw.replace(/[\u0000-\u001F]/g, " "));
-  }
-}
-
-async function loadBlockedQuestionSet(): Promise<Set<string>> {
-  if (blockedQuestionsPromise) return blockedQuestionsPromise;
-
-  blockedQuestionsPromise = (async () => {
-    try {
-      const res = await fetch("/api/blocked-questions", { cache: "no-store" });
-      if (!res.ok) return new Set<string>();
-      const data = await res.json();
-      return new Set<string>(Array.isArray(data?.ids) ? data.ids : []);
-    } catch {
-      return new Set<string>();
-    }
-  })();
-
-  try {
-    return await blockedQuestionsPromise;
-  } catch {
-    blockedQuestionsPromise = null;
-    return new Set<string>();
   }
 }
 

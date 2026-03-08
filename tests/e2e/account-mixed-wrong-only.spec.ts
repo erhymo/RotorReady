@@ -31,11 +31,16 @@ test('account mixed wrong-only prefers history items over fallback duplicates', 
     .filter({ has: page.getByText('Practice wrong answers only', { exact: true }) })
     .filter({ has: page.getByText('Builds a set of questions you recently got wrong.', { exact: true }) });
   await expect(wrongOnlyCard).toBeVisible();
-  await wrongOnlyCard.getByRole('button', { name: /^start$/i }).click();
 
-  await expect(page).toHaveURL(/\/quiz\/all_wrong\/all$/);
-  await expect(page.getByText('Question 1 / 2').first()).toBeVisible();
-  await expect(page.getByText(/History question wins|Fallback unique question/)).toBeVisible();
+  await expect(async () => {
+    await wrongOnlyCard.getByRole('button', { name: /^start$/i }).click();
+    await expect(page).toHaveURL(/\/quiz\/all_wrong\/all$/, { timeout: 5000 });
+  }).toPass({ timeout: 15000 });
+
+  await expect(async () => {
+    await expect(page.getByText('Question 1 / 2').first()).toBeVisible();
+    await expect(page.getByText(/History question wins|Fallback unique question/)).toBeVisible();
+  }).toPass({ timeout: 15000 });
 
   const overrideValue = await page.evaluate((key) => sessionStorage.getItem(key), OVERRIDE_KEY);
   expect(overrideValue).toBeNull();

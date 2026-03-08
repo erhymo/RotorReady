@@ -214,7 +214,12 @@ export default function LimitationsStart() {
     if (!combinedItems && !raw) { alert("No wrong-answer set available. Complete a quiz first."); return; }
 
     try {
-      const data = combinedItems ? { section: "limitations", createdAt: new Date().toISOString(), items: combinedItems, answers: combinedItems.map(() => null), flags: combinedItems.map(() => false) } : JSON.parse(raw!);
+      const data = combinedItems
+        ? {
+            section: "limitations",
+            ...buildInitialQuizResumeSession(combinedItems),
+          }
+        : JSON.parse(raw!);
       sessionStorage.setItem("limq_session", JSON.stringify(data));
       router.push("/limitations-quiz/1");
     } catch {

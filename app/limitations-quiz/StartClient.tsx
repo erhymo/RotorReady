@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { loadAllQuestions } from "@/lib/loadAllQuestions";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 import { modelScopedKey } from "@/lib/models/storage";
+import { buildInitialQuizResumeSession } from "@/lib/quiz/resumeSnapshot";
 import TopBarBackButton from "@/components/TopBarBackButton";
 
 type QuizItem = {
@@ -108,10 +109,7 @@ export default function StartClient() {
 
       const session = {
         section: "limitations",
-        createdAt: new Date().toISOString(),
-        items: randomized,
-        answers: Array(randomized.length).fill(null) as Array<number|null>,
-        flags: Array(randomized.length).fill(false) as boolean[]
+        ...buildInitialQuizResumeSession(randomized),
       };
       sessionStorage.setItem("limq_session", JSON.stringify(session));
       router.push("/limitations-quiz/1");
@@ -152,7 +150,12 @@ export default function StartClient() {
     if (!combinedItems && !raw) { alert("No wrong-answer set available. Complete a quiz first."); return; }
 
     try {
-      const data = combinedItems ? { section: "limitations", createdAt: new Date().toISOString(), items: combinedItems, answers: combinedItems.map(() => null), flags: combinedItems.map(() => false) } : JSON.parse(raw!);
+      const data = combinedItems
+        ? {
+            section: "limitations",
+            ...buildInitialQuizResumeSession(combinedItems),
+          }
+        : JSON.parse(raw!);
       sessionStorage.setItem("limq_session", JSON.stringify(data));
       router.push("/limitations-quiz/1");
     } catch {

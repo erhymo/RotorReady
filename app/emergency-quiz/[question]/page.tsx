@@ -7,7 +7,7 @@ import TopBarBackButton from "@/components/TopBarBackButton";
 import Link from "next/link";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 import { isEditableKeyboardTarget } from "@/lib/isEditableKeyboardTarget";
-import { clearQuizResumeSnapshot, writeQuizResumeSnapshot } from "@/lib/quiz/resumeSnapshot";
+import { clearQuizResumeSnapshotForSession, syncQuizResumeSnapshot } from "@/lib/quiz/resumeSnapshot";
 import FlagReasonDialog from "@/components/FlagReasonDialog";
 
 const SESSION_KEY = "emergq_session";
@@ -48,26 +48,6 @@ function saveSession(s: Session) {
   sessionStorage.setItem(SESSION_KEY, JSON.stringify(s));
 }
 
-function updateResumeSnapshot(variantId: string, idx: number, s: Session) {
-  if (!s || !Array.isArray(s.items) || !s.items.length) return;
-  const amountToken = s.amountToken;
-  if (!amountToken) return;
-  writeQuizResumeSnapshot({
-    section: SECTION_ID,
-    variantId,
-    amountToken,
-    items: s.items,
-    idx,
-    answers: s.answers,
-    flags: s.flags,
-    startedAt: s.createdAt,
-  });
-}
-
-function clearResumeSnapshot(variantId: string, s: Session | null) {
-  clearQuizResumeSnapshot(variantId, SECTION_ID, s?.amountToken);
-}
-
 export default function EmergencyQuestionPage() {
   const router = useRouter();
   const params = useParams<{ question: string }>();
@@ -94,7 +74,7 @@ export default function EmergencyQuestionPage() {
     }
     setSession(s);
     setSelected(s.answers[idx] ?? null);
-    updateResumeSnapshot(activeVariant.id, idx, s);
+    syncQuizResumeSnapshot(activeVariant.id, SECTION_ID, idx, s);
   }, [idx]);
 
   function choose(i: number) {
@@ -105,7 +85,7 @@ export default function EmergencyQuestionPage() {
     saveSession(s);
     setSession(s);
     setSelected(i);
-    updateResumeSnapshot(activeVariant.id, idx, s);
+    syncQuizResumeSnapshot(activeVariant.id, SECTION_ID, idx, s);
   }
 
   function toggleFlag() {
@@ -117,7 +97,7 @@ export default function EmergencyQuestionPage() {
     const nowFlagged = s.flags[idx];
     saveSession(s);
     setSession({ ...s });
-    updateResumeSnapshot(activeVariant.id, idx, s);
+    syncQuizResumeSnapshot(activeVariant.id, SECTION_ID, idx, s);
     if (nowFlagged) {
       const basePayload: FlagPayload = {
         section: s.section,
@@ -144,10 +124,10 @@ export default function EmergencyQuestionPage() {
       return;
     }
     if (idx + 1 >= total) {
-      clearResumeSnapshot(activeVariant.id, s);
+      clearQuizResumeSnapshotForSession(activeVariant.id, SECTION_ID, s);
       router.push("/emergency-quiz/result");
     } else {
-      updateResumeSnapshot(activeVariant.id, idx + 1, s);
+      syncQuizResumeSnapshot(activeVariant.id, SECTION_ID, idx + 1, s);
       router.push(`/emergency-quiz/${idx + 2}`);
     }
   }
@@ -160,7 +140,7 @@ export default function EmergencyQuestionPage() {
     }
     if (idx > 0) {
       const targetIdx = idx - 1;
-      updateResumeSnapshot(activeVariant.id, targetIdx, s);
+      syncQuizResumeSnapshot(activeVariant.id, SECTION_ID, targetIdx, s);
       router.push(`/emergency-quiz/${targetIdx + 1}`);
     }
   }

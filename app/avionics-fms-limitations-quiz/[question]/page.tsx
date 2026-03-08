@@ -5,7 +5,7 @@ import TopBarBackButton from "@/components/TopBarBackButton";
 import Link from "next/link";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 import { isEditableKeyboardTarget } from "@/lib/isEditableKeyboardTarget";
-import { clearQuizResumeSnapshot, writeQuizResumeSnapshot } from "@/lib/quiz/resumeSnapshot";
+import { clearQuizResumeSnapshotForSession, syncQuizResumeSnapshot } from "@/lib/quiz/resumeSnapshot";
 
 import { reportFlag, type FlagPayload } from "@/lib/flags";
 import FlagReasonDialog from "@/components/FlagReasonDialog";
@@ -43,27 +43,6 @@ function loadSession(): Session | null {
     return null;
   }
 }
-function updateResumeSnapshot(variantId: string, idx: number, s: Session) {
-  if (!s || !Array.isArray(s.items) || !s.items.length) return;
-  const amountToken = s.amountToken;
-  if (!amountToken) return;
-  writeQuizResumeSnapshot({
-    section: SECTION_ID,
-    variantId,
-    amountToken,
-    items: s.items,
-    idx,
-    answers: s.answers,
-    flags: s.flags,
-    startedAt: s.createdAt,
-  });
-}
-
-function clearResumeSnapshot(variantId: string, s: Session | null) {
-  clearQuizResumeSnapshot(variantId, SECTION_ID, s?.amountToken);
-}
-
-
 
 function saveSession(session: Session) {
   sessionStorage.setItem("avionics_session", JSON.stringify(session));
@@ -99,7 +78,7 @@ export default function AvionicsQuestionPage() {
     }
     setSession(current);
     setSelected(current.answers[idx] ?? null);
-    updateResumeSnapshot(activeVariant.id, idx, current);
+    syncQuizResumeSnapshot(activeVariant.id, SECTION_ID, idx, current);
   }, [idx]);
 
   function choose(position: number) {
@@ -110,7 +89,7 @@ export default function AvionicsQuestionPage() {
     saveSession(current);
     setSession(current);
     setSelected(position);
-    updateResumeSnapshot(activeVariant.id, idx, current);
+    syncQuizResumeSnapshot(activeVariant.id, SECTION_ID, idx, current);
   }
 
   function toggleFlag() {
@@ -122,7 +101,7 @@ export default function AvionicsQuestionPage() {
     const nowFlagged = current.flags[idx];
     saveSession(current);
     setSession({ ...current });
-    updateResumeSnapshot(activeVariant.id, idx, current);
+    syncQuizResumeSnapshot(activeVariant.id, SECTION_ID, idx, current);
     if (nowFlagged) {
       const basePayload: FlagPayload = {
         section: current.section,
@@ -149,10 +128,10 @@ export default function AvionicsQuestionPage() {
       return;
     }
     if (idx + 1 >= total) {
-      clearResumeSnapshot(activeVariant.id, current);
+      clearQuizResumeSnapshotForSession(activeVariant.id, SECTION_ID, current);
       router.push("/avionics-fms-limitations-quiz/result");
     } else {
-      updateResumeSnapshot(activeVariant.id, idx + 1, current);
+      syncQuizResumeSnapshot(activeVariant.id, SECTION_ID, idx + 1, current);
       router.push(`/avionics-fms-limitations-quiz/${idx + 2}`);
     }
   }
@@ -165,7 +144,7 @@ export default function AvionicsQuestionPage() {
     }
     if (idx > 0) {
       const targetIdx = idx - 1;
-      updateResumeSnapshot(activeVariant.id, targetIdx, current);
+      syncQuizResumeSnapshot(activeVariant.id, SECTION_ID, targetIdx, current);
       router.push(`/avionics-fms-limitations-quiz/${targetIdx + 1}`);
     }
   }

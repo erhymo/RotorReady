@@ -37,6 +37,14 @@ export type QuizResumeState<TItem> = {
   flags: boolean[];
 };
 
+export type QuizResumeSessionLike<TItem> = {
+  createdAt?: StartedAtInput;
+  items: TItem[];
+  answers: Array<number | null | undefined>;
+  flags: boolean[];
+  amountToken?: string | null;
+};
+
 export function getQuizResumeStoragePrefix(variantId: string, section: string) {
   return `${modelScopedKey("quiz:resume", variantId)}:${section}:`;
 }
@@ -168,9 +176,40 @@ export function writeQuizResumeSnapshot<TItem>({
   } catch {}
 }
 
+export function syncQuizResumeSnapshot<TItem>(
+  variantId: string,
+  section: string,
+  idx: number,
+  session: QuizResumeSessionLike<TItem> | null | undefined,
+) {
+  if (!session || !Array.isArray(session.items) || !session.items.length) return;
+
+  const amountToken = session.amountToken;
+  if (!amountToken) return;
+
+  writeQuizResumeSnapshot({
+    section,
+    variantId,
+    amountToken,
+    items: session.items,
+    idx,
+    answers: session.answers,
+    flags: session.flags,
+    startedAt: session.createdAt,
+  });
+}
+
 export function clearQuizResumeSnapshot(variantId: string, section: string, amountToken?: string | null) {
   if (!amountToken) return;
   try {
     localStorage.removeItem(getQuizResumeStorageKey(variantId, section, amountToken));
   } catch {}
+}
+
+export function clearQuizResumeSnapshotForSession<TItem>(
+  variantId: string,
+  section: string,
+  session: Pick<QuizResumeSessionLike<TItem>, "amountToken"> | null | undefined,
+) {
+  clearQuizResumeSnapshot(variantId, section, session?.amountToken);
 }

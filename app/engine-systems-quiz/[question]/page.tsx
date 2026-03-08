@@ -8,7 +8,7 @@ import Link from "next/link";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 import FlagReasonDialog from "@/components/FlagReasonDialog";
 import { isEditableKeyboardTarget } from "@/lib/isEditableKeyboardTarget";
-import { clearQuizResumeSnapshot, writeQuizResumeSnapshot } from "@/lib/quiz/resumeSnapshot";
+import { clearQuizResumeSnapshotForSession, syncQuizResumeSnapshot } from "@/lib/quiz/resumeSnapshot";
 
 // Samme type som limitations, men bruker engineq_session
 
@@ -48,16 +48,10 @@ export default function EngineQuestionPage() {
   function updateResume(idxOverride?: number) {
     const s = loadSession();
     if (!s) return;
-    writeQuizResumeSnapshot({
-      section: SECTION_ID,
-      variantId: activeVariant.id,
-      amountToken: String(s.amountToken ?? "all"),
-      items: s.items,
-      idx: idxOverride != null ? idxOverride : idx,
-      answers: s.answers,
-      flags: s.flags,
-      startedAt: s.createdAt,
-    });
+	  syncQuizResumeSnapshot(activeVariant.id, SECTION_ID, idxOverride != null ? idxOverride : idx, {
+	    ...s,
+	    amountToken: String(s.amountToken ?? "all"),
+	  });
   }
 
   const { variant: activeVariant } = useActiveModelVariant();
@@ -116,7 +110,9 @@ export default function EngineQuestionPage() {
 
   function next() {
     if (idx + 1 >= total) {
-      clearQuizResumeSnapshot(activeVariant.id, SECTION_ID, loadSession()?.amountToken ?? "all");
+	    clearQuizResumeSnapshotForSession(activeVariant.id, SECTION_ID, {
+	      amountToken: String(loadSession()?.amountToken ?? "all"),
+	    });
       router.push("/engine-systems-quiz/result");
     } else {
       updateResume(idx + 1);

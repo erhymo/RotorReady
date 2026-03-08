@@ -6,7 +6,7 @@ import { reportFlag, type FlagPayload } from "@/lib/flags";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 import { modelScopedKey } from "@/lib/models/storage";
 import { isEditableKeyboardTarget } from "@/lib/isEditableKeyboardTarget";
-import { clearQuizResumeSnapshot, writeQuizResumeSnapshot } from "@/lib/quiz/resumeSnapshot";
+import { clearQuizResumeSnapshotForSession, syncQuizResumeSnapshot } from "@/lib/quiz/resumeSnapshot";
 import FlagReasonDialog from "@/components/FlagReasonDialog";
 
 type Item = {
@@ -74,16 +74,10 @@ export default function H125QuestionPage() {
     const raw = sessionStorage.getItem(key);
     if (!raw) return;
     const s = JSON.parse(raw) as Session;
-    writeQuizResumeSnapshot({
-      section,
-      variantId: activeVariant.id,
-      amountToken: String(s.amountToken ?? "all"),
-      items: s.items,
-      idx: idxOverride != null ? idxOverride : index,
-      answers: s.answers,
-      flags: s.flags,
-      startedAt: s.createdAt,
-    });
+	  syncQuizResumeSnapshot(activeVariant.id, section, idxOverride != null ? idxOverride : index, {
+	    ...s,
+	    amountToken: String(s.amountToken ?? "all"),
+	  });
   }
 
   function choose(i: number) {
@@ -120,7 +114,9 @@ export default function H125QuestionPage() {
 
   function next() {
     if (index + 1 >= total) {
-      clearQuizResumeSnapshot(activeVariant.id, section, session?.amountToken ?? "all");
+	    clearQuizResumeSnapshotForSession(activeVariant.id, section, {
+	      amountToken: String(session?.amountToken ?? "all"),
+	    });
       router.push(`/quiz/${encodeURIComponent(section)}/h125/result`);
     } else {
       updateResume(index + 1);

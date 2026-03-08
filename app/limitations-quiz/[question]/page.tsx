@@ -5,7 +5,7 @@ import TopBarBackButton from "@/components/TopBarBackButton";
 import Link from "next/link";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 import { isEditableKeyboardTarget } from "@/lib/isEditableKeyboardTarget";
-import { clearQuizResumeSnapshot, writeQuizResumeSnapshot } from "@/lib/quiz/resumeSnapshot";
+import { clearQuizResumeSnapshotForSession, syncQuizResumeSnapshot } from "@/lib/quiz/resumeSnapshot";
 
 import { reportFlag, type FlagPayload } from "@/lib/flags";
 import FlagReasonDialog from "@/components/FlagReasonDialog";
@@ -39,26 +39,6 @@ function loadSession(): Session | null {
 }
 function saveSession(s: Session) { sessionStorage.setItem("limq_session", JSON.stringify(s)); }
 
-function updateResumeSnapshot(variantId: string, idx: number, s: Session) {
-  if (!s || !Array.isArray(s.items) || !s.items.length) return;
-  const amountToken = s.amountToken;
-  if (!amountToken) return;
-  writeQuizResumeSnapshot({
-    section: SECTION_ID,
-    variantId,
-    amountToken,
-    items: s.items,
-    idx,
-    answers: s.answers,
-    flags: s.flags,
-    startedAt: s.createdAt,
-  });
-}
-
-function clearResumeSnapshot(variantId: string, s: Session | null) {
-  clearQuizResumeSnapshot(variantId, SECTION_ID, s?.amountToken);
-}
-
 
 
 export default function QuestionPage() {
@@ -81,7 +61,7 @@ export default function QuestionPage() {
     if (idx >= s.items.length) { router.replace("/limitations-quiz/result"); return; }
     setSession(s);
     setSelected(s.answers[idx] ?? null);
-    updateResumeSnapshot(activeVariant.id, idx, s);
+    syncQuizResumeSnapshot(activeVariant.id, SECTION_ID, idx, s);
   }, [idx]);
 
   function choose(i: number) {
@@ -89,7 +69,7 @@ export default function QuestionPage() {
     const s = loadSession(); if (!s) return;
     s.answers[idx] = i;
     saveSession(s); setSession(s); setSelected(i);
-    updateResumeSnapshot(activeVariant.id, idx, s);
+    syncQuizResumeSnapshot(activeVariant.id, SECTION_ID, idx, s);
   }
 
   function toggleFlag() {
@@ -99,7 +79,7 @@ export default function QuestionPage() {
     s.flags[idx] = !s.flags[idx];
     const nowFlagged = s.flags[idx];
     saveSession(s); setSession({ ...s });
-    updateResumeSnapshot(activeVariant.id, idx, s);
+    syncQuizResumeSnapshot(activeVariant.id, SECTION_ID, idx, s);
     if (nowFlagged) {
       const basePayload: FlagPayload = {
         section: s.section,
@@ -126,10 +106,10 @@ export default function QuestionPage() {
       return;
     }
     if (idx + 1 >= total) {
-      clearResumeSnapshot(activeVariant.id, s);
+      clearQuizResumeSnapshotForSession(activeVariant.id, SECTION_ID, s);
       router.push("/limitations-quiz/result");
     } else {
-      updateResumeSnapshot(activeVariant.id, idx + 1, s);
+      syncQuizResumeSnapshot(activeVariant.id, SECTION_ID, idx + 1, s);
       router.push(`/limitations-quiz/${idx + 2}`);
     }
   }
@@ -142,7 +122,7 @@ export default function QuestionPage() {
     }
     if (idx > 0) {
       const targetIdx = idx - 1;
-      updateResumeSnapshot(activeVariant.id, targetIdx, s);
+      syncQuizResumeSnapshot(activeVariant.id, SECTION_ID, targetIdx, s);
       router.push(`/limitations-quiz/${targetIdx + 1}`);
     }
   }

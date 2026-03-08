@@ -2,6 +2,7 @@
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 
+import { buildInitialQuizResumeSession } from "@/lib/quiz/resumeSnapshot";
 import { saveResult } from "@/lib/sync/results";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 import { modelScopedKey } from "@/lib/models/storage";
@@ -73,14 +74,11 @@ export default function AvionicsResultPage() {
 
     if (wrongIdx.length) {
       const items = wrongIdx.map((index) => session.items[index]);
-      const answers = wrongIdx.map(() => null as number | null);
-      const flags = wrongIdx.map(() => false);
       const wrongSession: Session = {
         section: session.section,
+        ...buildInitialQuizResumeSession(items),
         createdAt: new Date().toISOString(),
-        items,
-        answers,
-        flags,
+        answers: Array(items.length).fill(null),
       };
       localStorage.setItem(scopedKey, JSON.stringify(wrongSession));
       if (activeVariant.id === "AW169") {

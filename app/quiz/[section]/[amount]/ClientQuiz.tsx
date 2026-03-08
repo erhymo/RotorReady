@@ -7,7 +7,7 @@ import { useActiveModelVariant } from "@/lib/models/hooks";
 import { modelScopedKey } from "@/lib/models/storage";
 import { reportFlag, type FlagPayload } from "@/lib/flags";
 import { isEditableKeyboardTarget } from "@/lib/isEditableKeyboardTarget";
-import { clearQuizResumeSnapshot, writeQuizResumeSnapshot } from "@/lib/quiz/resumeSnapshot";
+import { buildInitialQuizResumeSession, clearQuizResumeSnapshot, writeQuizResumeSnapshot } from "@/lib/quiz/resumeSnapshot";
 import FlagReasonDialog from "@/components/FlagReasonDialog";
 
 export type QuizItem = {
@@ -150,9 +150,12 @@ export default function ClientQuiz({ section, initial, resumeKey, amountToken, i
       const storageKey = `${modelScopedKey("rr_progress_last_wrong", activeVariant.id)}:${normalized}`;
       if (wrongIdx.length) {
         const items = wrongIdx.map((i) => initial[i]);
-        const wAnswers = wrongIdx.map(() => null as number | null);
-        const wFlags = wrongIdx.map(() => false);
-        const wrongSession = { section, createdAt: new Date().toISOString(), items, answers: wAnswers, flags: wFlags };
+        const wrongSession = {
+          section,
+          ...buildInitialQuizResumeSession(items),
+          createdAt: new Date().toISOString(),
+          answers: Array(items.length).fill(null),
+        };
         localStorage.setItem(storageKey, JSON.stringify(wrongSession));
       } else {
         localStorage.removeItem(storageKey);

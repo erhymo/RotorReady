@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
 import { modelScopedKey } from "@/lib/models/storage";
 import { useActiveModelVariant } from "@/lib/models/hooks";
-import { clearQuizResumeSnapshot } from "@/lib/quiz/resumeSnapshot";
+import { buildInitialQuizResumeSession, clearQuizResumeSnapshot } from "@/lib/quiz/resumeSnapshot";
 import TopBarBackButton from "@/components/TopBarBackButton";
 
 export default function H125ResultPage() {
@@ -41,9 +41,12 @@ export default function H125ResultPage() {
       const storageKey = `${prefix}:${normalized}`;
       if (wrongIdx.length) {
         const items = wrongIdx.map((i) => s.items[i]);
-        const answers = wrongIdx.map(() => null as number | null);
-        const flags = wrongIdx.map(() => false);
-        const wrongSession = { section: normalized, createdAt: new Date().toISOString(), items, answers, flags };
+        const wrongSession = {
+          section: normalized,
+          ...buildInitialQuizResumeSession(items),
+          createdAt: new Date().toISOString(),
+          answers: Array(items.length).fill(null),
+        };
         localStorage.setItem(storageKey, JSON.stringify(wrongSession));
         // Maintain rolling history of last 10 wrong sessions
         const histKey = `${modelScopedKey("rr_wrong_history", activeVariant.id)}:${normalized}`;

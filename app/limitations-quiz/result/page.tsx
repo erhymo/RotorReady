@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { buildInitialQuizResumeSession } from "@/lib/quiz/resumeSnapshot";
 import { saveResult } from "@/lib/sync/results";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 import { modelScopedKey } from "@/lib/models/storage";
@@ -59,12 +60,11 @@ export default function ResultPage() {
 
     if (wrongIdx.length) {
       const items = wrongIdx.map(i => s.items[i]);
-      const answers = wrongIdx.map(() => null as number | null);
-      const flags = wrongIdx.map(() => false);
       const wrongSession: Session = {
         section: s.section,
+        ...buildInitialQuizResumeSession(items),
         createdAt: new Date().toISOString(),
-        items, answers, flags
+        answers: Array(items.length).fill(null),
       };
       // Store single last-wrong
       localStorage.setItem(storageKey, JSON.stringify(wrongSession));
@@ -117,9 +117,12 @@ export default function ResultPage() {
           });
           if (!wrongIdx.length) { alert("No wrong answers in this round."); return; }
           const items = wrongIdx.map(i => s.items[i]);
-          const answers = wrongIdx.map(() => null as number | null);
-          const flags = wrongIdx.map(() => false);
-          const limSession = { section: s.section, createdAt: new Date().toISOString(), items, answers, flags };
+          const limSession = {
+            section: s.section,
+            ...buildInitialQuizResumeSession(items),
+            createdAt: new Date().toISOString(),
+            answers: Array(items.length).fill(null),
+          };
           sessionStorage.setItem("limq_session", JSON.stringify(limSession));
           router.push("/limitations-quiz/1");
         }} className="px-4 py-2 rounded-lg bg-emerald-600 text-white">Practice wrong answers only</button>

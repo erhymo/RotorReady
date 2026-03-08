@@ -4,7 +4,7 @@ import * as React from "react";
 import { useRouter } from "next/navigation";
 import { loadAllQuestions } from "@/lib/loadAllQuestions";
 import { useActiveModelVariant } from "@/lib/models/hooks";
-import { modelScopedKey } from "@/lib/models/storage";
+import { clearLimitationsWrongOnlyRawStorage, loadLimitationsWrongOnlySession } from "@/lib/quiz/limitationsWrongOnly";
 import { buildInitialQuizResumeSession, buildQuizResumeSession, clearQuizResumeSnapshot, findLatestQuizResumeInfo, getQuizResumeStorageKey, readQuizResumeSnapshot, writeQuizResumeSnapshot } from "@/lib/quiz/resumeSnapshot";
 
 import TopBarBackButton from "@/components/TopBarBackButton";
@@ -185,51 +185,14 @@ export default function LimitationsStart() {
 
 
   function startWrongOnly() {
-    const lowerKey = `${modelScopedKey("rr_progress_last_wrong", activeVariant.id)}:limitations`;
-    const upperKey = `${modelScopedKey("rr_progress_last_wrong", activeVariant.id)}:LIMITATIONS`;
-    const histKey = `${modelScopedKey("rr_wrong_history", activeVariant.id)}:limitations`;
-
-    // Prefer aggregated last-10 history if present
-    const rawHist = localStorage.getItem(histKey);
-    let combinedItems: any[] | null = null;
     try {
-      const arr = rawHist ? JSON.parse(rawHist) : null;
-      if (Array.isArray(arr) && arr.length) {
-        const out: Record<string, any> = {};
-        for (const sess of arr.slice(-10)) {
-          if (Array.isArray(sess?.items)) {
-            for (const it of sess.items) {
-              if (it?.id && !out[it.id]) out[it.id] = it;
-            }
-          }
-        }
-        combinedItems = Object.values(out);
-      }
-    } catch {}
-
-    const lower = localStorage.getItem(lowerKey) || (activeVariant.id === "AW169" ? localStorage.getItem("rr_progress_last_wrong:limitations") : null);
-    const upper = localStorage.getItem(upperKey) || (activeVariant.id === "AW169" ? localStorage.getItem("rr_progress_last_wrong:LIMITATIONS") : null);
-    const raw = lower || upper;
-
-    if (!combinedItems && !raw) { alert("No wrong-answer set available. Complete a quiz first."); return; }
-
-    try {
-      const data = combinedItems
-        ? {
-            section: "limitations",
-            ...buildInitialQuizResumeSession(combinedItems),
-          }
-        : JSON.parse(raw!);
-      sessionStorage.setItem("limq_session", JSON.stringify(data));
+      const session = loadLimitationsWrongOnlySession<QuizItem>(activeVariant.id);
+      if (!session) { alert("No wrong-answer set available. Complete a quiz first."); return; }
+      sessionStorage.setItem("limq_session", JSON.stringify(session));
       router.push("/limitations-quiz/1");
     } catch {
       alert("Could not load saved incorrect set. Delete and try again.");
-      if (lower) localStorage.removeItem(lowerKey);
-      if (upper) localStorage.removeItem(upperKey);
-      if (activeVariant.id === "AW169") {
-        localStorage.removeItem("rr_progress_last_wrong:limitations");
-        localStorage.removeItem("rr_progress_last_wrong:LIMITATIONS");
-      }
+      clearLimitationsWrongOnlyRawStorage(activeVariant.id);
     }
   }
 

@@ -3,7 +3,8 @@ import * as React from "react";
 import { useRouter } from "next/navigation";
 import TopBarBackButton from "@/components/TopBarBackButton";
 import { useActiveModelVariant } from "@/lib/models/hooks";
-import { clearQuizResumeSnapshot } from "@/lib/quiz/resumeSnapshot";
+import { modelScopedKey } from "@/lib/models/storage";
+import { buildInitialQuizResumeSession, clearQuizResumeSnapshot } from "@/lib/quiz/resumeSnapshot";
 
 export default function EngineQuizResult() {
   const router = useRouter();
@@ -19,6 +20,36 @@ export default function EngineQuizResult() {
       clearQuizResumeSnapshot(activeVariant.id, "engine-systems", String(s?.amountToken ?? "all"));
     } catch {}
   }, [router, activeVariant.id]);
+
+  React.useEffect(() => {
+    if (!session) return;
+
+    const wrongIdx = session.answers
+      .map((answer: number | null, index: number) => (answer != null && session.items[index].answer.includes(answer) ? -1 : index))
+      .filter((index: number) => index >= 0);
+
+    const sectionKey = "engine-systems";
+    const scopedKey = `${modelScopedKey("rr_progress_last_wrong", activeVariant.id)}:${sectionKey}`;
+
+    if (wrongIdx.length) {
+      const items = wrongIdx.map((index: number) => session.items[index]);
+      const wrongSession = {
+        section: session.section,
+        ...buildInitialQuizResumeSession(items),
+        createdAt: new Date().toISOString(),
+        answers: Array(items.length).fill(null),
+      };
+      localStorage.setItem(scopedKey, JSON.stringify(wrongSession));
+      if (activeVariant.id === "AW169") {
+        localStorage.setItem(`rr_progress_last_wrong:${sectionKey}`, JSON.stringify(wrongSession));
+      }
+    } else {
+      localStorage.removeItem(scopedKey);
+      if (activeVariant.id === "AW169") {
+        localStorage.removeItem(`rr_progress_last_wrong:${sectionKey}`);
+      }
+    }
+  }, [session, activeVariant.id]);
 
 	if (!session) return <div className="max-w-xl mx-auto p-4 dark:text-zinc-100">Loading…</div>;
 

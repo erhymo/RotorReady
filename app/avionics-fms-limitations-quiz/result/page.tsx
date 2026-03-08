@@ -35,12 +35,8 @@ function loadSession(): Session | null {
 }
 
 export default function AvionicsResultPage() {
-  const [session, setSession] = useState<Session | null>(null);
+  const [session] = useState<Session | null>(() => loadSession());
   const { variant: activeVariant } = useActiveModelVariant();
-
-  useEffect(() => {
-    setSession(loadSession());
-  }, []);
 
   const { total, correct, wrongIdx } = useMemo(() => {
     if (!session) return { total: 0, correct: 0, wrongIdx: [] as number[] };

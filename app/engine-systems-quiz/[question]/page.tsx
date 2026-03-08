@@ -8,10 +8,11 @@ import Link from "next/link";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 import FlagReasonDialog from "@/components/FlagReasonDialog";
 import { isEditableKeyboardTarget } from "@/lib/isEditableKeyboardTarget";
-
-import { modelScopedKey } from "@/lib/models/storage";
+import { clearQuizResumeSnapshot, writeQuizResumeSnapshot } from "@/lib/quiz/resumeSnapshot";
 
 // Samme type som limitations, men bruker engineq_session
+
+const SECTION_ID = "engine-systems" as const;
 
 type Item = {
   id: string;
@@ -25,7 +26,7 @@ type Item = {
   printedPage?: number;
   __file?: string;
 };
-type Session = { section: string; createdAt: string; items: Item[]; answers: Array<number|null>; flags: boolean[]; error?: string };
+type Session = { section: string; createdAt: string; items: Item[]; answers: Array<number|null>; flags: boolean[]; amountToken?: string; error?: string };
 
 function loadSession(): Session | null {
   try { const raw = sessionStorage.getItem("engineq_session"); return raw ? JSON.parse(raw) as Session : null; } catch { return null; }
@@ -44,26 +45,19 @@ export default function EngineQuestionPage() {
 
   const [copied, setCopied] = React.useState(false);
 
-  function resumeKeyFor(amountToken: string) {
-    return `${modelScopedKey("quiz:resume", activeVariant.id)}:engine-systems:${amountToken}`;
-  }
   function updateResume(idxOverride?: number) {
-    try {
-      const amt = String(((loadSession() as any)?.amountToken ?? "all"));
-      const s = loadSession(); if (!s) return;
-      const snapshot = {
-        section: "engine-systems",
-        variantId: activeVariant.id,
-        amount: amt,
-        items: s.items,
-        idx: idxOverride != null ? idxOverride : idx,
-        answers: s.answers.map((a) => (a == null ? undefined : Number(a))),
-        flags: s.flags,
-        startedAt: Date.now(),
-        updatedAt: Date.now(),
-      };
-      localStorage.setItem(resumeKeyFor(amt), JSON.stringify(snapshot));
-    } catch {}
+    const s = loadSession();
+    if (!s) return;
+    writeQuizResumeSnapshot({
+      section: SECTION_ID,
+      variantId: activeVariant.id,
+      amountToken: String(s.amountToken ?? "all"),
+      items: s.items,
+      idx: idxOverride != null ? idxOverride : idx,
+      answers: s.answers,
+      flags: s.flags,
+      startedAt: s.createdAt,
+    });
   }
 
   const { variant: activeVariant } = useActiveModelVariant();
@@ -78,8 +72,64 @@ export default function EngineQuestionPage() {
     if (idx >= s.items.length) { router.replace("/engine-systems-quiz/result"); return; }
     setSession(s);
     setSelected(s.answers[idx] ?? null);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [idx]);
+
+  function choose(i: number) {
+    if (selected != null) return; // lock after first answer
+    const s = loadSession();
+    if (!s) return;
+    s.answers[idx] = i;
+    saveSession(s);
+    setSession(s);
+    setSelected(i);
+    updateResume();
+  }
+
+  function toggleFlag() {
+    const s = loadSession();
+    if (!s) return;
+    const currentItem = s.items[idx];
+    if (!currentItem) return;
+    s.flags[idx] = !s.flags[idx];
+    const nowFlagged = s.flags[idx];
+    saveSession(s);
+    setSession({ ...s });
+    updateResume();
+    if (nowFlagged) {
+      const basePayload: FlagPayload = {
+        section: s.section,
+        sectionId: "engine-systems",
+        questionId: currentItem.id,
+        dataSource: "all-questions",
+        dataFile: currentItem.__file || null,
+        snapshot: {
+          question: currentItem.question,
+          options: currentItem.options,
+          explanation: currentItem.explanation,
+          references: currentItem.references,
+          answer: currentItem.answer,
+        },
+      };
+      setPendingFlag(basePayload);
+    }
+  }
+
+  function next() {
+    if (idx + 1 >= total) {
+      clearQuizResumeSnapshot(activeVariant.id, SECTION_ID, loadSession()?.amountToken ?? "all");
+      router.push("/engine-systems-quiz/result");
+    } else {
+      updateResume(idx + 1);
+      router.push(`/engine-systems-quiz/${idx + 2}`);
+    }
+  }
+
+  function prev() {
+    if (idx > 0) {
+      updateResume(idx - 1);
+      router.push(`/engine-systems-quiz/${idx}`);
+    }
+  }
 
   React.useEffect(() => {
     function onKey(e: KeyboardEvent) {
@@ -110,56 +160,6 @@ export default function EngineQuestionPage() {
 
   const item = session.items[idx];
   const isCorrect = selected != null ? item.answer.includes(selected) : null;
-
-  function choose(i: number) {
-    if (selected != null) return; // lock after first answer
-    const s = loadSession(); if (!s) return;
-    s.answers[idx] = i;
-    saveSession(s); setSession(s); setSelected(i);
-    updateResume();
-  }
-  function toggleFlag() {
-    const s = loadSession(); if (!s) return;
-    s.flags[idx] = !s.flags[idx];
-    const nowFlagged = s.flags[idx];
-    saveSession(s); setSession({ ...s });
-    updateResume();
-    if (nowFlagged) {
-      const basePayload: FlagPayload = {
-        section: s.section,
-        sectionId: "engine-systems",
-        questionId: item.id,
-        dataSource: "all-questions",
-        dataFile: item.__file || null,
-        snapshot: {
-          question: item.question,
-          options: item.options,
-          explanation: item.explanation,
-          references: item.references,
-          answer: item.answer,
-        },
-      };
-      setPendingFlag(basePayload);
-    }
-  }
-  function next() {
-    if (idx + 1 >= total) {
-      try {
-        const amt = String(((loadSession() as any)?.amountToken ?? "all"));
-        localStorage.removeItem(resumeKeyFor(amt));
-      } catch {}
-      router.push("/engine-systems-quiz/result");
-    } else {
-      updateResume(idx + 1);
-      router.push(`/engine-systems-quiz/${idx + 2}`);
-    }
-  }
-  function prev() {
-    if (idx > 0) {
-      updateResume(idx - 1);
-      router.push(`/engine-systems-quiz/${idx}`);
-    }
-  }
 
   const progress = Math.round(((idx+1) / total) * 100);
 

@@ -3,8 +3,28 @@ export const runtime = "nodejs";
 
 import { adminDb } from "@/lib/firebase/admin";
 
-function keyOf(d: any) {
-  return [String(d.questionId || ""), String(d.section || ""), String(d.userId || ""), String(d.createdAt || "")] .join("|");
+type FlagDoc = {
+  id: string;
+  questionId?: unknown;
+  section?: unknown;
+  userId?: unknown;
+  createdAt?: unknown;
+};
+
+function keyOf(d: FlagDoc) {
+  return [String(d.questionId || ""), String(d.section || ""), String(d.userId || ""), String(d.createdAt || "")].join("|");
+}
+
+function createdAtMs(value: unknown): number {
+  if (value instanceof Date) return value.getTime();
+  if (typeof value === "string" || typeof value === "number") {
+    return new Date(value).getTime();
+  }
+  if (typeof value === "object" && value && "toDate" in value && typeof (value as { toDate?: unknown }).toDate === "function") {
+    const date = (value as { toDate: () => Date }).toDate();
+    return date.getTime();
+  }
+  return 0;
 }
 
 export async function GET(req: Request) {
@@ -12,9 +32,9 @@ export async function GET(req: Request) {
   const confirm = searchParams.get("confirm") === "1" || searchParams.get("confirm") === "true";
 
   const snap = await adminDb.collection("flags").get();
-  const docs = snap.docs.map((d) => ({ id: d.id, ...(d.data() || {}) }));
+  const docs: FlagDoc[] = snap.docs.map((d: any) => ({ id: d.id, ...(d.data() || {}) }));
 
-  const groups = new Map<string, any[]>();
+  const groups = new Map<string, FlagDoc[]>();
   for (const d of docs) {
     const k = keyOf(d);
     const arr = groups.get(k) || [];
@@ -28,8 +48,8 @@ export async function GET(req: Request) {
   const toDelete: string[] = [];
   for (const [, arr] of duplicateGroups) {
     const sorted = [...arr].sort((a, b) => {
-      const atA = new Date(a.createdAt || 0).getTime();
-      const atB = new Date(b.createdAt || 0).getTime();
+      const atA = createdAtMs(a.createdAt);
+      const atB = createdAtMs(b.createdAt);
       if (atA !== atB) return atA - atB; // oldest first
       return String(a.id).localeCompare(String(b.id));
     });

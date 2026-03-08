@@ -4,8 +4,8 @@ import { useParams, useRouter } from "next/navigation";
 import TopBarBackButton from "@/components/TopBarBackButton";
 import Link from "next/link";
 import { useActiveModelVariant } from "@/lib/models/hooks";
-import { modelScopedKey } from "@/lib/models/storage";
 import { isEditableKeyboardTarget } from "@/lib/isEditableKeyboardTarget";
+import { clearQuizResumeSnapshot, writeQuizResumeSnapshot } from "@/lib/quiz/resumeSnapshot";
 
 import { reportFlag, type FlagPayload } from "@/lib/flags";
 import FlagReasonDialog from "@/components/FlagReasonDialog";
@@ -43,29 +43,20 @@ function updateResumeSnapshot(variantId: string, idx: number, s: Session) {
   if (!s || !Array.isArray(s.items) || !s.items.length) return;
   const amountToken = s.amountToken;
   if (!amountToken) return;
-  try {
-    const resumeKey = `${modelScopedKey("quiz:resume", variantId)}:${SECTION_ID}:${amountToken}`;
-    const snapshot = {
-      section: SECTION_ID,
-      variantId,
-      amount: amountToken,
-      items: s.items,
-      idx,
-      answers: s.answers.map((a) => (a == null ? undefined : Number(a))),
-      flags: s.flags,
-      startedAt: s.createdAt ? Date.parse(s.createdAt) || Date.now() : Date.now(),
-      updatedAt: Date.now(),
-    };
-    localStorage.setItem(resumeKey, JSON.stringify(snapshot));
-  } catch {}
+  writeQuizResumeSnapshot({
+    section: SECTION_ID,
+    variantId,
+    amountToken,
+    items: s.items,
+    idx,
+    answers: s.answers,
+    flags: s.flags,
+    startedAt: s.createdAt,
+  });
 }
 
 function clearResumeSnapshot(variantId: string, s: Session | null) {
-  if (!s?.amountToken) return;
-  try {
-    const resumeKey = `${modelScopedKey("quiz:resume", variantId)}:${SECTION_ID}:${s.amountToken}`;
-    localStorage.removeItem(resumeKey);
-  } catch {}
+  clearQuizResumeSnapshot(variantId, SECTION_ID, s?.amountToken);
 }
 
 
@@ -91,8 +82,70 @@ export default function QuestionPage() {
     setSession(s);
     setSelected(s.answers[idx] ?? null);
     updateResumeSnapshot(activeVariant.id, idx, s);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [idx]);
+
+  function choose(i: number) {
+    if (selected != null) return; // lock after first answer
+    const s = loadSession(); if (!s) return;
+    s.answers[idx] = i;
+    saveSession(s); setSession(s); setSelected(i);
+    updateResumeSnapshot(activeVariant.id, idx, s);
+  }
+
+  function toggleFlag() {
+    const s = loadSession(); if (!s) return;
+    const currentItem = s.items[idx];
+    if (!currentItem) return;
+    s.flags[idx] = !s.flags[idx];
+    const nowFlagged = s.flags[idx];
+    saveSession(s); setSession({ ...s });
+    updateResumeSnapshot(activeVariant.id, idx, s);
+    if (nowFlagged) {
+      const basePayload: FlagPayload = {
+        section: s.section,
+        sectionId: "limitations",
+        questionId: currentItem.id,
+        dataSource: "all-questions",
+        dataFile: currentItem.__file || null,
+        snapshot: {
+          question: currentItem.question,
+          options: currentItem.options,
+          explanation: currentItem.explanation,
+          references: currentItem.references,
+          answer: currentItem.answer,
+        },
+      };
+      setPendingFlag(basePayload);
+    }
+  }
+
+  function next() {
+    const s = loadSession() || session;
+    if (!s) {
+      router.push("/limitations-quiz");
+      return;
+    }
+    if (idx + 1 >= total) {
+      clearResumeSnapshot(activeVariant.id, s);
+      router.push("/limitations-quiz/result");
+    } else {
+      updateResumeSnapshot(activeVariant.id, idx + 1, s);
+      router.push(`/limitations-quiz/${idx + 2}`);
+    }
+  }
+
+  function prev() {
+    const s = loadSession() || session;
+    if (!s) {
+      router.push("/limitations-quiz");
+      return;
+    }
+    if (idx > 0) {
+      const targetIdx = idx - 1;
+      updateResumeSnapshot(activeVariant.id, targetIdx, s);
+      router.push(`/limitations-quiz/${targetIdx + 1}`);
+    }
+  }
 
   React.useEffect(() => {
     function onKey(e: KeyboardEvent) {
@@ -116,64 +169,6 @@ export default function QuestionPage() {
 
   const item = session.items[idx];
   const isCorrect = selected != null ? item.answer.includes(selected) : null;
-
-  function choose(i: number) {
-    if (selected != null) return; // lock after first answer
-    const s = loadSession(); if (!s) return;
-    s.answers[idx] = i;
-    saveSession(s); setSession(s); setSelected(i);
-    updateResumeSnapshot(activeVariant.id, idx, s);
-  }
-  function toggleFlag() {
-    const s = loadSession(); if (!s) return;
-    s.flags[idx] = !s.flags[idx];
-    const nowFlagged = s.flags[idx];
-    saveSession(s); setSession({ ...s });
-    updateResumeSnapshot(activeVariant.id, idx, s);
-    if (nowFlagged) {
-      const basePayload: FlagPayload = {
-        section: s.section,
-        sectionId: "limitations",
-        questionId: item.id,
-        dataSource: "all-questions",
-        dataFile: item.__file || null,
-        snapshot: {
-          question: item.question,
-          options: item.options,
-          explanation: item.explanation,
-          references: item.references,
-          answer: item.answer,
-        },
-      };
-      setPendingFlag(basePayload);
-    }
-  }
-  function next() {
-    const s = loadSession() || session;
-    if (!s) {
-      router.push("/limitations-quiz");
-      return;
-    }
-    if (idx + 1 >= total) {
-      clearResumeSnapshot(activeVariant.id, s);
-      router.push("/limitations-quiz/result");
-    } else {
-      updateResumeSnapshot(activeVariant.id, idx + 1, s);
-      router.push(`/limitations-quiz/${idx + 2}`);
-    }
-  }
-  function prev() {
-    const s = loadSession() || session;
-    if (!s) {
-      router.push("/limitations-quiz");
-      return;
-    }
-    if (idx > 0) {
-      const targetIdx = idx - 1;
-      updateResumeSnapshot(activeVariant.id, targetIdx, s);
-      router.push(`/limitations-quiz/${targetIdx + 1}`);
-    }
-  }
 
   const progress = Math.round(((idx+1) / total) * 100);
 

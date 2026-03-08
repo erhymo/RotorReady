@@ -545,7 +545,7 @@ function H125AS350B3ProcedureInner() {
     );
   }
 
-  function Content() {
+  function renderContent() {
     return (
       <main className="mx-auto max-w-3xl p-6 space-y-6">
         <header className="rounded-xl border bg-white dark:bg-zinc-900 dark:border-zinc-700 p-4">
@@ -627,7 +627,7 @@ function H125AS350B3ProcedureInner() {
             }
           }}
         >
-          <Content />
+          {renderContent()}
         </div>
       </div>
     );
@@ -640,7 +640,7 @@ function H125AS350B3ProcedureInner() {
           <BackButton label="Home" to="/" />
         </div>
       </div>
-      <Content />
+      {renderContent()}
     </div>
   );
 }

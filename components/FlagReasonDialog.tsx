@@ -17,15 +17,16 @@ export default function FlagReasonDialog({ payload, onComplete }: Props) {
   }, [payload]);
 
   if (!payload) return null;
+  const currentPayload = payload;
 
   function handleSend() {
     const reason = text.trim();
-    const finalPayload: FlagPayload = reason ? { ...payload, reason } : payload;
+    const finalPayload: FlagPayload = reason ? { ...currentPayload, reason } : currentPayload;
     onComplete(finalPayload);
   }
 
   function handleSkip() {
-    onComplete(payload);
+    onComplete(currentPayload);
   }
 
   return (

@@ -4,8 +4,8 @@ import { useParams, useRouter } from "next/navigation";
 import TopBarBackButton from "@/components/TopBarBackButton";
 import Link from "next/link";
 import { useActiveModelVariant } from "@/lib/models/hooks";
-import { modelScopedKey } from "@/lib/models/storage";
 import { isEditableKeyboardTarget } from "@/lib/isEditableKeyboardTarget";
+import { clearQuizResumeSnapshot, writeQuizResumeSnapshot } from "@/lib/quiz/resumeSnapshot";
 
 import { reportFlag, type FlagPayload } from "@/lib/flags";
 import FlagReasonDialog from "@/components/FlagReasonDialog";
@@ -47,29 +47,20 @@ function updateResumeSnapshot(variantId: string, idx: number, s: Session) {
   if (!s || !Array.isArray(s.items) || !s.items.length) return;
   const amountToken = s.amountToken;
   if (!amountToken) return;
-  try {
-    const resumeKey = `${modelScopedKey("quiz:resume", variantId)}:${SECTION_ID}:${amountToken}`;
-    const snapshot = {
-      section: SECTION_ID,
-      variantId,
-      amount: amountToken,
-      items: s.items,
-      idx,
-      answers: s.answers.map((a) => (a == null ? undefined : Number(a))),
-      flags: s.flags,
-      startedAt: s.createdAt ? Date.parse(s.createdAt) || Date.now() : Date.now(),
-      updatedAt: Date.now(),
-    };
-    localStorage.setItem(resumeKey, JSON.stringify(snapshot));
-  } catch {}
+  writeQuizResumeSnapshot({
+    section: SECTION_ID,
+    variantId,
+    amountToken,
+    items: s.items,
+    idx,
+    answers: s.answers,
+    flags: s.flags,
+    startedAt: s.createdAt,
+  });
 }
 
 function clearResumeSnapshot(variantId: string, s: Session | null) {
-  if (!s?.amountToken) return;
-  try {
-    const resumeKey = `${modelScopedKey("quiz:resume", variantId)}:${SECTION_ID}:${s.amountToken}`;
-    localStorage.removeItem(resumeKey);
-  } catch {}
+  clearQuizResumeSnapshot(variantId, SECTION_ID, s?.amountToken);
 }
 
 
@@ -109,39 +100,7 @@ export default function AvionicsQuestionPage() {
     setSession(current);
     setSelected(current.answers[idx] ?? null);
     updateResumeSnapshot(activeVariant.id, idx, current);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [idx]);
-
-  React.useEffect(() => {
-    function onKey(event: KeyboardEvent) {
-      if (!session) return;
-      if (isEditableKeyboardTarget(event.target)) return;
-      if (["1", "2", "3", "4"].includes(event.key)) {
-        const pick = parseInt(event.key, 10) - 1;
-        choose(pick);
-      } else if (event.key === "ArrowRight") next();
-      else if (event.key === "ArrowLeft") prev();
-      else if (event.key === "Enter") next();
-      else if (event.key.toLowerCase() === "f") toggleFlag();
-    }
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  });
-
-  if (!session) return <div className="max-w-xl mx-auto p-4">Loading…</div>;
-  if ((session as any).error) {
-    console.error("Quiz error:", (session as any).error, session);
-    return (
-      <div className="max-w-xl mx-auto p-4 text-red-600">
-        <b>Error:</b> {(session as any).error}
-        <br />
-        <pre className="text-xs text-gray-500 mt-2">{JSON.stringify(session, null, 2)}</pre>
-      </div>
-    );
-  }
-
-  const item = session.items[idx];
-  const isCorrect = selected != null ? item.answer.includes(selected) : null;
 
   function choose(position: number) {
     if (selected != null) return; // lock after first answer
@@ -157,6 +116,8 @@ export default function AvionicsQuestionPage() {
   function toggleFlag() {
     const current = loadSession();
     if (!current) return;
+    const currentItem = current.items[idx];
+    if (!currentItem) return;
     current.flags[idx] = !current.flags[idx];
     const nowFlagged = current.flags[idx];
     saveSession(current);
@@ -166,15 +127,15 @@ export default function AvionicsQuestionPage() {
       const basePayload: FlagPayload = {
         section: current.section,
         sectionId: "avionics_fms_limitations",
-        questionId: item.id,
+        questionId: currentItem.id,
         dataSource: "sections",
         dataFile: "avionics_fms_limitations.json",
         snapshot: {
-          question: item.question,
-          options: item.options,
-          explanation: item.explanation,
-          references: item.references,
-          answer: item.answer,
+          question: currentItem.question,
+          options: currentItem.options,
+          explanation: currentItem.explanation,
+          references: currentItem.references,
+          answer: currentItem.answer,
         },
       };
       setPendingFlag(basePayload);
@@ -208,6 +169,37 @@ export default function AvionicsQuestionPage() {
       router.push(`/avionics-fms-limitations-quiz/${targetIdx + 1}`);
     }
   }
+
+  React.useEffect(() => {
+    function onKey(event: KeyboardEvent) {
+      if (!session) return;
+      if (isEditableKeyboardTarget(event.target)) return;
+      if (["1", "2", "3", "4"].includes(event.key)) {
+        const pick = parseInt(event.key, 10) - 1;
+        choose(pick);
+      } else if (event.key === "ArrowRight") next();
+      else if (event.key === "ArrowLeft") prev();
+      else if (event.key === "Enter") next();
+      else if (event.key.toLowerCase() === "f") toggleFlag();
+    }
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  });
+
+  if (!session) return <div className="max-w-xl mx-auto p-4">Loading…</div>;
+  if ((session as any).error) {
+    console.error("Quiz error:", (session as any).error, session);
+    return (
+      <div className="max-w-xl mx-auto p-4 text-red-600">
+        <b>Error:</b> {(session as any).error}
+        <br />
+        <pre className="text-xs text-gray-500 mt-2">{JSON.stringify(session, null, 2)}</pre>
+      </div>
+    );
+  }
+
+  const item = session.items[idx];
+  const isCorrect = selected != null ? item.answer.includes(selected) : null;
 
   const progress = total ? Math.round(((idx + 1) / total) * 100) : 0;
 

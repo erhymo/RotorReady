@@ -25,7 +25,6 @@ export default function PWARegister() {
         // In production we fail silently; console logging here would only
         // be visible in dev tools and is not critical for users.
         if (process.env.NODE_ENV !== "production") {
-          // eslint-disable-next-line no-console
           console.warn("PWA service worker registration failed", err);
         }
       }

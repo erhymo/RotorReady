@@ -56,6 +56,24 @@ export type SubscriptionOverview = {
   trialDays: number;
 };
 
+function toIsoFromUnix(seconds?: number | null): string | null {
+  return seconds ? new Date(seconds * 1000).toISOString() : null;
+}
+
+function getCurrentPeriodStart(subscription: Stripe.Subscription | Stripe.Response<Stripe.Subscription>): string | null {
+  return toIsoFromUnix(subscription.items.data[0]?.current_period_start ?? null);
+}
+
+function getCurrentPeriodEnd(subscription: Stripe.Subscription | Stripe.Response<Stripe.Subscription>): string | null {
+  return toIsoFromUnix(subscription.items.data[0]?.current_period_end ?? null);
+}
+
+function getInvoiceSubscriptionId(invoice: Stripe.Invoice): string | null {
+  const subscription = invoice.parent?.subscription_details?.subscription;
+  if (!subscription) return null;
+  return typeof subscription === "string" ? subscription : subscription.id;
+}
+
 export async function ensureStripeCustomer(params: EnsureCustomerParams): Promise<string> {
   const existing = await getStripeCustomerId(params.uid);
   if (existing) return existing;
@@ -126,9 +144,7 @@ export async function enableModelSubscription(
       await updateModelSubscription(uid, modelId, {
         status: subscription.status,
         cancelAtPeriodEnd: subscription.cancel_at_period_end ?? false,
-        currentPeriodEnd: subscription.current_period_end
-          ? new Date(subscription.current_period_end * 1000).toISOString()
-          : currentState.currentPeriodEnd ?? null,
+        currentPeriodEnd: getCurrentPeriodEnd(subscription) ?? currentState.currentPeriodEnd ?? null,
         subscriptionId: subscription.id,
       });
       return { type: "noop", reason: "Resumed" };
@@ -224,9 +240,7 @@ export async function disableModelSubscription({
   await updateModelSubscription(uid, modelId, {
     status: subscription.status,
     cancelAtPeriodEnd: subscription.cancel_at_period_end || false,
-    currentPeriodEnd: subscription.current_period_end
-      ? new Date(subscription.current_period_end * 1000).toISOString()
-      : state.currentPeriodEnd ?? null,
+    currentPeriodEnd: getCurrentPeriodEnd(subscription) ?? state.currentPeriodEnd ?? null,
     subscriptionId: subscription.id,
   });
 
@@ -291,12 +305,8 @@ export async function handleSubscriptionUpdated(subscription: Stripe.Subscriptio
     priceCurrency: priceItem?.currency ?? undefined,
     priceTier: tier,
     subscriptionItemId: subscription.items.data[0]?.id ?? undefined,
-    currentPeriodStart: subscription.current_period_start
-      ? new Date(subscription.current_period_start * 1000).toISOString()
-      : undefined,
-    currentPeriodEnd: subscription.current_period_end
-      ? new Date(subscription.current_period_end * 1000).toISOString()
-      : undefined,
+    currentPeriodStart: getCurrentPeriodStart(subscription) ?? undefined,
+    currentPeriodEnd: getCurrentPeriodEnd(subscription) ?? undefined,
     trialEndsAt: subscription.trial_end ? new Date(subscription.trial_end * 1000).toISOString() : null,
     cancelAtPeriodEnd: subscription.cancel_at_period_end ?? false,
     latestInvoiceId: typeof subscription.latest_invoice === "string" ? subscription.latest_invoice : subscription.latest_invoice?.id,
@@ -329,7 +339,7 @@ export async function handleSubscriptionDeleted(subscription: Stripe.Subscriptio
 }
 
 export async function handleInvoicePaymentFailed(invoice: Stripe.Invoice) {
-  const subscriptionId = typeof invoice.subscription === "string" ? invoice.subscription : invoice.subscription?.id;
+  const subscriptionId = getInvoiceSubscriptionId(invoice);
   if (!subscriptionId) return;
   const stripe = getStripeClient();
   const subscription = await stripe.subscriptions.retrieve(subscriptionId);
@@ -348,7 +358,7 @@ export async function handleInvoicePaymentFailed(invoice: Stripe.Invoice) {
 }
 
 export async function handleInvoicePaymentSucceeded(invoice: Stripe.Invoice) {
-  const subscriptionId = typeof invoice.subscription === "string" ? invoice.subscription : invoice.subscription?.id;
+  const subscriptionId = getInvoiceSubscriptionId(invoice);
   if (!subscriptionId) return;
   const stripe = getStripeClient();
   const subscription = await stripe.subscriptions.retrieve(subscriptionId);

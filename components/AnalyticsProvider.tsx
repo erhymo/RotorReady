@@ -1,6 +1,7 @@
 "use client";
 import { useEffect } from "react";
 import posthog from "posthog-js";
+import type { User } from "firebase/auth";
 import { auth } from "@/lib/firebase/client";
 
 async function sendHeartbeat() {
@@ -45,7 +46,7 @@ export default function AnalyticsProvider() {
     }
 
     if (typeof window !== "undefined" && auth) {
-      const unsub = auth.onAuthStateChanged((user) => {
+      const unsub = auth.onAuthStateChanged((user: User | null) => {
         if (user) {
           sendHeartbeat();
         }

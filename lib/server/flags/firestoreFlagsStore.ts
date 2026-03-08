@@ -37,7 +37,7 @@ export async function listFlags(): Promise<AdminFlag[]> {
   const docs = snap.docs;
 
   return Promise.all(
-    docs.map(async (d) => {
+    docs.map(async (d: any) => {
       const data = d.data() || {};
       const userId: string | undefined = data.userId || undefined;
       let email: string | undefined = data.email || undefined;

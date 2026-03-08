@@ -9,13 +9,12 @@ import Link from "next/link";
 
 export default function ClientUserMenu() {
   const [user, setUser] = useState<User | null>(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(() => Boolean(auth));
   const [showMenu, setShowMenu] = useState(false);
 
 
   useEffect(() => {
     if (!auth) {
-      setLoading(false);
       return;
     }
     const unsubscribe = onAuthStateChanged(auth, (user) => {

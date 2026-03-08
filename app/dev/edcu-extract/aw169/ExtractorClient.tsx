@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore - use legacy build namespace to avoid bundler type issues
 import * as pdfjsLib from "pdfjs-dist/build/pdf";
 
@@ -23,7 +22,6 @@ export default function ExtractorClient() {
 
   useEffect(() => {
     // Use CDN worker to simplify setup in dev-only tool
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     pdfjsLib.GlobalWorkerOptions.workerSrc =
       "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.6.82/pdf.worker.min.js";

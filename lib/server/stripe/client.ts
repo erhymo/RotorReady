@@ -13,7 +13,7 @@ export function getStripeClient() {
   }
 
   stripeClient = new Stripe(secret, {
-    apiVersion: "2024-06-20",
+    apiVersion: "2025-09-30.clover",
   });
 
   return stripeClient;

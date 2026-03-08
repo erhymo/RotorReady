@@ -115,7 +115,7 @@ export async function updateModelSubscription(
 
   const sanitizedUpdates = pruneUndefined(updates);
 
-  await adminDb.runTransaction(async (tx) => {
+  await adminDb.runTransaction(async (tx: any) => {
     const ref = userDoc(uid);
     const snap = await tx.get(ref);
     const data = (snap.exists ? snap.data() : {}) as UserSubscriptionDoc;
@@ -171,7 +171,7 @@ export async function startTrialForProduct(
   const now = new Date();
   const expiresAt = new Date(now.getTime() + durationDays * 24 * 60 * 60 * 1000);
 
-  await adminDb.runTransaction(async (tx) => {
+  await adminDb.runTransaction(async (tx: any) => {
     const ref = userDoc(uid);
     const snap = await tx.get(ref);
     const data = (snap.exists ? snap.data() : {}) as UserSubscriptionDoc;
@@ -221,7 +221,7 @@ export async function clearPendingCheckoutSession(
   modelId: RotorModelId,
   sessionId: string,
 ) {
-  await adminDb.runTransaction(async (tx) => {
+  await adminDb.runTransaction(async (tx: any) => {
     const ref = userDoc(uid);
     const snap = await tx.get(ref);
     if (!snap.exists) return;

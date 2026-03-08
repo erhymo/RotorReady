@@ -219,7 +219,8 @@ const data = {
   },
 } as const;
 
-type Group = { title: string; items: { label: string; lines: string[] }[] };
+type GroupItem = { label: string; lines: readonly string[] };
+type Group = { title: string; items: readonly GroupItem[] };
 
 function GroupCard({ title, items }: Group) {
   return (

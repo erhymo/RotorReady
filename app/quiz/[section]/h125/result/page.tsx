@@ -1,5 +1,6 @@
 "use client";
 import * as React from "react";
+import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
 import { modelScopedKey } from "@/lib/models/storage";
 import { useActiveModelVariant } from "@/lib/models/hooks";
@@ -21,7 +22,7 @@ export default function H125ResultPage() {
       const s = JSON.parse(raw) as { section: string; items: { answer: number[] }[]; answers: Array<number|null> };
       const total = s.items.length;
       const wrongIdx: number[] = [];
-      const correct = s.answers.reduce((acc, a, i) => {
+      const correct = s.answers.reduce<number>((acc, a, i) => {
         const ok = a != null && s.items[i].answer.includes(a);
         if (!ok) wrongIdx.push(i);
         return acc + (ok ? 1 : 0);
@@ -101,7 +102,7 @@ export default function H125ResultPage() {
             router.replace(`/quiz/${encodeURIComponent(section)}/h125/1`);
           } catch {}
         }} className="px-4 py-2 rounded-lg bg-emerald-600 text-white">Practice wrong answers only</button>
-        <a href="/" className="px-4 py-2 rounded-lg bg-emerald-600/80 text-white">Home</a>
+        <Link href="/" className="px-4 py-2 rounded-lg bg-emerald-600/80 text-white">Home</Link>
       </div>
       <div className="rounded-xl border-l-4 border-emerald-600 bg-emerald-50/40 dark:border-emerald-400 dark:bg-gradient-to-r dark:from-emerald-900 dark:to-emerald-800/80 p-4 shadow-lg dark:text-white">
         <div className="font-semibold mb-2">Next steps</div>

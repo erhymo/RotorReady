@@ -82,7 +82,6 @@ export default function RootLayout({
         </div>
         <main id="main-content">
           {/* Client-side route protection for selected paths */}
-          {/* eslint-disable-next-line @next/next/no-head-element */}
           {/* Wrapped in a client component to avoid server-side auth dependencies */}
           {/* NOTE: ProtectedRoutes only guards specific prefixes (quiz/offline/training/...) */}
           <ProtectedRoutes>{children}</ProtectedRoutes>

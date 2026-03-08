@@ -48,7 +48,7 @@ function EngineShutdownEmergencyInner() {
     } catch {}
   };
 
-  function Content() {
+  function renderContent() {
     return (
       <main className="mx-auto max-w-3xl p-6 space-y-6">
         <header className="rounded-xl border bg-white dark:bg-zinc-900 dark:border-zinc-700 p-4">
@@ -120,7 +120,7 @@ function EngineShutdownEmergencyInner() {
             }
           }}
         >
-          <Content />
+          {renderContent()}
         </div>
       </div>
     );
@@ -133,7 +133,7 @@ function EngineShutdownEmergencyInner() {
           <BackButton label="Home" to="/" />
         </div>
       </div>
-      <Content />
+      {renderContent()}
     </div>
   );
 }

@@ -747,7 +747,7 @@ export default function AccountPage() {
         <ul className="list-disc ml-5 text-sm text-slate-700 dark:text-zinc-300 space-y-1">
           <li>This app is under active development and may be updated frequently.</li>
           <li>RotorReady is an independent training application. It is not an officially approved trainer.</li>
-          <li>Always use the QRH/AFM and your operator's procedures as the primary source. Do not make operational decisions based on the app alone.</li>
+          <li>Always use the QRH/AFM and your operator&apos;s procedures as the primary source. Do not make operational decisions based on the app alone.</li>
         </ul>
       </section>
 

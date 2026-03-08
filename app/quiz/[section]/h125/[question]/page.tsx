@@ -6,6 +6,7 @@ import { reportFlag, type FlagPayload } from "@/lib/flags";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 import { modelScopedKey } from "@/lib/models/storage";
 import { isEditableKeyboardTarget } from "@/lib/isEditableKeyboardTarget";
+import { clearQuizResumeSnapshot, writeQuizResumeSnapshot } from "@/lib/quiz/resumeSnapshot";
 import FlagReasonDialog from "@/components/FlagReasonDialog";
 
 type Item = {
@@ -26,6 +27,7 @@ type Session = {
   items: Item[];
   answers: Array<number | null>;
   flags: boolean[];
+  amountToken?: string;
 };
 
 export default function H125QuestionPage() {
@@ -58,8 +60,80 @@ export default function H125QuestionPage() {
     } catch {
       router.replace(`/quiz/${encodeURIComponent(section)}`);
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [index, key]);
+
+  function persist(mutator: (s: Session) => void) {
+    const raw = sessionStorage.getItem(key); if (!raw) return;
+    const s = JSON.parse(raw) as Session;
+    mutator(s);
+    sessionStorage.setItem(key, JSON.stringify(s));
+    setSession({ ...s });
+  }
+
+  function updateResume(idxOverride?: number) {
+    const raw = sessionStorage.getItem(key);
+    if (!raw) return;
+    const s = JSON.parse(raw) as Session;
+    writeQuizResumeSnapshot({
+      section,
+      variantId: activeVariant.id,
+      amountToken: String(s.amountToken ?? "all"),
+      items: s.items,
+      idx: idxOverride != null ? idxOverride : index,
+      answers: s.answers,
+      flags: s.flags,
+      startedAt: s.createdAt,
+    });
+  }
+
+  function choose(i: number) {
+    if (selected != null) return; // lock after first answer
+    persist((s) => { s.answers[index] = i; });
+    setSelected(i);
+    updateResume();
+  }
+
+  function toggleFlag() {
+    const currentItem = session?.items[index];
+    if (!session || !currentItem) return;
+    persist((s) => { s.flags[index] = !s.flags[index]; });
+    updateResume();
+    const nowFlagged = !session.flags[index];
+    if (nowFlagged) {
+      const basePayload: FlagPayload = {
+        section: session.section,
+        sectionId: section,
+        questionId: currentItem.id,
+        dataSource: "sections",
+        dataFile: currentItem.__file || null,
+        snapshot: {
+          question: currentItem.question,
+          options: currentItem.options,
+          explanation: currentItem.explanation,
+          references: currentItem.references,
+          answer: currentItem.answer,
+        },
+      };
+      setPendingFlag(basePayload);
+    }
+  }
+
+  function next() {
+    if (index + 1 >= total) {
+      clearQuizResumeSnapshot(activeVariant.id, section, session?.amountToken ?? "all");
+      router.push(`/quiz/${encodeURIComponent(section)}/h125/result`);
+    } else {
+      updateResume(index + 1);
+      router.push(`/quiz/${encodeURIComponent(section)}/h125/${index + 2}`);
+    }
+  }
+
+  function prev() {
+    if (index > 0) {
+      updateResume(index - 1);
+      router.push(`/quiz/${encodeURIComponent(section)}/h125/${index}`);
+    }
+  }
 
   React.useEffect(() => {
     function onKey(e: KeyboardEvent) {
@@ -81,83 +155,6 @@ export default function H125QuestionPage() {
   const item = session.items[index];
   const isCorrect = selected != null ? item.answer.includes(selected) : null;
 
-  function persist(mutator: (s: Session) => void) {
-    const raw = sessionStorage.getItem(key); if (!raw) return;
-    const s = JSON.parse(raw) as Session;
-    mutator(s);
-    sessionStorage.setItem(key, JSON.stringify(s));
-    setSession({ ...s });
-  }
-
-  function updateResume(idxOverride?: number) {
-    try {
-      const amountToken = String(((session as any)?.amountToken ?? "all"));
-      const resumeKey = `${modelScopedKey("quiz:resume", activeVariant.id)}:${section}:${amountToken}`;
-      const raw = sessionStorage.getItem(key); if (!raw) return;
-      const s = JSON.parse(raw) as Session;
-      const snapshot = {
-        section,
-        variantId: activeVariant.id,
-        amount: amountToken,
-        items: s.items,
-        idx: idxOverride != null ? idxOverride : index,
-        answers: s.answers.map((a) => (a == null ? undefined : Number(a))),
-        flags: s.flags,
-        startedAt: Date.now(),
-        updatedAt: Date.now(),
-      };
-      localStorage.setItem(resumeKey, JSON.stringify(snapshot));
-    } catch {}
-  }
-
-
-  function choose(i: number) {
-    if (selected != null) return; // lock after first answer
-    persist((s) => { s.answers[index] = i; });
-    setSelected(i);
-    updateResume();
-  }
-  function toggleFlag() {
-    persist((s) => { s.flags[index] = !s.flags[index]; });
-    updateResume();
-    const nowFlagged = !session?.flags[index];
-    if (nowFlagged) {
-      const basePayload: FlagPayload = {
-        section: session!.section,
-        sectionId: section,
-        questionId: item.id,
-        dataSource: "sections",
-        dataFile: item.__file || null,
-        snapshot: {
-          question: item.question,
-          options: item.options,
-          explanation: item.explanation,
-          references: item.references,
-          answer: item.answer,
-        },
-      };
-      setPendingFlag(basePayload);
-    }
-  }
-  function next() {
-    if (index + 1 >= total) {
-      try {
-        const amt = String(((session as any)?.amountToken ?? "all"));
-        const resumeKey = `${modelScopedKey("quiz:resume", activeVariant.id)}:${section}:${amt}`;
-        localStorage.removeItem(resumeKey);
-      } catch {}
-      router.push(`/quiz/${encodeURIComponent(section)}/h125/result`);
-    } else {
-      updateResume(index + 1);
-      router.push(`/quiz/${encodeURIComponent(section)}/h125/${index + 2}`);
-    }
-  }
-  function prev() {
-    if (index > 0) {
-      updateResume(index - 1);
-      router.push(`/quiz/${encodeURIComponent(section)}/h125/${index}`);
-    }
-  }
 
   const progress = Math.round(((index + 1) / total) * 100);
 

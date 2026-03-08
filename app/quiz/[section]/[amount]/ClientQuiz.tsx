@@ -7,6 +7,7 @@ import { useActiveModelVariant } from "@/lib/models/hooks";
 import { modelScopedKey } from "@/lib/models/storage";
 import { reportFlag, type FlagPayload } from "@/lib/flags";
 import { isEditableKeyboardTarget } from "@/lib/isEditableKeyboardTarget";
+import { clearQuizResumeSnapshot, writeQuizResumeSnapshot } from "@/lib/quiz/resumeSnapshot";
 import FlagReasonDialog from "@/components/FlagReasonDialog";
 
 export type QuizItem = {
@@ -50,20 +51,15 @@ export default function ClientQuiz({ section, initial, resumeKey, amountToken, i
 
   // Persist resume snapshot
   function persistSnapshot(nextIdx: number = idx, nextAnswers: (number | undefined)[] = answers, nextFlags: boolean[] = flags) {
-    try {
-      const snapshot = {
-        section,
-        variantId: activeVariant.id,
-        amount: amountToken,
-        items: initial,
-        idx: nextIdx,
-        answers: nextAnswers,
-        flags: nextFlags,
-        startedAt: Date.now(),
-        updatedAt: Date.now(),
-      };
-      localStorage.setItem(resumeKey, JSON.stringify(snapshot));
-    } catch {}
+    writeQuizResumeSnapshot({
+      section,
+      variantId: activeVariant.id,
+      amountToken,
+      items: initial,
+      idx: nextIdx,
+      answers: nextAnswers,
+      flags: nextFlags,
+    });
   }
 
   // Create initial snapshot if missing
@@ -72,8 +68,33 @@ export default function ClientQuiz({ section, initial, resumeKey, amountToken, i
       const existing = localStorage.getItem(resumeKey);
       if (!existing) persistSnapshot(initialIdx, answers, flags);
     } catch {}
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [resumeKey]);
+
+  function toggleFlag() {
+    const next = [...flags];
+    next[idx] = !next[idx];
+    const nowFlagged = next[idx];
+    setFlags(next);
+    // persist progress
+    persistSnapshot(idx, answers, next);
+    if (nowFlagged && q) {
+      const basePayload: FlagPayload = {
+        section,
+        sectionId: q.sectionId || section,
+        questionId: q.id,
+        dataSource: section === "all" ? "all-questions" : "sections",
+        dataFile: (q as any).__file || null,
+        snapshot: {
+          question: q.question,
+          options: q.options,
+          explanation: q.explanation,
+          references: q.references,
+          answer: q.answer,
+        },
+      };
+      setPendingFlag(basePayload);
+    }
+  }
 
   React.useEffect(() => {
     function onKey(e: KeyboardEvent) {
@@ -101,7 +122,7 @@ export default function ClientQuiz({ section, initial, resumeKey, amountToken, i
       persistSnapshot(nextIdx, answers, flags);
 
     } else {
-      try { localStorage.removeItem(resumeKey); } catch {}
+      clearQuizResumeSnapshot(activeVariant.id, section, amountToken);
       setDone(true);
     }
   }
@@ -115,32 +136,6 @@ export default function ClientQuiz({ section, initial, resumeKey, amountToken, i
   function handleRestart() {
     router.replace(`/quiz/${encodeURIComponent(section)}`);
   }
-  function toggleFlag() {
-    const next = [...flags];
-    next[idx] = !next[idx];
-    const nowFlagged = next[idx];
-    setFlags(next);
-    // persist progress
-    persistSnapshot(idx, answers, next);
-    if (nowFlagged && q) {
-      const basePayload: FlagPayload = {
-        section,
-        sectionId: q.sectionId || section,
-        questionId: q.id,
-        dataSource: section === "all" ? "all-questions" : "sections",
-        dataFile: (q as any).__file || null,
-        snapshot: {
-          question: q.question,
-          options: q.options,
-          explanation: q.explanation,
-          references: q.references,
-          answer: q.answer,
-        },
-      };
-      setPendingFlag(basePayload);
-    }
-  }
-
   // Persist "last wrong" set so SectionPage → "Practice only incorrect" works for all sections
   React.useEffect(() => {
     if (!done) return;

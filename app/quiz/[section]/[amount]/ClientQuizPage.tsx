@@ -6,6 +6,7 @@ import { useActiveModelVariant } from "@/lib/models/hooks";
 import { loadSectionOffline } from "@/lib/offline";
 import { loadAllQuestions } from "@/lib/loadAllQuestions";
 import { modelScopedKey } from "@/lib/models/storage";
+import { getQuizResumeStorageKey, readQuizResumeSnapshot, writeQuizResumeSnapshot } from "@/lib/quiz/resumeSnapshot";
 
 type QuizItem = {
   id: string;
@@ -50,8 +51,8 @@ export default function ClientQuizPage({ section, amount }: { section: string; a
   const { variant: activeVariant, loading: variantLoading } = useActiveModelVariant();
   const isH125 = activeVariant.productId === "H125";
 
-  const amountTokenRender = (amount === null ? "all" : amount) as string | number;
-  const resumeKeyRender = `${modelScopedKey("quiz:resume", activeVariant.id)}:${section}:${amountTokenRender}`;
+  const amountTokenRender = String(amount === null ? "all" : amount);
+  const resumeKeyRender = getQuizResumeStorageKey(activeVariant.id, section, amountTokenRender);
 
   useEffect(() => {
     if (variantLoading) return;
@@ -59,23 +60,17 @@ export default function ClientQuizPage({ section, amount }: { section: string; a
 
     async function goH125(items: QuizItem[]) {
       const sessionKey = `${modelScopedKey("h125q_session", activeVariant.id)}:${section}`;
-      const amountToken = amount ?? "all";
+      const amountToken = String(amount ?? "all");
       // Initialize local resume snapshot
-      try {
-        const resumeKey = `${modelScopedKey("quiz:resume", activeVariant.id)}:${section}:${amountToken}`;
-        const snapshot = {
-          section,
-          variantId: activeVariant.id,
-          amount: amountToken,
-          items,
-          idx: 0,
-          answers: Array(items.length).fill(undefined),
-          flags: Array(items.length).fill(false),
-          startedAt: Date.now(),
-          updatedAt: Date.now(),
-        };
-        localStorage.setItem(resumeKey, JSON.stringify(snapshot));
-      } catch {}
+      writeQuizResumeSnapshot({
+        section,
+        variantId: activeVariant.id,
+        amountToken,
+        items,
+        idx: 0,
+        answers: Array(items.length).fill(undefined),
+        flags: Array(items.length).fill(false),
+      });
 
       const session = {
         section,
@@ -92,48 +87,27 @@ export default function ClientQuizPage({ section, amount }: { section: string; a
     async function load() {
       // 0a) Resume existing session if present (all sections, including "All")
       try {
-        const amountToken = amount ?? "all";
-        const resumeKey = `${modelScopedKey("quiz:resume", activeVariant.id)}:${section}:${amountToken}`;
-        const rawSnap = localStorage.getItem(resumeKey);
-        if (!cancelled && rawSnap) {
-          const snap = JSON.parse(rawSnap);
-          if (Array.isArray(snap.items) && snap.items.length) {
-            const items: QuizItem[] = snap.items;
-            if (isH125) {
-              const key = `${modelScopedKey("h125q_session", activeVariant.id)}:${section}`;
-              const session = {
-                section,
-                createdAt: new Date().toISOString(),
-                items,
-                answers: Array(items.length).fill(null) as Array<number | null>,
-                flags: Array(items.length).fill(false) as boolean[],
-                amountToken: String(amountToken),
-              } as any;
-              if (Array.isArray(snap.answers) && snap.answers.length === items.length) {
-                session.answers = snap.answers.map((a: any) => (a == null ? null : Number(a)));
-              }
-              if (Array.isArray(snap.flags) && snap.flags.length === items.length) {
-                session.flags = snap.flags as boolean[];
-              }
-              sessionStorage.setItem(key, JSON.stringify(session));
-              const idx = Math.min(Math.max(0, Number(snap.idx ?? 0)), items.length - 1);
-              router.replace(`/quiz/${encodeURIComponent(section)}/h125/${idx + 1}`);
-              return;
-            } else {
-              setQuestions(items);
-              const idx = Math.min(Math.max(0, Number(snap.idx ?? 0)), items.length - 1);
-              const answers: (number | undefined)[] =
-                Array.isArray(snap.answers) && snap.answers.length === items.length
-                  ? (snap.answers as any[]).map((a) => (a == null ? undefined : Number(a)))
-                  : Array(items.length).fill(undefined);
-              const flags =
-                Array.isArray(snap.flags) && snap.flags.length === items.length
-                  ? (snap.flags as boolean[])
-                  : Array(items.length).fill(false);
-              setResume({ idx, answers, flags });
-              setError(null);
-              return;
-            }
+        const amountToken = String(amount ?? "all");
+        const snap = readQuizResumeSnapshot<QuizItem>(activeVariant.id, section, amountToken);
+        if (!cancelled && snap) {
+          if (isH125) {
+            const key = `${modelScopedKey("h125q_session", activeVariant.id)}:${section}`;
+            const session = {
+              section,
+              createdAt: new Date().toISOString(),
+              items: snap.items,
+              answers: snap.answers.map((answer) => (answer == null ? null : answer)) as Array<number | null>,
+              flags: snap.flags,
+              amountToken: snap.amountToken,
+            } as any;
+            sessionStorage.setItem(key, JSON.stringify(session));
+            router.replace(`/quiz/${encodeURIComponent(section)}/h125/${snap.idx + 1}`);
+            return;
+          } else {
+            setQuestions(snap.items);
+            setResume({ idx: snap.idx, answers: snap.answers, flags: snap.flags });
+            setError(null);
+            return;
           }
         }
       } catch {}

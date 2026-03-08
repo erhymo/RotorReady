@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import { NO_AIRPORTS } from "@/lib/airports/no_icao";
@@ -227,12 +228,12 @@ export default function WeatherHubClient() {
             Nearest airport at the top (if location is available).
           </p>
         </div>
-        <a
+        <Link
           href="/weather/all"
           className="text-sm text-blue-600 hover:underline dark:text-blue-400"
         >
           All Airports
-        </a>
+        </Link>
       </header>
 
       {/* Nearest airport card (Norway only) */}

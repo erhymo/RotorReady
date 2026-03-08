@@ -4,32 +4,43 @@ import { useRouter } from "next/navigation";
 import { useMemo, useState, useEffect } from "react";
 import { compute } from "@/lib/calculations/aw169/ogeOeiHeadwind";
 
+const LS_KEY = "calc:aw169:oge-oei-headwind:v1";
+const TTL_MS = 20 * 60 * 1000; // 20 minutes
+
+function loadInitialInputs() {
+  const defaults = { paStr: "0", oatStr: "15", windStr: "0" };
+  if (typeof window === "undefined") {
+    return defaults;
+  }
+
+  try {
+    const raw = localStorage.getItem(LS_KEY);
+    if (!raw) {
+      return defaults;
+    }
+
+    const obj = JSON.parse(raw);
+    if (obj && typeof obj.savedAt === "number" && Date.now() - obj.savedAt < TTL_MS) {
+      return {
+        paStr: typeof obj.paStr === "string" ? obj.paStr : defaults.paStr,
+        oatStr: typeof obj.oatStr === "string" ? obj.oatStr : defaults.oatStr,
+        windStr: typeof obj.windStr === "string" ? obj.windStr : defaults.windStr,
+      };
+    }
+
+    localStorage.removeItem(LS_KEY);
+  } catch {}
+
+  return defaults;
+}
+
 export default function Page() {
-  const [paStr, setPaStr] = useState("0");
-  const [oatStr, setOatStr] = useState("15");
+  const [initialInputs] = useState(loadInitialInputs);
+  const [paStr, setPaStr] = useState(initialInputs.paStr);
+  const [oatStr, setOatStr] = useState(initialInputs.oatStr);
   const router = useRouter();
 
-  const [windStr, setWindStr] = useState("0");
-
-  const LS_KEY = "calc:aw169:oge-oei-headwind:v1";
-  const TTL_MS = 20 * 60 * 1000; // 20 minutes
-
-  // Restore from localStorage if fresh (< TTL)
-  useEffect(() => {
-    try {
-      const raw = localStorage.getItem(LS_KEY);
-      if (raw) {
-        const obj = JSON.parse(raw);
-        if (obj && typeof obj.savedAt === "number" && Date.now() - obj.savedAt < TTL_MS) {
-          if (typeof obj.paStr === "string") setPaStr(obj.paStr);
-          if (typeof obj.oatStr === "string") setOatStr(obj.oatStr);
-          if (typeof obj.windStr === "string") setWindStr(obj.windStr);
-        } else {
-          localStorage.removeItem(LS_KEY);
-        }
-      }
-    } catch {}
-  }, []);
+  const [windStr, setWindStr] = useState(initialInputs.windStr);
 
   // Persist on change
   useEffect(() => {

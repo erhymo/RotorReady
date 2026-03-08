@@ -54,7 +54,6 @@ export default function Page() {
     if (activeVariant.id !== VARIANT_ID) {
       try { setActiveVariant(VARIANT_ID); } catch {}
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeVariant.id]);
 
   useEffect(() => {

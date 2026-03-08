@@ -5,6 +5,7 @@ import { loadAllQuestions } from "@/lib/loadAllQuestions";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 import { modelScopedKey } from "@/lib/models/storage";
 import { isLoggedInAsync } from "@/lib/auth";
+import { clearQuizResumeSnapshot, findLatestQuizResumeInfo, getQuizResumeStorageKey, readQuizResumeSnapshot, writeQuizResumeSnapshot } from "@/lib/quiz/resumeSnapshot";
 
 import TopBarBackButton from "@/components/TopBarBackButton";
 
@@ -74,33 +75,7 @@ export default function EngineSystemsStart() {
   }, [activeVariant.id]);
 
   React.useEffect(() => {
-    // Detect resume snapshot
-    try {
-      const prefix = `${modelScopedKey("quiz:resume", activeVariant.id)}:engine-systems:`;
-      const matches: Array<{ key: string; snap: any }> = [];
-      for (let i = 0; i < localStorage.length; i++) {
-        const k = localStorage.key(i) || "";
-        if (!k.startsWith(prefix)) continue;
-        const raw = localStorage.getItem(k);
-        if (!raw) continue;
-        try {
-          const snap = JSON.parse(raw);
-          if (Array.isArray(snap?.items) && snap.items.length) {
-            matches.push({ key: k, snap });
-          }
-        } catch {}
-      }
-      if (matches.length) {
-        matches.sort((a, b) => Number(b.snap?.updatedAt || 0) - Number(a.snap?.updatedAt || 0));
-        const top = matches[0];
-        const amountToken = String(top.snap?.amount ?? top.key.substring(prefix.length));
-        const total = Array.isArray(top.snap?.items) ? top.snap.items.length : 0;
-        const idx = Math.min(Math.max(0, Number(top.snap?.idx ?? 0)), Math.max(0, total - 1));
-        setResumeInfo({ amountToken, idx, total });
-      } else {
-        setResumeInfo(null);
-      }
-    } catch {}
+    setResumeInfo(findLatestQuizResumeInfo(activeVariant.id, "engine-systems"));
   }, [activeVariant.id]);
 
 
@@ -150,21 +125,15 @@ export default function EngineSystemsStart() {
         amountToken,
       } as any;
       sessionStorage.setItem("engineq_session", JSON.stringify(session));
-      try {
-        const resumeKey = `${modelScopedKey("quiz:resume", activeVariant.id)}:engine-systems:${amountToken}`;
-        const snapshot = {
-          section: "engine-systems",
-          variantId: activeVariant.id,
-          amount: amountToken,
-          items: randomized,
-          idx: 0,
-          answers: Array(randomized.length).fill(undefined),
-          flags: Array(randomized.length).fill(false),
-          startedAt: Date.now(),
-          updatedAt: Date.now(),
-        };
-        localStorage.setItem(resumeKey, JSON.stringify(snapshot));
-      } catch {}
+      writeQuizResumeSnapshot({
+        section: "engine-systems",
+        variantId: activeVariant.id,
+        amountToken,
+        items: randomized,
+        idx: 0,
+        answers: Array(randomized.length).fill(undefined),
+        flags: Array(randomized.length).fill(false),
+      });
       router.push("/engine-systems-quiz/1");
     } catch(e:any) {
       setErr(e?.message || "Could not start quiz");
@@ -187,35 +156,25 @@ export default function EngineSystemsStart() {
   function handleResumeContinue() {
     if (!resumeInfo) return;
     try {
-      const key = `${modelScopedKey("quiz:resume", activeVariant.id)}:engine-systems:${resumeInfo.amountToken}`;
-      const raw = localStorage.getItem(key);
-      if (!raw) return;
-      const snap = JSON.parse(raw);
-      if (!Array.isArray(snap?.items) || !snap.items.length) return;
+      const snap = readQuizResumeSnapshot<any>(activeVariant.id, "engine-systems", resumeInfo.amountToken);
+      if (!snap) return;
       const session = {
         section: SECTION,
         createdAt: new Date().toISOString(),
         items: snap.items,
-        answers: Array(snap.items.length).fill(null) as Array<number|null>,
-        flags: Array(snap.items.length).fill(false) as boolean[],
-        amountToken: String(resumeInfo.amountToken),
+        answers: snap.answers.map((answer) => (answer == null ? null : answer)) as Array<number | null>,
+        flags: snap.flags,
+        amountToken: snap.amountToken,
       } as any;
-      if (Array.isArray(snap.answers) && snap.answers.length === snap.items.length) {
-        session.answers = snap.answers.map((a: any) => (a == null ? null : Number(a)));
-      }
-      if (Array.isArray(snap.flags) && snap.flags.length === snap.items.length) {
-        session.flags = snap.flags as boolean[];
-      }
       sessionStorage.setItem("engineq_session", JSON.stringify(session));
-      router.push(`/engine-systems-quiz/${resumeInfo.idx + 1}`);
+      router.push(`/engine-systems-quiz/${snap.idx + 1}`);
     } catch {}
   }
 
   function handleResumeReset() {
     if (!resumeInfo) return;
     try {
-      const key = `${modelScopedKey("quiz:resume", activeVariant.id)}:engine-systems:${resumeInfo.amountToken}`;
-      localStorage.removeItem(key);
+      clearQuizResumeSnapshot(activeVariant.id, "engine-systems", resumeInfo.amountToken);
     } catch {}
     setResumeInfo(null);
   }

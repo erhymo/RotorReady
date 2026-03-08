@@ -14,6 +14,12 @@ type SectionResponse = {
   sections?: Section[];
 };
 
+type LoadedSectionsState = {
+  modelId: string;
+  sections: Section[];
+  error: string | null;
+};
+
 const STATIC_QUIZ_TYPES = [
   { href: "/limitations-quiz", title: "Limitations" },
   { href: "/quiz/normal_procedures", title: "Normal Procedures" },
@@ -37,17 +43,16 @@ function resolveSectionRoute(sectionId: string): string {
 
 export default function QuizTypeSelectPage() {
   const { variant: activeVariant, loading: variantLoading } = useActiveModelVariant();
-  const [sections, setSections] = useState<Section[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [loggedIn, setLoggedIn] = useState<boolean | null>(null);
+  const [loadedSections, setLoadedSections] = useState<LoadedSectionsState | null>(null);
+  const [loggedIn, setLoggedIn] = useState<boolean | null>(() => (auth ? null : false));
 
   useEffect(() => {
-    if (!auth) { setLoggedIn(false); return; }
+    if (!auth) {
+      return;
+    }
     const unsub = onAuthStateChanged(auth, (user) => setLoggedIn(!!user));
     return () => { try { unsub(); } catch {} };
   }, []);
-
-  const [error, setError] = useState<string | null>(null);
 
   const dynamicVariant =
     !!activeVariant &&
@@ -55,19 +60,22 @@ export default function QuizTypeSelectPage() {
       activeVariant.id === "AW169" ||
       activeVariant.id === "R44_II");
 
+  const currentLoadedSections = loadedSections?.modelId === activeVariant.id ? loadedSections : null;
+  const sections = currentLoadedSections?.sections ?? [];
+  const error = currentLoadedSections?.error ?? null;
+
   useEffect(() => {
     if (!dynamicVariant || variantLoading) {
-      setSections([]);
-      setLoading(false);
-      setError(null);
       return;
     }
+
     let cancelled = false;
-    setLoading(true);
+    const modelId = activeVariant.id;
     const urls = [
-      `/model-data/${activeVariant.id}/index.json`,
+      `/model-data/${modelId}/index.json`,
       "/quiz-data/index.json",
     ];
+
     (async () => {
       for (const url of urls) {
         try {
@@ -76,8 +84,7 @@ export default function QuizTypeSelectPage() {
           const data: SectionResponse = await res.json();
           if (!Array.isArray(data.sections)) continue;
           if (!cancelled) {
-            setSections(data.sections);
-            setError(null);
+            setLoadedSections({ modelId, sections: data.sections, error: null });
             return;
           }
         } catch (err) {
@@ -85,17 +92,16 @@ export default function QuizTypeSelectPage() {
         }
       }
       if (!cancelled) {
-        setSections([]);
-        setError("No sections found for the selected model");
+        setLoadedSections({ modelId, sections: [], error: "No sections found for the selected model" });
       }
-    })().finally(() => {
-      if (!cancelled) setLoading(false);
-    });
+    })();
 
     return () => {
       cancelled = true;
     };
   }, [activeVariant.id, variantLoading, dynamicVariant]);
+
+  const pageLoading = dynamicVariant && (variantLoading || currentLoadedSections === null);
 
   if (!dynamicVariant) {
     return (
@@ -131,7 +137,7 @@ export default function QuizTypeSelectPage() {
     );
   }
 
-  if (loading) {
+  if (pageLoading) {
     return <div className="max-w-2xl mx-auto p-6">Loading sections …</div>;
   }
 

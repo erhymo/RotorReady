@@ -1,5 +1,3 @@
-import { Timestamp, FieldValue } from "firebase-admin/firestore";
-
 import { adminDb } from "@/lib/firebase/admin";
 
 export type ConversationMessage = {
@@ -20,6 +18,10 @@ export type Conversation = {
   unreadForUser: number;
 };
 
+type ConversationWithMessages = Conversation & {
+  messages: ConversationMessage[];
+};
+
 const COLLECTION = "conversations";
 
 function convDoc(userId: string) {
@@ -30,20 +32,26 @@ function messagesCollection(userId: string) {
   return convDoc(userId).collection("messages");
 }
 
-function toIso(timestamp: Timestamp | Date | string | null | undefined) {
+function toIso(timestamp: Date | string | { toDate: () => Date } | null | undefined) {
   if (!timestamp) return new Date().toISOString();
-  if (timestamp instanceof Timestamp) return timestamp.toDate().toISOString();
   if (timestamp instanceof Date) return timestamp.toISOString();
   if (typeof timestamp === "string") return timestamp;
+  if (typeof timestamp === "object" && typeof timestamp.toDate === "function") {
+    return timestamp.toDate().toISOString();
+  }
   return new Date().toISOString();
 }
 
-export async function getConversation(userId: string) {
+function readCounter(value: unknown): number {
+  return typeof value === "number" ? value : 0;
+}
+
+export async function getConversation(userId: string): Promise<ConversationWithMessages | null> {
   const doc = await convDoc(userId).get();
   if (!doc.exists) return null;
   const data = doc.data() as Conversation;
   const messagesSnap = await messagesCollection(userId).orderBy("createdAt", "asc").get();
-  const messages = messagesSnap.docs.map((d) => {
+  const messages = messagesSnap.docs.map((d: any) => {
     const msg = d.data();
     return {
       id: d.id,
@@ -67,7 +75,9 @@ export async function getConversation(userId: string) {
 
 export async function listConversations() {
   const snapshot = await adminDb.collection(COLLECTION).orderBy("updatedAt", "desc").get();
-  return Promise.all(snapshot.docs.map((doc) => getConversation(doc.id))).then((list) => list.filter(Boolean));
+  return Promise.all(snapshot.docs.map((doc: any) => getConversation(doc.id))).then((list) =>
+    list.filter((item): item is ConversationWithMessages => Boolean(item))
+  );
 }
 
 export async function upsertUserMessage({
@@ -82,7 +92,7 @@ export async function upsertUserMessage({
   const now = new Date().toISOString();
   const docRef = convDoc(userId);
 
-  await adminDb.runTransaction(async (tx) => {
+  await adminDb.runTransaction(async (tx: any) => {
     const snap = await tx.get(docRef);
     if (!snap.exists) {
       tx.set(docRef, {
@@ -97,7 +107,7 @@ export async function upsertUserMessage({
       tx.update(docRef, {
         userEmail: userEmail || snap.get("userEmail") || null,
         updatedAt: now,
-        unreadForAdmin: FieldValue.increment(1),
+        unreadForAdmin: readCounter(snap.get("unreadForAdmin")) + 1,
         unreadForUser: 0,
       });
     }
@@ -125,7 +135,7 @@ export async function upsertAdminMessage({
   const now = new Date().toISOString();
   const docRef = convDoc(userId);
 
-  await adminDb.runTransaction(async (tx) => {
+  await adminDb.runTransaction(async (tx: any) => {
     const snap = await tx.get(docRef);
     if (!snap.exists) {
       tx.set(docRef, {
@@ -140,7 +150,7 @@ export async function upsertAdminMessage({
       tx.update(docRef, {
         updatedAt: now,
         unreadForAdmin: 0,
-        unreadForUser: FieldValue.increment(1),
+        unreadForUser: readCounter(snap.get("unreadForUser")) + 1,
       });
     }
 
@@ -166,7 +176,7 @@ export async function markRead({
 }) {
   const docRef = convDoc(userId);
 
-  await adminDb.runTransaction(async (tx) => {
+  await adminDb.runTransaction(async (tx: any) => {
     const snap = await tx.get(docRef);
     if (!snap.exists) return;
     const updates: Record<string, unknown> = {
@@ -176,7 +186,7 @@ export async function markRead({
     if (target === "admin") {
       updates.unreadForAdmin = 0;
       const messagesSnap = await tx.get(messagesCollection(userId));
-      messagesSnap.docs.forEach((msg) => {
+      messagesSnap.docs.forEach((msg: any) => {
         if (!msg.get("readByAdmin")) {
           tx.update(msg.ref, { readByAdmin: true });
         }
@@ -184,7 +194,7 @@ export async function markRead({
     } else {
       updates.unreadForUser = 0;
       const messagesSnap = await tx.get(messagesCollection(userId));
-      messagesSnap.docs.forEach((msg) => {
+      messagesSnap.docs.forEach((msg: any) => {
         if (!msg.get("readByUser")) {
           tx.update(msg.ref, { readByUser: true });
         }

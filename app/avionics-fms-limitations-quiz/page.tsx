@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 import { modelScopedKey } from "@/lib/models/storage";
 import { isLoggedInAsync } from "@/lib/auth";
+import { clearQuizResumeSnapshot, findLatestQuizResumeInfo, getQuizResumeStorageKey, readQuizResumeSnapshot, writeQuizResumeSnapshot } from "@/lib/quiz/resumeSnapshot";
 
 import TopBarBackButton from "@/components/TopBarBackButton";
 
@@ -111,40 +112,8 @@ export default function AvionicsFmsQuizStart() {
 
   React.useEffect(() => {
     let cancelled = false;
-    try {
-      const prefix = `${modelScopedKey("quiz:resume", activeVariant.id)}:${SECTION_ID}:`;
-      const matches: { key: string; snap: any }[] = [];
-      if (typeof window !== "undefined" && window.localStorage) {
-        for (let i = 0; i < localStorage.length; i++) {
-          const key = localStorage.key(i);
-          if (!key || !key.startsWith(prefix)) continue;
-          const raw = localStorage.getItem(key);
-          if (!raw) continue;
-          let snap: any;
-          try {
-            snap = JSON.parse(raw);
-          } catch {
-            continue;
-          }
-          if (!Array.isArray(snap?.items) || !snap.items.length) continue;
-          matches.push({ key, snap });
-        }
-      }
-      if (!cancelled) {
-        if (matches.length) {
-          matches.sort((a, b) => Number(b.snap?.updatedAt || 0) - Number(a.snap?.updatedAt || 0));
-          const top = matches[0];
-          const amountToken = String(top.snap?.amount ?? top.key.substring(prefix.length));
-          const total = Array.isArray(top.snap?.items) ? top.snap.items.length : 0;
-          const idx = Math.min(Math.max(0, Number(top.snap?.idx ?? 0)), Math.max(0, total - 1));
-          setResumeInfo({ amountToken, idx, total });
-        } else {
-          setResumeInfo(null);
-        }
-      }
-    } catch {
-      if (!cancelled) setResumeInfo(null);
-    }
+    const latestResume = findLatestQuizResumeInfo(activeVariant.id, SECTION_ID);
+    if (!cancelled) setResumeInfo(latestResume);
     return () => { cancelled = true; };
   }, [activeVariant.id]);
 
@@ -221,21 +190,15 @@ export default function AvionicsFmsQuizStart() {
       };
       sessionStorage.setItem("avionics_session", JSON.stringify(session));
 
-      try {
-        const resumeKey = `${modelScopedKey("quiz:resume", activeVariant.id)}:${SECTION_ID}:${amountToken}`;
-        const snapshot = {
-          section: SECTION_ID,
-          variantId: activeVariant.id,
-          amount: amountToken,
-          items: randomized,
-          idx: 0,
-          answers: Array(randomized.length).fill(undefined),
-          flags: Array(randomized.length).fill(false),
-          startedAt: Date.now(),
-          updatedAt: Date.now(),
-        };
-        localStorage.setItem(resumeKey, JSON.stringify(snapshot));
-      } catch {}
+      writeQuizResumeSnapshot({
+        section: SECTION_ID,
+        variantId: activeVariant.id,
+        amountToken,
+        items: randomized,
+        idx: 0,
+        answers: Array(randomized.length).fill(undefined),
+        flags: Array(randomized.length).fill(false),
+      });
 
       router.push("/avionics-fms-limitations-quiz/1");
     } catch (error: any) {
@@ -277,35 +240,25 @@ export default function AvionicsFmsQuizStart() {
         router.push(`/paywall?from=${encodeURIComponent('/avionics-fms-limitations-quiz')}`);
         return;
       }
-      const key = `${modelScopedKey("quiz:resume", activeVariant.id)}:${SECTION_ID}:${resumeInfo.amountToken}`;
-      const raw = localStorage.getItem(key);
-      if (!raw) return;
-      const snap = JSON.parse(raw);
-      if (!Array.isArray(snap?.items) || !snap.items.length) return;
+      const snap = readQuizResumeSnapshot<QuizItem>(activeVariant.id, SECTION_ID, resumeInfo.amountToken);
+      if (!snap) return;
       const session = {
         section: SECTION,
         createdAt: new Date().toISOString(),
         items: snap.items,
-        answers: Array(snap.items.length).fill(null) as Array<number | null>,
-        flags: Array(snap.items.length).fill(false) as boolean[],
-        amountToken: String(resumeInfo.amountToken),
+        answers: snap.answers.map((answer) => (answer == null ? null : answer)) as Array<number | null>,
+        flags: snap.flags,
+        amountToken: snap.amountToken,
       };
-      if (Array.isArray(snap.answers) && snap.answers.length === snap.items.length) {
-        session.answers = snap.answers.map((a: any) => (a == null ? null : Number(a)));
-      }
-      if (Array.isArray(snap.flags) && snap.flags.length === snap.items.length) {
-        session.flags = snap.flags as boolean[];
-      }
       sessionStorage.setItem("avionics_session", JSON.stringify(session));
-      router.push(`/avionics-fms-limitations-quiz/${resumeInfo.idx + 1}`);
+      router.push(`/avionics-fms-limitations-quiz/${snap.idx + 1}`);
     } catch {}
   }
 
   function handleResumeReset() {
     if (!resumeInfo) return;
     try {
-      const key = `${modelScopedKey("quiz:resume", activeVariant.id)}:${SECTION_ID}:${resumeInfo.amountToken}`;
-      localStorage.removeItem(key);
+      clearQuizResumeSnapshot(activeVariant.id, SECTION_ID, resumeInfo.amountToken);
     } catch {}
     setResumeInfo(null);
   }

@@ -21,7 +21,7 @@ function ClearAreaTakeOffInner() {
   const compactList = !!plist && plist !== "0" && plist !== "false";
   const compact = compactCWP || compactList;
 
-  function Content() {
+  function renderContent() {
     const steps = [
       { left: "PARK BRAKE", right: <>Release. Confirm <span className="font-semibold bg-green-200 text-green-900 dark:bg-green-900/40 dark:text-green-200 px-1 rounded">PARK BRK ON</span> advisory not illuminated on CAS.</> },
       { left: "Pilot Altimeter", right: <>Set.</> },
@@ -142,7 +142,7 @@ function ClearAreaTakeOffInner() {
           onMouseDownCapture={(e) => { const t = e.target as HTMLElement; if (t && t.closest('a,button,input,textarea,select,[data-prevent-back]')) { e.stopPropagation(); } }}
           onTouchStartCapture={(e) => { const t = e.target as HTMLElement; if (t && t.closest('a,button,input,textarea,select,[data-prevent-back]')) { e.stopPropagation(); } }}
         >
-          <Content />
+          {renderContent()}
         </div>
       </div>
     );
@@ -155,7 +155,7 @@ function ClearAreaTakeOffInner() {
           <BackButton label="Home" to="/" />
         </div>
       </div>
-      <Content />
+      {renderContent()}
     </div>
   );
 }

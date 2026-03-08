@@ -354,7 +354,7 @@ export default function SectionPage() {
       </h1>
       <p className="text-lg text-slate-700 dark:text-zinc-100 mt-2">Choose number of questions and start.</p>
       {selected?.id === "all" && (
-        <p className="text-sm text-slate-600 dark:text-zinc-100 mt-1">"All" includes all available questions from every chapter for this model, randomized.</p>
+        <p className="text-sm text-slate-600 dark:text-zinc-100 mt-1">&ldquo;All&rdquo; includes all available questions from every chapter for this model, randomized.</p>
       )}
 
 

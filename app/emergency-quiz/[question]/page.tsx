@@ -6,8 +6,8 @@ import { reportFlag, type FlagPayload } from "@/lib/flags";
 import TopBarBackButton from "@/components/TopBarBackButton";
 import Link from "next/link";
 import { useActiveModelVariant } from "@/lib/models/hooks";
-import { modelScopedKey } from "@/lib/models/storage";
 import { isEditableKeyboardTarget } from "@/lib/isEditableKeyboardTarget";
+import { clearQuizResumeSnapshot, writeQuizResumeSnapshot } from "@/lib/quiz/resumeSnapshot";
 import FlagReasonDialog from "@/components/FlagReasonDialog";
 
 const SESSION_KEY = "emergq_session";
@@ -52,29 +52,20 @@ function updateResumeSnapshot(variantId: string, idx: number, s: Session) {
   if (!s || !Array.isArray(s.items) || !s.items.length) return;
   const amountToken = s.amountToken;
   if (!amountToken) return;
-  try {
-    const resumeKey = `${modelScopedKey("quiz:resume", variantId)}:${SECTION_ID}:${amountToken}`;
-    const snapshot = {
-      section: SECTION_ID,
-      variantId,
-      amount: amountToken,
-      items: s.items,
-      idx,
-      answers: s.answers.map((a) => (a == null ? undefined : Number(a))),
-      flags: s.flags,
-      startedAt: s.createdAt ? Date.parse(s.createdAt) || Date.now() : Date.now(),
-      updatedAt: Date.now(),
-    };
-    localStorage.setItem(resumeKey, JSON.stringify(snapshot));
-  } catch {}
+  writeQuizResumeSnapshot({
+    section: SECTION_ID,
+    variantId,
+    amountToken,
+    items: s.items,
+    idx,
+    answers: s.answers,
+    flags: s.flags,
+    startedAt: s.createdAt,
+  });
 }
 
 function clearResumeSnapshot(variantId: string, s: Session | null) {
-  if (!s?.amountToken) return;
-  try {
-    const resumeKey = `${modelScopedKey("quiz:resume", variantId)}:${SECTION_ID}:${s.amountToken}`;
-    localStorage.removeItem(resumeKey);
-  } catch {}
+  clearQuizResumeSnapshot(variantId, SECTION_ID, s?.amountToken);
 }
 
 export default function EmergencyQuestionPage() {
@@ -104,29 +95,7 @@ export default function EmergencyQuestionPage() {
     setSession(s);
     setSelected(s.answers[idx] ?? null);
     updateResumeSnapshot(activeVariant.id, idx, s);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [idx]);
-
-  React.useEffect(() => {
-    function onKey(e: KeyboardEvent) {
-      if (!session) return;
-      if (isEditableKeyboardTarget(e.target)) return;
-      if (["1", "2", "3", "4"].includes(e.key)) {
-        const pick = parseInt(e.key) - 1;
-        choose(pick);
-      } else if (e.key === "ArrowRight") next();
-      else if (e.key === "ArrowLeft") prev();
-      else if (e.key === "Enter") next();
-      else if (e.key.toLowerCase() === "f") toggleFlag();
-    }
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  });
-
-  if (!session) return <div className="max-w-xl mx-auto p-4">Loading…</div>;
-
-  const item = session.items[idx];
-  const isCorrect = selected != null ? item.answer.includes(selected) : null;
 
   function choose(i: number) {
     if (selected != null) return; // lock after first answer
@@ -142,6 +111,8 @@ export default function EmergencyQuestionPage() {
   function toggleFlag() {
     const s = loadSession();
     if (!s) return;
+    const currentItem = s.items[idx];
+    if (!currentItem) return;
     s.flags[idx] = !s.flags[idx];
     const nowFlagged = s.flags[idx];
     saveSession(s);
@@ -151,15 +122,15 @@ export default function EmergencyQuestionPage() {
       const basePayload: FlagPayload = {
         section: s.section,
         sectionId: SECTION_ID,
-        questionId: item.id,
+        questionId: currentItem.id,
         dataSource: "all-questions",
-        dataFile: item.__file || null,
+        dataFile: currentItem.__file || null,
         snapshot: {
-          question: item.question,
-          options: item.options,
-          explanation: item.explanation,
-          references: item.references,
-          answer: item.answer,
+          question: currentItem.question,
+          options: currentItem.options,
+          explanation: currentItem.explanation,
+          references: currentItem.references,
+          answer: currentItem.answer,
         },
       };
       setPendingFlag(basePayload);
@@ -193,6 +164,27 @@ export default function EmergencyQuestionPage() {
       router.push(`/emergency-quiz/${targetIdx + 1}`);
     }
   }
+
+  React.useEffect(() => {
+    function onKey(e: KeyboardEvent) {
+      if (!session) return;
+      if (isEditableKeyboardTarget(e.target)) return;
+      if (["1", "2", "3", "4"].includes(e.key)) {
+        const pick = parseInt(e.key) - 1;
+        choose(pick);
+      } else if (e.key === "ArrowRight") next();
+      else if (e.key === "ArrowLeft") prev();
+      else if (e.key === "Enter") next();
+      else if (e.key.toLowerCase() === "f") toggleFlag();
+    }
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  });
+
+  if (!session) return <div className="max-w-xl mx-auto p-4">Loading…</div>;
+
+  const item = session.items[idx];
+  const isCorrect = selected != null ? item.answer.includes(selected) : null;
 
   const progress = Math.round(((idx + 1) / total) * 100);
 

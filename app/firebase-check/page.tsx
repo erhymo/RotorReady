@@ -5,18 +5,14 @@ import { firebaseApp } from '../../lib/firebase';
 import { getFirestore, doc, getDoc } from 'firebase/firestore';
 
 export default function FirebaseCheck() {
-	  if (process.env.NODE_ENV === 'production') {
-	    return (
-	      <div style={{padding:16}}>
-	        <h1>Firebase check</h1>
-		        <p>This page is only available in development.</p>
-	      </div>
-	    );
-	  }
-	  const [ok, setOk] = useState<'pending'|'ok'|'fail'>('pending');
-	  const [msg, setMsg] = useState<string>('');
+  const [ok, setOk] = useState<'pending'|'ok'|'fail'>('pending');
+  const [msg, setMsg] = useState<string>('');
 
   useEffect(() => {
+    if (process.env.NODE_ENV === 'production') {
+      return;
+    }
+
     (async () => {
       try {
         const db = getFirestore(firebaseApp);
@@ -29,6 +25,15 @@ export default function FirebaseCheck() {
       }
     })();
   }, []);
+
+  if (process.env.NODE_ENV === 'production') {
+    return (
+      <div style={{padding:16}}>
+        <h1>Firebase check</h1>
+        <p>This page is only available in development.</p>
+      </div>
+    );
+  }
 
   return (
     <div style={{padding:16}}>

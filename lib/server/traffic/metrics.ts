@@ -46,7 +46,7 @@ export async function getTrafficMetrics(now: Date = new Date()): Promise<Traffic
   let activeLast30Days = 0;
   let activeToday = 0;
 
-  snapshot.forEach((doc) => {
+  snapshot.forEach((doc: any) => {
     const data = doc.data() as any;
     const lastSeen = toDate(data?.lastSeenAt);
     if (!lastSeen) return;

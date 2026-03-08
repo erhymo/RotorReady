@@ -1,22 +1,26 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import { BellIcon } from "@/components/Icons";
 import { INFO_STORAGE_KEY, LATEST_INFO_VERSION } from "@/lib/info/infoConstants";
 
-export default function InfoBell() {
-  const [hasUnreadInfo, setHasUnreadInfo] = useState(false);
+function getInitialHasUnreadInfo() {
+  if (typeof window === "undefined") {
+    return false;
+  }
 
-  useEffect(() => {
-    try {
-      const stored = window.localStorage.getItem(INFO_STORAGE_KEY);
-      setHasUnreadInfo(stored !== LATEST_INFO_VERSION);
-    } catch {
-      // ignore
-    }
-  }, []);
+  try {
+    const stored = window.localStorage.getItem(INFO_STORAGE_KEY);
+    return stored !== LATEST_INFO_VERSION;
+  } catch {
+    return false;
+  }
+}
+
+export default function InfoBell() {
+  const [hasUnreadInfo] = useState(getInitialHasUnreadInfo);
 
 	  return (
 	    <div className="flex flex-col items-end gap-1">

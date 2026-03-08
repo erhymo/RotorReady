@@ -1,4 +1,4 @@
-import { getAuth } from "firebase-admin/auth";
+import { adminAuth } from "@/lib/firebase/admin";
 
 export type VerifiedAppUser = {
   uid: string;
@@ -27,7 +27,7 @@ export async function verifyIdToken(req: Request): Promise<VerifiedAppUser | nul
   const token = extractBearerToken(req);
   if (!token) return null;
   try {
-    const decoded = await getAuth().verifyIdToken(token, true);
+    const decoded = await adminAuth.verifyIdToken(token, true);
     return {
       uid: decoded.uid,
       email: decoded.email || undefined,

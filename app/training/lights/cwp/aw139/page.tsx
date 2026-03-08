@@ -36,7 +36,6 @@ export default function Page() {
         // ignore
       }
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeVariant.id]);
 
   useEffect(() => {

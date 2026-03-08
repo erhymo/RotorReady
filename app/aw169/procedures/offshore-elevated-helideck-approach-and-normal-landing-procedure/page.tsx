@@ -21,7 +21,7 @@ function PageInner() {
   const compactList = !!plist && plist !== "0" && plist !== "false";
   const compact = compactCWP || compactList;
 
-  function Content() {
+  function renderContent() {
     return (
       <main className="mx-auto max-w-3xl p-6 space-y-6">
         <header className="rounded-xl border bg-white dark:bg-zinc-900 dark:border-zinc-700 p-4">
@@ -152,7 +152,7 @@ function PageInner() {
           onMouseDownCapture={(e) => { const t = e.target as HTMLElement; if (t && t.closest('a,button,input,textarea,select,[data-prevent-back]')) { e.stopPropagation(); } }}
           onTouchStartCapture={(e) => { const t = e.target as HTMLElement; if (t && t.closest('a,button,input,textarea,select,[data-prevent-back]')) { e.stopPropagation(); } }}
         >
-          <Content />
+          {renderContent()}
         </div>
       </div>
     );
@@ -165,7 +165,7 @@ function PageInner() {
           <BackButton label="Home" to="/" />
         </div>
       </div>
-      <Content />
+      {renderContent()}
     </div>
   );
 }

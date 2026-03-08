@@ -37,12 +37,10 @@ try {
   } else {
     // Running locally without env vars: leave undefined so callers can guard
     if (process.env.NODE_ENV !== 'production') {
-      // eslint-disable-next-line no-console
       console.warn('[firebase/client] Missing NEXT_PUBLIC_FIREBASE_* env vars; Firebase disabled on client.');
     }
   }
 } catch (err) {
-  // eslint-disable-next-line no-console
   console.warn('[firebase/client] Failed to initialize Firebase:', err);
 }
 

@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useState } from "react";
+import type { User } from "firebase/auth";
 
 import { auth, db } from "@/lib/firebase/client";
 import {
@@ -95,7 +96,7 @@ export function useActiveModelVariant(): ActiveModelState {
       return;
     }
 
-    const unsubscribe = auth.onAuthStateChanged(async (user) => {
+    const unsubscribe = auth.onAuthStateChanged(async (user: User | null) => {
       if (!user) {
         setLoading(false);
         return;

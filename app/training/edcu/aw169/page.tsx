@@ -80,7 +80,6 @@ export default function EDCUTrainerAW169Page() {
                 {page.image ? (
                   <div className="relative w-full min-h-[460px]">
                     {/* Background image taken from RFM export */}
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img src={page.image} alt={page.title} className="block w-full h-auto select-none pointer-events-none" />
 
                     {/* Clickable hot-zones overlay */}

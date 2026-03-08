@@ -36,6 +36,6 @@ export async function addBlockedQuestion(entry: {
 
 export async function listBlockedQuestionIds(): Promise<string[]> {
   const snap = await adminDb.collection(COLLECTION).get();
-  return snap.docs.map((d) => d.id);
+  return snap.docs.map((d: any) => d.id);
 }
 

@@ -14,7 +14,7 @@ export async function GET() {
   try {
     const pdfPath = path.join(process.cwd(), "RFM AW169", "RFM Issue 3. Rev.1.pdf");
     const data = await fs.readFile(pdfPath);
-    return new Response(data, {
+    return new Response(new Uint8Array(data), {
       headers: {
         "Content-Type": "application/pdf",
         "Cache-Control": "no-store",

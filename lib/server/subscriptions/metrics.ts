@@ -43,7 +43,7 @@ export async function getSubscriptionMetrics(): Promise<SubscriptionMetrics> {
   let subscribers = 0;
 
   const snapshot = await adminDb.collection("users").select("subscriptions").get();
-  snapshot.forEach((doc) => {
+  snapshot.forEach((doc: any) => {
     totalUsers += 1;
     const subscriptions = (doc.data()?.subscriptions || {}) as Record<string, ModelSubscriptionState>;
     const now = new Date();

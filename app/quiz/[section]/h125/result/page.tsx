@@ -97,9 +97,10 @@ export default function H125ResultPage() {
             });
             if (!wrongIdx.length) { alert("No wrong answers in this round."); return; }
             const items = wrongIdx.map(i => s.items[i]);
-            const answers = wrongIdx.map(() => null as number | null);
-            const flags = wrongIdx.map(() => false);
-            const wrongSession = { section: s.section, createdAt: new Date().toISOString(), items, answers, flags };
+            const wrongSession = {
+              section: s.section,
+              ...buildInitialQuizResumeSession(items),
+            };
             sessionStorage.setItem(key, JSON.stringify(wrongSession));
             router.replace(`/quiz/${encodeURIComponent(section)}/h125/1`);
           } catch {}

@@ -144,9 +144,22 @@ export default function EngineSystemsStart() {
     const key = `${modelScopedKey("rr_progress_last_wrong", activeVariant.id)}:engine-systems`;
     const raw = localStorage.getItem(key) || (activeVariant.id === "AW169" ? localStorage.getItem("rr_progress_last_wrong:engine-systems") : null);
     if (!raw) { alert("No wrong-answer set available. Complete a quiz first."); return; }
-    const data = JSON.parse(raw);
-    sessionStorage.setItem("engineq_session", JSON.stringify(data));
-    router.push("/engine-systems-quiz/1");
+    try {
+      const data = JSON.parse(raw) as { items?: unknown[] };
+      const items = Array.isArray(data.items) ? data.items : [];
+      const session = {
+        section: SECTION,
+        ...buildInitialQuizResumeSession(items),
+      } as any;
+      sessionStorage.setItem("engineq_session", JSON.stringify(session));
+      router.push("/engine-systems-quiz/1");
+    } catch {
+      alert("Could not load saved wrong-answer set. Delete and try again.");
+      localStorage.removeItem(key);
+      if (activeVariant.id === "AW169") {
+        localStorage.removeItem("rr_progress_last_wrong:engine-systems");
+      }
+    }
   }
 
   function handleResumeContinue() {

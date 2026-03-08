@@ -216,8 +216,13 @@ export default function AvionicsFmsQuizStart() {
       return;
     }
     try {
-      const data = JSON.parse(raw);
-      sessionStorage.setItem("avionics_session", JSON.stringify(data));
+      const data = JSON.parse(raw) as { items?: QuizItem[] };
+      const items = Array.isArray(data.items) ? data.items : [];
+      const session = {
+        section: SECTION,
+        ...buildInitialQuizResumeSession(items),
+      };
+      sessionStorage.setItem("avionics_session", JSON.stringify(session));
       router.push("/avionics-fms-limitations-quiz/1");
     } catch {
       alert("Could not load saved wrong-answer set. Delete and try again.");

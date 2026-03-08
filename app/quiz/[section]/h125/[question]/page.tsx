@@ -5,6 +5,7 @@ import TopBarBackButton from "@/components/TopBarBackButton";
 import { reportFlag, type FlagPayload } from "@/lib/flags";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 import { modelScopedKey } from "@/lib/models/storage";
+import { isEditableKeyboardTarget } from "@/lib/isEditableKeyboardTarget";
 import FlagReasonDialog from "@/components/FlagReasonDialog";
 
 type Item = {
@@ -63,6 +64,7 @@ export default function H125QuestionPage() {
   React.useEffect(() => {
     function onKey(e: KeyboardEvent) {
       if (!session) return;
+      if (isEditableKeyboardTarget(e.target)) return;
       if (["1","2","3","4"].includes(e.key)) {
         const pick = parseInt(e.key) - 1;
         choose(pick);

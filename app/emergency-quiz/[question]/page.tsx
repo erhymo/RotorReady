@@ -7,6 +7,7 @@ import TopBarBackButton from "@/components/TopBarBackButton";
 import Link from "next/link";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 import { modelScopedKey } from "@/lib/models/storage";
+import { isEditableKeyboardTarget } from "@/lib/isEditableKeyboardTarget";
 import FlagReasonDialog from "@/components/FlagReasonDialog";
 
 const SESSION_KEY = "emergq_session";
@@ -109,6 +110,7 @@ export default function EmergencyQuestionPage() {
   React.useEffect(() => {
     function onKey(e: KeyboardEvent) {
       if (!session) return;
+      if (isEditableKeyboardTarget(e.target)) return;
       if (["1", "2", "3", "4"].includes(e.key)) {
         const pick = parseInt(e.key) - 1;
         choose(pick);

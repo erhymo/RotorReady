@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 import { modelScopedKey } from "@/lib/models/storage";
 import { reportFlag, type FlagPayload } from "@/lib/flags";
+import { isEditableKeyboardTarget } from "@/lib/isEditableKeyboardTarget";
 import FlagReasonDialog from "@/components/FlagReasonDialog";
 
 export type QuizItem = {
@@ -76,6 +77,7 @@ export default function ClientQuiz({ section, initial, resumeKey, amountToken, i
 
   React.useEffect(() => {
     function onKey(e: KeyboardEvent) {
+      if (isEditableKeyboardTarget(e.target)) return;
       if (e.key.toLowerCase() === "f") toggleFlag();
     }
     window.addEventListener("keydown", onKey);

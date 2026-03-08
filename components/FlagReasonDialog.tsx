@@ -40,6 +40,7 @@ export default function FlagReasonDialog({ payload, onComplete }: Props) {
           rows={3}
           value={text}
           onChange={(e) => setText(e.target.value)}
+          onKeyDown={(e) => e.stopPropagation()}
           placeholder="Example: Wrong answer, unclear wording, not relevant for this model."
         />
         <div className="mt-3 flex justify-end gap-2">

@@ -5,6 +5,7 @@ import TopBarBackButton from "@/components/TopBarBackButton";
 import Link from "next/link";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 import { modelScopedKey } from "@/lib/models/storage";
+import { isEditableKeyboardTarget } from "@/lib/isEditableKeyboardTarget";
 
 import { reportFlag, type FlagPayload } from "@/lib/flags";
 import FlagReasonDialog from "@/components/FlagReasonDialog";
@@ -114,6 +115,7 @@ export default function AvionicsQuestionPage() {
   React.useEffect(() => {
     function onKey(event: KeyboardEvent) {
       if (!session) return;
+      if (isEditableKeyboardTarget(event.target)) return;
       if (["1", "2", "3", "4"].includes(event.key)) {
         const pick = parseInt(event.key, 10) - 1;
         choose(pick);

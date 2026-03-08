@@ -3,7 +3,7 @@ import * as React from "react";
 import { useRouter } from "next/navigation";
 import TopBarBackButton from "@/components/TopBarBackButton";
 import { useActiveModelVariant } from "@/lib/models/hooks";
-import { modelScopedKey } from "@/lib/models/storage";
+import { clearQuizResumeSnapshot } from "@/lib/quiz/resumeSnapshot";
 
 export default function EngineQuizResult() {
   const router = useRouter();
@@ -16,9 +16,7 @@ export default function EngineQuizResult() {
     const s = JSON.parse(raw);
     setSession(s);
     try {
-      const amt = String((s?.amountToken ?? "all"));
-      const key = `${modelScopedKey("quiz:resume", activeVariant.id)}:engine-systems:${amt}`;
-      localStorage.removeItem(key);
+      clearQuizResumeSnapshot(activeVariant.id, "engine-systems", String(s?.amountToken ?? "all"));
     } catch {}
   }, [router, activeVariant.id]);
 

@@ -3,6 +3,7 @@ import { useRouter, useParams } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 import { modelScopedKey } from "@/lib/models/storage";
+import { clearQuizResumeSnapshot, findLatestQuizResumeInfo } from "@/lib/quiz/resumeSnapshot";
 import TopBarBackButton from "@/components/TopBarBackButton";
 
 type Section = { id: string; title: string };
@@ -237,34 +238,8 @@ export default function SectionPage() {
   useEffect(() => {
     if (variantLoading) return;
     let cancelled = false;
-    try {
-      const prefix = `${modelScopedKey("quiz:resume", activeVariant.id)}:${routeSection}:`;
-      const matches: Array<{ key: string; snap: any }> = [];
-      for (let i = 0; i < localStorage.length; i++) {
-        const k = localStorage.key(i) || "";
-        if (!k.startsWith(prefix)) continue;
-        const raw = localStorage.getItem(k);
-        if (!raw) continue;
-        try {
-          const snap = JSON.parse(raw);
-          if (Array.isArray(snap?.items) && snap.items.length) {
-            matches.push({ key: k, snap });
-          }
-        } catch {}
-      }
-      if (!cancelled) {
-        if (matches.length) {
-          matches.sort((a, b) => Number(b.snap?.updatedAt || 0) - Number(a.snap?.updatedAt || 0));
-          const top = matches[0];
-          const amountToken = String(top.snap?.amount ?? top.key.substring(prefix.length));
-          const total = Array.isArray(top.snap?.items) ? top.snap.items.length : 0;
-          const idx = Math.min(Math.max(0, Number(top.snap?.idx ?? 0)), Math.max(0, total - 1));
-          setResumeInfo({ amountToken, idx, total });
-        } else {
-          setResumeInfo(null);
-        }
-      }
-    } catch {}
+    const latestResume = findLatestQuizResumeInfo(activeVariant.id, routeSection);
+    if (!cancelled) setResumeInfo(latestResume);
     return () => { cancelled = true; };
   }, [activeVariant.id, routeSection, variantLoading]);
 
@@ -275,8 +250,7 @@ export default function SectionPage() {
   function handleResumeReset() {
     if (!resumeInfo) return;
     try {
-      const key = `${modelScopedKey("quiz:resume", activeVariant.id)}:${routeSection}:${resumeInfo.amountToken}`;
-      localStorage.removeItem(key);
+      clearQuizResumeSnapshot(activeVariant.id, routeSection, resumeInfo.amountToken);
     } catch {}
     setResumeInfo(null);
   }

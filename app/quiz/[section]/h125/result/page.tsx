@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
 import { modelScopedKey } from "@/lib/models/storage";
 import { useActiveModelVariant } from "@/lib/models/hooks";
+import { clearQuizResumeSnapshot } from "@/lib/quiz/resumeSnapshot";
 import TopBarBackButton from "@/components/TopBarBackButton";
 
 export default function H125ResultPage() {
@@ -31,9 +32,7 @@ export default function H125ResultPage() {
 
       // Clear resume snapshot for this quiz
       try {
-        const amt = String(((s as any)?.amountToken ?? "all"));
-        const resumeKey = `${modelScopedKey("quiz:resume", activeVariant.id)}:${section}:${amt}`;
-        localStorage.removeItem(resumeKey);
+        clearQuizResumeSnapshot(activeVariant.id, section, String((s as any)?.amountToken ?? "all"));
       } catch {}
 
       // Persist last-wrong set for this section (model-scoped)

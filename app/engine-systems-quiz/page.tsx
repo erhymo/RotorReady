@@ -2,6 +2,7 @@
 import * as React from "react";
 import { useRouter } from "next/navigation";
 import { loadAllQuestions } from "@/lib/loadAllQuestions";
+import { loadSectionOffline } from "@/lib/offline";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 import { modelScopedKey } from "@/lib/models/storage";
 import { isLoggedInAsync } from "@/lib/auth";
@@ -10,6 +11,7 @@ import { buildInitialQuizResumeSession, buildQuizResumeSession, clearQuizResumeS
 import TopBarBackButton from "@/components/TopBarBackButton";
 
 const SECTION = "ENGINE, FUEL, LUBRICANTS, HYDRAULICS & SYSTEM LIMITATIONS";
+const SECTION_ID = "engine-systems" as const;
 const engineSystemsQuestionsPromiseCache = new Map<string, Promise<any[]>>();
 
 function matchesEngineSystemsQuestion(item: { section?: unknown }) {
@@ -95,11 +97,16 @@ export default function EngineSystemsStart() {
   }, [activeVariant.id]);
 
   React.useEffect(() => {
-    setResumeInfo(findLatestQuizResumeInfo(activeVariant.id, "engine-systems"));
+    setResumeInfo(findLatestQuizResumeInfo(activeVariant.id, SECTION_ID));
   }, [activeVariant.id]);
 
 
   async function getData() {
+    const offline = loadSectionOffline<{ items?: any[] }>(SECTION_ID, activeVariant.id);
+    if (offline && Array.isArray(offline.items) && offline.items.length) {
+      return { items: offline.items };
+    }
+
     const items = await loadEngineSystemsQuestions(activeVariant.id);
     return { items };
   }
@@ -138,7 +145,7 @@ export default function EngineSystemsStart() {
       } as any;
       sessionStorage.setItem("engineq_session", JSON.stringify(session));
       writeQuizResumeSnapshot({
-        section: "engine-systems",
+        section: SECTION_ID,
         variantId: activeVariant.id,
         amountToken,
         items: randomized,
@@ -157,8 +164,8 @@ export default function EngineSystemsStart() {
   async function startWrongOnly() {
     const loggedIn = await isLoggedInAsync();
     if (!loggedIn) { router.push(`/paywall?from=${encodeURIComponent('/engine-systems-quiz')}`); return; }
-    const key = `${modelScopedKey("rr_progress_last_wrong", activeVariant.id)}:engine-systems`;
-    const raw = localStorage.getItem(key) || (activeVariant.id === "AW169" ? localStorage.getItem("rr_progress_last_wrong:engine-systems") : null);
+    const key = `${modelScopedKey("rr_progress_last_wrong", activeVariant.id)}:${SECTION_ID}`;
+    const raw = localStorage.getItem(key) || (activeVariant.id === "AW169" ? localStorage.getItem(`rr_progress_last_wrong:${SECTION_ID}`) : null);
     if (!raw) { alert("No wrong-answer set available. Complete a quiz first."); return; }
     try {
       const data = JSON.parse(raw) as { items?: unknown[] };
@@ -173,7 +180,7 @@ export default function EngineSystemsStart() {
       alert("Could not load saved wrong-answer set. Delete and try again.");
       localStorage.removeItem(key);
       if (activeVariant.id === "AW169") {
-        localStorage.removeItem("rr_progress_last_wrong:engine-systems");
+        localStorage.removeItem(`rr_progress_last_wrong:${SECTION_ID}`);
       }
     }
   }
@@ -181,7 +188,7 @@ export default function EngineSystemsStart() {
   function handleResumeContinue() {
     if (!resumeInfo) return;
     try {
-      const snap = readQuizResumeSnapshot<any>(activeVariant.id, "engine-systems", resumeInfo.amountToken);
+      const snap = readQuizResumeSnapshot<any>(activeVariant.id, SECTION_ID, resumeInfo.amountToken);
       if (!snap) return;
       const session = {
         section: SECTION,
@@ -195,7 +202,7 @@ export default function EngineSystemsStart() {
   function handleResumeReset() {
     if (!resumeInfo) return;
     try {
-      clearQuizResumeSnapshot(activeVariant.id, "engine-systems", resumeInfo.amountToken);
+      clearQuizResumeSnapshot(activeVariant.id, SECTION_ID, resumeInfo.amountToken);
     } catch {}
     setResumeInfo(null);
   }

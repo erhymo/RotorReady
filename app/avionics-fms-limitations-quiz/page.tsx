@@ -2,6 +2,7 @@
 import * as React from "react";
 import { useRouter } from "next/navigation";
 import { loadQuestionsForSectionId } from "@/lib/loadAllQuestions";
+import { loadSectionOffline } from "@/lib/offline";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 import { modelScopedKey } from "@/lib/models/storage";
 import { isLoggedInAsync } from "@/lib/auth";
@@ -101,6 +102,11 @@ export default function AvionicsFmsQuizStart() {
 
 
   async function getData(): Promise<{ items: QuizItem[] }> {
+    const offline = loadSectionOffline<{ items?: QuizItem[] }>(DATA_SECTION_ID, activeVariant.id);
+    if (offline && Array.isArray(offline.items) && offline.items.length) {
+      return { items: offline.items };
+    }
+
     let items = await loadQuestionsForSectionId<QuizItem>(DATA_SECTION_ID, activeVariant.id);
 
     if (!items.length) {

@@ -11,8 +11,29 @@ type SectionPayload = { items: any[] };
 const sectionFilePromiseCache = new Map<string, Promise<{ items?: any[] } | null>>();
 const derivedSectionPayloadPromiseCache = new Map<string, Promise<SectionPayload>>();
 
+const DEDICATED_OFFLINE_ROUTE_BY_SECTION_ID: Record<string, string> = {
+  emergency_procedures: "/emergency-quiz",
+  "engine-systems": "/engine-systems-quiz",
+  avionics_fms_limitations: "/avionics-fms-limitations-quiz",
+};
+
 function getSectionCacheKey(id: string, variantId: string) {
   return `${variantId}:${id}`;
+}
+
+function getOfflineLaunchHref(id: string) {
+  return DEDICATED_OFFLINE_ROUTE_BY_SECTION_ID[id] || `/quiz/${encodeURIComponent(id)}`;
+}
+
+function getOfflineWarmPaths(id: string) {
+  const genericHref = `/quiz/${encodeURIComponent(id)}`;
+  const launchHref = getOfflineLaunchHref(id);
+
+  return Array.from(new Set([
+    genericHref,
+    launchHref,
+    ...(launchHref === genericHref ? [] : [`${launchHref}/1`, `${launchHref}/result`]),
+  ]));
 }
 
 async function fetchSection(id: string, variantId: string): Promise<{ items?: any[] } | null> {
@@ -277,7 +298,18 @@ export default function OfflinePage() {
     setStatus((prev) => ({ ...prev, [id]: message }));
   }
 
-  async function downloadSectionOffline(section: Section) {
+  async function prefetchHtmlRoutes(paths: string[]) {
+    for (const path of Array.from(new Set(paths))) {
+      try {
+        await fetch(path, {
+          cache: "no-store",
+          headers: { Accept: "text/html" },
+        });
+      } catch {}
+    }
+  }
+
+  async function downloadSectionOffline(section: Section, options?: { prefetchRoutes?: boolean }) {
     updateStatus(section.id, `Laster ned "${section.title}"…`);
     try {
       const data = await resolveOfflineSectionPayload(section.id, activeVariant.id, {
@@ -288,6 +320,9 @@ export default function OfflinePage() {
       if (!data) throw new Error("Ingen data for valgt kapittel");
 
       saveSectionOffline(section.id, data, activeVariant.id);
+      if (options?.prefetchRoutes !== false) {
+        await prefetchOfflineRoutes([section.id]);
+      }
       refreshOfflineIds();
       updateStatus(section.id, `✓ "${section.title}" lagret for offline bruk`);
     } catch (error) {
@@ -324,16 +359,10 @@ export default function OfflinePage() {
     } catch {}
   }
 
-  // Hent og cache HTML-sidene for "Velg antall" slik at navigasjon funker offline
-  async function prefetchQuizAmountPages(ids: string[]) {
-    for (const id of ids) {
-      try {
-        await fetch(`/quiz/${encodeURIComponent(id)}`, {
-          cache: 'no-store',
-          headers: { Accept: 'text/html' },
-        });
-      } catch {}
-    }
+  // Hent og cache rutene som trengs for å starte og bruke quiz offline.
+  async function prefetchOfflineRoutes(ids: string[]) {
+    const paths = Array.from(new Set(ids.flatMap((id) => getOfflineWarmPaths(id))));
+    await prefetchHtmlRoutes(paths);
   }
 
   async function downloadAllSections() {
@@ -341,11 +370,11 @@ export default function OfflinePage() {
     setDownloadingAll(true);
     setDownloadProgress({ done: 0, total: sections.length });
     for (const s of sections) {
-      await downloadSectionOffline(s);
+      await downloadSectionOffline(s, { prefetchRoutes: false });
       setDownloadProgress((p) => ({ done: Math.min(p.done + 1, p.total), total: p.total }));
     }
     await prefetchAllQuestionsAssets().catch(() => {});
-    await prefetchQuizAmountPages(sections.map((s) => s.id)).catch(() => {});
+    await prefetchOfflineRoutes(sections.map((s) => s.id)).catch(() => {});
     setDownloadingAll(false);
   }
 
@@ -426,6 +455,7 @@ export default function OfflinePage() {
                 {offlineIds.map((id) => {
                   const fallback = id.replaceAll("_", " ").replace(/\b\w/g, (c) => c.toUpperCase());
                   const title = titleById.get(id) || fallback;
+                  const launchHref = getOfflineLaunchHref(id);
                   return (
                     <li key={id} className="flex items-center justify-between gap-2 rounded-lg border border-slate-200 dark:border-zinc-700 p-3">
                       <div>
@@ -433,7 +463,7 @@ export default function OfflinePage() {
                         <p className="text-xs text-slate-500 dark:text-zinc-400">{id}</p>
                       </div>
                       <a
-                        href={`/quiz/${encodeURIComponent(id)}`}
+                        href={launchHref}
                         className="inline-flex items-center rounded bg-emerald-600 px-3 py-1.5 text-sm font-semibold text-white hover:bg-emerald-700 dark:bg-emerald-500 dark:hover:bg-emerald-600"
                         title="Start quiz for dette kapittelet"
                       >

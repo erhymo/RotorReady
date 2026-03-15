@@ -26,6 +26,17 @@ const withPWA = withPWAInit({
       },
     },
     {
+      // Global AW169 lights JSON lives outside /model-data and must also be cached for offline.
+      urlPattern: ({ url }) =>
+        url.pathname === '/training/lights/manifest.json' ||
+        (url.pathname.startsWith('/training/lights/') && url.pathname.endsWith('.json')),
+      handler: 'NetworkFirst',
+      options: {
+        cacheName: 'lights-json',
+        expiration: { maxEntries: 100, maxAgeSeconds: 60 * 60 * 24 * 30 },
+      },
+    },
+    {
       // Static assets and icons
       urlPattern: ({ request }) =>
         request.destination === 'image' ||
@@ -46,6 +57,21 @@ const withPWA = withPWAInit({
       ].some((prefix) => url.pathname.startsWith(prefix)),
       handler: 'NetworkFirst',
       options: { cacheName: 'quiz-pages' },
+    },
+    {
+      // AW169 lights routes rely on warmed pages plus query params like ?resume=1.
+      urlPattern: ({ url }) => [
+        '/training/lights',
+        '/training/lights/cwp/aw169',
+        '/aw169/procedures/single-engine',
+        '/aw169/procedures/engine-shutdown-emergency',
+        '/aw169/procedures/engine-re-light',
+      ].includes(url.pathname),
+      handler: 'NetworkFirst',
+      options: {
+        cacheName: 'lights-pages',
+        matchOptions: { ignoreSearch: true },
+      },
     },
     {
       // HTML navigations (fallback for all other pages)

@@ -17,6 +17,25 @@ const DEDICATED_OFFLINE_ROUTE_BY_SECTION_ID: Record<string, string> = {
   avionics_fms_limitations: "/avionics-fms-limitations-quiz",
 };
 
+const AW169_LIGHTS_RELATED_SECTION_IDS = new Set(["emergency_procedures", "engine-systems"]);
+const AW169_LIGHTS_ROUTE_PATHS = [
+  "/training/lights",
+  "/training/lights/cwp/aw169",
+  "/aw169/procedures/single-engine",
+  "/aw169/procedures/engine-shutdown-emergency",
+  "/aw169/procedures/engine-re-light",
+];
+const AW169_LIGHTS_SEED_DATA_PATHS = [
+  "/model-data/AW169/training/lights/manifest.json",
+  "/model-data/AW169/training/lights.json",
+  "/training/lights/manifest.json",
+];
+
+function normalizeOfflineAssetPath(path: string, baseDir: string) {
+  if (path.startsWith("/")) return path;
+  return `${baseDir}/${path.replace(/^\.?\//, "")}`;
+}
+
 function getSectionCacheKey(id: string, variantId: string) {
   return `${variantId}:${id}`;
 }
@@ -298,6 +317,16 @@ export default function OfflinePage() {
     setStatus((prev) => ({ ...prev, [id]: message }));
   }
 
+  async function fetchJsonNoStore(url: string) {
+    try {
+      const res = await fetch(url, { cache: "no-store" });
+      if (!res.ok) return null;
+      return await res.json();
+    } catch {
+      return null;
+    }
+  }
+
   async function prefetchHtmlRoutes(paths: string[]) {
     for (const path of Array.from(new Set(paths))) {
       try {
@@ -307,6 +336,65 @@ export default function OfflinePage() {
         });
       } catch {}
     }
+  }
+
+  async function prefetchAw169LightsAssets() {
+    if (activeVariant.id !== "AW169") return;
+
+    const jsonUrls = new Set<string>(AW169_LIGHTS_SEED_DATA_PATHS);
+    const seedUrls = new Set<string>(AW169_LIGHTS_SEED_DATA_PATHS);
+    const lightEntries: any[] = [];
+
+    for (const url of AW169_LIGHTS_SEED_DATA_PATHS) {
+      const data = await fetchJsonNoStore(url);
+      if (Array.isArray((data as any)?.files)) {
+        const baseDir = url.startsWith("/model-data/")
+          ? `/model-data/${activeVariant.id}/training/lights`
+          : "/training/lights";
+        for (const file of (data as any).files as string[]) {
+          jsonUrls.add(normalizeOfflineAssetPath(file, baseDir));
+        }
+        continue;
+      }
+
+      if (!Array.isArray(data)) continue;
+
+      if (data.every((entry) => typeof entry === "string")) {
+        const baseDir = url.startsWith("/model-data/")
+          ? `/model-data/${activeVariant.id}/training/lights`
+          : "/training/lights";
+        for (const file of data as string[]) {
+          jsonUrls.add(normalizeOfflineAssetPath(file, baseDir));
+        }
+        continue;
+      }
+
+      lightEntries.push(...data.filter((entry) => entry && typeof entry === "object"));
+    }
+
+    for (const url of Array.from(jsonUrls)) {
+      if (seedUrls.has(url)) continue;
+      const data = await fetchJsonNoStore(url);
+      if (Array.isArray(data)) {
+        lightEntries.push(...data.filter((entry) => entry && typeof entry === "object"));
+      }
+    }
+
+    const assetUrls = new Set<string>();
+    for (const entry of lightEntries) {
+      if (typeof entry?.pageImage === "string") {
+        assetUrls.add(entry.pageImage);
+      }
+    }
+
+    await Promise.all(
+      [...jsonUrls, ...assetUrls].map((url) => fetch(url, { cache: "no-store" }).catch(() => {}))
+    );
+  }
+
+  async function prefetchAw169LightsOfflinePackage() {
+    await prefetchAw169LightsAssets();
+    await prefetchHtmlRoutes(AW169_LIGHTS_ROUTE_PATHS);
   }
 
   async function downloadSectionOffline(section: Section, options?: { prefetchRoutes?: boolean }) {
@@ -363,6 +451,10 @@ export default function OfflinePage() {
   async function prefetchOfflineRoutes(ids: string[]) {
     const paths = Array.from(new Set(ids.flatMap((id) => getOfflineWarmPaths(id))));
     await prefetchHtmlRoutes(paths);
+
+    if (activeVariant.id === "AW169" && ids.some((id) => AW169_LIGHTS_RELATED_SECTION_IDS.has(id))) {
+      await prefetchAw169LightsOfflinePackage();
+    }
   }
 
   async function downloadAllSections() {

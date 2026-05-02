@@ -1,13 +1,7 @@
-'use client';
+import { notFound } from "next/navigation";
+
 export default function EnvDump() {
-	  if (process.env.NODE_ENV === "production") {
-	    return (
-	      <div style={{ padding: 16 }}>
-	        <h1>Env dump</h1>
-	        <p>This page is only available in development.</p>
-	      </div>
-	    );
-	  }
+	  if (process.env.NODE_ENV !== "development") notFound();
 	  return (
 	    <div style={{padding:16}}>
 	      <h1>Env dump</h1>

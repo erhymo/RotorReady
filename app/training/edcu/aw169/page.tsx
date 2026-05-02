@@ -1,8 +1,8 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { Suspense, useEffect, useMemo, useState } from "react";
 import Link from "next/link";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 
 type KeyDef = { label?: string; goto?: string | null; disabled?: boolean };
 type LayoutSide = { x?: number; w?: number; top?: number; bottom?: number; y?: number; h?: number; left?: number; right?: number };
@@ -12,7 +12,14 @@ type PageDef = { title: string; image?: string; layout?: Layout; left: KeyDef[];
 type PagesMap = Record<string, PageDef>;
 
 export default function EDCUTrainerAW169Page() {
-  const router = useRouter();
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-slate-50 dark:bg-zinc-900" />}>
+      <EDCUTrainerAW169Inner />
+    </Suspense>
+  );
+}
+
+function EDCUTrainerAW169Inner() {
   const sp = useSearchParams();
   const initialP = sp.get("p")?.toUpperCase() || "HOME";
   const cal = (() => { const v = sp.get("cal"); return !!v && v !== "0" && v !== "false"; })();

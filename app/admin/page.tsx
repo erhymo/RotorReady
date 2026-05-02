@@ -1,5 +1,7 @@
 "use client";
 
+export const dynamic = "force-dynamic";
+
 
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { db } from "@/lib/firebase/client";
@@ -95,11 +97,11 @@ export default function AdminPage() {
     setMessagesError(null);
     try {
       const res = await fetch("/api/admin/messages", { cache: "no-store" });
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      const data = await res.json();
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(data?.error || `HTTP ${res.status}`);
       const list: AdminConversation[] = Array.isArray(data?.conversations) ? data.conversations : [];
       setConversations(list);
-      setMessagesError(null);
+      setMessagesError(data?.error || data?.devWarning || null);
       setSelectedUserId((prev) => prev && list.some((conv) => conv.userId === prev) ? prev : (list[0]?.userId ?? null));
 	    } catch (error: any) {
 	      setMessagesError(error?.message || "Could not fetch messages");
@@ -170,9 +172,10 @@ export default function AdminPage() {
     setMetricsError(null);
     try {
       const res = await fetch("/api/admin/subscriptions", { cache: "no-store" });
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      const data = await res.json();
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(data?.error || `HTTP ${res.status}`);
       setMetrics(data?.metrics ?? null);
+	      setMetricsError(data?.error || data?.devWarning || null);
 	    } catch (error: any) {
 	      setMetricsError(error?.message || "Could not fetch subscription metrics");
     } finally {
@@ -197,10 +200,11 @@ export default function AdminPage() {
     setTrafficError(null);
     try {
       const res = await fetch("/api/admin/traffic", { cache: "no-store" });
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const data = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(data?.error || `HTTP ${res.status}`);
       const metrics: TrafficMetrics | null = data?.metrics ?? null;
       setTrafficMetrics(metrics);
+	      setTrafficError(data?.error || data?.devWarning || null);
 	    } catch (error: any) {
 	      setTrafficError(error?.message || "Could not fetch traffic statistics");
     } finally {

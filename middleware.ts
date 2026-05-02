@@ -27,6 +27,22 @@ export async function middleware(req: NextRequest) {
     return NextResponse.next();
   }
 
+  const isDevOnlyRoute =
+    pathname.startsWith("/dev") ||
+    pathname.startsWith("/api/dev") ||
+    pathname === "/env-dump" ||
+    pathname === "/env-test" ||
+    pathname === "/firebase-check";
+  if (isDevOnlyRoute && process.env.NODE_ENV !== "development") {
+    if (pathname.startsWith("/api/")) {
+      return new NextResponse(JSON.stringify({ error: "Not found" }), {
+        status: 404,
+        headers: { "content-type": "application/json" },
+      });
+    }
+    return new NextResponse(null, { status: 404 });
+  }
+
   // Canonical domain redirect (production only)
   try {
     const host = req.headers.get("host") || "";
@@ -56,6 +72,12 @@ export async function middleware(req: NextRequest) {
   const isAdminPage = pathname.startsWith("/admin");
   const isAdminApi = pathname.startsWith("/api/admin");
   if (!isAdminPage && !isAdminApi) return NextResponse.next();
+
+  // E2E runs use a local production server for stability. Allow admin probes there,
+  // but never bypass auth on Vercel production if the env var is accidentally set.
+  if (process.env.E2E_BYPASS_ADMIN_AUTH === "1" && process.env.VERCEL_ENV !== "production") {
+    return NextResponse.next();
+  }
 
   // Disable authentication in development for stability
   if (process.env.NODE_ENV === "development") {

@@ -4,8 +4,6 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 import TopBarBackButton from "@/components/TopBarBackButton";
-import { onAuthStateChanged } from "firebase/auth";
-import { auth } from "@/lib/firebase/client";
 
 
 type Section = { id: string; title: string };
@@ -44,15 +42,6 @@ function resolveSectionRoute(sectionId: string): string {
 export default function QuizTypeSelectPage() {
   const { variant: activeVariant, loading: variantLoading } = useActiveModelVariant();
   const [loadedSections, setLoadedSections] = useState<LoadedSectionsState | null>(null);
-  const [loggedIn, setLoggedIn] = useState<boolean | null>(() => (auth ? null : false));
-
-  useEffect(() => {
-    if (!auth) {
-      return;
-    }
-    const unsub = onAuthStateChanged(auth, (user) => setLoggedIn(!!user));
-    return () => { try { unsub(); } catch {} };
-  }, []);
 
   const dynamicVariant =
     !!activeVariant &&
@@ -118,18 +107,13 @@ export default function QuizTypeSelectPage() {
               className="block w-full rounded-xl border-l-4 border-blue-600 bg-blue-50/40 hover:bg-blue-600 hover:text-white dark:bg-zinc-900 dark:text-white dark:border-blue-400 dark:hover:bg-blue-600 dark:hover:text-white transition px-5 py-4 font-semibold"
             >
               {quiz.title}
-              {loggedIn === false && quiz.href !== "/limitations-quiz" ? (
-                <span className="ml-2 text-xs px-2 py-0.5 rounded-full bg-slate-200 dark:bg-zinc-700 text-slate-700 dark:text-zinc-200">Locked</span>
-              ) : null}
             </Link>
           ))}
           <Link
             href="/quiz/all"
             className="block w-full rounded-xl border-l-4 border-blue-600 bg-blue-50/40 hover:bg-blue-600 hover:text-white dark:bg-zinc-900 dark:text-white dark:border-blue-400 dark:hover:bg-blue-600 dark:hover:text-white transition px-5 py-4 font-semibold"
           >
-            All {loggedIn === false ? (
-              <span className="ml-2 text-xs px-2 py-0.5 rounded-full bg-slate-200 dark:bg-zinc-700 text-slate-700 dark:text-zinc-200">Locked</span>
-            ) : null}
+            All
           </Link>
 
         </div>
@@ -176,18 +160,13 @@ export default function QuizTypeSelectPage() {
             className="block w-full rounded-xl border-l-4 border-blue-600 bg-blue-50/40 hover:bg-blue-600 hover:text-white dark:bg-zinc-900 dark:text-white dark:border-blue-400 dark:hover:bg-blue-600 dark:hover:text-white transition px-5 py-4 font-semibold"
           >
             {section.title}
-            {loggedIn === false && section.id !== "limitations" ? (
-              <span className="ml-2 text-xs px-2 py-0.5 rounded-full bg-slate-200 dark:bg-zinc-700 text-slate-700 dark:text-zinc-200">Locked</span>
-            ) : null}
           </Link>
         ))}
         <Link
           href="/quiz/all"
           className="block w-full rounded-xl border-l-4 border-blue-600 bg-blue-50/40 hover:bg-blue-600 hover:text-white dark:bg-zinc-900 dark:text-white dark:border-blue-400 dark:hover:bg-blue-600 dark:hover:text-white transition px-5 py-4 font-semibold"
         >
-          All {loggedIn === false ? (
-            <span className="ml-2 text-xs px-2 py-0.5 rounded-full bg-slate-200 dark:bg-zinc-700 text-slate-700 dark:text-zinc-200">Locked</span>
-          ) : null}
+          All
         </Link>
       </div>
     </div>

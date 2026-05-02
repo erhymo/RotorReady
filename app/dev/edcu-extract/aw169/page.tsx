@@ -1,10 +1,10 @@
 import React from "react";
+import { notFound } from "next/navigation";
+
 import ExtractorClient from "./ExtractorClient";
 
 function devEnabled(): boolean {
-  const v = String(process.env.DEV_TOOLS_ENABLED ?? process.env.DEV_TOOLS_ENABLE ?? "").toLowerCase();
-  if (process.env.NODE_ENV === "development") return true; // allow in dev
-  return v === "1" || v === "true" || v === "yes" || v === "on";
+  return process.env.NODE_ENV === "development";
 }
 
 export const metadata = {
@@ -13,11 +13,7 @@ export const metadata = {
 
 export default function Page() {
   if (!devEnabled()) {
-    return (
-      <div className="p-6 text-sm text-neutral-400">
-        Dev tools are disabled. Set DEV_TOOLS_ENABLED=1 in .env.local and restart dev server.
-      </div>
-    );
+    notFound();
   }
   return (
     <div className="p-6 space-y-4">

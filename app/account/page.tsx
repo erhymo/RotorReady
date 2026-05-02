@@ -523,7 +523,7 @@ export default function AccountPage() {
           <div>
             <div className="font-semibold text-slate-900 dark:text-zinc-100">Access</div>
             <div className="text-sm text-slate-700 dark:text-zinc-300 mt-0.5">
-              {loggedIn ? "Logged in" : <span><a href="/login" className="underline">Log in</a> to view your active subscription.</span>}
+	              {loggedIn ? "Logged in" : <span>RotorReady is free for now. <a href="/login" className="underline">Log in</a> only if you want account features.</span>}
             </div>
             <div className="mt-2 flex gap-2 flex-wrap">
               <button
@@ -612,7 +612,7 @@ export default function AccountPage() {
                 );
               })}
             </div>
-            <p className="text-xs text-gray-500 dark:text-zinc-400 mt-2">Purchases are activated via Stripe Checkout (see Paywall) or by an admin.</p>
+	            <p className="text-xs text-gray-500 dark:text-zinc-400 mt-2">Training access is free while RotorReady is in active development.</p>
           </div>
           {loggedIn && (
             <button

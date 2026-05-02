@@ -23,11 +23,6 @@ type FirebaseAdminServices = {
 };
 
 const require = createRequire(import.meta.url);
-const firebaseAdminModuleIds = {
-  app: ["firebase-admin", "app"].join("/"),
-  firestore: ["firebase-admin", "firestore"].join("/"),
-  auth: ["firebase-admin", "auth"].join("/"),
-} as const;
 
 function getConfig() {
   const projectId = serverEnv.FIREBASE_PROJECT_ID;
@@ -47,14 +42,18 @@ function toError(error: unknown): Error {
   return new Error(String(error));
 }
 
+export function isFirebaseAdminUnavailableError(error: unknown): boolean {
+  return toError(error).message.includes("Firebase Admin SDK er ikke tilgjengelig");
+}
+
 function getFirebaseAdminServices(): FirebaseAdminServices {
   if (cachedServices) return cachedServices;
   if (cachedLoadError) throw cachedLoadError;
 
   try {
-    const appModule = require(firebaseAdminModuleIds.app) as FirebaseAdminAppModule;
-    const firestoreModule = require(firebaseAdminModuleIds.firestore) as FirebaseAdminFirestoreModule;
-    const authModule = require(firebaseAdminModuleIds.auth) as FirebaseAdminAuthModule;
+    const appModule = require("firebase-admin/app") as FirebaseAdminAppModule;
+    const firestoreModule = require("firebase-admin/firestore") as FirebaseAdminFirestoreModule;
+    const authModule = require("firebase-admin/auth") as FirebaseAdminAuthModule;
 
     const existing = appModule.getApps();
     if (!existing.length) {

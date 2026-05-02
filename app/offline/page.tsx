@@ -407,7 +407,8 @@ export default function OfflinePage() {
 
       if (!data) throw new Error("Ingen data for valgt kapittel");
 
-      saveSectionOffline(section.id, data, activeVariant.id);
+      const saved = saveSectionOffline(section.id, data, activeVariant.id);
+      if (!saved) throw new Error("Kunne ikke lagre offline-data. Sjekk lagringsplass eller privat nettlesermodus.");
       if (options?.prefetchRoutes !== false) {
         await prefetchOfflineRoutes([section.id]);
       }

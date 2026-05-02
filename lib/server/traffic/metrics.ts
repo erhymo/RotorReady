@@ -33,6 +33,15 @@ function toDate(value: any): Date | null {
   return null;
 }
 
+export function createEmptyTrafficMetrics(): TrafficMetrics {
+  return {
+    totalTrackedUsers: 0,
+    activeLast7Days: 0,
+    activeLast30Days: 0,
+    activeToday: 0,
+  };
+}
+
 export async function getTrafficMetrics(now: Date = new Date()): Promise<TrafficMetrics> {
   const snapshot = await adminDb.collection("users").select("lastSeenAt").get();
 

@@ -1,6 +1,7 @@
 import { onAuthStateChanged } from "firebase/auth";
 
 const E2E_LOGIN_OVERRIDE_KEY = "rr_e2e_logged_in";
+const FREE_ACCESS_ENABLED = true;
 
 function hasE2ELoginOverride(): boolean {
   if (typeof window === "undefined") return false;
@@ -19,6 +20,10 @@ function hasE2ELoginOverride(): boolean {
 }
 
 export async function isLoggedInAsync(timeoutMs = 3000): Promise<boolean> {
+  // RotorReady is currently free to use. Keep this helper permissive so older
+  // quiz/training flows do not redirect users away from training content.
+  if (FREE_ACCESS_ENABLED) return true;
+
   if (hasE2ELoginOverride()) return true;
 
   try {

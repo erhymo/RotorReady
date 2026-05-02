@@ -5,7 +5,6 @@ import { loadQuestionsForSectionId } from "@/lib/loadAllQuestions";
 import { loadSectionOffline } from "@/lib/offline";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 import { modelScopedKey } from "@/lib/models/storage";
-import { isLoggedInAsync } from "@/lib/auth";
 import { buildInitialQuizResumeSession, buildValidatedQuizResumeSession, clearQuizResumeSnapshot, findLatestQuizResumeInfo, readQuizResumeSnapshot, writeQuizResumeSnapshot } from "@/lib/quiz/resumeSnapshot";
 
 import TopBarBackButton from "@/components/TopBarBackButton";
@@ -148,8 +147,6 @@ export default function AvionicsFmsQuizStart() {
     setLoading(true);
     setErr(null);
     try {
-      const loggedIn = await isLoggedInAsync();
-      if (!loggedIn) { router.push(`/paywall?from=${encodeURIComponent('/avionics-fms-limitations-quiz')}`); return; }
       const data = await getData();
       if (!data.items.length) {
         setErr("Found no questions in this section.");
@@ -177,7 +174,7 @@ export default function AvionicsFmsQuizStart() {
       const amountToken = amount === "all" ? "all" : String(amount);
 
       const session = {
-        section: SECTION_ID,
+        section: SECTION,
         ...buildInitialQuizResumeSession(randomized, amountToken),
       };
       sessionStorage.setItem(SESSION_KEY, JSON.stringify(session));
@@ -201,8 +198,6 @@ export default function AvionicsFmsQuizStart() {
   }
 
   async function startWrongOnly() {
-    const loggedIn = await isLoggedInAsync();
-    if (!loggedIn) { router.push(`/paywall?from=${encodeURIComponent('/avionics-fms-limitations-quiz')}`); return; }
     const key = `${modelScopedKey("rr_progress_last_wrong", activeVariant.id)}:avionics-fms-limitations`;
     const raw =
       localStorage.getItem(key) ||
@@ -215,7 +210,7 @@ export default function AvionicsFmsQuizStart() {
       const data = JSON.parse(raw) as { items?: QuizItem[] };
       const items = Array.isArray(data.items) ? data.items : [];
       const session = {
-        section: SECTION_ID,
+        section: SECTION,
         ...buildInitialQuizResumeSession(items),
       };
       sessionStorage.setItem(SESSION_KEY, JSON.stringify(session));
@@ -232,18 +227,13 @@ export default function AvionicsFmsQuizStart() {
   async function handleResumeContinue() {
     if (!resumeInfo) return;
     try {
-      const loggedIn = await isLoggedInAsync();
-      if (!loggedIn) {
-        router.push(`/paywall?from=${encodeURIComponent('/avionics-fms-limitations-quiz')}`);
-        return;
-      }
       const snap = readQuizResumeSnapshot<QuizItem>(activeVariant.id, SECTION_ID, resumeInfo.amountToken);
       if (!snap) {
         setResumeInfo(null);
         return;
       }
       const session = {
-        section: SECTION_ID,
+        section: SECTION,
         ...buildValidatedQuizResumeSession(snap, (answer, item) => answer >= 0 && answer < item.options.length),
       };
       sessionStorage.setItem(SESSION_KEY, JSON.stringify(session));

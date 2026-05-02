@@ -4,6 +4,13 @@ import withPWAInit from 'next-pwa';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+const firebaseAdminExternals = {
+  'firebase-admin': 'commonjs firebase-admin',
+  'firebase-admin/app': 'commonjs firebase-admin/app',
+  'firebase-admin/auth': 'commonjs firebase-admin/auth',
+  'firebase-admin/firestore': 'commonjs firebase-admin/firestore',
+};
+
 const withPWA = withPWAInit({
   dest: 'public',
   register: true,
@@ -84,7 +91,17 @@ const withPWA = withPWAInit({
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  serverExternalPackages: ['firebase-admin'],
   outputFileTracingRoot: __dirname,
+  webpack(config, { isServer }) {
+    if (isServer) {
+      const currentExternals = config.externals ?? [];
+      config.externals = Array.isArray(currentExternals)
+        ? [...currentExternals, firebaseAdminExternals]
+        : [currentExternals, firebaseAdminExternals];
+    }
+    return config;
+  },
   async redirects() {
     return [
       { source: "/auth/signin", destination: "/login", permanent: true },

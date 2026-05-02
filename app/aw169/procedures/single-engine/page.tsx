@@ -162,10 +162,14 @@ function SingleEngineProcedureInner() {
     return (
       <div
         className="fixed left-0 right-0 bottom-0 top-0 z-40 bg-white dark:bg-zinc-900 cursor-pointer"
-        role="button"
-        aria-label="Close procedure"
-        onClick={handleClose}
       >
+	        <button
+	          type="button"
+	          onClick={handleClose}
+	          className="fixed right-3 top-3 z-50 rounded-lg bg-slate-900/90 px-3 py-2 text-sm font-semibold text-white shadow dark:bg-white/90 dark:text-slate-900"
+	        >
+	          Close procedure
+	        </button>
 	        <div
 	          className="h-full w-full overflow-y-auto"
 	          onClickCapture={(e) => {

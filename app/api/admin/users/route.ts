@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
-import { adminDb, adminAuth } from "@/lib/firebase/admin";
+
+import { isProduction } from "@/lib/env";
+import { adminDb, adminAuth, isFirebaseAdminUnavailableError } from "@/lib/firebase/admin";
 
 export const runtime = "nodejs";
 
@@ -63,6 +65,17 @@ export async function GET() {
     return NextResponse.json({ users });
   } catch (error: any) {
     console.error("Failed to load users list", error);
+    if (isFirebaseAdminUnavailableError(error)) {
+      return NextResponse.json(
+        {
+          users: [],
+          [isProduction ? "error" : "devWarning"]: isProduction
+            ? "Firebase Admin er ikke tilgjengelig; viser tom brukerliste."
+            : "Firebase Admin er ikke konfigurert i dev; viser tom brukerliste.",
+        },
+        { status: 200 },
+      );
+    }
     return NextResponse.json({ error: error?.message || "Kunne ikke hente brukere" }, { status: 500 });
   }
 }

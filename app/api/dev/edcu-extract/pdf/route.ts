@@ -2,9 +2,7 @@ import fs from "fs/promises";
 import path from "path";
 
 function devEnabled(): boolean {
-  const v = String(process.env.DEV_TOOLS_ENABLED ?? process.env.DEV_TOOLS_ENABLE ?? "").toLowerCase();
-  if (process.env.NODE_ENV === "development") return true; // allow in dev
-  return v === "1" || v === "true" || v === "yes" || v === "on";
+  return process.env.NODE_ENV === "development";
 }
 
 export async function GET() {

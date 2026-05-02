@@ -12,17 +12,17 @@ test('lights overlay/flag/prev/next/restart', async ({ page }) => {
   await revealBtn.click();
 
   // Prev/Next/Flag finnes
-  await expect(page.getByRole('button', { name: /prev/i })).toBeVisible();
-  const flagBtn = page.getByRole('button', { name: /flag/i });
+	  await expect(page.getByRole('button', { name: 'Prev light' })).toBeVisible();
+	  const flagBtn = page.getByRole('button', { name: 'Flag light' });
   await expect(flagBtn).toBeVisible();
-  await expect(page.getByRole('button', { name: /next/i })).toBeVisible();
+	  await expect(page.getByRole('button', { name: 'Next light' })).toBeVisible();
 
   // Toggle flag (tolk evt. ingen feil hvis API ikke lagrer)
   await flagBtn.click();
   await flagBtn.click();
 
   // Next -> tilbake til light
-  await page.getByRole('button', { name: /next/i }).click();
+	  await page.getByRole('button', { name: 'Next light' }).click();
 
   // Fullfør og restart
   // hopp til done om mulig (kan kreve flere next; her røyk-test bare at Restart finnes når done vises)

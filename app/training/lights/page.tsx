@@ -7,8 +7,6 @@ import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import TopBarBackButton from "@/components/TopBarBackButton";
 import { useActiveModelVariant } from "@/lib/models/hooks";
-import { getQuota, incQuota } from "@/lib/quota";
-import { isLoggedInAsync } from "@/lib/auth";
 
 
 type StepType = "note" | "action" | "branch" | "caution" | "warning" | "step";
@@ -189,6 +187,7 @@ export default function LightsTrainer() {
 		  const [returnToMemoryGrid, setReturnToMemoryGrid] = useState<Severity | null>(null);
 		  const [isMobile, setIsMobile] = useState(false);
 	  const [compactCWP, setCompactCWP] = useState(false);
+		  const [flaggedIds, setFlaggedIds] = useState<Set<string>>(() => new Set());
 	  const [pickCounts, setPickCounts] = useState<{ warning: "all" | number }>({ warning: "all" });
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -445,17 +444,7 @@ export default function LightsTrainer() {
 	    [aw169AmberMemoryLights, activeVariant.id]
 	  );
 
-		  const start = useCallback(async (_severity: Severity) => {
-    // Access control: allow 5 starts when not logged in; unlimited when logged in
-    const loggedIn = await isLoggedInAsync();
-    if (!loggedIn) {
-      const used = getQuota("lights");
-      if (used >= 5) {
-        try { window.location.href = `/paywall?from=${encodeURIComponent('/training/lights')}`; } catch {}
-        return;
-      }
-      incQuota("lights");
-    }
+			  const start = useCallback(async (_severity: Severity) => {
 	    const pool = warningLights;
 	    if (!pool.length) return;
 	    const shuffled = shuffle(pool);
@@ -472,17 +461,6 @@ export default function LightsTrainer() {
 		  }, [warningLights, activeVariant.id, pickCounts.warning]);
 
   const startMemoryOnly = useCallback(async () => {
-    const loggedIn = await isLoggedInAsync();
-
-    if (!loggedIn) {
-      const used = getQuota("lights");
-      if (used >= 5) {
-        try { window.location.href = `/paywall?from=${encodeURIComponent('/training/lights')}`; } catch {}
-        return;
-      }
-      incQuota("lights");
-    }
-
 	    let pool: LightItem[] = [];
 	    if (activeVariant.id === "AW169") {
 	      // Include ONLY lights that have a detected QRH memory box crop
@@ -502,18 +480,7 @@ export default function LightsTrainer() {
 	    setMode("light");
 	  }, [aw169RedMemoryLights, warningLights, activeVariant.id]);
 
-	  const startAmberMemoryOnly = useCallback(async () => {
-	    const loggedIn = await isLoggedInAsync();
-
-	    if (!loggedIn) {
-	      const used = getQuota("lights");
-	      if (used >= 5) {
-	        try { window.location.href = `/paywall?from=${encodeURIComponent('/training/lights')}`; } catch {}
-	        return;
-	      }
-	      incQuota("lights");
-	    }
-
+		  const startAmberMemoryOnly = useCallback(async () => {
 	    if (activeVariant.id !== "AW169") return;
 	    const pool = aw169AmberMemoryLights;
 	    if (!pool.length) return;
@@ -556,18 +523,7 @@ export default function LightsTrainer() {
 			    setMode("light");
 			  }, [lastSeverity, deck, warningLights, activeVariant.id, memoryOnly, aw169RedMemoryLights]);
 
-	  async function openMemoryItem(item: LightItem) {
-	    const loggedIn = await isLoggedInAsync();
-
-	    if (!loggedIn) {
-	      const used = getQuota("lights");
-	      if (used >= 5) {
-	        try { window.location.href = `/paywall?from=${encodeURIComponent('/training/lights')}`; } catch {}
-	        return;
-	      }
-	      incQuota("lights");
-	    }
-
+		  async function openMemoryItem(item: LightItem) {
 	    setDeck([item]);
 	    setLastSeverity(item.severity as Severity);
 	    setIdx(0);
@@ -637,6 +593,17 @@ export default function LightsTrainer() {
   }, [activeVariant.id, idx, deck, memoryOnly]);
 
   const current = deck[idx];
+	  const currentFlagged = current ? flaggedIds.has(current.id) : false;
+
+	  const toggleCurrentFlag = useCallback(() => {
+	    if (!current) return;
+	    setFlaggedIds((prev) => {
+	      const next = new Set(prev);
+	      if (next.has(current.id)) next.delete(current.id);
+	      else next.add(current.id);
+	      return next;
+	    });
+	  }, [current]);
 
   const reveal = useCallback(() => {
     if (!current) return;
@@ -1555,6 +1522,7 @@ export default function LightsTrainer() {
             <button
               onClick={reveal}
               className="w-full rounded-2xl border p-8 text-left transition hover:shadow-md bg-white dark:bg-zinc-900 dark:border-zinc-700"
+              aria-label={memoryOnly ? "Click to show memory items" : "Click to show procedure"}
               title="Click to show procedure"
             >
               <div className="mb-3 text-sm opacity-90 text-gray-600 dark:text-zinc-100">{memoryOnly ? "Click the light to show memory items" : "Click the light to show the procedure"}</div>
@@ -1603,10 +1571,12 @@ export default function LightsTrainer() {
           <div
             ref={procOverlayRef}
             tabIndex={-1}
-            className="fixed left-0 right-0 bottom-0 top-0 z-40 bg-white dark:bg-zinc-900 cursor-pointer"
-            role="button"
-            aria-label="Close procedure"
-            onClick={() => {
+	            className="fixed left-0 right-0 bottom-0 top-0 z-40 bg-white dark:bg-zinc-900"
+	          >
+	            <button
+	              type="button"
+	              className="fixed right-3 top-3 z-50 rounded-lg bg-slate-900/90 px-3 py-2 text-sm font-semibold text-white shadow dark:bg-white/90 dark:text-slate-900"
+	              onClick={() => {
               try {
                 const before = window.location.pathname + window.location.search;
                 router.back();
@@ -1621,8 +1591,10 @@ export default function LightsTrainer() {
                   } catch {}
                 }, 120);
               } catch {}
-            }}
-          >
+	              }}
+	            >
+	              Close procedure
+	            </button>
             <div className="h-full w-full overflow-y-auto" onClickCapture={(e) => { const t = e.target as HTMLElement; if (t && t.closest('a,button,input,textarea,select,[data-prevent-back]')) { e.stopPropagation(); } }} onMouseDownCapture={(e) => { const t = e.target as HTMLElement; if (t && t.closest('a,button,input,textarea,select,[data-prevent-back]')) { e.stopPropagation(); } }} onTouchStartCapture={(e) => { const t = e.target as HTMLElement; if (t && t.closest('a,button,input,textarea,select,[data-prevent-back]')) { e.stopPropagation(); } }}>
               <div className="px-0">
                 <div className={`${!isMobile ? "max-w-3xl mx-auto my-6 px-4" : ""}`}>
@@ -1642,18 +1614,19 @@ export default function LightsTrainer() {
                 <ProcedureLikePDF item={current} flat memoryOnly={memoryOnly} />
               </div>
             </div>
-            {!(activeVariant.id === 'AW169' && current?.severity === 'warning' && current?.pageImage) && (
-              <div className="sticky bottom-0 bg-white/95 dark:bg-zinc-900/95 backdrop-blur border-t border-slate-200 dark:border-zinc-700">
+		              <div className="fixed left-0 right-0 bottom-0 z-50 bg-white/95 dark:bg-zinc-900/95 backdrop-blur border-t border-slate-200 dark:border-zinc-700">
                 <div className="max-w-none mx-auto p-4 flex items-center justify-between gap-8" style={{ paddingBottom: 'calc(1rem + env(safe-area-inset-bottom))' }}>
                   <button onClick={prev} disabled={!canPrev} className="rounded-lg px-5 py-3 border text-base font-semibold hover:bg-slate-50 active:bg-slate-100 disabled:opacity-40 dark:border-zinc-700 dark:text-zinc-100 dark:hover:bg-zinc-800 dark:active:bg-zinc-700" aria-label="Prev light">
                     ← Prev
                   </button>
+	                  <button onClick={toggleCurrentFlag} className={`rounded-lg px-5 py-3 border text-base font-semibold ${currentFlagged ? "bg-amber-500 text-white border-amber-500" : "bg-white text-slate-800 dark:bg-zinc-900 dark:text-zinc-100 dark:border-zinc-700"}`} aria-label="Flag light" aria-pressed={currentFlagged}>
+	                    {currentFlagged ? "Flagged" : "Flag"}
+	                  </button>
                   <button onClick={next} disabled={!canNext} className="rounded-lg px-5 py-3 border bg-blue-600 text-white text-base font-semibold hover:bg-blue-500 active:bg-blue-600 disabled:opacity-40" aria-label="Next light">
                     Next →
                   </button>
                 </div>
               </div>
-            )}
           </div>
         )
         }
@@ -1672,15 +1645,14 @@ export default function LightsTrainer() {
             ) : (
               <ProcedureLikePDF item={current} memoryOnly={memoryOnly} />
             )}
-            {!(memoryOnly && activeVariant.id === 'AW169' && current?.pageImage) && (
-              <div className="sticky bottom-0 bg-white/80 dark:bg-transparent backdrop-blur border-t dark:border-blue-400">
+	              <div className="sticky bottom-0 bg-white/80 dark:bg-transparent backdrop-blur border-t dark:border-blue-400">
                 <div className="max-w-3xl mx-auto p-4 flex items-center justify-between">
                   <button onClick={prev} disabled={!canPrev} className="rounded-lg px-4 py-2 border dark:text-zinc-100 dark:border-blue-400 disabled:opacity-40">Previous</button>
+	                  <button onClick={toggleCurrentFlag} className={`rounded-lg px-4 py-2 border ${currentFlagged ? "bg-amber-500 text-white border-amber-500" : "dark:text-zinc-100 dark:border-blue-400"}`}>{currentFlagged ? "Flagged" : "Flag"}</button>
                   <div className="text-sm opacity-60 dark:text-zinc-300">→ for Next</div>
                   <button onClick={next} disabled={!canNext} className="rounded-lg px-4 py-2 bg-blue-600 text-white dark:bg-transparent dark:text-zinc-100 disabled:opacity-40">Next</button>
                 </div>
               </div>
-            )}
           </div>
         )}
         {mode === "done" && (

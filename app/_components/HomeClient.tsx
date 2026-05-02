@@ -32,7 +32,6 @@ function Bar(props: { href: string; title: string; description: string; tone?: "
 	export default function HomeClient() {
 	  const [ver, setVer] = useState<any>(null);
 	  const { variant: activeVariant } = useActiveModelVariant();
-	  const hasCheckout = Boolean(process.env.NEXT_PUBLIC_STRIPE_PRICE_ID);
 
 	  useEffect(() => {
 	    fetch("/quiz-data/versions/data-version.json")
@@ -125,15 +124,6 @@ function Bar(props: { href: string; title: string; description: string; tone?: "
 
       <section className="space-y-3">
         <h2 className="text-sm font-semibold text-slate-700 dark:text-zinc-200 uppercase">Tools</h2>
-        {hasCheckout && (
-          <Bar
-            href="/api/stripe/checkout"
-            title="Purchase Access"
-            description="Buy a subscription for full access and offline mode."
-            tone="emerald"
-            icon={<DownloadIcon className="h-4 w-4" />}
-          />
-        )}
         <Bar
           href="/offline"
           title="Offline Packages"

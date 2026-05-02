@@ -109,12 +109,6 @@ export default function LimitationsStart() {
     setLoading(true);
     setErr(null);
     try {
-      // Paywall bypass for utvikling/testing
-      // const paid = await isPaidAsync();
-      // if (!paid) {
-      //   const used = getQuota("limitations");
-      //   if (used >= 3) { router.push("/paywall?from=/limitations-quiz"); return; }
-      // }
       const data = await getData();
       const base = amount === "all"
         ? shuffle<QuizItem>(data.items)
@@ -147,7 +141,6 @@ export default function LimitationsStart() {
         answers: Array(randomized.length).fill(undefined),
         flags: Array(randomized.length).fill(false),
       });
-      // if (!paid) incQuota("limitations");
       router.push("/limitations-quiz/1");
     } catch (e: any) {
       setErr(e?.message || "Could not start quiz");

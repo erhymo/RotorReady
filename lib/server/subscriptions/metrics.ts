@@ -36,9 +36,18 @@ function emptyCounters() {
   };
 }
 
+export function createEmptySubscriptionMetrics(): SubscriptionMetrics {
+  return {
+    totalUsers: 0,
+    subscribers: 0,
+    totalSubscriptions: 0,
+    totals: emptyCounters(),
+    perModel: Object.fromEntries(listRotorModels().map((model) => [model.id, emptyCounters()])) as SubscriptionMetrics["perModel"],
+  };
+}
+
 export async function getSubscriptionMetrics(): Promise<SubscriptionMetrics> {
-  const perModel = Object.fromEntries(listRotorModels().map((model) => [model.id, emptyCounters()])) as SubscriptionMetrics["perModel"];
-  const totals = emptyCounters();
+  const { perModel, totals } = createEmptySubscriptionMetrics();
   let totalUsers = 0;
   let subscribers = 0;
 

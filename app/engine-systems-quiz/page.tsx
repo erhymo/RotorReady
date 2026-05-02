@@ -5,7 +5,6 @@ import { loadAllQuestions } from "@/lib/loadAllQuestions";
 import { loadSectionOffline } from "@/lib/offline";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 import { modelScopedKey } from "@/lib/models/storage";
-import { isLoggedInAsync } from "@/lib/auth";
 import { buildInitialQuizResumeSession, buildQuizResumeSession, clearQuizResumeSnapshot, findLatestQuizResumeInfo, getQuizResumeStorageKey, readQuizResumeSnapshot, writeQuizResumeSnapshot } from "@/lib/quiz/resumeSnapshot";
 
 import TopBarBackButton from "@/components/TopBarBackButton";
@@ -114,8 +113,6 @@ export default function EngineSystemsStart() {
   async function startQuiz() {
     setLoading(true); setErr(null);
     try {
-      const loggedIn = await isLoggedInAsync();
-      if (!loggedIn) { router.push(`/paywall?from=${encodeURIComponent('/engine-systems-quiz')}`); return; }
       const data = await getData();
       if (!data.items.length) {
         setErr("No questions tagged 'eng syst' found.");
@@ -162,8 +159,6 @@ export default function EngineSystemsStart() {
   }
 
   async function startWrongOnly() {
-    const loggedIn = await isLoggedInAsync();
-    if (!loggedIn) { router.push(`/paywall?from=${encodeURIComponent('/engine-systems-quiz')}`); return; }
     const key = `${modelScopedKey("rr_progress_last_wrong", activeVariant.id)}:${SECTION_ID}`;
     const raw = localStorage.getItem(key) || (activeVariant.id === "AW169" ? localStorage.getItem(`rr_progress_last_wrong:${SECTION_ID}`) : null);
     if (!raw) { alert("No wrong-answer set available. Complete a quiz first."); return; }

@@ -1,7 +1,6 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useState } from "react";
-import type { User } from "firebase/auth";
 
 import {
   getModelVariant,
@@ -32,41 +31,6 @@ let currentVariant: ModelVariantDefinition = FALLBACK_VARIANT;
 let currentSource: VariantSource = "default";
 let hydratedFromStorage = false;
 const listeners = new Set<VariantListener>();
-let firebaseClientPromise: Promise<typeof import("@/lib/firebase/client")> | null = null;
-let firestoreLitePromise: Promise<typeof import("firebase/firestore/lite")> | null = null;
-
-function loadFirebaseClient() {
-  if (!firebaseClientPromise) {
-    firebaseClientPromise = import("@/lib/firebase/client");
-  }
-  return firebaseClientPromise;
-}
-
-function loadFirestoreLite() {
-  if (!firestoreLitePromise) {
-    firestoreLitePromise = import("firebase/firestore/lite");
-  }
-  return firestoreLitePromise;
-}
-
-async function persistActiveVariantToServer(variantId: string) {
-  try {
-    const { auth } = await loadFirebaseClient();
-    const token = await auth?.currentUser?.getIdToken().catch(() => null);
-    const headers: Record<string, string> = { "Content-Type": "application/json" };
-    if (token) headers.Authorization = `Bearer ${token}`;
-    const res = await fetch("/api/account/model", {
-      method: "POST",
-      headers,
-      body: JSON.stringify({ variantId }),
-    });
-    if (!res.ok) {
-      console.warn("Unable to update active model on server", await res.text());
-    }
-  } catch (error) {
-    console.warn("Error updating active model", error);
-  }
-}
 
 function hydrateFromStorage() {
   if (hydratedFromStorage) return;
@@ -93,7 +57,7 @@ export function useActiveModelVariant(): ActiveModelState {
     variant: currentVariant,
     source: currentSource,
   }));
-  const [loading, setLoading] = useState(true);
+  const loading = false;
 
   useEffect(() => {
     const listener: VariantListener = (nextVariant, nextSource) => {
@@ -105,75 +69,11 @@ export function useActiveModelVariant(): ActiveModelState {
     };
   }, []);
 
-  useEffect(() => {
-    let cancelled = false;
-    let unsubscribe: (() => void) | undefined;
-
-    void (async () => {
-      try {
-        const [{ auth, db }, { doc, getDoc }] = await Promise.all([
-          loadFirebaseClient(),
-          loadFirestoreLite(),
-        ]);
-
-        if (cancelled || !auth || !db) {
-          if (!cancelled) setLoading(false);
-          return;
-        }
-
-        unsubscribe = auth.onAuthStateChanged(async (user: User | null) => {
-          if (!user) {
-            setLoading(false);
-            return;
-          }
-          try {
-            const snap = await getDoc(doc(db, "users", user.uid));
-            const serverVariantId = snap.data()?.activeModelId as string | undefined;
-            const localVariantId = getStoredActiveModelVariantId();
-            const localDef = getModelVariant(localVariantId);
-            if (localDef && serverVariantId && serverVariantId !== localDef.id) {
-              // Prefer the user's local selection; try to sync to server, but don't block UI
-              storeActiveModelVariantId(localDef.id);
-              broadcastVariantState(localDef, "user");
-              persistActiveVariantToServer(localDef.id).catch(() => {});
-            } else if (serverVariantId) {
-              const def = getModelVariant(serverVariantId);
-              if (def) {
-                storeActiveModelVariantId(def.id);
-                broadcastVariantState(def, "user");
-              }
-            }
-          } catch (error) {
-            console.warn("Unable to fetch active model for user", error);
-          } finally {
-            setLoading(false);
-          }
-        });
-      } catch (error) {
-        console.warn("Unable to initialize active model sync", error);
-        if (!cancelled) setLoading(false);
-      }
-    })();
-
-    return () => {
-      cancelled = true;
-      try {
-        unsubscribe?.();
-      } catch {}
-    };
-  }, []);
-
   const setActiveVariant = useCallback(async (variantId: string) => {
     const def = getModelVariant(variantId);
     if (!def) return;
-    const { auth } = await loadFirebaseClient().catch(() => ({ auth: undefined }));
-    const user = auth?.currentUser;
-    const nextSource: VariantSource = user ? "user" : "local";
-    broadcastVariantState(def, nextSource);
+    broadcastVariantState(def, "local");
     storeActiveModelVariantId(def.id);
-    if (user) {
-      await persistActiveVariantToServer(def.id);
-    }
   }, []);
 
   return useMemo(

@@ -30,6 +30,15 @@ type ConversationThread = {
   unreadForUser: number;
 };
 
+const ACCOUNT_FEATURES_ENABLED = false;
+const OPEN_ACCESS_ENTITLEMENTS = {
+  AW169: true,
+  AW189: true,
+  AW139: true,
+  H125: true,
+  R44_II: true,
+};
+
 export default function AccountPage() {
   function parseLocalStorage<T>(key: string): T | null {
     const raw = localStorage.getItem(key);
@@ -176,10 +185,10 @@ export default function AccountPage() {
   }
   const router = useRouter();
   const [history, setHistory] = useState<Summary[]>([]);
-  const [ents, setEnts] = useState<{AW169?:boolean; AW189?:boolean; AW139?:boolean; H125?:boolean; R44_II?:boolean}>({});
+  const [ents, setEnts] = useState<{AW169?:boolean; AW189?:boolean; AW139?:boolean; H125?:boolean; R44_II?:boolean}>(OPEN_ACCESS_ENTITLEMENTS);
   const [email, setEmail] = useState<string | null>(null);
   const [loggedIn, setLoggedIn] = useState(false);
-  const [authChecked, setAuthChecked] = useState(false);
+  const [authChecked, setAuthChecked] = useState(true);
   const [themePref, setThemePref] = useState<'system'|'light'|'dark'>('system');
   const [effectiveTheme, setEffectiveTheme] = useState<'light'|'dark'>(() => (typeof window !== 'undefined' && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
   const [userUid, setUserUid] = useState<string | null>(null);
@@ -248,6 +257,12 @@ export default function AccountPage() {
     const legacyHistory = parseLocalStorage<Summary[]>("rr_progress");
     const picked = modelHistory || legacyHistory || null;
     if (picked) setHistory(picked);
+
+    if (!ACCOUNT_FEATURES_ENABLED) {
+      setEnts(OPEN_ACCESS_ENTITLEMENTS);
+      setAuthChecked(true);
+      return;
+    }
 
     let cancelled = false;
     let resolved = false;
@@ -338,6 +353,7 @@ export default function AccountPage() {
   }, []);
 
   useEffect(() => {
+    if (!ACCOUNT_FEATURES_ENABLED) return;
     if (!userUid) {
       setConversation(null);
       return;
@@ -462,28 +478,7 @@ export default function AccountPage() {
 	  const selectVariant = async (id: string) => {
 	    // Store locally immediately for a seamless experience
 	    try { storeActiveModelVariantId(id); } catch {}
-	    // Try to persist on the server if the user is signed in, using ID token
-    try {
-      const { auth } = await import("@/lib/firebase/client");
-      const user = auth?.currentUser;
-      if (user) {
-        const token = await user.getIdToken();
-        await fetch("/api/account/model", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-          body: JSON.stringify({ variantId: id }),
-          cache: "no-store",
-        }).catch(() => {});
-      }
-    } catch (e) {
-      // Ikke forstyrr brukeren – vi har allerede lagret lokalt
-      console.warn("Could not update active model on server", e);
-    } finally {
-      if (typeof window !== "undefined") window.location.reload();
-    }
+		    if (typeof window !== "undefined") window.location.reload();
   };
 
   return (
@@ -523,7 +518,7 @@ export default function AccountPage() {
           <div>
             <div className="font-semibold text-slate-900 dark:text-zinc-100">Access</div>
             <div className="text-sm text-slate-700 dark:text-zinc-300 mt-0.5">
-	              {loggedIn ? "Logged in" : <span>RotorReady is free for now. <a href="/login" className="underline">Log in</a> only if you want account features.</span>}
+		              RotorReady is free and open. No login is required for training, quizzes, procedures or offline packages.
             </div>
             <div className="mt-2 flex gap-2 flex-wrap">
               <button
@@ -536,7 +531,7 @@ export default function AccountPage() {
                     : "bg-white dark:bg-zinc-900 dark:text-zinc-100 hover:border-slate-300 dark:hover:border-zinc-600"
                 }`}
               >
-                AW169 {ents.AW169 ? "✓" : ""}
+	                AW169
               </button>
 
                             <button
@@ -549,27 +544,20 @@ export default function AccountPage() {
                     : "bg-white dark:bg-zinc-900 dark:text-zinc-100 hover:border-slate-300 dark:hover-border-zinc-600"
                 }`}
               >
-                AW139 {ents.AW139 ? "✓" : ""}
+	                AW139
               </button>
 
               <button
                 type="button"
                 key="AW189"
                 onClick={() => selectVariant("AW189")}
-	                disabled
 	                className={`px-3 py-1 rounded-lg border text-sm transition ${
 	                  activeVariantId === "AW189"
 	                    ? "border-emerald-400 bg-emerald-50 text-emerald-700"
 	                    : "bg-white dark:bg-zinc-900 dark:text-zinc-100 hover:border-slate-300 dark:hover:border-zinc-600"
-	                } opacity-60 cursor-not-allowed`}
+		                }`}
               >
-	                <span className="inline-flex items-center gap-1">
-	                  <span>AW189 {ents.AW189 ? "✓" : ""}</span>
-	                  <span aria-hidden className="text-xs">🔒</span>
-	                  <span className="ml-1 inline-flex items-center rounded-full border border-amber-400/70 bg-amber-50 px-1.5 py-0.5 text-[10px] font-semibold text-amber-700 dark:border-amber-500/40 dark:bg-amber-900/30 dark:text-amber-200">
-	                    Coming soon
-	                  </span>
-	                </span>
+		                AW189
               </button>
 
               <button
@@ -582,12 +570,11 @@ export default function AccountPage() {
                     : "bg-white dark:bg-zinc-900 dark:text-zinc-100 hover:border-slate-300 dark:hover:border-zinc-600"
                 }`}
               >
-                R44 II Raven {ents.R44_II ? "✓" : ""}
+	                R44 II Raven
               </button>
 
               {h125Variants.map((v) => {
                 const coming = v.status === "coming_soon";
-                const hasH125 = Boolean(ents.H125);
                 const isActive = activeVariantId === v.id;
 	            const label = v.label.includes("/") ? v.label.split("/")[1].trim() : v.label;
                 return (
@@ -602,7 +589,7 @@ export default function AccountPage() {
                         : "bg-white dark:bg-zinc-900 dark:text-zinc-100 hover:border-slate-300 dark:hover:border-zinc-600"
                     } ${coming ? "opacity-60 cursor-not-allowed" : "cursor-pointer"}`}
                   >
-                    {label} {!coming && hasH125 ? "✓" : ""}
+	                    {label}
                     {coming && (
                       <span className="ml-2 inline-flex items-center rounded-full border border-amber-400/70 bg-amber-50 px-1.5 py-0.5 text-[10px] font-semibold text-amber-700 dark:border-amber-500/40 dark:bg-amber-900/30 dark:text-amber-200">
                         Coming soon
@@ -665,81 +652,14 @@ export default function AccountPage() {
         </div>
       </section>
 
-
-      <section className="rounded-2xl border border-slate-200 bg-white/90 p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-900/80 dark:text-zinc-100 space-y-6">
-        <div className="flex items-start justify-between gap-3">
-          <div>
-            <h2 className="text-lg font-semibold text-slate-900 dark:text-white">Contact RotorReady</h2>
-            <p className="text-sm text-slate-600 dark:text-zinc-300">Ask questions or share feedback directly with us.</p>
-            {unreadUserMessages > 0 && (
-              <p className="mt-2 text-sm text-emerald-600 dark:text-emerald-300">
-                {unreadUserMessages} ulest{unreadUserMessages > 1 ? "e" : ""} svar fra oss.
-              </p>
-
-            )}
-          </div>
-          <button
-            onClick={() => userUid && loadConversation(userUid)}
-            disabled={conversationLoading}
-            className="rounded-lg border border-slate-300 px-3 py-1.5 text-sm font-medium text-slate-700 transition hover:bg-slate-100 disabled:opacity-60 dark:border-zinc-700 dark:text-zinc-200 dark:hover:bg-zinc-800"
-          >
-            Refresh
-          </button>
-        </div>
-
-        {conversationError && (
-          <div className="rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-700 dark:border-red-500/40 dark:bg-red-900/30 dark:text-red-200">
-            {conversationError}
-          </div>
-        )}
-
-        {conversationLoading ? (
-          <p className="text-sm text-slate-600 dark:text-zinc-300">Loading messages…</p>
-        ) : sortedMessages.length === 0 ? (
-          <p className="text-sm text-slate-600 dark:text-zinc-300">No messages yet. Send us feedback below.</p>
-        ) : (
-          <div className="space-y-3 max-h-80 overflow-y-auto pr-1">
-            {sortedMessages.map((msg) => {
-              const isAdmin = msg.from === "admin";
-              return (
-                <div key={msg.id} className={`flex ${isAdmin ? "justify-end" : "justify-start"}`}>
-                  <div
-                    className={`max-w-[80%] rounded-2xl px-4 py-3 text-sm shadow ${
-                      isAdmin
-                        ? "bg-blue-600 text-white"
-                        : "bg-slate-200 text-slate-900 dark:bg-zinc-800 dark:text-zinc-100"
-                    }`}
-                  >
-                    <div className="whitespace-pre-wrap leading-relaxed">{msg.body}</div>
-                    <div className={`mt-2 text-xs ${isAdmin ? "text-blue-100" : "text-slate-500 dark:text-zinc-400"}`}>
-                      {isAdmin ? "RotorReady" : "You"} — {new Date(msg.createdAt).toLocaleString()}
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        )}
-
-        <form onSubmit={handleSendMessage} className="space-y-3">
-          <textarea
-            className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100 dark:focus:border-blue-400 dark:focus:ring-blue-900/60"
-            placeholder="Write your message…"
-            value={messageText}
-            onChange={(event) => setMessageText(event.target.value)}
-            minLength={1}
-            rows={4}
-          />
-          <div className="flex items-center justify-end">
-            <button
-              type="submit"
-              disabled={sendingMessage || !messageText.trim()}
-              className="rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-blue-700 disabled:opacity-60 dark:bg-blue-500 dark:hover:bg-blue-600"
-            >
-              {sendingMessage ? "Sending…" : "Send message"}
-            </button>
-          </div>
-        </form>
+      <section className="rounded-2xl border border-slate-200 bg-white/90 p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-900/80 dark:text-zinc-100 space-y-3">
+        <h2 className="text-lg font-semibold text-slate-900 dark:text-white">Support</h2>
+        <p className="text-sm text-slate-700 dark:text-zinc-300">
+          For support, correction requests or feedback, use the public support page. No account is required.
+        </p>
+        <a href="/support" className="inline-flex rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-blue-700">
+          Open support
+        </a>
       </section>
 
       <section className="rounded-2xl border border-slate-200 bg-white/90 p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-900/80 dark:text-zinc-100 space-y-3">
@@ -750,35 +670,6 @@ export default function AccountPage() {
           <li>Always use the QRH/AFM and your operator&apos;s procedures as the primary source. Do not make operational decisions based on the app alone.</li>
         </ul>
       </section>
-
-      <section className="rounded-2xl border border-red-200 bg-red-50 p-6 shadow-sm dark:border-red-500/40 dark:bg-red-900/20 dark:text-red-100 space-y-3">
-        <h2 className="text-lg font-semibold text-red-800 dark:text-red-200">Delete account</h2>
-        <p className="text-sm text-red-700 dark:text-red-300">This will permanently delete your RotorReady account and profile. This action cannot be undone.</p>
-        <button
-          className="rounded-lg bg-red-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-red-700"
-          onClick={async () => {
-            try {
-              const [{ signOut }, { auth }] = await Promise.all([
-                import("firebase/auth"),
-                import("@/lib/firebase/client"),
-              ]);
-              if (!auth?.currentUser) { alert("You must be logged in."); return; }
-              if (!confirm("Are you sure you want to permanently delete your account? This cannot be undone.")) return;
-              const token = await auth.currentUser.getIdToken();
-              const res = await fetch("/api/account/delete", { method: "POST", headers: { Authorization: `Bearer ${token}` } });
-              if (!res.ok) { const t = await res.text(); throw new Error(t || "Failed to delete"); }
-              await signOut(auth);
-              window.location.href = "/";
-            } catch (e: any) {
-              alert(e?.message || "Could not delete account.");
-            }
-          }}
-        >
-          Delete my account
-        </button>
-      </section>
-
-
     </div>
   );
 }

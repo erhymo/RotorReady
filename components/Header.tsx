@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import ClientUserMenu from "./ClientUserMenu";
 import ClientActiveModelBadge from "./ClientActiveModelBadge";
 import InfoBell from "./InfoBell";
 
@@ -67,13 +66,12 @@ export default function Header() {
 	            href="/account"
 	            className="text-slate-700 hover:text-slate-900 dark:text-zinc-200 dark:hover:text-white"
 	          >
-	            Account
+		            My Page
 	          </Link>
-	          {/* User menu; on desktop, show info bell under the account name without moving it */}
+		          {/* On desktop, show info bell without adding account/login UI. */}
 	          <div className="relative">
-	            <ClientUserMenu />
 	            {showInfoBell && (
-	              <div className="absolute right-0 top-full mt-2 hidden md:block">
+		              <div className="absolute right-0 top-full mt-2 hidden md:block">
 	                <InfoBell />
 	              </div>
 	            )}

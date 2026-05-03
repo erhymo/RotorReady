@@ -12,7 +12,7 @@ export default function Header() {
 	  const showInfoBell = pathname === "/";
 
 	  return (
-    <div className="w-full border-b border-slate-200/70 bg-white/60 backdrop-blur supports-[backdrop-filter]:bg-white/40 dark:bg-zinc-950/90 dark:border-zinc-800 dark:text-zinc-100">
+	    <div className="rr-safe-top w-full border-b border-slate-200/70 bg-white/60 backdrop-blur supports-[backdrop-filter]:bg-white/40 dark:bg-zinc-950/90 dark:border-zinc-800 dark:text-zinc-100">
 	      <div className="mx-auto flex h-16 max-w-6xl items-center gap-4 px-6">
         {/* Logo / Brand */}
         <Link href="/" className="group flex items-center gap-3">

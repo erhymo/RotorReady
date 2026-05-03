@@ -8,6 +8,10 @@
 	--rr-radius: 1rem;
 }
 
+.rr-safe-top {
+	padding-top: env(safe-area-inset-top, 0px);
+}
+
 html, body {
 	height: 100%;
 }

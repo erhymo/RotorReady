@@ -8,6 +8,9 @@ const config: CapacitorConfig = {
     url: "https://rotor-ready.com",
     cleartext: false,
   },
+  ios: {
+    contentInset: "always",
+  },
 };
 
 export default config;

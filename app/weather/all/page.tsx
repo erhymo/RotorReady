@@ -1,13 +1,15 @@
 export const dynamic = "force-dynamic";
 
 import Link from "next/link";
+import AppTopBar from "@/components/AppTopBar";
 import { NO_AIRPORTS } from "@/lib/airports/no_icao";
 
 export default function WeatherAllAirportsPage() {
   const sorted = [...NO_AIRPORTS].sort((a, b) => a.name.localeCompare(b.name));
   return (
+    <>
+    <AppTopBar title="All airports" backHref="/weather" backLabel="Weather" />
     <div className="max-w-3xl mx-auto p-6 space-y-4">
-      <div className="mb-2"><Link href="/weather" className="text-sm text-slate-600 dark:text-zinc-300 hover:underline">← Back</Link></div>
       <h1 className="text-2xl font-bold text-slate-900 dark:text-white">All Airports</h1>
       <p className="text-slate-600 dark:text-zinc-300 mb-2">Tap an airport to view METAR/TAF.</p>
       <div className="divide-y divide-slate-200 dark:divide-zinc-800 rounded-lg border border-slate-200 dark:border-zinc-800 overflow-hidden">
@@ -29,6 +31,7 @@ export default function WeatherAllAirportsPage() {
         ))}
       </div>
     </div>
+    </>
   );
 }
 

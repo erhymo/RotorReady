@@ -62,14 +62,14 @@ export default function EngineQuizResult() {
       <div className="w-full flex items-center py-1">
         <TopBarBackButton href="/engine-systems-quiz" />
       </div>
-      <h1 className="text-2xl font-bold text-blue-700 dark:text-blue-300 drop-shadow">Result</h1>
-      <div className="rounded-xl border-l-4 border-blue-600 bg-blue-50/40 dark:border-blue-400 dark:bg-gradient-to-r dark:from-blue-900 dark:to-blue-800/80 p-4 shadow-lg dark:text-white">
+	      <h1 className="text-2xl font-bold text-slate-900 dark:text-zinc-100">Result</h1>
+	      <div className="rounded-xl border-l-4 border-blue-600 bg-blue-50/40 p-4 dark:border-blue-400 dark:bg-zinc-900 dark:text-white">
         <div>Answered: <b>{total}</b></div>
         <div>Correct: <b>{correct}</b></div>
         <div>Percent: <b>{percent}%</b></div>
       </div>
-      <div className="flex gap-2">
-        <button className="px-4 py-2 rounded-lg bg-blue-600 text-white" onClick={() => router.replace("/engine-systems-quiz")}>Try again</button>
+	      <div className="grid gap-2 sm:flex">
+	        <button className="inline-flex min-h-11 items-center justify-center rounded-lg bg-[#2E6EA1] px-4 py-2 font-semibold text-white" onClick={() => router.replace("/engine-systems-quiz")}>Try again</button>
       </div>
     </div>
   );

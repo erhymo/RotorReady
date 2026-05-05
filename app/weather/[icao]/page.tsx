@@ -1,8 +1,9 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { useRouter, useParams } from "next/navigation";
+import { useParams } from "next/navigation";
 import Link from "next/link";
+import AppTopBar from "@/components/AppTopBar";
 
 import { NO_AIRPORTS } from "@/lib/airports/no_icao";
 import { NO_AIRPORT_FEATURES } from "@/lib/airports/no_features";
@@ -37,7 +38,6 @@ const TAF_STATUS_CLASS: Record<"green" | "yellow" | "red", string> = {
 };
 
 export default function WeatherDetail() {
-  const router = useRouter();
   const params = useParams<{ icao?: string }>();
   const icao = (params?.icao || "").toUpperCase();
   const airport = NO_AIRPORTS.find((a) => a.icao === icao) || null;
@@ -159,28 +159,27 @@ export default function WeatherDetail() {
 
   if (!airport) {
     return (
+      <>
+      <AppTopBar title="Unknown airport" backHref="/weather" backLabel="Weather" />
       <div className="max-w-3xl mx-auto p-6 space-y-4">
-        <button
-          type="button"
-          onClick={() => router.back()}
-          className="text-sm text-slate-600 dark:text-zinc-300 hover:underline"
-        >
-          ← Back
-        </button>
         <h1 className="text-2xl font-bold">Unknown airport</h1>
         <p className="text-slate-600 dark:text-zinc-300">ICAO {icao} is not in the current airport list.</p>
       </div>
+      </>
     );
   }
 
 
   return (
+    <>
+    <AppTopBar
+      title={airport.icao}
+      backHref="/weather"
+      backLabel="Weather"
+      rightAction={<Link href="/weather/all" className="rounded-lg border border-slate-300 px-3 py-1.5 text-xs font-semibold text-slate-700 dark:border-zinc-700 dark:text-zinc-100">All</Link>}
+    />
     <div className="max-w-4xl mx-auto p-6 space-y-6">
       <header>
-        <div className="mb-2 flex items-center justify-between">
-          <button type="button" onClick={() => router.back()} className="text-sm text-slate-600 dark:text-zinc-300 hover:underline">← Back</button>
-          <Link href="/weather/all" className="text-sm text-blue-600 hover:underline dark:text-blue-400">All Airports</Link>
-        </div>
         <h1 className="text-2xl font-bold text-slate-900 dark:text-white">
           {airport.icao} <span className="text-slate-600 dark:text-zinc-300 font-normal">{airport.name}</span>
         </h1>
@@ -375,6 +374,7 @@ export default function WeatherDetail() {
         <div>Auto-refresh every 2 minutes.</div>
       </div>
     </div>
+    </>
   );
 }
 

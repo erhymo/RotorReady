@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
+import AppTopBar from "@/components/AppTopBar";
 import { NO_AIRPORTS } from "@/lib/airports/no_icao";
 import { NO_AIRPORT_FEATURES } from "@/lib/airports/no_features";
 import { getAirportMinima } from "@/lib/airports/no_minima";
@@ -220,6 +221,13 @@ export default function WeatherHubClient() {
   }, []);
 
   return (
+    <>
+    <AppTopBar
+      title="Weather planning"
+      backHref="/"
+      backLabel="Home"
+      rightAction={<Link href="/weather/all" className="rounded-lg border border-slate-300 px-3 py-1.5 text-xs font-semibold text-slate-700 dark:border-zinc-700 dark:text-zinc-100">All</Link>}
+    />
     <div className="max-w-4xl mx-auto p-6 space-y-6">
       <header className="flex items-center justify-between">
         <div>
@@ -228,12 +236,6 @@ export default function WeatherHubClient() {
             Nearest airport at the top (if location is available).
           </p>
         </div>
-        <Link
-          href="/weather/all"
-          className="text-sm text-blue-600 hover:underline dark:text-blue-400"
-        >
-          All Airports
-        </Link>
       </header>
 
       {/* Nearest airport card (Norway only) */}
@@ -439,6 +441,7 @@ export default function WeatherHubClient() {
         </section>
       )}
     </div>
+    </>
   );
 }
 

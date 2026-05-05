@@ -1,13 +1,15 @@
 export const dynamic = "force-dynamic";
 
 import Link from "next/link";
+import AppTopBar from "@/components/AppTopBar";
 import { NO_AIRPORTS } from "@/lib/airports/no_icao";
 
 export default function AirportsPage() {
   const sorted = [...NO_AIRPORTS].sort((a, b) => a.name.localeCompare(b.name));
   return (
+    <>
+    <AppTopBar title="Airports" backHref="/" backLabel="Home" />
     <div className="max-w-3xl mx-auto p-6 space-y-4">
-      <div className="mb-2"><Link href="/" className="text-sm text-slate-600 dark:text-zinc-300 hover:underline">← Back</Link></div>
       <h1 className="text-2xl font-bold text-slate-900 dark:text-white">Airports</h1>
       <p className="text-slate-600 dark:text-zinc-300 mb-2">All Norwegian ICAO airports (source: Avinor AIS). Tap an airport to see ATS & Fuel opening hours.</p>
       <p className="text-slate-600 dark:text-zinc-300 mb-2">Please cross-check current NOTAMs—temporary changes can override AIP data.</p>
@@ -31,6 +33,7 @@ export default function AirportsPage() {
       </div>
       <div className="text-xs text-slate-500 dark:text-zinc-400">Updated twice daily from Avinor AIS (cached 12h).</div>
     </div>
+    </>
   );
 }
 

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import AppTopBar from "@/components/AppTopBar";
 
 export default function H125AS350B3_2B1ProceduresListPage() {
   const procedures = [
@@ -60,14 +61,10 @@ export default function H125AS350B3_2B1ProceduresListPage() {
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-zinc-900">
-      <header className="sticky top-0 z-10 bg-white/80 dark:bg-zinc-900/90 backdrop-blur border-b dark:border-zinc-700">
-        <div className="mx-auto max-w-3xl px-6 py-3 flex items-center justify-between">
-          <h1 className="text-xl font-semibold text-slate-900 dark:text-zinc-100">H125 / AS350 B3 (2B1) · Procedures</h1>
-          <Link href="/" className="text-sm underline text-blue-600 dark:text-blue-400">Home</Link>
-        </div>
-      </header>
+	    <AppTopBar title="H125 / AS350 B3 (2B1) Procedures" backHref="/" backLabel="Home" />
 
       <main className="mx-auto max-w-3xl p-6 space-y-4">
+	      <h1 className="text-2xl font-bold text-slate-900 dark:text-zinc-100">H125 / AS350 B3 (2B1) Procedures</h1>
         <section className="rounded-xl border bg-white p-4 shadow-sm dark:bg-zinc-900 dark:border-zinc-700">
           <div className="space-y-3">
             {procedures.map((p) => (
@@ -82,7 +79,7 @@ export default function H125AS350B3_2B1ProceduresListPage() {
           </div>
         </section>
         <p className="text-xs text-slate-500 dark:text-zinc-400">
-          Tap anywhere inside a procedure to return to this list.
+	        Use the Back button in each procedure to return to this list.
         </p>
       </main>
     </div>

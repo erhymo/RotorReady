@@ -1,6 +1,6 @@
 "use client";
 
-import { BackButton } from "@/app/components/BackButton";
+import AppTopBar from "@/components/AppTopBar";
 
 const data = {
   airspeed: {
@@ -245,15 +245,7 @@ function GroupCard({ title, items }: Group) {
 export default function H125B3EQuickReferencePage() {
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-zinc-900">
-      <div className="sticky top-0 z-10 bg-white/80 dark:bg-zinc-900/90 backdrop-blur border-b dark:border-zinc-700">
-        <div className="mx-auto max-w-3xl px-6 py-3 flex items-center justify-between gap-3">
-          <BackButton label="Home" to="/" />
-          <h1 className="text-xs sm:text-sm font-semibold tracking-widest opacity-80 text-center">
-            H125 / AS350 B3e QUICK REFERENCE
-          </h1>
-          <div className="w-12 sm:w-16" />
-        </div>
-      </div>
+	    <AppTopBar title="H125 / AS350 B3e Quick Reference" backHref="/" backLabel="Home" />
 
       <main className="mx-auto max-w-3xl p-4 space-y-4">
         <p className="text-xs text-slate-600 dark:text-zinc-300">

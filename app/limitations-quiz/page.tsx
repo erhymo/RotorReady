@@ -191,9 +191,9 @@ export default function LimitationsStart() {
       <h1 className="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">Limitations Quiz</h1>
       <p className="text-lg text-slate-700 dark:text-zinc-100 mt-2">Choose number of questions and start.</p>
 
-      <div className="rounded-xl border-l-4 border-blue-600 bg-blue-50/40 dark:border-blue-400 dark:bg-blue-900/40 p-4 flex items-center gap-3">
+      <div className="rounded-xl border-l-4 border-blue-600 bg-blue-50/40 dark:border-blue-400 dark:bg-blue-900/40 p-4 space-y-3 sm:flex sm:items-center sm:gap-3 sm:space-y-0">
         <label className="text-sm text-gray-700 dark:text-zinc-100">Count:</label>
-        <select className="border rounded px-3 py-2 dark:bg-blue-900 dark:text-zinc-100 dark:border-blue-400"
+        <select className="min-h-11 w-full rounded border px-3 py-2 dark:bg-blue-900 dark:text-zinc-100 dark:border-blue-400 sm:w-auto"
                 value={amount}
                 onChange={e => {
                   const value = e.target.value === "all" ? "all" : parseInt(e.target.value, 10);
@@ -203,12 +203,12 @@ export default function LimitationsStart() {
             <option key={option} value={option}>{option === "all" ? "All" : option}</option>
           ))}
         </select>
-        <span className="ml-auto mr-2 text-xs text-gray-600 dark:text-zinc-300">
+        <span className="block text-xs text-gray-600 dark:text-zinc-300 sm:ml-auto sm:mr-2">
           {totalLoading ? "…" : (totalCount != null ? `${totalCount} total` : "")}
         </span>
         <button onClick={startQuiz} disabled={loading}
-          className="px-4 py-2 rounded-lg bg-blue-600 text-white active:scale-95">
-          {loading ? "Starting…" : "Start"}
+          className="min-h-11 w-full rounded-lg bg-[#2E6EA1] px-4 py-2 font-semibold text-white active:scale-95 sm:w-auto">
+          {loading ? "Starting…" : "Start quiz"}
         </button>
       </div>
       {resumeInfo && (
@@ -231,7 +231,7 @@ export default function LimitationsStart() {
             <div className="font-semibold text-slate-900 dark:text-white">Practice wrong answers only</div>
             <div className="text-sm text-gray-600 dark:text-zinc-100">Builds a set of questions you recently got wrong.</div>
           </div>
-          <button onClick={startWrongOnly} className="px-4 py-2 rounded-lg bg-emerald-600 text-white">Start</button>
+          <button onClick={startWrongOnly} className="px-4 py-2 rounded-lg bg-emerald-600 text-white">Practice wrong answers</button>
         </div>
       </div>
 

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { BackButton } from "@/app/components/BackButton";
+import AppTopBar from "@/components/AppTopBar";
 import AW169_ABBREVIATIONS from "@/data/aw169/abbreviations";
 
 const data = {
@@ -235,19 +235,18 @@ export default function AW169QuickReferencePage() {
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-zinc-900">
-      <div className="sticky top-0 z-10 bg-white/80 dark:bg-zinc-900/90 backdrop-blur border-b dark:border-zinc-700">
-        <div className="mx-auto max-w-3xl px-6 py-3 flex items-center justify-between gap-3">
-          <BackButton label="Home" to="/" />
-          <h1 className="text-sm font-semibold tracking-widest opacity-80">AW169 QUICK REFERENCE</h1>
-          <button
+	    <AppTopBar
+	      title="AW169 Quick Reference"
+	      backHref="/"
+	      backLabel="Home"
+	      rightAction={<button
             type="button"
             onClick={() => setShowAbbr((v) => !v)}
             className="px-3 py-1 rounded border text-xs font-medium bg-white hover:bg-slate-50 dark:bg-zinc-900 dark:text-zinc-100 dark:border-zinc-700"
           >
             ABBR
-          </button>
-        </div>
-      </div>
+	        </button>}
+	    />
 
       <main className="mx-auto max-w-3xl p-4 space-y-4">
         <p className="text-xs text-slate-600 dark:text-zinc-300">

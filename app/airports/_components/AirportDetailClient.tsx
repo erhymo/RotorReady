@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
+import AppTopBar from "@/components/AppTopBar";
 
 export default function AirportDetailClient() {
   const { icao: icaoParam } = useParams() as { icao: string };
@@ -24,11 +25,10 @@ export default function AirportDetailClient() {
   }, [icao]);
 
   return (
+    <>
+    <AppTopBar title={icao} backHref="/airports" backLabel="Airports" />
     <div className="max-w-3xl mx-auto p-6 space-y-4">
-      <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-bold text-slate-900 dark:text-white">{icao}</h1>
-        <Link href="/airports" className="text-sm text-blue-600 hover:underline dark:text-blue-400">Back</Link>
-      </div>
+      <h1 className="text-2xl font-bold text-slate-900 dark:text-white">{icao}</h1>
 
       {err && (
         <div className="text-sm text-red-600 dark:text-red-400">{err}</div>
@@ -54,6 +54,7 @@ export default function AirportDetailClient() {
         Source: Avinor AIS. {data?.sourceUrl && (<a className="text-blue-600 hover:underline dark:text-blue-400" target="_blank" href={data.sourceUrl}>Open AIP</a>)}. Updated twice daily{data?.updatedAt ? ` — Last updated: ${new Date(data.updatedAt).toLocaleString()}` : ''}.
       </div>
     </div>
+    </>
   );
 }
 

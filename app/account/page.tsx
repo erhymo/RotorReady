@@ -2,8 +2,7 @@
 
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { toggleTheme as toggleThemeLib, setThemeSource as setThemeSourceLib, getEffectiveTheme as getEffectiveThemeLib, onThemeChange as onThemeChangeLib, applyTheme as applyThemeLib } from "@/lib/theme";
-import { useRouter } from "next/navigation";
-import BackButton from "@/components/BackButton";
+import AppTopBar from "@/components/AppTopBar";
 import { listVariantsByProduct } from "@/lib/models/catalog";
 import { getStoredActiveModelVariantId, storeActiveModelVariantId, modelScopedKey } from "@/lib/models/storage";
 import { writeQuizOverrideSession } from "@/lib/quiz/overrideSession";
@@ -183,7 +182,6 @@ export default function AccountPage() {
       alert("Could not start practice. Please try again.");
     }
   }
-  const router = useRouter();
   const [history, setHistory] = useState<Summary[]>([]);
   const [ents, setEnts] = useState<{AW169?:boolean; AW189?:boolean; AW139?:boolean; H125?:boolean; R44_II?:boolean}>(OPEN_ACCESS_ENTITLEMENTS);
   const [email, setEmail] = useState<string | null>(null);
@@ -482,11 +480,12 @@ export default function AccountPage() {
   };
 
   return (
-    <div className="max-w-5xl mx-auto p-6 space-y-8">
-      <BackButton className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-2 rounded-xl mb-2" />
+    <>
+      <AppTopBar title="Settings" backHref="/" backLabel="Home" />
+      <div className="max-w-5xl mx-auto p-6 space-y-8">
       <header>
-        <h1 className="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">My Page</h1>
-        <p className="text-slate-600 dark:text-zinc-300 mt-2">Your access and progress in RotorReady.</p>
+        <h1 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">Settings</h1>
+        <p className="text-slate-600 dark:text-zinc-300 mt-2">Choose aircraft model, theme and local preferences.</p>
       </header>
 
       <section className="space-y-3">
@@ -671,5 +670,6 @@ export default function AccountPage() {
         </ul>
       </section>
     </div>
+    </>
   );
 }

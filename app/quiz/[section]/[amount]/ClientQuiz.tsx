@@ -2,6 +2,7 @@
 import { useRouter } from "next/navigation";
 import * as React from "react";
 import TopBarBackButton from "@/components/TopBarBackButton";
+import QuizBottomBar from "@/components/QuizBottomBar";
 import Link from "next/link";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 import { modelScopedKey } from "@/lib/models/storage";
@@ -180,7 +181,7 @@ export default function ClientQuiz({ section, initial, resumeKey, amountToken, i
   }
 
   // Standardiser layout: bruk samme chrome/stil som dedikerte quiz-sider
-  const outer = "max-w-2xl mx-auto p-4 space-y-4";
+  const outer = "max-w-2xl mx-auto p-4 pb-28 space-y-4";
   const card = "bg-white dark:bg-zinc-900 dark:border-zinc-700 dark:text-zinc-100 rounded-xl border p-4";
 
   return (
@@ -193,8 +194,7 @@ export default function ClientQuiz({ section, initial, resumeKey, amountToken, i
         <div className="text-gray-500 dark:text-zinc-400">Question {idx + 1} / {total}</div>
       </div>
 
-      <div className="flex items-center justify-between">
-        <div className="text-sm text-gray-600 dark:text-zinc-300">Question {idx + 1} / {total}</div>
+      <div className="flex items-center justify-end">
         <div className="flex items-center gap-2">
           {activeVariant.id === "AW169" && (
             <Link href="/aw169/abbreviations" className="px-2 py-1 rounded border text-xs bg-white dark:bg-zinc-900 dark:text-zinc-100 dark:border-zinc-700">ABBR</Link>
@@ -250,9 +250,14 @@ export default function ClientQuiz({ section, initial, resumeKey, amountToken, i
         )}
       </div>
 
-      <div className="w-full flex items-center justify-between py-4 px-4 border-t border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-900">
-        <button onClick={handlePrev} disabled={idx===0} className="px-4 py-2 rounded-lg border bg-white dark:bg-zinc-900 dark:text-zinc-100 dark:border-zinc-700 disabled:opacity-50">Previous</button>
-        <span className="text-gray-500 dark:text-zinc-400">→ for Next</span>
+      <QuizBottomBar
+        onPrevious={handlePrev}
+        previousDisabled={idx === 0}
+        onNext={handleNext}
+        nextDisabled={answers[idx] === undefined}
+        nextLabel={idx < initial.length - 1 ? "Next" : "Finish"}
+        progressText={`Question ${idx + 1} / ${total}`}
+      />
       <FlagReasonDialog
         payload={pendingFlag}
         onComplete={(payload) => {
@@ -261,10 +266,7 @@ export default function ClientQuiz({ section, initial, resumeKey, amountToken, i
           setPendingFlag(null);
         }}
       />
-
-        <button onClick={handleNext} disabled={answers[idx] === undefined} className="px-4 py-2 rounded-lg bg-gray-900 text-white dark:bg-zinc-900 dark:text-zinc-100 disabled:opacity-50">{idx < initial.length - 1 ? "Next" : "Finish"}</button>
-      </div>
-      <p className="mt-2 text-xs text-gray-500 dark:text-zinc-400">Keyboard: 1–4 select, ←/→ navigation, Enter = next, F = flag.</p>
+      <p className="mt-2 hidden text-xs text-gray-500 dark:text-zinc-400 md:block">Keyboard: 1–4 select, ←/→ navigation, Enter = next, F = flag.</p>
 
     </div>
   );

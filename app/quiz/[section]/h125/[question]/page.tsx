@@ -2,6 +2,7 @@
 import * as React from "react";
 import { useParams, useRouter } from "next/navigation";
 import TopBarBackButton from "@/components/TopBarBackButton";
+import QuizBottomBar from "@/components/QuizBottomBar";
 import { reportFlag, type FlagPayload } from "@/lib/flags";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 import { modelScopedKey } from "@/lib/models/storage";
@@ -155,7 +156,7 @@ export default function H125QuestionPage() {
   const progress = Math.round(((index + 1) / total) * 100);
 
   return (
-    <div className="max-w-2xl mx-auto p-4 space-y-4">
+    <div className="max-w-2xl mx-auto p-4 pb-28 space-y-4">
       <div className="h-2 bg-gray-200 rounded dark:bg-zinc-800">
         <div className="h-2 bg-blue-600 rounded dark:bg-blue-700" style={{ width: `${progress}%` }} />
       </div>
@@ -163,8 +164,7 @@ export default function H125QuestionPage() {
         <TopBarBackButton href={`/quiz/${encodeURIComponent(section)}`} />
         <div className="text-gray-500 dark:text-zinc-400">Question {index + 1} / {total}</div>
       </div>
-      <div className="flex items-center justify-between">
-        <div className="text-sm text-gray-600 dark:text-zinc-300">Question {index + 1} / {total}</div>
+      <div className="flex items-center justify-end">
         <div className="flex items-center gap-2">
           {activeVariant.id === "AW169" && (
             <a href="/aw169/abbreviations" className="px-2 py-1 rounded border text-xs bg-white dark:bg-zinc-900 dark:text-zinc-100 dark:border-zinc-700">ABBR</a>
@@ -221,10 +221,14 @@ export default function H125QuestionPage() {
         )}
       </div>
 
-      <div className="w-full flex items-center justify-between py-4 px-4 border-t border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-900">
-        <button onClick={prev} disabled={index===0} className="px-4 py-2 rounded-lg border bg-white dark:bg-zinc-900 dark:text-zinc-100 dark:border-zinc-700 disabled:opacity-50">Previous</button>
-        <span className="text-gray-500 dark:text-zinc-400">→ for Next</span>
-        <div className="flex items-center gap-2">
+      <QuizBottomBar
+        onPrevious={prev}
+        previousDisabled={index === 0}
+        onNext={next}
+        nextDisabled={selected == null}
+        nextLabel={index + 1 >= total ? "Finish" : "Next"}
+        progressText={`Question ${index + 1} / ${total}`}
+      />
       <FlagReasonDialog
         payload={pendingFlag}
         onComplete={(payload) => {
@@ -233,12 +237,7 @@ export default function H125QuestionPage() {
           setPendingFlag(null);
         }}
       />
-
-          <button onClick={next} disabled={selected==null} className="px-4 py-2 rounded-lg bg-gray-900 text-white dark:bg-zinc-900 dark:text-zinc-100 disabled:opacity-50">Next</button>
-        </div>
-      </div>
-
-      <p className="text-xs text-gray-500 dark:text-zinc-400">Keyboard: 1–4 select, ←/→ navigation, Enter = next, F = flag.</p>
+      <p className="hidden text-xs text-gray-500 dark:text-zinc-400 md:block">Keyboard: 1–4 select, ←/→ navigation, Enter = next, F = flag.</p>
     </div>
   );
 }

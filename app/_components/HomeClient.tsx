@@ -154,8 +154,8 @@ function Bar(props: { href: string; title: string; description: string; tone?: "
 
         <Bar
           href="/account"
-          title="My Page"
-          description="See progress, adjust helicopter preferences (locally stored)."
+	          title="Settings"
+	          description="Choose aircraft model, theme and local preferences."
         />
       </section>
 

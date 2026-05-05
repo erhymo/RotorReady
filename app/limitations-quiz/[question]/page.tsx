@@ -2,6 +2,7 @@
 import * as React from "react";
 import { useParams, useRouter } from "next/navigation";
 import TopBarBackButton from "@/components/TopBarBackButton";
+import QuizBottomBar from "@/components/QuizBottomBar";
 import Link from "next/link";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 import { isEditableKeyboardTarget } from "@/lib/isEditableKeyboardTarget";
@@ -153,7 +154,7 @@ export default function QuestionPage() {
   const progress = Math.round(((idx+1) / total) * 100);
 
   return (
-  <div className="max-w-2xl mx-auto p-4 space-y-4">
+  <div className="max-w-2xl mx-auto p-4 pb-28 space-y-4">
       <div className="h-2 bg-gray-200 rounded dark:bg-zinc-800">
         <div className="h-2 bg-blue-600 rounded dark:bg-blue-700" style={{ width: `${progress}%` }} />
       </div>
@@ -162,8 +163,7 @@ export default function QuestionPage() {
         <TopBarBackButton href="/limitations-quiz" />
         <div className="text-gray-500 dark:text-zinc-400">Question {idx+1} / {total}</div>
       </div>
-      <div className="flex items-center justify-between">
-        <div className="text-sm text-gray-600 dark:text-zinc-300">Question {idx+1} / {total}</div>
+      <div className="flex items-center justify-end">
         <div className="flex items-center gap-2">
           {activeVariant.id === "AW169" && (
             <Link href="/aw169/abbreviations" className="px-2 py-1 rounded border text-xs bg-white dark:bg-zinc-900 dark:text-zinc-100 dark:border-zinc-700">ABBR</Link>
@@ -218,10 +218,13 @@ export default function QuestionPage() {
         )}
       </div>
 
-      {/* Bottom bar fix */}
-      <div className="w-full flex items-center justify-between py-4 px-4 border-t border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-900">
-        <button onClick={prev} disabled={idx===0} className="px-4 py-2 rounded-lg border bg-white dark:bg-zinc-900 dark:text-zinc-100 dark:border-zinc-700 disabled:opacity-50">Previous</button>
-        <span className="text-gray-500 dark:text-zinc-400">→ for Next</span>
+      <QuizBottomBar
+        onPrevious={prev}
+        previousDisabled={idx === 0}
+        onNext={next}
+        nextLabel={idx + 1 >= total ? "Finish" : "Next"}
+        progressText={`Question ${idx + 1} / ${total}`}
+      />
       <FlagReasonDialog
         payload={pendingFlag}
         onComplete={(payload) => {
@@ -230,11 +233,7 @@ export default function QuestionPage() {
           setPendingFlag(null);
         }}
       />
-
-        <button onClick={next} className="px-4 py-2 rounded-lg bg-gray-900 text-white dark:bg-zinc-900 dark:text-zinc-100">Next</button>
-      </div>
-
-  <p className="text-xs text-gray-500 dark:text-zinc-400">Keyboard: 1–4 select, ←/→ navigation, Enter = next, F = flag.</p>
+  <p className="hidden text-xs text-gray-500 dark:text-zinc-400 md:block">Keyboard: 1–4 select, ←/→ navigation, Enter = next, F = flag.</p>
     </div>
   );
 }

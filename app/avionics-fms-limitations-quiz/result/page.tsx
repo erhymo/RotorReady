@@ -117,23 +117,23 @@ export default function AvionicsResultPage() {
       <div className="w-full flex items-center py-1">
         <TopBarBackButton href="/avionics-fms-limitations-quiz" />
       </div>
-      <h1 className="text-2xl font-bold text-blue-700 dark:text-blue-300 drop-shadow">Result</h1>
-      <div className="rounded-xl border-l-4 border-blue-600 bg-blue-50/40 dark:border-blue-400 dark:bg-gradient-to-r dark:from-blue-900 dark:to-blue-800/80 p-4 shadow-lg dark:text-white">
+	      <h1 className="text-2xl font-bold text-slate-900 dark:text-zinc-100">Result</h1>
+	      <div className="rounded-xl border-l-4 border-blue-600 bg-blue-50/40 p-4 dark:border-blue-400 dark:bg-zinc-900 dark:text-white">
         <div>Answered: <b>{total}</b></div>
         <div>Correct: <b>{correct}</b></div>
         <div>Percent: <b>{percent}%</b></div>
       </div>
 
-      <div className="flex gap-2">
-        <Link href="/avionics-fms-limitations-quiz" className="px-4 py-2 rounded-lg bg-blue-600 text-white">Try again</Link>
-        <Link href="/" className="px-4 py-2 rounded-lg bg-emerald-600 text-white">Home</Link>
+	      <div className="grid gap-2 sm:flex">
+	        <Link href="/avionics-fms-limitations-quiz" className="inline-flex min-h-11 items-center justify-center rounded-lg bg-[#2E6EA1] px-4 py-2 font-semibold text-white">Try again</Link>
+	        <Link href="/" className="inline-flex min-h-11 items-center justify-center rounded-lg border border-slate-300 bg-white px-4 py-2 font-semibold text-slate-800 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100">Home</Link>
       </div>
 
-      <div className="rounded-xl border-l-4 border-emerald-600 bg-emerald-50/40 dark:border-emerald-400 dark:bg-gradient-to-r dark:from-emerald-900 dark:to-emerald-800/80 p-4 shadow-lg dark:text-white">
+	      <div className="rounded-xl border-l-4 border-emerald-600 bg-emerald-50/40 p-4 dark:border-emerald-400 dark:bg-zinc-900 dark:text-white">
         <div className="font-semibold mb-2">Next steps</div>
         <ul className="list-disc ml-5 text-sm text-slate-700 dark:text-emerald-100">
           <li>Click <b>“Practice wrong answers only”</b> on the start page to repeat the difficult questions.</li>
-          <li>Follow your progress under <b>My Page</b>.</li>
+	          <li>Follow your progress under <b>Settings</b>.</li>
         </ul>
       </div>
     </div>

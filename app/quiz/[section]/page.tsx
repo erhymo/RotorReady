@@ -340,10 +340,10 @@ export default function SectionPage() {
         </div>
       )}
 
-      <div className="rounded-xl border-l-4 border-blue-600 bg-blue-50/40 dark:border-blue-400 dark:bg-blue-900/40 p-4 flex items-center gap-3">
+      <div className="rounded-xl border-l-4 border-blue-600 bg-blue-50/40 dark:border-blue-400 dark:bg-blue-900/40 p-4 space-y-3 sm:flex sm:items-center sm:gap-3 sm:space-y-0">
         <label className="text-sm text-gray-700 dark:text-zinc-100">Count:</label>
         <select
-          className="border rounded px-3 py-2 dark:bg-blue-900 dark:text-zinc-100 dark:border-blue-400"
+          className="min-h-11 w-full rounded border px-3 py-2 dark:bg-blue-900 dark:text-zinc-100 dark:border-blue-400 sm:w-auto"
           value={amount}
           onChange={(e) => {
             const value = e.target.value === "all" ? ("all" as AmountOptionValue) : (parseInt(e.target.value, 10) as AmountOptionValue);
@@ -356,15 +356,15 @@ export default function SectionPage() {
             </option>
           ))}
         </select>
-        <span className="ml-auto mr-2 text-xs text-gray-600 dark:text-zinc-300">
+        <span className="block text-xs text-gray-600 dark:text-zinc-300 sm:ml-auto sm:mr-2">
           {totalLoading ? "\u2026" : (totalCount != null ? `${totalCount} total` : "")}
         </span>
         <button
           onClick={() => handleAmount(amount)}
           disabled={hasQuestions === false}
-          className="px-4 py-2 rounded-lg bg-blue-600 text-white active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="min-h-11 w-full rounded-lg bg-[#2E6EA1] px-4 py-2 font-semibold text-white active:scale-95 disabled:cursor-not-allowed disabled:opacity-50 sm:w-auto"
         >
-          Start
+          Start quiz
         </button>
       </div>
 
@@ -376,7 +376,7 @@ export default function SectionPage() {
               <div className="text-sm text-gray-600 dark:text-zinc-100">Reuse the last wrong-answer set for focused practice.</div>
             </div>
             <button onClick={startWrongOnly} className="px-4 py-2 rounded-lg bg-emerald-600 text-white">
-              Start
+              Practice wrong answers
             </button>
           </div>
         </div>

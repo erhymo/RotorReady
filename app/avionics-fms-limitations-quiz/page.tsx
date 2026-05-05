@@ -261,10 +261,10 @@ export default function AvionicsFmsQuizStart() {
       <h1 className="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">{SECTION}</h1>
       <p className="text-lg text-slate-700 dark:text-zinc-100 mt-2">Choose number of questions and start.</p>
 
-      <div className="rounded-xl border-l-4 border-blue-600 bg-blue-50/40 dark:border-blue-400 dark:bg-blue-900/40 p-4 flex items-center gap-3">
+      <div className="rounded-xl border-l-4 border-blue-600 bg-blue-50/40 dark:border-blue-400 dark:bg-blue-900/40 p-4 space-y-3 sm:flex sm:items-center sm:gap-3 sm:space-y-0">
         <label className="text-sm text-gray-700 dark:text-zinc-100">Count:</label>
         <select
-          className="border rounded px-3 py-2 dark:bg-blue-900 dark:text-zinc-100 dark:border-blue-400"
+          className="min-h-11 w-full rounded border px-3 py-2 dark:bg-blue-900 dark:text-zinc-100 dark:border-blue-400 sm:w-auto"
           value={amount}
           onChange={(event) => {
             const value = event.target.value === "all" ? "all" : parseInt(event.target.value, 10);
@@ -277,15 +277,15 @@ export default function AvionicsFmsQuizStart() {
             </option>
           ))}
         </select>
-        <span className="ml-auto mr-2 text-xs text-gray-600 dark:text-zinc-300">
+        <span className="block text-xs text-gray-600 dark:text-zinc-300 sm:ml-auto sm:mr-2">
           {totalLoading ? "…" : (totalCount != null ? `${totalCount} total` : "")}
         </span>
         <button
           onClick={startQuiz}
           disabled={loading}
-          className="px-4 py-2 rounded-lg bg-blue-600 text-white active:scale-95 disabled:opacity-60"
+          className="min-h-11 w-full rounded-lg bg-[#2E6EA1] px-4 py-2 font-semibold text-white active:scale-95 disabled:opacity-60 sm:w-auto"
         >
-          {loading ? "Starting…" : "Start"}
+          {loading ? "Starting…" : "Start quiz"}
         </button>
       </div>
 
@@ -319,7 +319,7 @@ export default function AvionicsFmsQuizStart() {
             <div className="font-semibold text-slate-900 dark:text-white">Practice wrong answers only</div>
             <div className="text-sm text-gray-600 dark:text-zinc-100">Builds a set of questions you recently got wrong.</div>
           </div>
-          <button onClick={startWrongOnly} className="px-4 py-2 rounded-lg bg-emerald-600 text-white dark:bg-emerald-500">Start</button>
+          <button onClick={startWrongOnly} className="px-4 py-2 rounded-lg bg-emerald-600 text-white dark:bg-emerald-500">Practice wrong answers</button>
         </div>
       </div>
     </div>

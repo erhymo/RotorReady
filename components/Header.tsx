@@ -66,7 +66,7 @@ export default function Header() {
 	            href="/account"
 	            className="text-slate-700 hover:text-slate-900 dark:text-zinc-200 dark:hover:text-white"
 	          >
-		            My Page
+			            Settings
 	          </Link>
 		          {/* On desktop, show info bell without adding account/login UI. */}
 	          <div className="relative">

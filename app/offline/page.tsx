@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useMemo, useState } from "react";
-import BackButton from "@/components/BackButton";
+import AppTopBar from "@/components/AppTopBar";
 import { saveSectionOffline, clearOfflineSection, listOffline } from "@/lib/offline";
 import { loadAllQuestions } from "@/lib/loadAllQuestions";
 import { useActiveModelVariant } from "@/lib/models/hooks";
@@ -475,28 +475,32 @@ export default function OfflinePage() {
   const showContent = true;
 
   return (
+    <>
+    <AppTopBar title="Offline packages" backHref="/" backLabel="Home" />
     <div className="max-w-2xl mx-auto p-6 space-y-8 text-slate-900 dark:text-zinc-100">
-      <BackButton />
-      <h1 className="text-2xl font-bold mb-4 dark:text-zinc-100">Offline pakker</h1>
+      <header className="space-y-2">
+        <h1 className="text-2xl font-bold dark:text-zinc-100">Offline packages</h1>
+        <p className="text-sm text-slate-600 dark:text-zinc-300">Download quiz sections and supporting pages for use without network coverage.</p>
+      </header>
       {showContent && (
         <>
           <section className="rounded-xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-4 space-y-4">
-            <div className="flex items-center justify-between gap-3">
-              <h2 className="font-semibold text-slate-900 dark:text-zinc-100">Tilgjengelige seksjoner</h2>
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+              <h2 className="font-semibold text-slate-900 dark:text-zinc-100">Available sections</h2>
               <button
                 onClick={downloadAllSections}
                 disabled={loadingSections || sections.length === 0 || downloadingAll}
-                className="rounded bg-blue-600 text-white px-3 py-1.5 text-xs font-semibold disabled:opacity-60 disabled:cursor-not-allowed dark:bg-blue-500 dark:hover:bg-blue-600"
+                className="min-h-10 rounded-lg bg-[#2E6EA1] px-4 py-2 text-sm font-semibold text-white disabled:cursor-not-allowed disabled:opacity-60"
               >
-                {downloadingAll ? `Laster ned… ${downloadProgress.done}/${downloadProgress.total}` : "Last ned alt for denne modellen"}
+                {downloadingAll ? `Downloading… ${downloadProgress.done}/${downloadProgress.total}` : "Download all for this aircraft"}
               </button>
             </div>
             {loadingSections ? (
-              <p className="text-sm text-slate-600 dark:text-zinc-300">Laster seksjoner…</p>
+              <p className="text-sm text-slate-600 dark:text-zinc-300">Loading sections…</p>
             ) : sectionsError ? (
               <p className="text-sm text-red-600 dark:text-red-400">{sectionsError}</p>
             ) : sections.length === 0 ? (
-              <p className="text-sm text-slate-600 dark:text-zinc-300">Ingen seksjoner tilgjengelig for offline lagring.</p>
+              <p className="text-sm text-slate-600 dark:text-zinc-300">No sections available for offline storage.</p>
             ) : (
               <ul className="space-y-4">
                 {sections.map((section) => {
@@ -515,7 +519,7 @@ export default function OfflinePage() {
                             disabled={!readyForActions}
                             className="rounded bg-blue-600 text-white px-4 py-2 text-sm font-medium transition disabled:cursor-not-allowed disabled:bg-blue-400/60 dark:bg-blue-500 dark:hover:bg-blue-600"
                           >
-                            {stored ? "Oppdater" : "Last ned"}
+	                            {stored ? "Update" : "Download"}
                           </button>
                           {stored && (
                             <button
@@ -523,13 +527,13 @@ export default function OfflinePage() {
                               disabled={!readyForActions}
                               className="rounded bg-gray-200 text-gray-800 px-4 py-2 text-sm font-medium disabled:cursor-not-allowed disabled:opacity-70 dark:bg-zinc-800 dark:text-zinc-100"
                             >
-                              Fjern
+	                              Remove
                             </button>
                           )}
                         </div>
                       </div>
                       <div className="mt-2 text-xs text-slate-500 dark:text-zinc-300">
-                        {stored ? "Lagret lokalt" : "Ikke lagret"}
+	                        {stored ? "Stored locally" : "Not stored"}
                         {status[section.id] && <span className="block mt-1">{status[section.id]}</span>}
                       </div>
                     </li>
@@ -540,7 +544,7 @@ export default function OfflinePage() {
           </section>
 
           <section className="rounded-xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-4 mt-6 space-y-3">
-            <h2 className="font-semibold">Nedlastede kapitler</h2>
+	            <h2 className="font-semibold">Downloaded chapters</h2>
             {offlineIds.length === 0 ? (
               <p className="text-sm text-slate-600 dark:text-zinc-300">No chapters downloaded yet.</p>
             ) : (
@@ -558,9 +562,9 @@ export default function OfflinePage() {
                       <a
                         href={launchHref}
                         className="inline-flex items-center rounded bg-emerald-600 px-3 py-1.5 text-sm font-semibold text-white hover:bg-emerald-700 dark:bg-emerald-500 dark:hover:bg-emerald-600"
-                        title="Start quiz for dette kapittelet"
+	                        title="Start quiz for this chapter"
                       >
-                        Velg antall
+	                        Choose count
                       </a>
                     </li>
                   );
@@ -570,7 +574,7 @@ export default function OfflinePage() {
 
             {otherOfflineIds.length > 0 && (
               <div className="pt-3 border-t border-slate-200 dark:border-zinc-800">
-                <h3 className="font-medium text-sm mb-2">Andre offline-seksjoner (ikke i listen over tilgjengelige)</h3>
+	                <h3 className="font-medium text-sm mb-2">Other offline sections not in the available list</h3>
                 <ul className="list-disc ml-5 text-sm text-slate-700 dark:text-zinc-200">
                   {otherOfflineIds.map((id) => (
                     <li key={id}>{id}</li>
@@ -582,5 +586,6 @@ export default function OfflinePage() {
         </>
       )}
     </div>
+    </>
   );
 }

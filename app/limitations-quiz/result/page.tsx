@@ -98,15 +98,15 @@ export default function ResultPage() {
       <div className="w-full flex items-center py-1">
         <TopBarBackButton href="/limitations-quiz" />
       </div>
-      <h1 className="text-2xl font-bold text-blue-700 dark:text-blue-300 drop-shadow">Result</h1>
-  <div className="rounded-xl border-l-4 border-blue-600 bg-blue-50/40 dark:border-blue-400 dark:bg-gradient-to-r dark:from-blue-900 dark:to-blue-800/80 p-4 shadow-lg dark:text-white">
+	      <h1 className="text-2xl font-bold text-slate-900 dark:text-zinc-100">Result</h1>
+	  <div className="rounded-xl border-l-4 border-blue-600 bg-blue-50/40 p-4 dark:border-blue-400 dark:bg-zinc-900 dark:text-white">
         <div>Answered: <b>{total}</b></div>
         <div>Correct: <b>{correct}</b></div>
         <div>Percent: <b>{Math.round((correct/total)*100)}%</b></div>
       </div>
 
-      <div className="flex gap-2">
-        <Link href="/limitations-quiz" className="px-4 py-2 rounded-lg bg-blue-600 text-white">Try again</Link>
+	      <div className="grid gap-2 sm:flex">
+	        <Link href="/limitations-quiz" className="inline-flex min-h-11 items-center justify-center rounded-lg bg-[#2E6EA1] px-4 py-2 font-semibold text-white">Try again</Link>
         <button onClick={() => {
           if (!s) return;
           const wrongIdx: number[] = [];
@@ -125,14 +125,14 @@ export default function ResultPage() {
           };
           sessionStorage.setItem("limq_session", JSON.stringify(limSession));
           router.push("/limitations-quiz/1");
-        }} className="px-4 py-2 rounded-lg bg-emerald-600 text-white">Practice wrong answers only</button>
-        <Link href="/" className="px-4 py-2 rounded-lg bg-emerald-600/80 text-white">Home</Link>
+	        }} className="inline-flex min-h-11 items-center justify-center rounded-lg bg-emerald-600 px-4 py-2 font-semibold text-white">Practice wrong answers</button>
+	        <Link href="/" className="inline-flex min-h-11 items-center justify-center rounded-lg border border-slate-300 bg-white px-4 py-2 font-semibold text-slate-800 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100">Home</Link>
       </div>
 
-  <div className="rounded-xl border-l-4 border-emerald-600 bg-emerald-50/40 dark:border-emerald-400 dark:bg-gradient-to-r dark:from-emerald-900 dark:to-emerald-800/80 p-4 shadow-lg dark:text-white">
+	  <div className="rounded-xl border-l-4 border-emerald-600 bg-emerald-50/40 p-4 dark:border-emerald-400 dark:bg-zinc-900 dark:text-white">
         <div className="font-semibold mb-2">Next steps</div>
         <ul className="list-disc ml-5 text-sm text-slate-700 dark:text-emerald-100">
-          <li>Go to <b>Limitations</b> and press <b>“Practice wrong answers only”</b> for focused training.</li>
+	          <li>Go to <b>Limitations</b> and press <b>“Practice wrong answers”</b> for focused training.</li>
           <li>See your progress under <b>My Page</b> (30-day overview is coming in the sync version).</li>
         </ul>
       </div>

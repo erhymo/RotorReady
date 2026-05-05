@@ -128,7 +128,13 @@ export default function Page() {
                         key={key}
                         className={classes}
                         onClick={() => handleLampClick(slot.id)}
+	                        onKeyDown={(event) => {
+	                          if (!clickable || (event.key !== "Enter" && event.key !== " ")) return;
+	                          event.preventDefault();
+	                          handleLampClick(slot.id);
+	                        }}
                         role={clickable ? "button" : undefined}
+	                        tabIndex={clickable ? 0 : undefined}
                         aria-label={slot.label || "off"}
                       >
                         {/* Allow two-line labels (e.g. MGB P) */}

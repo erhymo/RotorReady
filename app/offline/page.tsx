@@ -482,11 +482,15 @@ export default function OfflinePage() {
         <h1 className="text-2xl font-bold dark:text-zinc-100">Offline packages</h1>
         <p className="text-sm text-slate-600 dark:text-zinc-300">Download quiz sections and supporting pages for use without network coverage.</p>
       </header>
+	      <section className="rounded-xl border border-blue-200 bg-blue-50/60 p-4 text-sm text-slate-700 dark:border-blue-900/60 dark:bg-blue-950/30 dark:text-zinc-200">
+	        <div className="font-semibold text-slate-900 dark:text-zinc-100">Selected aircraft: {activeVariant.label}</div>
+	        <p className="mt-1">Offline packages are stored per aircraft. Download the packages you need before leaving network coverage.</p>
+	      </section>
       {showContent && (
         <>
           <section className="rounded-xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-4 space-y-4">
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-              <h2 className="font-semibold text-slate-900 dark:text-zinc-100">Available sections</h2>
+	              <h2 className="font-semibold text-slate-900 dark:text-zinc-100">Available packages</h2>
               <button
                 onClick={downloadAllSections}
                 disabled={loadingSections || sections.length === 0 || downloadingAll}
@@ -517,7 +521,7 @@ export default function OfflinePage() {
                           <button
                             onClick={() => downloadSectionOffline(section)}
                             disabled={!readyForActions}
-	                            className="min-h-10 rounded-lg bg-[#2E6EA1] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[#24577f] disabled:cursor-not-allowed disabled:opacity-60"
+	                            className="min-h-11 rounded-lg bg-[#2E6EA1] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[#24577f] focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 disabled:cursor-not-allowed disabled:opacity-60"
                           >
 	                            {stored ? "Update" : "Download"}
                           </button>
@@ -525,7 +529,7 @@ export default function OfflinePage() {
                             <button
                               onClick={() => clearSectionOffline(section)}
                               disabled={!readyForActions}
-	                              className="min-h-10 rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-800 disabled:cursor-not-allowed disabled:opacity-70 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100"
+	                              className="min-h-11 rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 disabled:cursor-not-allowed disabled:opacity-70 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100"
                             >
 	                              Remove
                             </button>
@@ -561,7 +565,7 @@ export default function OfflinePage() {
                       </div>
                       <a
                         href={launchHref}
-	                        className="inline-flex min-h-10 items-center rounded-lg bg-[#2E6EA1] px-3 py-1.5 text-sm font-semibold text-white hover:bg-[#24577f]"
+	                        className="inline-flex min-h-11 items-center rounded-lg bg-[#2E6EA1] px-3 py-1.5 text-sm font-semibold text-white hover:bg-[#24577f] focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
 		                        title="Start quiz for this package"
                       >
 		                        Start

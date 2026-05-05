@@ -36,7 +36,7 @@ export default function InfoBell() {
 	      <Link
 	        href="/info"
 	        prefetch={false}
-		        className={`inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border text-xs shadow-sm transition ${
+		        className={`inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border text-xs shadow-sm transition focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 ${
 	          hasUnreadInfo
 	            ? "border-emerald-500 bg-emerald-100 text-emerald-800 dark:border-emerald-400 dark:bg-emerald-900/60 dark:text-emerald-100"
 	            : "border-slate-300 bg-white text-slate-500 hover:bg-slate-50 dark:border-zinc-700 dark:bg-zinc-900/80 dark:text-zinc-300 dark:hover:bg-zinc-800"

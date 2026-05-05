@@ -14,6 +14,9 @@ export default function AirportsPage() {
 	        <h1 className="text-2xl font-bold text-slate-900 dark:text-white">Airports</h1>
 	        <p className="text-sm text-slate-600 dark:text-zinc-300">Norwegian ICAO airports from Avinor AIS. Tap an airport for ATS and fuel opening hours.</p>
 	        <p className="text-xs text-slate-500 dark:text-zinc-400">Cross-check current NOTAMs before operational use; temporary changes can override AIP data.</p>
+	        <div className="inline-flex rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-semibold text-slate-600 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-300">
+	          {sorted.length} airports
+	        </div>
 	      </header>
 	      <div className="overflow-hidden rounded-xl border border-slate-200 bg-white divide-y divide-slate-200 dark:border-zinc-800 dark:bg-zinc-900 dark:divide-zinc-800">
         {sorted.map((a) => (

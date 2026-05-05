@@ -34,10 +34,14 @@ export default function AirportDetailClient() {
 	      </header>
 
       {err && (
-        <div className="text-sm text-red-600 dark:text-red-400">{err}</div>
+	        <div className="rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-700 dark:border-red-900/60 dark:bg-red-950/30 dark:text-red-300">Could not load airport hours. Cross-check AIP directly before use.</div>
       )}
 
-	      <div className="overflow-hidden rounded-xl border border-slate-200 bg-white divide-y divide-slate-200 dark:border-zinc-800 dark:bg-zinc-900 dark:divide-zinc-800">
+	      {!data && !err && (
+	        <div className="rounded-xl border border-slate-200 bg-white p-4 text-sm text-slate-600 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-300">Loading airport hours…</div>
+	      )}
+
+	      {data && <div className="overflow-hidden rounded-xl border border-slate-200 bg-white divide-y divide-slate-200 dark:border-zinc-800 dark:bg-zinc-900 dark:divide-zinc-800">
         <div className="px-4 py-3 grid grid-cols-1 sm:grid-cols-3 gap-3">
           <div className="text-sm text-slate-500 dark:text-zinc-400">ATS opening hours</div>
           <div className="sm:col-span-2 font-medium text-slate-900 dark:text-zinc-100">{data?.ats ?? "Not available – see AIP"}</div>
@@ -46,7 +50,7 @@ export default function AirportDetailClient() {
           <div className="text-sm text-slate-500 dark:text-zinc-400">Fuel opening hours</div>
           <div className="sm:col-span-2 font-medium text-slate-900 dark:text-zinc-100">{data?.fuel ?? "Not available – see AIP"}</div>
         </div>
-      </div>
+	      </div>}
 
 	      <div className="text-xs text-slate-500 dark:text-zinc-400">
 	        Note: Times without parentheses are winter time (UTC+1). Times in parentheses are summer time (UTC+2).

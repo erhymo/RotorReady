@@ -238,6 +238,12 @@ export default function WeatherHubClient() {
         </div>
       </header>
 
+	      {!pos && !geoErr && (
+	        <section className="rounded-xl border border-slate-200 bg-white p-4 text-sm text-slate-600 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-300">
+	          Waiting for location permission. You can still open the airport list from the top-right button.
+	        </section>
+	      )}
+
       {/* Nearest airport card (Norway only) */}
       {inNorway && primary && !geoErr && primaryWx && primaryWx.icao === primary.icao && (
         <section className="space-y-3">
@@ -414,7 +420,7 @@ export default function WeatherHubClient() {
       )}
 
       {geoErr && (
-        <p className="text-xs text-slate-500 dark:text-zinc-400">
+	        <p className="rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-800 dark:border-amber-900/60 dark:bg-amber-950/30 dark:text-amber-200">
           Location unavailable: {geoErr}. You can still browse all airports below.
         </p>
       )}

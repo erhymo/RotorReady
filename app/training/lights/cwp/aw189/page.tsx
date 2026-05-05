@@ -187,7 +187,13 @@ export default function Page() {
                       key={item.id}
                       className={classes}
                       onClick={() => handleLampClick(item.id)}
+	                      onKeyDown={(event) => {
+	                        if (!clickable || (event.key !== "Enter" && event.key !== " ")) return;
+	                        event.preventDefault();
+	                        handleLampClick(item.id);
+	                      }}
                       role={clickable ? "button" : undefined}
+	                      tabIndex={clickable ? 0 : undefined}
                       aria-label={displayName(item)}
                       title={displayName(item)}
                     >

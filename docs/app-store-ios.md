@@ -30,9 +30,43 @@ Use `ios:sync` after changing Capacitor config, native plugins, or web assets th
    - Team: your Apple Developer team
    - Bundle Identifier: `com.rotorready.app`
 7. Set version/build:
-   - Version: `1.0`
-   - Build: `1` or next available build number
+   - Version: the next App Store version, e.g. `1.0.1` or newer
+   - Build: the next available build number for that version
 8. Choose a real device or simulator and run.
+
+## Native QA checklist before each upload
+
+Run this checklist after Vercel has deployed the exact commit you want the iOS wrapper to load.
+
+### iPhone layout and safe areas
+
+- Test at least one small device/simulator, e.g. iPhone SE.
+- Test one notched device, e.g. iPhone 13/14/15.
+- Confirm the global header is below the status bar/notch.
+- Confirm `AppTopBar` pages do not hide under the global header.
+- Confirm sticky quiz bottom bar is above the home indicator and does not cover answer content.
+- Confirm Home `Prod`/info bell/aircraft badge do not overlap on narrow screens.
+
+### Native shell behavior
+
+- Confirm status bar text/icons are readable in light and dark mode.
+- Confirm splash/launch screen looks clean and does not show a web flash.
+- Confirm external links open safely and do not trap the user in the wrapper.
+- Confirm orientation behavior is acceptable for training pages and CWP panels.
+
+### Offline and network behavior
+
+- Open Home, Settings, Quiz, Offline, Weather and Airports once while online.
+- Download at least one offline package.
+- Disable network and confirm downloaded offline content still opens where expected.
+- Re-enable network and confirm Weather/Airports recover without restarting the app.
+
+### App Store build hygiene
+
+- Bump the iOS build number for every upload attempt.
+- Do not reuse a closed version train in App Store Connect.
+- Archive from `ios/App/App.xcworkspace`, not `App.xcodeproj`.
+- Use **Product > Clean Build Folder** before a final archive if Xcode behaves unexpectedly.
 
 ## App Store Connect checklist
 

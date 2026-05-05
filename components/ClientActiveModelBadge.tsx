@@ -39,7 +39,7 @@ export default function ClientActiveModelBadge() {
   return (
 	  <Link
 	    href="/account"
-	    className="ml-2 inline-flex items-center rounded-full border border-emerald-500 bg-emerald-50 px-3 py-1 text-sm font-semibold text-slate-900 shadow-sm transition hover:bg-emerald-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 dark:border-emerald-400 dark:bg-emerald-200/80 dark:text-slate-900"
+	    className="ml-2 inline-flex min-h-11 items-center rounded-full border border-emerald-500 bg-emerald-50 px-3 py-2 text-sm font-semibold text-slate-900 shadow-sm transition hover:bg-emerald-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 dark:border-emerald-400 dark:bg-emerald-200/80 dark:text-slate-900"
 	    title={`Active model: ${fullLabel} — open Settings`}
 	    aria-label={`Active model: ${fullLabel}. Open Settings`}
 	  >

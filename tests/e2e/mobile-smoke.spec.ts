@@ -62,6 +62,24 @@ test('core app pages load on mobile', async ({ page }) => {
   }
 });
 
+test('core detail and training pages load on mobile', async ({ page }) => {
+  const pages = [
+    { path: '/weather/ENBR', text: 'ENBR' },
+    { path: '/airports/ENBR', text: 'ENBR' },
+    { path: '/training/lights/cwp/aw169', text: 'CWP Trainer · AW169' },
+    { path: '/training/procedures/aw169', text: 'AW169 Procedures' },
+    { path: '/aw169/procedures/engine-re-light?plist=1', text: 'ENGINE RE-LIGHT (IN FLIGHT)' },
+    { path: '/training/procedures/h125-as350-b3-2b1', text: 'H125 / AS350 B3 (2B1) Procedures' },
+    { path: '/h125-as350-b3-2b1/procedures/engine-start-normal?plist=1', text: 'ENGINE START – NORMAL PROCEDURE' },
+  ];
+
+  for (const entry of pages) {
+    await page.goto(entry.path, { waitUntil: 'domcontentloaded' });
+    await expect(page.getByText(entry.text).first()).toBeVisible({ timeout: 15_000 });
+    await expectNoHorizontalOverflow(page);
+  }
+});
+
 test('limitations quiz question can be answered and finished on mobile', async ({ page }) => {
   await page.addInitScript(() => {
     sessionStorage.setItem('limq_session', JSON.stringify({

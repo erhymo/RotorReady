@@ -149,7 +149,7 @@ export default function EngineQuestionPage() {
     console.error('Quiz error:', (session as any).error, session);
     return (
       <div className="max-w-xl mx-auto p-4 text-red-600">
-        <b>Feil:</b> {(session as any).error}<br />
+	        <b>Error:</b> {(session as any).error}<br />
         <pre className="text-xs text-gray-500 mt-2">{JSON.stringify(session, null, 2)}</pre>
       </div>
     );

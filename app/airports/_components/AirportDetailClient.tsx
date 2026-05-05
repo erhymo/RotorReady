@@ -27,14 +27,17 @@ export default function AirportDetailClient() {
   return (
     <>
     <AppTopBar title={icao} backHref="/airports" backLabel="Airports" />
-    <div className="max-w-3xl mx-auto p-6 space-y-4">
-      <h1 className="text-2xl font-bold text-slate-900 dark:text-white">{icao}</h1>
+	    <div className="max-w-3xl mx-auto p-6 space-y-5">
+	      <header className="space-y-1">
+	        <h1 className="text-2xl font-bold text-slate-900 dark:text-white">{icao}</h1>
+	        <p className="text-sm text-slate-600 dark:text-zinc-300">ATS and fuel opening hours from Avinor AIS.</p>
+	      </header>
 
       {err && (
         <div className="text-sm text-red-600 dark:text-red-400">{err}</div>
       )}
 
-      <div className="rounded-lg border border-slate-200 dark:border-zinc-800 divide-y divide-slate-200 dark:divide-zinc-800 overflow-hidden">
+	      <div className="overflow-hidden rounded-xl border border-slate-200 bg-white divide-y divide-slate-200 dark:border-zinc-800 dark:bg-zinc-900 dark:divide-zinc-800">
         <div className="px-4 py-3 grid grid-cols-1 sm:grid-cols-3 gap-3">
           <div className="text-sm text-slate-500 dark:text-zinc-400">ATS opening hours</div>
           <div className="sm:col-span-2 font-medium text-slate-900 dark:text-zinc-100">{data?.ats ?? "Not available – see AIP"}</div>

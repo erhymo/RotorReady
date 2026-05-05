@@ -111,7 +111,7 @@ export default function H125ResultPage() {
         <div className="font-semibold mb-2">Next steps</div>
         <ul className="list-disc ml-5 text-sm text-slate-700 dark:text-emerald-100">
           <li>Press <b>“Practice wrong answers only”</b> to repeat the questions you missed.</li>
-          <li>See your progress under <b>My Page</b>.</li>
+	          <li>See your progress under <b>Settings</b>.</li>
         </ul>
       </div>
     </div>

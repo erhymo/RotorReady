@@ -133,7 +133,7 @@ export default function ResultPage() {
         <div className="font-semibold mb-2">Next steps</div>
         <ul className="list-disc ml-5 text-sm text-slate-700 dark:text-emerald-100">
 	          <li>Go to <b>Limitations</b> and press <b>“Practice wrong answers”</b> for focused training.</li>
-          <li>See your progress under <b>My Page</b> (30-day overview is coming in the sync version).</li>
+	          <li>Progress overview will be available in a future sync version.</li>
         </ul>
       </div>
     </div>

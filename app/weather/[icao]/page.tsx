@@ -176,7 +176,7 @@ export default function WeatherDetail() {
       title={airport.icao}
       backHref="/weather"
       backLabel="Weather"
-      rightAction={<Link href="/weather/all" className="rounded-lg border border-slate-300 px-3 py-1.5 text-xs font-semibold text-slate-700 dark:border-zinc-700 dark:text-zinc-100">All</Link>}
+	      rightAction={<Link href="/weather/all" className="rounded-lg border border-slate-300 bg-white px-3 py-1.5 text-xs font-semibold text-slate-700 transition hover:bg-slate-50 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100 dark:hover:bg-zinc-800">Airports</Link>}
     />
     <div className="max-w-4xl mx-auto p-6 space-y-6">
       <header>
@@ -188,7 +188,7 @@ export default function WeatherDetail() {
 
       <section className="space-y-6">
         {/* Primary (fixed at top, not clickable) */}
-        <div className="rounded-xl border">
+	        <div className="rounded-xl border border-slate-200 bg-white dark:border-zinc-800 dark:bg-zinc-900">
           <div className="relative block px-4 py-4 space-y-3">
             {(() => {
               const a = airport;
@@ -285,7 +285,7 @@ export default function WeatherDetail() {
           <div className="text-xs uppercase tracking-wide text-slate-500 dark:text-zinc-400 mb-2">
             Alternates within 200 nm (5 nearest)
           </div>
-          <ul className="divide-y rounded-xl border">
+	          <ul className="overflow-hidden rounded-xl border border-slate-200 bg-white divide-y divide-slate-200 dark:border-zinc-800 dark:bg-zinc-900 dark:divide-zinc-800">
             {alternates.map((a) => {
               const wx = data[a.icao];
               const f = NO_AIRPORT_FEATURES[a.icao];

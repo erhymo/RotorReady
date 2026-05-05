@@ -226,7 +226,7 @@ export default function WeatherHubClient() {
       title="Weather planning"
       backHref="/"
       backLabel="Home"
-      rightAction={<Link href="/weather/all" className="rounded-lg border border-slate-300 px-3 py-1.5 text-xs font-semibold text-slate-700 dark:border-zinc-700 dark:text-zinc-100">All</Link>}
+	      rightAction={<Link href="/weather/all" className="rounded-lg border border-slate-300 bg-white px-3 py-1.5 text-xs font-semibold text-slate-700 transition hover:bg-slate-50 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100 dark:hover:bg-zinc-800">Airports</Link>}
     />
     <div className="max-w-4xl mx-auto p-6 space-y-6">
       <header className="flex items-center justify-between">
@@ -245,7 +245,7 @@ export default function WeatherHubClient() {
           <button
             type="button"
             onClick={() => router.push(`/weather/${primary.icao}`)}
-            className="w-full rounded-xl border text-left hover:bg-slate-50 dark:hover:bg-zinc-900/40 transition"
+	            className="w-full rounded-xl border border-slate-200 bg-white text-left transition hover:bg-slate-50 dark:border-zinc-800 dark:bg-zinc-900 dark:hover:bg-zinc-800/80"
           >
             <div className="relative block px-4 py-4 space-y-3">
               {(() => {
@@ -352,7 +352,7 @@ export default function WeatherHubClient() {
         <section className="space-y-4">
           <div className="space-y-3">
             <h2 className="text-sm font-semibold text-slate-700 dark:text-zinc-200">Nearest airport</h2>
-            <div className="w-full rounded-xl border px-4 py-4 space-y-3">
+	            <div className="w-full rounded-xl border border-slate-200 bg-white px-4 py-4 space-y-3 dark:border-zinc-800 dark:bg-zinc-900">
               <div className="flex items-center justify-between">
                 <div>
                   <div className="font-semibold">{primaryWx.icao || "(unknown)"}</div>
@@ -394,7 +394,7 @@ export default function WeatherHubClient() {
                 {globalAlternates.map((wx, idx) => (
                   <div
                     key={`${wx.icao}-${idx}`}
-                    className="w-full rounded-xl border px-4 py-3 space-y-2 text-sm text-slate-700 dark:text-zinc-200"
+	                    className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 space-y-2 text-sm text-slate-700 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-200"
                   >
                     <div className="font-semibold">{wx.icao}</div>
                     <div>
@@ -422,7 +422,7 @@ export default function WeatherHubClient() {
       {inNorway && (
         <section className="space-y-2">
           <h2 className="text-sm font-semibold text-slate-700 dark:text-zinc-200">Norwegian airports</h2>
-          <ul className="divide-y rounded-xl border">
+	          <ul className="overflow-hidden rounded-xl border border-slate-200 bg-white divide-y divide-slate-200 dark:border-zinc-800 dark:bg-zinc-900 dark:divide-zinc-800">
             {sortedByIcao.map((a) => (
               <li key={a.icao} className="p-0">
                 <button

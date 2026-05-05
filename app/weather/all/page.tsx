@@ -9,16 +9,18 @@ export default function WeatherAllAirportsPage() {
   return (
     <>
     <AppTopBar title="All airports" backHref="/weather" backLabel="Weather" />
-    <div className="max-w-3xl mx-auto p-6 space-y-4">
-      <h1 className="text-2xl font-bold text-slate-900 dark:text-white">All Airports</h1>
-      <p className="text-slate-600 dark:text-zinc-300 mb-2">Tap an airport to view METAR/TAF.</p>
-      <div className="divide-y divide-slate-200 dark:divide-zinc-800 rounded-lg border border-slate-200 dark:border-zinc-800 overflow-hidden">
+	    <div className="max-w-4xl mx-auto p-6 space-y-5">
+	      <header className="space-y-2">
+	        <h1 className="text-2xl font-bold text-slate-900 dark:text-white">All airports</h1>
+	        <p className="text-sm text-slate-600 dark:text-zinc-300">Tap an airport to view METAR and TAF.</p>
+	      </header>
+	      <div className="overflow-hidden rounded-xl border border-slate-200 bg-white divide-y divide-slate-200 dark:border-zinc-800 dark:bg-zinc-900 dark:divide-zinc-800">
         {sorted.map((a) => (
           <Link
             prefetch={false}
             key={a.icao}
             href={`/weather/${a.icao}`}
-            className="block px-4 py-3 hover:bg-slate-50 dark:hover:bg-zinc-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
+	            className="block px-4 py-3.5 transition hover:bg-slate-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 dark:hover:bg-zinc-800"
           >
             <div className="flex items-center justify-between gap-3">
               <div>

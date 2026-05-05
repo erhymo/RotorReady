@@ -249,7 +249,7 @@ export default function OfflinePage() {
       })
       .catch(() => {
         if (!mounted) return;
-        setSectionsError("Kunne ikke laste tilgjengelige seksjoner");
+	        setSectionsError("Could not load available sections.");
       })
       .finally(() => {
         if (!mounted) return;
@@ -398,24 +398,24 @@ export default function OfflinePage() {
   }
 
   async function downloadSectionOffline(section: Section, options?: { prefetchRoutes?: boolean }) {
-    updateStatus(section.id, `Laster ned "${section.title}"…`);
+	    updateStatus(section.id, `Downloading "${section.title}"…`);
     try {
       const data = await resolveOfflineSectionPayload(section.id, activeVariant.id, {
         allItems: allQuestions,
         allowDerivedFallback: true,
       });
 
-      if (!data) throw new Error("Ingen data for valgt kapittel");
+	      if (!data) throw new Error("No offline data available for the selected section.");
 
       const saved = saveSectionOffline(section.id, data, activeVariant.id);
-      if (!saved) throw new Error("Kunne ikke lagre offline-data. Sjekk lagringsplass eller privat nettlesermodus.");
+	      if (!saved) throw new Error("Could not save offline data. Check device storage or private browsing mode.");
       if (options?.prefetchRoutes !== false) {
         await prefetchOfflineRoutes([section.id]);
       }
       refreshOfflineIds();
-      updateStatus(section.id, `✓ "${section.title}" lagret for offline bruk`);
+	      updateStatus(section.id, `✓ "${section.title}" saved for offline use`);
     } catch (error) {
-      console.warn("Kunne ikke laste ned seksjon offline", section.id, error);
+	      console.warn("Could not download section offline", section.id, error);
       updateStatus(section.id, "❌ Failed to download");
     }
   }
@@ -423,7 +423,7 @@ export default function OfflinePage() {
   function clearSectionOffline(section: Section) {
     clearOfflineSection(section.id, activeVariant.id);
     refreshOfflineIds();
-    updateStatus(section.id, "Slettet lokale offline-data");
+	    updateStatus(section.id, "Removed local offline data");
   }
 
   async function prefetchAllQuestionsAssets() {
@@ -517,7 +517,7 @@ export default function OfflinePage() {
                           <button
                             onClick={() => downloadSectionOffline(section)}
                             disabled={!readyForActions}
-                            className="rounded bg-blue-600 text-white px-4 py-2 text-sm font-medium transition disabled:cursor-not-allowed disabled:bg-blue-400/60 dark:bg-blue-500 dark:hover:bg-blue-600"
+	                            className="min-h-10 rounded-lg bg-[#2E6EA1] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[#24577f] disabled:cursor-not-allowed disabled:opacity-60"
                           >
 	                            {stored ? "Update" : "Download"}
                           </button>
@@ -525,7 +525,7 @@ export default function OfflinePage() {
                             <button
                               onClick={() => clearSectionOffline(section)}
                               disabled={!readyForActions}
-                              className="rounded bg-gray-200 text-gray-800 px-4 py-2 text-sm font-medium disabled:cursor-not-allowed disabled:opacity-70 dark:bg-zinc-800 dark:text-zinc-100"
+	                              className="min-h-10 rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-800 disabled:cursor-not-allowed disabled:opacity-70 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100"
                             >
 	                              Remove
                             </button>
@@ -544,9 +544,9 @@ export default function OfflinePage() {
           </section>
 
           <section className="rounded-xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-4 mt-6 space-y-3">
-	            <h2 className="font-semibold">Downloaded chapters</h2>
+		            <h2 className="font-semibold">Downloaded packages</h2>
             {offlineIds.length === 0 ? (
-              <p className="text-sm text-slate-600 dark:text-zinc-300">No chapters downloaded yet.</p>
+	              <p className="text-sm text-slate-600 dark:text-zinc-300">No offline packages downloaded yet.</p>
             ) : (
               <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {offlineIds.map((id) => {
@@ -561,10 +561,10 @@ export default function OfflinePage() {
                       </div>
                       <a
                         href={launchHref}
-                        className="inline-flex items-center rounded bg-emerald-600 px-3 py-1.5 text-sm font-semibold text-white hover:bg-emerald-700 dark:bg-emerald-500 dark:hover:bg-emerald-600"
-	                        title="Start quiz for this chapter"
+	                        className="inline-flex min-h-10 items-center rounded-lg bg-[#2E6EA1] px-3 py-1.5 text-sm font-semibold text-white hover:bg-[#24577f]"
+		                        title="Start quiz for this package"
                       >
-	                        Choose count
+		                        Start
                       </a>
                     </li>
                   );

@@ -1,7 +1,7 @@
 "use client";
 import * as React from "react";
 import { useRouter } from "next/navigation";
-import { loadAllQuestions } from "@/lib/loadAllQuestions";
+import { loadAllQuestions, loadQuestionsForSectionId } from "@/lib/loadAllQuestions";
 import { loadSectionOffline } from "@/lib/offline";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 import { modelScopedKey } from "@/lib/models/storage";
@@ -21,8 +21,12 @@ async function loadEngineSystemsQuestions(variantId: string): Promise<any[]> {
   const existing = engineSystemsQuestionsPromiseCache.get(variantId);
   if (existing) return existing;
 
-  const promise = loadAllQuestions(variantId)
-    .then((items) => items.filter(matchesEngineSystemsQuestion))
+  const promise = loadQuestionsForSectionId<any>(SECTION_ID, variantId)
+    .then((items) => (
+      items.length
+        ? items
+        : loadAllQuestions(variantId).then((all) => all.filter(matchesEngineSystemsQuestion))
+    ))
     .catch((error) => {
       engineSystemsQuestionsPromiseCache.delete(variantId);
       throw error;

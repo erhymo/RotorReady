@@ -8,7 +8,7 @@ import { writeQuizOverrideSession } from "@/lib/quiz/overrideSession";
 import { clearQuizResumeSnapshot, findLatestQuizResumeInfo } from "@/lib/quiz/resumeSnapshot";
 import TopBarBackButton from "@/components/TopBarBackButton";
 
-type Section = { id: string; title: string };
+type Section = { id: string; title: string; count?: number };
 type ActiveVariantInfo = { id: string; productId: string };
 
 const networkSectionItemsPromiseCache = new Map<string, Promise<any[] | null>>();
@@ -93,7 +93,9 @@ export default function SectionPage() {
 
     const addAll = (arr: Section[]): Section[] => {
       const exists = arr.some((s) => s.id === "all");
-      return exists ? arr : [...arr, { id: "all", title: "All" }];
+      const allCountsKnown = arr.length > 0 && arr.every((s) => typeof s.count === "number");
+      const count = allCountsKnown ? arr.reduce((sum, s) => sum + (s.count ?? 0), 0) : undefined;
+      return exists ? arr : [...arr, { id: "all", title: "All", count }];
     };
 
     const urls = [
@@ -168,6 +170,11 @@ export default function SectionPage() {
         setHasQuestions(true);
         return;
       }
+
+      if (typeof selected.count === "number") {
+        setHasQuestions(selected.count > 0);
+        return;
+      }
   // 1) Local/offline first
       try {
         const { loadSectionOffline } = await import("@/lib/offline");
@@ -194,6 +201,11 @@ export default function SectionPage() {
     setTotalLoading(true);
     (async () => {
       try {
+        if (typeof selected.count === "number") {
+          if (!cancelled) setTotalCount(selected.count);
+          return;
+        }
+
         // 'All' = total across all chapters for this model
         if (selected.id === "all") {
           try {
@@ -222,7 +234,7 @@ export default function SectionPage() {
       }
     })();
     return () => { cancelled = true; };
-  }, [selected?.id, activeVariant.id, variantLoading]);
+  }, [selected?.id, selected?.count, activeVariant.id, variantLoading]);
 
   // Detect existing resume snapshot for this section/model
   useEffect(() => {

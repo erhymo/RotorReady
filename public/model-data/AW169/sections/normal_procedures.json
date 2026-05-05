@@ -1,0 +1,1754 @@
+{
+  "items": [
+    {
+      "id": "AW169-NP-001",
+      "question": "During a CAT A clearway take-off, an engine fails before TDP. What is the correct action?",
+      "options": [
+        "Continue take-off using remaining engine",
+        "Reject take-off and land back on the helipad/runway",
+        "Transition to CAT B profile",
+        "Maintain V2 speed and climb away"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "In a CAT A clearway take-off, if engine failure occurs before TDP, the pilot must reject the take-off and land back.",
+      "section": "NORMAL PROCEDURES",
+      "references": [
+        "AW169 QRH Normal Procedures p. 171+"
+      ],
+      "difficulty": "medium",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 QRH"
+    },
+    {
+      "id": "AW169-NP-004",
+      "question": "In a CAT A rejected landing (before LDP), the procedure is to:",
+      "options": [
+        "Continue descent and flare",
+        "Initiate go-around or balked landing profile",
+        "Land regardless of engine status",
+        "Transition to autorotation"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "If engine failure occurs before LDP during CAT A landing, pilot must perform balked landing/go-around.",
+      "section": "NORMAL PROCEDURES",
+      "references": [
+        "AW169 QRH Normal Procedures p. 171+"
+      ],
+      "difficulty": "medium",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 QRH"
+    },
+    {
+      "id": "AW169-NP-005",
+      "question": "During CAT A take-off with a defined clearway, which factor must be considered for TDP determination?",
+      "options": [
+        "Runway slope only",
+        "Height of obstacles in departure path",
+        "Wind direction only",
+        "Distance to next navigation fix"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Obstacle clearance is critical for determining TDP in a CAT A clearway take-off.",
+      "section": "NORMAL PROCEDURES",
+      "references": [
+        "AW169 QRH Normal Procedures p. 171+"
+      ],
+      "difficulty": "medium",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 QRH"
+    },
+    {
+      "id": "AW169-NP-006",
+      "question": "In CAT A landing profile, the rejected landing distance must account for:",
+      "options": [
+        "Landing flare only",
+        "Obstacle clearance and transition to balked landing",
+        "Taxi distance to parking",
+        "Only hover height"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Rejected landing distance includes obstacle clearance and balked landing path requirements.",
+      "section": "NORMAL PROCEDURES",
+      "references": [
+        "AW169 QRH Normal Procedures p. 171+"
+      ],
+      "difficulty": "medium",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 QRH"
+    },
+    {
+      "id": "AW169-NP-007",
+      "question": "When both engines fail after TDP in CAT A take-off, what is the procedure?",
+      "options": [
+        "Land immediately within take-off area",
+        "Continue CAT A OEI profile",
+        "Transition to autorotation",
+        "Fly a missed approach"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "If both engines fail after TDP, autorotation is required.",
+      "section": "NORMAL PROCEDURES",
+      "references": [
+        "AW169 QRH Normal Procedures p. 171+"
+      ],
+      "difficulty": "hard",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 QRH"
+    },
+    {
+      "id": "AW169-NP-008",
+      "question": "What defines the LDP (Landing Decision Point)?",
+      "options": [
+        "Last point to safely reject landing and perform go-around",
+        "First point where V2 speed is achieved",
+        "Altitude to flare the helicopter",
+        "Altitude where collective is reduced to idle"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The LDP is the last point where the pilot can decide to reject landing and initiate balked landing/go-around.",
+      "section": "NORMAL PROCEDURES",
+      "references": [
+        "AW169 QRH Normal Procedures p. 171+"
+      ],
+      "difficulty": "medium",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 QRH"
+    },
+    {
+      "id": "AW169-NP-009",
+      "question": "During CAT A vertical take-off, if engine failure occurs before TDP:",
+      "options": [
+        "Land back and do not continue take-off",
+        "Continue with OEI procedure",
+        "Climb at Vyse",
+        "Accelerate to Vref"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "For CAT A vertical take-off, an engine failure before TDP requires landing back.",
+      "section": "NORMAL PROCEDURES",
+      "references": [
+        "AW169 QRH Normal Procedures p. 171+"
+      ],
+      "difficulty": "medium",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 QRH"
+    },
+    {
+      "id": "AW169-NP-010",
+      "question": "For a CAT A balked landing, what minimum climb gradient must be ensured OEI?",
+      "options": [
+        "4 %",
+        "2.5 %",
+        "3.3 %",
+        "8 %"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "CAT A balked landing requires an OEI climb gradient of 3.3%.",
+      "section": "NORMAL PROCEDURES",
+      "references": [
+        "AW169 QRH Normal Procedures p. 171+"
+      ],
+      "difficulty": "medium",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 QRH"
+    },
+    {
+      "id": "AW169-NP-014",
+      "question": "What is the purpose of TDP (Take-off Decision Point)?",
+      "options": [
+        "Point to decide continue or reject take-off after engine failure",
+        "Maximum speed before rotation",
+        "Point of flare initiation",
+        "First waypoint in SID"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "TDP defines the decision point to either reject or continue the take-off in case of engine failure.",
+      "section": "NORMAL PROCEDURES",
+      "references": [
+        "AW169 QRH Normal Procedures p. 171+"
+      ],
+      "difficulty": "easy",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 QRH"
+    },
+    {
+      "id": "AW169-NP-015",
+      "question": "CAT A landing requires the approach path to be clear of obstacles up to:",
+      "options": [
+        "Final approach fix",
+        "1,000 ft AGL",
+        "Missed approach point",
+        "LDP"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "In CAT A landing, obstacle clearance must be assured until the LDP.",
+      "section": "NORMAL PROCEDURES",
+      "references": [
+        "AW169 QRH Normal Procedures p. 171+"
+      ],
+      "difficulty": "medium",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 QRH"
+    },
+    {
+      "id": "AW169-NP-018",
+      "question": "During CAT A vertical take-off in confined area, why is hover height limited?",
+      "options": [
+        "To minimize exposure time to engine failure before TDP",
+        "To reduce noise footprint",
+        "To keep fuel burn low",
+        "To allow faster acceleration"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Limiting hover height reduces exposure time to engine failure before reaching TDP.",
+      "section": "NORMAL PROCEDURES",
+      "references": [
+        "AW169 QRH Normal Procedures p. 171+"
+      ],
+      "difficulty": "medium",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 QRH"
+    },
+    {
+      "id": "AW169-NP-019",
+      "question": "What is V2 in CAT A operations?",
+      "options": [
+        "Minimum speed providing required climb gradient OEI",
+        "Normal climb speed AEO",
+        "Maximum operating speed",
+        "Best endurance speed"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "V2 ensures the minimum speed providing the necessary climb gradient in OEI conditions.",
+      "section": "NORMAL PROCEDURES",
+      "references": [
+        "AW169 QRH Normal Procedures p. 171+"
+      ],
+      "difficulty": "medium",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 QRH"
+    },
+    {
+      "id": "AW169-NP-020",
+      "question": "In CAT A landing profile, if an engine fails before LDP:",
+      "options": [
+        "Reject landing, climb away OEI",
+        "Continue landing regardless",
+        "Transition to CAT B landing",
+        "Enter autorotation"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "If an engine fails before LDP, the pilot must reject landing and execute OEI climb away.",
+      "section": "NORMAL PROCEDURES",
+      "references": [
+        "AW169 QRH Normal Procedures p. 171+"
+      ],
+      "difficulty": "medium",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 QRH"
+    },
+    {
+      "id": "AW169-NP-023",
+      "question": "What is the minimum height and speed at the Initial Point (IP) in a CAT A profile?",
+      "options": [
+        "200 ft and 60 kt",
+        "300 ft and 70 kt",
+        "400 ft and 65 kt",
+        "500 ft and 80 kt"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "The IP is defined at 300 ft and 70 kt in CAT A profiles.",
+      "section": "NORMAL PROCEDURES",
+      "references": [
+        "AW169 QRH Normal Procedures p. 176"
+      ],
+      "difficulty": "medium",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 QRH"
+    },
+    {
+      "id": "AW169-NP-026",
+      "question": "Which speed must be reached and maintained after TDP in CAT A take-off?",
+      "options": [
+        "Vy",
+        "Vyse",
+        "Vtoss",
+        "Vref"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "After TDP, the helicopter must accelerate to and maintain Vtoss.",
+      "section": "NORMAL PROCEDURES",
+      "references": [
+        "AW169 QRH Normal Procedures p. 175"
+      ],
+      "difficulty": "medium",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 QRH"
+    },
+    {
+      "id": "AW169-NP-027",
+      "question": "What is Vy (all engines operative best rate of climb)?",
+      "options": [
+        "70 kt",
+        "75 kt",
+        "80 kt",
+        "85 kt"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Vy for AW169 is 75 kt, giving best rate of climb with both engines operative.",
+      "section": "NORMAL PROCEDURES",
+      "references": [
+        "AW169 QRH Normal Procedures p. 175"
+      ],
+      "difficulty": "easy",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 QRH"
+    },
+    {
+      "id": "AW169-NP-028",
+      "question": "What must be ensured before reaching LDP during CAT A landing?",
+      "options": [
+        "Correct configuration and stable approach",
+        "OEI climb gradient available",
+        "Rotor brake disengaged",
+        "Vne achieved"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Before reaching LDP, configuration and approach stability must be ensured.",
+      "section": "NORMAL PROCEDURES",
+      "references": [
+        "AW169 QRH Normal Procedures p. 176"
+      ],
+      "difficulty": "medium",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 QRH"
+    },
+    {
+      "id": "AW169-NP-030",
+      "question": "If engine failure occurs after passing LDP in CAT A landing, what is the procedure?",
+      "options": [
+        "Reject landing",
+        "Continue landing",
+        "Autorotation",
+        "Hover at IP"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "After LDP, the landing must be continued regardless of engine status.",
+      "section": "NORMAL PROCEDURES",
+      "references": [
+        "AW169 QRH Normal Procedures p. 176"
+      ],
+      "difficulty": "medium",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 QRH"
+    },
+    {
+      "id": "AW169-NP-032",
+      "question": "Why is the Initial Point (IP) defined in CAT A procedures?",
+      "options": [
+        "To standardize transition from approach to landing",
+        "To provide a defined point for balked landing",
+        "To allow ATC spacing",
+        "To mark flare initiation"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The IP standardizes the transition point from approach to landing in CAT A procedures.",
+      "section": "NORMAL PROCEDURES",
+      "references": [
+        "AW169 QRH Normal Procedures p. 176"
+      ],
+      "difficulty": "easy",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 QRH"
+    },
+    {
+      "id": "AW169-NP-033",
+      "question": "During a CAT A vertical landing, what must be assured before LDP?",
+      "options": [
+        "Helicopter in correct configuration and OEI path available",
+        "Autorotation RPM set",
+        "Cruise IAS achieved",
+        "Rotor brake armed"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Before LDP, correct landing configuration and an OEI contingency path must be available.",
+      "section": "NORMAL PROCEDURES",
+      "references": [
+        "AW169 QRH Normal Procedures p. 176"
+      ],
+      "difficulty": "medium",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 QRH"
+    },
+    {
+      "id": "AW169-NORM-002",
+      "question": "What is required when an operating limitation is exceeded?",
+      "options": [
+        "Report to ATC",
+        "No action if the exceedance is short",
+        "An entry in the logbook with details of the exceedance",
+        "Reset via the MFD"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Each exceedance must be recorded in the logbook with which limit was exceeded, duration, and extreme value attained.",
+      "section": "NORMAL PROCEDURES",
+      "references": [
+        "AW169 QRH Normal Procedures p.121"
+      ],
+      "difficulty": "medium",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 QRH"
+    },
+    {
+      "id": "AW169-ENGSTART-001",
+      "question": "During engine start, which condition requires an aborted engine start?",
+      "options": [
+        "ITT increases beyond engine limits with HOT START caution illuminated",
+        "NR remains at zero during start",
+        "HYD 1 pressure not rising",
+        "GEN 1 does not come on line"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "ITT exceedance with HOT START caution is a trigger to abort the start.",
+      "section": "NORMAL PROCEDURES",
+      "references": [
+        "AW169 QRH Engine Starting p. 137"
+      ],
+      "difficulty": "medium",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 QRH"
+    },
+    {
+      "id": "AW169-ENGSTART-002",
+      "question": "According to the aborted engine start procedure, what is the first action?",
+      "options": [
+        "Close FUEL ENG SOV",
+        "Set ENG MODE knob to OFF",
+        "Switch off electrical power",
+        "Select motoring cycle"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Procedure calls to set ENG MODE knob OFF before other actions.",
+      "section": "NORMAL PROCEDURES",
+      "references": [
+        "AW169 QRH Engine Starting p. 137"
+      ],
+      "difficulty": "easy",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 QRH"
+    },
+    {
+      "id": "AW169-ENGSTART-003",
+      "question": "In the motoring procedure, which cycle is listed?",
+      "options": [
+        "60 seconds on, 5 minutes off",
+        "30 seconds on, 5 minutes off",
+        "10 seconds on, 1 minute off",
+        "90 seconds on, 15 minutes off"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "One of the listed cycles is 30 s ON, 5 min OFF.",
+      "section": "NORMAL PROCEDURES",
+      "references": [
+        "AW169 QRH Engine Starting p. 137-138"
+      ],
+      "difficulty": "medium",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 QRH"
+    },
+    {
+      "id": "AW169-ENGSTART-005",
+      "question": "At which NG value should the engine starter be disengaged?",
+      "options": [
+        "44% NG",
+        "50% NG",
+        "54% NG",
+        "64% NG"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Starter is disengaged by about 54% NG.",
+      "section": "NORMAL PROCEDURES",
+      "references": [
+        "AW169 QRH Engine Starting p. 139, 141"
+      ],
+      "difficulty": "medium",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 QRH"
+    },
+    {
+      "id": "AW169-ENGSTART-006",
+      "question": "When starting engine 2 (or engine 1 in MAIN drive), NF and NR should begin raising within approximately:",
+      "options": [
+        "5 seconds",
+        "10 seconds",
+        "15 seconds above 0 °C, 20 seconds at or below 0 °C",
+        "30 seconds regardless of OAT"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "NF/NR should rise within ~15 s (OAT > 0 °C) or ~20 s (OAT ≤ 0 °C).",
+      "section": "NORMAL PROCEDURES",
+      "references": [
+        "AW169 QRH Engine Starting p. 141"
+      ],
+      "difficulty": "hard",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 QRH"
+    },
+    {
+      "id": "AW169-ENGSTART-007",
+      "question": "Which timing is listed as a trigger for an aborted engine start?",
+      "options": [
+        "No light up within 10 seconds of ENG MODE knob to IDLE",
+        "No light up within 20 seconds after ENG MODE knob to OFF",
+        "No light up within 5 seconds after CRANK switch",
+        "No light up within 30 seconds after IGN legend"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "No light up within 10 s of ENG MODE knob to IDLE is listed.",
+      "section": "NORMAL PROCEDURES",
+      "references": [
+        "AW169 QRH Engine Starting p. 137"
+      ],
+      "difficulty": "medium",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 QRH"
+    },
+    {
+      "id": "AW169-ENGSTART-008",
+      "question": "On ground, after an aborted starting procedure, what must be done before motoring or re-starting?",
+      "options": [
+        "Open ENG SOV",
+        "Switch electrical power off completely",
+        "Select GEN 1 to RESET",
+        "Wait 10 minutes"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Electrical power must be switched off completely before motoring or re-starting.",
+      "section": "NORMAL PROCEDURES",
+      "references": [
+        "AW169 QRH Engine Starting p. 137"
+      ],
+      "difficulty": "easy",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 QRH"
+    },
+    {
+      "id": "AW169-ENGSTART-009",
+      "question": "How many times can the chosen motoring cycle be repeated?",
+      "options": [
+        "1 time",
+        "2 times",
+        "3 times",
+        "Unlimited"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "The chosen cycle can be repeated 3 times.",
+      "section": "NORMAL PROCEDURES",
+      "references": [
+        "AW169 QRH Engine Starting p. 137"
+      ],
+      "difficulty": "easy",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 QRH"
+    },
+    {
+      "id": "AW169-ENGSTART-010",
+      "question": "If further motoring is requested beyond the allowed repeats, what rest time is necessary?",
+      "options": [
+        "10 minutes",
+        "20 minutes",
+        "30 minutes",
+        "45 minutes"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "A 30 minutes rest time is necessary before further motoring.",
+      "section": "NORMAL PROCEDURES",
+      "references": [
+        "AW169 QRH Engine Starting p. 137"
+      ],
+      "difficulty": "medium",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 QRH"
+    },
+    {
+      "id": "AW169-ENGSTART-011",
+      "question": "What NG condition prevents the DC generator from coming On Line when selected ON?",
+      "options": [
+        "NG lower than 44%",
+        "NG lower than 50%",
+        "NG lower than 54%",
+        "NG lower than 64%"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "If an engine is running at NG lower than ~64%, the DC generator will not come On Line when selected ON.",
+      "section": "NORMAL PROCEDURES",
+      "references": [
+        "AW169 QRH Engine Starting p. 139"
+      ],
+      "difficulty": "medium",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 QRH"
+    },
+    {
+      "id": "AW169-TAXI-001",
+      "question": "What must be done with the PARK BRAKE handle before taxi?",
+      "options": [
+        "Turn to release",
+        "Push to lock",
+        "Leave engaged until liftoff",
+        "Move cyclic aft"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "PARK BRAKE handle must be turned to release before taxi.",
+      "section": "NORMAL PROCEDURES",
+      "references": [
+        "AW169 QRH Taxiing p.151"
+      ],
+      "difficulty": "easy",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 QRH"
+    },
+    {
+      "id": "AW169-TAXI-002",
+      "question": "What advisory message must clear when releasing the PARK BRAKE?",
+      "options": [
+        "BRAKE FAIL",
+        "PARK BRK ON",
+        "HYD PRESS LOW",
+        "AFCS FAIL"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "PARK BRK ON advisory must clear when brake is released.",
+      "section": "NORMAL PROCEDURES",
+      "references": [
+        "AW169 QRH Taxiing p.151"
+      ],
+      "difficulty": "easy",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 QRH"
+    },
+    {
+      "id": "AW169-TAXI-004",
+      "question": "How should turning during taxi be performed?",
+      "options": [
+        "With maximum cyclic input",
+        "With aft cyclic and high collective",
+        "With minimum pitch, cyclic central or adjusted for crosswind",
+        "By pumping pedal brakes"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Turning whilst taxiing: collective at minimum pitch, cyclic central/adjusted for crosswind.",
+      "section": "NORMAL PROCEDURES",
+      "references": [
+        "AW169 QRH Taxiing p.151"
+      ],
+      "difficulty": "medium",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 QRH"
+    },
+    {
+      "id": "AW169-TAXI-005",
+      "question": "What action is prohibited during taxi to slow the aircraft?",
+      "options": [
+        "Pedal brakes",
+        "Collective increase",
+        "Aft cyclic",
+        "AFCS disengage"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Do not use aft cyclic to slow the aircraft.",
+      "section": "NORMAL PROCEDURES",
+      "references": [
+        "AW169 QRH Taxiing p.151"
+      ],
+      "difficulty": "medium",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 QRH"
+    },
+    {
+      "id": "AW169-PRETO-001",
+      "question": "What position should both ENG MODE knobs be in for take-off?",
+      "options": [
+        "IDLE/APU",
+        "OFF",
+        "ACC",
+        "FLT"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "Pre Take-Off Checks: ENG MODE knobs must be set to FLT.",
+      "section": "NORMAL PROCEDURES",
+      "references": [
+        "AW169 QRH Pre Take-Off Checks p.152"
+      ],
+      "difficulty": "easy",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 QRH"
+    },
+    {
+      "id": "AW169-PRETO-002",
+      "question": "What does pressing the AEO LIM SEL pushbutton do?",
+      "options": [
+        "Limits ITT to 800 °C",
+        "Limits OEI torque to 174% TQ",
+        "Limits AEO total torque to 222% TQ",
+        "Limits NR to 95%"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "With AEO LIM SEL enabled, AEO torque is limited to 222% TQ.",
+      "section": "NORMAL PROCEDURES",
+      "references": [
+        "AW169 QRH Pre Take-Off Checks p.152"
+      ],
+      "difficulty": "medium",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 QRH"
+    },
+    {
+      "id": "AW169-PRETO-003",
+      "question": "With AEO LIM SEL enabled, what advisory is displayed?",
+      "options": [
+        "OEI LIM",
+        "ENG TQ SEL",
+        "TQ LIM SEL",
+        "NR LIMIT"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Advisory displayed is TQ LIM SEL.",
+      "section": "NORMAL PROCEDURES",
+      "references": [
+        "AW169 QRH Pre Take-Off Checks p.152"
+      ],
+      "difficulty": "easy",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 QRH"
+    },
+    {
+      "id": "AW169-CATATO-001",
+      "question": "What is the Take-Off Safety Speed (VTOSS) for the AW169?",
+      "options": [
+        "40 KIAS",
+        "45 KIAS",
+        "50 KIAS",
+        "60 KIAS"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "VTOSS is 45 KIAS.",
+      "section": "NORMAL PROCEDURES",
+      "references": [
+        "AW169 QRH Category A Take-Off p.155"
+      ],
+      "difficulty": "easy",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 QRH"
+    },
+    {
+      "id": "AW169-CATATO-003",
+      "question": "What is the minimum Continued Take-Off Height during CTO?",
+      "options": [
+        "5 ft ATS",
+        "10 ft ATS",
+        "15 ft ATS",
+        "20 ft ATS"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Minimum CTO height is 15 ft ATS.",
+      "section": "NORMAL PROCEDURES",
+      "references": [
+        "AW169 QRH Category A Take-Off p.155"
+      ],
+      "difficulty": "medium",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 QRH"
+    },
+    {
+      "id": "AW169-CATATO-004",
+      "question": "During hover before Category A Take-Off, what hover height should be established?",
+      "options": [
+        "4 ft ATS",
+        "6 ft ATS (1.8 m)",
+        "8 ft ATS",
+        "10 ft ATS"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Establish a 6 ft (1.8 m) hover.",
+      "section": "NORMAL PROCEDURES",
+      "references": [
+        "AW169 QRH Category A Take-Off p.156"
+      ],
+      "difficulty": "easy",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 QRH"
+    },
+    {
+      "id": "AW169-CATATO-005",
+      "question": "At Take-Off Decision Point, what is the required pitch input?",
+      "options": [
+        "Rotate in 2 sec, 15° nose down",
+        "Rotate in 2 sec, 15° nose up",
+        "Reduce pitch by 5° nose down",
+        "Reduce pitch by 10° nose down"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "At TDP: rotate in 2 sec, 15° nose down relative to hover attitude.",
+      "section": "NORMAL PROCEDURES",
+      "references": [
+        "AW169 QRH Category A Take-Off p.156"
+      ],
+      "difficulty": "hard",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 QRH"
+    },
+    {
+      "id": "AW169-CATATO-006",
+      "question": "Passing through VTOSS (45 KIAS), what should be the next step?",
+      "options": [
+        "Maintain hover attitude",
+        "Continue acceleration to Vy",
+        "Reduce collective to idle",
+        "Maintain 50 ft ATS hover"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Passing VTOSS, continue acceleration to Vy.",
+      "section": "NORMAL PROCEDURES",
+      "references": [
+        "AW169 QRH Category A Take-Off p.156"
+      ],
+      "difficulty": "easy",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 QRH"
+    },
+    {
+      "id": "AW169-CATATO-007",
+      "question": "At what altitude should climb be continued to after passing VTOSS?",
+      "options": [
+        "500 ft ATS",
+        "1000 ft ATS (300 m)",
+        "1500 ft ATS",
+        "2000 ft ATS"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Continue climb to 1000 ft (300 m) ATS.",
+      "section": "NORMAL PROCEDURES",
+      "references": [
+        "AW169 QRH Category A Take-Off p.156"
+      ],
+      "difficulty": "medium",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 QRH"
+    },
+    {
+      "id": "AW169-CLRA-001",
+      "question": "What is the Take-Off Decision Point Height (TDP) for Clear Area Take-Off?",
+      "options": [
+        "10 ft ATS",
+        "15 ft ATS",
+        "20 ft ATS",
+        "50 ft ATS"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "TDP height is 20 ft ATS.",
+      "section": "NORMAL PROCEDURES",
+      "references": [
+        "AW169 QRH Clear Area Take-Off p.157"
+      ],
+      "difficulty": "easy",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 QRH"
+    },
+    {
+      "id": "AW169-CLRA-002",
+      "question": "What is the airspeed at TDP for Clear Area Take-Off?",
+      "options": [
+        "15 KIAS",
+        "35 KIAS",
+        "30 KIAS",
+        "45 KIAS"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Airspeed at TDP is 35 KIAS.",
+      "section": "NORMAL PROCEDURES",
+      "references": [
+        "AW169 QRH Clear Area Take-Off p.157"
+      ],
+      "difficulty": "medium",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 QRH"
+    },
+    {
+      "id": "AW169-CLRA-003",
+      "question": "During Clear Area Take-Off, what must be confirmed with the PARK BRAKE before liftoff?",
+      "options": [
+        "PARK BRK ON advisory is illuminated",
+        "PARK BRK ON advisory is not illuminated",
+        "PARK BRK FAIL warning is cleared",
+        "Parking brake lever forward"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Confirm PARK BRK ON advisory is not illuminated before liftoff.",
+      "section": "NORMAL PROCEDURES",
+      "references": [
+        "AW169 QRH Clear Area Take-Off p.157"
+      ],
+      "difficulty": "easy",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 QRH"
+    },
+    {
+      "id": "AW169-CLRA-004",
+      "question": "During hover for Clear Area Take-Off, what pitch adjustment is required?",
+      "options": [
+        "Rotate 5° nose up",
+        "Rotate 10° nose down",
+        "Maintain level pitch",
+        "Reduce pitch to idle"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Apply cyclic to rotate 10° nose down.",
+      "section": "NORMAL PROCEDURES",
+      "references": [
+        "AW169 QRH Clear Area Take-Off p.158"
+      ],
+      "difficulty": "medium",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 QRH"
+    },
+    {
+      "id": "AW169-WIND-001",
+      "question": "What type of take-off is prohibited according to Offshore and Elevated Helideck Take-Off Procedures?",
+      "options": [
+        "With headwind component",
+        "With crosswind above 20 kts",
+        "With tail wind component",
+        "With no wind benefit"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Take-Off with tail wind component is prohibited.",
+      "section": "NORMAL PROCEDURES",
+      "references": [
+        "AW169 QRH Offshore/Elevated Helideck Take-Off Procedures p.161"
+      ],
+      "difficulty": "easy",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 QRH"
+    },
+    {
+      "id": "AW169-WIND-002",
+      "question": "How much of the wind component increase may the pilot credit, unless otherwise authorized?",
+      "options": [
+        "25%",
+        "50%",
+        "75%",
+        "100%"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Unless otherwise authorized, no more than 50% of the wind component performance increase can be credited.",
+      "section": "NORMAL PROCEDURES",
+      "references": [
+        "AW169 QRH Offshore/Elevated Helideck Take-Off Procedures p.161"
+      ],
+      "difficulty": "medium",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 QRH"
+    },
+    {
+      "id": "AW169-WIND-003",
+      "question": "What is the Take-Off Decision Point Height (TDP) for Offshore/Elevated Helideck procedures?",
+      "options": [
+        "15 ft ATS",
+        "20 ft ATS",
+        "25 ft ATS",
+        "50 ft ATS"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "TDP is 25 ft ATS for Offshore/Elevated Helideck take-off.",
+      "section": "NORMAL PROCEDURES",
+      "references": [
+        "AW169 QRH Offshore/Elevated Helideck Take-Off Procedures p.161"
+      ],
+      "difficulty": "easy",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 QRH"
+    },
+    {
+      "id": "AW169-WIND-004",
+      "question": "In the Wind Benefit Envelope, what wind direction sector provides full wind benefit?",
+      "options": [
+        "0° ± 10°",
+        "270° ± 10°",
+        "90° ± 10°",
+        "180° ± 10°"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Full wind benefit occurs in the headwind sector 0° ± 10°.",
+      "section": "NORMAL PROCEDURES",
+      "references": [
+        "AW169 QRH Wind Limitations p.162"
+      ],
+      "difficulty": "medium",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 QRH"
+    },
+    {
+      "id": "AW169-WIND-005",
+      "question": "According to the Wind Limitations chart, at which directions is there no wind benefit?",
+      "options": [
+        "0°",
+        "90° and 270°",
+        "180°",
+        "45°"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "No wind benefit at crosswind directions 90° and 270°.",
+      "section": "NORMAL PROCEDURES",
+      "references": [
+        "AW169 QRH Wind Limitations p.162"
+      ],
+      "difficulty": "medium",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 QRH"
+    },
+    {
+      "id": "AW169-OFF-001",
+      "question": "What hover height must be established before Offshore/Elevated Helideck Take-Off?",
+      "options": [
+        "3 ft (1 m)",
+        "5 ft (1.5 m)",
+        "6 ft (1.8 m)",
+        "10 ft (3 m)"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Establish a 5 ft (1.5 m) hover.",
+      "section": "NORMAL PROCEDURES",
+      "references": [
+        "AW169 QRH Offshore/Elevated Helideck Take-Off p.163-164"
+      ],
+      "difficulty": "easy",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 QRH"
+    },
+    {
+      "id": "AW169-OFF-002",
+      "question": "Where should the nose wheel be positioned in hover during Offshore/Elevated Helideck procedure?",
+      "options": [
+        "1 m from edge",
+        "2 m from edge",
+        "3 m from edge",
+        "5 m from edge"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Nose wheel approximately 2 m from the forward edge of the helideck.",
+      "section": "NORMAL PROCEDURES",
+      "references": [
+        "AW169 QRH Offshore/Elevated Helideck Take-Off p.163"
+      ],
+      "difficulty": "medium",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 QRH"
+    },
+    {
+      "id": "AW169-OFF-003",
+      "question": "What vertical climb rate should be used during Offshore/Elevated Helideck Take-Off?",
+      "options": [
+        "200 fpm",
+        "300 fpm",
+        "400 fpm",
+        "500 fpm"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Vertical climb of 400 fpm.",
+      "section": "NORMAL PROCEDURES",
+      "references": [
+        "AW169 QRH Offshore/Elevated Helideck Take-Off p.163"
+      ],
+      "difficulty": "easy",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 QRH"
+    },
+    {
+      "id": "AW169-OFF-004",
+      "question": "At Take-Off Decision Point (TDP) 25 ft ATS during Offshore/Elevated Helideck Take-Off, what pitch attitude is required?",
+      "options": [
+        "6° nose up",
+        "12° nose down",
+        "15° nose up",
+        "10° nose down"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "At 25 ft ATS, pitch attitude should be 12° nose down.",
+      "section": "NORMAL PROCEDURES",
+      "references": [
+        "AW169 QRH Offshore/Elevated Helideck Take-Off p.163-164"
+      ],
+      "difficulty": "medium",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 QRH"
+    },
+    {
+      "id": "AW169-OFF-005",
+      "question": "During Offshore/Elevated Helideck Take-Off, after passing 15 kts ground speed, what pitch adjustment must be made?",
+      "options": [
+        "Maintain level pitch",
+        "Adjust to 6° nose up",
+        "Adjust to 12° nose up",
+        "Adjust to 10° nose down"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "After reaching 15 kts GS, rotate to 6° nose up.",
+      "section": "NORMAL PROCEDURES",
+      "references": [
+        "AW169 QRH Offshore/Elevated Helideck Take-Off p.164"
+      ],
+      "difficulty": "medium",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 QRH"
+    },
+    {
+      "id": "AW169-OFF-006",
+      "question": "During Offshore/Elevated Helideck Pre Take-Off procedure, how should the PARK BRAKE be applied and confirmed?",
+      "options": [
+        "Ensure PARK BRK FAIL warning is cleared",
+        "Apply brake, confirm pressure on pedals, and PARK BRK ON advisory illuminated",
+        "Ensure PARK BRK ON extinguished immediately",
+        "Move brake lever to neutral without CAS indication"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Apply brake, confirm pedal pressure, and PARK BRK ON illuminated on CAS.",
+      "section": "NORMAL PROCEDURES",
+      "references": [
+        "AW169 QRH Offshore/Elevated Helideck Take-Off p.163"
+      ],
+      "difficulty": "medium",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 QRH"
+    },
+    {
+      "id": "AW169-OFF-007",
+      "question": "What NR/NF value must be confirmed prior to Offshore/Elevated Helideck Take-Off?",
+      "options": [
+        "95%",
+        "100%",
+        "103%",
+        "110%"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "NF/NR must be confirmed at 103%.",
+      "section": "NORMAL PROCEDURES",
+      "references": [
+        "AW169 QRH Offshore/Elevated Helideck Take-Off p.163"
+      ],
+      "difficulty": "easy",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 QRH"
+    },
+    {
+      "id": "AW169-OFF-008",
+      "question": "Which PFD menu selection is required during Offshore/Elevated Helideck pre-take-off checks?",
+      "options": [
+        "Select NAV mode",
+        "Select DG on Rig",
+        "Select AFCS test",
+        "Select COM configuration"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Select DG on Rig for Offshore/Elevated Helideck operation.",
+      "section": "NORMAL PROCEDURES",
+      "references": [
+        "AW169 QRH Offshore/Elevated Helideck Take-Off p.163"
+      ],
+      "difficulty": "medium",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 QRH"
+    },
+    {
+      "id": "AW169-OFF-009",
+      "question": "During Offshore/Elevated Helideck lift-off, how much PI increase should be applied in approximately 2 seconds?",
+      "options": [
+        "10%",
+        "15%",
+        "20%",
+        "25%"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Increase PI by 15% in approximately 2 seconds.",
+      "section": "NORMAL PROCEDURES",
+      "references": [
+        "AW169 QRH Offshore/Elevated Helideck Take-Off p.164"
+      ],
+      "difficulty": "medium",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 QRH"
+    },
+    {
+      "id": "AW169-OFF-010",
+      "question": "What climb target speed should be reached after Offshore/Elevated Helideck Take-Off?",
+      "options": [
+        "45 KIAS (VTOSS)",
+        "60 KIAS",
+        "70 KIAS",
+        "75 KIAS (Vy)"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "Climb to Vy = 75 KIAS.",
+      "section": "NORMAL PROCEDURES",
+      "references": [
+        "AW169 QRH Offshore/Elevated Helideck Take-Off p.164"
+      ],
+      "difficulty": "easy",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 QRH"
+    },
+    {
+      "id": "AW169-COLD-001",
+      "question": "If the helicopter is parked outside with OAT at or below –20 °C, what must be done with the batteries?",
+      "options": [
+        "Connect to external power",
+        "Remove both Main and Auxiliary batteries and store in a heated room",
+        "Remove only the Main battery",
+        "No special action required"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "When OAT ≤ –20 °C, both Main and Auxiliary batteries must be removed and stored in a heated room.",
+      "section": "NORMAL PROCEDURES",
+      "references": [
+        "AW169 QRH Cold Weather Operation p.123"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "COLD WEATHER"
+      ],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 QRH"
+    },
+    {
+      "id": "AW169-COLD-002",
+      "question": "When can the aircraft be considered NOT COLD SOAKED?",
+      "options": [
+        "Exposed below –10 °C for any duration",
+        "Exposed between –20 °C and –40 °C for less than 30 minutes",
+        "Exposed below –20 °C for more than 1 hour",
+        "Exposed between –10 °C and –20 °C for more than 2 hours"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Specific exposure conditions define when the aircraft is NOT COLD SOAKED.",
+      "section": "NORMAL PROCEDURES",
+      "references": [
+        "AW169 QRH Cold Weather Operation p.123"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "COLD WEATHER"
+      ],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 QRH"
+    },
+    {
+      "id": "AW169-COLD-003",
+      "question": "What may occur during engine start when using aircraft batteries after cold soak?",
+      "options": [
+        "Low oil temperature indication",
+        "Autopilot disengagement",
+        "HOT START caution illumination with automatic abort",
+        "Low hydraulic pressure indication only"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Automatic abort and HOT START caution illumination may occur when starting with aircraft batteries after cold soak.",
+      "section": "NORMAL PROCEDURES",
+      "references": [
+        "AW169 QRH Cold Weather Operation p.123"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "COLD WEATHER"
+      ],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 QRH"
+    },
+    {
+      "id": "AW169-COLD-004",
+      "question": "During cold start, what is the temporary maximum value the MGB oil pressure may reach?",
+      "options": [
+        "5.2 bar",
+        "6.7 bar",
+        "4.5 bar",
+        "7.5 bar"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "During cold starting the MGB oil pressure could temporarily reach 6.7 bar (0.7 bar above normal).",
+      "section": "NORMAL PROCEDURES",
+      "references": [
+        "AW169 QRH Cold Weather Operation p.124"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "COLD WEATHER"
+      ],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 QRH"
+    }
+  ]
+}

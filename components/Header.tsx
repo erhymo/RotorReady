@@ -43,16 +43,16 @@ export default function Header() {
           Home
         </Link>
 
-		        {/* Active model indicator (mobile + desktop), with info bell only visible under it on small screens */}
-		        <div className="relative flex items-center">
+		        {/* Active model indicator (mobile + desktop) */}
+		        <div className="flex min-w-0 items-center">
 		          <ClientActiveModelBadge />
-		          {/* Info bell stacked directly under the active model badge on home, mobile only */}
-		          {showInfoBell && (
-		            <div className="absolute right-0 top-full mt-4 md:hidden">
-		              <InfoBell />
-		            </div>
-		          )}
 		        </div>
+
+		        {showInfoBell && (
+		          <div className="ml-auto flex shrink-0 items-center md:hidden">
+		            <InfoBell />
+		          </div>
+		        )}
 
 	        {/* Right-side nav (hidden on mobile to avoid horizontal scroll) */}
 	        <nav className="ml-auto hidden md:flex items-center gap-4 text-sm">
@@ -68,14 +68,7 @@ export default function Header() {
 	          >
 			            Settings
 	          </Link>
-		          {/* On desktop, show info bell without adding account/login UI. */}
-	          <div className="relative">
-	            {showInfoBell && (
-		              <div className="absolute right-0 top-full mt-2 hidden md:block">
-	                <InfoBell />
-	              </div>
-	            )}
-	          </div>
+		          {showInfoBell && <InfoBell />}
 	        </nav>
       </div>
     </div>

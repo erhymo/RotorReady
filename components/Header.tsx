@@ -11,8 +11,8 @@ export default function Header() {
 	  const showInfoBell = pathname === "/";
 
 	  return (
-	    <div className="rr-safe-top w-full border-b border-slate-200/70 bg-white/60 backdrop-blur supports-[backdrop-filter]:bg-white/40 dark:bg-zinc-950/90 dark:border-zinc-800 dark:text-zinc-100">
-	      <div className="mx-auto flex h-16 max-w-6xl items-center gap-4 px-6">
+		    <div className="rr-safe-top w-full border-b border-slate-200/70 bg-white/60 backdrop-blur supports-[backdrop-filter]:bg-white/40 dark:bg-zinc-950/90 dark:border-zinc-800 dark:text-zinc-100">
+		      <div className="mx-auto flex h-16 max-w-6xl items-center gap-2 px-4 sm:gap-4 sm:px-6">
         {/* Logo / Brand */}
         <Link href="/" className="group flex items-center gap-3">
           <svg viewBox="0 0 120 120" role="img" aria-label="RotorReady logo" className="h-10 w-10 transition-transform group-hover:scale-[1.02]">
@@ -21,7 +21,7 @@ export default function Header() {
               RR
             </text>
           </svg>
-          <div className="leading-tight">
+	          <div className="hidden leading-tight sm:block">
             <div className="font-semibold tracking-tight text-slate-900 dark:text-white">
               RotorReady
             </div>
@@ -34,7 +34,7 @@ export default function Header() {
 	        {/* Home */}
 	        <Link
 	          href="/"
-	          className="ml-1 inline-flex items-center gap-2 rounded-lg border border-slate-300 bg-white px-3 py-1 text-sm font-semibold text-slate-800 shadow-sm transition hover:border-slate-400 hover:bg-slate-50 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100 dark:hover:border-zinc-600 dark:hover:bg-zinc-800"
+		          className="ml-1 hidden items-center gap-2 rounded-lg border border-slate-300 bg-white px-3 py-1 text-sm font-semibold text-slate-800 shadow-sm transition hover:border-slate-400 hover:bg-slate-50 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100 dark:hover:border-zinc-600 dark:hover:bg-zinc-800 md:inline-flex"
 	          aria-label="Home"
 	        >
           <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" className="text-slate-600 dark:text-zinc-300">

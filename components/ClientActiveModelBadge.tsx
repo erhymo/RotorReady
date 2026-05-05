@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useMemo } from "react";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 
@@ -36,15 +37,16 @@ export default function ClientActiveModelBadge() {
   }
 
   return (
-    <div
-      className="ml-2 inline-flex items-center rounded-full border border-emerald-500 bg-emerald-50 px-3 py-1 text-sm font-semibold text-slate-900 shadow-sm dark:border-emerald-400 dark:bg-emerald-200/80 dark:text-slate-900"
-      title={`Active model: ${fullLabel}`}
-      aria-label={`Active model: ${fullLabel}`}
-    >
+	  <Link
+	    href="/account"
+	    className="ml-2 inline-flex items-center rounded-full border border-emerald-500 bg-emerald-50 px-3 py-1 text-sm font-semibold text-slate-900 shadow-sm transition hover:bg-emerald-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 dark:border-emerald-400 dark:bg-emerald-200/80 dark:text-slate-900"
+	    title={`Active model: ${fullLabel} — open Settings`}
+	    aria-label={`Active model: ${fullLabel}. Open Settings`}
+	  >
       <span className="mr-2 inline-block h-2.5 w-2.5 rounded-full bg-emerald-500" aria-hidden />
       <span className="md:hidden">{shortLabel}</span>
       <span className="hidden md:inline">{fullLabel}</span>
-    </div>
+	  </Link>
   );
 }
 

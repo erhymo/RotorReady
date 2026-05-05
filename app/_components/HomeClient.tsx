@@ -40,73 +40,87 @@ function Bar(props: { href: string; title: string; description: string; tone?: "
 	      .catch(() => {});
 	  }, []);
 
-	  return (
-	    <div className="max-w-5xl mx-auto p-6 space-y-8">
-	      <header>
-	        <h1 className="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">RotorReady</h1>
-	        <p className="mt-2 text-slate-600 dark:text-zinc-300">
-	          Train smarter. Faster repetition for lights and limitations. Offline support for operations without
-	          internet.
-	        </p>
-	      </header>
+		  return (
+		    <div className="max-w-5xl mx-auto p-6 space-y-8">
+		      <header className="space-y-3">
+		        <div>
+		          <h1 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">RotorReady</h1>
+		          <p className="mt-2 text-slate-600 dark:text-zinc-300">
+		            Train smarter with fast repetition, quick references and planning tools for rotorwing operations.
+		          </p>
+		        </div>
+		        {activeVariant && (
+		          <Link
+		            href="/account"
+		            className="inline-flex items-center gap-2 rounded-full border border-emerald-500 bg-emerald-50 px-3 py-1.5 text-sm font-semibold text-emerald-800 transition hover:bg-emerald-100 dark:border-emerald-400 dark:bg-emerald-900/40 dark:text-emerald-100"
+		          >
+		            <span className="h-2.5 w-2.5 rounded-full bg-emerald-500" aria-hidden />
+		            Selected aircraft: {activeVariant.label}
+		          </Link>
+		        )}
+		      </header>
 
-	      <section className="space-y-3">
-	        <h2 className="text-sm font-semibold text-slate-700 dark:text-zinc-200 uppercase">Training Modes</h2>
-	        <Bar
-	          href="/training/lights"
-	          title="Emergency and Malfunction"
-	          description="Practice emergency and malfunction procedures. Lights and Procedures."
-	          tone="amber"
-	          icon={<BoltIcon className="h-4 w-4" />}
-	        />
-	        <Bar
-	          href="/quiz"
-	          title="Quiz"
-	          description="Choose which quiz to take: limitations, performance, procedures, etc."
-	          tone="blue"
-	          icon={<BookIcon className="h-4 w-4" />}
-	        />
-        {activeVariant?.id === "AW169" && (
-          <Bar
-            href="/training/procedures/aw169"
-            title="Procedures"
-            description="Browse AW169 procedures. Tap inside a procedure to return to the list."
-            tone="emerald"
-            icon={<BookIcon className="h-4 w-4" />}
-          />
-        )}
-        {activeVariant?.id === "AW169" && (
-          <Bar
-            href="/aw169/quick-reference"
-            title="Quick Reference"
-            description="Key AW169 RFM limitations and numbers for quick reference."
-            tone="slate"
-            icon={<BookIcon className="h-4 w-4" />}
-          />
-        )}
-        {activeVariant?.id === "H125_AS350_B3_2B1" && (
-          <>
-            <Bar
-              href="/training/procedures/h125-as350-b3-2b1"
-              title="Procedures"
-              description="Browse H125 / AS350 B3 (2B1) procedures. Tap inside a procedure to return to the list."
-              tone="emerald"
-              icon={<BookIcon className="h-4 w-4" />}
-            />
-            <Bar
-              href="/h125-as350-b3-2b1/quick-reference"
-              title="Quick Reference"
-              description="Selected H125 / AS350 B3 (2B1) RFM limitations and numbers for quick reference."
-              tone="slate"
-              icon={<BookIcon className="h-4 w-4" />}
-            />
-          </>
-        )}
+		      <section className="space-y-3">
+		        <h2 className="text-sm font-semibold uppercase tracking-wide text-slate-700 dark:text-zinc-200">Training</h2>
+		        <Bar
+		          href="/training/lights"
+		          title="Emergency & Malfunction"
+		          description="Practice lights, memory items and emergency/malfunction procedures."
+		          tone="amber"
+		          icon={<BoltIcon className="h-4 w-4" />}
+		        />
+		        <Bar
+		          href="/quiz"
+		          title="Quiz"
+		          description="Train limitations, systems, procedures and model-specific knowledge."
+		          tone="blue"
+		          icon={<BookIcon className="h-4 w-4" />}
+		        />
+	        {activeVariant?.id === "AW169" && (
+	          <Bar
+	            href="/training/procedures/aw169"
+	            title="Procedures"
+	            description="Browse AW169 procedures and training checklists."
+	            tone="emerald"
+	            icon={<BookIcon className="h-4 w-4" />}
+	          />
+	        )}
+	        {activeVariant?.id === "H125_AS350_B3_2B1" && (
+	          <Bar
+	            href="/training/procedures/h125-as350-b3-2b1"
+	            title="Procedures"
+	            description="Browse H125 / AS350 B3 (2B1) procedures and training checklists."
+	            tone="emerald"
+	            icon={<BookIcon className="h-4 w-4" />}
+	          />
+	        )}
+		      </section>
+
+		      <section className="space-y-3">
+		        <h2 className="text-sm font-semibold uppercase tracking-wide text-slate-700 dark:text-zinc-200">Reference</h2>
+	        {activeVariant?.id === "AW169" && (
+	          <Bar
+	            href="/aw169/quick-reference"
+	            title="Quick Reference"
+	            description="Key AW169 RFM limitations and numbers."
+	            tone="slate"
+	            icon={<BookIcon className="h-4 w-4" />}
+	          />
+	        )}
+	        {activeVariant?.id === "H125_AS350_B3_2B1" && (
+	          <Bar
+	            href="/h125-as350-b3-2b1/quick-reference"
+	            title="Quick Reference"
+	            description="Selected H125 / AS350 B3 (2B1) RFM limitations and numbers."
+	            tone="slate"
+	            icon={<BookIcon className="h-4 w-4" />}
+	          />
+	        )}
 		        {activeVariant?.id === "H125_AS350_B3E" && (
 		          <Bar
 		            href="/h125-as350-b3e/quick-reference"
 		            title="Quick Reference"
-		            description="Selected H125 / AS350 B3e RFM limitations and numbers for quick reference."
+		            description="Selected H125 / AS350 B3e RFM limitations and numbers."
 		            tone="slate"
 		            icon={<BookIcon className="h-4 w-4" />}
 		          />
@@ -115,58 +129,61 @@ function Bar(props: { href: string; title: string; description: string; tone?: "
 		          <Bar
 		            href="/r44-ii/quick-reference"
 		            title="Quick Reference"
-		            description="Selected R44 II POH limitations and numbers for quick reference."
+		            description="Selected R44 II POH limitations and numbers."
 		            tone="slate"
 		            icon={<BookIcon className="h-4 w-4" />}
 		          />
 		        )}
+		      </section>
+
+	      <section className="space-y-3">
+	        <h2 className="text-sm font-semibold uppercase tracking-wide text-slate-700 dark:text-zinc-200">Planning & Tools</h2>
+	        <Bar
+	          href="/weather"
+	          title="Weather planning"
+		          description="Nearest ICAO airports with METAR/TAF and alternates."
+	          tone="slate"
+	        />
+	        <Bar
+	          href="/airports"
+	          title="Airports"
+		          description="Browse Avinor AIS airports, ATS and fuel opening hours."
+	          tone="slate"
+	        />
+	        {activeVariant?.id === "AW169" && (
+	          <Bar
+	            href="/calculations"
+	            title="Calculations"
+	            description="Performance calculators such as AW169 OEI OGE headwind."
+	            tone="slate"
+	          />
+	        )}
 	      </section>
 
-      <section className="space-y-3">
-        <h2 className="text-sm font-semibold text-slate-700 dark:text-zinc-200 uppercase">Tools</h2>
-        <Bar
-          href="/offline"
-          title="Offline Packages"
-          description="Download ‘Chapters’ locally for offline use."
-          tone="emerald"
-          icon={<DownloadIcon className="h-4 w-4" />}
-        />
-        {activeVariant?.id === "AW169" && (
-          <Bar
-            href="/calculations"
-            title="Calculations"
-            description="Performance calculators (e.g., AW169 OEI OGE headwind)."
-            tone="slate"
-          />
-        )}
-        <Bar
-          href="/weather"
-          title="Weather planning"
-	          description="Nearest ICAO airports with METAR/TAF and alternates."
-          tone="slate"
-        />
-        <Bar
-          href="/airports"
-          title="Airports"
-	          description="Browse airports from Avinor AIS; see ATS & fuel opening hours."
-          tone="slate"
-        />
+	      <section className="space-y-3">
+	        <h2 className="text-sm font-semibold uppercase tracking-wide text-slate-700 dark:text-zinc-200">Offline & App</h2>
+	        <Bar
+	          href="/offline"
+	          title="Offline Packages"
+	          description="Download chapters locally for use without network coverage."
+	          tone="emerald"
+	          icon={<DownloadIcon className="h-4 w-4" />}
+	        />
+	        <Bar
+	          href="/account"
+		          title="Settings"
+		          description="Choose aircraft model, theme and local preferences."
+	        />
+	      </section>
 
-        <Bar
-          href="/account"
-	          title="Settings"
-	          description="Choose aircraft model, theme and local preferences."
-        />
-      </section>
-
-	      {ver && (
-	        <footer className="pt-2 text-xs text-slate-500 dark:text-zinc-400">
-	          <div>
-	            Data: {ver.version} — QRH: {ver.qrhVersion} — RFM: {ver.rfmVersion}
-	          </div>
-	        </footer>
-	      )}
-	    </div>
-	  );
+		      {ver && (
+		        <footer className="pt-2 text-xs text-slate-500 dark:text-zinc-400">
+		          <div>
+		            Data: {ver.version} — QRH: {ver.qrhVersion} — RFM: {ver.rfmVersion}
+		          </div>
+		        </footer>
+		      )}
+		    </div>
+		  );
 	}
 

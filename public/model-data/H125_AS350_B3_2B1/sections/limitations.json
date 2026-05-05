@@ -22,8 +22,13 @@
       "difficulty": "easy",
       "tags": [],
       "references": [
-        "RFM H125 Section 2.1 – p. 2-1"
-      ]
+        "RFM H125 Section 2.1 – p. 2-1",
+        "p. 2-1",
+        "RFM H125 Section 2.1"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM H125 Section 2.1"
     },
     {
       "id": "H125-LIM-002",
@@ -47,8 +52,13 @@
       "difficulty": "easy",
       "tags": [],
       "references": [
-        "RFM H125 Section 2.1 – p. 2-1"
-      ]
+        "RFM H125 Section 2.1 – p. 2-1",
+        "p. 2-1",
+        "RFM H125 Section 2.1"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM H125 Section 2.1"
     },
     {
       "id": "H125-LIM-003",
@@ -72,8 +82,13 @@
       "difficulty": "medium",
       "tags": [],
       "references": [
-        "RFM H125 Section 2.1 – p. 2-1"
-      ]
+        "RFM H125 Section 2.1 – p. 2-1",
+        "p. 2-1",
+        "RFM H125 Section 2.1"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM H125 Section 2.1"
     },
     {
       "id": "H125-LIM-004",
@@ -97,8 +112,13 @@
       "difficulty": "medium",
       "tags": [],
       "references": [
-        "RFM H125 Section 2.1 – p. 2-1"
-      ]
+        "RFM H125 Section 2.1 – p. 2-1",
+        "p. 2-1",
+        "RFM H125 Section 2.1"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM H125 Section 2.1"
     },
     {
       "id": "H125-LIM-005",
@@ -122,8 +142,13 @@
       "difficulty": "medium",
       "tags": [],
       "references": [
-        "RFM H125 Section 2.1 – p. 2-1"
-      ]
+        "RFM H125 Section 2.1 – p. 2-1",
+        "p. 2-1",
+        "RFM H125 Section 2.1"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM H125 Section 2.1"
     },
     {
       "id": "H125-LIM-006",
@@ -147,8 +172,13 @@
       "difficulty": "easy",
       "tags": [],
       "references": [
-        "RFM H125 Section 2.1 – p. 2-1"
-      ]
+        "RFM H125 Section 2.1 – p. 2-1",
+        "p. 2-1",
+        "RFM H125 Section 2.1"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM H125 Section 2.1"
     },
     {
       "id": "H125-LIM-007",
@@ -172,8 +202,13 @@
       "difficulty": "easy",
       "tags": [],
       "references": [
-        "RFM H125 Section 2.1 – p. 2-1"
-      ]
+        "RFM H125 Section 2.1 – p. 2-1",
+        "p. 2-1",
+        "RFM H125 Section 2.1"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM H125 Section 2.1"
     },
     {
       "id": "H125-LIM-008",
@@ -199,8 +234,13 @@
         "instrument"
       ],
       "references": [
-        "RFM H125 Section 2.1 – p. 2-2"
-      ]
+        "RFM H125 Section 2.1 – p. 2-2",
+        "p. 2-2",
+        "RFM H125 Section 2.1"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM H125 Section 2.1"
     },
     {
       "id": "H125-LIM-009",
@@ -226,8 +266,13 @@
         "instrument"
       ],
       "references": [
-        "RFM H125 Section 2.1 – p. 2-2"
-      ]
+        "RFM H125 Section 2.1 – p. 2-2",
+        "p. 2-2",
+        "RFM H125 Section 2.1"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM H125 Section 2.1"
     },
     {
       "id": "H125-LIM-010",
@@ -253,8 +298,13 @@
         "instrument"
       ],
       "references": [
-        "RFM H125 Section 2.1 – p. 2-2"
-      ]
+        "RFM H125 Section 2.1 – p. 2-2",
+        "p. 2-2",
+        "RFM H125 Section 2.1"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM H125 Section 2.1"
     },
     {
       "id": "H125-LIM-011",
@@ -280,8 +330,13 @@
         "instrument"
       ],
       "references": [
-        "RFM H125 Section 2.1 – p. 2-2"
-      ]
+        "RFM H125 Section 2.1 – p. 2-2",
+        "p. 2-2",
+        "RFM H125 Section 2.1"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM H125 Section 2.1"
     },
     {
       "id": "H125-LIM-012",
@@ -307,8 +362,13 @@
         "weight"
       ],
       "references": [
-        "RFM H125 Section 2.2 – p. 2-1"
-      ]
+        "RFM H125 Section 2.2 – p. 2-1",
+        "p. 2-1",
+        "RFM H125 Section 2.2"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM H125 Section 2.2"
     },
     {
       "id": "H125-LIM-013",
@@ -334,8 +394,13 @@
         "cg"
       ],
       "references": [
-        "RFM H125 Section 2.2 – p. 2-1"
-      ]
+        "RFM H125 Section 2.2 – p. 2-1",
+        "p. 2-1",
+        "RFM H125 Section 2.2"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM H125 Section 2.2"
     },
     {
       "id": "H125-LIM-016",
@@ -362,8 +427,13 @@
         "vne"
       ],
       "references": [
-        "RFM H125 Section 2.3 – p. 2-1"
-      ]
+        "RFM H125 Section 2.3 – p. 2-1",
+        "p. 2-1",
+        "RFM H125 Section 2.3"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM H125 Section 2.3"
     },
     {
       "id": "H125-LIM-017",
@@ -390,8 +460,13 @@
         "vne"
       ],
       "references": [
-        "RFM H125 Section 2.3 – p. 2-1"
-      ]
+        "RFM H125 Section 2.3 – p. 2-1",
+        "p. 2-1",
+        "RFM H125 Section 2.3"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM H125 Section 2.3"
     },
     {
       "id": "H125-LIM-018",
@@ -418,8 +493,13 @@
         "temperature"
       ],
       "references": [
-        "RFM H125 Section 2.3 – p. 2-1"
-      ]
+        "RFM H125 Section 2.3 – p. 2-1",
+        "p. 2-1",
+        "RFM H125 Section 2.3"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM H125 Section 2.3"
     },
     {
       "id": "H125-LIM-019",
@@ -446,8 +526,13 @@
         "temperature"
       ],
       "references": [
-        "RFM H125 Section 2.3 – p. 2-1"
-      ]
+        "RFM H125 Section 2.3 – p. 2-1",
+        "p. 2-1",
+        "RFM H125 Section 2.3"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM H125 Section 2.3"
     },
     {
       "id": "H125-LIM-020",
@@ -474,8 +559,13 @@
         "temperature"
       ],
       "references": [
-        "RFM H125 Section 2.3 – p. 2-1"
-      ]
+        "RFM H125 Section 2.3 – p. 2-1",
+        "p. 2-1",
+        "RFM H125 Section 2.3"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM H125 Section 2.3"
     },
     {
       "id": "H125-LIM-021",
@@ -501,8 +591,13 @@
         "doors"
       ],
       "references": [
-        "RFM H125 Section 2.3 – p. 2-1"
-      ]
+        "RFM H125 Section 2.3 – p. 2-1",
+        "p. 2-1",
+        "RFM H125 Section 2.3"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM H125 Section 2.3"
     },
     {
       "id": "H125-LIM-023",
@@ -529,8 +624,13 @@
         "speed"
       ],
       "references": [
-        "RFM H125 Section 2.3 – p. 2-2"
-      ]
+        "RFM H125 Section 2.3 – p. 2-2",
+        "p. 2-2",
+        "RFM H125 Section 2.3"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM H125 Section 2.3"
     },
     {
       "id": "H125-LIM-024",
@@ -557,8 +657,13 @@
         "speed"
       ],
       "references": [
-        "RFM H125 Section 2.3 – p. 2-2"
-      ]
+        "RFM H125 Section 2.3 – p. 2-2",
+        "p. 2-2",
+        "RFM H125 Section 2.3"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM H125 Section 2.3"
     },
     {
       "id": "H125-LIM-025",
@@ -585,8 +690,13 @@
         "speed"
       ],
       "references": [
-        "RFM H125 Section 2.3 – p. 2-2"
-      ]
+        "RFM H125 Section 2.3 – p. 2-2",
+        "p. 2-2",
+        "RFM H125 Section 2.3"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM H125 Section 2.3"
     },
     {
       "id": "H125-LIM-026",
@@ -612,8 +722,13 @@
         "doors"
       ],
       "references": [
-        "RFM H125 Section 2.3 – p. 2-2"
-      ]
+        "RFM H125 Section 2.3 – p. 2-2",
+        "p. 2-2",
+        "RFM H125 Section 2.3"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM H125 Section 2.3"
     },
     {
       "id": "H125-LIM-027",
@@ -639,8 +754,13 @@
         "altitude"
       ],
       "references": [
-        "RFM H125 Section 2.3 – p. 2-4"
-      ]
+        "RFM H125 Section 2.3 – p. 2-4",
+        "p. 2-4",
+        "RFM H125 Section 2.3"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM H125 Section 2.3"
     },
     {
       "id": "H125-LIM-028",
@@ -666,8 +786,13 @@
         "temperature"
       ],
       "references": [
-        "RFM H125 Section 2.3 – p. 2-4"
-      ]
+        "RFM H125 Section 2.3 – p. 2-4",
+        "p. 2-4",
+        "RFM H125 Section 2.3"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM H125 Section 2.3"
     },
     {
       "id": "H125-LIM-029",
@@ -693,8 +818,13 @@
         "temperature"
       ],
       "references": [
-        "RFM H125 Section 2.3 – p. 2-4"
-      ]
+        "RFM H125 Section 2.3 – p. 2-4",
+        "p. 2-4",
+        "RFM H125 Section 2.3"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM H125 Section 2.3"
     },
     {
       "id": "H125-LIM-030",
@@ -720,8 +850,13 @@
         "slope"
       ],
       "references": [
-        "RFM H125 Section 2.3 – p. 2-4"
-      ]
+        "RFM H125 Section 2.3 – p. 2-4",
+        "p. 2-4",
+        "RFM H125 Section 2.3"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM H125 Section 2.3"
     },
     {
       "id": "H125-LIM-031",
@@ -747,8 +882,13 @@
         "slope"
       ],
       "references": [
-        "RFM H125 Section 2.3 – p. 2-4"
-      ]
+        "RFM H125 Section 2.3 – p. 2-4",
+        "p. 2-4",
+        "RFM H125 Section 2.3"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM H125 Section 2.3"
     },
     {
       "id": "H125-LIM-032",
@@ -774,8 +914,13 @@
         "slope"
       ],
       "references": [
-        "RFM H125 Section 2.3 – p. 2-4"
-      ]
+        "RFM H125 Section 2.3 – p. 2-4",
+        "p. 2-4",
+        "RFM H125 Section 2.3"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM H125 Section 2.3"
     },
     {
       "id": "H125-LIM-033",
@@ -801,8 +946,13 @@
         "speed"
       ],
       "references": [
-        "RFM H125 Section 2.3 – p. 2-4"
-      ]
+        "RFM H125 Section 2.3 – p. 2-4",
+        "p. 2-4",
+        "RFM H125 Section 2.3"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM H125 Section 2.3"
     },
     {
       "id": "H125-LIM-034",
@@ -828,8 +978,13 @@
         "servo"
       ],
       "references": [
-        "RFM H125 Section 2.3 – p. 2-4"
-      ]
+        "RFM H125 Section 2.3 – p. 2-4",
+        "p. 2-4",
+        "RFM H125 Section 2.3"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM H125 Section 2.3"
     },
     {
       "id": "H125-LIM-035",
@@ -853,8 +1008,13 @@
       "difficulty": "easy",
       "tags": [],
       "references": [
-        "RFM H125 Section 2.4 – p. 2-4"
-      ]
+        "RFM H125 Section 2.4 – p. 2-4",
+        "p. 2-4",
+        "RFM H125 Section 2.4"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM H125 Section 2.4"
     },
     {
       "id": "H125-LIM-036",
@@ -878,8 +1038,13 @@
       "difficulty": "easy",
       "tags": [],
       "references": [
-        "RFM H125 Section 2.4 – p. 2-4"
-      ]
+        "RFM H125 Section 2.4 – p. 2-4",
+        "p. 2-4",
+        "RFM H125 Section 2.4"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM H125 Section 2.4"
     },
     {
       "id": "H125-LIM-037",
@@ -903,8 +1068,13 @@
       "difficulty": "easy",
       "tags": [],
       "references": [
-        "RFM H125 Section 2.4 – p. 2-4"
-      ]
+        "RFM H125 Section 2.4 – p. 2-4",
+        "p. 2-4",
+        "RFM H125 Section 2.4"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM H125 Section 2.4"
     },
     {
       "id": "H125-LIM-038",
@@ -928,8 +1098,13 @@
       "difficulty": "easy",
       "tags": [],
       "references": [
-        "RFM H125 Section 2.4 – p. 2-4"
-      ]
+        "RFM H125 Section 2.4 – p. 2-4",
+        "p. 2-4",
+        "RFM H125 Section 2.4"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM H125 Section 2.4"
     },
     {
       "id": "H125-LIM-039",
@@ -953,8 +1128,13 @@
       "difficulty": "easy",
       "tags": [],
       "references": [
-        "RFM H125 Section 2.4 – p. 2-4"
-      ]
+        "RFM H125 Section 2.4 – p. 2-4",
+        "p. 2-4",
+        "RFM H125 Section 2.4"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM H125 Section 2.4"
     },
     {
       "id": "H125-LIM-040",
@@ -978,8 +1158,13 @@
       "difficulty": "easy",
       "tags": [],
       "references": [
-        "RFM H125 Section 2.4 – p. 2-4"
-      ]
+        "RFM H125 Section 2.4 – p. 2-4",
+        "p. 2-4",
+        "RFM H125 Section 2.4"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM H125 Section 2.4"
     },
     {
       "id": "H125-LIM-041",
@@ -1003,8 +1188,13 @@
       "difficulty": "easy",
       "tags": [],
       "references": [
-        "RFM H125 Section 2.4 – p. 2-4"
-      ]
+        "RFM H125 Section 2.4 – p. 2-4",
+        "p. 2-4",
+        "RFM H125 Section 2.4"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM H125 Section 2.4"
     },
     {
       "id": "H125-LIM-042",
@@ -1028,8 +1218,13 @@
       "difficulty": "easy",
       "tags": [],
       "references": [
-        "RFM H125 Section 2.4 – p. 2-1"
-      ]
+        "RFM H125 Section 2.4 – p. 2-1",
+        "p. 2-1",
+        "RFM H125 Section 2.4"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM H125 Section 2.4"
     },
     {
       "id": "H125-LIM-043",
@@ -1053,8 +1248,13 @@
       "difficulty": "easy",
       "tags": [],
       "references": [
-        "RFM H125 Section 2.4 – p. 2-1"
-      ]
+        "RFM H125 Section 2.4 – p. 2-1",
+        "p. 2-1",
+        "RFM H125 Section 2.4"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM H125 Section 2.4"
     },
     {
       "id": "H125-LIM-044",
@@ -1078,8 +1278,13 @@
       "difficulty": "medium",
       "tags": [],
       "references": [
-        "RFM H125 Section 2.4 – p. 2-1"
-      ]
+        "RFM H125 Section 2.4 – p. 2-1",
+        "p. 2-1",
+        "RFM H125 Section 2.4"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM H125 Section 2.4"
     },
     {
       "id": "H125-LIM-045",
@@ -1103,8 +1308,13 @@
       "difficulty": "medium",
       "tags": [],
       "references": [
-        "RFM H125 Section 2.4 – p. 2-1"
-      ]
+        "RFM H125 Section 2.4 – p. 2-1",
+        "p. 2-1",
+        "RFM H125 Section 2.4"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM H125 Section 2.4"
     },
     {
       "id": "H125-LIM-046",
@@ -1128,8 +1338,13 @@
       "difficulty": "easy",
       "tags": [],
       "references": [
-        "RFM H125 Section 2.4 – p. 2-2"
-      ]
+        "RFM H125 Section 2.4 – p. 2-2",
+        "p. 2-2",
+        "RFM H125 Section 2.4"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM H125 Section 2.4"
     },
     {
       "id": "H125-LIM-047",
@@ -1153,8 +1368,13 @@
       "difficulty": "easy",
       "tags": [],
       "references": [
-        "RFM H125 Section 2.4 – p. 2-2"
-      ]
+        "RFM H125 Section 2.4 – p. 2-2",
+        "p. 2-2",
+        "RFM H125 Section 2.4"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM H125 Section 2.4"
     },
     {
       "id": "H125-LIM-048",
@@ -1178,8 +1398,13 @@
       "difficulty": "medium",
       "tags": [],
       "references": [
-        "RFM H125 Section 2.4 – p. 2-2"
-      ]
+        "RFM H125 Section 2.4 – p. 2-2",
+        "p. 2-2",
+        "RFM H125 Section 2.4"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM H125 Section 2.4"
     },
     {
       "id": "H125-LIM-052",
@@ -1203,8 +1428,13 @@
       "difficulty": "easy",
       "tags": [],
       "references": [
-        "RFM H125 Section 2.4 – p. 2-3"
-      ]
+        "RFM H125 Section 2.4 – p. 2-3",
+        "p. 2-3",
+        "RFM H125 Section 2.4"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM H125 Section 2.4"
     },
     {
       "id": "H125-LIM-053",
@@ -1228,8 +1458,13 @@
       "difficulty": "medium",
       "tags": [],
       "references": [
-        "RFM H125 Section 2.4 – p. 2-3"
-      ]
+        "RFM H125 Section 2.4 – p. 2-3",
+        "p. 2-3",
+        "RFM H125 Section 2.4"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM H125 Section 2.4"
     },
     {
       "id": "H125-LIM-054",
@@ -1253,8 +1488,13 @@
       "difficulty": "easy",
       "tags": [],
       "references": [
-        "RFM H125 Section 2.4 – p. 2-3"
-      ]
+        "RFM H125 Section 2.4 – p. 2-3",
+        "p. 2-3",
+        "RFM H125 Section 2.4"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM H125 Section 2.4"
     },
     {
       "id": "H125-LIM-055",
@@ -1278,8 +1518,13 @@
       "difficulty": "easy",
       "tags": [],
       "references": [
-        "RFM H125 Section 2.4 – p. 2-3"
-      ]
+        "RFM H125 Section 2.4 – p. 2-3",
+        "p. 2-3",
+        "RFM H125 Section 2.4"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM H125 Section 2.4"
     },
     {
       "id": "H125-LIM-060",
@@ -1303,8 +1548,13 @@
       "difficulty": "easy",
       "tags": [],
       "references": [
-        "RFM H125 Section 2.4 – p. 2-4"
-      ]
+        "RFM H125 Section 2.4 – p. 2-4",
+        "p. 2-4",
+        "RFM H125 Section 2.4"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM H125 Section 2.4"
     },
     {
       "id": "H125-LIM-061",
@@ -1328,8 +1578,13 @@
       "difficulty": "easy",
       "tags": [],
       "references": [
-        "RFM H125 Section 2.4 – p. 2-4"
-      ]
+        "RFM H125 Section 2.4 – p. 2-4",
+        "p. 2-4",
+        "RFM H125 Section 2.4"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM H125 Section 2.4"
     },
     {
       "id": "H125-LIM-062",
@@ -1353,8 +1608,13 @@
       "difficulty": "easy",
       "tags": [],
       "references": [
-        "RFM H125 Section 2.4 – p. 2-4"
-      ]
+        "RFM H125 Section 2.4 – p. 2-4",
+        "p. 2-4",
+        "RFM H125 Section 2.4"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM H125 Section 2.4"
     },
     {
       "id": "H125-LIM-063",
@@ -1378,8 +1638,13 @@
       "difficulty": "medium",
       "tags": [],
       "references": [
-        "RFM H125 Section 2.5 – p. 2-3"
-      ]
+        "RFM H125 Section 2.5 – p. 2-3",
+        "p. 2-3",
+        "RFM H125 Section 2.5"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM H125 Section 2.5"
     },
     {
       "id": "H125-LIM-068",
@@ -1403,8 +1668,13 @@
       "difficulty": "easy",
       "tags": [],
       "references": [
-        "RFM H125 Section 2.5 – p. 2-6"
-      ]
+        "RFM H125 Section 2.5 – p. 2-6",
+        "p. 2-6",
+        "RFM H125 Section 2.5"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM H125 Section 2.5"
     },
     {
       "id": "H125-LIM-069",
@@ -1428,8 +1698,13 @@
       "difficulty": "easy",
       "tags": [],
       "references": [
-        "RFM H125 Section 2.5 – p. 2-6"
-      ]
+        "RFM H125 Section 2.5 – p. 2-6",
+        "p. 2-6",
+        "RFM H125 Section 2.5"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM H125 Section 2.5"
     },
     {
       "id": "H125-LIM-070",
@@ -1453,8 +1728,13 @@
       "difficulty": "easy",
       "tags": [],
       "references": [
-        "RFM H125 Section 2.5 – p. 2-6"
-      ]
+        "RFM H125 Section 2.5 – p. 2-6",
+        "p. 2-6",
+        "RFM H125 Section 2.5"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM H125 Section 2.5"
     },
     {
       "id": "H125-LIM-071",
@@ -1478,8 +1758,13 @@
       "difficulty": "easy",
       "tags": [],
       "references": [
-        "RFM H125 Section 2.5 – p. 2-6"
-      ]
+        "RFM H125 Section 2.5 – p. 2-6",
+        "p. 2-6",
+        "RFM H125 Section 2.5"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM H125 Section 2.5"
     },
     {
       "id": "H125-LIM-072",
@@ -1503,8 +1788,13 @@
       "difficulty": "easy",
       "tags": [],
       "references": [
-        "RFM H125 Section 2.5 – p. 2-6"
-      ]
+        "RFM H125 Section 2.5 – p. 2-6",
+        "p. 2-6",
+        "RFM H125 Section 2.5"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM H125 Section 2.5"
     },
     {
       "id": "H125-LIM-073",
@@ -1528,8 +1818,13 @@
       "difficulty": "medium",
       "tags": [],
       "references": [
-        "RFM H125 Section 2.5 – p. 2-6"
-      ]
+        "RFM H125 Section 2.5 – p. 2-6",
+        "p. 2-6",
+        "RFM H125 Section 2.5"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM H125 Section 2.5"
     },
     {
       "id": "H125-LIM-074",
@@ -1553,8 +1848,13 @@
       "difficulty": "medium",
       "tags": [],
       "references": [
-        "RFM H125 Section 2.5 – p. 2-6"
-      ]
+        "RFM H125 Section 2.5 – p. 2-6",
+        "p. 2-6",
+        "RFM H125 Section 2.5"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM H125 Section 2.5"
     },
     {
       "id": "H125-LIM-075",
@@ -1578,8 +1878,13 @@
       "difficulty": "easy",
       "tags": [],
       "references": [
-        "RFM H125 Section 2.5 – p. 2-7"
-      ]
+        "RFM H125 Section 2.5 – p. 2-7",
+        "p. 2-7",
+        "RFM H125 Section 2.5"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM H125 Section 2.5"
     },
     {
       "id": "H125-LIM-076",
@@ -1603,8 +1908,13 @@
       "difficulty": "easy",
       "tags": [],
       "references": [
-        "RFM H125 Section 2.5 – p. 2-7"
-      ]
+        "RFM H125 Section 2.5 – p. 2-7",
+        "p. 2-7",
+        "RFM H125 Section 2.5"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM H125 Section 2.5"
     }
   ]
 }

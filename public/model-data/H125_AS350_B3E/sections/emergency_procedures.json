@@ -3,633 +3,1364 @@
     {
       "id": "H125-EMG-001",
       "question": "What is the recommended IAS for autorotation following an engine failure?",
-      "options": ["65 kt", "75 kt", "80 kt", "90 kt"],
-      "answer": [1],
+      "options": [
+        "65 kt",
+        "75 kt",
+        "80 kt",
+        "90 kt"
+      ],
+      "answer": [
+        1
+      ],
       "explanation": "Autorotation is performed at 75 kt for best glide performance.",
       "section": "emergency_procedures",
-      "modelIds": ["H125_AS350_B3E"],
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
       "manual": "RFM H125 Section 3 – Emergency Procedures",
       "reference": "p. 3-12",
-      "references": ["RFM H125 Section 3 – Emergency Procedures – p. 3-12"],
+      "references": [
+        "RFM H125 Section 3 – Emergency Procedures – p. 3-12",
+        "p. 3-12",
+        "RFM H125 Section 3 – Emergency Procedures"
+      ],
       "difficulty": "easy",
-      "tags": []
+      "tags": [],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 3 – Emergency Procedures"
     },
     {
       "id": "H125-EMG-002",
       "question": "At what altitude should the autorotation flare be initiated?",
-      "options": ["100 ft AGL", "50 ft AGL", "40 ft AGL", "20 ft AGL"],
-      "answer": [1],
+      "options": [
+        "100 ft AGL",
+        "50 ft AGL",
+        "40 ft AGL",
+        "20 ft AGL"
+      ],
+      "answer": [
+        1
+      ],
       "explanation": "The flare is initiated at approximately 50 ft AGL.",
       "section": "emergency_procedures",
-      "modelIds": ["H125_AS350_B3E"],
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
       "manual": "RFM H125 Section 3 – Emergency Procedures",
       "reference": "p. 3-13",
-      "references": ["RFM H125 Section 3 – Emergency Procedures – p. 3-13"],
+      "references": [
+        "RFM H125 Section 3 – Emergency Procedures – p. 3-13",
+        "p. 3-13",
+        "RFM H125 Section 3 – Emergency Procedures"
+      ],
       "difficulty": "easy",
-      "tags": []
+      "tags": [],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 3 – Emergency Procedures"
     },
     {
       "id": "H125-EMG-003",
       "question": "In case of engine fire in flight, what is the first action?",
-      "options": ["Switch off battery", "Apply rotor brake", "Collective lever – reduce", "Fuel shut-off valve – OFF"],
-      "answer": [2],
+      "options": [
+        "Switch off battery",
+        "Apply rotor brake",
+        "Collective lever – reduce",
+        "Fuel shut-off valve – OFF"
+      ],
+      "answer": [
+        2
+      ],
       "explanation": "First action is to reduce collective to minimize power and fire intensity.",
       "section": "emergency_procedures",
-      "modelIds": ["H125_AS350_B3E"],
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
       "manual": "RFM H125 Section 3 – Emergency Procedures",
       "reference": "p. 3-18",
-      "references": ["RFM H125 Section 3 – Emergency Procedures – p. 3-18"],
+      "references": [
+        "RFM H125 Section 3 – Emergency Procedures – p. 3-18",
+        "p. 3-18",
+        "RFM H125 Section 3 – Emergency Procedures"
+      ],
       "difficulty": "medium",
-      "tags": []
+      "tags": [],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 3 – Emergency Procedures"
     },
     {
       "id": "H125-EMG-004",
       "question": "Which system must be switched OFF during an engine fire procedure?",
-      "options": ["Fuel shut-off, Generator, Battery", "Hydraulic, Fuel shut-off, Generator", "Fuel pump, Avionics, Battery", "Pitot heat, Landing lights, Generator"],
-      "answer": [0],
+      "options": [
+        "Fuel shut-off, Generator, Battery",
+        "Hydraulic, Fuel shut-off, Generator",
+        "Fuel pump, Avionics, Battery",
+        "Pitot heat, Landing lights, Generator"
+      ],
+      "answer": [
+        0
+      ],
       "explanation": "Engine fire requires fuel shut-off, generator and battery OFF.",
       "section": "emergency_procedures",
-      "modelIds": ["H125_AS350_B3E"],
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
       "manual": "RFM H125 Section 3 – Emergency Procedures",
       "reference": "p. 3-19",
-      "references": ["RFM H125 Section 3 – Emergency Procedures – p. 3-19"],
+      "references": [
+        "RFM H125 Section 3 – Emergency Procedures – p. 3-19",
+        "p. 3-19",
+        "RFM H125 Section 3 – Emergency Procedures"
+      ],
       "difficulty": "medium",
-      "tags": []
+      "tags": [],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 3 – Emergency Procedures"
     },
     {
       "id": "H125-EMG-005",
       "question": "What is the first action in case of smoke or fire of electrical origin?",
-      "options": ["Land immediately", "Generator – OFF", "Heater – OFF", "Battery – OFF"],
-      "answer": [3],
+      "options": [
+        "Land immediately",
+        "Generator – OFF",
+        "Heater – OFF",
+        "Battery – OFF"
+      ],
+      "answer": [
+        3
+      ],
       "explanation": "Battery must be switched OFF first in case of electrical fire.",
       "section": "emergency_procedures",
-      "modelIds": ["H125_AS350_B3E"],
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
       "manual": "RFM H125 Section 3 – Emergency Procedures",
       "reference": "p. 3-22",
-      "references": ["RFM H125 Section 3 – Emergency Procedures – p. 3-22"],
+      "references": [
+        "RFM H125 Section 3 – Emergency Procedures – p. 3-22",
+        "p. 3-22",
+        "RFM H125 Section 3 – Emergency Procedures"
+      ],
       "difficulty": "medium",
-      "tags": []
+      "tags": [],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 3 – Emergency Procedures"
     },
     {
       "id": "H125-EMG-006",
       "question": "If tail rotor control is lost in cruise flight, what is the recommended procedure?",
-      "options": ["Enter autorotation immediately", "Reduce power and adjust speed for controlled flight", "Climb to safe altitude", "Land with power on"],
-      "answer": [1],
+      "options": [
+        "Enter autorotation immediately",
+        "Reduce power and adjust speed for controlled flight",
+        "Climb to safe altitude",
+        "Land with power on"
+      ],
+      "answer": [
+        1
+      ],
       "explanation": "Tail rotor control loss in cruise is handled by adjusting power and speed for controlled flight.",
       "section": "emergency_procedures",
-      "modelIds": ["H125_AS350_B3E"],
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
       "manual": "RFM H125 Section 3 – Emergency Procedures",
       "reference": "p. 3-25",
-      "references": ["RFM H125 Section 3 – Emergency Procedures – p. 3-25"],
+      "references": [
+        "RFM H125 Section 3 – Emergency Procedures – p. 3-25",
+        "p. 3-25",
+        "RFM H125 Section 3 – Emergency Procedures"
+      ],
       "difficulty": "medium",
-      "tags": []
+      "tags": [],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 3 – Emergency Procedures"
     },
     {
       "id": "H125-EMG-007",
       "question": "In a hover, if tail rotor thrust is lost, what should the pilot do?",
-      "options": ["Reduce collective fully", "Cut fuel supply immediately", "Apply forward cyclic to gain speed", "Perform running landing"],
-      "answer": [0],
+      "options": [
+        "Reduce collective fully",
+        "Cut fuel supply immediately",
+        "Apply forward cyclic to gain speed",
+        "Perform running landing"
+      ],
+      "answer": [
+        0
+      ],
       "explanation": "Reducing collective fully minimizes torque and allows controlled descent.",
       "section": "emergency_procedures",
-      "modelIds": ["H125_AS350_B3E"],
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
       "manual": "RFM H125 Section 3 – Emergency Procedures",
       "reference": "p. 3-26",
-      "references": ["RFM H125 Section 3 – Emergency Procedures – p. 3-26"],
+      "references": [
+        "RFM H125 Section 3 – Emergency Procedures – p. 3-26",
+        "p. 3-26",
+        "RFM H125 Section 3 – Emergency Procedures"
+      ],
       "difficulty": "medium",
-      "tags": []
+      "tags": [],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 3 – Emergency Procedures"
     },
     {
       "id": "H125-EMG-008",
       "question": "What is the maximum IAS permitted in case of hydraulic failure?",
-      "options": ["100 kt", "120 kt", "60 kt", "80 kt"],
-      "answer": [0],
+      "options": [
+        "100 kt",
+        "120 kt",
+        "60 kt",
+        "80 kt"
+      ],
+      "answer": [
+        0
+      ],
       "explanation": "Max speed after hydraulic failure is 100 kt.",
       "section": "emergency_procedures",
-      "modelIds": ["H125_AS350_B3E"],
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
       "manual": "RFM H125 Section 3 – Emergency Procedures",
       "reference": "p. 3-31",
-      "references": ["RFM H125 Section 3 – Emergency Procedures – p. 3-31"],
+      "references": [
+        "RFM H125 Section 3 – Emergency Procedures – p. 3-31",
+        "p. 3-31",
+        "RFM H125 Section 3 – Emergency Procedures"
+      ],
       "difficulty": "easy",
-      "tags": []
+      "tags": [],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 3 – Emergency Procedures"
     },
     {
       "id": "H125-EMG-009",
       "question": "What is the recommended procedure after hydraulic failure?",
-      "options": ["Continue flight normally", "Land as soon as practicable", "Land immediately", "Switch off fuel pumps"],
-      "answer": [1],
+      "options": [
+        "Continue flight normally",
+        "Land as soon as practicable",
+        "Land immediately",
+        "Switch off fuel pumps"
+      ],
+      "answer": [
+        1
+      ],
       "explanation": "After hydraulic failure, land as soon as practicable.",
       "section": "emergency_procedures",
-      "modelIds": ["H125_AS350_B3E"],
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
       "manual": "RFM H125 Section 3 – Emergency Procedures",
       "reference": "p. 3-32",
-      "references": ["RFM H125 Section 3 – Emergency Procedures – p. 3-32"],
+      "references": [
+        "RFM H125 Section 3 – Emergency Procedures – p. 3-32",
+        "p. 3-32",
+        "RFM H125 Section 3 – Emergency Procedures"
+      ],
       "difficulty": "easy",
-      "tags": []
+      "tags": [],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 3 – Emergency Procedures"
     },
     {
       "id": "H125-EMG-010",
       "question": "If both fuel pumps fail, what is the maximum altitude permitted?",
-      "options": ["5000 ft", "8000 ft", "10,000 ft", "12,000 ft"],
-      "answer": [1],
+      "options": [
+        "5000 ft",
+        "8000 ft",
+        "10,000 ft",
+        "12,000 ft"
+      ],
+      "answer": [
+        1
+      ],
       "explanation": "Both fuel pumps failed limits flight to max 8000 ft.",
       "section": "emergency_procedures",
-      "modelIds": ["H125_AS350_B3E"],
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
       "manual": "RFM H125 Section 3 – Emergency Procedures",
       "reference": "p. 3-36",
-      "references": ["RFM H125 Section 3 – Emergency Procedures – p. 3-36"],
+      "references": [
+        "RFM H125 Section 3 – Emergency Procedures – p. 3-36",
+        "p. 3-36",
+        "RFM H125 Section 3 – Emergency Procedures"
+      ],
       "difficulty": "medium",
-      "tags": []
+      "tags": [],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 3 – Emergency Procedures"
     },
     {
       "id": "H125-EMG-011",
       "question": "“Land as soon as possible” means:",
-      "options": ["Continue flight to planned destination", "Land at nearest site where safe landing can be made", "Land immediately regardless of terrain", "Land only if technical crew is available"],
-      "answer": [1],
+      "options": [
+        "Continue flight to planned destination",
+        "Land at nearest site where safe landing can be made",
+        "Land immediately regardless of terrain",
+        "Land only if technical crew is available"
+      ],
+      "answer": [
+        1
+      ],
       "explanation": "It means landing at the nearest site where safe landing can be made.",
       "section": "emergency_procedures",
-      "modelIds": ["H125_AS350_B3E"],
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
       "manual": "RFM H125 Section 3.1 – General",
       "reference": "p. 3-1",
-      "references": ["RFM H125 Section 3.1 – General – p. 3-1"],
+      "references": [
+        "RFM H125 Section 3.1 – General – p. 3-1",
+        "p. 3-1",
+        "RFM H125 Section 3.1 – General"
+      ],
       "difficulty": "easy",
-      "tags": []
+      "tags": [],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 3.1 – General"
     },
     {
       "id": "H125-EMG-012",
       "question": "“Land as soon as practicable” indicates:",
-      "options": ["Immediate landing is mandatory", "Pilot may continue to destination", "Land at nearest airfield with expected assistance", "Continue flight with no action"],
-      "answer": [2],
+      "options": [
+        "Immediate landing is mandatory",
+        "Pilot may continue to destination",
+        "Land at nearest airfield with expected assistance",
+        "Continue flight with no action"
+      ],
+      "answer": [
+        2
+      ],
       "explanation": "Landing at the nearest airfield with expected assistance is correct.",
       "section": "emergency_procedures",
-      "modelIds": ["H125_AS350_B3E"],
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
       "manual": "RFM H125 Section 3.1 – General",
       "reference": "p. 3-2",
-      "references": ["RFM H125 Section 3.1 – General – p. 3-2"],
+      "references": [
+        "RFM H125 Section 3.1 – General – p. 3-2",
+        "p. 3-2",
+        "RFM H125 Section 3.1 – General"
+      ],
       "difficulty": "easy",
-      "tags": []
+      "tags": [],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 3.1 – General"
     },
     {
       "id": "H125-EMG-013",
       "question": "During engine failure in cruise with external load, what is the first action?",
-      "options": ["Jettison load immediately", "Enter autorotation procedure", "Reduce collective fully", "Apply pedal for yaw control"],
-      "answer": [1],
+      "options": [
+        "Jettison load immediately",
+        "Enter autorotation procedure",
+        "Reduce collective fully",
+        "Apply pedal for yaw control"
+      ],
+      "answer": [
+        1
+      ],
       "explanation": "First apply autorotation procedure, then jettison load.",
       "section": "emergency_procedures",
-      "modelIds": ["H125_AS350_B3E"],
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
       "manual": "RFM H125 SUP.13.1 – Sling",
       "reference": "p. 5",
-      "references": ["RFM H125 SUP.13.1 – Sling – p. 5"],
+      "references": [
+        "RFM H125 SUP.13.1 – Sling – p. 5",
+        "p. 5",
+        "RFM H125 SUP.13.1 – Sling"
+      ],
       "difficulty": "medium",
-      "tags": []
+      "tags": [],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM H125 SUP.13.1 – Sling"
     },
     {
       "id": "H125-EMG-014",
       "question": "In hover with engine failure and sling load, what must be done?",
-      "options": ["Release load, control yaw, forward cyclic, cushion landing", "Maintain load and autorotate", "Increase power to maintain hover", "Land with load attached"],
-      "answer": [0],
+      "options": [
+        "Release load, control yaw, forward cyclic, cushion landing",
+        "Maintain load and autorotate",
+        "Increase power to maintain hover",
+        "Land with load attached"
+      ],
+      "answer": [
+        0
+      ],
       "explanation": "The procedure is to release load and use cyclic/collective for safe landing.",
       "section": "emergency_procedures",
-      "modelIds": ["H125_AS350_B3E"],
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
       "manual": "RFM H125 SUP.13.1 – Sling",
       "reference": "p. 6",
-      "references": ["RFM H125 SUP.13.1 – Sling – p. 6"],
+      "references": [
+        "RFM H125 SUP.13.1 – Sling – p. 6",
+        "p. 6",
+        "RFM H125 SUP.13.1 – Sling"
+      ],
       "difficulty": "medium",
-      "tags": []
+      "tags": [],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM H125 SUP.13.1 – Sling"
     },
     {
       "id": "H125-EMG-016",
       "question": "In hover during engine failure with hoist load, the correct action is:",
-      "options": ["Keep load, increase power", "Release load, control yaw, forward cyclic, cushion landing", "Perform running landing with load attached", "Autorotate with load"],
-      "answer": [1],
+      "options": [
+        "Keep load, increase power",
+        "Release load, control yaw, forward cyclic, cushion landing",
+        "Perform running landing with load attached",
+        "Autorotate with load"
+      ],
+      "answer": [
+        1
+      ],
       "explanation": "Pilot must jettison load and control yaw with cyclic/collective.",
       "section": "emergency_procedures",
-      "modelIds": ["H125_AS350_B3E"],
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
       "manual": "RFM H125 SUP.19 – Hoist",
       "reference": "p. 4",
-      "references": ["RFM H125 SUP.19 – Hoist – p. 4"],
+      "references": [
+        "RFM H125 SUP.19 – Hoist – p. 4",
+        "p. 4",
+        "RFM H125 SUP.19 – Hoist"
+      ],
       "difficulty": "medium",
-      "tags": []
+      "tags": [],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM H125 SUP.19 – Hoist"
     },
     {
       "id": "H125-EMG-018",
       "question": "After hydraulic failure, recommended safety speed range is:",
-      "options": ["30–50 kt", "40–60 kt", "50–70 kt", "60–80 kt"],
-      "answer": [1],
+      "options": [
+        "30–50 kt",
+        "40–60 kt",
+        "50–70 kt",
+        "60–80 kt"
+      ],
+      "answer": [
+        1
+      ],
       "explanation": "Recommended speed after HYDR warning is 40–60 kt.",
       "section": "emergency_procedures",
-      "modelIds": ["H125_AS350_B3E"],
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
       "manual": "RFM H125 Section 3 – Emergency Procedures",
       "reference": "p. 3-34",
-      "references": ["RFM H125 Section 3 – Emergency Procedures – p. 3-34"],
+      "references": [
+        "RFM H125 Section 3 – Emergency Procedures – p. 3-34",
+        "p. 3-34",
+        "RFM H125 Section 3 – Emergency Procedures"
+      ],
       "difficulty": "medium",
-      "tags": []
+      "tags": [],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 3 – Emergency Procedures"
     },
     {
       "id": "H125-EMG-019",
       "question": "If control load feedback occurs before reaching safety speed after HYDR warning, pilot must:",
-      "options": ["Reduce collective fully", "Switch hydraulic cut-off to OFF", "Enter autorotation", "Land immediately"],
-      "answer": [1],
+      "options": [
+        "Reduce collective fully",
+        "Switch hydraulic cut-off to OFF",
+        "Enter autorotation",
+        "Land immediately"
+      ],
+      "answer": [
+        1
+      ],
       "explanation": "Cut-off must be set to OFF if feedback is felt before speed is reached.",
       "section": "emergency_procedures",
-      "modelIds": ["H125_AS350_B3E"],
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
       "manual": "RFM H125 Section 3 – Emergency Procedures",
       "reference": "p. 3-35",
-      "references": ["RFM H125 Section 3 – Emergency Procedures – p. 3-35"],
+      "references": [
+        "RFM H125 Section 3 – Emergency Procedures – p. 3-35",
+        "p. 3-35",
+        "RFM H125 Section 3 – Emergency Procedures"
+      ],
       "difficulty": "medium",
-      "tags": []
+      "tags": [],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 3 – Emergency Procedures"
     },
     {
       "id": "H125-EMG-020",
       "question": "In case of display malfunction (blanking), the pilot should:",
-      "options": ["Land immediately", "Use standby instruments and visual references", "Switch off generator only", "Continue flight without action"],
-      "answer": [1],
+      "options": [
+        "Land immediately",
+        "Use standby instruments and visual references",
+        "Switch off generator only",
+        "Continue flight without action"
+      ],
+      "answer": [
+        1
+      ],
       "explanation": "Pilot must use standby instruments and external references.",
       "section": "emergency_procedures",
-      "modelIds": ["H125_AS350_B3E"],
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
       "manual": "RFM H125 SUP.55.8 – Avionics",
       "reference": "p. 5",
-      "references": ["RFM H125 SUP.55.8 – Avionics – p. 5"],
+      "references": [
+        "RFM H125 SUP.55.8 – Avionics – p. 5",
+        "p. 5",
+        "RFM H125 SUP.55.8 – Avionics"
+      ],
       "difficulty": "medium",
-      "tags": []
+      "tags": [],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM H125 SUP.55.8 – Avionics"
     },
     {
       "id": "H125-EMG-021",
       "question": "First action in case of smoke of electrical origin is:",
-      "options": ["Battery – OFF", "Generator – OFF", "Avionics – OFF", "Fuel pumps – OFF"],
-      "answer": [0],
+      "options": [
+        "Battery – OFF",
+        "Generator – OFF",
+        "Avionics – OFF",
+        "Fuel pumps – OFF"
+      ],
+      "answer": [
+        0
+      ],
       "explanation": "Electrical fire requires switching off battery first.",
       "section": "emergency_procedures",
-      "modelIds": ["H125_AS350_B3E"],
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
       "manual": "RFM H125 Section 3 – Emergency Procedures",
       "reference": "p. 3-22",
-      "references": ["RFM H125 Section 3 – Emergency Procedures – p. 3-22"],
+      "references": [
+        "RFM H125 Section 3 – Emergency Procedures – p. 3-22",
+        "p. 3-22",
+        "RFM H125 Section 3 – Emergency Procedures"
+      ],
       "difficulty": "medium",
-      "tags": []
+      "tags": [],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 3 – Emergency Procedures"
     },
     {
       "id": "H125-EMG-022",
       "question": "With complete tail rotor thrust loss in hover, action is:",
-      "options": ["Collective – reduce fully", "Cyclic – full aft", "Fuel shut-off – OFF", "Generator – OFF"],
-      "answer": [0],
+      "options": [
+        "Collective – reduce fully",
+        "Cyclic – full aft",
+        "Fuel shut-off – OFF",
+        "Generator – OFF"
+      ],
+      "answer": [
+        0
+      ],
       "explanation": "Collective must be reduced fully in hover tail rotor failure.",
       "section": "emergency_procedures",
-      "modelIds": ["H125_AS350_B3E"],
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
       "manual": "RFM H125 Section 3 – Emergency Procedures",
       "reference": "p. 3-26",
-      "references": ["RFM H125 Section 3 – Emergency Procedures – p. 3-26"],
+      "references": [
+        "RFM H125 Section 3 – Emergency Procedures – p. 3-26",
+        "p. 3-26",
+        "RFM H125 Section 3 – Emergency Procedures"
+      ],
       "difficulty": "easy",
-      "tags": []
+      "tags": [],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 3 – Emergency Procedures"
     },
     {
       "id": "H125-EMG-023",
       "question": "In cruise, loss of tail rotor control should be handled by:",
-      "options": ["Autorotation immediately", "Adjusting speed/power for controlled flight", "Full pedal application", "Engine shutdown"],
-      "answer": [1],
+      "options": [
+        "Autorotation immediately",
+        "Adjusting speed/power for controlled flight",
+        "Full pedal application",
+        "Engine shutdown"
+      ],
+      "answer": [
+        1
+      ],
       "explanation": "Adjust speed/power to maintain controllability.",
       "section": "emergency_procedures",
-      "modelIds": ["H125_AS350_B3E"],
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
       "manual": "RFM H125 Section 3 – Emergency Procedures",
       "reference": "p. 3-25",
-      "references": ["RFM H125 Section 3 – Emergency Procedures – p. 3-25"],
+      "references": [
+        "RFM H125 Section 3 – Emergency Procedures – p. 3-25",
+        "p. 3-25",
+        "RFM H125 Section 3 – Emergency Procedures"
+      ],
       "difficulty": "medium",
-      "tags": []
+      "tags": [],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 3 – Emergency Procedures"
     },
     {
       "id": "H125-EMG-024",
       "question": "If electrical jettison of load fails, what must the pilot use?",
-      "options": ["Emergency mechanical release", "Pedal input", "Circuit breaker reset", "Continue flight until maintenance"],
-      "answer": [0],
+      "options": [
+        "Emergency mechanical release",
+        "Pedal input",
+        "Circuit breaker reset",
+        "Continue flight until maintenance"
+      ],
+      "answer": [
+        0
+      ],
       "explanation": "Mechanical release is used if electrical jettison fails.",
       "section": "emergency_procedures",
-      "modelIds": ["H125_AS350_B3E"],
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
       "manual": "RFM H125 SUP.13.1 – Sling",
       "reference": "p. 6",
-      "references": ["RFM H125 SUP.13.1 – Sling – p. 6"],
+      "references": [
+        "RFM H125 SUP.13.1 – Sling – p. 6",
+        "p. 6",
+        "RFM H125 SUP.13.1 – Sling"
+      ],
       "difficulty": "medium",
-      "tags": []
+      "tags": [],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM H125 SUP.13.1 – Sling"
     },
     {
       "id": "H125-EMG-025",
       "question": "If load indicator shows incorrect status (LD ON light anomaly), the action is:",
-      "options": ["Abort mission in hover", "Continue without concern", "Land immediately", "Reset avionics"],
-      "answer": [0],
+      "options": [
+        "Abort mission in hover",
+        "Continue without concern",
+        "Land immediately",
+        "Reset avionics"
+      ],
+      "answer": [
+        0
+      ],
       "explanation": "Abort sling mission if load indicator fails in hover.",
       "section": "emergency_procedures",
-      "modelIds": ["H125_AS350_B3E"],
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
       "manual": "RFM H125 SUP.13.1 – Sling",
       "reference": "p. 6",
-      "references": ["RFM H125 SUP.13.1 – Sling – p. 6"],
+      "references": [
+        "RFM H125 SUP.13.1 – Sling – p. 6",
+        "p. 6",
+        "RFM H125 SUP.13.1 – Sling"
+      ],
       "difficulty": "medium",
-      "tags": []
+      "tags": [],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM H125 SUP.13.1 – Sling"
     },
     {
       "id": "H125-EMG-026",
       "question": "If fuel pumps fail, maximum altitude permitted is:",
-      "options": ["5000 ft", "8000 ft", "10,000 ft", "12,000 ft"],
-      "answer": [1],
+      "options": [
+        "5000 ft",
+        "8000 ft",
+        "10,000 ft",
+        "12,000 ft"
+      ],
+      "answer": [
+        1
+      ],
       "explanation": "Both pumps failed limits altitude to 8000 ft.",
       "section": "emergency_procedures",
-      "modelIds": ["H125_AS350_B3E"],
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
       "manual": "RFM H125 Section 3 – Emergency Procedures",
       "reference": "p. 3-36",
-      "references": ["RFM H125 Section 3 – Emergency Procedures – p. 3-36"],
+      "references": [
+        "RFM H125 Section 3 – Emergency Procedures – p. 3-36",
+        "p. 3-36",
+        "RFM H125 Section 3 – Emergency Procedures"
+      ],
       "difficulty": "medium",
-      "tags": []
+      "tags": [],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 3 – Emergency Procedures"
     },
     {
       "id": "H125-EMG-027",
       "question": "Rotor brake inoperative in flight requires:",
-      "options": ["No action, continue flight", "Land as soon as practicable", "Autorotation", "Generator – OFF"],
-      "answer": [0],
+      "options": [
+        "No action, continue flight",
+        "Land as soon as practicable",
+        "Autorotation",
+        "Generator – OFF"
+      ],
+      "answer": [
+        0
+      ],
       "explanation": "Rotor brake inoperative in flight has no operational consequence.",
       "section": "emergency_procedures",
-      "modelIds": ["H125_AS350_B3E"],
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
       "manual": "RFM H125 Section 3.7",
       "reference": "p. 86",
-      "references": ["RFM H125 Section 3.7 – p. 86"],
+      "references": [
+        "RFM H125 Section 3.7 – p. 86",
+        "p. 86",
+        "RFM H125 Section 3.7"
+      ],
       "difficulty": "easy",
-      "tags": []
+      "tags": [],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 3.7"
     },
     {
       "id": "H125-EMG-028",
       "question": "Bleed valve failure requires pilot to:",
-      "options": ["Reduce power immediately", "Land as soon as practicable", "Shut down engine", "Enter autorotation"],
-      "answer": [1],
+      "options": [
+        "Reduce power immediately",
+        "Land as soon as practicable",
+        "Shut down engine",
+        "Enter autorotation"
+      ],
+      "answer": [
+        1
+      ],
       "explanation": "Procedure is to land as soon as practicable after bleed valve failure.",
       "section": "emergency_procedures",
-      "modelIds": ["H125_AS350_B3E"],
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
       "manual": "RFM H125 Section 3.7",
       "reference": "p. 86",
-      "references": ["RFM H125 Section 3.7 – p. 86"],
+      "references": [
+        "RFM H125 Section 3.7 – p. 86",
+        "p. 86",
+        "RFM H125 Section 3.7"
+      ],
       "difficulty": "medium",
-      "tags": []
+      "tags": [],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 3.7"
     },
     {
       "id": "H125-EMG-029",
       "question": "ICS failure during hoist operation means:",
-      "options": ["Abort mission immediately", "Complete present hoist or abort depending on circumstances", "Cut cable", "Land immediately"],
-      "answer": [1],
+      "options": [
+        "Abort mission immediately",
+        "Complete present hoist or abort depending on circumstances",
+        "Cut cable",
+        "Land immediately"
+      ],
+      "answer": [
+        1
+      ],
       "explanation": "Depending on conditions, either complete or abort mission.",
       "section": "emergency_procedures",
-      "modelIds": ["H125_AS350_B3E"],
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
       "manual": "RFM H125 SUP.19 – Hoist",
       "reference": "p. 4",
-      "references": ["RFM H125 SUP.19 – Hoist – p. 4"],
+      "references": [
+        "RFM H125 SUP.19 – Hoist – p. 4",
+        "p. 4",
+        "RFM H125 SUP.19 – Hoist"
+      ],
       "difficulty": "medium",
-      "tags": []
+      "tags": [],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM H125 SUP.19 – Hoist"
     },
     {
       "id": "H125-EMG-030",
       "question": "Static electricity hazard when using cargo hook means:",
-      "options": ["Ground crew must stay on right side", "Ground crew must wear rubber gloves", "Pilot must increase RPM", "No special action required"],
-      "answer": [1],
+      "options": [
+        "Ground crew must stay on right side",
+        "Ground crew must wear rubber gloves",
+        "Pilot must increase RPM",
+        "No special action required"
+      ],
+      "answer": [
+        1
+      ],
       "explanation": "Ground personnel must wear rubber gloves to avoid static shocks.",
       "section": "emergency_procedures",
-      "modelIds": ["H125_AS350_B3E"],
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
       "manual": "RFM H125 SUP.13.1 – Sling",
       "reference": "p. 6",
-      "references": ["RFM H125 SUP.13.1 – Sling – p. 6"],
+      "references": [
+        "RFM H125 SUP.13.1 – Sling – p. 6",
+        "p. 6",
+        "RFM H125 SUP.13.1 – Sling"
+      ],
       "difficulty": "medium",
-      "tags": []
-    }
-,
+      "tags": [],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM H125 SUP.13.1 – Sling"
+    },
     {
       "id": "H125-EMG-031",
       "question": "At what speed must float arming not be performed?",
-      "options": ["Below 20 kt", "Above 80 kt", "At hover only", "Above 60 kt"],
-      "answer": [1],
+      "options": [
+        "Below 20 kt",
+        "Above 80 kt",
+        "At hover only",
+        "Above 60 kt"
+      ],
+      "answer": [
+        1
+      ],
       "explanation": "Float arming is prohibited above 80 kt.",
       "section": "emergency_procedures",
-      "modelIds": ["H125_AS350_B3E"],
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
       "manual": "RFM H125 SUP.10 – Emergency Floats",
       "reference": "p. 3-10-4",
-      "references": ["RFM H125 SUP.10 – Emergency Floats – p. 3-10-4"],
+      "references": [
+        "RFM H125 SUP.10 – Emergency Floats – p. 3-10-4",
+        "p. 3-10-4",
+        "RFM H125 SUP.10 – Emergency Floats"
+      ],
       "difficulty": "medium",
-      "tags": []
+      "tags": [],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM H125 SUP.10 – Emergency Floats"
     },
     {
       "id": "H125-EMG-032",
       "question": "During autorotation over water with floats, at what height is the flare initiated?",
-      "options": ["70 ft", "50 ft", "25 ft", "10 ft"],
-      "answer": [0],
+      "options": [
+        "70 ft",
+        "50 ft",
+        "25 ft",
+        "10 ft"
+      ],
+      "answer": [
+        0
+      ],
       "explanation": "With floats, flare is initiated at approximately 70 ft.",
       "section": "emergency_procedures",
-      "modelIds": ["H125_AS350_B3E"],
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
       "manual": "RFM H125 SUP.10 – Emergency Floats",
       "reference": "p. 3-10-5",
-      "references": ["RFM H125 SUP.10 – Emergency Floats – p. 3-10-5"],
+      "references": [
+        "RFM H125 SUP.10 – Emergency Floats – p. 3-10-5",
+        "p. 3-10-5",
+        "RFM H125 SUP.10 – Emergency Floats"
+      ],
       "difficulty": "medium",
-      "tags": []
+      "tags": [],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM H125 SUP.10 – Emergency Floats"
     },
     {
       "id": "H125-EMG-033",
       "question": "After ditching with floats, what must be done with doors?",
-      "options": ["Locked", "Jettison handles actuated", "Left closed", "Open windows only"],
-      "answer": [1],
+      "options": [
+        "Locked",
+        "Jettison handles actuated",
+        "Left closed",
+        "Open windows only"
+      ],
+      "answer": [
+        1
+      ],
       "explanation": "After ditching, actuate door jettison handles for evacuation.",
       "section": "emergency_procedures",
-      "modelIds": ["H125_AS350_B3E"],
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
       "manual": "RFM H125 SUP.10 – Emergency Floats",
       "reference": "p. 3-10-6",
-      "references": ["RFM H125 SUP.10 – Emergency Floats – p. 3-10-6"],
+      "references": [
+        "RFM H125 SUP.10 – Emergency Floats – p. 3-10-6",
+        "p. 3-10-6",
+        "RFM H125 SUP.10 – Emergency Floats"
+      ],
       "difficulty": "easy",
-      "tags": []
+      "tags": [],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM H125 SUP.10 – Emergency Floats"
     },
     {
       "id": "H125-EMG-036",
       "question": "If gyro-compass failure occurs, pilot must:",
-      "options": ["Switch off generator", "Feet on pedals", "Land immediately", "Disengage hydraulic"],
-      "answer": [1],
+      "options": [
+        "Switch off generator",
+        "Feet on pedals",
+        "Land immediately",
+        "Disengage hydraulic"
+      ],
+      "answer": [
+        1
+      ],
       "explanation": "Procedure requires pilot to keep feet on pedals to maintain control.",
       "section": "emergency_procedures",
-      "modelIds": ["H125_AS350_B3E"],
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
       "manual": "RFM H125 SUP.55 – AFCS",
       "reference": "p. 3-55-12",
-      "references": ["RFM H125 SUP.55 – AFCS – p. 3-55-12"],
+      "references": [
+        "RFM H125 SUP.55 – AFCS – p. 3-55-12",
+        "p. 3-55-12",
+        "RFM H125 SUP.55 – AFCS"
+      ],
       "difficulty": "medium",
-      "tags": []
+      "tags": [],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM H125 SUP.55 – AFCS"
     },
     {
       "id": "H125-EMG-038",
       "question": "In case of major governor failure, EBCAU engages and N1 must be kept above:",
-      "options": ["70% below 20,000 ft", "80% below 20,000 ft", "85% below 20,000 ft", "90% below 20,000 ft"],
-      "answer": [1],
+      "options": [
+        "70% below 20,000 ft",
+        "80% below 20,000 ft",
+        "85% below 20,000 ft",
+        "90% below 20,000 ft"
+      ],
+      "answer": [
+        1
+      ],
       "explanation": "EBCAU requires N1 above 80% when below 20,000 ft.",
       "section": "emergency_procedures",
-      "modelIds": ["H125_AS350_B3E"],
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
       "manual": "RFM H125 SUP.10.5 – FADEC",
       "reference": "p. 3-10.5-7",
-      "references": ["RFM H125 SUP.10.5 – FADEC – p. 3-10.5-7"],
+      "references": [
+        "RFM H125 SUP.10.5 – FADEC – p. 3-10.5-7",
+        "p. 3-10.5-7",
+        "RFM H125 SUP.10.5 – FADEC"
+      ],
       "difficulty": "hard",
-      "tags": []
+      "tags": [],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM H125 SUP.10.5 – FADEC"
     },
     {
       "id": "H125-EMG-039",
       "question": "If N1 still available during EBCAU mode, what is the recommended landing?",
-      "options": ["Land immediately", "Land as soon as practicable", "Continue flight", "Hover landing"],
-      "answer": [1],
+      "options": [
+        "Land immediately",
+        "Land as soon as practicable",
+        "Continue flight",
+        "Hover landing"
+      ],
+      "answer": [
+        1
+      ],
       "explanation": "Land as soon as practicable if N1 indication remains available in EBCAU.",
       "section": "emergency_procedures",
-      "modelIds": ["H125_AS350_B3E"],
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
       "manual": "RFM H125 SUP.10.5 – FADEC",
       "reference": "p. 3-10.5-8",
-      "references": ["RFM H125 SUP.10.5 – FADEC – p. 3-10.5-8"],
+      "references": [
+        "RFM H125 SUP.10.5 – FADEC – p. 3-10.5-8",
+        "p. 3-10.5-8",
+        "RFM H125 SUP.10.5 – FADEC"
+      ],
       "difficulty": "medium",
-      "tags": []
+      "tags": [],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM H125 SUP.10.5 – FADEC"
     },
     {
       "id": "H125-EMG-040",
       "question": "Minor FADEC failure requires pilot to:",
-      "options": ["Avoid abrupt power changes, maintain IAS below VNE", "Shut down engine immediately", "Autorotate", "Switch battery off"],
-      "answer": [0],
+      "options": [
+        "Avoid abrupt power changes, maintain IAS below VNE",
+        "Shut down engine immediately",
+        "Autorotate",
+        "Switch battery off"
+      ],
+      "answer": [
+        0
+      ],
       "explanation": "Minor FADEC failure procedure: avoid abrupt power changes and remain below VNE.",
       "section": "emergency_procedures",
-      "modelIds": ["H125_AS350_B3E"],
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
       "manual": "RFM H125 SUP.10.5 – FADEC",
       "reference": "p. 3-10.5-9",
-      "references": ["RFM H125 SUP.10.5 – FADEC – p. 3-10.5-9"],
+      "references": [
+        "RFM H125 SUP.10.5 – FADEC – p. 3-10.5-9",
+        "p. 3-10.5-9",
+        "RFM H125 SUP.10.5 – FADEC"
+      ],
       "difficulty": "medium",
-      "tags": []
+      "tags": [],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM H125 SUP.10.5 – FADEC"
     },
     {
       "id": "H125-EMG-044",
       "question": "First action in engine bay fire during start-up:",
-      "options": ["Fuel pump OFF, CRANK 10 sec, rotor brake ≤170 rpm", "Generator OFF", "Collective reduce", "IAS Vy"],
-      "answer": [0],
+      "options": [
+        "Fuel pump OFF, CRANK 10 sec, rotor brake ≤170 rpm",
+        "Generator OFF",
+        "Collective reduce",
+        "IAS Vy"
+      ],
+      "answer": [
+        0
+      ],
       "explanation": "Fuel pump off, crank for 10 seconds, rotor brake applied ≤170 rpm.",
       "section": "emergency_procedures",
-      "modelIds": ["H125_AS350_B3E"],
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
       "manual": "RFM H125 Section 3 – Emergency Procedures",
       "reference": "p. 3-18",
-      "references": ["RFM H125 Section 3 – Emergency Procedures – p. 3-18"],
+      "references": [
+        "RFM H125 Section 3 – Emergency Procedures – p. 3-18",
+        "p. 3-18",
+        "RFM H125 Section 3 – Emergency Procedures"
+      ],
       "difficulty": "medium",
-      "tags": []
+      "tags": [],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 3 – Emergency Procedures"
     },
     {
       "id": "H125-EMG-045",
       "question": "If engine fire in flight, first collective action is:",
-      "options": ["Increase", "Reduce", "Hold", "Full down"],
-      "answer": [1],
+      "options": [
+        "Increase",
+        "Reduce",
+        "Hold",
+        "Full down"
+      ],
+      "answer": [
+        1
+      ],
       "explanation": "In flight fire, collective must be reduced to minimize power.",
       "section": "emergency_procedures",
-      "modelIds": ["H125_AS350_B3E"],
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
       "manual": "RFM H125 Section 3 – Emergency Procedures",
       "reference": "p. 3-19",
-      "references": ["RFM H125 Section 3 – Emergency Procedures – p. 3-19"],
+      "references": [
+        "RFM H125 Section 3 – Emergency Procedures – p. 3-19",
+        "p. 3-19",
+        "RFM H125 Section 3 – Emergency Procedures"
+      ],
       "difficulty": "medium",
-      "tags": []
+      "tags": [],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 3 – Emergency Procedures"
     },
     {
       "id": "H125-EMG-046",
       "question": "During electrical failure with VEMD screens unreadable, procedure is:",
-      "options": ["Apply VEMD screen failure procedure", "Land immediately", "Shut down generator", "Reset avionics"],
-      "answer": [0],
+      "options": [
+        "Apply VEMD screen failure procedure",
+        "Land immediately",
+        "Shut down generator",
+        "Reset avionics"
+      ],
+      "answer": [
+        0
+      ],
       "explanation": "If VEMD is unreadable, apply VEMD screen failure checklist.",
       "section": "emergency_procedures",
-      "modelIds": ["H125_AS350_B3E"],
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
       "manual": "RFM H125 SUP.55 – Avionics",
       "reference": "p. 3-55-8",
-      "references": ["RFM H125 SUP.55 – Avionics – p. 3-55-8"],
+      "references": [
+        "RFM H125 SUP.55 – Avionics – p. 3-55-8",
+        "p. 3-55-8",
+        "RFM H125 SUP.55 – Avionics"
+      ],
       "difficulty": "medium",
-      "tags": []
+      "tags": [],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM H125 SUP.55 – Avionics"
     },
     {
       "id": "H125-EMG-047",
       "question": "Which recommendation means an immediate landing without delay?",
-      "options": ["LAND AS SOON AS POSSIBLE", "LAND IMMEDIATELY", "LAND AS SOON AS PRACTICABLE", "CONTINUE FLIGHT"],
-      "answer": [1],
+      "options": [
+        "LAND AS SOON AS POSSIBLE",
+        "LAND IMMEDIATELY",
+        "LAND AS SOON AS PRACTICABLE",
+        "CONTINUE FLIGHT"
+      ],
+      "answer": [
+        1
+      ],
       "explanation": "\"LAND IMMEDIATELY\" is self-explanatory and requires landing without delay.",
       "section": "emergency_procedures",
-      "modelIds": ["H125_AS350_B3E"],
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
       "manual": "RFM AS350 Section 3.1 – General",
       "reference": "p. 3-1",
-      "references": ["RFM AS350 Section 3.1 – General – p. 3-1"],
+      "references": [
+        "RFM AS350 Section 3.1 – General – p. 3-1",
+        "p. 3-1",
+        "RFM AS350 Section 3.1 – General"
+      ],
       "difficulty": "easy",
-      "tags": []
+      "tags": [],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM AS350 Section 3.1 – General"
     },
     {
       "id": "H125-EMG-048",
       "question": "Which recommendation means the flight can be continued as planned with repair at the destination?",
-      "options": ["LAND IMMEDIATELY", "LAND AS SOON AS POSSIBLE", "LAND AS SOON AS PRACTICABLE", "CONTINUE FLIGHT"],
-      "answer": [3],
+      "options": [
+        "LAND IMMEDIATELY",
+        "LAND AS SOON AS POSSIBLE",
+        "LAND AS SOON AS PRACTICABLE",
+        "CONTINUE FLIGHT"
+      ],
+      "answer": [
+        3
+      ],
       "explanation": "\"CONTINUE FLIGHT\" means the flight can be continued as planned and repair carried out at destination according to the maintenance manual.",
       "section": "emergency_procedures",
-      "modelIds": ["H125_AS350_B3E"],
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
       "manual": "RFM AS350 Section 3.1 – General",
       "reference": "p. 3-1",
-      "references": ["RFM AS350 Section 3.1 – General – p. 3-1"],
+      "references": [
+        "RFM AS350 Section 3.1 – General – p. 3-1",
+        "p. 3-1",
+        "RFM AS350 Section 3.1 – General"
+      ],
       "difficulty": "easy",
-      "tags": []
+      "tags": [],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM AS350 Section 3.1 – General"
     },
     {
       "id": "H125-EMG-049",
       "question": "On the console, what is the function of the [HORN] switch?",
-      "options": ["To activate the audio warning system", "To reset the caution and warning panel", "To test the VEMD screens", "To disconnect the ICS headsets"],
-      "answer": [0],
+      "options": [
+        "To activate the audio warning system",
+        "To reset the caution and warning panel",
+        "To test the VEMD screens",
+        "To disconnect the ICS headsets"
+      ],
+      "answer": [
+        0
+      ],
       "explanation": "Section 3.1 states that the [HORN] switch is used to activate the audio warning. The pilot at the controls shall wear an adequate headset to monitor audio warnings through the ICS.",
       "section": "emergency_procedures",
-      "modelIds": ["H125_AS350_B3E"],
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
       "manual": "RFM AS350 Section 3.1 – General",
       "reference": "p. 3-1",
-      "references": ["RFM AS350 Section 3.1 – General – p. 3-1"],
+      "references": [
+        "RFM AS350 Section 3.1 – General – p. 3-1",
+        "p. 3-1",
+        "RFM AS350 Section 3.1 – General"
+      ],
       "difficulty": "easy",
-      "tags": ["audio-warnings"]
+      "tags": [
+        "audio-warnings"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM AS350 Section 3.1 – General"
     },
     {
       "id": "H125-EMG-050",
       "question": "What happens when a red warning appears on the Caution and Warning Panel (CWP)?",
-      "options": ["A 310 Hz tone is heard", "A gong is generated", "The horn is reset", "The VEMD resets"],
-      "answer": [1],
+      "options": [
+        "A 310 Hz tone is heard",
+        "A gong is generated",
+        "The horn is reset",
+        "The VEMD resets"
+      ],
+      "answer": [
+        1
+      ],
       "explanation": "Section 3.1 specifies that a gong is generated each time a red warning appears on the CWP.",
       "section": "emergency_procedures",
-      "modelIds": ["H125_AS350_B3E"],
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
       "manual": "RFM AS350 Section 3.1 – General",
       "reference": "p. 3-2",
-      "references": ["RFM AS350 Section 3.1 – General – p. 3-2"],
+      "references": [
+        "RFM AS350 Section 3.1 – General – p. 3-2",
+        "p. 3-2",
+        "RFM AS350 Section 3.1 – General"
+      ],
       "difficulty": "easy",
-      "tags": ["audio-warnings"]
+      "tags": [
+        "audio-warnings"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM AS350 Section 3.1 – General"
     },
     {
       "id": "H125-EMG-051",
       "question": "A continuous 310 Hz tone is heard when:",
-      "options": ["Nr < 350 rpm", "Nr < 355 rpm", "Nr < 360 rpm", "Nr < 365 rpm"],
-      "answer": [2],
+      "options": [
+        "Nr < 350 rpm",
+        "Nr < 355 rpm",
+        "Nr < 360 rpm",
+        "Nr < 365 rpm"
+      ],
+      "answer": [
+        2
+      ],
       "explanation": "The B3e manual states that a continuous 310 Hz tone is heard when rotor speed Nr is below 360 rpm.",
       "section": "emergency_procedures",
-      "modelIds": ["H125_AS350_B3E"],
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
       "manual": "RFM AS350 Section 3.1 – General",
       "reference": "p. 3-2",
-      "references": ["RFM AS350 Section 3.1 – General – p. 3-2"],
+      "references": [
+        "RFM AS350 Section 3.1 – General – p. 3-2",
+        "p. 3-2",
+        "RFM AS350 Section 3.1 – General"
+      ],
       "difficulty": "easy",
-      "tags": ["audio-warnings","nr"]
+      "tags": [
+        "audio-warnings",
+        "nr"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM AS350 Section 3.1 – General"
     },
     {
       "id": "H125-EMG-052",
       "question": "An intermittent 310 Hz tone is heard when:",
-      "options": ["Nr < 360 rpm", "Nr = 386 rpm", "Nr > 410 rpm", "Nr > 450 rpm"],
-      "answer": [2],
+      "options": [
+        "Nr < 360 rpm",
+        "Nr = 386 rpm",
+        "Nr > 410 rpm",
+        "Nr > 450 rpm"
+      ],
+      "answer": [
+        2
+      ],
       "explanation": "Section 3.1 states that an intermittent 310 Hz tone is heard when Nr is above 410 rpm.",
       "section": "emergency_procedures",
-      "modelIds": ["H125_AS350_B3E"],
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
       "manual": "RFM AS350 Section 3.1 – General",
       "reference": "p. 3-2",
-      "references": ["RFM AS350 Section 3.1 – General – p. 3-2"],
+      "references": [
+        "RFM AS350 Section 3.1 – General – p. 3-2",
+        "p. 3-2",
+        "RFM AS350 Section 3.1 – General"
+      ],
       "difficulty": "easy",
-      "tags": ["audio-warnings","nr"]
+      "tags": [
+        "audio-warnings",
+        "nr"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM AS350 Section 3.1 – General"
     },
     {
       "id": "H125-EMG-053",
       "question": "A 285 Hz tone is heard when:",
-      "options": ["Maximum takeoff rating is exceeded", "Nr falls below 320 rpm", "Battery voltage is low", "Hydraulic pressure is lost"],
-      "answer": [0],
+      "options": [
+        "Maximum takeoff rating is exceeded",
+        "Nr falls below 320 rpm",
+        "Battery voltage is low",
+        "Hydraulic pressure is lost"
+      ],
+      "answer": [
+        0
+      ],
       "explanation": "Section 3.1 describes a continuous 285 Hz tone when maximum takeoff rating is exceeded, including when transient power limits are exceeded or will be exceeded during a rapid power increase.",
       "section": "emergency_procedures",
-      "modelIds": ["H125_AS350_B3E"],
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
       "manual": "RFM AS350 Section 3.1 – General",
       "reference": "p. 3-2",
-      "references": ["RFM AS350 Section 3.1 – General – p. 3-2"],
+      "references": [
+        "RFM AS350 Section 3.1 – General – p. 3-2",
+        "p. 3-2",
+        "RFM AS350 Section 3.1 – General"
+      ],
       "difficulty": "medium",
-      "tags": ["audio-warnings"]
+      "tags": [
+        "audio-warnings"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM AS350 Section 3.1 – General"
     },
     {
       "id": "H125-EMG-054",
@@ -640,15 +1371,29 @@
         "Twist grip – IDLE; IAS – set Vy; Collective – REDUCE",
         "Collective – REDUCE; Twist grip – IDLE; IAS – set Vy"
       ],
-      "answer": [0],
+      "answer": [
+        0
+      ],
       "explanation": "Section 3.2 states that after engine flame-out in cruise, the pilot must first REDUCE collective to maintain NR, then set IAS to Vy, then move the twist grip to IDLE.",
       "section": "emergency_procedures",
-      "modelIds": ["H125_AS350_B3E"],
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
       "manual": "RFM AS350 Section 3.2 – Engine flame-out",
       "reference": "p. 3-1",
-      "references": ["RFM AS350 Section 3.2 – Engine flame-out – p. 3-1"],
+      "references": [
+        "RFM AS350 Section 3.2 – Engine flame-out – p. 3-1",
+        "p. 3-1",
+        "RFM AS350 Section 3.2 – Engine flame-out"
+      ],
       "difficulty": "medium",
-      "tags": ["engine-flame-out","autorotation"]
+      "tags": [
+        "engine-flame-out",
+        "autorotation"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM AS350 Section 3.2 – Engine flame-out"
     },
     {
       "id": "H125-EMG-055",
@@ -659,15 +1404,29 @@
         "Collective – maintain; Cyclic – neutral; Pedals – full right pedal",
         "Collective – increase then immediately reduce to full low pitch; Cyclic – neutral; Pedals – adjust"
       ],
-      "answer": [0],
+      "answer": [
+        0
+      ],
       "explanation": "Section 3.2 specifies that at 20–25 ft the pilot should gradually increase collective to reduce rate of descent and speed, move the cyclic forward to a slightly nose-up attitude (< 10°), and adjust pedals to remove any sideslip.",
       "section": "emergency_procedures",
-      "modelIds": ["H125_AS350_B3E"],
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
       "manual": "RFM AS350 Section 3.2 – Engine flame-out",
       "reference": "p. 3-1",
-      "references": ["RFM AS350 Section 3.2 – Engine flame-out – p. 3-1"],
+      "references": [
+        "RFM AS350 Section 3.2 – Engine flame-out – p. 3-1",
+        "p. 3-1",
+        "RFM AS350 Section 3.2 – Engine flame-out"
+      ],
       "difficulty": "medium",
-      "tags": ["engine-flame-out","autorotation"]
+      "tags": [
+        "engine-flame-out",
+        "autorotation"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM AS350 Section 3.2 – Engine flame-out"
     },
     {
       "id": "H125-EMG-056",
@@ -678,29 +1437,62 @@
         "Apply rotor brake immediately regardless of NR",
         "Lower collective to idle stop and center cyclic without pedal input"
       ],
-      "answer": [0],
+      "answer": [
+        0
+      ],
       "explanation": "In Section 3.2 the checklist states that after touchdown the pilot must adjust cyclic, collective and pedals to control the ground run before placing collective to full low pitch.",
       "section": "emergency_procedures",
-      "modelIds": ["H125_AS350_B3E"],
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
       "manual": "RFM AS350 Section 3.2 – Engine flame-out",
       "reference": "p. 3-1",
-      "references": ["RFM AS350 Section 3.2 – Engine flame-out – p. 3-1"],
+      "references": [
+        "RFM AS350 Section 3.2 – Engine flame-out – p. 3-1",
+        "p. 3-1",
+        "RFM AS350 Section 3.2 – Engine flame-out"
+      ],
       "difficulty": "easy",
-      "tags": ["engine-flame-out","autorotation"]
+      "tags": [
+        "engine-flame-out",
+        "autorotation"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM AS350 Section 3.2 – Engine flame-out"
     },
     {
       "id": "H125-EMG-057",
       "question": "During autorotation over water after engine flame-out, what is the maximum indicated airspeed recommended at ditching?",
-      "options": ["30 kt IAS", "40 kt IAS", "50 kt IAS", "60 kt IAS"],
-      "answer": [0],
+      "options": [
+        "30 kt IAS",
+        "40 kt IAS",
+        "50 kt IAS",
+        "60 kt IAS"
+      ],
+      "answer": [
+        0
+      ],
       "explanation": "Section 3.2 states that during autorotation over water the helicopter should ditch with minimum forward speed, IAS less than 30 kt, and minimum rate of descent.",
       "section": "emergency_procedures",
-      "modelIds": ["H125_AS350_B3E"],
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
       "manual": "RFM AS350 Section 3.2 – Engine flame-out",
       "reference": "p. 3-2",
-      "references": ["RFM AS350 Section 3.2 – Engine flame-out – p. 3-2"],
+      "references": [
+        "RFM AS350 Section 3.2 – Engine flame-out – p. 3-2",
+        "p. 3-2",
+        "RFM AS350 Section 3.2 – Engine flame-out"
+      ],
       "difficulty": "medium",
-      "tags": ["engine-flame-out","over-water"]
+      "tags": [
+        "engine-flame-out",
+        "over-water"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM AS350 Section 3.2 – Engine flame-out"
     },
     {
       "id": "H125-EMG-058",
@@ -711,29 +1503,62 @@
         "Collective – reduce fully; Twist grip – IDLE; Cyclic – flare",
         "Collective – MAINTAIN; Apply rotor brake; Pedals – centered"
       ],
-      "answer": [0],
+      "answer": [
+        0
+      ],
       "explanation": "The hover IGE subsection of Section 3.2 specifies that after engine flame-out the pilot should maintain collective, control yaw with pedals, then increase collective as needed to cushion the touchdown.",
       "section": "emergency_procedures",
-      "modelIds": ["H125_AS350_B3E"],
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
       "manual": "RFM AS350 Section 3.2 – Engine flame-out",
       "reference": "p. 3-2",
-      "references": ["RFM AS350 Section 3.2 – Engine flame-out – p. 3-2"],
+      "references": [
+        "RFM AS350 Section 3.2 – Engine flame-out – p. 3-2",
+        "p. 3-2",
+        "RFM AS350 Section 3.2 – Engine flame-out"
+      ],
       "difficulty": "medium",
-      "tags": ["engine-flame-out","hover"]
+      "tags": [
+        "engine-flame-out",
+        "hover"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM AS350 Section 3.2 – Engine flame-out"
     },
     {
       "id": "H125-EMG-059",
       "question": "In case of engine flame-out in hover OGE (clear area, outside the HV diagram), what is the first collective action according to the procedure?",
-      "options": ["Collective – FULL LOW PITCH", "Collective – MAINTAIN", "Collective – INCREASE to cushion touchdown", "Collective – set to mid position"],
-      "answer": [0],
+      "options": [
+        "Collective – FULL LOW PITCH",
+        "Collective – MAINTAIN",
+        "Collective – INCREASE to cushion touchdown",
+        "Collective – set to mid position"
+      ],
+      "answer": [
+        0
+      ],
       "explanation": "For hover OGE outside the HV diagram, Section 3.2 states that the first action is to lower collective to FULL LOW PITCH before using cyclic to gain airspeed and applying the autorotation procedure.",
       "section": "emergency_procedures",
-      "modelIds": ["H125_AS350_B3E"],
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
       "manual": "RFM AS350 Section 3.2 – Engine flame-out",
       "reference": "p. 3-2",
-      "references": ["RFM AS350 Section 3.2 – Engine flame-out – p. 3-2"],
+      "references": [
+        "RFM AS350 Section 3.2 – Engine flame-out – p. 3-2",
+        "p. 3-2",
+        "RFM AS350 Section 3.2 – Engine flame-out"
+      ],
       "difficulty": "easy",
-      "tags": ["engine-flame-out","hover"]
+      "tags": [
+        "engine-flame-out",
+        "hover"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM AS350 Section 3.2 – Engine flame-out"
     },
     {
       "id": "H125-EMG-060",
@@ -744,30 +1569,62 @@
         "Engine starting selector – OFF then ON; [FUEL P] or [FUEL PUMP] – ON; [GENE] – OFF",
         "[FUEL P] or [FUEL PUMP] – ON; Engine starting selector – ON; [GENE] – OFF"
       ],
-      "answer": [0],
+      "answer": [
+        0
+      ],
       "explanation": "Section 3.2 (In-flight relighting) specifies that the pilot must first switch the fuel pump ON, then switch the generator OFF, then set the engine starting selector OFF and back to ON to start the automatic relight sequence.",
       "section": "emergency_procedures",
-      "modelIds": ["H125_AS350_B3E"],
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
       "manual": "RFM AS350 Section 3.2 – Engine flame-out",
       "reference": "p. 3-3",
-      "references": ["RFM AS350 Section 3.2 – Engine flame-out – p. 3-3"],
+      "references": [
+        "RFM AS350 Section 3.2 – Engine flame-out – p. 3-3",
+        "p. 3-3",
+        "RFM AS350 Section 3.2 – Engine flame-out"
+      ],
       "difficulty": "medium",
-      "tags": ["engine-flame-out","relight"]
+      "tags": [
+        "engine-flame-out",
+        "relight"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM AS350 Section 3.2 – Engine flame-out"
     },
     {
       "id": "H125-EMG-061",
       "question": "What is the minimum height required to complete the in-flight relighting procedure after an engine flame-out?",
-      "options": ["1000 ft (300 m)", "500 ft (150 m)", "1500 ft (450 m)", "2000 ft (600 m)"],
-      "answer": [0],
+      "options": [
+        "1000 ft (300 m)",
+        "500 ft (150 m)",
+        "1500 ft (450 m)",
+        "2000 ft (600 m)"
+      ],
+      "answer": [
+        0
+      ],
       "explanation": "At the end of the in-flight relighting procedure, Section 3.2 notes that at least 1000 ft (300 m) are necessary to complete the relight after flame-out.",
       "section": "emergency_procedures",
-      "modelIds": ["H125_AS350_B3E"],
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
       "manual": "RFM AS350 Section 3.2 – Engine flame-out",
       "reference": "p. 3-3",
-      "references": ["RFM AS350 Section 3.2 – Engine flame-out – p. 3-3"],
+      "references": [
+        "RFM AS350 Section 3.2 – Engine flame-out – p. 3-3",
+        "p. 3-3",
+        "RFM AS350 Section 3.2 – Engine flame-out"
+      ],
       "difficulty": "easy",
-      "tags": ["engine-flame-out","relight"]
+      "tags": [
+        "engine-flame-out",
+        "relight"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM AS350 Section 3.2 – Engine flame-out"
     }
   ]
 }
-

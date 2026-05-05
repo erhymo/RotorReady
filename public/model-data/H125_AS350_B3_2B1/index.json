@@ -1,24 +1,35 @@
 {
+  "modelId": "H125_AS350_B3_2B1",
   "sections": [
     {
       "id": "description-and-systems",
-      "title": "Description And Systems"
+      "title": "Description And Systems",
+      "file": "sections/description-and-systems.json",
+      "count": 18
     },
     {
       "id": "emergency_procedures",
-      "title": "Emergency Procedures"
+      "title": "Emergency Procedures",
+      "file": "sections/emergency_procedures.json",
+      "count": 37
     },
     {
       "id": "limitations",
-      "title": "Limitations"
+      "title": "Limitations",
+      "file": "sections/limitations.json",
+      "count": 62
     },
     {
       "id": "normal_procedures",
-      "title": "Normal Procedures"
+      "title": "Normal Procedures",
+      "file": "sections/normal_procedures.json",
+      "count": 100
     },
     {
       "id": "air_law",
-      "title": "Air Law (EASA)"
+      "title": "Air Law (EASA)",
+      "file": "sections/air_law.json",
+      "count": 80
     }
   ]
 }

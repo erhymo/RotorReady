@@ -22,8 +22,13 @@
       "difficulty": "easy",
       "tags": [],
       "references": [
-        "RFM H125 Section 3.1 – p. 3-1"
-      ]
+        "RFM H125 Section 3.1 – p. 3-1",
+        "p. 3-1",
+        "RFM H125 Section 3.1"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 3.1"
     },
     {
       "id": "H125-LIM-078",
@@ -47,8 +52,13 @@
       "difficulty": "easy",
       "tags": [],
       "references": [
-        "RFM H125 Section 3.1 – p. 3-1"
-      ]
+        "RFM H125 Section 3.1 – p. 3-1",
+        "p. 3-1",
+        "RFM H125 Section 3.1"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 3.1"
     },
     {
       "id": "H125-LIM-079",
@@ -72,8 +82,13 @@
       "difficulty": "medium",
       "tags": [],
       "references": [
-        "RFM H125 Section 3.1 – p. 3-1"
-      ]
+        "RFM H125 Section 3.1 – p. 3-1",
+        "p. 3-1",
+        "RFM H125 Section 3.1"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 3.1"
     },
     {
       "id": "H125-LIM-080",
@@ -97,8 +112,13 @@
       "difficulty": "easy",
       "tags": [],
       "references": [
-        "RFM H125 Section 3.1 – p. 3-1"
-      ]
+        "RFM H125 Section 3.1 – p. 3-1",
+        "p. 3-1",
+        "RFM H125 Section 3.1"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 3.1"
     },
     {
       "id": "H125-LIM-081",
@@ -122,8 +142,13 @@
       "difficulty": "easy",
       "tags": [],
       "references": [
-        "RFM H125 Section 3.1 – p. 3-1"
-      ]
+        "RFM H125 Section 3.1 – p. 3-1",
+        "p. 3-1",
+        "RFM H125 Section 3.1"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 3.1"
     },
     {
       "id": "H125-LIM-082",
@@ -147,8 +172,13 @@
       "difficulty": "easy",
       "tags": [],
       "references": [
-        "RFM H125 Section 3.1 – p. 3-2"
-      ]
+        "RFM H125 Section 3.1 – p. 3-2",
+        "p. 3-2",
+        "RFM H125 Section 3.1"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 3.1"
     },
     {
       "id": "H125-LIM-083",
@@ -172,8 +202,13 @@
       "difficulty": "easy",
       "tags": [],
       "references": [
-        "RFM H125 Section 3.1 – p. 3-2"
-      ]
+        "RFM H125 Section 3.1 – p. 3-2",
+        "p. 3-2",
+        "RFM H125 Section 3.1"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 3.1"
     },
     {
       "id": "H125-LIM-086",
@@ -197,8 +232,13 @@
       "difficulty": "easy",
       "tags": [],
       "references": [
-        "RFM H125 Section 3.1 – p. 3-2"
-      ]
+        "RFM H125 Section 3.1 – p. 3-2",
+        "p. 3-2",
+        "RFM H125 Section 3.1"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 3.1"
     },
     {
       "id": "H125-EP-087",
@@ -222,8 +262,13 @@
       "difficulty": "medium",
       "tags": [],
       "references": [
-        "RFM H125 Section 3.2 – p. 3-1"
-      ]
+        "RFM H125 Section 3.2 – p. 3-1",
+        "p. 3-1",
+        "RFM H125 Section 3.2"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 3.2"
     },
     {
       "id": "H125-EP-088",
@@ -247,8 +292,13 @@
       "difficulty": "medium",
       "tags": [],
       "references": [
-        "RFM H125 Section 3.2 – p. 3-1"
-      ]
+        "RFM H125 Section 3.2 – p. 3-1",
+        "p. 3-1",
+        "RFM H125 Section 3.2"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 3.2"
     },
     {
       "id": "H125-EP-089",
@@ -272,8 +322,13 @@
       "difficulty": "medium",
       "tags": [],
       "references": [
-        "RFM H125 Section 3.2 – p. 3-1"
-      ]
+        "RFM H125 Section 3.2 – p. 3-1",
+        "p. 3-1",
+        "RFM H125 Section 3.2"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 3.2"
     },
     {
       "id": "H125-EP-090",
@@ -297,8 +352,13 @@
       "difficulty": "easy",
       "tags": [],
       "references": [
-        "RFM H125 Section 3.2 – p. 3-1"
-      ]
+        "RFM H125 Section 3.2 – p. 3-1",
+        "p. 3-1",
+        "RFM H125 Section 3.2"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 3.2"
     },
     {
       "id": "H125-EP-091",
@@ -322,8 +382,13 @@
       "difficulty": "easy",
       "tags": [],
       "references": [
-        "RFM H125 Section 3.2 – p. 3-1"
-      ]
+        "RFM H125 Section 3.2 – p. 3-1",
+        "p. 3-1",
+        "RFM H125 Section 3.2"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 3.2"
     },
     {
       "id": "H125-EP-092",
@@ -347,8 +412,13 @@
       "difficulty": "easy",
       "tags": [],
       "references": [
-        "RFM H125 Section 3.2 – p. 3-3"
-      ]
+        "RFM H125 Section 3.2 – p. 3-3",
+        "p. 3-3",
+        "RFM H125 Section 3.2"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 3.2"
     },
     {
       "id": "H125-EP-093",
@@ -372,8 +442,13 @@
       "difficulty": "medium",
       "tags": [],
       "references": [
-        "RFM H125 Section 3.2 – p. 3-3"
-      ]
+        "RFM H125 Section 3.2 – p. 3-3",
+        "p. 3-3",
+        "RFM H125 Section 3.2"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 3.2"
     },
     {
       "id": "H125-EP-094",
@@ -397,8 +472,13 @@
       "difficulty": "easy",
       "tags": [],
       "references": [
-        "RFM H125 Section 3.2 – p. 3-3"
-      ]
+        "RFM H125 Section 3.2 – p. 3-3",
+        "p. 3-3",
+        "RFM H125 Section 3.2"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 3.2"
     },
     {
       "id": "H125-EP-095",
@@ -422,8 +502,13 @@
       "difficulty": "medium",
       "tags": [],
       "references": [
-        "RFM H125 Section 3.3 – p. 3-1"
-      ]
+        "RFM H125 Section 3.3 – p. 3-1",
+        "p. 3-1",
+        "RFM H125 Section 3.3"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 3.3"
     },
     {
       "id": "H125-EP-099",
@@ -447,8 +532,13 @@
       "difficulty": "medium",
       "tags": [],
       "references": [
-        "RFM H125 Section 3.3 – p. 3-2"
-      ]
+        "RFM H125 Section 3.3 – p. 3-2",
+        "p. 3-2",
+        "RFM H125 Section 3.3"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 3.3"
     },
     {
       "id": "H125-EP-100",
@@ -472,8 +562,13 @@
       "difficulty": "medium",
       "tags": [],
       "references": [
-        "RFM H125 Section 3.3 – p. 3-2"
-      ]
+        "RFM H125 Section 3.3 – p. 3-2",
+        "p. 3-2",
+        "RFM H125 Section 3.3"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 3.3"
     },
     {
       "id": "H125-EP-101",
@@ -497,8 +592,13 @@
       "difficulty": "medium",
       "tags": [],
       "references": [
-        "RFM H125 Section 3.3 – p. 3-2"
-      ]
+        "RFM H125 Section 3.3 – p. 3-2",
+        "p. 3-2",
+        "RFM H125 Section 3.3"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 3.3"
     },
     {
       "id": "H125-EP-102",
@@ -522,234 +622,493 @@
       "difficulty": "easy",
       "tags": [],
       "references": [
-        "RFM H125 Section 3.3 – p. 3-2"
-      ]
-    }
-  ,
+        "RFM H125 Section 3.3 – p. 3-2",
+        "p. 3-2",
+        "RFM H125 Section 3.3"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 3.3"
+    },
     {
       "id": "H125-EP-103",
       "question": "When the rotor is stopping with wind blowing, how should the aircraft be positioned?",
-      "options": ["Tail into the wind", "Head into the wind", "Sideways into the wind", "Nose down slope"],
-      "answer": [1],
+      "options": [
+        "Tail into the wind",
+        "Head into the wind",
+        "Sideways into the wind",
+        "Nose down slope"
+      ],
+      "answer": [
+        1
+      ],
       "explanation": "With wind blowing during rotor stopping, position the aircraft head into the wind.",
       "section": "emergency_procedures",
-      "modelIds": ["H125_AS350_B3_2B1"],
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
       "manual": "RFM H125 Section 3.7",
       "reference": "p. 3-1",
       "difficulty": "easy",
       "tags": [],
-      "references": ["RFM H125 Section 3.7 – p. 3-1"]
+      "references": [
+        "RFM H125 Section 3.7 – p. 3-1",
+        "p. 3-1",
+        "RFM H125 Section 3.7"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 3.7"
     },
     {
       "id": "H125-EP-104",
       "question": "When the rotor is stopping with wind blowing, how should the cyclic be positioned?",
-      "options": ["Forward", "Aft", "Slightly into the wind", "Neutral"],
-      "answer": [2],
+      "options": [
+        "Forward",
+        "Aft",
+        "Slightly into the wind",
+        "Neutral"
+      ],
+      "answer": [
+        2
+      ],
       "explanation": "During rotor stopping with wind, the cyclic should be slightly into the wind.",
       "section": "emergency_procedures",
-      "modelIds": ["H125_AS350_B3_2B1"],
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
       "manual": "RFM H125 Section 3.7",
       "reference": "p. 3-1",
       "difficulty": "easy",
       "tags": [],
-      "references": ["RFM H125 Section 3.7 – p. 3-1"]
+      "references": [
+        "RFM H125 Section 3.7 – p. 3-1",
+        "p. 3-1",
+        "RFM H125 Section 3.7"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 3.7"
     },
     {
       "id": "H125-EP-105",
       "question": "What is a flight control hardover?",
-      "options": ["A commanded smooth movement of controls", "An uncommanded movement of one or two flight controls", "A normal trim condition", "A yaw due to tail rotor effectiveness"],
-      "answer": [1],
+      "options": [
+        "A commanded smooth movement of controls",
+        "An uncommanded movement of one or two flight controls",
+        "A normal trim condition",
+        "A yaw due to tail rotor effectiveness"
+      ],
+      "answer": [
+        1
+      ],
       "explanation": "A hardover results in uncommanded movements of one or two flight controls.",
       "section": "emergency_procedures",
-      "modelIds": ["H125_AS350_B3_2B1"],
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
       "manual": "RFM H125 Section 3.7",
       "reference": "p. 3-1",
       "difficulty": "medium",
       "tags": [],
-      "references": ["RFM H125 Section 3.7 – p. 3-1"]
+      "references": [
+        "RFM H125 Section 3.7 – p. 3-1",
+        "p. 3-1",
+        "RFM H125 Section 3.7"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 3.7"
     },
     {
       "id": "H125-EP-106",
       "question": "What is a servojam?",
-      "options": ["A loss of hydraulic pressure", "A higher than normal force needed to move flight controls", "A complete failure of tail rotor control", "An autopilot-induced oscillation"],
-      "answer": [1],
+      "options": [
+        "A loss of hydraulic pressure",
+        "A higher than normal force needed to move flight controls",
+        "A complete failure of tail rotor control",
+        "An autopilot-induced oscillation"
+      ],
+      "answer": [
+        1
+      ],
       "explanation": "A servojam results in a higher than normal force required to move the flight controls.",
       "section": "emergency_procedures",
-      "modelIds": ["H125_AS350_B3_2B1"],
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
       "manual": "RFM H125 Section 3.7",
       "reference": "p. 3-1",
       "difficulty": "medium",
       "tags": [],
-      "references": ["RFM H125 Section 3.7 – p. 3-1"]
+      "references": [
+        "RFM H125 Section 3.7 – p. 3-1",
+        "p. 3-1",
+        "RFM H125 Section 3.7"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 3.7"
     },
     {
       "id": "H125-EP-107",
       "question": "What immediate action is required during HIGE, Takeoff, or Final if a flight control hardover or servojam occurs?",
-      "options": ["Continue flight", "Reduce collective slowly", "Land immediately", "Monitor hydraulic pressure"],
-      "answer": [2],
+      "options": [
+        "Continue flight",
+        "Reduce collective slowly",
+        "Land immediately",
+        "Monitor hydraulic pressure"
+      ],
+      "answer": [
+        2
+      ],
       "explanation": "For HIGE, Takeoff, Final the directive is LAND IMMEDIATELY.",
       "section": "emergency_procedures",
-      "modelIds": ["H125_AS350_B3_2B1"],
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
       "manual": "RFM H125 Section 3.7",
       "reference": "p. 3-1",
       "difficulty": "easy",
       "tags": [],
-      "references": ["RFM H125 Section 3.7 – p. 3-1"]
+      "references": [
+        "RFM H125 Section 3.7 – p. 3-1",
+        "p. 3-1",
+        "RFM H125 Section 3.7"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 3.7"
     },
     {
       "id": "H125-EP-108",
       "question": "After landing from a hardover or servojam, which action comes first?",
-      "options": ["Turn off the fuel pump", "Hydraulic cut-off switch (collective grip) — OFF", "Apply rotor brake", "IAS set to Vy"],
-      "answer": [1],
+      "options": [
+        "Turn off the fuel pump",
+        "Hydraulic cut-off switch (collective grip) — OFF",
+        "Apply rotor brake",
+        "IAS set to Vy"
+      ],
+      "answer": [
+        1
+      ],
       "explanation": "After landing: Hydraulic cut-off switch (collective grip) — OFF.",
       "section": "emergency_procedures",
-      "modelIds": ["H125_AS350_B3_2B1"],
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
       "manual": "RFM H125 Section 3.7",
       "reference": "p. 3-1",
       "difficulty": "easy",
       "tags": [],
-      "references": ["RFM H125 Section 3.7 – p. 3-1"]
+      "references": [
+        "RFM H125 Section 3.7 – p. 3-1",
+        "p. 3-1",
+        "RFM H125 Section 3.7"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 3.7"
     },
     {
       "id": "H125-EP-109",
       "question": "During flight with a servojam, which IAS should be set?",
-      "options": ["30 to 50 kt", "40 to 60 kt (74 km/h and 111 km/h)", "70 to 90 kt", "100 kt or more"],
-      "answer": [1],
+      "options": [
+        "30 to 50 kt",
+        "40 to 60 kt (74 km/h and 111 km/h)",
+        "70 to 90 kt",
+        "100 kt or more"
+      ],
+      "answer": [
+        1
+      ],
       "explanation": "In flight: IAS set to between 40 and 60 kt (74 km/h and 111 km/h).",
       "section": "emergency_procedures",
-      "modelIds": ["H125_AS350_B3_2B1"],
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
       "manual": "RFM H125 Section 3.7",
       "reference": "p. 3-1",
       "difficulty": "easy",
       "tags": [],
-      "references": ["RFM H125 Section 3.7 – p. 3-1"]
+      "references": [
+        "RFM H125 Section 3.7 – p. 3-1",
+        "p. 3-1",
+        "RFM H125 Section 3.7"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 3.7"
     },
     {
       "id": "H125-EP-110",
       "question": "In flight with servojam, what must be done with the hydraulic cut-off switch?",
-      "options": ["Leave ON at all times", "Reset after 10 seconds", "OFF, apply HYDR procedure", "Cycle between ON and OFF"],
-      "answer": [2],
+      "options": [
+        "Leave ON at all times",
+        "Reset after 10 seconds",
+        "OFF, apply HYDR procedure",
+        "Cycle between ON and OFF"
+      ],
+      "answer": [
+        2
+      ],
       "explanation": "In flight: Hydraulic cut-off switch (collective grip) — OFF, apply HYDR procedure.",
       "section": "emergency_procedures",
-      "modelIds": ["H125_AS350_B3_2B1"],
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
       "manual": "RFM H125 Section 3.7",
       "reference": "p. 3-1",
       "difficulty": "medium",
       "tags": [],
-      "references": ["RFM H125 Section 3.7 – p. 3-1"]
+      "references": [
+        "RFM H125 Section 3.7 – p. 3-1",
+        "p. 3-1",
+        "RFM H125 Section 3.7"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 3.7"
     },
     {
       "id": "H125-EP-111",
       "question": "With no hydraulic pressure, what is noted about aerodynamic loads at high airspeed?",
-      "options": ["They remain normal", "They may be heavy and must be counteracted", "They disappear completely", "They can be ignored"],
-      "answer": [1],
+      "options": [
+        "They remain normal",
+        "They may be heavy and must be counteracted",
+        "They disappear completely",
+        "They can be ignored"
+      ],
+      "answer": [
+        1
+      ],
       "explanation": "NOTE: With no hydraulic pressure, the aerodynamic loads to be counteracted may be heavy at high airspeed.",
       "section": "emergency_procedures",
-      "modelIds": ["H125_AS350_B3_2B1"],
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
       "manual": "RFM H125 Section 3.7",
       "reference": "p. 3-1",
       "difficulty": "medium",
       "tags": [],
-      "references": ["RFM H125 Section 3.7 – p. 3-1"]
-    }
-,
+      "references": [
+        "RFM H125 Section 3.7 – p. 3-1",
+        "p. 3-1",
+        "RFM H125 Section 3.7"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 3.7"
+    },
     {
       "id": "H125-EP-112",
       "question": "When the bleed valve opens, what indication appears on the FLI or 3-data page?",
-      "options": ["A green 'VV' flag", "A red GOV warning", "A yellow ENG P warning", "No indication appears"],
-      "answer": [0],
+      "options": [
+        "A green 'VV' flag",
+        "A red GOV warning",
+        "A yellow ENG P warning",
+        "No indication appears"
+      ],
+      "answer": [
+        0
+      ],
       "explanation": "When the bleed valve opens, a green 'VV' flag appears on the FLI or 3-data page.",
       "section": "emergency_procedures",
-      "modelIds": ["H125_AS350_B3_2B1"],
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
       "manual": "RFM H125 Section 3.7",
       "reference": "p. 3-2",
       "difficulty": "easy",
       "tags": [],
-      "references": ["RFM H125 Section 3.7 – p. 3-2"]
+      "references": [
+        "RFM H125 Section 3.7 – p. 3-2",
+        "p. 3-2",
+        "RFM H125 Section 3.7"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 3.7"
     },
     {
       "id": "H125-EP-113",
       "question": "What is the consequence if the bleed valve flag does not disappear at high power settings (near MCP or above)?",
-      "options": ["The engine shuts down automatically", "Maximum available engine power is reduced, especially in cold weather", "Rotor RPM increases rapidly", "The GOV warning light turns off"],
-      "answer": [1],
+      "options": [
+        "The engine shuts down automatically",
+        "Maximum available engine power is reduced, especially in cold weather",
+        "Rotor RPM increases rapidly",
+        "The GOV warning light turns off"
+      ],
+      "answer": [
+        1
+      ],
       "explanation": "If the flag does not disappear at high power settings, the maximum available engine power is reduced, specifically in cold weather.",
       "section": "emergency_procedures",
-      "modelIds": ["H125_AS350_B3_2B1"],
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
       "manual": "RFM H125 Section 3.7",
       "reference": "p. 3-2",
       "difficulty": "medium",
       "tags": [],
-      "references": ["RFM H125 Section 3.7 – p. 3-2"]
+      "references": [
+        "RFM H125 Section 3.7 – p. 3-2",
+        "p. 3-2",
+        "RFM H125 Section 3.7"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 3.7"
     },
     {
       "id": "H125-EP-114",
       "question": "If the bleed valve flag does not reappear at low power settings, what may occur?",
-      "options": ["The engine may surge", "The tail rotor may lose thrust", "The rotor brake engages", "The generator fails"],
-      "answer": [0],
+      "options": [
+        "The engine may surge",
+        "The tail rotor may lose thrust",
+        "The rotor brake engages",
+        "The generator fails"
+      ],
+      "answer": [
+        0
+      ],
       "explanation": "If the flag does not reappear at low power settings, the engine may surge.",
       "section": "emergency_procedures",
-      "modelIds": ["H125_AS350_B3_2B1"],
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
       "manual": "RFM H125 Section 3.7",
       "reference": "p. 3-2",
       "difficulty": "medium",
       "tags": [],
-      "references": ["RFM H125 Section 3.7 – p. 3-2"]
+      "references": [
+        "RFM H125 Section 3.7 – p. 3-2",
+        "p. 3-2",
+        "RFM H125 Section 3.7"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 3.7"
     },
     {
       "id": "H125-EP-115",
       "question": "What warning is associated with a bleed valve failure?",
-      "options": ["GOV", "ENG CHIP", "MGB TEMP", "ENG P"],
-      "answer": [0],
+      "options": [
+        "GOV",
+        "ENG CHIP",
+        "MGB TEMP",
+        "ENG P"
+      ],
+      "answer": [
+        0
+      ],
       "explanation": "A bleed valve failure results in a GOV warning.",
       "section": "emergency_procedures",
-      "modelIds": ["H125_AS350_B3_2B1"],
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
       "manual": "RFM H125 Section 3.7",
       "reference": "p. 3-2",
       "difficulty": "easy",
       "tags": [],
-      "references": ["RFM H125 Section 3.7 – p. 3-2"]
+      "references": [
+        "RFM H125 Section 3.7 – p. 3-2",
+        "p. 3-2",
+        "RFM H125 Section 3.7"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 3.7"
     },
     {
       "id": "H125-EP-116",
       "question": "What is the recommended pilot action in case of bleed valve failure?",
-      "options": ["Land immediately", "Continue flight", "Land as soon as practicable", "Shut down engine"],
-      "answer": [2],
+      "options": [
+        "Land immediately",
+        "Continue flight",
+        "Land as soon as practicable",
+        "Shut down engine"
+      ],
+      "answer": [
+        2
+      ],
       "explanation": "In case of bleed valve failure, the recommended action is to land as soon as practicable.",
       "section": "emergency_procedures",
-      "modelIds": ["H125_AS350_B3_2B1"],
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
       "manual": "RFM H125 Section 3.7",
       "reference": "p. 3-2",
       "difficulty": "easy",
       "tags": [],
-      "references": ["RFM H125 Section 3.7 – p. 3-2"]
+      "references": [
+        "RFM H125 Section 3.7 – p. 3-2",
+        "p. 3-2",
+        "RFM H125 Section 3.7"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 3.7"
     },
     {
       "id": "H125-EP-117",
       "question": "If ICS is inoperative, how will VHF communications be available?",
-      "options": ["Only through COM2 for both pilots", "Only for the RH pilot via COM1 transceiver", "Not available at all", "Via SATCOM system"],
-      "answer": [1],
+      "options": [
+        "Only through COM2 for both pilots",
+        "Only for the RH pilot via COM1 transceiver",
+        "Not available at all",
+        "Via SATCOM system"
+      ],
+      "answer": [
+        1
+      ],
       "explanation": "With ICS inoperative, VHF communications remain available for the RH pilot via COM1 transceiver.",
       "section": "emergency_procedures",
-      "modelIds": ["H125_AS350_B3_2B1"],
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
       "manual": "RFM H125 Section 3.7",
       "reference": "p. 3-2",
       "difficulty": "medium",
       "tags": [],
-      "references": ["RFM H125 Section 3.7 – p. 3-2"]
+      "references": [
+        "RFM H125 Section 3.7 – p. 3-2",
+        "p. 3-2",
+        "RFM H125 Section 3.7"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 3.7"
     },
     {
       "id": "H125-EP-118",
       "question": "Where will audio warnings be transmitted if ICS fails?",
-      "options": ["Through COM1 audio system", "Through COM2", "Through cockpit loudspeakers", "Not available"],
-      "answer": [0],
+      "options": [
+        "Through COM1 audio system",
+        "Through COM2",
+        "Through cockpit loudspeakers",
+        "Not available"
+      ],
+      "answer": [
+        0
+      ],
       "explanation": "If ICS fails, audio warnings are transmitted via the COM1 audio system.",
       "section": "emergency_procedures",
-      "modelIds": ["H125_AS350_B3_2B1"],
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
       "manual": "RFM H125 Section 3.7",
       "reference": "p. 3-2",
       "difficulty": "easy",
       "tags": [],
-      "references": ["RFM H125 Section 3.7 – p. 3-2"]
+      "references": [
+        "RFM H125 Section 3.7 – p. 3-2",
+        "p. 3-2",
+        "RFM H125 Section 3.7"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 3.7"
     }
   ]
 }

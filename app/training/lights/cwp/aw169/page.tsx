@@ -1,9 +1,9 @@
 "use client";
 
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 
+import AppTopBar from "@/components/AppTopBar";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 
 const VARIANT_ID = "AW169" as const;
@@ -154,6 +154,7 @@ export default function Page() {
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-zinc-900">
+	      <AppTopBar title="CWP Trainer · AW169" backHref="/training/lights" backLabel="Lights" />
       <main className="mx-auto max-w-5xl p-4 sm:p-6 space-y-4 sm:space-y-6">
         <section className="rounded-xl border bg-white p-4 sm:p-6 shadow-sm dark:bg-zinc-900 dark:border-zinc-700">
           <div className="flex items-center justify-between flex-wrap gap-3 mb-4">
@@ -161,7 +162,7 @@ export default function Page() {
               <span className="inline-block h-2.5 w-2.5 rounded-full bg-neutral-700" aria-hidden />
               <h1 className="text-xl font-semibold text-slate-900 dark:text-zinc-100">CWP-trainer · AW169</h1>
             </div>
-            <Link href="/training/lights" className="text-sm underline text-blue-600 dark:text-blue-400">Back to Lights trainer</Link>
+	            <div className="text-xs font-medium uppercase tracking-wide text-slate-500 dark:text-zinc-400">Tap a light to train</div>
           </div>
 
           {/* Panel container */}

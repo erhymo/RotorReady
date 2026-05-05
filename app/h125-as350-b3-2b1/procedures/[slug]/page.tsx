@@ -3,7 +3,7 @@
 import { Suspense, type ReactNode } from "react";
 import { useRouter, useSearchParams, useParams } from "next/navigation";
 
-import { BackButton } from "@/app/components/BackButton";
+import AppTopBar from "@/components/AppTopBar";
 
 type ProcedureStep = {
   left: string;
@@ -528,11 +528,7 @@ function H125AS350B3ProcedureInner() {
   if (!def) {
     return (
       <div className="min-h-screen bg-slate-50 dark:bg-zinc-900">
-        <div className="sticky top-0 z-10 bg-white/80 dark:bg-zinc-900/90 backdrop-blur border-b dark:border-zinc-700">
-          <div className="mx-auto max-w-3xl px-6 py-3">
-            <BackButton label="Home" to="/" />
-          </div>
-        </div>
+	        <AppTopBar title="Procedure" backHref="/training/procedures/h125-as350-b3-2b1" backLabel="Procedures" />
         <main className="mx-auto max-w-3xl p-6">
           <div className="rounded-xl border bg-white dark:bg-zinc-900 dark:border-zinc-700 p-4">
             <div className="text-slate-900 dark:text-zinc-100 font-semibold mb-2">Procedure not found</div>
@@ -635,11 +631,7 @@ function H125AS350B3ProcedureInner() {
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-zinc-900">
-      <div className="sticky top-0 z-10 bg-white/80 dark:bg-zinc-900/90 backdrop-blur border-b dark:border-zinc-700">
-        <div className="mx-auto max-w-3xl px-6 py-3">
-          <BackButton label="Home" to="/" />
-        </div>
-      </div>
+	      <AppTopBar title="Procedure" backHref="/training/procedures/h125-as350-b3-2b1" backLabel="Procedures" />
       {renderContent()}
     </div>
   );

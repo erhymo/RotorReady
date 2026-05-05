@@ -1,6 +1,9 @@
 import { defineConfig, devices } from '@playwright/test';
 
 const baseURL = process.env.PLAYWRIGHT_BASE_URL || 'http://localhost:3000';
+const localChrome = process.env.PLAYWRIGHT_USE_SYSTEM_CHROME === '1'
+  ? ({ browserName: 'chromium' as const, channel: 'chrome' as const })
+  : {};
 
 export default defineConfig({
   testDir: 'tests/e2e',
@@ -20,7 +23,7 @@ export default defineConfig({
   projects: [
     {
       name: 'Mobile Safari',
-      use: { ...devices['iPhone 13'] },
+	      use: { ...devices['iPhone 13'], ...localChrome },
     },
   ],
 });

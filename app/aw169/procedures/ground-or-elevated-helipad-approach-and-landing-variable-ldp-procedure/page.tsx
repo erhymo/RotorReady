@@ -152,7 +152,7 @@ function PageInner() {
     <div className="min-h-screen bg-slate-50 dark:bg-zinc-900">
       <div className="sticky top-0 z-10 bg-white/80 dark:bg-zinc-900/90 backdrop-blur border-b dark:border-zinc-700">
         <div className="mx-auto max-w-3xl px-6 py-3">
-          <BackButton label="Home" to="/" />
+	          <BackButton label="Procedures" to="/training/procedures/aw169" />
         </div>
       </div>
       {renderContent()}

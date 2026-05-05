@@ -1,9 +1,9 @@
 "use client";
 
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
+import AppTopBar from "@/components/AppTopBar";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 
 const VARIANT_ID = "H125_AS350_B3E" as const;
@@ -77,6 +77,7 @@ export default function Page() {
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-zinc-900">
+	      <AppTopBar title="CWP Trainer · AS350 B3e" backHref="/training/lights" backLabel="Lights" />
       <main className="mx-auto max-w-5xl p-4 sm:p-6 space-y-4 sm:space-y-6">
 
         <section className="p-0 border-0 bg-transparent shadow-none rounded-none sm:p-6 sm:border sm:bg-white sm:shadow-sm sm:rounded-xl sm:overflow-hidden dark:sm:bg-zinc-900 dark:sm:border-zinc-700">
@@ -85,10 +86,7 @@ export default function Page() {
               <span className="inline-block h-2.5 w-2.5 rounded-full bg-neutral-700" aria-hidden />
               <h1 className="text-lg sm:text-xl font-semibold text-slate-900 dark:text-zinc-100">CWP-trainer · AS350 B3e</h1>
             </div>
-            <div className="flex items-center gap-4">
-              <Link href="/" className="text-sm underline text-blue-600 dark:text-blue-400">Home</Link>
-              <Link href="/training/lights" className="text-sm underline text-blue-600 dark:text-blue-400">Back to Lights trainer</Link>
-            </div>
+	            <div className="text-xs font-medium uppercase tracking-wide text-slate-500 dark:text-zinc-400">Tap a light to train</div>
           </div>
 
           {/* Panel container: responsive, fills most of screen incl. landscape */}

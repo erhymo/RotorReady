@@ -1,8 +1,8 @@
 "use client";
 
 import { Suspense, useEffect, useMemo, useState } from "react";
-import Link from "next/link";
 import { useSearchParams } from "next/navigation";
+import AppTopBar from "@/components/AppTopBar";
 
 type KeyDef = { label?: string; goto?: string | null; disabled?: boolean };
 type LayoutSide = { x?: number; w?: number; top?: number; bottom?: number; y?: number; h?: number; left?: number; right?: number };
@@ -56,13 +56,13 @@ function EDCUTrainerAW169Inner() {
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-zinc-900">
+	      <AppTopBar title="EDCU Trainer · AW169" backHref="/" backLabel="Home" />
       <main className="mx-auto max-w-5xl p-4 sm:p-6 space-y-4">
-        <header className="flex items-center justify-between gap-3">
+	        <header className="flex items-center justify-between gap-3">
           <div className="flex items-center gap-2">
             <span className="inline-block h-2.5 w-2.5 rounded-full bg-neutral-700" aria-hidden />
             <h1 className="text-xl font-semibold text-slate-900 dark:text-zinc-100">EDCU trainer · AW169</h1>
           </div>
-          <Link href="/" className="text-sm underline text-blue-600 dark:text-blue-400">Home</Link>
         </header>
 
         {!page && (

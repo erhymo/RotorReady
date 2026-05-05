@@ -5,7 +5,7 @@ import type { ReactNode } from "react";
 import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
-import TopBarBackButton from "@/components/TopBarBackButton";
+import AppTopBar from "@/components/AppTopBar";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 
 
@@ -1190,11 +1190,7 @@ export default function LightsTrainer() {
 
 	  return (
 	    <div className="min-h-screen bg-slate-50 dark:bg-zinc-900">
-	      <div className="sticky top-0 z-10 bg-white/80 dark:bg-zinc-900/90 backdrop-blur border-b dark:border-zinc-700">
-	        <div className="mx-auto max-w-3xl px-6 py-3">
-	          <TopBarBackButton href="/" label="Back" />
-	        </div>
-	      </div>
+		      <AppTopBar title="Emergency & Malfunction" backHref="/" backLabel="Home" />
 	      {!isMobile && mode !== "idle" && current && !(compactCWP && mode === "procedure") && header}
 		      <main className="mx-auto max-w-3xl p-6 space-y-6">
 		        {mode === "idle" && activeVariant.id !== "AW169" && activeVariant.id !== "AW139" && (

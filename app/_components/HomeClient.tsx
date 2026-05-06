@@ -49,15 +49,6 @@ function Bar(props: { href: string; title: string; description: string; tone?: "
 		            Train smarter with fast repetition, quick references and planning tools for rotorwing operations.
 		          </p>
 		        </div>
-		        {activeVariant && (
-		          <Link
-		            href="/account"
-		            className="inline-flex items-center gap-2 rounded-full border border-emerald-500 bg-emerald-50 px-3 py-1.5 text-sm font-semibold text-emerald-800 transition hover:bg-emerald-100 dark:border-emerald-400 dark:bg-emerald-900/40 dark:text-emerald-100"
-		          >
-		            <span className="h-2.5 w-2.5 rounded-full bg-emerald-500" aria-hidden />
-		            Selected aircraft: {activeVariant.label}
-		          </Link>
-		        )}
 		      </header>
 
 		      <section className="space-y-3">

@@ -29,8 +29,8 @@ export default function ClientActiveModelBadge() {
 
   if (loading) {
     return (
-      <div className="ml-2 inline-flex h-7 min-w-[120px] items-center rounded-full border border-emerald-400 bg-emerald-50/80 px-3 py-1 text-sm font-semibold text-slate-900 shadow-sm dark:border-emerald-400/70 dark:bg-emerald-200/50">
-        <div className="h-3 w-3 animate-pulse rounded-full bg-emerald-400" aria-hidden />
+      <div className="ml-1 inline-flex min-h-9 items-center rounded-full border border-slate-200 bg-white/50 px-2.5 py-1 text-xs font-medium text-slate-500 dark:border-zinc-800 dark:bg-zinc-900/50 dark:text-zinc-400">
+        <div className="h-2 w-2 animate-pulse rounded-full bg-slate-400" aria-hidden />
         <span className="ml-2 opacity-70">Loading…</span>
       </div>
     );
@@ -39,11 +39,11 @@ export default function ClientActiveModelBadge() {
   return (
 	  <Link
 	    href="/account"
-	    className="ml-2 inline-flex min-h-11 items-center rounded-full border border-emerald-500 bg-emerald-50 px-3 py-2 text-sm font-semibold text-slate-900 shadow-sm transition hover:bg-emerald-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 dark:border-emerald-400 dark:bg-emerald-200/80 dark:text-slate-900"
+	    className="ml-1 inline-flex min-h-9 items-center rounded-full border border-slate-200 bg-white/45 px-2.5 py-1 text-xs font-medium text-slate-600 transition hover:border-slate-300 hover:bg-white/75 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-400 dark:border-zinc-800 dark:bg-zinc-900/45 dark:text-zinc-300 dark:hover:border-zinc-700 dark:hover:bg-zinc-900/75"
 	    title={`Active model: ${fullLabel} — open Settings`}
 	    aria-label={`Active model: ${fullLabel}. Open Settings`}
 	  >
-      <span className="mr-2 inline-block h-2.5 w-2.5 rounded-full bg-emerald-500" aria-hidden />
+	      <span className="mr-1.5 inline-block h-1.5 w-1.5 rounded-full bg-slate-400 dark:bg-zinc-500" aria-hidden />
       <span className="md:hidden">{shortLabel}</span>
       <span className="hidden md:inline">{fullLabel}</span>
 	  </Link>

@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 
 const TTL = 12 * 60 * 60 * 1000; // 12h = update twice daily
 const cache = new Map<string, { data: any; expires: number }>();
+const OPERATIONAL_HOURS_URL = "https://aim-prod.avinor.no/no/OperationalHours";
 
 // Manual overrides for largest airports (seeded now, parser will fill the rest)
 const MANUAL: Record<string, { ats: string | null; fuel: string | null; note?: string }> = {
@@ -17,8 +18,9 @@ const MANUAL: Record<string, { ats: string | null; fuel: string | null; note?: s
 };
 
 function aipUrlFor(icao: string): string {
-  // Consolidated operational hours (ATS, Fuel, etc.) published by Avinor AIS
-  return 'https://aim-prod.avinor.no/OperationalHours/Latest/ops_hrs.html';
+  // Consolidated operational hours (ATS, Fuel, etc.) published by Avinor AIS.
+  // Avinor redirects this endpoint to the current OperationalHours/View/Index/{id}.
+  return OPERATIONAL_HOURS_URL;
 }
 
 async function tryParseFromAIP(icao: string): Promise<{ ats: string | null; fuel: string | null } | null> {

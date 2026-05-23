@@ -2524,6 +2524,252 @@
       "modelIds": [
         "AW169_EP"
       ]
+    },
+    {
+      "id": "lims-ep-003",
+      "section": "LIMITATIONS",
+      "question": "What are the TDP height and ground speed for the EP Clear Area CAT A Take-Off?",
+      "options": [
+        "TDP 15 ft AGL and 30 kts GS",
+        "TDP 20 ft AGL and 35 kts GS",
+        "TDP 25 ft AGL and 40 kts GS",
+        "TDP 50 ft AGL and 45 kts GS"
+      ],
+      "answer": [1],
+      "explanation": "The EP Clear Area CAT A Take-Off uses TDP 20 ft AGL and 35 kts GS, as shown in Figure NP 3.",
+      "references": [
+        "QRH p169"
+      ],
+      "printedPage": 169,
+      "difficulty": "medium",
+      "tags": [
+        "cat a",
+        "take-off",
+        "tdp",
+        "clear area",
+        "ep",
+        "limitations"
+      ],
+      "source": "QRH p169",
+      "sectionId": "limitations",
+      "type": "single",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "lims-ep-004",
+      "section": "LIMITATIONS",
+      "question": "Up to what altitude can a safe vertical reject be carried out to 15 ft AGL on the AW169 EP at weights between 4600 kg and 4800 kg?",
+      "options": [
+        "Only at sea level",
+        "Up to 5000 ft",
+        "Up to 10,000 ft",
+        "Up to service ceiling"
+      ],
+      "answer": [1],
+      "explanation": "For weights between 4600 kg and 4800 kg, a safe vertical reject can be carried out up to 15 ft AGL up to 5000 ft. Above 5000 ft it is limited to 10 ft AGL.",
+      "references": [
+        "QRH p7"
+      ],
+      "printedPage": 7,
+      "difficulty": "medium",
+      "tags": [
+        "cat b",
+        "vertical reject",
+        "weight",
+        "ep",
+        "limitations"
+      ],
+      "source": "QRH p7",
+      "sectionId": "limitations",
+      "type": "single",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "lims-ep-005",
+      "section": "LIMITATIONS",
+      "question": "What is the maximum OAT limit shown on the EP Enhanced Performance CAT A WAT charts?",
+      "options": [
+        "ISA+20°C",
+        "ISA+30°C",
+        "ISA+35°C",
+        "ISA+40°C"
+      ],
+      "answer": [2],
+      "explanation": "All EP Enhanced Performance CAT A WAT charts are marked with MAX OAT LIMIT ISA+35°C.",
+      "references": [
+        "QRH p12"
+      ],
+      "printedPage": 12,
+      "difficulty": "easy",
+      "tags": [
+        "cat a",
+        "wat",
+        "oat",
+        "ep",
+        "limitations"
+      ],
+      "source": "QRH p12",
+      "sectionId": "limitations",
+      "type": "single",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "lims-ep-006",
+      "section": "LIMITATIONS",
+      "question": "What must be completed before conducting CATEGORY A operations on the AW169 EP?",
+      "options": [
+        "A full engine run-up",
+        "Engine Power Check procedure",
+        "Transmission oil check",
+        "Fuel system check"
+      ],
+      "answer": [1],
+      "explanation": "CATEGORY A operations are prohibited if the engines do not meet the power check requirements. The Engine Power Check procedure must be completed before CAT A operations.",
+      "references": [
+        "QRH p7"
+      ],
+      "printedPage": 7,
+      "difficulty": "medium",
+      "tags": [
+        "cat a",
+        "power check",
+        "engine",
+        "ep",
+        "limitations"
+      ],
+      "source": "QRH p7",
+      "sectionId": "limitations",
+      "type": "single",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "lims-ep-007",
+      "section": "LIMITATIONS",
+      "question": "What action is required when hydraulic oil temperature is below +20 °C?",
+      "options": [
+        "Abort the flight",
+        "Limit airspeed to 90 KIAS",
+        "Fly attentive",
+        "Select both ENG MODE to FLT"
+      ],
+      "answer": [2],
+      "explanation": "With hydraulic fluid temperature below +20 °C, the pilot must fly attentive.",
+      "references": [
+        "QRH p10"
+      ],
+      "printedPage": 10,
+      "difficulty": "easy",
+      "tags": [
+        "hydraulic",
+        "temperature",
+        "ep",
+        "limitations"
+      ],
+      "source": "QRH p10",
+      "sectionId": "limitations",
+      "type": "single",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "lims-ep-008",
+      "section": "LIMITATIONS",
+      "question": "What is the maximum rotor speed (NR) for normal rotor brake application?",
+      "options": [
+        "20%",
+        "30%",
+        "40%",
+        "50%"
+      ],
+      "answer": [2],
+      "explanation": "The rotor brake can only be applied on ground with NR at or below 40%. Application above 40% is permitted only in emergency.",
+      "references": [
+        "QRH p7"
+      ],
+      "printedPage": 7,
+      "difficulty": "medium",
+      "tags": [
+        "rotor brake",
+        "nr",
+        "ground",
+        "ep",
+        "limitations"
+      ],
+      "source": "QRH p7",
+      "sectionId": "limitations",
+      "type": "single",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "lims-ep-009",
+      "section": "LIMITATIONS",
+      "question": "What is the maximum running speed for wheel brake application?",
+      "options": [
+        "20 knots",
+        "30 knots",
+        "40 knots",
+        "50 knots"
+      ],
+      "answer": [2],
+      "explanation": "Maximum running speed for wheel brake application is 40 knots.",
+      "references": [
+        "QRH p7"
+      ],
+      "printedPage": 7,
+      "difficulty": "easy",
+      "tags": [
+        "wheel brake",
+        "ground speed",
+        "ep",
+        "limitations"
+      ],
+      "source": "QRH p7",
+      "sectionId": "limitations",
+      "type": "single",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "lims-ep-010",
+      "section": "LIMITATIONS",
+      "question": "What is the minimum fuel temperature limit for all authorized fuel types?",
+      "options": [
+        "-40°C",
+        "-29°C",
+        "-20°C",
+        "0°C"
+      ],
+      "answer": [1],
+      "explanation": "The minimum fuel temperature limit for all authorized fuel types (JET A, JET A-1, JP-8, No. 3 Jet Fuel) is -29°C (-20°F).",
+      "references": [
+        "QRH p19"
+      ],
+      "printedPage": 19,
+      "difficulty": "medium",
+      "tags": [
+        "fuel",
+        "temperature",
+        "ep",
+        "limitations"
+      ],
+      "source": "QRH p19",
+      "sectionId": "limitations",
+      "type": "single",
+      "modelIds": [
+        "AW169_EP"
+      ]
     }
   ]
 }

@@ -46,7 +46,7 @@ export default function QuizTypeSelectPage() {
   const dynamicVariant =
     !!activeVariant &&
     (activeVariant.productId === "H125" ||
-      activeVariant.id === "AW169" ||
+      activeVariant.productId === "AW169" ||
       activeVariant.id === "R44_II");
 
   const currentLoadedSections = loadedSections?.modelId === activeVariant.id ? loadedSections : null;

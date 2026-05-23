@@ -174,6 +174,7 @@ export default function LightsTrainer() {
 	  const router = useRouter();
 	  const { variant: activeVariant, setActiveVariant } = useActiveModelVariant();
 	  const isH125 = activeVariant.productId === "H125";
+	  const isAw169 = activeVariant.productId === "AW169";
 	  const isB3e = activeVariant.id === "H125_AS350_B3E";
 	  const [all, setAll] = useState<LightItem[]>([]);
 	  const [loading, setLoading] = useState(true);
@@ -216,7 +217,7 @@ export default function LightsTrainer() {
         ];
         // Global AW169 lights (QRH-based) should only be used when training AW169,
         // not as a fallback dataset for other models like R44 II.
-        if (activeVariant.id === "AW169") {
+        if (isAw169) {
           manifests.push("/training/lights/manifest.json");
         }
 
@@ -292,7 +293,7 @@ export default function LightsTrainer() {
 
 	  const aw169RedMemoryLights = useMemo(
 	    () =>
-	      activeVariant.id === "AW169"
+	      isAw169
 	        ? warningLights.filter((item) => (AW169_MEMORY_CROPS as any)[item.id])
 	        : [],
 	    [warningLights, activeVariant.id]
@@ -300,7 +301,7 @@ export default function LightsTrainer() {
 
 	  const aw169AmberMemoryLights = useMemo(
 	    () =>
-	      activeVariant.id === "AW169"
+	      isAw169
 	        ? all.filter((item) => item.severity === "caution" && (AW169_MEMORY_CROPS as any)[item.id])
 	        : [],
 	    [all, activeVariant.id]
@@ -429,7 +430,7 @@ export default function LightsTrainer() {
   }, []);
 
 	  const memoryCount = useMemo(() => {
-	    if (activeVariant.id === "AW169") {
+	    if (isAw169) {
 	      return aw169RedMemoryLights.length;
 	    }
 	    if (activeVariant.id === "AW189") {
@@ -440,7 +441,7 @@ export default function LightsTrainer() {
 	  }, [aw169RedMemoryLights, warningLights, activeVariant.id]);
 
 	  const amberMemoryCount = useMemo(
-	    () => (activeVariant.id === "AW169" ? aw169AmberMemoryLights.length : 0),
+	    () => (isAw169 ? aw169AmberMemoryLights.length : 0),
 	    [aw169AmberMemoryLights, activeVariant.id]
 	  );
 
@@ -449,7 +450,7 @@ export default function LightsTrainer() {
 	    if (!pool.length) return;
 	    const shuffled = shuffle(pool);
 	    let n = shuffled.length;
-	    if (activeVariant.id !== "AW169") {
+	    if (!isAw169) {
 	      const desired = pickCounts.warning === "all" ? shuffled.length : pickCounts.warning;
 	      n = Math.min(shuffled.length, desired);
 	    }
@@ -462,7 +463,7 @@ export default function LightsTrainer() {
 
   const startMemoryOnly = useCallback(async () => {
 	    let pool: LightItem[] = [];
-	    if (activeVariant.id === "AW169") {
+	    if (isAw169) {
 	      // Include ONLY lights that have a detected QRH memory box crop
 	      pool = aw169RedMemoryLights;
 	    } else if (activeVariant.id === "AW189") {
@@ -481,7 +482,7 @@ export default function LightsTrainer() {
 	  }, [aw169RedMemoryLights, warningLights, activeVariant.id]);
 
 		  const startAmberMemoryOnly = useCallback(async () => {
-	    if (activeVariant.id !== "AW169") return;
+	    if (!isAw169) return;
 	    const pool = aw169AmberMemoryLights;
 	    if (!pool.length) return;
 	    const shuffled = shuffle(pool);
@@ -497,7 +498,7 @@ export default function LightsTrainer() {
 	    const sev: Severity = lastSeverity ?? (deck[0]?.severity ?? "warning");
 	    let pool = warningLights;
 	    if (memoryOnly) {
-	      if (activeVariant.id === "AW169") {
+	      if (isAw169) {
 	        pool = aw169RedMemoryLights;
 	      } else if (activeVariant.id === "AW189") {
 	        pool = warningLights;
@@ -536,7 +537,7 @@ export default function LightsTrainer() {
 
 	  const renderText = useCallback((text?: string) => {
     if (!text) return null as any;
-    if (activeVariant.id !== "AW169") return text as any;
+    if (!isAw169) return text as any;
     const re = /(SINGLE ENGINE PROCEDURE|ENGINE SHUTDOWN IN EMERGENCY)/gi;
     const parts = String(text).split(re);
     if (parts.length === 1) return text as any;
@@ -619,7 +620,7 @@ export default function LightsTrainer() {
 		      // go back to the corresponding memory grid instead of the generic "done" screen.
 		      if (
 		        memoryOnly &&
-		        activeVariant.id === "AW169" &&
+		        isAw169 &&
 		        deck.length === 1 &&
 		        returnToMemoryGrid
 		      ) {
@@ -870,7 +871,7 @@ export default function LightsTrainer() {
     if (item.pageImage) {
     // Memory-only: override default image rendering for specific variants
     if (memoryMode) {
-      if (activeVariant.id === "AW169") {
+      if (isAw169) {
         const { actions } = splitProcedure(item.procedure || []);
         return (
           <div className="flex items-center justify-center min-h-[65vh] px-4">
@@ -909,7 +910,7 @@ export default function LightsTrainer() {
       }
 
       // AW169: show QRH-accurate cropped memory box
-      if (activeVariant.id === "AW169" && item.pageImage) {
+      if (isAw169 && item.pageImage) {
         return <AW169MemoryCrop item={item} />;
       }
       const { actions } = splitProcedure(item.procedure || []);
@@ -962,7 +963,7 @@ export default function LightsTrainer() {
     }
 
       // If memory-only mode is active for AW169, render only the cropped memory box from the QRH page
-      if (memoryMode && activeVariant.id === "AW169") {
+      if (memoryMode && isAw169) {
         return <AW169MemoryCrop item={item} />;
       }
       // On H125 in dark mode, inline SVG and strip its prefers-color-scheme: dark block
@@ -998,7 +999,7 @@ export default function LightsTrainer() {
               + '.branchCaution,.caution,.orange{fill:orange !important}\n'
               + '</style>';
             const finalSvg = withBg.replace(/<\/svg>\s*$/, style + '</svg>');
-    if (activeVariant.id === "AW169") {
+    if (isAw169) {
       return (
         <div className="flex items-center justify-center min-h-[65vh] px-4">
           <section className="w-full max-w-2xl rounded-xl border border-slate-300 dark:border-zinc-500 bg-transparent">
@@ -1044,7 +1045,7 @@ export default function LightsTrainer() {
         return () => { cancelled = true; };
       */
 
-      const fullBleed = activeVariant.id === "AW169" && item.severity === "warning" && !!item.pageImage;
+      const fullBleed = isAw169 && item.severity === "warning" && !!item.pageImage;
 
       return (
         <figure className={fullBleed ? "bg-white dark:bg-zinc-900 p-0" : (flat ? "bg-white dark:bg-zinc-900 p-0" : `rounded-2xl border bg-white shadow ${ (isH125) ? "dark:bg-zinc-900/80 dark:border-zinc-600" : "dark:bg-zinc-900/80 dark:border-zinc-600" } p-4`)}>
@@ -1074,7 +1075,7 @@ export default function LightsTrainer() {
 
     if (memoryMode) {
       // In memory-only mode, for AW169 with pageImage, show a QRH-accurate cropped SVG excerpt
-      if (activeVariant.id === "AW169" && item.pageImage) {
+      if (isAw169 && item.pageImage) {
         return <AW169MemoryCrop item={item} />;
       }
       // Fallback (non-AW169 or without page image): render a clean table of memory actions
@@ -1193,7 +1194,7 @@ export default function LightsTrainer() {
 		      <AppTopBar title="Emergency & Malfunction" backHref="/" backLabel="Home" />
 	      {!isMobile && mode !== "idle" && current && !(compactCWP && mode === "procedure") && header}
 		      <main className="mx-auto max-w-3xl p-6 space-y-6">
-		        {mode === "idle" && activeVariant.id !== "AW169" && activeVariant.id !== "AW139" && (
+		        {mode === "idle" && !isAw169 && activeVariant.id !== "AW139" && (
           <div className="space-y-6">
             <section className="space-y-4 rounded-xl border bg-white p-6 shadow-sm dark:bg-zinc-900 dark:border-zinc-700">
               <div className="flex items-center gap-2">
@@ -1260,7 +1261,7 @@ export default function LightsTrainer() {
             )}
 
 
-            {activeVariant.id === "AW169" && (
+            {isAw169 && (
               <section className="space-y-4 rounded-xl border bg-white p-6 shadow-sm dark:bg-zinc-900 dark:border-zinc-700">
                 <div className="flex items-center gap-2">
                   <span className="inline-block h-2.5 w-2.5 rounded-full bg-neutral-700" aria-hidden />
@@ -1308,7 +1309,7 @@ export default function LightsTrainer() {
 
 
 
-            {(activeVariant.id === "AW169" || activeVariant.id === "AW189") && (
+            {(isAw169 || activeVariant.id === "AW189") && (
               <section className="space-y-4 rounded-xl border bg-white p-6 shadow-sm dark:bg-zinc-900 dark:border-zinc-700">
                 <div className="flex items-center gap-2">
                   <span className="inline-block h-2.5 w-2.5 rounded-full bg-neutral-700" aria-hidden />
@@ -1354,7 +1355,7 @@ export default function LightsTrainer() {
 			          </div>
 			        )}
 		
-			        {mode === "idle" && activeVariant.id === "AW169" && (
+			        {mode === "idle" && isAw169 && (
 	          <div className="space-y-4">
 	            <LightsBar
 		              tone="red"
@@ -1579,8 +1580,8 @@ export default function LightsTrainer() {
                 setTimeout(() => {
                   try {
                     if (window.location.pathname + window.location.search === before) {
-                      const v = activeVariant?.id;
-                      if (v === 'AW169') router.push('/training/lights/cwp/aw169');
+	                      const v = activeVariant?.id;
+	                      if (isAw169) router.push('/training/lights/cwp/aw169');
                       else if (v === 'H125_AS350_B3_2B1') router.push('/training/lights/cwp/b3-2b1');
                       else router.push('/training/lights');
                     }
@@ -1603,8 +1604,8 @@ export default function LightsTrainer() {
 
         {isMobile && mode === "procedure" && current && !compactCWP && (
           <div ref={procOverlayRef} tabIndex={-1} className="fixed left-0 right-0 bottom-0 top-0 z-40 bg-white dark:bg-zinc-900">
-            <div className="h-full w-full overflow-y-auto" onClick={(e) => { try { const t = e.target as HTMLElement; if (t && t.closest('a,button,input,textarea,select,[data-prevent-back]')) return; if (activeVariant?.id === 'AW169' && current?.severity === 'warning' && current?.pageImage) { next(); } } catch {} }}>
-            {!(activeVariant.id === 'AW169' && memoryOnly && current?.pageImage) && header}
+            <div className="h-full w-full overflow-y-auto" onClick={(e) => { try { const t = e.target as HTMLElement; if (t && t.closest('a,button,input,textarea,select,[data-prevent-back]')) return; if (isAw169 && current?.severity === 'warning' && current?.pageImage) { next(); } } catch {} }}>
+            {!(isAw169 && memoryOnly && current?.pageImage) && header}
 
               <div className="px-0">
                 <ProcedureLikePDF item={current} flat memoryOnly={memoryOnly} />
@@ -1634,7 +1635,7 @@ export default function LightsTrainer() {
                 {renderText(current.description)}
               </div>
             )}
-            {(memoryOnly && activeVariant.id === 'AW169' && current?.pageImage) ? (
+            {(memoryOnly && isAw169 && current?.pageImage) ? (
               <div role="button" aria-label="Next" onClick={next} className="cursor-pointer select-none">
                 <ProcedureLikePDF item={current} memoryOnly />
               </div>

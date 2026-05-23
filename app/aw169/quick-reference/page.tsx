@@ -3,9 +3,10 @@
 import { useState } from "react";
 import AppTopBar from "@/components/AppTopBar";
 import AW169_ABBREVIATIONS from "@/data/aw169/abbreviations";
+import { useActiveModelVariant } from "@/lib/models/hooks";
 
 const data = {
-  torque: {
+  torqueStandard: {
     title: "Transmission Torque (TQ %)",
     items: [
       {
@@ -119,22 +120,23 @@ const data = {
       },
     ],
   },
-  enhancedPerformance: {
-    title: "Enhanced Performance",
+  torqueEnhancedPerformance: {
+    title: "Transmission Torque / PI (EP)",
     items: [
       {
         label: "AEO",
         lines: [
-          "Max takeoff TQ: 122%",
-          "Max transient TQ: 132%",
+          "Max continuous: 100%",
+          "Max take-off: 122% (30 min; 5 min with EAPS kit)",
+          "Max transient: 132% (10 s)",
         ],
       },
       {
         label: "OEI",
         lines: [
-          "Max continuous TQ: 148%",
-          "Max 2.5 min TQ: 185%",
-          "Max transient TQ: 195%",
+          "Max continuous: 148%",
+          "Max 2.5 min: 185%",
+          "Max transient: 195% (10 s)",
         ],
       },
     ],
@@ -232,11 +234,14 @@ function GroupCard({ title, items }: { title: string; items: { label: string; li
 
 export default function AW169QuickReferencePage() {
   const [showAbbr, setShowAbbr] = useState(false);
+  const { variant } = useActiveModelVariant();
+  const isEnhancedPerformance = variant.id === "AW169_EP";
+  const torqueData = isEnhancedPerformance ? data.torqueEnhancedPerformance : data.torqueStandard;
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-zinc-900">
 	    <AppTopBar
-	      title="AW169 Quick Reference"
+	      title={isEnhancedPerformance ? "AW169 EP Quick Reference" : "AW169 Quick Reference"}
 	      backHref="/"
 	      backLabel="Home"
 	      rightAction={<button
@@ -271,8 +276,7 @@ export default function AW169QuickReferencePage() {
           </section>
         )}
 
-        <GroupCard title={data.torque.title} items={data.torque.items} />
-        <GroupCard title={data.enhancedPerformance.title} items={data.enhancedPerformance.items} />
+        <GroupCard title={torqueData.title} items={torqueData.items} />
         <GroupCard title={data.nr.title} items={data.nr.items} />
         <GroupCard title={data.airspeed.title} items={data.airspeed.items} />
         <GroupCard title={data.ground.title} items={data.ground.items} />

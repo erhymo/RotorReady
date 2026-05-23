@@ -67,7 +67,7 @@ function Bar(props: { href: string; title: string; description: string; tone?: "
 		          tone="blue"
 		          icon={<BookIcon className="h-4 w-4" />}
 		        />
-	        {activeVariant?.id === "AW169" && (
+		        {activeVariant?.productId === "AW169" && (
 	          <Bar
 	            href="/training/procedures/aw169"
 	            title="Procedures"
@@ -89,7 +89,7 @@ function Bar(props: { href: string; title: string; description: string; tone?: "
 
 		      <section className="space-y-3">
 		        <h2 className="text-sm font-semibold uppercase tracking-wide text-slate-700 dark:text-zinc-200">Reference</h2>
-	        {activeVariant?.id === "AW169" && (
+		        {activeVariant?.productId === "AW169" && (
 	          <Bar
 	            href="/aw169/quick-reference"
 	            title="Quick Reference"
@@ -141,7 +141,7 @@ function Bar(props: { href: string; title: string; description: string; tone?: "
 		          description="Browse Avinor AIS airports, ATS and fuel opening hours."
 	          tone="slate"
 	        />
-	        {activeVariant?.id === "AW169" && (
+		        {activeVariant?.productId === "AW169" && (
 	          <Bar
 	            href="/calculations"
 	            title="Calculations"

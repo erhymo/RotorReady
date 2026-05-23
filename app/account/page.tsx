@@ -29,9 +29,12 @@ type ConversationThread = {
   unreadForUser: number;
 };
 
+type Entitlements = { AW169?: boolean; AW169_EP?: boolean; AW189?: boolean; AW139?: boolean; H125?: boolean; R44_II?: boolean };
+
 const ACCOUNT_FEATURES_ENABLED = false;
-const OPEN_ACCESS_ENTITLEMENTS = {
+const OPEN_ACCESS_ENTITLEMENTS: Entitlements = {
   AW169: true,
+  AW169_EP: true,
   AW189: true,
   AW139: true,
   H125: true,
@@ -183,7 +186,7 @@ export default function AccountPage() {
     }
   }
   const [history, setHistory] = useState<Summary[]>([]);
-  const [ents, setEnts] = useState<{AW169?:boolean; AW189?:boolean; AW139?:boolean; H125?:boolean; R44_II?:boolean}>(OPEN_ACCESS_ENTITLEMENTS);
+  const [ents, setEnts] = useState<Entitlements>(OPEN_ACCESS_ENTITLEMENTS);
   const [email, setEmail] = useState<string | null>(null);
   const [loggedIn, setLoggedIn] = useState(false);
   const [authChecked, setAuthChecked] = useState(true);
@@ -287,7 +290,7 @@ export default function AccountPage() {
           setUserUid(user?.uid || null);
           setLoggedIn(Boolean(user));
           if (entitlements) {
-            setEnts(entitlements as {AW169?:boolean; AW189?:boolean; AW139?:boolean; H125?:boolean; R44_II?:boolean});
+            setEnts(entitlements as Entitlements);
           } else {
             setEnts({});
           }
@@ -311,7 +314,7 @@ export default function AccountPage() {
           if (user) {
             const entitlements = await loadEntitlements(user);
             if (!cancelled) {
-              setEnts(entitlements as {AW169?:boolean; AW189?:boolean; AW139?:boolean; H125?:boolean});
+              setEnts(entitlements as Entitlements);
             }
           } else {
             setConversation(null);
@@ -471,12 +474,13 @@ export default function AccountPage() {
   const themeIcon = effectiveTheme === 'dark' ? '☀️' : '🌙';
   const themeButtonLabel = effectiveTheme === 'dark' ? 'Light theme' : 'Dark theme';
 
+  const aw169Variants = listVariantsByProduct("AW169");
   const h125Variants = listVariantsByProduct("H125");
   const activeVariantId = getStoredActiveModelVariantId();
-	  const selectVariant = async (id: string) => {
-	    // Store locally immediately for a seamless experience
-	    try { storeActiveModelVariantId(id); } catch {}
-		    if (typeof window !== "undefined") window.location.reload();
+  const selectVariant = (id: string) => {
+    // Store locally immediately for a seamless experience
+    try { storeActiveModelVariantId(id); } catch {}
+    if (typeof window !== "undefined") window.location.reload();
   };
 
   return (
@@ -517,46 +521,56 @@ export default function AccountPage() {
           <div>
             <div className="font-semibold text-slate-900 dark:text-zinc-100">Access</div>
             <div className="text-sm text-slate-700 dark:text-zinc-300 mt-0.5">
-		              RotorReady is free and open. No login is required for training, quizzes, procedures or offline packages.
+              RotorReady is free and open. No login is required for training, quizzes, procedures or offline packages.
             </div>
             <div className="mt-2 flex gap-2 flex-wrap">
-              <button
-                type="button"
-                key="AW169"
-                onClick={() => selectVariant("AW169")}
-                className={`px-3 py-1 rounded-lg border text-sm transition ${
-                  activeVariantId === "AW169"
-                    ? "border-emerald-400 bg-emerald-50 text-emerald-700"
-                    : "bg-white dark:bg-zinc-900 dark:text-zinc-100 hover:border-slate-300 dark:hover:border-zinc-600"
-                }`}
-              >
-	                AW169
-              </button>
+              <div className="inline-flex items-center gap-1 rounded-xl border border-slate-200 bg-slate-50/70 p-1 dark:border-zinc-700 dark:bg-zinc-950/40">
+                <span className="px-2 text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-zinc-400">AW169</span>
+                {aw169Variants.map((v) => {
+                  const isActive = activeVariantId === v.id;
+                  const label = v.id === "AW169_EP" ? "EP" : "Standard";
+                  return (
+                    <button
+                      type="button"
+                      key={v.id}
+                      onClick={() => selectVariant(v.id)}
+                      className={`rounded-lg px-3 py-1 text-sm transition ${
+                        isActive
+                          ? "bg-white text-emerald-700 shadow-sm ring-1 ring-emerald-300 dark:bg-zinc-800 dark:text-emerald-200 dark:ring-emerald-700/70"
+                          : "text-slate-600 hover:bg-white/80 dark:text-zinc-300 dark:hover:bg-zinc-800/80"
+                      }`}
+                    >
+                      {label}
+                    </button>
+                  );
+                })}
+              </div>
 
-                            <button
+
+              <button
                 type="button"
                 key="AW139"
                 onClick={() => selectVariant("AW139")}
                 className={`px-3 py-1 rounded-lg border text-sm transition ${
                   activeVariantId === "AW139"
                     ? "border-emerald-400 bg-emerald-50 text-emerald-700"
-                    : "bg-white dark:bg-zinc-900 dark:text-zinc-100 hover:border-slate-300 dark:hover-border-zinc-600"
+                    : "bg-white dark:bg-zinc-900 dark:text-zinc-100 hover:border-slate-300 dark:hover:border-zinc-600"
                 }`}
               >
-	                AW139
+                AW139
               </button>
 
               <button
                 type="button"
                 key="AW189"
                 onClick={() => selectVariant("AW189")}
-	                className={`px-3 py-1 rounded-lg border text-sm transition ${
-	                  activeVariantId === "AW189"
-	                    ? "border-emerald-400 bg-emerald-50 text-emerald-700"
-	                    : "bg-white dark:bg-zinc-900 dark:text-zinc-100 hover:border-slate-300 dark:hover:border-zinc-600"
-		                }`}
+                className={`px-3 py-1 rounded-lg border text-sm transition ${
+                  activeVariantId === "AW189"
+                    ? "border-emerald-400 bg-emerald-50 text-emerald-700"
+                    : "bg-white dark:bg-zinc-900 dark:text-zinc-100 hover:border-slate-300 dark:hover:border-zinc-600"
+                }`}
               >
-		                AW189
+                AW189
               </button>
 
               <button
@@ -569,13 +583,13 @@ export default function AccountPage() {
                     : "bg-white dark:bg-zinc-900 dark:text-zinc-100 hover:border-slate-300 dark:hover:border-zinc-600"
                 }`}
               >
-	                R44 II Raven
+                R44 II Raven
               </button>
 
               {h125Variants.map((v) => {
                 const coming = v.status === "coming_soon";
                 const isActive = activeVariantId === v.id;
-	            const label = v.label.includes("/") ? v.label.split("/")[1].trim() : v.label;
+                const label = v.label.includes("/") ? v.label.split("/")[1].trim() : v.label;
                 return (
                   <button
                     type="button"
@@ -588,7 +602,7 @@ export default function AccountPage() {
                         : "bg-white dark:bg-zinc-900 dark:text-zinc-100 hover:border-slate-300 dark:hover:border-zinc-600"
                     } ${coming ? "opacity-60 cursor-not-allowed" : "cursor-pointer"}`}
                   >
-	                    {label}
+                    {label}
                     {coming && (
                       <span className="ml-2 inline-flex items-center rounded-full border border-amber-400/70 bg-amber-50 px-1.5 py-0.5 text-[10px] font-semibold text-amber-700 dark:border-amber-500/40 dark:bg-amber-900/30 dark:text-amber-200">
                         Coming soon
@@ -598,7 +612,7 @@ export default function AccountPage() {
                 );
               })}
             </div>
-	            <p className="text-xs text-gray-500 dark:text-zinc-400 mt-2">Training access is free while RotorReady is in active development.</p>
+            <p className="text-xs text-gray-500 dark:text-zinc-400 mt-2">Training access is free while RotorReady is in active development.</p>
           </div>
           {loggedIn && (
             <button

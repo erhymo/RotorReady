@@ -1,0 +1,4373 @@
+{
+  "items": [
+    {
+      "id": "AW169-SYS-001",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "How does the AW169 RFM Section 7 describe the helicopter and its intended roles?",
+      "options": [
+        "Medium twin-engine aircraft designed for land and sea operations including offshore services, HEMS, SAR, law enforcement, corporate and utility roles.",
+        "Light single-engine aircraft intended only for inland VFR training operations.",
+        "Heavy twin-engine aircraft certified exclusively for offshore oil and gas transport.",
+        "Single-engine helicopter optimised only for agricultural spraying and banner towing."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The opening paragraph of Section 7 Helicopter general describes the AW169 as a medium twin-engine aircraft for land and sea operations including offshore services, HEMS, SAR, law enforcement, corporate and utility roles.",
+      "references": [
+        "AW169 RFM Section 7 - Helicopter general (p.7-1)"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "systems",
+        "general",
+        "configuration",
+        "roles"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-002",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "According to Helicopter general in Section 7, what does the RFM state about the cockpit seats and flight controls?",
+      "options": [
+        "Pilot and co-pilot have crashworthy seats and double commands (cyclic, collective bar and pedals).",
+        "Only the left seat is equipped with flight controls; the right seat is for passengers only.",
+        "Both seats are non-crashworthy and share a single set of flight controls.",
+        "The cockpit uses side-stick controllers with no conventional pedals."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Section 7 Helicopter general states that the cockpit has pilot and co-pilot crashworthy seats and double commands, including cyclic, collective bar and pedals for both crew members.",
+      "references": [
+        "AW169 RFM Section 7 - Helicopter general (p.7-1)"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "systems",
+        "general",
+        "cockpit",
+        "controls"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-003",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "How is the main cabin structure described in the AW169 RFM Section 7?",
+      "options": [
+        "Structure forward of the STA8175 joint with metallic internal structures and airframes and composite external fuselage skins, cowlings and fairings.",
+        "Entirely composite monocoque shell with no metallic internal structure.",
+        "All-metal stressed skin fuselage with no composite components.",
+        "Fabric-covered tubular frame with fixed landing gear attachments."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Section 7 states that the main cabin is the structure forward of the STA8175 joint, constructed of metallic internal structures and airframes with composite external fuselage skins, cowlings and fairings.",
+      "references": [
+        "AW169 RFM Section 7 - Helicopter general (p.7-1)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "general",
+        "structure"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-004",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "What is the primary structural feature of the AW169 tail unit according to Section 7?",
+      "options": [
+        "Carbon fibre composite upper and lower longerons providing a continuous load path from the STA8175 joint to the fin.",
+        "Steel tube truss bolted directly to the main gearbox.",
+        "Aluminium honeycomb tail boom with no longerons.",
+        "Fabric-covered fin supported only by the tail rotor gearbox deck."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The Helicopter general text describes the tail unit primary structural parts as carbon fibre composite upper and lower longerons providing a continuous load path from the STA8175 joint to the fin.",
+      "references": [
+        "AW169 RFM Section 7 - Helicopter general (p.7-1)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "general",
+        "tail-unit"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-005",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "Where are the circuit breaker panel and rotor brake control panel located in the AW169 cockpit?",
+      "options": [
+        "In the overhead console above the heads of the flight crew.",
+        "On the left side of the main instrument panel.",
+        "On the rear cabin bulkhead behind the co-pilot.",
+        "Under the floor in the avionics bay."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Section 7 explains that the overhead console, installed above the heads of the flight crew, includes the circuit breaker panel and the rotor brake control panel.",
+      "references": [
+        "AW169 RFM Section 7 - Helicopter general (p.7-1)"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "systems",
+        "electrical",
+        "cockpit",
+        "circuit-breakers"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-006",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "According to Section 7, where are the control panels and displays that govern the installed systems and are used by the flight crew mainly located?",
+      "options": [
+        "On the instrument panel and interseat console between the pilot and co-pilot.",
+        "Only on touchscreens in the rear cabin.",
+        "On the tail boom and external fuselage.",
+        "On the collective sticks exclusively."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The Helicopter general text states that the instrument panel and interseat console contain all the control panels and displays governing the systems installed in the aircraft and utilised by the flight crew.",
+      "references": [
+        "AW169 RFM Section 7 - Helicopter general (p.7-1)"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "systems",
+        "general",
+        "cockpit",
+        "controls"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-007",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "Which engines and key features does the AW169 RFM list in the Helicopter general section?",
+      "options": [
+        "Two Pratt & Whitney Canada PW210A engines with dual FADEC, APU mode and variable RPM control, installed in the upper deck under cowlings.",
+        "Two Rolls-Royce turboshaft engines with manual fuel controls and fixed RPM.",
+        "A single PW210A engine with dual FADEC and a fixed-pitch main rotor.",
+        "Two piston engines driving separate main rotors without FADEC."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Section 7 describes the power system as two Pratt & Whitney Canada PW210A engines with dual FADEC, APU mode and variable RPM control capability, installed in the upper deck and covered by cowlings.",
+      "references": [
+        "AW169 RFM Section 7 - Helicopter general (p.7-1)"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "systems",
+        "powerplant",
+        "general"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-008",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "Where is the flotation control panel for the emergency flotation system installed according to the System Description OES section?",
+      "options": [
+        "On the right side of the interseat console in the cockpit.",
+        "In the overhead console above the pilots.",
+        "On the left cabin sidewall near the sliding door.",
+        "On the aft cabin bulkhead next to the baggage door."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The OES System Description states that the flotation control panel is installed on the right side of the interseat console in the cockpit.",
+      "references": [
+        "AW169 RFM Section 7 - OES Emergency flotation system (p.7-652)"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "systems",
+        "OES",
+        "emergency-float",
+        "controls"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-009",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "How does the crew place the emergency flotation system in the armed condition before flight above water?",
+      "options": [
+        "By setting the FLOAT master switch on the flotation control panel to ARMED.",
+        "By pulling the guarded FLOAT switch on the collective grip and leaving it raised.",
+        "By selecting AUTO EXT on the landing light switch.",
+        "By switching off electrical power to both inflation systems."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Section 7 explains that the emergency flotation system operates only when it is in the armed condition, which is achieved by setting the FLOAT master switch on the flotation control panel to ARMED.",
+      "references": [
+        "AW169 RFM Section 7 - OES Emergency flotation system (p.7-652)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "OES",
+        "emergency-float",
+        "procedures"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-010",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "What does the RFM describe as the primary means of activating the emergency flotation system when it is armed?",
+      "options": [
+        "Automatic actuation via four emergency float switches (water sensors) when two adjacent switches contact water.",
+        "Manual activation only by the pilot using a cable pull handle on the floor.",
+        "Automatic deployment whenever airspeed falls below 10 kt at low altitude.",
+        "Activation solely by the hoist operator using a panel in the cabin."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The OES System Description states that four emergency float switches on the lower fuselage are connected to the flotation control panel and inflation valves and that this automatic water-sensor activation is considered the primary means of emergency flotation system activation when the master switch is ARMED.",
+      "references": [
+        "AW169 RFM Section 7 - OES Emergency flotation system (p.7-652 to 7-653)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "OES",
+        "emergency-float",
+        "activation"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-011",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "When does the RFM require the emergency flotation system to be set to ARMED?",
+      "options": [
+        "When the helicopter is in flight above the water.",
+        "Whenever the helicopter is parked on the apron.",
+        "Only during maintenance ground runs.",
+        "Only after the floats have already been deployed in a ditching."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Section 7 notes that the emergency flotation system must be set in the armed condition when the helicopter is in flight above the water.",
+      "references": [
+        "AW169 RFM Section 7 - OES Emergency flotation system (p.7-653)"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "systems",
+        "OES",
+        "emergency-float",
+        "procedures"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-012",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "If the automatic activation of the emergency flotation system fails, how can the crew manually inflate the floats according to Section 7?",
+      "options": [
+        "By raising the guard and pressing the guarded FLOAT pushbutton on either the pilot's or co-pilot's collective grip.",
+        "By cycling the FLOAT master switch on the interseat console OFF then ARMED three times.",
+        "By selecting STOW on the landing light switch for more than five seconds.",
+        "By pulling the rotor brake handle fully aft while on the water."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The OES description explains that, in the event of failure of the automatic actuation method, aircrew can command floats inflation via guarded pushbutton FLOAT switches on both pilot and copilot collective grips.",
+      "references": [
+        "AW169 RFM Section 7 - OES Emergency flotation system (p.7-653)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "OES",
+        "emergency-float",
+        "manual-activation"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-013",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "What is the purpose of the TEST button on the flotation control panel as described in the System Description?",
+      "options": [
+        "To check the continuity of the electrical circuits from the control panel to the inflation valves and verify that the system test lights illuminate.",
+        "To test the rotor brake operation during ground runs.",
+        "To simulate a ditching by partially inflating the floats.",
+        "To reset all emergency system cautions in the CAS."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Section 7 states that the TEST button on the flotation control panel is used to verify the correct operation and continuity of the electrical circuits to the inflation valves, with the LH SYS and RH SYS lights illuminating during the test.",
+      "references": [
+        "AW169 RFM Section 7 - OES Emergency flotation system (p.7-653)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "OES",
+        "emergency-float",
+        "test"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-014",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "According to the Lights (Chap 33) system description, how are the steerable landing lights normally controlled and what provides backup control?",
+      "options": [
+        "Primarily by switches on the pilot and co-pilot collective grips, with integrated EDCU external lights page controls acting as backup.",
+        "Only by the EDCU external lights page; collective grip switches are backup.",
+        "Only by a panel on the overhead console with no backup control.",
+        "By a floor-mounted pedal, backed up by the hoist operator's panel."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The Lights chapter states that the external lights are controlled via the EDCU lights page, but that the steerable landing lights are primarily controlled via the related switches on the pilot and co-pilot collective grips, with the integrated EDCU controls acting as backup.",
+      "references": [
+        "AW169 RFM Section 7 - Lights (Chap 33) Steerable landing lights (p.7-302 to 7-305)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "lights",
+        "collective",
+        "EDCU"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-015",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "With the AW169 landing lights switched off and in the stowed position, what happens when the AUTO EXT/CAGE position is selected on the AUTO EXT/CAGE STOW switch according to the RFM?",
+      "options": [
+        "The selected landing light(s) illuminate and extend automatically to the predefined landing position, and other controls to the light(s) are inhibited during the sequence.",
+        "The selected landing light(s) retract and switch off, completing the STOW function.",
+        "The selected landing light(s) flash three times and remain stowed for a lamp test only.",
+        "The system switches control of the landing lights from the collective grip to the EDCU page."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The steerable landing lights description explains that with the lights switched off and stowed, selecting AUTO EXT/CAGE initiates the AUTO EXT function: the selected light(s) illuminate and extend to the predefined landing position and all other controls to the lights are inhibited during the sequence.",
+      "references": [
+        "AW169 RFM Section 7 - Lights (Chap 33) Steerable landing lights (p.7-305 to 7-307)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "lights",
+        "landing-lights",
+        "AUTO-EXT"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-016",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "On the Hydraulic System (Chap 29) description, what does the interlocking of hydraulic circuits 1 and 2 on the EDCU HYD page ensure when you manage the system from the cockpit?",
+      "options": [
+        "You cannot shut off both hydraulic systems at the same time using the cockpit controls.",
+        "Either circuit automatically shuts down whenever you lower collective to idle.",
+        "Hydraulic pressures in circuits 1 and 2 are always forced to be identical.",
+        "The tail rotor hydraulic circuit is always supplied from system 1 only."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The hydraulic page on the EDCU is described as providing interlocking of the two circuits without the possibility of excluding both systems, so the pilot cannot inadvertently shut off both hydraulic systems at once from the cockpit.",
+      "references": [
+        "AW169 RFM Section 7 - Hydraulic system (Chap 29) Hydraulic system controls and displays (p.7-243)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "hydraulic",
+        "EDCU",
+        "controls"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-017",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "According to the Hydraulic System controls and displays description, what happens if one hydraulic circuit has been manually excluded and the remaining circuit later suffers a low-pressure failure?",
+      "options": [
+        "The previously excluded hydraulic circuit is automatically re-activated to restore hydraulic power.",
+        "Both hydraulic circuits remain off until the pilot cycles the HYD page and reselects them.",
+        "The AFCS disconnects and the helicopter must be landed with no hydraulic assistance.",
+        "Only the tail rotor actuator is powered while the main rotor actuators remain depressurised."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The RFM states that the hydraulic system includes automatic re-activation of the excluded circuit in the event of a failure (low pressure) in the other circuit, so that hydraulic power is restored without requiring a cockpit reconfiguration first.",
+      "references": [
+        "AW169 RFM Section 7 - Hydraulic system (Chap 29) Hydraulic system controls and displays (p.7-243)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "hydraulic",
+        "automatic-control"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-018",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "What is the primary operational purpose of the Electric Hydraulic Power Supply (EHPS) described in the hydraulic system supplement?",
+      "options": [
+        "To provide just enough hydraulic power on the ground for full and free movement checks of the flight control servo actuators before the engine-driven pumps are used.",
+        "To back up the main hydraulic pumps in flight whenever engine NG is below 64%.",
+        "To power only the tail rotor actuator during single-engine operations in flight.",
+        "To supply emergency pressure to the landing gear actuators during normal gear extension."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The EHPS is described as a 28 VDC electric motor-driven hydraulic power supply installed on hydraulic system 1 that provides hydraulic power just sufficient for the full and free movement check of the servo actuators prior to running the mechanically driven HPSs, and is intended as a ground-use kit.",
+      "references": [
+        "AW169 RFM Section 7 - Hydraulic system (Chap 29) EHPS Supplement (p.S42-1)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "hydraulic",
+        "EHPS",
+        "ground-check"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-019",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "Which limitation applies when you operate the EHPS according to the RFM description?",
+      "options": [
+        "It is for ground use only, powered from the helicopter battery, and its operation is limited to a maximum of 2 minutes at a time.",
+        "It may be run continuously in flight as long as both DC generators are online.",
+        "It must be switched on for at least 10 minutes before any flight control checks are carried out.",
+        "It may only be used in flight above 10 000 ft to prevent pump overheating."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The EHPS description states that the unit is a ground-use component controlled via the HYD page, powered from the helicopter battery and limited by AMMC logic to 2 minutes of operation, which defines how the crew may use it during pre-flight checks.",
+      "references": [
+        "AW169 RFM Section 7 - Hydraulic system (Chap 29) EHPS Supplement (p.S42-1)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "hydraulic",
+        "EHPS",
+        "limitations"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-020",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "How are the main and tail rotor servo actuators designed to behave if one hydraulic system fails according to the Rotors Flight Control description?",
+      "options": [
+        "They continue to operate on the remaining hydraulic system without degrading the helicopter handling qualities.",
+        "They revert to full manual reversion with significantly increased control forces.",
+        "They lock in their last position until both hydraulic systems are restored.",
+        "The tail rotor actuator remains powered but all main rotor actuators are depressurised."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The Section 7 Rotors Flight Control text explains that both the main rotor and tail rotor servo actuators are designed to operate normally with two completely separated hydraulic systems, and that in case of failure of one system the level of performance with the remaining system ensures no degradation of the helicopter handling qualities.",
+      "references": [
+        "AW169 RFM Section 7 - Rotors flight control (Chap 67) (p.7-562)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "hydraulic",
+        "flight-controls"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-021",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "What is the purpose of the Tail Rotor Shut-Off Valve (TRSOV) in the hydraulic system description?",
+      "options": [
+        "To isolate hydraulic circuit 1 from the tail rotor actuator hydraulic line in the event of a leak.",
+        "To close both hydraulic systems automatically whenever rotor speed falls below 20% NR.",
+        "To cut off hydraulic pressure to the main rotor actuators during rotor brake use only.",
+        "To connect hydraulic circuits 1 and 2 together for cross-feed when required."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "In the Hydraulic System General description the TRSOV is described as the only component not included in the PCMs, whose function is to enable isolation of hydraulic circuit 1 tail rotor actuator hydraulic line in the event of a leak.",
+      "references": [
+        "AW169 RFM Section 7 - Hydraulic system (Chap 29) General (p.7-241)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "hydraulic",
+        "tail-rotor",
+        "TRSOV"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-022",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "In the Fuel System (Chap 28) general description, which main functions does the airframe fuel system provide for the AW169?",
+      "options": [
+        "Fuel storage, distribution, ventilation and indicating functions supplying both engines in all ground and flight conditions.",
+        "Only fuel storage and filtration, with all distribution handled entirely by the engines.",
+        "Fuel storage and tyre inflation using bleed air from the engines.",
+        "Fuel distribution and de-icing of the main rotor blades through heated fuel."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The Fuel System General paragraph states that the fuel system provides fuel storage capability and supplies the two engines in all ground and flight conditions, and that its principal functions are the fuel storage system, fuel distribution system, fuel ventilation system and fuel indicating system.",
+      "references": [
+        "AW169 RFM Section 7 - Fuel system (Chap 28) General (p.7-229)"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "systems",
+        "fuel",
+        "functions"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-023",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "According to the Fuel System controls and displays description, how can the pilot manually control the fuel shut-off valves (SOVs)?",
+      "options": [
+        "By using the EDCU fuel page to OPEN or CLOSE each fuel SOV.",
+        "By pulling guarded fuel levers on the overhead panel above the pilots.",
+        "By pressing a pushbutton on each engine control quadrant only.",
+        "By selecting crossfeed on the hydraulic page to shut the valves."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The Fuel System controls and displays section explains that the fuel system has both manual and automatic controls and that the manual control is provided on the EDCU fuel page, where the pilot can CLOSE or OPEN the fuel shut-off valves.",
+      "references": [
+        "AW169 RFM Section 7 - Fuel system (Chap 28) Fuel system controls and displays (p.7-229 to 7-231)"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "systems",
+        "fuel",
+        "EDCU",
+        "SOV"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-024",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "What does the RFM state happens automatically to the fuel shut-off valve (SOV) in case of an engine fire?",
+      "options": [
+        "The associated fuel SOV closes automatically, which also arms the fire extinguisher for that engine.",
+        "Both fuel SOVs open fully to depressurise the fuel lines and prevent vapour lock.",
+        "The fuel SOV only partially closes to reduce fuel flow but keep the engine running.",
+        "No automatic action occurs; the pilot must always close the fuel SOV manually."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "In the description of the fuel system controls and displays the RFM notes that in case of engine fire the relevant fuel shut-off valve is automatically closed, arming the fire extinguisher system for that engine.",
+      "references": [
+        "AW169 RFM Section 7 - Fuel system (Chap 28) Fuel system controls and displays (p.7-229 to 7-231)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "fuel",
+        "engine-fire",
+        "SOV"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-025",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "When a fuel system component malfunctions, which cockpit action does the Fuel System description recommend to obtain more detailed information on the affected component?",
+      "options": [
+        "Display the fuel system synoptic page on the EDCU by selecting the fuel page.",
+        "Select the HYD page on the EDCU to check for related cautions.",
+        "Switch the FMS to plan view and zoom in on the nearest suitable diversion airfield.",
+        "Cycle both engine master switches OFF and ON to reset the indications."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The Fuel System controls and displays paragraph explains that in case of malfunction of a fuel system component it is possible to display the fuel system synoptic page (via the EDCU fuel page) to provide detailed information about the component or components affected by the malfunction.",
+      "references": [
+        "AW169 RFM Section 7 - Fuel system (Chap 28) Fuel system controls and displays (p.7-229 to 7-231)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "fuel",
+        "synoptic",
+        "malfunction"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-026",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "According to the Fuel System description, where are fuel quantities and fuel flow primarily displayed to the crew?",
+      "options": [
+        "On the Multi-Function Display power plant (PWR PLANT) format, in both numerical and graphical form.",
+        "Only on a standalone analogue fuel gauge on the overhead panel.",
+        "On the AFCS control panel as part of the mode annunciations.",
+        "On the CAS window as continuously scrolling text messages."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The text states that fuel quantities and fuel flow are displayed on the Multi-Function Display PWR PLANT format, where they are shown in numerical and graphical representation for the crew.",
+      "references": [
+        "AW169 RFM Section 7 - Fuel system (Chap 28) Fuel system controls and displays (p.7-230 to 7-231)"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "systems",
+        "fuel",
+        "indications"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-027",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "What fuel-related information does the primary flight display (PFD) provide according to the Fuel System cockpit display description?",
+      "options": [
+        "Left, right and total fuel quantities together with the status of both fuel SOVs.",
+        "Only total fuel quantity with no indication of individual tank levels.",
+        "Separate fuel pressure indications for each engine-driven low pressure pump.",
+        "Separate fuel temperature readouts for each main tank and the crossfeed line."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The Fuel System description notes that the primary flight display provides information about left, right and total fuel quantities as well as the status of both fuel shut-off valves, so the pilot can monitor quantities and valve state at a glance.",
+      "references": [
+        "AW169 RFM Section 7 - Fuel system (Chap 28) Fuel system controls and displays (p.7-231)"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "systems",
+        "fuel",
+        "PFD"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-028",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "What practical advantage does the Closed Circuit Refuelling Receiver (CCRR) kit provide, and which limitation does the RFM mention for its use?",
+      "options": [
+        "It allows sealed, low-pressure refuelling without fuel fumes or spillage, but cannot be used for gravity refuelling and must be installed together with a gravity filler port.",
+        "It enables gravity refuelling only and must not be used with pressure refuelling vehicles under any circumstances.",
+        "It allows refuelling in flight with one engine shut down as long as both CCRR units are installed.",
+        "It doubles the usable fuel capacity but removes the crash-resistant features of the bladder tanks."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The CCRR kit description states that it allows sealed refuelling without discharge of fuel fumes or fuel spillage to the external environment, but also notes that no gravity refuelling is allowed with this equipment and that it must be installed in conjunction with a gravity filler port.",
+      "references": [
+        "AW169 RFM Section 7 - Fuel system (Chap 28) LH&RH closed circuit refuelling receiver kit (p.7-239)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "fuel",
+        "CCRR",
+        "refuelling"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-029",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "What is the main purpose of the fuel tank ventilation system as described in the Fuel System ventilation section?",
+      "options": [
+        "To ensure proper ventilation of all tanks, prevent adverse pressure across the tank walls and minimise fuel spillage, including during unusual attitudes or rollover, by routing vents to a single underside outlet.",
+        "To supply bleed air to de-ice the rotor blades and windshield using fuel vapour.",
+        "To cool the fuel before it reaches the engines in high ambient temperatures by venting it through the fuselage roof.",
+        "To pressurise the tanks so that boost pumps are not required for engine fuel supply."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The ventilation system description states that the fuel tank ventilation system ensures proper ventilation of all tanks and minimises fuel leakage due to a helicopter rollover by routing vent lines through the fuselage roof to a single underside outlet, preventing adverse pressure conditions across the tank walls while venting fuel vapour overboard.",
+      "references": [
+        "AW169 RFM Section 7 - Fuel system (Chap 28) Ventilation system (p.7-235)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "fuel",
+        "ventilation"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-030",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "Why does the Fuel System description state that flexible pipes are used in certain parts of the fuel lines and that all pipes and hoses are labelled for flow direction and function?",
+      "options": [
+        "To meet crash safety requirements by allowing movement between the bladder tanks and rigid structure without tearing the tanks, and to make the routing and troubleshooting of fuel lines clear to maintenance and flight crews.",
+        "To reduce fuel weight by using thinner walls than rigid pipes, even if this increases the risk of leaks.",
+        "To allow pilots to manually reroute fuel in flight by twisting the hoses into different positions.",
+        "To enable the fuel tanks to be used as an emergency oxygen source when required."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The Fuel System description explains that flexible pipes are used where relative movement between bladder and rigid pipe in a survivable crash could otherwise damage the bladders and cause serious fuel spillage, and that all pipes and hoses are labelled to indicate flow direction and function, enhancing crash safety and system clarity.",
+      "references": [
+        "AW169 RFM Section 7 - Fuel system (Chap 28) Fuel distribution system (p.7-232)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "fuel",
+        "crashworthiness"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-031",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "What does the AFCS System Description state happens when you press the TEST push-button on the AFCS control panel before flight?",
+      "options": [
+        "A Pre-Flight Test (PFT) sequence is started, the TEST button remains illuminated during the test, and extinguishes when the test is complete with results shown on the AFCS synoptic page.",
+        "The autopilot immediately disconnects all upper modes and switches to basic ATT mode until engine start is complete.",
+        "The AFCS resets all mode references and clears any CAS messages related to AFCS without further indication.",
+        "The AFCS forces engagement of both AP1 and AP2 channels and automatically selects ALT and HDG modes."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The AFCS controls and displays section in Chapter 22 explains that pressing the TEST push-button on the AFCS control panel initiates a Pre-Flight Test (PFT). The button is illuminated during the test and extinguishes upon completion, with test results indicated on the AFCS page.",
+      "references": [
+        "AW169 RFM Section 7 - AFCS (Chap 22) AFCS control panel (p.7-31)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "AFCS",
+        "test"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-032",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "According to the AFCS controls and displays description, what is the effect of pressing the ATT push-button on the AFCS control panel?",
+      "options": [
+        "It engages both AFCS autopilot channels and/or disengages all upper modes and engages ATT mode, depending on avionic phase, providing basic attitude hold.",
+        "It disconnects both autopilot channels and leaves all upper modes active in the background.",
+        "It arms all available AFCS upper modes without engaging any mode until a separate AP button is pressed.",
+        "It directly commands a go-around with automatic transition-up and climb to a pre-set altitude."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The AFCS System Description notes that pressing the ATT push-button either engages both autopilot channels 1 and 2 (for Avionic Phase 6.0 and later) or disengages all AFCS upper modes and engages ATT mode, giving basic attitude hold. In both cases it is the primary control to establish ATT mode.",
+      "references": [
+        "AW169 RFM Section 7 - AFCS (Chap 22) AFCS control panel (p.7-32)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "AFCS",
+        "ATT"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-033",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "How does the AP OFF push-button on the cyclic grip affect the AFCS, according to the AFCS System Description?",
+      "options": [
+        "A double press within two seconds disengages both autopilot channels and terminates all AFCS modes and functions, while a single press arms AP OFF without immediate effect until pressed again.",
+        "A single press always re-engages all AFCS upper modes that were last active before AP OFF was used.",
+        "It only disconnects the yaw channel while leaving pitch and roll autopilot channels engaged.",
+        "It switches AFCS from coupled to uncoupled operation while keeping all modes active."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The AFCS controls and displays text explains that for Avionic Phase 8.0 or later a double press of the AP OFF push-button within two seconds causes disengagement of both autopilot channels AP1 and AP2 and termination of all AFCS modes and functions. The first press arms AP OFF, indicated by an advisory on the PFD.",
+      "references": [
+        "AW169 RFM Section 7 - AFCS (Chap 22) AFCS control panel and cyclic grip controls (p.7-32)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "AFCS",
+        "AP-OFF"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-034",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "What effect does engaging the WLVL (Wing Level) mode via its push-button have on AFCS operation?",
+      "options": [
+        "It engages fixed pitch and roll attitude references, has high priority, and causes disengagement of all other AFCS modes.",
+        "It only trims out lateral cyclic forces without affecting any engaged AFCS modes.",
+        "It adjusts the heading reference bug to the current track but leaves other modes unchanged.",
+        "It forces the helicopter into a coordinated turn at the last selected bank angle."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The AFCS description states that once WLVL is engaged the AFCS acquires fixed pitch and roll attitude references. WLVL mode is described as having high priority and causing disengagement of all other AFCS modes.",
+      "references": [
+        "AW169 RFM Section 7 - AFCS (Chap 22) AFCS control panel (p.7-32)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "AFCS",
+        "WLVL"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-035",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "According to the AFCS System Description, what is the operational effect of pressing the GA/TU push-button on the cyclic grip in approach or low-altitude operations?",
+      "options": [
+        "It engages Go-Around and/or Transition-Up modes as applicable, has high priority, and causes disengagement of all other AFCS modes so that the AFCS commands the go-around/transition-up profile.",
+        "It simply increases the IAS reference by 10 kt while keeping all other modes engaged.",
+        "It arms, but does not engage, the go-around mode until collective is raised above a defined detent.",
+        "It disconnects the autopilot completely and leaves the pilot flying manually with no AFCS assistance."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The AFCS controls and displays section explains that pressing the GA/TU push-button causes engagement of one or more modes (GA and, for certain avionic phases, TU). GA/TU mode has high priority and causes disengagement of all AFCS modes, giving the AFCS authority to fly the go-around or transition-up profile.",
+      "references": [
+        "AW169 RFM Section 7 - AFCS (Chap 22) AFCS control panel and cyclic grip controls (p.7-32)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "AFCS",
+        "go-around"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-036",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "How is the P/R permanent force trim for the cyclic engaged and indicated according to the AFCS System Description?",
+      "options": [
+        "By using the P/R PTR function on the AFCS page of the EDCU, which when engaged shows a green label and, if disengaged, removes the label and generates a P/R TRIM OFF advisory and ATT OFF caution on CAS.",
+        "By pulling a guarded TRIM circuit breaker, which illuminates a P/R TRIM ON caption on the AFCS synoptic page.",
+        "By pressing the WLVL push-button on the AFCS control panel, which automatically sets the P/R trim and shows a white WLVL label.",
+        "By rotating the HDG knob fully clockwise, which couples the trim system to the yaw channel only."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The AFCS System Description explains that the P/R force trim function is controlled on the AFCS page of the EDCU. When engaged, a green label appears; when disengaged the label disappears and the advisory P/R TRIM OFF and the caution ATT OFF are generated on the CAS.",
+      "references": [
+        "AW169 RFM Section 7 - AFCS (Chap 22) AFCS synoptic and EDCU AFCS page (p.7-35)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "AFCS",
+        "trim"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-037",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "What is the primary role of the AFCS Low Height protection function as described on the AFCS page?",
+      "options": [
+        "To override AFCS collective mode commands and increase collective as needed to prevent exceeding low height thresholds in hover and cruise.",
+        "To automatically disconnect the autopilot whenever radar altimeter height falls below 50 ft AGL.",
+        "To reduce engine power and increase airspeed whenever height is below 200 ft AGL.",
+        "To hold current radar altitude exactly and inhibit any manual collective input below a set limit."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The AFCS System Description states that the LOW HT indication on the AFCS page shows that the Low Height protection system is active, overriding AFCS collective mode control to avoid exceeding the defined low height thresholds by automatically increasing collective if they are approached.",
+      "references": [
+        "AW169 RFM Section 7 - AFCS (Chap 22) AFCS synoptic page (p.7-35)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "AFCS",
+        "low-height"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-038",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "According to the AFCS description, what does the PWR LIM indication on the AFCS synoptic page tell the crew?",
+      "options": [
+        "That the AFCS Power Limit/Autorotation protection system is overriding collective mode commands to keep power margin or prevent entry into autorotation.",
+        "That engine torque has fallen below idle and the rotor is in full autorotation.",
+        "That both generators are offline and the AFCS is powered from the battery only.",
+        "That the autopilot channels are inoperative and only manual SAS is available."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The AFCS System Description explains that the PWR LIM indication on the AFCS page means the AFCS Power Limit/Autorotation protection system is active, overriding collective mode commands either to maintain power margin or to prevent entry into autorotation.",
+      "references": [
+        "AW169 RFM Section 7 - AFCS (Chap 22) AFCS synoptic page (p.7-35)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "AFCS",
+        "power-limit"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-039",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "What does the AFCS System Description state happens to AFCS collective modes when the UCPL indication appears on the AFCS page after transition to OEI and power above continuous OEI (COEI)?",
+      "options": [
+        "AFCS collective mode is automatically uncoupled, and will recouple automatically when power is reduced below COEI and the pilot releases the collective.",
+        "AFCS collective mode is locked at its last command and can only be changed by cycling AP1 and AP2 off and on.",
+        "All AFCS collective and pitch modes remain engaged but are frozen until both engines are restored to AEO.",
+        "The AFCS immediately commands maximum climb power and ignores pilot collective inputs."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The AFCS synoptic description explains that UCPL indicates that the AFCS collective mode has been automatically uncoupled following a transition to OEI with power above continuous OEI. When power is reduced below COEI and the pilot releases the collective, the mode automatically re-couples.",
+      "references": [
+        "AW169 RFM Section 7 - AFCS (Chap 22) AFCS synoptic page (p.7-35)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "AFCS",
+        "OEI"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-040",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "How does the AFCS System Description explain the role of the SCAS part of the main rotor actuators in assisting the pilot?",
+      "options": [
+        "The AFCS controls the SCAS actuator in series with pilot inputs to adjust main rotor blade pitch in response to attitude changes, with limited authority so that failures or jams do not cause excessive control movements.",
+        "The SCAS actuator directly replaces the pilot's cyclic and collective controls in all AFCS modes and removes any need for mechanical linkages.",
+        "The SCAS actuator is only used for automatic trimming on the ground and is inactive in flight.",
+        "The SCAS actuator is a backup hydraulic pump that maintains system pressure after both engine-driven pumps fail."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The AFCS section describes the main rotor actuators as combining a hydraulic servo actuator and an AFCS electrohydraulic (SCAS) actuator. The AFCS controls the SCAS actuator in response to changes in pitch, roll and yaw, working in series with pilot commands with limited authority so that even if it fails or jams, flight control movement and resulting disturbance are limited.",
+      "references": [
+        "AW169 RFM Section 7 - AFCS (Chap 22) Main Rotor Actuators and SCAS (p.7-36)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "AFCS",
+        "SCAS"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-041",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "In the Electrical Power System description, what is the stated main purpose of the electrical system on the AW169?",
+      "options": [
+        "To provide electrical power to helicopter systems and to start the engines.",
+        "To supply backup hydraulic pressure to the primary servos in flight.",
+        "To drive the main rotor in case of dual engine failure.",
+        "To maintain cabin pressurisation at all operating altitudes."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The opening paragraph of the Electrical Power (Chapter 24) System Description states that the main purpose of the electrical system is to provide electrical power to the helicopter systems and to start the engines.",
+      "references": [
+        "AW169 RFM Section 7 - Electrical power (Chap 24) General (p.7-119)"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "systems",
+        "electrical",
+        "general"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-042",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "According to the Electrical Power controls and displays description, what is the role of the EDCU electrical page for the crew?",
+      "options": [
+        "It provides an integrated synoptic of the DC electrical generation and distribution system and allows the crew to control breakers, generator switches and bus tie logic.",
+        "It only displays total battery voltage and frequency without any control capability.",
+        "It is used exclusively to schedule load shedding in flight by entering numerical load priorities.",
+        "It acts as a backup primary flight display when the main PFD fails."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The Electrical Power controls and displays section explains that the EDCU electrical page is the main interface for the crew to monitor and control the DC generation and distribution system, including generator and bus tie status and selected circuit breakers, presented in synoptic form.",
+      "references": [
+        "AW169 RFM Section 7 - Electrical power (Chap 24) Electrical power controls and displays (p.7-120)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "electrical",
+        "EDCU"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-043",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "What does the description of the 75A Electrical Power Socket kit say about how and when that socket is powered?",
+      "options": [
+        "It is a 28 VDC socket supplied via Non Essential Bus #2 that is automatically powered at helicopter power-up without requiring any dedicated switch.",
+        "It is a 115 VAC socket that must be manually switched on using a dedicated breaker before each use.",
+        "It is powered only when both main generators are online and is automatically disconnected on the ground.",
+        "It is an external AC socket that can only be used during engine start with external power connected."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The System Description for the Kit Electrical power socket (75A) states that it is a 28 VDC connector providing 75 A and is supplied via Non Essential Bus #2, and that it is automatically supplied at helicopter power-up with no requirement to switch the kit on separately.",
+      "references": [
+        "AW169 RFM Section 7 - Electrical power (Chap 24) Kit Electrical power socket (75A) (p.7-150)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "electrical",
+        "power-socket"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-044",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "According to the External Hoist kit System Description, what CAS messages help the crew monitor the status of the hoist power and light control?",
+      "options": [
+        "HOIST ON and HOIST LT CTRL ON advisory messages on the MFD, together with RH LDG LT ON when the right landing light is being used as searchlight.",
+        "Only a single HOIST FAIL warning message without any separate indication of light control.",
+        "A generic OES ON advisory whenever any OES kit, including floats and hoist, is powered.",
+        "A CARGO HOOK ON caption whenever the hoist is powered to avoid confusion."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The External Hoist kit description states that when the hoist system is selected ON a HOIST ON advisory is generated, and that HOIST LT CTRL ON indicates that the right steerable landing light is being used as searchlight via the hoist light control. RH LDG LT ON is also shown when the right landing light is illuminated, so the crew can correlate these advisories during hoist operations.",
+      "references": [
+        "AW169 RFM Section 7 - OES External hoist kit (p.7-709 to 7-712)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "hoist",
+        "CAS"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-045",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "In the Cargo Hook System Description, what is the purpose of the hook cameras kit for the operating crew?",
+      "options": [
+        "To provide a fixed video view of the cargo hook and load on the MFD video page so the crew can visually monitor the hook and payload during external load operations.",
+        "To automatically analyse load swing and command AFCS damping without pilot input.",
+        "To provide NVG-compatible landing guidance pictures for night approaches.",
+        "To record high-definition mission footage for later debriefing only."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The Cargo Hook Cameras kit description explains that its purpose is to allow the crew to monitor the cargo hook system and the load fixed at the end of the cable, by providing NTSC video that can be displayed on the MFD video page when the camera is enabled via the EDCU.",
+      "references": [
+        "AW169 RFM Section 7 - OES Cargo hook cameras kit (p.7-723)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "cargo-hook",
+        "cameras"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-046",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "According to the External Hoist kit description, what is the correct way to arm the HOIST CUT system before starting hoist operations?",
+      "options": [
+        "Select HOIST ON, confirm the HOIST ON CAS message, then set the HOIST CUT switch to ARM and check that the HOIST CUT ARM CAS message appears.",
+        "Set the HOIST CUT switch to ARM before powering the hoist so the cutter cartridge is already energised when HOIST ON is selected.",
+        "Pull the HOIST CUT circuit breaker and then push it in again to arm the cutter before extending the cable.",
+        "Press and hold the pilot hoist control switch fully down for more than 3 seconds to arm the cutter."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The External Hoist kit System Description states that, after selecting the hoist system ON and confirming the HOIST ON indication, the HOIST CUT switch must be set to ARM so that a HOIST CUT ARM CAS message appears, indicating that the cable cutter system is armed for foul protection.",
+      "references": [
+        "AW169 RFM Section 7 - OES External hoist kit, HOIST CUT system (p.7-711)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "hoist",
+        "HOIST-CUT"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-047",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "What does the System Description say triggers the HOIST CBL FOUL indication and cable cut when the HOIST CUT system is ARMED?",
+      "options": [
+        "A cable angular displacement beyond the preset limits, indicating that the cable is fouled or snagged.",
+        "Any momentary loss of electrical power to the hoist drum motor during a lift.",
+        "Operation of the pilot hoist control switch to the UP detent for longer than 10 seconds.",
+        "Selection of the RH landing light as searchlight while the cable is extended."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The HOIST CUT description explains that, with the system armed, an excessive cable angular displacement beyond preset limits will generate a HOIST CBL FOUL indication and command the cable cutter to operate, protecting the helicopter from a fouled hoist cable.",
+      "references": [
+        "AW169 RFM Section 7 - OES External hoist kit, HOIST CUT system (p.7-711)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "hoist",
+        "CAS"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-048",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "In the External Hoist kit description, how is the right steerable landing light used during hoist operations when HOIST LT CTRL is selected?",
+      "options": [
+        "It is controlled through the hoist control pendant as a searchlight, and a HOIST LT CTRL ON CAS message indicates that the hoist has taken control of the right landing light.",
+        "It remains under the standard landing light switch on the overhead panel, and HOIST LT CTRL only changes the light colour.",
+        "It automatically sweeps the ground ahead of the helicopter without any crew control when HOIST LT CTRL is selected.",
+        "It is switched off whenever HOIST LT CTRL is active to avoid glare for the cabin crew."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The External Hoist kit System Description explains that when HOIST LT CTRL is selected, the right steerable landing light is controlled by the hoist operator through the hoist pendant as a searchlight. A HOIST LT CTRL ON CAS message is displayed to show that the hoist has taken control of the right landing light.",
+      "references": [
+        "AW169 RFM Section 7 - OES External hoist kit, lighting control (p.7-710)"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "systems",
+        "hoist",
+        "lighting"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-049",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "What is the maximum allowable hoist load stated in the External Hoist kit description above 0 ",
+      "options": [
+        "550 lb (250 kg) above 0, reducing to 500 lb (227 kg) at or below 0.",
+        "600 lb (272 kg) at all ambient temperatures.",
+        "300 lb (136 kg) above 0 and 250 lb (113 kg) below 0.",
+        "550 lb (250 kg) only when the helicopter is in forward flight above 40 KIAS."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The External Hoist kit System Description specifies that the hoist is approved up to 550 lb (approximately 250 kg) for ambient temperatures above 0, and up to 500 lb (approximately 227 kg) at or below 0.",
+      "references": [
+        "AW169 RFM Section 7 - OES External hoist kit, limitations (p.7-709)"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "systems",
+        "hoist",
+        "limitations"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-050",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "According to the External Hoist kit System Description, what lateral bank angle limitation applies with the hoist cable extended?",
+      "options": [
+        "Bank angle must not exceed 20 degrees with the cable extended.",
+        "Bank angle must not exceed 10 degrees with the cable extended.",
+        "Bank angle is unrestricted provided IAS is below 40 KIAS with the cable extended.",
+        "Bank angle is limited to 30 degrees only when the cable is fully reeled in."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The hoist kit description includes an operational limitation stating that when the hoist cable is extended, helicopter bank angle must not exceed 20 degrees.",
+      "references": [
+        "AW169 RFM Section 7 - OES External hoist kit, operating limitations (p.7-709)"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "systems",
+        "hoist",
+        "limitations"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-051",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "How does the Cargo Hook System Description state that the hook is normally opened to release the load in flight?",
+      "options": [
+        "By operating the CARGO REL switch on the cyclic grip, provided the cargo hook system is powered and armed.",
+        "By pulling the mechanical release ring on the hook only, since there is no cockpit release.",
+        "By selecting HOOK OPEN on the EDCU cargo hook page and waiting for a HOOK OPEN CAS message.",
+        "By pressing the EMERG REL pushbutton on the instrument panel during normal release operations."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The Cargo Hook System Description describes the normal electrical release as being commanded by the CARGO REL switch on the cyclic grip when the cargo hook system is powered and armed. Mechanical release on the hook and the emergency release function are provided as backups.",
+      "references": [
+        "AW169 RFM Section 7 - OES Cargo hook system, controls (p.7-717)"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "systems",
+        "cargo-hook",
+        "controls"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-052",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "What is the purpose of the EMERG REL function described in the Cargo Hook System Description?",
+      "options": [
+        "To provide a backup means to open the cargo hook and jettison the external load if the normal CARGO REL control fails.",
+        "To lock the hook closed and prevent any release when operating over populated areas.",
+        "To automatically release the load at a preset height above ground.",
+        "To power the hook cameras kit independently from the rest of the cargo hook system."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The Cargo Hook System Description explains that the EMERG REL function provides an emergency means to open the cargo hook and jettison the external load if the normal electrical release via the CARGO REL switch fails, ensuring the helicopter can be freed from the load in abnormal situations.",
+      "references": [
+        "AW169 RFM Section 7 - OES Cargo hook system, emergency release (p.7-718)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "cargo-hook",
+        "emergency"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-053",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "According to the Cargo Hook System Description, what do the HOOK ARM and HOOK OPEN CAS messages indicate to the crew?",
+      "options": [
+        "HOOK ARM shows that the cargo hook release system is armed for load release and HOOK OPEN confirms that the hook is actually open.",
+        "HOOK ARM indicates that the hook is mechanically locked closed and cannot be opened, while HOOK OPEN means the hook cameras are powered.",
+        "HOOK ARM is displayed whenever any OES kit is powered, and HOOK OPEN appears only when the floats are inflated.",
+        "HOOK ARM means the hook electrical power is off, and HOOK OPEN means the hook load cell is unserviceable."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The Cargo Hook System Description states that the HOOK ARM CAS message indicates that the cargo hook release system is armed, and that HOOK OPEN confirms that the hook is actually open, providing clear status feedback to the crew during external load operations.",
+      "references": [
+        "AW169 RFM Section 7 - OES Cargo hook system, indications (p.7-719)"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "systems",
+        "cargo-hook",
+        "CAS"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-054",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "What is the function of the load cell described in the Cargo Hook System Description?",
+      "options": [
+        "It measures the external load weight and provides this information to the cockpit indication system.",
+        "It ensures the hook remains closed by applying a constant clamping force to the load ring.",
+        "It limits the maximum hoist speed by sensing cable tension.",
+        "It prevents hook opening whenever the load exceeds 1000 kg."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The Cargo Hook System Description explains that a load cell is installed to measure the external load weight, and this information is provided to the cockpit indication system so the crew can monitor the weight carried on the hook.",
+      "references": [
+        "AW169 RFM Section 7 - OES Cargo hook system, load cell (p.7-720)"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "systems",
+        "cargo-hook",
+        "load-cell"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-055",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "In the Cargo Hook System Description, what operational restriction is given regarding taxiing with the cargo hook installed?",
+      "options": [
+        "Taxiing on unprepared surfaces is prohibited when the cargo hook or sling is installed.",
+        "Taxiing is only allowed with the hook installed if the load is less than 500 kg.",
+        "Taxiing is unrestricted with the hook installed as long as the hook is empty.",
+        "Taxiing is allowed only in calm wind conditions when carrying an external load."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The Cargo Hook System Description notes that taxiing on unprepared surfaces is prohibited when the cargo hook or sling is installed, to avoid damaging the hook, sling or airframe.",
+      "references": [
+        "AW169 RFM Section 7 - OES Cargo hook system, operational restrictions (p.7-722)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "cargo-hook",
+        "limitations"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-056",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "What is the stated maximum external load for the Cargo Hook system in the System Description?",
+      "options": [
+        "1500 kg (3307 lb) as maximum external load.",
+        "1000 kg (2205 lb) as maximum external load.",
+        "2000 kg (4409 lb) as maximum external load.",
+        "750 kg (1653 lb) as maximum external load."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The Cargo Hook System Description specifies a maximum external load of 1500 kg (approximately 3307 lb) for the standard hook installation.",
+      "references": [
+        "AW169 RFM Section 7 - OES Cargo hook system, general (p.7-716)"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "systems",
+        "cargo-hook",
+        "limitations"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-057",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "According to the Cargo Hook Cameras kit description, how are the camera images typically displayed to the crew?",
+      "options": [
+        "As NTSC video on the MFD video page when the camera is selected via the EDCU.",
+        "Only on an external mission display in the cabin, not on the flight deck screens.",
+        "As still images recorded and replayed after landing.",
+        "As synthetic symbology overlaid on the PFD attitude display."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The Cargo Hook Cameras kit description explains that the cameras provide NTSC video which can be selected and displayed on the MFD video page using the EDCU, giving the crew a direct view of the hook and load.",
+      "references": [
+        "AW169 RFM Section 7 - OES Cargo hook cameras kit (p.7-723)"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "systems",
+        "cargo-hook",
+        "cameras"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-058",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "What is the main operational advantage of using the cargo hook cameras kit as described in the System Description?",
+      "options": [
+        "It allows the crew to continuously monitor the hook and external load without relying solely on visual lookout from the cockpit windows.",
+        "It automatically measures the load centre of gravity and feeds it to the AFCS.",
+        "It provides infrared images for night navigation independent of NVG equipment.",
+        "It records flight data for maintenance trend monitoring."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The System Description emphasises that the cargo hook cameras kit allows the crew to see the hook and the load on the MFD video page, improving situational awareness during external load operations compared to relying only on direct visual lookout.",
+      "references": [
+        "AW169 RFM Section 7 - OES Cargo hook cameras kit (p.7-723)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "cargo-hook",
+        "situational-awareness"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-059",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "In the External Hoist kit description, how is hoist control divided between the pilot and the hoist operator?",
+      "options": [
+        "The pilot has a hoist control switch on the collective grip for basic UP/DOWN control, while the hoist operator uses the hoist control pendant for precise drum control and positioning.",
+        "Only the hoist operator can move the hoist, since there is no pilot hoist control provided.",
+        "The pilot controls hoist movement exclusively from the overhead OES panel, and the hoist operator has no control pendant.",
+        "The hoist may only be controlled through the AFCS in an automatic hover mode."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The External Hoist kit System Description explains that the pilot has a hoist control switch on the collective grip to control UP and DOWN movement, while the hoist operator uses a dedicated hoist pendant with further controls, allowing shared but clearly defined control of hoist movement.",
+      "references": [
+        "AW169 RFM Section 7 - OES External hoist kit, controls (p.7-710)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "hoist",
+        "controls"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-060",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "What is one of the key preflight checks for the Cargo Hook system described in the System Description before external load operations?",
+      "options": [
+        "Verify correct hook operation by commanding an electrical release with no load attached and confirming both hook movement and HOOK OPEN indication.",
+        "Check that the hook cameras are recording continuously to the mission recorder before powering the hook.",
+        "Verify that the hoist cable is fully extended and retracted three times before any hook operation.",
+        "Confirm that the floats are fully inflated and that the cargo hook is locked closed mechanically."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The Cargo Hook System Description requires that the crew perform a functional check of the cargo hook before operations, typically by commanding an electrical release with no load attached and confirming correct hook opening and HOOK OPEN indication, to ensure the release system works as intended.",
+      "references": [
+        "AW169 RFM Section 7 - OES Cargo hook system, preflight checks (p.7-721)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "cargo-hook",
+        "checks"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-061",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "When engaging an AFCS upper mode from the mode select panel, what does the System Description state about the sequence between arming and capturing a mode?",
+      "options": [
+        "The mode is first shown in white as ARMED when selected, then turns green as it captures and becomes ACTIVE.",
+        "The mode immediately appears in green as ACTIVE and later changes to white as the capture is completed.",
+        "The mode is always displayed in amber during the entire engagement.",
+        "The mode is only displayed after 10 seconds to avoid nuisance annunciations."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The AFCS System Description explains that upper modes are first shown in white on the PFD as ARMED when selected, and turn green when they capture and become ACTIVE.",
+      "references": [
+        "AW169 RFM Section 7 - AFCS modes"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "AFCS",
+        "modes"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-062",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "According to the AFCS description, what is the primary effect of pressing the AP OFF pushbutton on the cyclic grip once?",
+      "options": [
+        "It arms automatic AP disconnect and requires a second press within the time window to fully disconnect the autopilot.",
+        "It immediately disconnects all AFCS functions with no further action required.",
+        "It changes the AFCS to basic SAS-only mode without disconnecting upper modes.",
+        "It only disconnects yaw control while pitch and roll remain coupled."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The System Description notes that a first press of AP OFF on the cyclic arms the autopilot disconnect logic, and a second press within the specified time disconnects the autopilot, giving the pilot a deliberate two-step action.",
+      "references": [
+        "AW169 RFM Section 7 - AFCS controls"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "AFCS",
+        "controls"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-063",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "How does the System Description say the WLVL (wing level) mode behaves when selected in AFCS?",
+      "options": [
+        "It commands the helicopter to roll wings level and holds present heading, overriding other lateral modes with high priority.",
+        "It holds the current bank angle and heading until a new mode is selected.",
+        "It commands a fixed rate turn to the nearest cardinal heading.",
+        "It is only available on the ground to assist taxi turns."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The AFCS section describes WLVL as a high-priority lateral mode that rolls the helicopter wings level and holds heading, overriding existing lateral modes when engaged.",
+      "references": [
+        "AW169 RFM Section 7 - AFCS lateral modes"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "AFCS",
+        "WLVL"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-064",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "What does the System Description state about the GA/TU (Go-Around/Transition Up) button on the collective grip?",
+      "options": [
+        "It commands a go-around flight path or transition-up profile and has priority over other active vertical modes when pressed.",
+        "It only arms the go-around mode and requires a second press to command a climb.",
+        "It is used solely to test the AFCS on the ground and is inhibited in flight.",
+        "It changes the AFCS to basic attitude hold without altering flight path."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The AFCS description notes that the GA/TU button on the collective commands a go-around or transition-up profile and takes priority over existing vertical modes when activated, providing a quick way to establish a safe climb.",
+      "references": [
+        "AW169 RFM Section 7 - AFCS go-around"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "AFCS",
+        "go-around"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-065",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "According to the AFCS System Description, what is the function of the ATT pushbutton when upper modes are engaged?",
+      "options": [
+        "It deselects the active upper modes and reverts the AFCS to basic attitude hold while keeping the autopilot channels engaged.",
+        "It disconnects the autopilot entirely and returns to full manual control with no attitude hold.",
+        "It engages a fixed climb attitude regardless of pilot cyclic input.",
+        "It only affects yaw control while pitch and roll modes remain unchanged."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The System Description explains that pressing the ATT pushbutton cancels upper modes and returns the AFCS to basic attitude hold using the engaged autopilot channels, allowing the pilot to quickly simplify the flight director.",
+      "references": [
+        "AW169 RFM Section 7 - AFCS ATT mode"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "AFCS",
+        "ATT"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-066",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "What does the AFCS description say about using the cyclic 5-way trim switch when flying with upper modes engaged?",
+      "options": [
+        "Small cyclic trim inputs are used to adjust the AFCS reference (such as target attitude or track) without disengaging the mode.",
+        "Any use of the trim switch automatically disconnects upper modes and reverts to manual SAS.",
+        "The trim switch is inhibited whenever an upper mode is active.",
+        "The trim switch only affects yaw and has no effect on pitch or roll when modes are engaged."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The AFCS System Description notes that the cyclic trim switch allows the pilot to make small adjustments to the commanded attitude or track in upper modes without disconnecting them, refining the AFCS reference rather than hand-flying.",
+      "references": [
+        "AW169 RFM Section 7 - AFCS trim inputs"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "AFCS",
+        "trim"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-067",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "In the AFCS description, what is the recommended pilot action if one AFCS channel fails but the helicopter remains controllable?",
+      "options": [
+        "Continue flight using the remaining AFCS channels, monitoring the associated CAS messages and considering a safe landing as soon as practicable.",
+        "Immediately shut down both engines and autorotate to the nearest suitable landing area.",
+        "Switch off all AFCS equipment and continue flight using only manual mechanical controls without hydraulic support.",
+        "Engage all available upper modes to compensate for the failed channel."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The System Description explains that in the event of a single AFCS channel failure, the remaining channels can continue to support flight, and the crew should monitor annunciations and plan a safe landing, rather than immediately abandoning AFCS use.",
+      "references": [
+        "AW169 RFM Section 7 - AFCS failures"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "AFCS",
+        "failures"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-068",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "What is the primary role of the SCAS (Stability and Control Augmentation System) described in the Flight Control System section?",
+      "options": [
+        "To improve short-term stability and damping by providing limited authority control inputs in response to rate and attitude changes.",
+        "To provide full autopilot capability including coupled approaches and automatic hover.",
+        "To replace the hydraulic servos entirely with electrical actuators.",
+        "To control engine power output independently of pilot input."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The Flight Control System description states that SCAS provides limited authority control inputs based on rate and attitude information to improve short-term stability and damping, reducing pilot workload without fully replacing pilot control.",
+      "references": [
+        "AW169 RFM Section 7 - Flight controls and SCAS"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "flight-controls",
+        "SCAS"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-069",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "According to the Flight Control System description, how are pilot cyclic and collective inputs transmitted to the main rotor?",
+      "options": [
+        "Through mechanical linkages and mixer units to hydraulic main rotor actuators that then move the swashplate.",
+        "Through direct electrical signals from the grips to electric motors on each rotor blade.",
+        "Via a cable system that moves trim tabs on the rotor blades only.",
+        "By varying engine RPM without using any swashplate movement."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The System Description explains that cyclic and collective inputs are transmitted via mechanical linkages and mixers to hydraulic main rotor actuators, which in turn move the swashplate and change blade pitch.",
+      "references": [
+        "AW169 RFM Section 7 - Flight controls"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "systems",
+        "flight-controls",
+        "main-rotor"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-070",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "What does the Main Rotor System description state about the function of the lead-lag dampers?",
+      "options": [
+        "They control blade lead-lag motion to reduce vibrations and structural loads.",
+        "They provide automatic blade de-icing by heating the root area.",
+        "They allow the blades to fold for storage without removing them.",
+        "They act as backup pitch-change bearings in case of primary bearing failure."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The Main Rotor System description notes that lead-lag dampers are fitted to control the lead-lag motion of the blades, reducing vibration and structural loads on the rotor system.",
+      "references": [
+        "AW169 RFM Section 7 - Main rotor"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "systems",
+        "main-rotor",
+        "dampers"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-071",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "In the Tail Rotor System description, what is the purpose of the tail rotor pitch-change mechanism?",
+      "options": [
+        "To vary tail rotor blade pitch in response to pedal inputs, providing yaw control.",
+        "To change tail rotor RPM independently of the main rotor.",
+        "To feather the tail rotor blades for cruise efficiency.",
+        "To automatically trim bank angle during turns."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The Tail Rotor System description explains that the pitch-change mechanism varies tail rotor blade pitch based on pedal inputs, generating the required yaw moments for directional control.",
+      "references": [
+        "AW169 RFM Section 7 - Tail rotor"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "systems",
+        "tail-rotor",
+        "yaw-control"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-072",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "According to the Transmission System description, what is the primary role of the main gearbox (MGB)?",
+      "options": [
+        "To reduce the combined engine output speed and transmit torque to the main rotor and tail rotor drive systems.",
+        "To store hydraulic fluid for the flight control servos.",
+        "To provide electrical power to the AC and DC buses.",
+        "To control engine fuel flow through mechanical linkages."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The Transmission System description states that the main gearbox reduces engine output speed and transmits torque to the main rotor and to the tail rotor drive shaft through the intermediate and tail gearboxes.",
+      "references": [
+        "AW169 RFM Section 7 - Transmission"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "systems",
+        "transmission",
+        "MGB"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-073",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "What is the purpose of the chip detectors described in the Transmission System section?",
+      "options": [
+        "To detect metallic particles in the gearbox oil and alert the crew to possible gear or bearing damage.",
+        "To measure oil temperature and control the cooling fan speed.",
+        "To sample oil for contamination during scheduled maintenance only.",
+        "To indicate oil quantity low conditions in the fuel tanks."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The System Description explains that chip detectors are installed in the gearboxes to detect metallic particles in the oil; when particles bridge the detector, a signal is generated to warn the crew of possible internal damage.",
+      "references": [
+        "AW169 RFM Section 7 - Transmission, chip detection"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "transmission",
+        "chip-detectors"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-074",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "According to the Transmission System description, what is the function of the oil cooler fan system?",
+      "options": [
+        "To maintain gearbox oil temperature within limits by forcing air through the oil cooler.",
+        "To ventilate the cabin by extracting hot air from the roof.",
+        "To cool the avionics racks in the nose compartment.",
+        "To provide cooling air for the engine bleed air ducts."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The Transmission System section states that an oil cooler and fan system is provided to maintain gearbox oil temperature within prescribed limits by forcing air through the cooler matrix.",
+      "references": [
+        "AW169 RFM Section 7 - Transmission, lubrication and cooling"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "systems",
+        "transmission",
+        "oil-cooling"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-075",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "In the Engine System description, what is the primary role of the FADEC for each engine?",
+      "options": [
+        "To provide full authority digital control of fuel flow and engine parameters throughout the operating envelope.",
+        "To manage the electrical power distribution from the generators.",
+        "To automatically control cabin temperature and ventilation.",
+        "To activate the fire extinguishing system in case of overtemperature."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The Engine section explains that each PW210 engine is controlled by a FADEC which provides full authority digital control of fuel flow and engine parameters in all phases of operation.",
+      "references": [
+        "AW169 RFM Section 7 - Engine, FADEC"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "systems",
+        "engine",
+        "FADEC"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-076",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "According to the Engine System description, what is the function of the ENGINE mode select (such as IDLE/FLIGHT) on the overhead panel?",
+      "options": [
+        "It selects the desired operating mode for the engines, such as IDLE or FLIGHT, and commands the FADEC to schedule fuel accordingly.",
+        "It directly opens and closes the engine fuel shutoff valves without FADEC involvement.",
+        "It is used only to control the APU and has no effect on the main engines.",
+        "It changes the electrical system configuration between single and dual generator mode."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The Engine System section describes that the engine mode select controls (IDLE/FLIGHT) command the FADEC to schedule fuel for the selected operating mode, determining engine power settings appropriate for idle or flight.",
+      "references": [
+        "AW169 RFM Section 7 - Engine controls"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "engine",
+        "controls"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-077",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "What does the Engine System description state about automatic engine protection during start?",
+      "options": [
+        "The FADEC monitors start parameters and will automatically abort the start if limits such as temperature or rotor speed are exceeded.",
+        "There is no automatic protection; the pilot must manually abort the start by closing the fuel shutoff valve.",
+        "Protection is only provided for high oil pressure and not for temperature.",
+        "Automatic start protection is available only when using external power."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The Engine System description notes that the FADEC monitors engine parameters during start and can automatically abort the start if certain limits are exceeded, protecting the engine from damage.",
+      "references": [
+        "AW169 RFM Section 7 - Engine start protection"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "engine",
+        "start"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-078",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "In the Fuel System description, what is the function of the crossfeed capability between tanks?",
+      "options": [
+        "To allow fuel from one side to be supplied to both engines in case of a pump or tank problem.",
+        "To permit fuel jettison overboard from either tank.",
+        "To supply fuel to the cabin heater independently of the engines.",
+        "To refill the tanks automatically from an external fuel bladder."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The Fuel System section explains that crossfeed allows fuel from one side to be supplied to both engines, giving flexibility in case of a fuel pump or tank problem on one side.",
+      "references": [
+        "AW169 RFM Section 7 - Fuel system"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "fuel",
+        "crossfeed"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-079",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "According to the Fuel System description, how is fuel quantity typically displayed to the crew?",
+      "options": [
+        "On the fuel synoptic page and on dedicated fuel quantity indications on the MFD/PFD.",
+        "Only on a mechanical gauge in the refuelling panel.",
+        "By a single low fuel warning light when total fuel is below a fixed value.",
+        "As a percentage of maximum weight on the AFCS page only."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The Fuel System description notes that fuel quantity is displayed on the fuel synoptic page and by dedicated indications on the displays, allowing the crew to monitor quantity in each tank.",
+      "references": [
+        "AW169 RFM Section 7 - Fuel indications"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "systems",
+        "fuel",
+        "indications"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-080",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "What is the main purpose of the Engine Oil System described in the System Description?",
+      "options": [
+        "To lubricate and cool engine bearings and gears and to provide hydraulic power for some engine actuators.",
+        "To supply de-icing fluid to the engine intakes.",
+        "To pressurise the fuel tanks during high altitude flight.",
+        "To provide backup hydraulic pressure for the main rotor servos."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The Engine Oil System description explains that engine oil lubricates and cools engine bearings and gears and may drive some engine actuators, ensuring reliable engine operation.",
+      "references": [
+        "AW169 RFM Section 7 - Engine oil system"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "systems",
+        "engine",
+        "oil"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-081",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "According to the Electrical Power System description, what is the normal source of DC power in flight?",
+      "options": [
+        "The main engine-driven generators feeding the DC buses via the power distribution system.",
+        "The battery alone, with generators used only on the ground.",
+        "An external power cart connected to the ground power receptacle.",
+        "Permanent magnet alternators that are independent of the engines."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The Electrical Power System description states that the engine-driven generators are the normal sources of DC power in flight, supplying the DC buses through the distribution system.",
+      "references": [
+        "AW169 RFM Section 7 - Electrical power, normal operation"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "systems",
+        "electrical",
+        "generators"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-082",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "What is the primary purpose of the main battery described in the Electrical Power System section?",
+      "options": [
+        "To provide power for engine starting and to supply essential loads in case of generator failure.",
+        "To supply all cabin lighting continuously during flight.",
+        "To power the hoist and cargo hook systems only.",
+        "To drive the rotor brake motor when engines are shut down."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The Electrical Power System description notes that the battery is used primarily for engine start and as a backup source for essential loads if the generators fail.",
+      "references": [
+        "AW169 RFM Section 7 - Electrical power, battery"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "systems",
+        "electrical",
+        "battery"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-083",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "According to the Hydraulics System description, what is the purpose of having two main hydraulic systems?",
+      "options": [
+        "To provide redundancy so that flight controls remain powered if one hydraulic system fails.",
+        "To allow one system to be used for the cabin doors and one for the landing gear only.",
+        "To alternate operation between flights to reduce wear.",
+        "To power the hoist from one system and the cargo hook from the other."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The Hydraulics section explains that two independent main hydraulic systems are provided so that if one system fails, the other can continue to power the flight control servos, giving redundancy.",
+      "references": [
+        "AW169 RFM Section 7 - Hydraulic system"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "systems",
+        "hydraulic",
+        "redundancy"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-084",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "What is the function of the EHPS (Electrical Hydraulic Pump System) mentioned in the Hydraulics description?",
+      "options": [
+        "To provide backup hydraulic pressure on the ground or in flight when an engine-driven pump is not available.",
+        "To power only the landing gear retraction mechanism.",
+        "To supply hydraulic pressure exclusively to the rotor brake caliper.",
+        "To drive the cargo hook release mechanism."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The Hydraulics description states that the EHPS can supply hydraulic pressure as a backup when an engine-driven pump is unavailable, such as during ground checks or certain failure conditions.",
+      "references": [
+        "AW169 RFM Section 7 - Hydraulic system, EHPS"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "hydraulic",
+        "EHPS"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-085",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "In the Ice and Rain Protection System description, what is the main purpose of the windshield heating?",
+      "options": [
+        "To prevent ice formation and remove misting on the pilot and copilot windshields.",
+        "To keep cabin temperature comfortable for passengers.",
+        "To protect the avionics racks from condensation.",
+        "To heat the engine intakes only."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The Ice and Rain Protection section explains that windshield heating is provided to prevent ice formation and remove misting on the windshields, ensuring adequate visibility.",
+      "references": [
+        "AW169 RFM Section 7 - Ice and rain protection, windshield heat"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "systems",
+        "ice-protection",
+        "windshield"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-086",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "According to the Engine Air Intake System description, what is the purpose of the anti-ice system at the engine inlets?",
+      "options": [
+        "To prevent ice accumulation at the engine air intakes and protect against engine power loss.",
+        "To increase engine power by heating the intake air for better combustion.",
+        "To reduce cabin noise by dampening airflow.",
+        "To provide bleed air for the cabin heating system."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The Engine Air Intake System section notes that an anti-ice system is provided at the engine inlets to prevent ice accumulation that could otherwise lead to engine power loss or compressor stall.",
+      "references": [
+        "AW169 RFM Section 7 - Engine air intake and anti-ice"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "engine",
+        "anti-ice"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-087",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "In the Fire Detection and Extinguishing System description, what areas are typically protected by fire detectors on the AW169?",
+      "options": [
+        "The engine compartments and the APU compartment if installed.",
+        "Only the cabin and baggage compartments.",
+        "The main rotor hub and blade roots.",
+        "The landing gear bays and tail boom."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The Fire Detection and Extinguishing section describes fire detectors installed in the engine compartments and, if fitted, in the APU compartment to detect fire in those areas.",
+      "references": [
+        "AW169 RFM Section 7 - Fire detection"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "systems",
+        "fire",
+        "detection"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-088",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "According to the Fire Extinguishing System description, how are the engine fire bottles normally discharged?",
+      "options": [
+        "By pressing the appropriate guarded FIRE EXT pushbutton after pulling the associated T-handle or activating the engine fire control.",
+        "By cycling the engine mode selector from FLIGHT to IDLE three times.",
+        "Automatically whenever the fire detectors sense a temperature above a preset value.",
+        "By operating the rotor brake lever to the emergency position."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The Fire Extinguishing System section explains that the crew discharges an engine fire bottle by operating the guarded FIRE EXT pushbutton after the engine fire control has been actuated, directing extinguishing agent into the affected compartment.",
+      "references": [
+        "AW169 RFM Section 7 - Fire extinguishing"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "fire",
+        "extinguishing"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-089",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "In the Environmental Control System description, what is the primary function of the ECS?",
+      "options": [
+        "To provide conditioned air for cabin heating, cooling and ventilation.",
+        "To supply hydraulic pressure to the flight control servos.",
+        "To operate the cargo hook release.",
+        "To control the main rotor speed during autorotation."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The Environmental Control System (ECS) description states that its primary function is to provide conditioned air for cabin heating, cooling and ventilation.",
+      "references": [
+        "AW169 RFM Section 7 - Environmental Control System"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "systems",
+        "ECS",
+        "cabin"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-090",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "According to the Lighting System description, what is the purpose of the emergency lighting system in the cabin?",
+      "options": [
+        "To provide illumination for evacuation routes and exits in case of a loss of normal electrical power.",
+        "To light up the cargo hook area during external load operations.",
+        "To illuminate the main rotor disk for ground crew at night.",
+        "To provide decorative mood lighting for passengers."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The Lighting System description notes that emergency lights are installed in the cabin to illuminate evacuation routes and exits if normal electrical power is lost, aiding emergency egress.",
+      "references": [
+        "AW169 RFM Section 7 - Lighting, emergency lights"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "systems",
+        "lighting",
+        "emergency"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-091",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "According to the Engine System description, what is the main purpose of the engine power rating indications (such as MCP, TO, OEI ratings) on the displays?",
+      "options": [
+        "To show the crew the current engine operating range and available power margin so that power can be managed within limits.",
+        "To indicate only fuel flow and oil pressure during engine start.",
+        "To provide backup attitude information in case of PFD failure.",
+        "To control the FADEC manually by selecting the desired rating."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The Engine System description explains that engine power rating indications show which rating is in use (for example MCP or OEI) and the associated limits, helping the crew manage power within the approved operating ranges.",
+      "references": [
+        "AW169 RFM Section 7 - Engine indications"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "engine",
+        "power-ratings"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-092",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "In the FADEC description, what does the automatic matching function between engines primarily provide during normal twin-engine operation?",
+      "options": [
+        "It keeps engine outputs synchronised so that torque sharing remains balanced between the two engines.",
+        "It alternates which engine carries all the load every five minutes.",
+        "It shuts one engine down automatically when torque is low.",
+        "It disconnects the transmission from the engines in cruise flight."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The FADEC section notes that an automatic matching function is used to keep engines closely matched, so that torque sharing is balanced and asymmetric thrust is avoided in normal twin-engine operation.",
+      "references": [
+        "AW169 RFM Section 7 - Engine, FADEC functions"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "engine",
+        "FADEC"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-093",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "According to the Fuel System description, what is the consequence of switching OFF one of the main fuel pumps on a side in normal conditions?",
+      "options": [
+        "The remaining pump on that side continues to supply fuel, and the crew will see the associated pump indication change but no immediate engine flameout.",
+        "The engine on that side will immediately flame out because crossfeed is not possible.",
+        "Both engines will automatically revert to idle power.",
+        "The fuel quantity indication for that side is removed from the display."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The Fuel System description explains that each side has multiple fuel pumps; switching one pump OFF leaves the remaining pump to supply fuel, and the change is indicated on the synoptic without causing an immediate engine flameout in normal conditions.",
+      "references": [
+        "AW169 RFM Section 7 - Fuel system, pumps"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "fuel",
+        "pumps"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-094",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "In the Hydraulic System description, what is the role of the priority valves when system pressure becomes low?",
+      "options": [
+        "They ensure that flight control servos retain hydraulic supply by shedding lower priority users when pressure is limited.",
+        "They transfer hydraulic fluid from one reservoir to the other to equalise quantity.",
+        "They automatically shut down both engines to protect the pumps.",
+        "They open bypasses so that hydraulic pressure drops to zero quickly."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The Hydraulic System section describes priority valves that protect essential users such as flight controls: if pressure decreases, the valves limit supply to non-essential users so that the servos remain powered as long as possible.",
+      "references": [
+        "AW169 RFM Section 7 - Hydraulic system, priority valves"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "hydraulic",
+        "priority-valves"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-095",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "According to the Electrical Power System description, what is the normal crew action if one generator fails in flight while loads remain within limits?",
+      "options": [
+        "Monitor the remaining generator load and continue flight on the single generator, reducing non-essential loads if necessary.",
+        "Immediately switch off all avionics and land at the nearest site.",
+        "Select external power on the ground power switch while still in flight.",
+        "Pull all generator circuit breakers to avoid further malfunction."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The Electrical Power System description explains that following a single generator failure, the remaining generator can normally supply the essential loads; the crew should monitor generator load and, if necessary, reduce non-essential loads while continuing to a suitable landing.",
+      "references": [
+        "AW169 RFM Section 7 - Electrical power, single generator operation"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "electrical",
+        "generator-failure"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-096",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "In the Environmental Control System description, how is cockpit and cabin temperature normally adjusted by the crew?",
+      "options": [
+        "By using the ECS temperature controls to select the desired temperature, after which the system automatically mixes hot and cold air to achieve it.",
+        "By opening and closing the side windows only, since no ECS temperature control is provided.",
+        "By changing engine power setting, which is the only way to control bleed air temperature.",
+        "By switching the battery OFF to reduce electrical heating in the cabin."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The ECS description states that cockpit and cabin temperature are normally controlled with dedicated ECS temperature selectors; the system then adjusts hot and cold air mixing to reach the selected temperature automatically.",
+      "references": [
+        "AW169 RFM Section 7 - Environmental Control System, controls"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "systems",
+        "ECS",
+        "temperature"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-097",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "According to the Fire Detection System description, what is the crew's first indication of an engine fire from the detection loops?",
+      "options": [
+        "An engine FIRE warning with associated lights and aural alert triggered by the detection loops.",
+        "A gradual rise in indicated oil temperature without any lights.",
+        "A change in rotor RPM indication on the PFD only.",
+        "A CAS advisory labelled ENGINE HOT with no aural tone."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The Fire Detection System description explains that temperature-sensitive loops trigger an engine FIRE warning, associated lights and an aural alert when a fire is detected, providing the crew with a clear first indication.",
+      "references": [
+        "AW169 RFM Section 7 - Fire detection, indications"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "systems",
+        "fire",
+        "indications"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-098",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "In the Ice and Rain Protection System description, what is the recommended use of windshield wipers at higher speeds?",
+      "options": [
+        "They are intended primarily for use at low airspeeds; at higher speeds, rain repellant and windshield heat are preferred.",
+        "They should be used continuously at maximum speed in all flight conditions.",
+        "They must never be used in rain because they can scratch the windshield.",
+        "They are only for ground use during maintenance."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The Ice and Rain Protection section notes that windshield wipers are mainly intended for low-speed operation; at higher airspeeds, windshield heat and, if installed, rain repellent are preferred methods to maintain visibility.",
+      "references": [
+        "AW169 RFM Section 7 - Ice and rain protection, windshield wipers"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "ice-protection",
+        "wipers"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-099",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "According to the Lighting System description, what is the purpose of the NVG-compatible cockpit lighting?",
+      "options": [
+        "To provide sufficient instrument illumination without degrading the performance of night vision goggles.",
+        "To increase the brightness of all indicators to maximum for night operations.",
+        "To flash all annunciators during NVG approaches.",
+        "To light only the overhead panel while the rest of the cockpit remains dark."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The Lighting System description explains that NVG-compatible lighting is designed to illuminate instruments and controls while remaining compatible with night vision goggles, avoiding glare and blooming that could reduce NVG effectiveness.",
+      "references": [
+        "AW169 RFM Section 7 - Lighting, NVG"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "lighting",
+        "NVG"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-100",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "In the Avionics System description, what is the main role of the integrated display system (PFD/MFD) for the crew?",
+      "options": [
+        "To combine flight, engine and system information into reconfigurable displays that support normal and abnormal operations.",
+        "To store maintenance procedures for ground technicians only.",
+        "To replace all radio communication equipment.",
+        "To control the rotor brake and landing gear directly."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The Avionics System description states that the integrated display system presents primary flight information, engine parameters and system synoptics on reconfigurable PFD/MFD screens, providing the crew with the information needed for normal and abnormal operations.",
+      "references": [
+        "AW169 RFM Section 7 - Avionics, display system"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "avionics",
+        "displays"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-101",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "According to the AFCS System Description, what is the primary function of the IAS (indicated airspeed) mode when engaged?",
+      "options": [
+        "To maintain the selected airspeed by adjusting pitch/attitude while allowing the pilot to change the reference with the IAS selector.",
+        "To hold the current heading regardless of wind drift.",
+        "To maintain a constant rate of climb independent of airspeed.",
+        "To automatically capture and hold a selected radar altitude."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The AFCS section describes IAS mode as a speed-hold function: when engaged, the AFCS adjusts pitch to maintain the selected indicated airspeed, with the pilot able to change the reference using the IAS control.",
+      "references": [
+        "AW169 RFM Section 7 - AFCS, IAS mode"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "AFCS",
+        "IAS"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-102",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "In the AFCS description, what does the ALT (altitude hold) mode do when it becomes active?",
+      "options": [
+        "It maintains the helicopter at the captured barometric altitude until a new altitude or vertical mode is selected.",
+        "It maintains a constant vertical speed regardless of altitude.",
+        "It commands a continuous climb to the service ceiling.",
+        "It maintains current radar altitude only below 200 ft."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The AFCS System Description explains that once ALT mode captures, the AFCS holds the barometric altitude at the point of capture, keeping the helicopter at that altitude until another mode or reference is selected.",
+      "references": [
+        "AW169 RFM Section 7 - AFCS, ALT mode"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "AFCS",
+        "ALT"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-103",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "According to the AFCS description, what is the purpose of the VS (vertical speed) mode?",
+      "options": [
+        "To hold a pilot-selected rate of climb or descent until another vertical mode is chosen or the reference is changed.",
+        "To maintain a constant IAS regardless of climb or descent.",
+        "To keep the helicopter at a fixed radar altitude.",
+        "To synchronise engine torque between the two engines."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The AFCS description states that VS mode allows the pilot to select a desired vertical speed; the AFCS then adjusts pitch to maintain that rate of climb or descent until another vertical mode is selected or the VS reference is altered.",
+      "references": [
+        "AW169 RFM Section 7 - AFCS, VS mode"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "AFCS",
+        "VS"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-104",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "In the AFCS description, what is the main operational use of the HDG (heading) mode?",
+      "options": [
+        "To maintain the selected heading by commanding yaw and roll as needed once the mode is engaged.",
+        "To keep the helicopter aligned with the current track regardless of wind.",
+        "To hold the last selected course from a VOR or GPS.",
+        "To automatically follow the flight plan loaded in the FMS."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The AFCS System Description describes HDG mode as a basic lateral mode that maintains the selected heading; when engaged, the AFCS commands yaw/roll to keep the helicopter on that heading until the pilot selects a new heading or mode.",
+      "references": [
+        "AW169 RFM Section 7 - AFCS, HDG mode"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "systems",
+        "AFCS",
+        "HDG"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-105",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "According to the AFCS/NAV integration description, what is the primary function of the NAV mode?",
+      "options": [
+        "To couple the AFCS to a selected navigation source so that it tracks the programmed course or flight plan from that sensor.",
+        "To maintain current magnetic heading and ignore all navigation inputs.",
+        "To hold the helicopter over a fixed geographic point using only radar altitude.",
+        "To provide automatic engine synchronisation during climb."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The System Description explains that NAV mode couples the AFCS to a selected navigation source (such as FMS or VOR) so that the helicopter tracks the programmed course or flight plan, providing lateral guidance based on that sensor.",
+      "references": [
+        "AW169 RFM Section 7 - AFCS, NAV mode"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "AFCS",
+        "NAV"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-106",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "According to the AFCS hover/low speed description, what is the main purpose of the HOV (hover) mode?",
+      "options": [
+        "To maintain a stabilised hover by holding position and height within the defined AFCS envelope when engaged in suitable conditions.",
+        "To command a climb to a pre-set altitude while ignoring lateral movement.",
+        "To maintain current IAS and heading in cruise flight.",
+        "To automatically execute a full approach to hover from any point on the flight plan."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The AFCS System Description notes that HOV mode is used in low-speed/hover operations to stabilise the helicopter in hover, maintaining position and height within the mode's envelope when conditions and sensors permit.",
+      "references": [
+        "AW169 RFM Section 7 - AFCS, HOV mode"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "AFCS",
+        "HOV"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-107",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "In the AFCS radar height related functions, what is the role of the RHT (radar height) mode?",
+      "options": [
+        "To maintain a selected radar altitude above the surface, typically used in low level or approach operations.",
+        "To maintain a selected barometric altitude irrespective of terrain.",
+        "To hold a fixed vertical speed referenced to the radar altimeter.",
+        "To provide only aural alerts without controlling the flight path."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The AFCS description explains that when RHT mode is engaged the AFCS uses radar altitude as the controlled variable, maintaining the selected height above surface within the limits described for low altitude operations.",
+      "references": [
+        "AW169 RFM Section 7 - AFCS, RHT mode"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "AFCS",
+        "RHT"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-108",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "According to the AFCS approach modes description, what is the primary function of the APP (approach) mode when coupled to a precision or non-precision approach?",
+      "options": [
+        "To provide lateral and vertical guidance along the selected approach path by following the navigation and glideslope/vertical guidance signals.",
+        "To hold heading while the pilot manually tracks the localiser only.",
+        "To climb to the missed approach altitude immediately after selection.",
+        "To disengage all other modes and leave only SCAS active."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The AFCS section states that APP mode is used to couple the helicopter to instrument approaches, providing both lateral and vertical guidance based on the selected navigation and glideslope or equivalent vertical guidance signals.",
+      "references": [
+        "AW169 RFM Section 7 - AFCS, APP mode"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "AFCS",
+        "APP"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-109",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "In the AFCS deceleration functions description, what is the main use of the DCL (deceleration) mode?",
+      "options": [
+        "To command a controlled deceleration from forward flight towards a hover or low speed while managing pitch and, where applicable, collective.",
+        "To maintain a constant IAS during climb or descent.",
+        "To synchronise rotor speed with engine torque.",
+        "To automatically initiate a go-around when the approach path is unstable."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The AFCS description explains that DCL mode is used to achieve a managed deceleration profile, reducing speed towards a defined low-speed or hover condition while the AFCS commands pitch (and, for some configurations, collective) according to the programmed law.",
+      "references": [
+        "AW169 RFM Section 7 - AFCS, DCL mode"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "AFCS",
+        "DCL"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-110",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "According to the AFCS collective/engine protection description, what is the purpose of the OEI/ALT capture logic during engine-out operations?",
+      "options": [
+        "To coordinate AFCS collective commands with OEI power limits so that the helicopter can capture and maintain a safe altitude or profile without exceeding OEI limits.",
+        "To shut down the remaining engine automatically after a fixed time.",
+        "To force the helicopter into autorotation regardless of pilot input.",
+        "To disable all AFCS vertical modes whenever OEI is detected."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The AFCS System Description notes that specific logic coordinates collective control with OEI power limits so that capture of a selected altitude or profile can be achieved without exceeding OEI ratings, supporting engine-out management.",
+      "references": [
+        "AW169 RFM Section 7 - AFCS, OEI/ALT capture"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "systems",
+        "AFCS",
+        "OEI"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-111",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "According to the Main Rotor and Rotor Brake description, how is the rotor brake intended to be used by the crew in normal operation?",
+      "options": [
+        "Only on the ground to stop the rotor after engine shutdown or at low power, never in flight.",
+        "In flight to reduce rotor RPM quickly during descents.",
+        "At any time to assist yaw control when pedals are ineffective.",
+        "As the primary method of securing the helicopter on sloping ground."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The System Description for the rotor brake states that it is provided to stop rotor rotation on the ground after engine shutdown or at low power settings and is not intended for in-flight use.",
+      "references": [
+        "AW169 RFM Section 7 - Main rotor and rotor brake"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "systems",
+        "rotor",
+        "rotor-brake"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-112",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "In the Transmission System description, what is the primary function of the main gearbox (MGB) oil cooling system?",
+      "options": [
+        "To maintain MGB oil temperature within the prescribed limits by circulating oil through a cooler and associated fans or heat exchangers.",
+        "To provide emergency hydraulic pressure to the flight controls in case of pump failure.",
+        "To cool only the tail rotor gearbox while the main gearbox is air cooled.",
+        "To supply pressurised oil to the engines for lubrication during autorotation."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The Transmission System section explains that the MGB oil cooling system circulates oil through a cooler, assisted by airflow and fans or heat exchangers as installed, in order to keep gearbox oil temperature within specified limits.",
+      "references": [
+        "AW169 RFM Section 7 - Transmission, oil cooling"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "transmission",
+        "oil-cooling"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-113",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "According to the Engine System description, what is one of the main functions of the FADEC during engine start?",
+      "options": [
+        "To automatically schedule fuel flow and ignition to keep key parameters within limits and protect against abnormal start conditions.",
+        "To mechanically open the fuel shutoff valve by direct cable linkage.",
+        "To disengage the starter immediately when the pilot releases the start switch, without any automatic logic.",
+        "To command rotor brake application if rotor speed increases too quickly."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The Engine System description notes that the FADEC monitors engine parameters during start, automatically controlling fuel and ignition and providing protections to keep the start within defined limits.",
+      "references": [
+        "AW169 RFM Section 7 - Engine, FADEC and start sequence"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "engine",
+        "FADEC"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-114",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "In the Fuel System description, what is the primary role of the transfer/boost pumps in the main tanks?",
+      "options": [
+        "To supply pressurised fuel from the tanks to the engine-driven pumps and help prevent vapour formation or starvation.",
+        "To circulate fuel only for cabin heating purposes.",
+        "To transfer fuel from the engines back into the tanks during descent.",
+        "To provide hydraulic pressure to the landing gear actuators."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The Fuel System section explains that electric transfer or boost pumps in the main tanks provide a pressurised fuel supply to the engine-driven pumps, improving reliability and reducing the risk of vapour lock or starvation.",
+      "references": [
+        "AW169 RFM Section 7 - Fuel system, pumps"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "fuel",
+        "pumps"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-115",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "According to the Hydraulic System description, what is the main purpose of the Emergency Hydraulic Pump System (EHPS) when installed?",
+      "options": [
+        "To provide an alternate source of hydraulic pressure to selected flight control servos following loss of normal system pressure.",
+        "To cool hydraulic fluid during extended ground operations only.",
+        "To operate the landing gear doors during normal cycles.",
+        "To pressurise the fuel system when all engine-driven pumps are offline."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The Hydraulic System description states that the EHPS, where installed, is designed to supply hydraulic pressure to essential flight control users when normal hydraulic pressure is not available, thereby preserving controllability.",
+      "references": [
+        "AW169 RFM Section 7 - Hydraulic system, EHPS"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "hydraulic",
+        "EHPS"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-116",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "In the Engine Oil System description, what is the primary purpose of the engine oil cooler?",
+      "options": [
+        "To maintain engine oil temperature within limits by routing oil through a heat exchanger that uses air or another medium for cooling.",
+        "To supply additional fuel to the engines during high power operations.",
+        "To provide backup hydraulic pressure to the tail rotor servo.",
+        "To warm the cabin air directly in cold conditions."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The Engine Oil System section states that engine oil is circulated through a cooler to keep its temperature within prescribed limits, using airflow or another cooling medium depending on installation.",
+      "references": [
+        "AW169 RFM Section 7 - Engine, oil system"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "engine",
+        "oil"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-117",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "According to the Ice and Rain Protection description, what is the main function of the engine air inlet anti-ice system?",
+      "options": [
+        "To prevent ice accumulation at the engine intakes by supplying heated air or using other anti-ice means as described.",
+        "To cool the engine in high temperature conditions by directing cold air to the intakes.",
+        "To provide backup cabin ventilation when the ECS fails.",
+        "To keep the rotor brake components free of ice."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The System Description explains that the engine air inlet anti-ice system is intended to prevent ice build-up at the engine intakes, using heated air or other means described for the installation.",
+      "references": [
+        "AW169 RFM Section 7 - Ice and rain protection, engine intake anti-ice"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "ice-protection",
+        "engine-intake"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-118",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "In the Environmental Control System description, what is the purpose of the recirculation fans when installed?",
+      "options": [
+        "To improve cabin airflow and temperature homogeneity by recirculating cabin air through the ECS.",
+        "To provide emergency pressurisation of the cabin at high altitude.",
+        "To ventilate only the avionics bay without affecting cabin comfort.",
+        "To extract fuel vapours from the tanks during refuelling."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The ECS section describes recirculation fans as devices that enhance cabin airflow and help maintain even temperature distribution by recirculating cabin air through the environmental control system.",
+      "references": [
+        "AW169 RFM Section 7 - Environmental Control System, recirculation"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "systems",
+        "ECS",
+        "fans"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-119",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "According to the Electrical Power System description, what is the role of the battery in normal operations when generators are online?",
+      "options": [
+        "To provide stabilisation and backup for the DC network while normally remaining charged by the generators.",
+        "To supply all AC power to the main buses continuously.",
+        "To operate only the cabin lighting when the engines are shut down.",
+        "To control the main rotor speed directly when the FADEC is offline."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The Electrical Power System description notes that when generators are online the battery remains connected to the DC network, acting as a stabilising and backup source while being maintained charged.",
+      "references": [
+        "AW169 RFM Section 7 - Electrical power, battery"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "electrical",
+        "battery"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-120",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "In the Avionics/Displays description, what is the primary function of the reversionary mode for the cockpit display system?",
+      "options": [
+        "To allow essential flight and engine information to be shown on remaining displays if one screen fails.",
+        "To switch all displays off automatically in the event of a failure.",
+        "To display only maintenance pages after a screen failure.",
+        "To transfer control of the displays to the rear cabin screens."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The cockpit display system description explains that a reversionary mode permits essential flight and engine data to be presented on the remaining screens when one display becomes unavailable, maintaining required information for the crew.",
+      "references": [
+        "AW169 RFM Section 7 - Avionics, display system reversionary mode"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "avionics",
+        "displays"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-121",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "According to the Engine System description, what is the main purpose of the ENGINE MODE selector in normal operations?",
+      "options": [
+        "To select the appropriate engine operating mode (such as IDLE or FLIGHT) so that the FADEC can apply the correct control laws.",
+        "To directly control rotor RPM mechanically without FADEC involvement.",
+        "To switch the hydraulic system between normal and emergency modes.",
+        "To enable or disable the landing gear indication system."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The Engine System description explains that the engine mode selector is used to choose the required engine operating mode, allowing the FADEC to apply the corresponding control laws and schedules.",
+      "references": [
+        "AW169 RFM Section 7 - Engine, mode selector"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "engine",
+        "mode-selector"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-122",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "In the FADEC description, what is one of the protections provided during engine operation?",
+      "options": [
+        "Automatic limitation of engine parameters to prevent exceedance of specified limits.",
+        "Automatic extension and retraction of the landing gear based on airspeed.",
+        "Continuous adjustment of rotor blade pitch for vibration reduction only.",
+        "Automatic activation of the hoist system during takeoff."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The FADEC section states that the digital control system includes limiters designed to prevent certain engine parameters from exceeding their permissible values, providing engine protection.",
+      "references": [
+        "AW169 RFM Section 7 - Engine, FADEC protections"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "engine",
+        "FADEC"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-123",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "According to the Fuel System description, how is crossfeed or interconnection between the main tanks generally managed in normal operation?",
+      "options": [
+        "By system logic and pilot-operated valves that allow fuel balancing or crossfeed according to the procedure.",
+        "By automatically transferring all fuel to one side at low fuel states.",
+        "By gravity alone with no valves provided.",
+        "By opening electrical breakers on the fuel pumps."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The Fuel System section describes that interconnection and crossfeed between tanks is managed by valves and, where applicable, automatic logic; the pilot can open or close crossfeed in accordance with procedures for balancing or abnormal conditions.",
+      "references": [
+        "AW169 RFM Section 7 - Fuel system, crossfeed"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "fuel",
+        "crossfeed"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-124",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "In the Electrical Power System description, what is the typical crew action if both generators are lost but the battery remains available?",
+      "options": [
+        "Reduce electrical load to essential items and monitor battery time while continuing towards a suitable landing site.",
+        "Immediately shut down both engines to preserve battery life.",
+        "Switch on all non-essential lights to confirm the failure.",
+        "Open all generator and battery circuit breakers to avoid further damage."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The Electrical Power System section notes that following loss of both generators, the crew should shed non-essential loads and use the remaining battery capacity to power essential equipment while planning a landing.",
+      "references": [
+        "AW169 RFM Section 7 - Electrical power, dual generator loss"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "electrical",
+        "emergency"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-125",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "According to the Hydraulic System description, what is the normal indication to the crew that a hydraulic system has lost pressure?",
+      "options": [
+        "Associated caution or warning indications and hydraulic pressure readings showing a drop below normal limits.",
+        "A change in cabin temperature with no cockpit indications.",
+        "An automatic extension of the landing gear without any lights.",
+        "Loss of all electrical power with no hydraulic indications."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The Hydraulic System section explains that loss of pressure is shown by the associated pressure indication and by caution or warning annunciations, alerting the crew to the degraded system.",
+      "references": [
+        "AW169 RFM Section 7 - Hydraulic system, indications"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "systems",
+        "hydraulic",
+        "indications"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-126",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "In the Main Rotor System description, what is the purpose of the lead-lag dampers?",
+      "options": [
+        "To control lead-lag motion of the blades and reduce rotor-induced vibrations.",
+        "To provide primary pitch control of each blade.",
+        "To lock the blades in position when the rotor is at high RPM.",
+        "To supply hydraulic pressure to the flight control servos."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The Main Rotor System section states that lead-lag dampers are installed to control the in-plane motion of the blades and help reduce vibrations transmitted to the airframe.",
+      "references": [
+        "AW169 RFM Section 7 - Main rotor, dampers"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "rotor",
+        "dampers"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-127",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "According to the Tail Rotor and Drive System description, what is the role of the intermediate and tail gearboxes?",
+      "options": [
+        "To transmit power and change drive direction from the main gearbox to the tail rotor.",
+        "To store hydraulic fluid for the tail rotor servo only.",
+        "To provide emergency electrical power when the main generators fail.",
+        "To act as fuel reservoirs for the auxiliary tanks."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The Tail Rotor and Drive System section explains that the intermediate and tail gearboxes change the direction of drive and transfer torque along the tail rotor drive system to the tail rotor head.",
+      "references": [
+        "AW169 RFM Section 7 - Tail rotor and drive"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "systems",
+        "tail-rotor",
+        "gearboxes"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-128",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "In the Fire Detection and Extinguishing System description, what is the normal crew action when an engine FIRE warning is confirmed?",
+      "options": [
+        "Carry out the engine fire procedure which includes closing the fuel supply and arming/discharging the appropriate fire extinguishing bottle as specified.",
+        "Immediately increase power on the affected engine to clear the warning.",
+        "Switch off all cockpit lighting and wait for the warning to extinguish.",
+        "Open the cabin doors to ventilate the compartment while continuing flight."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The Fire Detection and Extinguishing System section provides a procedure for an engine FIRE warning which includes confirming the affected engine, closing its fuel supply and, when required, discharging the extinguishing agent.",
+      "references": [
+        "AW169 RFM Section 7 - Fire detection and extinguishing"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "fire",
+        "engine"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-129",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "According to the Environmental Control System description, what is the main purpose of the cockpit demist function?",
+      "options": [
+        "To supply conditioned air to the windscreen and side windows to prevent misting and improve visibility.",
+        "To cool the avionics bay during high outside air temperatures.",
+        "To provide fresh air to the baggage compartment only.",
+        "To remove smoke from the engine bay in case of fire."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The ECS section explains that cockpit demist directs conditioned air towards the windscreen and side windows to prevent fogging and maintain clear outside visibility.",
+      "references": [
+        "AW169 RFM Section 7 - Environmental Control System, demist"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "systems",
+        "ECS",
+        "demist"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-130",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "In the Lighting System description, what is the purpose of the emergency lighting system?",
+      "options": [
+        "To provide basic cabin and exit illumination in the event of loss of normal electrical power.",
+        "To illuminate the rotor blades during all night operations.",
+        "To provide coloured mood lighting in the passenger cabin.",
+        "To mark only the hoist operator's station during external load missions."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The Lighting System description states that the emergency lighting is intended to provide essential illumination of the cabin and exits if normal power is lost, assisting evacuation and orientation.",
+      "references": [
+        "AW169 RFM Section 7 - Lighting, emergency lighting"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "systems",
+        "lighting",
+        "emergency"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-131",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "According to the Flight Controls System description, what is the function of the mixing unit in the control system?",
+      "options": [
+        "To combine pilot control inputs into appropriate movements of the main rotor servos.",
+        "To mix hydraulic fluid between systems 1 and 2.",
+        "To blend fuel from different tanks before delivery to the engines.",
+        "To combine electrical power from the generators and battery."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The Flight Controls System section describes a mixing unit that converts pilot control movements into the correct combination of servo inputs for the main rotor system.",
+      "references": [
+        "AW169 RFM Section 7 - Flight controls, mixing unit"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "flight-controls",
+        "mixing-unit"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-132",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "In the SCAS (Stability and Control Augmentation System) description, what is one of its primary purposes?",
+      "options": [
+        "To improve helicopter stability and handling by applying small automatic control inputs.",
+        "To automatically deploy the landing gear based on airspeed.",
+        "To start and stop the engines without pilot input.",
+        "To command automatic hoist operation during external load missions."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The SCAS description states that the system applies small automatic inputs to the controls to reduce pilot workload and improve stability, particularly in turbulence.",
+      "references": [
+        "AW169 RFM Section 7 - AFCS/SCAS"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "AFCS",
+        "SCAS"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-133",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "According to the Pitot-Static and Air Data System description, why are multiple pitot and static sources provided?",
+      "options": [
+        "To provide redundancy and allow comparison between sources for reliable airspeed and altitude information.",
+        "To supply fuel pressure to the engines.",
+        "To cool the avionics racks by blowing air through them.",
+        "To provide hydraulic pressure to the rotor brake."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The Pitot-Static and Air Data System section explains that multiple air data sources are installed to provide redundancy and permit cross-checking, supporting reliable indications and failure detection.",
+      "references": [
+        "AW169 RFM Section 7 - Pitot-static and air data"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "systems",
+        "pitot-static",
+        "air-data"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-134",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "In the Ice and Rain Protection description, what is the primary use of windshield wipers (where installed)?",
+      "options": [
+        "To clear rain from the pilot windscreens to maintain adequate external visibility.",
+        "To remove structural ice from the rotor blades.",
+        "To de-fog the internal surface of the side windows.",
+        "To remove snow from the tail boom."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The Ice and Rain Protection section notes that windshield wipers are provided to clear rain from the pilot windscreen areas and thereby maintain visibility.",
+      "references": [
+        "AW169 RFM Section 7 - Ice and rain protection, windshield wipers"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "systems",
+        "ice-protection",
+        "wipers"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-135",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "According to the Oxygen System description (where installed), what is its main purpose?",
+      "options": [
+        "To provide supplemental oxygen to crew and passengers when required by altitude or procedures.",
+        "To pressurise the hydraulic reservoirs during cold weather.",
+        "To cool the avionics by circulating oxygen through the racks.",
+        "To inflate the emergency floats during ditching."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The Oxygen System section states that the system is intended to supply supplemental oxygen to crew and passengers when the flight profile or regulations require its use.",
+      "references": [
+        "AW169 RFM Section 7 - Oxygen system"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "systems",
+        "oxygen"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-136",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "In the Cabin and Doors description, what is the purpose of the emergency exits and jettisonable windows?",
+      "options": [
+        "To provide additional escape routes for occupants in an emergency when normal exits are unusable.",
+        "To allow routine baggage loading through the cockpit.",
+        "To ventilate the cabin during normal operations only.",
+        "To access the engine bay for maintenance in flight."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The Cabin and Doors section explains that dedicated emergency exits and jettisonable windows are provided to give alternative escape routes for occupants if normal exits cannot be used.",
+      "references": [
+        "AW169 RFM Section 7 - Cabin, doors and emergency exits"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "systems",
+        "cabin",
+        "emergency-exits"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-137",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "According to the External Lights description, what is the primary purpose of the anti-collision lights?",
+      "options": [
+        "To enhance the helicopter's conspicuity to other airspace users during flight and on the ground.",
+        "To illuminate the cabin for passenger comfort.",
+        "To provide map reading light for the pilot.",
+        "To mark the location of the hoist operator at night."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The External Lights section describes anti-collision lights as high-intensity lights intended to make the helicopter more visible to others, improving collision avoidance.",
+      "references": [
+        "AW169 RFM Section 7 - Lighting, anti-collision"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "systems",
+        "lighting",
+        "anti-collision"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-138",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "In the Avionics description, what is the main function of the flight management system (FMS) where installed?",
+      "options": [
+        "To assist with navigation, performance calculations and route management.",
+        "To control hydraulic pressure to the main rotor servos.",
+        "To operate the hoist and cargo hook systems automatically.",
+        "To provide emergency electrical power when generators fail."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The Avionics section notes that the flight management system integrates navigation sensors and databases to support route planning, navigation and, where applicable, performance calculations.",
+      "references": [
+        "AW169 RFM Section 7 - Avionics, FMS"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "avionics",
+        "FMS"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-139",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "According to the Communications System description, what is the primary use of the audio control panels?",
+      "options": [
+        "To allow crew members to select and control audio from radios, intercom and warning systems.",
+        "To adjust the rotor RPM.",
+        "To change the hydraulic system operating mode.",
+        "To set the cabin temperature."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The Communications System description explains that audio control panels permit each crew member to choose which communication and navigation audio sources are heard and to adjust their levels.",
+      "references": [
+        "AW169 RFM Section 7 - Communications, audio control"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "systems",
+        "communications",
+        "audio"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-140",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "In the Engine Indicating and Crew Alerting System (EICAS) or equivalent display description, what is one of its main purposes?",
+      "options": [
+        "To present engine and system parameters and alert messages in an integrated format for the crew.",
+        "To control the movement of the hoist hook.",
+        "To adjust the tension of the tail rotor drive shaft.",
+        "To manage the helicopter's fuel loading on the ground."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The indication and alerting system description states that engine and system parameters as well as alerts are displayed on dedicated pages, allowing the crew to monitor helicopter status and respond to warnings and cautions.",
+      "references": [
+        "AW169 RFM Section 7 - Indicating and alerting"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "indicating",
+        "alerting"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-141",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "According to the Hoist System description, what is the primary purpose of the hoist overload protection?",
+      "options": [
+        "To prevent loads exceeding specified limits from being lifted, protecting the hoist and structure.",
+        "To prevent the hoist from operating at low temperatures.",
+        "To ensure the hoist always operates at maximum speed.",
+        "To automatically jettison the load whenever the helicopter turns."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The Hoist System section describes overload protection as a feature designed to prevent excessive loads from being lifted, thereby protecting the hoist equipment and airframe attachment points.",
+      "references": [
+        "AW169 RFM Section 7 - Hoist system, overload protection"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "hoist",
+        "overload"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-142",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "In the Cargo Hook System description, what is the function of the emergency release?",
+      "options": [
+        "To allow the crew to jettison the external load quickly in an emergency.",
+        "To reduce rotor RPM to idle.",
+        "To deploy the emergency floats automatically.",
+        "To shut down both engines."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The Cargo Hook System description explains that an emergency release provides a rapid means of jettisoning the external load if required for safety.",
+      "references": [
+        "AW169 RFM Section 7 - Cargo hook, emergency release"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "systems",
+        "cargo-hook",
+        "emergency-release"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-143",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "According to the Landing Gear description, what is the primary purpose of the weight-on-wheels (WOW) switches?",
+      "options": [
+        "To signal on-ground or in-flight status to various aircraft systems.",
+        "To measure fuel quantity in the main tanks.",
+        "To adjust rotor blade pitch automatically.",
+        "To control cabin temperature based on outside air temperature."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The Landing Gear and systems integration description notes that WOW switches provide signals used by several systems to distinguish ground from flight conditions, affecting logic such as warnings and protections.",
+      "references": [
+        "AW169 RFM Section 7 - Landing gear, WOW"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "landing-gear",
+        "WOW"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-144",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "In the Fuel System description, what is the purpose of fuel filters in the supply line to the engines?",
+      "options": [
+        "To remove contaminants from the fuel before it reaches engine components.",
+        "To regulate cabin temperature by heating the fuel.",
+        "To pressurise the hydraulic system.",
+        "To provide backup lubrication oil to the gearbox."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The Fuel System section states that filters are fitted in the fuel supply to trap contamination and protect the engine fuel system components.",
+      "references": [
+        "AW169 RFM Section 7 - Fuel system, filters"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "systems",
+        "fuel",
+        "filters"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-145",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "According to the Engine Oil System description, what is one normal crew response to an engine oil pressure low indication?",
+      "options": [
+        "Refer to the relevant procedure which may include reducing power on the affected engine and considering shutdown if the condition persists.",
+        "Immediately increase power on the affected engine to restore pressure.",
+        "Switch off all electrical systems to preserve oil.",
+        "Ignore the indication if temperature remains normal."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The Engine Oil System section links low oil pressure indications to specific procedures, typically involving confirmation, power reduction on the affected engine and possible shutdown according to the checklist.",
+      "references": [
+        "AW169 RFM Section 7 - Engine, oil pressure low"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "engine",
+        "oil"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-146",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "In the Transmission System description, what is the function of chip detectors?",
+      "options": [
+        "To detect metallic particles in the lubrication oil and provide an indication of possible component wear.",
+        "To measure hydraulic fluid temperature.",
+        "To monitor cabin humidity.",
+        "To detect ice accretion on the rotor blades."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The Transmission System section explains that chip detectors installed in gearboxes sense metallic particles in the oil, providing early warning of component wear or damage.",
+      "references": [
+        "AW169 RFM Section 7 - Transmission, chip detectors"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "transmission",
+        "chip-detectors"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-147",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "According to the Hydraulic System description, what is the purpose of priority valves?",
+      "options": [
+        "To ensure that hydraulic pressure is maintained to essential users before supplying non-essential users.",
+        "To prioritise fuel flow to one engine over the other.",
+        "To give electrical power priority to the cabin lighting.",
+        "To keep the landing gear extended at all times."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The Hydraulic System section states that priority valves are used to maintain pressure to essential services such as flight controls before supplying less critical users.",
+      "references": [
+        "AW169 RFM Section 7 - Hydraulic system, priority valves"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "hydraulic",
+        "priority-valves"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-148",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "In the Electrical System description, what is the normal function of the external power receptacle?",
+      "options": [
+        "To allow connection of an external power source for ground operations or engine start.",
+        "To provide a point for refuelling the helicopter.",
+        "To attach the cargo hook equipment.",
+        "To connect the rotor brake system to ground air supply."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The Electrical System section notes that an external power receptacle permits the helicopter to be powered from an external source, supporting ground operations and starts without using the battery excessively.",
+      "references": [
+        "AW169 RFM Section 7 - Electrical power, external power"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "systems",
+        "electrical",
+        "external-power"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-149",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "According to the Environmental Control System description, what is one purpose of the cabin temperature control?",
+      "options": [
+        "To allow the crew to select and maintain a comfortable cabin temperature for occupants.",
+        "To control the fuel temperature in the main tanks.",
+        "To cool the engine oil directly.",
+        "To adjust the tail rotor gearbox temperature."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The ECS section describes temperature control as providing means for the crew to regulate cabin temperature within a comfortable range for crew and passengers.",
+      "references": [
+        "AW169 RFM Section 7 - Environmental Control System, temperature control"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "systems",
+        "ECS",
+        "temperature"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "AW169-SYS-150",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "In the Communications System description, what is the function of the intercom system?",
+      "options": [
+        "To provide internal voice communication between crew members and, where installed, with passengers.",
+        "To transmit flight data to air traffic control automatically.",
+        "To control hydraulic pressure to the flight controls.",
+        "To adjust rotor RPM based on voice commands."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The Communications System section explains that the intercom system allows crew members, and in some configurations passengers, to communicate with each other via headsets and microphones.",
+      "references": [
+        "AW169 RFM Section 7 - Communications, intercom"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "systems",
+        "communications",
+        "intercom"
+      ],
+      "source": "AW169 RFM",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    }
+  ]
+}

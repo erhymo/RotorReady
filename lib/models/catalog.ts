@@ -14,8 +14,15 @@ export type ModelVariantDefinition = {
 export const MODEL_VARIANTS: ModelVariantDefinition[] = [
   {
     id: "AW169",
-    label: "AW169",
-    description: "Leonardo AW169 – RotorReady original.",
+    label: "AW169 Standard",
+    description: "Leonardo AW169 – standard RotorReady data.",
+    productId: "AW169",
+    status: "available",
+  },
+  {
+    id: "AW169_EP",
+    label: "AW169 EP",
+    description: "Leonardo AW169 Enhanced Performance (EP).",
     productId: "AW169",
     status: "available",
   },

@@ -3,6 +3,7 @@
 import { Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { BackButton } from "@/app/components/BackButton";
+import { useActiveModelVariant } from "@/lib/models/hooks";
 
 export default function Page() {
   return (
@@ -14,7 +15,9 @@ export default function Page() {
 
 function PageInner() {
   const router = useRouter();
+  const { variant } = useActiveModelVariant();
   const sp = useSearchParams();
+  const afterTakeOffChecksPage = variant.id === "AW169_EP" ? "183" : "167";
   const cwp = sp.get("cwp");
   const plist = sp.get("plist");
   const compactCWP = !!cwp && cwp !== "0" && cwp !== "false";
@@ -169,7 +172,7 @@ function PageInner() {
               (60 m) ATS).
             </li>
             <li>
-              <span className="font-medium">AFTER TAKE-OFF checks. See page 167.</span> — Complete.
+              <span className="font-medium">AFTER TAKE-OFF checks. See page {afterTakeOffChecksPage}.</span> — Complete.
             </li>
           </ol>
         </section>

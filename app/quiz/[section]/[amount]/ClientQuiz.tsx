@@ -196,7 +196,7 @@ export default function ClientQuiz({ section, initial, resumeKey, amountToken, i
 
       <div className="flex items-center justify-end">
         <div className="flex items-center gap-2">
-          {activeVariant.id === "AW169" && (
+	          {activeVariant.productId === "AW169" && (
             <Link href="/aw169/abbreviations" className="px-2 py-1 rounded border text-xs bg-white dark:bg-zinc-900 dark:text-zinc-100 dark:border-zinc-700">ABBR</Link>
           )}
           <button onClick={toggleFlag} aria-label={flags[idx] ? "Remove flag" : "Flag this question"} className={`px-3 py-1 rounded border text-sm ${flags[idx] ? "bg-amber-100 border-amber-400 dark:bg-amber-900 dark:border-amber-600 dark:text-zinc-100" : "bg-white dark:bg-zinc-900 dark:text-zinc-100 dark:border-zinc-700"}`}>{flags[idx] ? "Flagged" : "Flag"}</button>

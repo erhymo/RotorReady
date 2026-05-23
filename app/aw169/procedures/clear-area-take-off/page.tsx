@@ -3,6 +3,7 @@
 import { Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { BackButton } from "@/app/components/BackButton";
+import { useActiveModelVariant } from "@/lib/models/hooks";
 
 export default function ClearAreaTakeOffPage() {
   return (
@@ -14,12 +15,16 @@ export default function ClearAreaTakeOffPage() {
 
 function ClearAreaTakeOffInner() {
   const router = useRouter();
+  const { variant } = useActiveModelVariant();
   const sp = useSearchParams();
   const cwp = sp.get("cwp");
   const plist = sp.get("plist");
   const compactCWP = !!cwp && cwp !== "0" && cwp !== "false";
   const compactList = !!plist && plist !== "0" && plist !== "false";
   const compact = compactCWP || compactList;
+  const figureSrc = variant.id === "AW169_EP"
+    ? "/aw169/procedures/clear-area-take-off/clear_area_take_off_ep.svg"
+    : "/aw169/procedures/clear-area-take-off/clear_area_take_off_exact.svg";
 
   function renderContent() {
     const steps = [
@@ -65,9 +70,8 @@ function ClearAreaTakeOffInner() {
         <section className="rounded-xl border bg-white dark:bg-zinc-900 dark:border-zinc-700 p-4">
           <div className="text-sm font-semibold text-slate-800 dark:text-zinc-100 mb-2">Take-Off</div>
           <div className="rounded-lg overflow-hidden border dark:border-zinc-700 bg-white dark:bg-zinc-900">
-            {/* Provide PNG/SVG asset at public/aw169/procedures/clear-area-take-off/clear_area_take_off_exact.svg */}
             <img
-              src="/aw169/procedures/clear-area-take-off/clear_area_take_off_exact.svg"
+              src={figureSrc}
               alt="Figure NP 3: Take-Off Profile Clear Area"
               className="w-full h-auto"
               onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}

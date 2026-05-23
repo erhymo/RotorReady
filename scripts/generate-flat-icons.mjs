@@ -43,7 +43,7 @@ function htmlForIcon(size, interFontPath) {
     ? `data:font/woff2;base64,${fs.readFileSync(interFontPath).toString("base64")}`
     : null;
   const logoSvg = fs
-    .readFileSync("public/logo.svg", "utf8")
+    .readFileSync("public/app-icon.svg", "utf8")
     .replace("<svg ", `<svg width="${size}" height="${size}" style="display:block;background:#fff" `);
 
   return `<!doctype html>
@@ -109,6 +109,6 @@ fs.writeFileSync(
     "Use rotorready-app-icon-1024.png for App Store / iOS app icon uploads if Apple asks for a 1024x1024 icon.",
     "The iOS project icon has also been updated at ios/App/App/Assets.xcassets/AppIcon.appiconset/AppIcon-512@2x.png.",
     "",
-    "Design: exact flat RotorReady website logo: white background, #2E6EA1 circle, white RR, no shadow, no gradient.",
+    "Design: dark RotorReady app icon matching the website mark: #09090B background, #2E6EA1 circle, white RR, no alpha.",
   ].join("\n"),
 );

@@ -946,16 +946,16 @@
       ],
       "explanation": "Maximum gross weight for CAT B Take-Off/Landing is 4600 kg.",
       "references": [
-        "QRH p6"
+        "QRH p7"
       ],
-      "printedPage": 6,
+      "printedPage": 7,
       "difficulty": "easy",
       "tags": [
         "weight",
         "cat b",
         "limitations"
       ],
-      "source": "QRH p6",
+      "source": "QRH p7",
       "sectionId": "limitations",
       "type": "single",
       "modelIds": [
@@ -1026,41 +1026,9 @@
       ]
     },
     {
-      "id": "lims-p6-005",
-      "section": "LIMITATIONS",
-      "question": "What electrical load does “25%” mean in CAT B WAT charts?",
-      "options": [
-        "25% of total system load",
-        "25% on each DC generator",
-        "25% on essential bus only",
-        "25% on non-essential bus"
-      ],
-      "answer": [
-        1
-      ],
-      "explanation": "In CAT B WAT charts, 25% means an electrical load of 25% on each DC generator has been included.",
-      "references": [
-        "QRH p6"
-      ],
-      "printedPage": 6,
-      "difficulty": "medium",
-      "tags": [
-        "cat b",
-        "electrical load",
-        "wat",
-        "limitations"
-      ],
-      "source": "QRH p6",
-      "sectionId": "limitations",
-      "type": "single",
-      "modelIds": [
-        "AW169_EP"
-      ]
-    },
-    {
       "id": "lims-p7-001",
       "section": "LIMITATIONS",
-      "question": "Is CAT B Take-Off and Landing with tail wind permitted?",
+      "question": "Is CAT A Take-Off and Landing with tail wind permitted?",
       "options": [
         "Yes, up to 10 kts",
         "Yes, up to 20 kts",
@@ -1070,20 +1038,20 @@
       "answer": [
         2
       ],
-      "explanation": "CAT B Take-Off and Landing with tail wind is prohibited.",
+      "explanation": "Category A Take-Off and Landing with tail wind component is prohibited (QRH p.11: CATEGORY A OPERATION - WIND LIMITATIONS).",
       "references": [
-        "QRH p7"
+        "QRH p11"
       ],
-      "printedPage": 7,
+      "printedPage": 11,
       "difficulty": "easy",
       "tags": [
-        "cat b",
+        "cat a",
         "takeoff",
         "landing",
         "tailwind",
         "limitations"
       ],
-      "source": "QRH p7",
+      "source": "QRH p11",
       "sectionId": "limitations",
       "type": "single",
       "modelIds": [
@@ -1113,68 +1081,6 @@
         "cat b",
         "electrical load",
         "wat",
-        "limitations"
-      ],
-      "source": "QRH p7",
-      "sectionId": "limitations",
-      "type": "single",
-      "modelIds": [
-        "AW169_EP"
-      ]
-    },
-    {
-      "id": "lims-p7-003",
-      "section": "LIMITATIONS",
-      "question": "What electrical load does “25%” mean in CAT B WAT charts?",
-      "options": [
-        "25% of installed generators available",
-        "An electrical load of 25% on each DC generator",
-        "25% of total system load across all buses",
-        "25% only on non-essential bus"
-      ],
-      "answer": [
-        1
-      ],
-      "explanation": "In CAT B WAT charts, 25% means that an electrical load of 25% on each DC generator has been included.",
-      "references": [
-        "QRH p7"
-      ],
-      "printedPage": 7,
-      "difficulty": "medium",
-      "tags": [
-        "cat b",
-        "electrical load",
-        "wat",
-        "limitations"
-      ],
-      "source": "QRH p7",
-      "sectionId": "limitations",
-      "type": "single",
-      "modelIds": [
-        "AW169_EP"
-      ]
-    },
-    {
-      "id": "lims-p7-004",
-      "section": "LIMITATIONS",
-      "question": "At what altitude can a safe vertical reject be carried out up to 15 ft for weight up to 4600 kg?",
-      "options": [
-        "Up to 1000 ft",
-        "Up to 5000 ft",
-        "Up to 10,000 ft",
-        "Only at sea level"
-      ],
-      "answer": [],
-      "explanation": "A safe vertical reject can always be carried out from HIGE up to 15 ft for weight up to 4600 kg.",
-      "references": [
-        "QRH p7"
-      ],
-      "printedPage": 7,
-      "difficulty": "medium",
-      "tags": [
-        "cat b",
-        "vertical reject",
-        "weight",
         "limitations"
       ],
       "source": "QRH p7",
@@ -1223,13 +1129,13 @@
       "options": [
         "Up to 1000 ft",
         "Up to 5000 ft",
-        "Up to 10,000 ft",
+        "Above 5000 ft",
         "Only at sea level"
       ],
       "answer": [
         2
       ],
-      "explanation": "A safe vertical reject can always be carried out from HIGE up to 10 ft for weight in excess of 4600 kg up to 4800 kg up to 10,000 ft.",
+      "explanation": "A safe vertical reject can be carried out from HIGE up to 10 ft AGL for weight in excess of 4600 kg up to 4800 kg, above 5000 ft.",
       "references": [
         "QRH p7"
       ],
@@ -2131,7 +2037,9 @@
         "25 kts",
         "30 kts"
       ],
-      "answer": [],
+      "answer": [
+        1
+      ],
       "explanation": "Maximum crosswind component for Category A operation must not exceed 20 kts.",
       "references": [
         "QRH p11"
@@ -2408,7 +2316,9 @@
         "500 kg/m²",
         "550 kg/m²"
       ],
-      "answer": [],
+      "answer": [
+        1
+      ],
       "explanation": "Maximum unit load in baggage compartment is 450 kg/m² (92 lb/sq.ft).",
       "references": [
         "QRH p11"
@@ -2437,7 +2347,9 @@
         "650 mm",
         "700 mm"
       ],
-      "answer": [],
+      "answer": [
+        1
+      ],
       "explanation": "Cargo height in baggage compartment must not exceed 600 mm (2 ft).",
       "references": [
         "QRH p11"

@@ -14,6 +14,8 @@ export default defineConfig([
   globalIgnores([
     ".next/**",
     "out/**",
+    "android/**/build/**",
+    "android/app/src/main/assets/**",
     "build/**",
     "dist/**",
     "scripts/**",

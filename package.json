@@ -11,9 +11,13 @@
     "test:e2e": "playwright test",
     "ios:sync": "cap sync ios",
     "ios:open": "cap open ios",
+    "android:sync": "cap sync android",
+    "android:open": "cap open android",
+    "android:bundle": "cd android && ./gradlew bundleRelease",
     "extract:b3e": "node scripts/extract-b3e-rfm-pdfjs.mjs"
   },
   "dependencies": {
+    "@capacitor/android": "^7.6.5",
     "@capacitor/core": "^7.6.2",
     "@capacitor/ios": "^7.6.2",
     "@sentry/nextjs": "^10.17.0",

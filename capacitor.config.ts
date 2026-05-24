@@ -1,7 +1,7 @@
 import type { CapacitorConfig } from "@capacitor/cli";
 
 const config: CapacitorConfig = {
-  appId: "com.rotorready.app",
+  appId: "com.mayday.rotorready",
   appName: "RotorReady",
   webDir: "public",
   server: {

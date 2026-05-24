@@ -1,0 +1,64 @@
+default_platform(:android)
+
+SECURE_ENV_PATH = File.expand_path("~/Mayday/Secure/RotorReady/GooglePlay/playstore.env")
+
+def load_secure_env(path = ENV["ROTORREADY_GOOGLEPLAY_ENV"] || SECURE_ENV_PATH)
+  UI.user_error!("Google Play env file not found: #{path}") unless File.exist?(path)
+
+  File.readlines(path).each do |line|
+    line = line.strip
+    next if line.empty? || line.start_with?("#") || !line.include?("=")
+
+    key, value = line.split("=", 2)
+    ENV[key] ||= value
+  end
+end
+
+def required_env(name)
+  value = ENV[name]
+  UI.user_error!("Missing #{name}. Check #{SECURE_ENV_PATH}") if value.to_s.empty?
+  value
+end
+
+def play_track
+  ENV["GOOGLE_PLAY_TRACK"].to_s.empty? ? "internal" : ENV["GOOGLE_PLAY_TRACK"]
+end
+
+platform :android do
+  before_all do
+    load_secure_env
+    UI.message("Using Google Play API for #{required_env('GOOGLE_PLAY_PACKAGE_NAME')}")
+  end
+
+  desc "Validate Google Play API access without uploading a build"
+  lane :validate_play do
+    google_play_track_version_codes(
+      package_name: required_env("GOOGLE_PLAY_PACKAGE_NAME"),
+      json_key: required_env("GOOGLE_PLAY_JSON_KEY_PATH"),
+      track: play_track
+    )
+    UI.success("Connected to Google Play track #{play_track}")
+  end
+
+  desc "Sync Capacitor Android assets and build a signed release AAB"
+  lane :build do
+    sh("cd .. && env -u GEM_PATH -u GEM_HOME npm run android:sync")
+    sh("env -u GEM_PATH -u GEM_HOME ./gradlew bundleRelease")
+  end
+
+  desc "Build and upload AAB to Google Play internal testing"
+  lane :internal do
+    build
+    upload_to_play_store(
+      package_name: required_env("GOOGLE_PLAY_PACKAGE_NAME"),
+      json_key: required_env("GOOGLE_PLAY_JSON_KEY_PATH"),
+      aab: "app/build/outputs/bundle/release/app-release.aab",
+      track: play_track,
+      release_status: "completed",
+      skip_upload_metadata: true,
+      skip_upload_changelogs: true,
+      skip_upload_images: true,
+      skip_upload_screenshots: true
+    )
+  end
+end

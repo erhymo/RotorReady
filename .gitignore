@@ -19,6 +19,12 @@ ios/fastlane/Preview.html
 ios/fastlane/README.md
 ios/fastlane/screenshots/
 ios/fastlane/test_output/
+android/fastlane/.env*
+android/fastlane/report.xml
+android/fastlane/Preview.html
+android/fastlane/README.md
+android/fastlane/screenshots/
+android/fastlane/test_output/
 *.tsbuildinfo
 playwright-report/
 test-results/

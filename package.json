@@ -17,6 +17,9 @@
     "android:sync": "cap sync android",
     "android:open": "cap open android",
     "android:bundle": "cd android && ./gradlew bundleRelease",
+    "googleplay:doctor": "node scripts/googleplay-doctor.mjs",
+    "googleplay:validate": "cd android && FASTLANE_OPT_OUT_USAGE=1 FASTLANE_SKIP_UPDATE_CHECK=1 fastlane validate_play",
+    "googleplay:internal": "cd android && FASTLANE_OPT_OUT_USAGE=1 FASTLANE_SKIP_UPDATE_CHECK=1 fastlane internal",
     "extract:b3e": "node scripts/extract-b3e-rfm-pdfjs.mjs"
   },
   "dependencies": {

@@ -56,7 +56,7 @@ platform :ios do
 
   desc "Sync Capacitor iOS assets"
   lane :sync do
-    sh("cd .. && npm run ios:sync")
+    sh("cd .. && env -u GEM_PATH -u GEM_HOME npm run ios:sync")
   end
 
   desc "Build a signed IPA for App Store Connect"

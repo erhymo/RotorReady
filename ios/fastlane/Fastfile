@@ -63,7 +63,7 @@ platform :ios do
   lane :build do
     sync
     build_app(
-      workspace: "App.xcworkspace",
+      workspace: "App/App.xcworkspace",
       scheme: "App",
       configuration: "Release",
       export_method: "app-store",

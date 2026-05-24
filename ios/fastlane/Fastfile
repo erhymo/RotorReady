@@ -1,0 +1,89 @@
+default_platform(:ios)
+
+SECURE_ENV_PATH = File.expand_path("~/Mayday/Secure/RotorReady/AppStore/appstore.env")
+
+def load_secure_env(path = ENV["ROTORREADY_APPSTORE_ENV"] || SECURE_ENV_PATH)
+  UI.user_error!("App Store env file not found: #{path}") unless File.exist?(path)
+
+  File.readlines(path).each do |line|
+    line = line.strip
+    next if line.empty? || line.start_with?("#") || !line.include?("=")
+
+    key, value = line.split("=", 2)
+    ENV[key] ||= value
+  end
+end
+
+def required_env(name)
+  value = ENV[name]
+  UI.user_error!("Missing #{name}. Check #{SECURE_ENV_PATH}") if value.to_s.empty?
+  value
+end
+
+def app_store_api_key
+  app_store_connect_api_key(
+    key_id: required_env("APP_STORE_CONNECT_KEY_ID"),
+    issuer_id: required_env("APP_STORE_CONNECT_ISSUER_ID"),
+    key_filepath: required_env("APP_STORE_CONNECT_KEY_PATH"),
+    duration: 1200,
+    in_house: false
+  )
+end
+
+def app_store_connect_token
+  Spaceship::ConnectAPI::Token.create(
+    key_id: required_env("APP_STORE_CONNECT_KEY_ID"),
+    issuer_id: required_env("APP_STORE_CONNECT_ISSUER_ID"),
+    filepath: required_env("APP_STORE_CONNECT_KEY_PATH"),
+    duration: 1200,
+    in_house: false
+  )
+end
+
+platform :ios do
+  before_all do
+    load_secure_env
+    UI.message("Using App Store Connect API key for #{required_env('APP_IDENTIFIER')}")
+  end
+
+  desc "Validate App Store Connect API access without uploading"
+  lane :validate_api do
+    Spaceship::ConnectAPI.token = app_store_connect_token
+    app = Spaceship::ConnectAPI::App.find(required_env("APP_IDENTIFIER"))
+    UI.user_error!("No App Store Connect app found for #{required_env('APP_IDENTIFIER')}") if app.nil?
+    UI.success("Connected to App Store Connect for #{app.name} (#{app.bundle_id})")
+  end
+
+  desc "Sync Capacitor iOS assets"
+  lane :sync do
+    sh("cd .. && npm run ios:sync")
+  end
+
+  desc "Build a signed IPA for App Store Connect"
+  lane :build do
+    sync
+    build_app(
+      workspace: "App.xcworkspace",
+      scheme: "App",
+      configuration: "Release",
+      export_method: "app-store",
+      clean: true,
+      output_directory: "build",
+      output_name: "RotorReady.ipa",
+      xcargs: "-allowProvisioningUpdates DEVELOPMENT_TEAM=#{required_env('APPLE_TEAM_ID')}",
+      export_xcargs: "-allowProvisioningUpdates"
+    )
+  end
+
+  desc "Build and upload to TestFlight"
+  lane :beta do
+    api_key = app_store_api_key
+    build
+    upload_to_testflight(
+      api_key: api_key,
+      app_identifier: required_env("APP_IDENTIFIER"),
+      ipa: "build/RotorReady.ipa",
+      skip_waiting_for_build_processing: true
+    )
+  end
+end

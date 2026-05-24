@@ -7,11 +7,17 @@ node_modules/
 .env.local
 .env
 .env.vercel
+ios/fastlane/.env*
 
 # Build outputs
 /out/
 /build/
 dist/
+ios/build/
+ios/fastlane/report.xml
+ios/fastlane/Preview.html
+ios/fastlane/screenshots/
+ios/fastlane/test_output/
 *.tsbuildinfo
 playwright-report/
 test-results/

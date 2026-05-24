@@ -17,6 +17,27 @@ npm run ios:sync
 npm run ios:open
 ```
 
+## Fastlane upload setup
+
+Local App Store Connect API config is stored outside the repository:
+
+```bash
+~/Mayday/Secure/RotorReady/AppStore/appstore.env
+```
+
+The private `.p8` key must stay in the same secure folder and must not be committed.
+
+After fastlane is installed, run lanes from the iOS folder:
+
+```bash
+cd ios
+fastlane validate_api
+fastlane beta
+```
+
+- `validate_api` checks App Store Connect API access without uploading.
+- `beta` runs Capacitor iOS sync, builds a signed IPA, and uploads it to TestFlight.
+
 Use `ios:sync` after changing Capacitor config, native plugins, or web assets that must be copied into the iOS project.
 
 ## Xcode first-time setup

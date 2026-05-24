@@ -27,12 +27,30 @@ Local App Store Connect API config is stored outside the repository:
 
 The private `.p8` key must stay in the same secure folder and must not be committed.
 
+Before uploading, run the local release doctor from the repository root:
+
+```bash
+npm run appstore:doctor
+npm run appstore:doctor -- --api
+```
+
+The doctor checks installed tools, Xcode platform/runtime state, local App Store
+Connect config, the private key file, Fastfile syntax, and optionally the actual
+App Store Connect API connection. It never prints secret values.
+
 After fastlane is installed, run lanes from the iOS folder:
 
 ```bash
 cd ios
 fastlane validate_api
 fastlane beta
+```
+
+Or use the repository shortcuts:
+
+```bash
+npm run appstore:validate
+npm run ios:beta
 ```
 
 - `validate_api` checks App Store Connect API access without uploading.

@@ -7,6 +7,7 @@ const config: CapacitorConfig = {
   server: {
     url: "https://rotor-ready.com",
     cleartext: false,
+    errorPath: "native-error.html",
   },
   ios: {
     contentInset: "always",

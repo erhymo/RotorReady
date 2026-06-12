@@ -1,23 +1,27 @@
 import { adminDb } from "@/lib/firebase/admin";
 
+export type TrafficWindowMetrics = {
+  appOpens: number;
+  uniqueVisitors: number;
+};
+
 export type TrafficMetrics = {
   /**
-   * Antall brukere vi har registrert minst én aktivitet for (har lastSeenAt).
+   * Antall lokale installasjoner/besøkende vi har registrert minst én app-open for.
    */
   totalTrackedUsers: number;
-  /**
-   * Unike brukere som har vært aktive de siste 7 dagene.
-   */
+  last1Day: TrafficWindowMetrics;
+  last7Days: TrafficWindowMetrics;
+  last30Days: TrafficWindowMetrics;
+  /** Legacy field kept for older admin clients. */
   activeLast7Days: number;
-  /**
-   * Unike brukere som har vært aktive de siste 30 dagene.
-   */
+  /** Legacy field kept for older admin clients. */
   activeLast30Days: number;
-  /**
-   * Unike brukere som har vært aktive i dag.
-   */
+  /** Legacy field kept for older admin clients. */
   activeToday: number;
 };
+
+const EMPTY_WINDOW: TrafficWindowMetrics = { appOpens: 0, uniqueVisitors: 0 };
 
 function toDate(value: any): Date | null {
   if (!value) return null;
@@ -36,6 +40,9 @@ function toDate(value: any): Date | null {
 export function createEmptyTrafficMetrics(): TrafficMetrics {
   return {
     totalTrackedUsers: 0,
+    last1Day: { ...EMPTY_WINDOW },
+    last7Days: { ...EMPTY_WINDOW },
+    last30Days: { ...EMPTY_WINDOW },
     activeLast7Days: 0,
     activeLast30Days: 0,
     activeToday: 0,
@@ -43,42 +50,84 @@ export function createEmptyTrafficMetrics(): TrafficMetrics {
 }
 
 export async function getTrafficMetrics(now: Date = new Date()): Promise<TrafficMetrics> {
-  const snapshot = await adminDb.collection("users").select("lastSeenAt").get();
-
   const nowMs = now.getTime();
+  const oneDayAgoMs = nowMs - 24 * 60 * 60 * 1000;
   const sevenDaysAgoMs = nowMs - 7 * 24 * 60 * 60 * 1000;
   const thirtyDaysAgoMs = nowMs - 30 * 24 * 60 * 60 * 1000;
-  const todayKey = now.toISOString().slice(0, 10);
+  const thirtyDaysAgoIso = new Date(thirtyDaysAgoMs).toISOString();
 
-  let totalTrackedUsers = 0;
-  let activeLast7Days = 0;
-  let activeLast30Days = 0;
-  let activeToday = 0;
+  const [eventsSnapshot, visitorsSnapshot, legacyUsersSnapshot] = await Promise.all([
+    adminDb.collection("trafficEvents").where("createdAt", ">=", thirtyDaysAgoIso).get(),
+    adminDb.collection("trafficVisitors").select("lastSeenAt").get(),
+    // Legacy fallback from the previous signed-in heartbeat implementation.
+    adminDb.collection("users").select("lastSeenAt").get(),
+  ]);
 
-  snapshot.forEach((doc: any) => {
+  const unique1d = new Set<string>();
+  const unique7d = new Set<string>();
+  const unique30d = new Set<string>();
+  let opens1d = 0;
+  let opens7d = 0;
+  let opens30d = 0;
+
+  eventsSnapshot.forEach((doc: any) => {
+    const data = doc.data() as any;
+    const createdAt = toDate(data?.createdAt);
+    if (!createdAt) return;
+    const ts = createdAt.getTime();
+    const visitorId = typeof data?.visitorId === "string" && data.visitorId ? data.visitorId : doc.id;
+
+    if (ts >= thirtyDaysAgoMs) {
+      opens30d += 1;
+      unique30d.add(visitorId);
+    }
+    if (ts >= sevenDaysAgoMs) {
+      opens7d += 1;
+      unique7d.add(visitorId);
+    }
+    if (ts >= oneDayAgoMs) {
+      opens1d += 1;
+      unique1d.add(visitorId);
+    }
+  });
+
+  const trackedVisitors = new Set<string>();
+  visitorsSnapshot.forEach((doc: any) => {
     const data = doc.data() as any;
     const lastSeen = toDate(data?.lastSeenAt);
     if (!lastSeen) return;
+    trackedVisitors.add(`visitor:${doc.id}`);
 
     const ts = lastSeen.getTime();
-    totalTrackedUsers += 1;
+    if (ts >= thirtyDaysAgoMs) unique30d.add(doc.id);
+    if (ts >= sevenDaysAgoMs) unique7d.add(doc.id);
+    if (ts >= oneDayAgoMs) unique1d.add(doc.id);
+  });
 
+  legacyUsersSnapshot.forEach((doc: any) => {
+    const data = doc.data() as any;
+    const lastSeen = toDate(data?.lastSeenAt);
+    if (!lastSeen) return;
+    trackedVisitors.add(`user:${doc.id}`);
+
+    const ts = lastSeen.getTime();
+    if (ts >= thirtyDaysAgoMs) unique30d.add(`user:${doc.id}`);
     if (ts >= sevenDaysAgoMs) {
-      activeLast7Days += 1;
+      unique7d.add(`user:${doc.id}`);
     }
-    if (ts >= thirtyDaysAgoMs) {
-      activeLast30Days += 1;
-    }
-    if (lastSeen.toISOString().slice(0, 10) === todayKey) {
-      activeToday += 1;
+    if (ts >= oneDayAgoMs) {
+      unique1d.add(`user:${doc.id}`);
     }
   });
 
   return {
-    totalTrackedUsers,
-    activeLast7Days,
-    activeLast30Days,
-    activeToday,
+    totalTrackedUsers: trackedVisitors.size,
+    last1Day: { appOpens: opens1d, uniqueVisitors: unique1d.size },
+    last7Days: { appOpens: opens7d, uniqueVisitors: unique7d.size },
+    last30Days: { appOpens: opens30d, uniqueVisitors: unique30d.size },
+    activeLast7Days: unique7d.size,
+    activeLast30Days: unique30d.size,
+    activeToday: unique1d.size,
   };
 }
 

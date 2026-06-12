@@ -64,10 +64,33 @@ type SubscriptionMetrics = {
 
 type TrafficMetrics = {
   totalTrackedUsers: number;
+  last1Day?: {
+    appOpens: number;
+    uniqueVisitors: number;
+  };
+  last7Days?: {
+    appOpens: number;
+    uniqueVisitors: number;
+  };
+  last30Days?: {
+    appOpens: number;
+    uniqueVisitors: number;
+  };
   activeLast7Days: number;
   activeLast30Days: number;
   activeToday: number;
 };
+
+function TrafficCard(props: { title: string; opens: number; unique: number; description: string }) {
+  return (
+    <div className="rounded-xl border border-slate-200 bg-white/80 p-4 text-sm dark:border-zinc-700 dark:bg-zinc-900/70">
+      <div className="text-xs font-medium uppercase tracking-wide text-slate-500 dark:text-zinc-400">{props.title}</div>
+      <div className="mt-2 text-2xl font-semibold text-slate-900 dark:text-white">{props.opens}</div>
+      <p className="mt-1 text-[11px] text-slate-500 dark:text-zinc-400">{props.description}</p>
+      <p className="mt-2 text-xs font-medium text-slate-700 dark:text-zinc-300">Unique visitors: {props.unique}</p>
+    </div>
+  );
+}
 
 export default function AdminPage() {
   const [conversations, setConversations] = useState<AdminConversation[]>([]);
@@ -86,7 +109,6 @@ export default function AdminPage() {
   const [trafficMetrics, setTrafficMetrics] = useState<TrafficMetrics | null>(null);
   const [trafficLoading, setTrafficLoading] = useState(true);
   const [trafficError, setTrafficError] = useState<string | null>(null);
-  const [trafficRange, setTrafficRange] = useState<"7d" | "30d" | "all">("7d");
   const [clientFallback, setClientFallback] = useState(false);
 
   const [copiedId, setCopiedId] = useState<string | null>(null);
@@ -432,7 +454,7 @@ export default function AdminPage() {
 	            <div>
 	              <h2 className="text-lg font-semibold text-slate-900 dark:text-white">Traffic</h2>
 	              <p className="text-xs text-slate-500 dark:text-zinc-400">
-	                Unique users last week vs. 30 days and total traffic into the app.
+		                Anonymous app opens and unique visitors in rolling time windows.
 	              </p>
             </div>
 	            <button
@@ -442,30 +464,6 @@ export default function AdminPage() {
 	            >
 	              Refresh
 	            </button>
-          </div>
-
-          <div className="flex flex-wrap gap-2 text-xs">
-            <button
-              type="button"
-              onClick={() => setTrafficRange("7d")}
-              className={`rounded-full px-3 py-1 border text-[11px] font-medium transition ${trafficRange === "7d" ? "border-blue-500 bg-blue-50 text-blue-700 dark:border-blue-400 dark:bg-blue-900/40 dark:text-blue-100" : "border-slate-300 text-slate-600 hover:bg-slate-100 dark:border-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-800"}`}
-	            >
-	              Last 7 days
-	            </button>
-            <button
-              type="button"
-              onClick={() => setTrafficRange("30d")}
-              className={`rounded-full px-3 py-1 border text-[11px] font-medium transition ${trafficRange === "30d" ? "border-blue-500 bg-blue-50 text-blue-700 dark:border-blue-400 dark:bg-blue-900/40 dark:text-blue-100" : "border-slate-300 text-slate-600 hover:bg-slate-100 dark:border-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-800"}`}
-	            >
-	              Last 30 days
-	            </button>
-            <button
-              type="button"
-              onClick={() => setTrafficRange("all")}
-              className={`rounded-full px-3 py-1 border text-[11px] font-medium transition ${trafficRange === "all" ? "border-blue-500 bg-blue-50 text-blue-700 dark:border-blue-400 dark:bg-blue-900/40 dark:text-blue-100" : "border-slate-300 text-slate-600 hover:bg-slate-100 dark:border-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-800"}`}
-            >
-              All time
-            </button>
           </div>
 
           {trafficError && (
@@ -479,29 +477,31 @@ export default function AdminPage() {
 	          ) : !trafficMetrics ? (
 	            <p className="text-sm text-slate-600 dark:text-zinc-300">No traffic data available yet.</p>
 	          ) : (
-            <div className="grid gap-4 md:grid-cols-3 mt-2">
-              <div className="rounded-xl border border-slate-200 bg-white/80 p-4 text-sm dark:border-zinc-700 dark:bg-zinc-900/70">
-	                <div className="text-xs font-medium uppercase tracking-wide text-slate-500 dark:text-zinc-400">Total tracked</div>
-                <div className="mt-2 text-2xl font-semibold text-slate-900 dark:text-white">
-                  {trafficMetrics.totalTrackedUsers}
-                </div>
-	                <p className="mt-1 text-[11px] text-slate-500 dark:text-zinc-400">Users we have seen at least once.</p>
-              </div>
-              <div className="rounded-xl border border-slate-200 bg-white/80 p-4 text-sm dark:border-zinc-700 dark:bg-zinc-900/70">
-	                <div className="text-xs font-medium uppercase tracking-wide text-slate-500 dark:text-zinc-400">Active last 7 days</div>
-                <div className="mt-2 text-2xl font-semibold text-slate-900 dark:text-white">
-                  {trafficMetrics.activeLast7Days}
-                </div>
-	                <p className="mt-1 text-[11px] text-slate-500 dark:text-zinc-400">Unique users who have visited in the last week.</p>
-              </div>
-              <div className="rounded-xl border border-slate-200 bg-white/80 p-4 text-sm dark:border-zinc-700 dark:bg-zinc-900/70">
-	                <div className="text-xs font-medium uppercase tracking-wide text-slate-500 dark:text-zinc-400">Active last 30 days</div>
-                <div className="mt-2 text-2xl font-semibold text-slate-900 dark:text-white">
-                  {trafficMetrics.activeLast30Days}
-                </div>
-	                <p className="mt-1 text-[11px] text-slate-500 dark:text-zinc-400">Gives you a broader picture of traffic into the app.</p>
-              </div>
-            </div>
+	            <div className="space-y-4 mt-2">
+	              <div className="grid gap-4 md:grid-cols-3">
+	                <TrafficCard
+	                  title="Last 30 days"
+	                  opens={trafficMetrics.last30Days?.appOpens ?? 0}
+	                  unique={trafficMetrics.last30Days?.uniqueVisitors ?? trafficMetrics.activeLast30Days ?? 0}
+	                  description="App-open events recorded during the last 30 days."
+	                />
+	                <TrafficCard
+	                  title="Last 7 days"
+	                  opens={trafficMetrics.last7Days?.appOpens ?? 0}
+	                  unique={trafficMetrics.last7Days?.uniqueVisitors ?? trafficMetrics.activeLast7Days ?? 0}
+	                  description="App-open events recorded during the last 7 days."
+	                />
+	                <TrafficCard
+	                  title="Last 24 hours"
+	                  opens={trafficMetrics.last1Day?.appOpens ?? 0}
+	                  unique={trafficMetrics.last1Day?.uniqueVisitors ?? trafficMetrics.activeToday ?? 0}
+	                  description="App-open events recorded during the last day."
+	                />
+	              </div>
+	              <p className="text-xs text-slate-500 dark:text-zinc-400">
+	                Total tracked visitors/installations: {trafficMetrics.totalTrackedUsers}. App opens are throttled to one event per visitor every 30 minutes.
+	              </p>
+	            </div>
           )}
         </section>
 

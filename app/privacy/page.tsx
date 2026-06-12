@@ -10,7 +10,7 @@ export default function PrivacyPage() {
     <div className="mx-auto max-w-3xl p-6 space-y-6 text-slate-800 dark:text-zinc-100">
       <header className="space-y-2">
         <h1 className="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">Privacy Policy</h1>
-        <p className="text-sm text-slate-600 dark:text-zinc-300">Last updated: 3 May 2026</p>
+        <p className="text-sm text-slate-600 dark:text-zinc-300">Last updated: 12 June 2026</p>
       </header>
 
       <section className="rounded-2xl border bg-white p-5 shadow-sm dark:border-zinc-800 dark:bg-zinc-900 space-y-3">
@@ -32,6 +32,15 @@ export default function PrivacyPage() {
         <h2 className="text-lg font-semibold">Support contact</h2>
         <p>
           If you contact support, the information you choose to send may be used only to respond to your request.
+        </p>
+      </section>
+
+      <section className="rounded-2xl border bg-white p-5 shadow-sm dark:border-zinc-800 dark:bg-zinc-900 space-y-3">
+        <h2 className="text-lg font-semibold">Basic app usage metrics</h2>
+        <p>
+          RotorReady may record a random local visitor ID and app-open timestamps to understand recent usage, such as
+          activity during the last 30 days, 7 days and 24 hours. These basic metrics are used to improve the app and do
+          not require an account.
         </p>
       </section>
 

@@ -40,3 +40,11 @@ export function DownloadIcon(props: React.SVGProps<SVGSVGElement>) {
 			</svg>
 		);
 	}
+
+export function MessageIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" {...props}>
+      <path d="M3 4.75A2.75 2.75 0 0 1 5.75 2h8.5A2.75 2.75 0 0 1 17 4.75v5.5A2.75 2.75 0 0 1 14.25 13H8.1l-3.2 3.05A1.1 1.1 0 0 1 3 15.25V4.75Zm2.75-.95A.95.95 0 0 0 4.8 4.75v9.08l2.32-2.21a.9.9 0 0 1 .62-.25h6.51a.95.95 0 0 0 .95-.95V4.75a.95.95 0 0 0-.95-.95h-8.5Z" />
+    </svg>
+  );
+}

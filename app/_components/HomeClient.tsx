@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 
-import { BoltIcon, BookIcon, DownloadIcon } from "@/components/Icons";
+import { BoltIcon, BookIcon, DownloadIcon, MessageIcon } from "@/components/Icons";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 
 function Bar(props: { href: string; title: string; description: string; tone?: "blue"|"amber"|"slate"|"emerald"; icon?: React.ReactNode }) {
@@ -42,13 +42,22 @@ function Bar(props: { href: string; title: string; description: string; tone?: "
 
 		  return (
 		    <div className="max-w-5xl mx-auto p-6 space-y-8">
-		      <header className="space-y-3">
-		        <div>
+			      <header className="flex items-start justify-between gap-4">
+			        <div className="min-w-0">
 		          <h1 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">RotorReady</h1>
 		          <p className="mt-2 text-slate-600 dark:text-zinc-300">
 		            Train smarter with fast repetition, quick references and planning tools for rotorwing operations.
 		          </p>
 		        </div>
+			        <Link
+			          href="/feedback"
+			          prefetch={false}
+			          className="inline-flex shrink-0 items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-3 py-2 text-sm font-semibold text-blue-700 shadow-sm transition hover:border-blue-300 hover:bg-blue-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 dark:border-blue-500/40 dark:bg-blue-950/60 dark:text-blue-200 dark:hover:bg-blue-900/70"
+			          aria-label="Send feedback to RotorReady admin"
+			        >
+			          <MessageIcon className="h-4 w-4" />
+			          <span className="hidden sm:inline">Feedback</span>
+			        </Link>
 		      </header>
 
 		      <section className="space-y-3">

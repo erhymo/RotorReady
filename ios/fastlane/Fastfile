@@ -127,10 +127,12 @@ platform :ios do
       build_number: build_number.to_s,
       skip_binary_upload: true,
       skip_screenshots: true,
-      skip_metadata: true,
+      skip_metadata: false,
       submit_for_review: true,
       automatic_release: false,
       force: true,
+      copyright: "2026 Mayday AS",
+      precheck_include_in_app_purchases: false,
       release_notes: {
         "en-US" => ios_release_notes
       },

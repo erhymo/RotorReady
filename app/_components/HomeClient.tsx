@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 
 import { BoltIcon, BookIcon, DownloadIcon, MessageIcon } from "@/components/Icons";
+import { shouldShowNorwayTools } from "@/lib/geo/norwayToolsVisibility";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 
 function Bar(props: { href: string; title: string; description: string; tone?: "blue"|"amber"|"slate"|"emerald"; icon?: React.ReactNode }) {
@@ -31,6 +32,7 @@ function Bar(props: { href: string; title: string; description: string; tone?: "
 
 	export default function HomeClient() {
 	  const [ver, setVer] = useState<any>(null);
+		  const [showNorwayTools, setShowNorwayTools] = useState(false);
 	  const { variant: activeVariant } = useActiveModelVariant();
 
 	  useEffect(() => {
@@ -39,6 +41,16 @@ function Bar(props: { href: string; title: string; description: string; tone?: "
 	      .then(setVer)
 	      .catch(() => {});
 	  }, []);
+
+		  useEffect(() => {
+		    const timer = window.setTimeout(() => {
+		      setShowNorwayTools(shouldShowNorwayTools());
+		    }, 0);
+		    return () => window.clearTimeout(timer);
+		  }, []);
+
+		  const showCalculations = activeVariant?.productId === "AW169";
+		  const showPlanningTools = showNorwayTools || showCalculations;
 
 		  return (
 		    <div className="max-w-5xl mx-auto p-6 space-y-8">
@@ -136,29 +148,35 @@ function Bar(props: { href: string; title: string; description: string; tone?: "
 		        )}
 		      </section>
 
-	      <section className="space-y-3">
-	        <h2 className="text-sm font-semibold uppercase tracking-wide text-slate-700 dark:text-zinc-200">Planning & Tools</h2>
-	        <Bar
-	          href="/weather"
-	          title="Weather planning"
-		          description="Nearest ICAO airports with METAR/TAF and alternates."
-	          tone="slate"
-	        />
-	        <Bar
-	          href="/airports"
-	          title="Airports"
-		          description="Browse Avinor AIS airports, ATS and fuel opening hours."
-	          tone="slate"
-	        />
-		        {activeVariant?.productId === "AW169" && (
-	          <Bar
-	            href="/calculations"
-	            title="Calculations"
-	            description="Performance calculators such as AW169 OEI OGE headwind."
-	            tone="slate"
-	          />
-	        )}
-	      </section>
+		      {showPlanningTools && (
+		        <section className="space-y-3">
+		          <h2 className="text-sm font-semibold uppercase tracking-wide text-slate-700 dark:text-zinc-200">Planning & Tools</h2>
+		          {showNorwayTools && (
+		            <>
+		              <Bar
+		                href="/weather"
+		                title="Weather planning"
+		                description="Nearest ICAO airports with METAR/TAF and alternates."
+		                tone="slate"
+		              />
+		              <Bar
+		                href="/airports"
+		                title="Airports"
+		                description="Browse Avinor AIS airports, ATS and fuel opening hours."
+		                tone="slate"
+		              />
+		            </>
+		          )}
+		          {showCalculations && (
+		            <Bar
+		              href="/calculations"
+		              title="Calculations"
+		              description="Performance calculators such as AW169 OEI OGE headwind."
+		              tone="slate"
+		            />
+		          )}
+		        </section>
+		      )}
 
 	      <section className="space-y-3">
 	        <h2 className="text-sm font-semibold uppercase tracking-wide text-slate-700 dark:text-zinc-200">Offline & App</h2>

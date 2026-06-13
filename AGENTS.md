@@ -86,6 +86,17 @@ npm run appstore:doctor -- --api
 npm run ios:beta
 ```
 
+## User command: `ios submit`
+
+Submit an already uploaded and processed iOS build for App Review:
+
+```bash
+npm run appstore:doctor -- --api
+npm run ios:submit
+```
+
+Use `IOS_BUILD_NUMBER=... npm run ios:submit` when the user specifies an exact build. This submits for App Review only and keeps release manual after Apple approval.
+
 ## User command: `android deploy`
 
 Run only the Android part:
@@ -112,6 +123,7 @@ Do not run production promotion unless the user explicitly asks for `promoter ti
 ```bash
 npm run appstore:doctor -- --api
 npm run ios:beta
+npm run ios:submit
 npm run googleplay:doctor -- --api
 npm run googleplay:internal
 ```

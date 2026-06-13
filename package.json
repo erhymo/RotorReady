@@ -12,6 +12,7 @@
     "ios:sync": "cap sync ios",
     "ios:open": "cap open ios",
     "ios:beta": "cd ios && FASTLANE_OPT_OUT_USAGE=1 FASTLANE_SKIP_UPDATE_CHECK=1 fastlane beta",
+    "ios:submit": "cd ios && FASTLANE_OPT_OUT_USAGE=1 FASTLANE_SKIP_UPDATE_CHECK=1 fastlane submit_review",
     "appstore:doctor": "node scripts/appstore-doctor.mjs",
     "appstore:validate": "cd ios && FASTLANE_OPT_OUT_USAGE=1 FASTLANE_SKIP_UPDATE_CHECK=1 fastlane validate_api",
     "android:sync": "cap sync android",

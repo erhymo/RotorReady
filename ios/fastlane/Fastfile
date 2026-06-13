@@ -1,6 +1,7 @@
 default_platform(:ios)
 
 SECURE_ENV_PATH = File.expand_path("~/Mayday/Secure/RotorReady/AppStore/appstore.env")
+IOS_RELEASE_NOTES_PATH = File.expand_path("../../docs/release-notes/ios.txt", __dir__)
 
 def load_secure_env(path = ENV["ROTORREADY_APPSTORE_ENV"] || SECURE_ENV_PATH)
   UI.user_error!("App Store env file not found: #{path}") unless File.exist?(path)
@@ -38,6 +39,19 @@ def app_store_connect_token
     duration: 1200,
     in_house: false
   )
+end
+
+def ios_release_notes
+  path = ENV["ROTORREADY_IOS_RELEASE_NOTES_PATH"] || IOS_RELEASE_NOTES_PATH
+  UI.user_error!("iOS release notes file not found: #{path}") unless File.exist?(path)
+
+  notes = File.read(path).strip
+  UI.user_error!("iOS release notes file is empty: #{path}") if notes.empty?
+  notes
+end
+
+def ios_marketing_version
+  ENV["IOS_APP_VERSION"].to_s.empty? ? get_version_number(xcodeproj: "App/App.xcodeproj", target: "App") : ENV["IOS_APP_VERSION"]
 end
 
 platform :ios do
@@ -84,6 +98,47 @@ platform :ios do
       app_identifier: required_env("APP_IDENTIFIER"),
       ipa: "build/RotorReady.ipa",
       skip_waiting_for_build_processing: true
+    )
+  end
+
+  desc "Submit an already uploaded App Store Connect build for App Review"
+  lane :submit_review do
+    api_key = app_store_api_key
+    app_identifier = required_env("APP_IDENTIFIER")
+    app_version = ios_marketing_version
+    build_number = ENV["IOS_BUILD_NUMBER"]
+
+    if build_number.to_s.empty?
+      build_number = latest_testflight_build_number(
+        api_key: api_key,
+        app_identifier: app_identifier,
+        version: app_version,
+        platform: "ios"
+      )
+    end
+
+    UI.user_error!("Could not determine iOS build number. Set IOS_BUILD_NUMBER=...") if build_number.to_s.empty?
+    UI.important("Submitting #{app_identifier} version #{app_version} build #{build_number} for App Review")
+
+    upload_to_app_store(
+      api_key: api_key,
+      app_identifier: app_identifier,
+      app_version: app_version,
+      build_number: build_number.to_s,
+      skip_binary_upload: true,
+      skip_screenshots: true,
+      skip_metadata: true,
+      submit_for_review: true,
+      automatic_release: false,
+      force: true,
+      release_notes: {
+        "en-US" => ios_release_notes
+      },
+      submission_information: {
+        add_id_info_uses_idfa: false,
+        export_compliance_uses_encryption: false,
+        export_compliance_encryption_updated: false
+      }
     )
   end
 end

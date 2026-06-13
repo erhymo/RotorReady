@@ -51,12 +51,37 @@ Or use the repository shortcuts:
 ```bash
 npm run appstore:validate
 npm run ios:beta
+npm run ios:submit
 ```
 
 - `validate_api` checks App Store Connect API access without uploading.
 - `beta` runs Capacitor iOS sync, builds a signed IPA, and uploads it to TestFlight.
+- `ios:submit` submits an already uploaded/processed build for App Review.
 
 Use `ios:sync` after changing Capacitor config, native plugins, or web assets that must be copied into the iOS project.
+
+## Optional App Review submission automation
+
+After `npm run ios:beta` has uploaded a build and App Store Connect has finished processing it, you can submit the build for App Review from the command line:
+
+```bash
+npm run appstore:doctor -- --api
+npm run ios:submit
+```
+
+By default, `ios:submit` uses the current Xcode marketing version and the latest processed TestFlight build for that version. To submit a specific build number, run:
+
+```bash
+IOS_BUILD_NUMBER=9 npm run ios:submit
+```
+
+Release notes come from:
+
+```text
+docs/release-notes/ios.txt
+```
+
+This lane submits for App Review with manual release after approval (`automatic_release: false`). It does not build or upload a new binary.
 
 ## Xcode first-time setup
 

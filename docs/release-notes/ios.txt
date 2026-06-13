@@ -1,0 +1,1 @@
+Improved training app reliability, feedback handling, and recent app usage visibility for administrators.

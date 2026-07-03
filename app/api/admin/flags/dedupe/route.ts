@@ -27,10 +27,7 @@ function createdAtMs(value: unknown): number {
   return 0;
 }
 
-export async function GET(req: Request) {
-  const { searchParams } = new URL(req.url);
-  const confirm = searchParams.get("confirm") === "1" || searchParams.get("confirm") === "true";
-
+async function findDuplicates() {
   const snap = await adminDb.collection("flags").get();
   const docs: FlagDoc[] = snap.docs.map((d: any) => ({ id: d.id, ...(d.data() || {}) }));
 
@@ -53,12 +50,48 @@ export async function GET(req: Request) {
       if (atA !== atB) return atA - atB; // oldest first
       return String(a.id).localeCompare(String(b.id));
     });
-    const keep = sorted[0];
     for (const d of sorted.slice(1)) toDelete.push(d.id);
   }
 
+  return { total: docs.length, keys: groups.size, duplicateGroups: duplicateGroups.length, toDelete };
+}
+
+// Read-only preview. Never deletes, regardless of query params, so this is safe to
+// hit via a plain link (GET must not mutate state).
+export async function GET() {
+  try {
+    const { total, keys, duplicateGroups, toDelete } = await findDuplicates();
+    return NextResponse.json({
+      total,
+      keys,
+      duplicateGroups,
+      toDelete: toDelete.length,
+      deleted: 0,
+      confirmRequired: true,
+    });
+  } catch {
+    return NextResponse.json({ error: "Firestore admin not configured or unreachable." }, { status: 503 });
+  }
+}
+
+// Actually deletes duplicates. Requires an explicit JSON body so this can't be
+// triggered by a plain navigable link, browser prefetch, or crawler.
+export async function POST(req: Request) {
+  const body = await req.json().catch(() => null) as { confirm?: boolean } | null;
+  if (!body?.confirm) {
+    return NextResponse.json({ error: "Missing confirm:true in request body" }, { status: 400 });
+  }
+
+  let dup: Awaited<ReturnType<typeof findDuplicates>>;
+  try {
+    dup = await findDuplicates();
+  } catch {
+    return NextResponse.json({ error: "Firestore admin not configured or unreachable." }, { status: 503 });
+  }
+  const { total, keys, duplicateGroups, toDelete } = dup;
+
   let deleted = 0;
-  if (confirm && toDelete.length) {
+  if (toDelete.length) {
     // Firestore batch limit 500
     const chunks: string[][] = [];
     for (let i = 0; i < toDelete.length; i += 450) chunks.push(toDelete.slice(i, i + 450));
@@ -72,13 +105,5 @@ export async function GET(req: Request) {
     }
   }
 
-  return NextResponse.json({
-    total: docs.length,
-    keys: groups.size,
-    duplicateGroups: duplicateGroups.length,
-    toDelete: toDelete.length,
-    deleted,
-    confirmRequired: !confirm,
-  });
+  return NextResponse.json({ total, keys, duplicateGroups, toDelete: toDelete.length, deleted });
 }
-

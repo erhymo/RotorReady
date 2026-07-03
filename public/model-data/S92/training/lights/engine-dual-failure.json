@@ -1,0 +1,15 @@
+[
+  {
+    "id": "engine-dual-failure",
+    "name": "ENGINE - DUAL FAILURE",
+    "severity": "warning",
+    "description": "",
+    "pageImage": "/training/lights/pages/s92-engine-dual-failure.png",
+    "imageWidth": 1159,
+    "imageHeight": 2343,
+    "links": [],
+    "modelIds": [
+      "S92"
+    ]
+  }
+]

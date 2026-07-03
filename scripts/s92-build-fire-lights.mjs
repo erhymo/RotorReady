@@ -1,8 +1,12 @@
 #!/usr/bin/env node
-// Builds S92 "red light" (WARNING) CWP procedure cards for the FIRE unit pilot batch.
+// Builds S92 "red light" (WARNING) CWP procedure cards, unit by unit (FIRE, then ENG, ...).
 // Crops each source ECL page to just the procedure content (drops the unit tab-strip,
 // footer and "Continued on next page" marker) and stacks multi-page procedures into a
 // single seamless image, matching the existing AW139/AW169 training-lights convention.
+//
+// Header banner color (sampled at a fixed point within the title band) tells warning
+// (red, RGB 255/0/0) apart from caution (yellow, 255/255/0) and no-light checklists
+// (gray, ~220/220/220) — see scripts/s92-check-header-color.mjs.
 import fs from "fs";
 import path from "path";
 import mupdf from "mupdf";
@@ -40,6 +44,14 @@ const LIGHTS = [
   { id: "intentional-engine-shutdown", name: "INTENTIONAL ENGINE SHUTDOWN IN FLIGHT", pages: [33, 34], severity: "caution" }, // 2.7
   { id: "ditching-emergency-landing", name: "DITCHING / EMERGENCY LANDING", pages: [216, 217], severity: "caution" }, // 14.5
   { id: "emergency-evacuation-land", name: "EMERGENCY EVACUATION ON LAND", pages: [219], severity: "caution" }, // 14.7
+
+  // ENG unit: of 22 procedures, header-color sampling found only 2 genuine red warnings
+  // (the rest are caution-level or gray checklists with no discrete light).
+  { id: "engine-dual-failure", name: "ENGINE - DUAL FAILURE", pages: [25, 26], severity: "warning" }, // 2.1
+  { id: "engine-single-failure", name: "ENGINE - SINGLE FAILURE", pages: [27, 28], severity: "warning" }, // 2.2
+  // Referenced-only (gray checklist, no discrete light) — 2.2 links to both 2.7 (already
+  // built) and 2.8, so 2.8 is added purely to resolve that link.
+  { id: "engine-restart-in-flight", name: "ENGINE RESTART IN FLIGHT", pages: [35, 36], severity: "caution" }, // 2.8
 ];
 
 function analyzePage(doc, pageNumber1based) {

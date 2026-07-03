@@ -7,6 +7,9 @@
     "smoke-baggage.json",
     "intentional-engine-shutdown.json",
     "ditching-emergency-landing.json",
-    "emergency-evacuation-land.json"
+    "emergency-evacuation-land.json",
+    "engine-dual-failure.json",
+    "engine-single-failure.json",
+    "engine-restart-in-flight.json"
   ]
 }

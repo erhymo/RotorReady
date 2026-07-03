@@ -160,21 +160,21 @@ export default function H125QuestionPage() {
       <div className="h-2 bg-gray-200 rounded dark:bg-zinc-800">
         <div className="h-2 bg-blue-600 rounded dark:bg-blue-700" style={{ width: `${progress}%` }} />
       </div>
-      <div className="w-full flex items-center justify-between py-2 px-4 border-b border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-900">
+      <div className="w-full flex items-center justify-between py-2 px-4 border-b border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-800">
         <TopBarBackButton href={`/quiz/${encodeURIComponent(section)}`} />
         <div className="text-gray-500 dark:text-zinc-400">Question {index + 1} / {total}</div>
       </div>
       <div className="flex items-center justify-end">
         <div className="flex items-center gap-2">
           {activeVariant.id === "AW169" && (
-            <a href="/aw169/abbreviations" className="px-2 py-1 rounded border text-xs bg-white dark:bg-zinc-900 dark:text-zinc-100 dark:border-zinc-700">ABBR</a>
+            <a href="/aw169/abbreviations" className="px-2 py-1 rounded border text-xs bg-white dark:bg-zinc-800 dark:text-zinc-100 dark:border-zinc-700">ABBR</a>
           )}
-          <button onClick={toggleFlag} className={`px-3 py-1 rounded border text-sm ${session!.flags[index] ? "bg-amber-100 border-amber-400 dark:bg-amber-900 dark:border-amber-600 dark:text-zinc-100" : "bg-white dark:bg-zinc-900 dark:text-zinc-100 dark:border-zinc-700"}`}>{session!.flags[index] ? "Flagged" : "Flag"}</button>
+          <button onClick={toggleFlag} className={`px-3 py-1 rounded border text-sm ${session!.flags[index] ? "bg-amber-100 border-amber-400 dark:bg-amber-900 dark:border-amber-600 dark:text-zinc-100" : "bg-white dark:bg-zinc-800 dark:text-zinc-100 dark:border-zinc-700"}`}>{session!.flags[index] ? "Flagged" : "Flag"}</button>
         </div>
       </div>
 
 
-      <div className="bg-white dark:bg-zinc-900 dark:border-zinc-700 dark:text-zinc-100 rounded-xl border p-4">
+      <div className="bg-white dark:bg-zinc-800 dark:border-zinc-700 dark:text-zinc-100 rounded-xl border p-4">
         <div className="flex items-start justify-between gap-3">
           <p className="font-medium flex-1">{item.question}</p>
           <button onClick={() => { try { if (item?.id) { navigator.clipboard?.writeText(item.id); setCopied(true); window.setTimeout(() => setCopied(false), 1200); } } catch {} }} title="Click to copy ID" className="ml-2 text-[11px] font-mono text-gray-500 hover:text-gray-700 dark:text-zinc-400 dark:hover:text-zinc-200">
@@ -196,7 +196,7 @@ export default function H125QuestionPage() {
                   className={`w-full text-left px-4 py-3 rounded-lg border active:scale-[0.99] transition
                     ${chosen ? "ring-1 dark:ring-zinc-400" : ""}
                     ${ok || highlightCorrect ? "bg-green-50 border-green-400 dark:bg-green-900 dark:border-green-600 dark:text-zinc-100" : ""}
-                    ${wrong ? "bg-red-50 border-red-400 dark:bg-red-900 dark:border-red-600 dark:text-zinc-100" : "border-gray-200 bg-white dark:bg-zinc-900 dark:border-zinc-700 dark:text-zinc-100"}`}
+                    ${wrong ? "bg-red-50 border-red-400 dark:bg-red-900 dark:border-red-600 dark:text-zinc-100" : "border-gray-200 bg-white dark:bg-zinc-800 dark:border-zinc-700 dark:text-zinc-100"}`}
                 >
                   <span className="mr-2 text-xs text-gray-500 dark:text-zinc-400">{i + 1}.</span>{opt}
                 </button>

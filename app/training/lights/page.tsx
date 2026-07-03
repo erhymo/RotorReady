@@ -171,6 +171,33 @@ function LightsBar(props: {
 	  );
 }
 
+// Per-model CWP-trainer destinations shown on the idle "Emergency & Malfunction" menu.
+const CWP_TRAINER_LINKS: Record<string, { label: string; href: string }> = {
+  H125_AS350_B3_2B1: { label: "AS350 B3 2B1", href: "/training/lights/cwp/b3-2b1" },
+  H125_AS350_B3E: { label: "AS350 B3e", href: "/training/lights/cwp/b3e" },
+  AW189: { label: "AW189", href: "/training/lights/cwp/aw189" },
+  S92: { label: "S-92", href: "/training/lights/cwp/s92" },
+};
+
+function WarningTriangleIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 4.5 21.5 20.5H2.5L12 4.5Z" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
+      <path d="M12 10v4.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+      <circle cx="12" cy="17.3" r="0.9" fill="currentColor" />
+    </svg>
+  );
+}
+
+function CwpPanelIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="3.5" y="3.5" width="17" height="17" rx="2" stroke="currentColor" strokeWidth="1.8" />
+      <path d="M3.5 12h17M12 3.5v17" stroke="currentColor" strokeWidth="1.8" />
+    </svg>
+  );
+}
+
 	  function displayName(item: LightItem): string {
 	    if (item.id.endsWith("-flight")) return `${item.name} (in flight)`;
 	    if (item.id.endsWith("-ground")) return `${item.name} (on ground)`;
@@ -738,25 +765,22 @@ export default function LightsTrainer() {
 
   const header = useMemo(() => {
     if (!current) return null;
-    const pal = COLORS[current.severity];
     return (
-      <div className="sticky top-0 z-10 bg-white/80 dark:bg-zinc-900/90 backdrop-blur border-b dark:border-zinc-700">
-        <div className="mx-auto max-w-3xl px-6 py-3 flex items-center justify-between gap-3">
-          <div className="flex items-center gap-3">
-            <div
-              className="inline-flex items-center rounded-full border bg-white/90 dark:bg-zinc-900/80 border-slate-300 dark:border-zinc-700 px-2.5 py-1 text-sm font-medium text-slate-900 dark:text-zinc-100"
-              title={current.system || ""}
-            >
-              <span className={`${current.severity === "warning" ? "bg-red-500" : "bg-amber-500"} mr-2 inline-block h-2 w-2 rounded-full`} aria-hidden />
-              {displayName(current)}
-            </div>
-            {current.system && <div className="text-xs opacity-70 uppercase tracking-wide dark:text-zinc-300">{current.system}</div>}
-          </div>
-          <div className="text-sm opacity-70 dark:text-zinc-300">{idx + 1} / {deck.length} • {mode.toUpperCase()}</div>
+      <div className="sticky top-0 z-10 bg-slate-50/90 dark:bg-zinc-900/90 backdrop-blur">
+        <div className="mx-auto max-w-3xl px-6 py-2.5 flex items-center gap-3">
+          <span className={`${current.severity === "warning" ? "bg-red-500" : "bg-amber-500"} inline-block h-2 w-2 rounded-full shrink-0`} aria-hidden />
+          <span className="text-sm font-medium text-slate-900 dark:text-zinc-100">{displayName(current)}</span>
+          {current.system && <span className="text-xs opacity-60 uppercase tracking-wide dark:text-zinc-400">{current.system}</span>}
         </div>
       </div>
     );
-  }, [current, deck.length, idx, mode]);
+  }, [current]);
+
+  const topBarCounter = mode !== "idle" && mode !== "done" && current ? (
+    <span className="inline-flex items-center rounded-full bg-slate-100 dark:bg-zinc-800 px-2.5 py-1 text-xs font-medium text-slate-600 dark:text-zinc-300">
+      {idx + 1} / {deck.length}
+    </span>
+  ) : null;
 
   function StepCard({ step }: { step: ProcedureStep }) {
   const base = "rounded-xl p-4 whitespace-pre-wrap leading-relaxed text-[15px] md:text-[16px] dark:bg-zinc-900/80 dark:text-zinc-100";
@@ -1252,18 +1276,22 @@ export default function LightsTrainer() {
 
 	  return (
 	    <div className="min-h-screen bg-slate-50 dark:bg-zinc-900">
-		      <AppTopBar title="Emergency & Malfunction" backHref="/" backLabel="Home" />
-	      {!isMobile && mode !== "idle" && current && !(compactCWP && mode === "procedure") && header}
+		      <AppTopBar title="Emergency & Malfunction" backHref="/" backLabel="Home" rightAction={topBarCounter} />
+	      {!isMobile && mode === "procedure" && !compactCWP && current && header}
 		      <main className="mx-auto max-w-3xl p-6 space-y-6">
 		        {mode === "idle" && !isAw169 && activeVariant.id !== "AW139" && (
-          <div className="space-y-6">
-            <section className="space-y-4 rounded-xl border bg-white p-6 shadow-sm dark:bg-zinc-900 dark:border-zinc-700">
-              <div className="flex items-center gap-2">
-                <span className="inline-block h-2.5 w-2.5 rounded-full bg-red-600" aria-hidden />
-                <h1 className="text-xl font-semibold text-slate-900 dark:text-zinc-100">Red Warning Lights – Trainer</h1>
+          <div className="space-y-4">
+            <section className="rounded-xl border-l-4 border-red-600 dark:border-red-500 bg-white dark:bg-zinc-800 shadow-sm p-6 space-y-4">
+              <div className="flex items-start gap-3">
+                <span className="inline-grid place-items-center h-8 w-8 rounded-lg bg-red-50 text-red-600 dark:bg-red-900/40 dark:text-red-300 shrink-0" aria-hidden>
+                  <WarningTriangleIcon />
+                </span>
+                <div>
+                  <h1 className="font-semibold text-slate-900 dark:text-zinc-100">Red Warning Lights – Trainer</h1>
+                  <p className="text-sm text-slate-600 dark:text-zinc-300 mt-0.5">Select the number of random red lights and press <b>Start</b>.</p>
+                </div>
               </div>
-              <p className="text-sm text-slate-600 dark:text-zinc-300">Select the number of random red lights and press <b>Start</b>.</p>
-              <div className="flex flex-wrap items-center gap-3">
+              <div className="flex flex-wrap items-center gap-3 pl-11">
                 <label className="text-sm text-slate-600 dark:text-zinc-300">Amount:</label>
                 <select
                   value={pickCounts.warning}
@@ -1284,135 +1312,40 @@ export default function LightsTrainer() {
                 </button>
               </div>
               {!warningLights.length && !loading && (
-                <div className="text-sm text-slate-600 dark:text-zinc-300">
+                <div className="text-sm text-slate-600 dark:text-zinc-300 pl-11">
                   No red lights found for the selected model.
                 </div>
               )}
             </section>
 
-
-            {activeVariant.id === "H125_AS350_B3_2B1" && (
-              <section className="space-y-4 rounded-xl border bg-white p-6 shadow-sm dark:bg-zinc-900 dark:border-zinc-700">
-                <div className="flex items-center gap-2">
-                  <span className="inline-block h-2.5 w-2.5 rounded-full bg-neutral-700" aria-hidden />
-                  <h2 className="text-xl font-semibold text-slate-900 dark:text-zinc-100">CWP-trainer</h2>
-                </div>
-                <p className="text-sm text-slate-600 dark:text-zinc-300">AS350 B3 2B1 caution/warning panel — tap to train by pressing lights.</p>
-                <div>
-                  <Link href="/training/lights/cwp/b3-2b1" className="inline-flex items-center rounded-md px-4 py-2 bg-black text-white font-medium hover:bg-black/90">
-                    Open CWP-trainer
-                  </Link>
-                </div>
-              </section>
-            )}
-
-            {activeVariant.id === "H125_AS350_B3E" && (
-              <section className="space-y-4 rounded-xl border bg-white p-6 shadow-sm dark:bg-zinc-900 dark:border-zinc-700">
-                <div className="flex items-center gap-2">
-                  <span className="inline-block h-2.5 w-2.5 rounded-full bg-neutral-700" aria-hidden />
-                  <h2 className="text-xl font-semibold text-slate-900 dark:text-zinc-100">CWP-trainer</h2>
-                </div>
-                <p className="text-sm text-slate-600 dark:text-zinc-300">AS350 B3e caution/warning panel — tap to train by pressing lights.</p>
-                <div>
-                  <Link href="/training/lights/cwp/b3e" className="inline-flex items-center rounded-md px-4 py-2 bg-black text-white font-medium hover:bg-black/90">
-                    Open CWP-trainer
-                  </Link>
-                </div>
-              </section>
-            )}
-
-
-            {isAw169 && (
-              <section className="space-y-4 rounded-xl border bg-white p-6 shadow-sm dark:bg-zinc-900 dark:border-zinc-700">
-                <div className="flex items-center gap-2">
-                  <span className="inline-block h-2.5 w-2.5 rounded-full bg-neutral-700" aria-hidden />
-                  <h2 className="text-xl font-semibold text-slate-900 dark:text-zinc-100">CWP-trainer</h2>
-                </div>
-                <p className="text-sm text-slate-600 dark:text-zinc-300">AW169 warning panel — tap to train by pressing lights.</p>
-                <div>
-                  <Link href="/training/lights/cwp/aw169" className="inline-flex items-center rounded-md px-4 py-2 bg-black text-white font-medium hover:bg-black/90">
-                    Open CWP-trainer
-                  </Link>
-                </div>
-              </section>
+            {CWP_TRAINER_LINKS[activeVariant.id] && (
+              <LightsBar
+                tone="slate"
+                icon={<CwpPanelIcon />}
+                title="CWP-trainer"
+                description={`${CWP_TRAINER_LINKS[activeVariant.id].label} warning panel — tap to train by pressing lights.`}
+                href={CWP_TRAINER_LINKS[activeVariant.id].href}
+              />
             )}
 
             {activeVariant.id === "AW189" && (
-              <section className="space-y-4 rounded-xl border bg-white p-6 shadow-sm dark:bg-zinc-900 dark:border-zinc-700">
-                <div className="flex items-center gap-2">
-                  <span className="inline-block h-2.5 w-2.5 rounded-full bg-neutral-700" aria-hidden />
-                  <h2 className="text-xl font-semibold text-slate-900 dark:text-zinc-100">CWP-trainer</h2>
-                </div>
-                <p className="text-sm text-slate-600 dark:text-zinc-300">AW189 warning panel — tap to train by pressing lights.</p>
-                <div>
-                  <Link href="/training/lights/cwp/aw189" className="inline-flex items-center rounded-md px-4 py-2 bg-black text-white font-medium hover:bg-black/90">
-                    Open CWP-trainer
-                  </Link>
-                </div>
-              </section>
+              <LightsBar
+                tone="slate"
+                title={`Memory items – Trainer (${activeVariant.id})`}
+                description="Train only on memory items from the QRH for red lights."
+                actionLabel={loading ? "Loading…" : `Start (${memoryCount})`}
+                onClick={startMemoryOnly}
+                disabled={loading || memoryCount === 0}
+              />
             )}
-
-
-            {activeVariant.id === "AW139" && (
-              <section className="space-y-4 rounded-xl border bg-white p-6 shadow-sm dark:bg-zinc-900 dark:border-zinc-700">
-                <div className="flex items-center gap-2">
-                  <span className="inline-block h-2.5 w-2.5 rounded-full bg-neutral-700" aria-hidden />
-                  <h2 className="text-xl font-semibold text-slate-900 dark:text-zinc-100">CWP-trainer</h2>
-                </div>
-                <p className="text-sm text-slate-600 dark:text-zinc-300">AW139 warning panel — tap to train by pressing lights.</p>
-                <div>
-                  <Link href="/training/lights/cwp/aw139" className="inline-flex items-center rounded-md px-4 py-2 bg-black text-white font-medium hover:bg-black/90">
-                    Open CWP-trainer
-                  </Link>
-                </div>
-              </section>
-            )}
-
-            {activeVariant.id === "S92" && (
-              <section className="space-y-4 rounded-xl border bg-white p-6 shadow-sm dark:bg-zinc-900 dark:border-zinc-700">
-                <div className="flex items-center gap-2">
-                  <span className="inline-block h-2.5 w-2.5 rounded-full bg-neutral-700" aria-hidden />
-                  <h2 className="text-xl font-semibold text-slate-900 dark:text-zinc-100">CWP-trainer</h2>
-                </div>
-                <p className="text-sm text-slate-600 dark:text-zinc-300">S-92 warning panel — tap to train by pressing lights.</p>
-                <div>
-                  <Link href="/training/lights/cwp/s92" className="inline-flex items-center rounded-md px-4 py-2 bg-black text-white font-medium hover:bg-black/90">
-                    Open CWP-trainer
-                  </Link>
-                </div>
-              </section>
-            )}
-
-
-
-            {(isAw169 || activeVariant.id === "AW189") && (
-              <section className="space-y-4 rounded-xl border bg-white p-6 shadow-sm dark:bg-zinc-900 dark:border-zinc-700">
-                <div className="flex items-center gap-2">
-                  <span className="inline-block h-2.5 w-2.5 rounded-full bg-neutral-700" aria-hidden />
-                  <h2 className="text-xl font-semibold text-slate-900 dark:text-zinc-100">Memory items – Trainer ({activeVariant.id})</h2>
-                </div>
-                <p className="text-sm text-slate-600 dark:text-zinc-300">Train only on memory items from the QRH for red lights.</p>
-                <div>
-                  <button
-                    onClick={startMemoryOnly}
-                    disabled={loading || memoryCount === 0}
-                    className="inline-flex items-center rounded-md px-4 py-2 bg-slate-900 text-white font-medium disabled:opacity-40 hover:bg-slate-800"
-                    title="Train on memory items only for red lights"
-                  >
-                    {loading ? "Loading…" : `Start memory items only (${memoryCount})`}
-                  </button>
-                </div>
-              </section>
-            )}
-
-
 			          </div>
 			        )}
-		
+
 			        {mode === "idle" && activeVariant.id === "AW139" && (
 			          <div className="space-y-4">
 			            <LightsBar
 			              tone="red"
+			              icon={<WarningTriangleIcon />}
 			              title="Red Warning Lights  Trainer"
 			              description="Practice all red warning lights in random order. Tap to start."
 			              actionLabel={
@@ -1424,6 +1357,7 @@ export default function LightsTrainer() {
 			
 			            <LightsBar
 			              tone="slate"
+			              icon={<CwpPanelIcon />}
 			              title="CWP-trainer"
 			              description="AW139 warning panel  tap to train by pressing lights."
 			              href="/training/lights/cwp/aw139"
@@ -1435,6 +1369,7 @@ export default function LightsTrainer() {
 	          <div className="space-y-4">
 	            <LightsBar
 		              tone="red"
+		              icon={<WarningTriangleIcon />}
 	              title="Red Warning Lights  Trainer"
 	              description="Practice all red warning lights in random order. Tap to start."
 	              actionLabel={
@@ -1446,6 +1381,7 @@ export default function LightsTrainer() {
 
 	            <LightsBar
 	              tone="slate"
+	              icon={<CwpPanelIcon />}
 	              title="CWP-trainer"
 	              description="AW169 warning panel  tap to train by pressing lights."
 	              href="/training/lights/cwp/aw169"
@@ -1591,14 +1527,16 @@ export default function LightsTrainer() {
 	          </div>
 	        )}
         {mode === "light" && current && (
-          <div className="space-y-6">
+          <div className="space-y-5">
             <button
               onClick={reveal}
-              className="w-full rounded-2xl border p-8 text-left transition hover:shadow-md bg-white dark:bg-zinc-900 dark:border-zinc-700"
+              className={`w-full rounded-2xl border-l-4 ${
+                current.severity === "warning" ? "border-red-600 dark:border-red-500" : "border-amber-500 dark:border-amber-400"
+              } bg-white dark:bg-zinc-800 shadow-sm p-6 text-left transition hover:shadow-md`}
               aria-label={memoryOnly ? "Click to show memory items" : "Click to show procedure"}
               title="Click to show procedure"
             >
-              <div className="mb-3 text-sm opacity-90 text-gray-600 dark:text-zinc-100">{memoryOnly ? "Click the light to show memory items" : "Click the light to show the procedure"}</div>
+              <div className="mb-4 text-xs font-medium uppercase tracking-wide text-slate-500 dark:text-zinc-400">{memoryOnly ? "Tap to show memory items" : "Tap to show procedure"}</div>
               {isH125 ? (
                 <div className="flex justify-center">
                   <div className="w-[min(20rem,100%)] rounded-md bg-black p-4 h-20 grid place-items-center shadow-inner ring-1 ring-white/10">
@@ -1614,15 +1552,14 @@ export default function LightsTrainer() {
                   </div>
                 </div>
               ) : (
-                <div className="flex items-center gap-4 rounded-2xl p-5 border bg-neutral-50 dark:bg-zinc-900/80 dark:border-zinc-700">
-                  <span className={`${current.severity === "warning" ? "bg-red-500" : "bg-amber-500"} inline-block h-2.5 w-2.5 rounded-full`} aria-hidden />
+                <div className="flex items-center gap-4">
                   {current.icon && (
                     <Image
                       src={current.icon}
                       alt={displayName(current)}
                       width={56}
                       height={56}
-                      className="h-14 w-14 object-contain rounded-md bg-white/20 dark:bg-white/5"
+                      className="h-14 w-14 object-contain rounded-md bg-slate-100 dark:bg-zinc-900/60"
                       unoptimized
                     />
                   )}
@@ -1633,10 +1570,14 @@ export default function LightsTrainer() {
                 </div>
               )}
             </button>
-            <div className="flex items-center justify-between pt-2">
-              <button onClick={prev} disabled={!canPrev} className="rounded-lg px-4 py-2 border dark:bg-zinc-900 dark:text-zinc-100 dark:border-zinc-700 disabled:opacity-40">Previous</button>
-              <div className="text-sm opacity-60 dark:text-zinc-300">Enter/Space: show procedure</div>
-              <button disabled className="rounded-lg px-4 py-2 border opacity-40">Next</button>
+            <div className="flex items-center justify-between">
+              <button onClick={prev} disabled={!canPrev} className="inline-flex items-center gap-1 rounded-full px-4 py-2 text-sm font-medium bg-white dark:bg-zinc-800 text-slate-700 dark:text-zinc-200 shadow-sm hover:bg-slate-50 dark:hover:bg-zinc-700 disabled:opacity-40 disabled:shadow-none disabled:hover:bg-white dark:disabled:hover:bg-zinc-800">
+                <span aria-hidden>‹</span> Previous
+              </button>
+              <div className="text-xs opacity-50 dark:text-zinc-400">Enter/Space to reveal</div>
+              <button disabled className="inline-flex items-center gap-1 rounded-full px-4 py-2 text-sm font-medium bg-white dark:bg-zinc-800 text-slate-400 dark:text-zinc-500 shadow-sm opacity-40">
+                Next <span aria-hidden>›</span>
+              </button>
             </div>
           </div>
         )}

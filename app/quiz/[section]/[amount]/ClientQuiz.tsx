@@ -170,7 +170,7 @@ export default function ClientQuiz({ section, initial, resumeKey, amountToken, i
     const percent = Math.round((correct / initial.length) * 100);
     return (
       <div className="min-h-screen grid place-items-center p-6 dark:bg-zinc-900 dark:text-zinc-100">
-        <div className="w-full max-w-xl bg-white dark:bg-zinc-900 dark:text-zinc-100 rounded-lg shadow p-6 text-center border dark:border-zinc-700">
+        <div className="w-full max-w-xl bg-white dark:bg-zinc-800 dark:text-zinc-100 rounded-lg shadow p-6 text-center border dark:border-zinc-700">
           <h1 className="text-2xl font-bold mb-2">Result</h1>
           <div className="mb-1">Correct: <b>{correct}</b> / {initial.length}</div>
           <div className="mb-6">Percent: <b>{percent}%</b></div>
@@ -182,14 +182,14 @@ export default function ClientQuiz({ section, initial, resumeKey, amountToken, i
 
   // Standardiser layout: bruk samme chrome/stil som dedikerte quiz-sider
   const outer = "max-w-2xl mx-auto p-4 pb-28 space-y-4";
-  const card = "bg-white dark:bg-zinc-900 dark:border-zinc-700 dark:text-zinc-100 rounded-xl border p-4";
+  const card = "bg-white dark:bg-zinc-800 dark:border-zinc-700 dark:text-zinc-100 rounded-xl border p-4";
 
   return (
     <div className={outer}>
       <div className="h-2 bg-gray-200 rounded dark:bg-zinc-800">
         <div className="h-2 bg-blue-600 rounded dark:bg-blue-700" style={{ width: `${progress}%` }} />
       </div>
-      <div className="w-full flex items-center justify-between py-2 px-4 border-b border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-900">
+      <div className="w-full flex items-center justify-between py-2 px-4 border-b border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-800">
         <TopBarBackButton href={`/quiz/${encodeURIComponent(section)}`} />
         <div className="text-gray-500 dark:text-zinc-400">Question {idx + 1} / {total}</div>
       </div>
@@ -197,9 +197,9 @@ export default function ClientQuiz({ section, initial, resumeKey, amountToken, i
       <div className="flex items-center justify-end">
         <div className="flex items-center gap-2">
 	          {activeVariant.productId === "AW169" && (
-            <Link href="/aw169/abbreviations" className="px-2 py-1 rounded border text-xs bg-white dark:bg-zinc-900 dark:text-zinc-100 dark:border-zinc-700">ABBR</Link>
+            <Link href="/aw169/abbreviations" className="px-2 py-1 rounded border text-xs bg-white dark:bg-zinc-800 dark:text-zinc-100 dark:border-zinc-700">ABBR</Link>
           )}
-          <button onClick={toggleFlag} aria-label={flags[idx] ? "Remove flag" : "Flag this question"} className={`px-3 py-1 rounded border text-sm ${flags[idx] ? "bg-amber-100 border-amber-400 dark:bg-amber-900 dark:border-amber-600 dark:text-zinc-100" : "bg-white dark:bg-zinc-900 dark:text-zinc-100 dark:border-zinc-700"}`}>{flags[idx] ? "Flagged" : "Flag"}</button>
+          <button onClick={toggleFlag} aria-label={flags[idx] ? "Remove flag" : "Flag this question"} className={`px-3 py-1 rounded border text-sm ${flags[idx] ? "bg-amber-100 border-amber-400 dark:bg-amber-900 dark:border-amber-600 dark:text-zinc-100" : "bg-white dark:bg-zinc-800 dark:text-zinc-100 dark:border-zinc-700"}`}>{flags[idx] ? "Flagged" : "Flag"}</button>
         </div>
       </div>
 
@@ -225,7 +225,7 @@ export default function ClientQuiz({ section, initial, resumeKey, amountToken, i
                   className={`w-full text-left px-4 py-3 rounded-lg border active:scale-[0.99] transition
                     ${chosen ? "ring-1 dark:ring-zinc-400" : ""}
                     ${(isCorrect || highlightCorrect) ? "bg-green-50 border-green-400 dark:bg-green-900 dark:border-green-600 dark:text-zinc-100" : ""}
-                    ${isWrong ? "bg-red-50 border-red-400 dark:bg-red-900 dark:border-red-600 dark:text-zinc-100" : "border-gray-200 bg-white dark:bg-zinc-900 dark:border-zinc-700 dark:text-zinc-100"}`}
+                    ${isWrong ? "bg-red-50 border-red-400 dark:bg-red-900 dark:border-red-600 dark:text-zinc-100" : "border-gray-200 bg-white dark:bg-zinc-800 dark:border-zinc-700 dark:text-zinc-100"}`}
                 >
                   <span className="mr-2 text-xs text-gray-500 dark:text-zinc-400">{i + 1}.</span>{opt}
                 </button>

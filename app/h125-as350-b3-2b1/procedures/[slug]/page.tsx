@@ -398,8 +398,8 @@ const PROCEDURES: Record<string, ProcedureDefinition> = {
         left: "Corrected t4 margin",
         right: <>
 	          When necessary, compute corrected t4 margin using the Hp/OAT correction table. This correction only applies when the
-	          initial T4 margin is  +35&nbsp; b0C; if the corrected margin is negative the result is acceptable, whereas a
-	          T4 margin greater than +35&nbsp; b0C means the engine condition is unsatisfactory.
+	          initial T4 margin is ≥ +35&nbsp;°C; if the corrected margin is negative the result is acceptable, whereas a
+	          T4 margin greater than +35&nbsp;°C means the engine condition is unsatisfactory.
         </>,
       },
       {

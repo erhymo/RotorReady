@@ -1,0 +1,384 @@
+{
+  "items": [
+    {
+      "id": "s92-np-001",
+      "section": "NORMAL PROCEDURES",
+      "question": "Under what condition may both engines be started simultaneously?",
+      "options": [
+        "When OAT is below 25°C at sea level, decreasing the allowable OAT by 2°C per 1,000 feet of altitude",
+        "Whenever the APU generator is supplying power",
+        "Only during a Quick Launch or Scramble start",
+        "OAT has no bearing on simultaneous starts"
+      ],
+      "answer": [0],
+      "explanation": "Both engines may be started simultaneously when OAT is below 25°C at sea level, with the allowable OAT decreasing 2°C per 1,000 feet of altitude.",
+      "references": ["S-92 RFM Part 1 Sec II: STARTING ENGINES (p.2-14)"],
+      "tags": ["engine-start", "cold-weather"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-np-002",
+      "section": "NORMAL PROCEDURES",
+      "question": "During a normal engine start, the FADEC automatic blow down feature prevents engine start (with throttle in IDLE) until TGT decreases below what temperature?",
+      "options": [
+        "150°C",
+        "132°C",
+        "250°C",
+        "540°C"
+      ],
+      "answer": [0],
+      "explanation": "The FADEC automatic blow down feature prevents engine start until TGT decreases below 150°C when the throttle is in IDLE; inability to cool below this value during a start attempt may indicate an engine or start system malfunction.",
+      "references": ["S-92 RFM Part 1 Sec II: STARTING ENGINES (p.2-14)"],
+      "tags": ["engine-start", "fadec"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-np-003",
+      "section": "NORMAL PROCEDURES",
+      "question": "During Rotor Engagement and Engine Runup, by what Nr% should hydraulic system 1 and 2 pressure indicate green?",
+      "options": [
+        "By 40% Nr",
+        "By 70% Nr",
+        "By 54% Nr",
+        "By 100% Nr"
+      ],
+      "answer": [0],
+      "explanation": "Hydraulic system 1 and 2 pressure should be GREEN by 40% Nr during rotor engagement and engine runup, before throttles are advanced to 54% Nr and then FLY.",
+      "references": ["S-92 RFM Part 1 Sec II: ROTOR ENGAGEMENT AND ENGINE RUNUP (p.2-15)"],
+      "tags": ["rotor-engagement", "hydraulics"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-np-004",
+      "section": "NORMAL PROCEDURES",
+      "question": "During Rotor Engagement and Engine Runup, by what Nr% should the droop stops check out?",
+      "options": [
+        "By 70% Nr",
+        "By 40% Nr",
+        "By 54% Nr",
+        "By 95% Nr"
+      ],
+      "answer": [0],
+      "explanation": "Droop stops are checked out by 70% Nr during rotor engagement and engine runup, after throttles are advanced to FLY.",
+      "references": ["S-92 RFM Part 1 Sec II: ROTOR ENGAGEMENT AND ENGINE RUNUP (p.2-15)"],
+      "tags": ["rotor-engagement", "droop-stops"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-np-005",
+      "section": "NORMAL PROCEDURES",
+      "question": "To ensure a smooth transition from APU generator power to main generator power during engine runup, what is the correct AC generator switching sequence?",
+      "options": [
+        "Turn AC GEN NO. 2 ON, wait at least one second, then turn AC GEN NO. 1 ON",
+        "Turn AC GEN NO. 1 and NO. 2 ON simultaneously",
+        "Turn AC GEN NO. 1 ON first, then NO. 2 after one minute",
+        "Turn on whichever AC GEN switch is closer at hand"
+      ],
+      "answer": [0],
+      "explanation": "To provide a smoother transition from APU generator power to main generator power, AC GEN NO. 2 is turned on first, followed by AC GEN NO. 1 after waiting at least one second.",
+      "references": ["S-92 RFM Part 1 Sec II: ROTOR ENGAGEMENT AND ENGINE RUNUP (p.2-15)"],
+      "tags": ["rotor-engagement", "electrical"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-np-006",
+      "section": "NORMAL PROCEDURES",
+      "question": "What is the ground operating time limit for engine anti-ice, except when OAT is less than 5°C with visible moisture present?",
+      "options": [
+        "No more than 60 seconds",
+        "No more than 5 minutes",
+        "No more than 30 seconds",
+        "Unlimited while on the ground"
+      ],
+      "answer": [0],
+      "explanation": "Engine anti-ice operation on the ground is limited to no more than 60 seconds, except when OAT is less than 5°C and visible moisture is present, per both BEFORE TAKEOFF and AFTER LANDING cautions.",
+      "references": ["S-92 RFM Part 1 Sec II: BEFORE TAKEOFF / AFTER LANDING (p.2-18, p.2-22)"],
+      "tags": ["anti-ice", "ground-operations"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-np-007",
+      "section": "NORMAL PROCEDURES",
+      "question": "During the BEFORE TAKEOFF systems check, what Nr% is confirmed as part of the systems check?",
+      "options": [
+        "105%",
+        "100%",
+        "95%",
+        "110%"
+      ],
+      "answer": [0],
+      "explanation": "The BEFORE TAKEOFF systems check confirms Nr at 105%, all EICAS parameters green, no cautions or warnings, advisories noted, and all AFCS buttons green.",
+      "references": ["S-92 RFM Part 1 Sec II: BEFORE TAKEOFF (p.2-18)"],
+      "tags": ["before-takeoff", "systems-check"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-np-008",
+      "section": "NORMAL PROCEDURES",
+      "question": "Why must the weather radar be placed in STBY or OFF before takeoff unless active use is intended?",
+      "options": [
+        "The weight-on-wheels override forces standby on the ground, but the radar will radiate as soon as the helicopter lifts to a hover, requiring people to stay at least 100 feet from the forward 270° arc",
+        "The radar automatically shuts down when airborne regardless of switch position",
+        "Radiating on the ground damages the antenna",
+        "It has no operational significance and is only a fuel-saving measure"
+      ],
+      "answer": [0],
+      "explanation": "The weather radar's weight-on-wheels override forces standby while on the ground; unless STBY or OFF is selected, it will radiate as soon as the helicopter lifts to a hover, so all people must be at least 100 feet from the forward 270° arc before takeoff if an active mode is selected.",
+      "references": ["S-92 RFM Part 1 Sec II: BEFORE TAKEOFF (p.2-19)"],
+      "tags": ["weather-radar", "ground-safety"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-np-009",
+      "section": "NORMAL PROCEDURES",
+      "question": "How often is the power assurance check accomplished, per AFTER TAKEOFF procedures?",
+      "options": [
+        "Once each day",
+        "Before every takeoff regardless of prior checks that day",
+        "Once per week",
+        "Only after maintenance"
+      ],
+      "answer": [0],
+      "explanation": "The power assurance check is accomplished once each day, checked after takeoff if not already performed on the ground.",
+      "references": ["S-92 RFM Part 1 Sec II: AFTER TAKEOFF (p.2-20)"],
+      "tags": ["after-takeoff", "power-assurance"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-np-010",
+      "section": "NORMAL PROCEDURES",
+      "question": "What is the minimum idle time required to cool the engines prior to a normal shutdown?",
+      "options": [
+        "2 minutes at idle (or below 90% Ng for 2 minutes, including at least 60 seconds at idle, if 2 full minutes at idle is not operationally possible)",
+        "30 seconds at idle in all cases",
+        "5 minutes at idle in all cases",
+        "No cooldown period is required before shutdown"
+      ],
+      "answer": [0],
+      "explanation": "Engines should be run at idle for a minimum of 2 minutes before shutdown to ensure proper power turbine cooling; if that is not operationally possible, running below 90% Ng for at least 2 minutes, including at least 60 seconds at idle, is the alternative.",
+      "references": ["S-92 RFM Part 1 Sec II: SHUTDOWN (p.2-24)"],
+      "tags": ["shutdown", "engine-cooldown"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-np-011",
+      "section": "NORMAL PROCEDURES",
+      "question": "What caution can result from allowing the throttle to dwell more than 3 seconds in an intermediate position between IDLE and STOP during shutdown?",
+      "options": [
+        "ENG 1-2 OVSP TEST caution",
+        "ENG POWER LIM caution",
+        "ENG RATE LIM caution",
+        "FADEC OVERHEAT caution"
+      ],
+      "answer": [0],
+      "explanation": "The throttle should be moved quickly from IDLE to STOP; dwelling more than 3 seconds in an intermediate position may cause an ENG 1-2 OVSP TEST caution.",
+      "references": ["S-92 RFM Part 1 Sec II: SHUTDOWN (p.2-24)"],
+      "tags": ["shutdown", "throttle"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-np-012",
+      "section": "NORMAL PROCEDURES",
+      "question": "During shutdown, below what Nr% and at what pressure should the rotor brake be applied?",
+      "options": [
+        "Below 40% Nr, applying 150 to 200 psi",
+        "Below 70% Nr, applying 100 to 150 psi",
+        "Below 105% Nr, applying 200 to 250 psi",
+        "Below 20% Nr, applying 50 to 100 psi"
+      ],
+      "answer": [0],
+      "explanation": "The rotor brake is applied below 40% Nr during shutdown, applying 150 to 200 psi.",
+      "references": ["S-92 RFM Part 1 Sec II: SHUTDOWN (p.2-24A)"],
+      "tags": ["shutdown", "rotor-brake"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-np-013",
+      "section": "NORMAL PROCEDURES",
+      "question": "During the pre-start MGB pressure system static check, what confirms the MGB oil pressure gauge and sensor are functioning correctly?",
+      "options": [
+        "No red dashes are shown in place of the pressure number, and the MGB OIL PRES warning IS illuminated",
+        "No red dashes are shown, and the MGB OIL PRES warning must NOT be illuminated",
+        "The MGB OIL PRES caution must be illuminated instead of the warning",
+        "Any indication is acceptable as long as the engines are not yet started"
+      ],
+      "answer": [0],
+      "explanation": "During this ground static check (rotors not turning, no oil pressure yet developed), a functioning gauge shows a number rather than red dashes, and the MGB OIL PRES warning being illuminated is the expected, correct indication that the sensor works. Do not take off if red dashes are shown or the warning fails to illuminate during this check.",
+      "references": ["S-92 RFM Part 1 Sec II: COCKPIT EQUIPMENT CHECKS (p.2-13)"],
+      "tags": ["cockpit-checks", "mgb", "gearbox"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-np-014",
+      "section": "NORMAL PROCEDURES",
+      "question": "During the AFCS Preflight Built-In Test (PFBIT), for how long must PFLT be pressed and held?",
+      "options": [
+        "At least 0.5 seconds but no more than 2 seconds",
+        "At least 2 seconds but no more than 5 seconds",
+        "Exactly 1 second, no tolerance",
+        "As long as necessary until AFCS RESET illuminates"
+      ],
+      "answer": [0],
+      "explanation": "PFLT is pressed and held for at least 0.5 seconds but no more than 2 seconds as part of the AFCS Preflight Built-In Test sequence.",
+      "references": ["S-92 RFM Part 1 Sec II: COCKPIT EQUIPMENT CHECKS (p.2-12)"],
+      "tags": ["cockpit-checks", "afcs", "pfbit"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-np-015",
+      "section": "NORMAL PROCEDURES",
+      "question": "What is required to perform the Hydraulic LEAK TEST (LDI) during Cockpit Equipment Checks?",
+      "options": [
+        "Rotor Brake ON, then select LDI on the HEALTH/STATUS page and confirm an LDI PASS indication",
+        "Rotor Brake OFF and both engines running at FLY",
+        "APU CTRL OFF and battery power only",
+        "Landing gear retracted with GND PUMP ON"
+      ],
+      "answer": [0],
+      "explanation": "The Hydraulic LEAK TEST requires the Rotor Brake ON, then selecting LDI on the HEALTH/STATUS page (or lining down to HYDRAULICS if the LDI prompt is unavailable) and confirming an LDI PASS indication.",
+      "references": ["S-92 RFM Part 1 Sec II: COCKPIT EQUIPMENT CHECKS (p.2-12/2-13)"],
+      "tags": ["cockpit-checks", "hydraulics", "ldi"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-np-016",
+      "section": "NORMAL PROCEDURES",
+      "question": "At what OAT must the cold weather flight control warm-up procedure be completed prior to the flight control check?",
+      "options": [
+        "-17°C or less",
+        "-25°C or less",
+        "0°C or less",
+        "-40°C or less"
+      ],
+      "answer": [0],
+      "explanation": "If the OAT is -17°C or less, the cold weather flight control warm-up procedure must be completed before the flight control check.",
+      "references": ["S-92 RFM Part 1 Sec II: COCKPIT EQUIPMENT CHECKS (p.2-11)"],
+      "tags": ["cold-weather", "flight-controls"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-np-017",
+      "section": "NORMAL PROCEDURES",
+      "question": "What position must the pilot and copilot emergency egress handles be in before starting engines?",
+      "options": [
+        "Full forward and safetied",
+        "Full aft and unsafetied, ready for immediate use",
+        "Centered",
+        "Removed and stowed in the cabin"
+      ],
+      "answer": [0],
+      "explanation": "As part of BEFORE STARTING ENGINES, the pilot and copilot emergency egress handles must be full forward and safetied.",
+      "references": ["S-92 RFM Part 1 Sec II: BEFORE STARTING ENGINES (p.2-7)"],
+      "tags": ["before-start", "egress"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-np-018",
+      "section": "NORMAL PROCEDURES",
+      "question": "How long must the pilot wait between turning the battery on and starting the APU?",
+      "options": [
+        "At least 15 seconds, to allow time for the APU GCU preflight test",
+        "At least 60 seconds, to allow the FADEC to initialize",
+        "No wait is required",
+        "At least 5 minutes, to allow the battery to stabilize"
+      ],
+      "answer": [0],
+      "explanation": "The pilot must wait at least 15 seconds between turning the battery on and starting the APU, to allow time for the APU GCU preflight test.",
+      "references": ["S-92 RFM Part 1 Sec II: COCKPIT EQUIPMENT CHECKS / SCRAMBLE (p.2-10, p.2-27)"],
+      "tags": ["apu", "before-start"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-np-019",
+      "section": "NORMAL PROCEDURES",
+      "question": "What is the best rate of climb speed (Vy) at sea level for a Category A horizontal takeoff, and how does it change with altitude?",
+      "options": [
+        "80 knots at sea level, decreasing 1 knot per 1,000 feet of altitude",
+        "80 knots at sea level, constant regardless of altitude",
+        "100 knots at sea level, decreasing 2 knots per 1,000 feet of altitude",
+        "65 knots at sea level, increasing with altitude"
+      ],
+      "answer": [0],
+      "explanation": "The best rate of climb speed (Vy) is 80 knots at sea level and decreases one knot per thousand feet of altitude above sea level.",
+      "references": ["S-92 RFM Part 1 Sec II: CATEGORY A HORIZONTAL TAKEOFF (p.2-30)"],
+      "tags": ["category-a", "takeoff", "vy"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-np-020",
+      "section": "NORMAL PROCEDURES",
+      "question": "During a Category A rolling takeoff, forward taxi prior to liftoff must not exceed what speed?",
+      "options": [
+        "35 knots",
+        "50 knots",
+        "20 knots",
+        "65 knots"
+      ],
+      "answer": [0],
+      "explanation": "During a Category A rolling takeoff, the pilot initiates forward taxi not to exceed 35 knots before increasing collective to lift off.",
+      "references": ["S-92 RFM Part 1 Sec II: CATEGORY A ROLLING TAKEOFF (p.2-30A)"],
+      "tags": ["category-a", "takeoff", "rolling-takeoff"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    }
+  ]
+}

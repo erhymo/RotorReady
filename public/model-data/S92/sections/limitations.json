@@ -1,0 +1,384 @@
+{
+  "items": [
+    {
+      "id": "s92-lims-001",
+      "section": "OPERATING LIMITATIONS",
+      "question": "In the normal (non-degraded) AFCS configuration for IFR or VFR operations (PSAS1 and PSAS2, AP1 and AP2, ATT Mode), what is the maximum VNE?",
+      "options": [
+        "165 KIAS",
+        "120 KIAS",
+        "150 KIAS",
+        "106 KIAS"
+      ],
+      "answer": [0],
+      "explanation": "With the full normal AFCS configuration engaged (PSAS1/2, AP1/2, ATT Mode, cyclic and rudder trim), maximum VNE is 165 KIAS. Degraded configurations (e.g. SAS Mode or a single AP) reduce maximum VNE to 120 KIAS.",
+      "references": ["S-92 RFM Part 1 Sec I: REQUIRED EQUIPMENT (p.1-1/1-2)"],
+      "tags": ["afcs", "vne", "required-equipment"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "limitations",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-lims-002",
+      "section": "OPERATING LIMITATIONS",
+      "question": "What is the minimum flight crew specified in the S-92 RFM?",
+      "options": [
+        "Two pilots",
+        "One pilot",
+        "One pilot and one flight engineer",
+        "Two pilots and a flight engineer"
+      ],
+      "answer": [0],
+      "explanation": "The RFM specifies a minimum flight crew of two pilots; the Pilot in Command may occupy either cockpit seat.",
+      "references": ["S-92 RFM Part 1 Sec I: MINIMUM FLIGHT CREW (p.1-2)"],
+      "tags": ["crew", "general"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "limitations",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-lims-003",
+      "section": "OPERATING LIMITATIONS",
+      "question": "What limitation applies to the Enhanced Ground Proximity Warning System (EGPWS)?",
+      "options": [
+        "Navigation must not be predicated upon the use of EGPWS information",
+        "EGPWS Low Altitude Mode is mandatory whenever operating in IMC",
+        "The Terrain and Obstacle display may be used for routine navigation",
+        "EGPWS must be turned off during all offshore approaches"
+      ],
+      "answer": [0],
+      "explanation": "The EGPWS does not include power lines in its database, so navigation must never be predicated upon EGPWS information; the terrain/obstacle display is an awareness tool only, not a routine navigation reference.",
+      "references": ["S-92 RFM Part 1 Sec I: ENHANCED GROUND PROXIMITY WARNING SYSTEM (EGPWS) (p.1-2)"],
+      "tags": ["egpws", "navigation"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "limitations",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-lims-004",
+      "section": "OPERATING LIMITATIONS",
+      "question": "For RNP5/BRNAV operation with the FMS, usable navigation information must be received from which source(s)?",
+      "options": [
+        "GPS, or one VOR/DME, or multiple DMEs",
+        "GPS only, with no other navaid substitution permitted",
+        "Two VOR stations simultaneously",
+        "ADF and DME only"
+      ],
+      "answer": [0],
+      "explanation": "RNP5/BRNAV is approved provided the FMS receives usable navigation information from GPS, or from one VOR/DME, or from multiple DMEs.",
+      "references": ["S-92 RFM Part 1 Sec I: FMS OPERATIONAL APPROVALS (p.1-3)"],
+      "tags": ["fms", "rnp", "navigation"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "limitations",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-lims-005",
+      "section": "OPERATING LIMITATIONS",
+      "question": "Which of the following is explicitly prohibited under FLIGHT LIMITS in the S-92 RFM?",
+      "options": [
+        "Practice touchdown autorotations",
+        "Simulated single-engine approaches",
+        "Practice run-on landings",
+        "Simulated hydraulic-off approaches"
+      ],
+      "answer": [0],
+      "explanation": "FLIGHT LIMITS explicitly prohibits practice touchdown autorotations, along with aerobatic maneuvers and 360° hovering turns in less than 12 seconds.",
+      "references": ["S-92 RFM Part 1 Sec I: FLIGHT LIMITS (p.1-5)"],
+      "tags": ["flight-limits", "prohibited"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "limitations",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-lims-006",
+      "section": "OPERATING LIMITATIONS",
+      "question": "What is the maximum crosswind component for Category A ground level helipad takeoffs and landings?",
+      "options": [
+        "22 knots",
+        "35 knots",
+        "30 knots",
+        "15 knots"
+      ],
+      "answer": [0],
+      "explanation": "Category A ground level helipad takeoffs and landings are limited to 22 knots of crosswind component; Category A horizontal takeoffs and landings allow up to 35 knots.",
+      "references": ["S-92 RFM Part 1 Sec I: FLIGHT LIMITS (p.1-5)"],
+      "tags": ["crosswind", "category-a", "flight-limits"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "limitations",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-lims-007",
+      "section": "OPERATING LIMITATIONS",
+      "question": "What is the maximum bank angle permitted with one primary flight control servo inoperative?",
+      "options": [
+        "30°",
+        "45°",
+        "15°",
+        "60°"
+      ],
+      "answer": [0],
+      "explanation": "With one primary flight control servo inoperative, maximum bank angle is limited to 30°.",
+      "references": ["S-92 RFM Part 1 Sec I: FLIGHT LIMITS (p.1-5)"],
+      "tags": ["flight-limits", "servo", "bank-angle"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "limitations",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-lims-008",
+      "section": "OPERATING LIMITATIONS",
+      "question": "With low fuel light(s) illuminated, which steady-state pitch attitudes must be avoided?",
+      "options": [
+        "More than 10° nose up or more than 5° nose down",
+        "More than 5° nose up or more than 10° nose down",
+        "More than 15° nose up or nose down",
+        "Any pitch attitude change is prohibited"
+      ],
+      "answer": [0],
+      "explanation": "With low fuel light(s) illuminated, the RFM directs avoiding steady state pitch attitudes in excess of 10° nose up and lower than 5° nose down.",
+      "references": ["S-92 RFM Part 1 Sec I: FLIGHT LIMITS (p.1-5)"],
+      "tags": ["fuel", "flight-limits", "pitch-attitude"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "limitations",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-lims-009",
+      "section": "OPERATING LIMITATIONS",
+      "question": "What are the slope landing limits stated in the S-92 RFM?",
+      "options": [
+        "10° nose up or down slope, 13° left or right side up-slope",
+        "13° nose up or down slope, 10° left or right side up-slope",
+        "5° in any direction",
+        "15° nose up or down slope, 15° lateral"
+      ],
+      "answer": [0],
+      "explanation": "Slope landing limits are 10° nose up or down slope, and 13° left or right side of the aircraft up-slope.",
+      "references": ["S-92 RFM Part 1 Sec I: FLIGHT LIMITS (p.1-5)"],
+      "tags": ["slope-landing", "flight-limits"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "limitations",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-lims-010",
+      "section": "OPERATING LIMITATIONS",
+      "question": "If VNE power on is less than 120 KIAS, what VNE power off value applies?",
+      "options": [
+        "The lower VNE power-on value applies for the power-off case as well",
+        "VNE power off remains fixed at 120 KIAS regardless of VNE power on",
+        "VNE power off is always 165 KIAS",
+        "VNE power off is undefined below 120 KIAS"
+      ],
+      "answer": [0],
+      "explanation": "VNE power off is normally 120 KIAS, but if VNE power on is less than 120 KIAS, that lower value applies for the power-off case as well.",
+      "references": ["S-92 RFM Part 1 Sec I: AIRSPEED LIMITS (p.1-7)"],
+      "tags": ["vne", "airspeed-limits"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "limitations",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-lims-011",
+      "section": "OPERATING LIMITATIONS",
+      "question": "What is the maximum airspeed with one engine inoperative?",
+      "options": [
+        "120 KIAS",
+        "165 KIAS",
+        "150 KIAS",
+        "90 KIAS"
+      ],
+      "answer": [0],
+      "explanation": "Maximum airspeed with one engine inoperative is 120 KIAS, the same limit that applies with SAS, AP, or primary flight control servo degradations.",
+      "references": ["S-92 RFM Part 1 Sec I: AIRSPEED LIMITS (p.1-7)"],
+      "tags": ["airspeed-limits", "oei"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "limitations",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-lims-012",
+      "section": "OPERATING LIMITATIONS",
+      "question": "What is the maximum airspeed with the hydraulic boost system inoperative?",
+      "options": [
+        "120 KIAS",
+        "165 KIAS",
+        "90 KIAS",
+        "80 KIAS"
+      ],
+      "answer": [0],
+      "explanation": "Maximum airspeed with the hydraulic boost inoperative is 120 KIAS.",
+      "references": ["S-92 RFM Part 1 Sec I: AIRSPEED LIMITS (p.1-7)"],
+      "tags": ["airspeed-limits", "hydraulics"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "limitations",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-lims-013",
+      "section": "OPERATING LIMITATIONS",
+      "question": "What is the maximum groundspeed for taxi operations and for brake application?",
+      "options": [
+        "35 knots",
+        "50 knots",
+        "65 knots",
+        "20 knots"
+      ],
+      "answer": [0],
+      "explanation": "Maximum groundspeed for taxi operations is 35 knots, and maximum groundspeed for brake application is also 35 knots.",
+      "references": ["S-92 RFM Part 1 Sec I: AIRSPEED LIMITS (p.1-7/1-8)"],
+      "tags": ["airspeed-limits", "ground-operations"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "limitations",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-lims-014",
+      "section": "OPERATING LIMITATIONS",
+      "question": "What is the maximum enroute altitude limit stated under ALTITUDE LIMITS?",
+      "options": [
+        "15,000 feet density altitude",
+        "20,000 feet pressure altitude",
+        "10,000 feet pressure altitude",
+        "12,000 feet density altitude"
+      ],
+      "answer": [0],
+      "explanation": "Enroute altitude is limited to 15,000 feet density altitude. Flight in icing conditions with RIPS installed is limited to 10,000 feet pressure altitude, a separate limit.",
+      "references": ["S-92 RFM Part 1 Sec I: ALTITUDE LIMITS (p.1-8)"],
+      "tags": ["altitude-limits"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "limitations",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-lims-015",
+      "section": "OPERATING LIMITATIONS",
+      "question": "What is the ambient temperature operating range for the S-92 per AMBIENT TEMPERATURE LIMITS?",
+      "options": [
+        "-40°C to ISA +35°C",
+        "-25°C to ISA +30°C",
+        "-50°C to ISA +40°C",
+        "0°C to ISA +35°C"
+      ],
+      "answer": [0],
+      "explanation": "The ambient temperature operating range is -40°C to ISA +35°C. Operation is also prohibited if the shut-down rotorcraft is exposed below -25°C for longer than 1 hour without warming or use of the cold weather pre-heat kit.",
+      "references": ["S-92 RFM Part 1 Sec I: AMBIENT TEMPERATURE LIMITS (p.1-8)"],
+      "tags": ["temperature-limits"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "limitations",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-lims-016",
+      "section": "OPERATING LIMITATIONS",
+      "question": "What is the maximum takeoff and landing weight of the S-92 per Part 1 WEIGHT LIMITS?",
+      "options": [
+        "26,500 pounds",
+        "24,500 pounds",
+        "28,000 pounds",
+        "22,000 pounds"
+      ],
+      "answer": [0],
+      "explanation": "Maximum takeoff and landing weight is 26,500 pounds (12,020 kilograms); minimum operating weight is 16,200 pounds.",
+      "references": ["S-92 RFM Part 1 Sec I: WEIGHT LIMITS (p.1-9)"],
+      "tags": ["weight-limits"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "limitations",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-lims-017",
+      "section": "OPERATING LIMITATIONS",
+      "question": "What is the maximum continuous torque (Q%) rating for dual-engine operation?",
+      "options": [
+        "100%",
+        "120%",
+        "86%",
+        "141%"
+      ],
+      "answer": [0],
+      "explanation": "Dual-engine maximum continuous torque is 100% Q. 120% Q is the single-engine (OEI) maximum continuous rating, and 141% Q is the OEI 30-second rating — not the dual-engine continuous value.",
+      "references": ["S-92 RFM Part 1 Sec I: PROPULSION AND DRIVE SYSTEM LIMITS (p.1-18)"],
+      "tags": ["engine-limits", "torque"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "limitations",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-lims-018",
+      "section": "OPERATING LIMITATIONS",
+      "question": "What is the single-engine (OEI) 30-second torque limit?",
+      "options": [
+        "141%",
+        "120%",
+        "100%",
+        "156%"
+      ],
+      "answer": [0],
+      "explanation": "The OEI 30-second torque limit is 141% Q. 120% Q is OEI maximum continuous, and 156% Q is the OEI 5-second transient limit.",
+      "references": ["S-92 RFM Part 1 Sec I: PROPULSION AND DRIVE SYSTEM LIMITS (p.1-18)"],
+      "tags": ["engine-limits", "torque", "oei"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "limitations",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-lims-019",
+      "section": "OPERATING LIMITATIONS",
+      "question": "Which Np/Nr ranges must be avoided for prolonged operation per the RFM?",
+      "options": [
+        "36% to 49%, and 56% to 67%",
+        "40% to 55% only",
+        "60% to 80%",
+        "90% to 95%"
+      ],
+      "answer": [0],
+      "explanation": "Prolonged operation must be avoided in the 36% to 49% Np/Nr range (tail rotor drive shaft critical range) and the 56% to 67% range (engine power turbine critical range).",
+      "references": ["S-92 RFM Part 1 Sec I: Np/Nr AVOID RANGES (p.1-18)"],
+      "tags": ["engine-limits", "np-nr"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "limitations",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-lims-020",
+      "section": "OPERATING LIMITATIONS",
+      "question": "Under FUEL CROSSFEED LIMITS, when is fuel crossfeed permitted for Category A operations?",
+      "options": [
+        "Emergency operation only",
+        "Cruise flight only",
+        "Anytime in flight",
+        "Ground operations only"
+      ],
+      "answer": [0],
+      "explanation": "Fuel crossfeed for Category A operations is limited to emergency operation only. Category B fuel crossfeed is limited to cruise flight only — a distinct, category-specific limit.",
+      "references": ["S-92 RFM Part 1 Sec I: FUEL CROSSFEED LIMITS (p.1-19)"],
+      "tags": ["fuel", "crossfeed"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "limitations",
+      "type": "single",
+      "modelIds": ["S92"]
+    }
+  ]
+}

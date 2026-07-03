@@ -28,6 +28,13 @@ type LightItem = {
   notes?: string[];
   references?: string[];
   modelIds?: string[];
+  // Optional clickable cross-reference hotspots baked from the source document
+  // (currently used by S92). Rects are pixel coordinates within the pageImage
+  // at its native imageWidth/imageHeight; destPage resolves via that model's
+  // training/lights/page-index.json to another light id, if one exists yet.
+  links?: { rect: [number, number, number, number]; destPage: number | null }[];
+  imageWidth?: number;
+  imageHeight?: number;
 };
 
 type Manifest = { files: string[] };
@@ -178,6 +185,7 @@ export default function LightsTrainer() {
 	  const isB3e = activeVariant.id === "H125_AS350_B3E";
 	  const [all, setAll] = useState<LightItem[]>([]);
 	  const [loading, setLoading] = useState(true);
+	  const [pageIndex, setPageIndex] = useState<Record<string, string>>({});
 	  const [mode, setMode] = useState<Mode>("idle");
 	  const [lastSeverity, setLastSeverity] = useState<Severity | null>(null);
 		  const [deck, setDeck] = useState<LightItem[]>([]);
@@ -200,7 +208,59 @@ export default function LightsTrainer() {
   }, []);
   const searchParams = useSearchParams();
 
+  useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      try {
+        const res = await fetch(`/model-data/${activeVariant.id}/training/lights/page-index.json`, { cache: "no-store" });
+        if (!res.ok) { if (!cancelled) setPageIndex({}); return; }
+        const data = await res.json();
+        if (!cancelled) setPageIndex(data && typeof data === "object" ? data : {});
+      } catch {
+        if (!cancelled) setPageIndex({});
+      }
+    })();
+    return () => { cancelled = true; };
+  }, [activeVariant.id]);
 
+  function goToLight(lightId: string) {
+    try {
+      sessionStorage.setItem(
+        "lights:resume",
+        JSON.stringify({ variantId: activeVariant.id, lightId, memoryOnly: false, deck: [lightId], idx: 0, lastSeverity: "warning" }),
+      );
+    } catch {}
+    router.push(`/training/lights?resume=1&v=${encodeURIComponent(activeVariant.id)}&light=${encodeURIComponent(lightId)}&mem=0&cwp=1`);
+  }
+
+  function LinkHotspots({ item }: { item: LightItem }) {
+    if (!item.links?.length || !item.imageWidth || !item.imageHeight) return null;
+    return (
+      <>
+        {item.links.map((link, i) => {
+          const targetId = link.destPage != null ? pageIndex[String(link.destPage)] : undefined;
+          if (!targetId || targetId === item.id) return null;
+          const [x0, y0, x1, y1] = link.rect;
+          const style = {
+            left: `${(x0 / item.imageWidth!) * 100}%`,
+            top: `${(y0 / item.imageHeight!) * 100}%`,
+            width: `${((x1 - x0) / item.imageWidth!) * 100}%`,
+            height: `${((y1 - y0) / item.imageHeight!) * 100}%`,
+          };
+          return (
+            <button
+              key={i}
+              type="button"
+              className="absolute cursor-pointer rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
+              style={style}
+              title="Go to linked procedure"
+              onClick={(e) => { e.stopPropagation(); goToLight(targetId); }}
+            />
+          );
+        })}
+      </>
+    );
+  }
 
   const procOverlayRef = useRef<HTMLDivElement | null>(null);
 
@@ -1058,6 +1118,7 @@ export default function LightsTrainer() {
               className={`w-full h-auto transition ${item.severity === "warning" ? "dark:brightness-110 dark:contrast-125 dark:saturate-150" : "dark:brightness-110 dark:contrast-120 dark:saturate-140"}`}
               priority
             />
+            <LinkHotspots item={item} />
           </div>
           {item.references?.length && !hideReferences ? (
             <figcaption className="mt-3 text-xs text-slate-500 dark:text-zinc-400">
@@ -1301,6 +1362,21 @@ export default function LightsTrainer() {
                 <p className="text-sm text-slate-600 dark:text-zinc-300">AW139 warning panel — tap to train by pressing lights.</p>
                 <div>
                   <Link href="/training/lights/cwp/aw139" className="inline-flex items-center rounded-md px-4 py-2 bg-black text-white font-medium hover:bg-black/90">
+                    Open CWP-trainer
+                  </Link>
+                </div>
+              </section>
+            )}
+
+            {activeVariant.id === "S92" && (
+              <section className="space-y-4 rounded-xl border bg-white p-6 shadow-sm dark:bg-zinc-900 dark:border-zinc-700">
+                <div className="flex items-center gap-2">
+                  <span className="inline-block h-2.5 w-2.5 rounded-full bg-neutral-700" aria-hidden />
+                  <h2 className="text-xl font-semibold text-slate-900 dark:text-zinc-100">CWP-trainer</h2>
+                </div>
+                <p className="text-sm text-slate-600 dark:text-zinc-300">S-92 warning panel — tap to train by pressing lights.</p>
+                <div>
+                  <Link href="/training/lights/cwp/s92" className="inline-flex items-center rounded-md px-4 py-2 bg-black text-white font-medium hover:bg-black/90">
                     Open CWP-trainer
                   </Link>
                 </div>
@@ -1592,7 +1668,7 @@ export default function LightsTrainer() {
 	            >
 	              Close procedure
 	            </button>
-            <div className="h-full w-full overflow-y-auto" onClickCapture={(e) => { const t = e.target as HTMLElement; if (t && t.closest('a,button,input,textarea,select,[data-prevent-back]')) { e.stopPropagation(); } }} onMouseDownCapture={(e) => { const t = e.target as HTMLElement; if (t && t.closest('a,button,input,textarea,select,[data-prevent-back]')) { e.stopPropagation(); } }} onTouchStartCapture={(e) => { const t = e.target as HTMLElement; if (t && t.closest('a,button,input,textarea,select,[data-prevent-back]')) { e.stopPropagation(); } }}>
+            <div className="h-full w-full overflow-y-auto">
               <div className="px-0">
                 <div className={`${!isMobile ? "max-w-3xl mx-auto my-6 px-4" : ""}`}>
                   <ProcedureLikePDF item={current} flat memoryOnly={memoryOnly} hideReferences />

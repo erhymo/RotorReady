@@ -1,4 +1,4 @@
-export type ProductId = "AW169" | "AW189" | "AW139" | "H125" | "R44_II";
+export type ProductId = "AW169" | "AW189" | "AW139" | "H125" | "R44_II" | "S92";
 
 export type ModelStatus = "available" | "coming_soon";
 
@@ -61,6 +61,13 @@ export const MODEL_VARIANTS: ModelVariantDefinition[] = [
     productId: "R44_II",
     status: "available",
   },
+  {
+    id: "S92",
+    label: "Sikorsky S-92",
+    description: "Sikorsky S-92A – RFM og ECL-basert treningsinnhold.",
+    productId: "S92",
+    status: "available",
+  },
 ];
 
 export const DEFAULT_MODEL_VARIANT_ID = "AW169";
@@ -88,6 +95,7 @@ export function isProductId(value: unknown): value is ProductId {
     value === "AW189" ||
     value === "AW139" ||
     value === "H125" ||
-    value === "R44_II"
+    value === "R44_II" ||
+    value === "S92"
   );
 }

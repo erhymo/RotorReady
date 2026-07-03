@@ -586,6 +586,19 @@ export default function AccountPage() {
                 R44 II Raven
               </button>
 
+              <button
+                type="button"
+                key="S92"
+                onClick={() => selectVariant("S92")}
+                className={`px-3 py-1 rounded-lg border text-sm transition ${
+                  activeVariantId === "S92"
+                    ? "border-emerald-400 bg-emerald-50 text-emerald-700"
+                    : "bg-white dark:bg-zinc-900 dark:text-zinc-100 hover:border-slate-300 dark:hover:border-zinc-600"
+                }`}
+              >
+                S-92
+              </button>
+
               {h125Variants.map((v) => {
                 const coming = v.status === "coming_soon";
                 const isActive = activeVariantId === v.id;

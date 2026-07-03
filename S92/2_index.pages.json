@@ -1,0 +1,946 @@
+[
+  {
+    "docPage": 1,
+    "firstLine": "PRE"
+  },
+  {
+    "docPage": 2,
+    "firstLine": "PRE List of effective pages"
+  },
+  {
+    "docPage": 3,
+    "firstLine": "PRE Summary of changes"
+  },
+  {
+    "docPage": 4,
+    "firstLine": "PRE"
+  },
+  {
+    "docPage": 5,
+    "firstLine": "PRE"
+  },
+  {
+    "docPage": 6,
+    "firstLine": "PRE Preamble"
+  },
+  {
+    "docPage": 7,
+    "firstLine": "PRE"
+  },
+  {
+    "docPage": 8,
+    "firstLine": "PRE Where warnings are included between steps within a drill, they are in italic (to"
+  },
+  {
+    "docPage": 9,
+    "firstLine": "PRE"
+  },
+  {
+    "docPage": 10,
+    "firstLine": "PRE 1.1 ENGINE FIRE ON THE GROUND"
+  },
+  {
+    "docPage": 11,
+    "firstLine": "Considerations:"
+  },
+  {
+    "docPage": 12,
+    "firstLine": "PRE 1.2 ENGINE FIRE IN FLIGHT"
+  },
+  {
+    "docPage": 13,
+    "firstLine": "7. Radio call ................................................................. As required"
+  },
+  {
+    "docPage": 14,
+    "firstLine": "PRE 1.3 POST SHUTDOWN FIRE"
+  },
+  {
+    "docPage": 15,
+    "firstLine": "PRE 1.4 APU FIRE ON THE GROUND"
+  },
+  {
+    "docPage": 16,
+    "firstLine": "Considerations:"
+  },
+  {
+    "docPage": 17,
+    "firstLine": "PRE 1.5 APU FIRE IN FLIGHT"
+  },
+  {
+    "docPage": 18,
+    "firstLine": "8. If fire is not extinguished approximately 15 seconds after step 5:"
+  },
+  {
+    "docPage": 19,
+    "firstLine": "PRE 1.6 SMOKE IN BAGGAGE COMPARTMENT"
+  },
+  {
+    "docPage": 20,
+    "firstLine": "PRE 1.7 FIRE / SMOKE IN CABIN OR COCKPIT"
+  },
+  {
+    "docPage": 21,
+    "firstLine": "C. IN FLIGHT, SMOKE IS OF ELECTRICAL ORIGIN:"
+  },
+  {
+    "docPage": 22,
+    "firstLine": "13. If fire / smoke still persists:"
+  },
+  {
+    "docPage": 23,
+    "firstLine": "PRE"
+  },
+  {
+    "docPage": 24,
+    "firstLine": "PRE"
+  },
+  {
+    "docPage": 25,
+    "firstLine": "PRE 2.1 ENGINE – DUAL FAILURE"
+  },
+  {
+    "docPage": 26,
+    "firstLine": "6. ENG 1 or 2 ............................................................... Attempt emergency restart"
+  },
+  {
+    "docPage": 27,
+    "firstLine": "PRE 2.2 ENGINE – SINGLE FAILURE"
+  },
+  {
+    "docPage": 28,
+    "firstLine": "PRE Actions:"
+  },
+  {
+    "docPage": 29,
+    "firstLine": "PRE 2.3 ENGINE OVERSPEED"
+  },
+  {
+    "docPage": 30,
+    "firstLine": "PRE 2.4 ENGINE HOT START"
+  },
+  {
+    "docPage": 31,
+    "firstLine": "PRE 2.5 ENGINE OIL SYSTEM FAULTS"
+  },
+  {
+    "docPage": 32,
+    "firstLine": "PRE 2.6 ENGINE CHIP"
+  },
+  {
+    "docPage": 33,
+    "firstLine": "PRE 2.7 INTENTIONAL ENGINE SHUTDOWN IN FLIGHT"
+  },
+  {
+    "docPage": 34,
+    "firstLine": "PRE Considerations:"
+  },
+  {
+    "docPage": 35,
+    "firstLine": "PRE 2.8 ENGINE RESTART IN FLIGHT"
+  },
+  {
+    "docPage": 36,
+    "firstLine": "12. TCAS II [I] ............................................................... TA / RA"
+  },
+  {
+    "docPage": 37,
+    "firstLine": "PRE 2.9 COMPRESSOR STALL"
+  },
+  {
+    "docPage": 38,
+    "firstLine": "PRE 2.10 FADEC FAULT"
+  },
+  {
+    "docPage": 39,
+    "firstLine": "PRE 2.11 FADEC NO DSPTCH"
+  },
+  {
+    "docPage": 40,
+    "firstLine": "PRE 2.12 FADEC OVERHEAT"
+  },
+  {
+    "docPage": 41,
+    "firstLine": "PRE 2.13 FADEC CHANNEL – SINGLE FAILURE"
+  },
+  {
+    "docPage": 42,
+    "firstLine": "PRE 2.14 FADEC CHANNEL – DUAL FAILURE"
+  },
+  {
+    "docPage": 43,
+    "firstLine": "PRE 2.15 FADEC CROSS ENGINE COMM FAULT"
+  },
+  {
+    "docPage": 44,
+    "firstLine": "PRE 2.16 ENGINE POWER LIMITING"
+  },
+  {
+    "docPage": 45,
+    "firstLine": "PRE 2.17 ENGINE RATE LIMITING"
+  },
+  {
+    "docPage": 46,
+    "firstLine": "PRE 2.18 ENGINE FIXED POWER"
+  },
+  {
+    "docPage": 47,
+    "firstLine": "9. On the ground before lowering the collective:"
+  },
+  {
+    "docPage": 48,
+    "firstLine": "PRE 2.19 LIMIT EXCEEDED"
+  },
+  {
+    "docPage": 49,
+    "firstLine": "PRE 2.20 ENGINE OVERSPEED TEST"
+  },
+  {
+    "docPage": 50,
+    "firstLine": "PRE 2.21 STARTER"
+  },
+  {
+    "docPage": 51,
+    "firstLine": "PRE 2.22 TRAINING DISABLED"
+  },
+  {
+    "docPage": 52,
+    "firstLine": "PRE"
+  },
+  {
+    "docPage": 53,
+    "firstLine": "PRE 3.1 APU FAILURE"
+  },
+  {
+    "docPage": 54,
+    "firstLine": "PRE 3.2 APU FAULT"
+  },
+  {
+    "docPage": 55,
+    "firstLine": "PRE 3.3 APU ACCUM LOW – advisory"
+  },
+  {
+    "docPage": 56,
+    "firstLine": "PRE 3.4 APU OVERLOAD"
+  },
+  {
+    "docPage": 57,
+    "firstLine": "PRE 3.5 APU GENERATOR FAILURE"
+  },
+  {
+    "docPage": 58,
+    "firstLine": "PRE 3.6 APU GENERATOR CONTROL UNIT FAILURE"
+  },
+  {
+    "docPage": 59,
+    "firstLine": "PRE"
+  },
+  {
+    "docPage": 60,
+    "firstLine": "PRE 4.1 ENGINE FUEL PRESSURE LOW"
+  },
+  {
+    "docPage": 61,
+    "firstLine": "PRE 4.2 FUEL FILTER BYPASS"
+  },
+  {
+    "docPage": 62,
+    "firstLine": "PRE 4.3 PRIME PUMP FAILURE"
+  },
+  {
+    "docPage": 63,
+    "firstLine": "PRE 4.4 PRIME SHUTOFF VALVE WRONG POSITION"
+  },
+  {
+    "docPage": 64,
+    "firstLine": "PRE 4.5 FUEL LOW LEVEL"
+  },
+  {
+    "docPage": 65,
+    "firstLine": "PRE 4.6 STOP AUX FUEL TRANSFER"
+  },
+  {
+    "docPage": 66,
+    "firstLine": "PRE 4.7 AUX FUEL TRANSFER FAIL"
+  },
+  {
+    "docPage": 67,
+    "firstLine": "PRE 4.8 AUX FUEL TRANSFER DEGRADED"
+  },
+  {
+    "docPage": 68,
+    "firstLine": "PRE 4.9 AUX FUEL SYSTEM DISPLAY DEGRADED"
+  },
+  {
+    "docPage": 69,
+    "firstLine": "PRE"
+  },
+  {
+    "docPage": 70,
+    "firstLine": "PRE"
+  },
+  {
+    "docPage": 71,
+    "firstLine": "PRE 5.1 SWASHPLATE TEMPERATURE"
+  },
+  {
+    "docPage": 72,
+    "firstLine": "PRE 5.2 SWASHPLATE TEMPERATURE WARNING"
+  },
+  {
+    "docPage": 73,
+    "firstLine": "PRE 5.3 IGB / TGB OIL LEVEL LOW"
+  },
+  {
+    "docPage": 74,
+    "firstLine": "PRE 5.4 IGB / TGB OIL HOT / CHIP"
+  },
+  {
+    "docPage": 75,
+    "firstLine": "PRE 5.5 GEARBOX CHIP"
+  },
+  {
+    "docPage": 76,
+    "firstLine": "PRE 5.6 MGB OIL PRES – CAUTION"
+  },
+  {
+    "docPage": 77,
+    "firstLine": "Note:"
+  },
+  {
+    "docPage": 78,
+    "firstLine": "PRE 5.7 MGB OIL PRES – WARNING"
+  },
+  {
+    "docPage": 79,
+    "firstLine": "6. Land as soon as possible (a running landing is preferred)"
+  },
+  {
+    "docPage": 80,
+    "firstLine": "PRE 5.8 MGB OIL OUT"
+  },
+  {
+    "docPage": 81,
+    "firstLine": "PRE 5.9 INPUT / ACC HOT"
+  },
+  {
+    "docPage": 82,
+    "firstLine": "16. If ANY of the following symptoms of an imminent gearbox failure exist:"
+  },
+  {
+    "docPage": 83,
+    "firstLine": "PRE 5.10 MGB PUMP FAIL"
+  },
+  {
+    "docPage": 84,
+    "firstLine": "PRE Caution:"
+  },
+  {
+    "docPage": 85,
+    "firstLine": "Considerations:"
+  },
+  {
+    "docPage": 86,
+    "firstLine": "PRE 5.11 MGB OIL HOT"
+  },
+  {
+    "docPage": 87,
+    "firstLine": "9. If ANY of the following symptoms of an imminent gearbox failure exist:"
+  },
+  {
+    "docPage": 88,
+    "firstLine": "PRE 5.12 MGB CAUTION SYSTEM FAULT"
+  },
+  {
+    "docPage": 89,
+    "firstLine": "PRE 5.13 MGB OIL PRESSURE CAUTION SYSTEM FAULT"
+  },
+  {
+    "docPage": 90,
+    "firstLine": "PRE 5.14 BYPASS TEST FAIL"
+  },
+  {
+    "docPage": 91,
+    "firstLine": "PRE 5.15 MGB MAN COOL"
+  },
+  {
+    "docPage": 92,
+    "firstLine": "PRE 5.16 MGB OIL BYPASS"
+  },
+  {
+    "docPage": 93,
+    "firstLine": "PRE 5.17 MGB SENSOR FAIL"
+  },
+  {
+    "docPage": 94,
+    "firstLine": "PRE"
+  },
+  {
+    "docPage": 95,
+    "firstLine": "PRE 6.1 LOSS OF TAIL ROTOR THRUST IN FORWARD FLIGHT"
+  },
+  {
+    "docPage": 96,
+    "firstLine": "PRE 6.2 TAIL ROTOR CABLE FAILURE"
+  },
+  {
+    "docPage": 97,
+    "firstLine": "PRE 6.3 TAIL ROTOR LOSS OF HYDRAULICS"
+  },
+  {
+    "docPage": 98,
+    "firstLine": "PRE 6.4 TAIL ROTOR CONTROL MALFUNCTION IN FORWARD"
+  },
+  {
+    "docPage": 99,
+    "firstLine": "PRE Note:"
+  },
+  {
+    "docPage": 100,
+    "firstLine": "PRE 6.5 LOSS OF TAIL ROTOR THRUST IN HOVER"
+  },
+  {
+    "docPage": 101,
+    "firstLine": "PRE 6.6 LOSS OF TAIL ROTOR CONTROL IN HOVER"
+  },
+  {
+    "docPage": 102,
+    "firstLine": "PRE"
+  },
+  {
+    "docPage": 103,
+    "firstLine": "PRE"
+  },
+  {
+    "docPage": 104,
+    "firstLine": "PRE 7.1 MAIN HYDRAULIC PUMP – SINGLE FAILURE"
+  },
+  {
+    "docPage": 105,
+    "firstLine": "PRE 7.2 MAIN HYDRAULIC PUMP – DUAL FAILURE"
+  },
+  {
+    "docPage": 106,
+    "firstLine": "PRE 7.3 NO.3 HYDRAULIC PUMP FAILURE"
+  },
+  {
+    "docPage": 107,
+    "firstLine": "PRE 7.4 HYDRAULIC FANS FAILURE"
+  },
+  {
+    "docPage": 108,
+    "firstLine": "PRE 7.5 HYDRAULIC SYSTEM OVER-TEMPERATURE"
+  },
+  {
+    "docPage": 109,
+    "firstLine": "PRE 7.6 NO.3 HYDRAULIC SYSTEM LEAK"
+  },
+  {
+    "docPage": 110,
+    "firstLine": "PRE 7.7 HYDRAULIC LEAK PAST TAIL ROTOR SHUTOFF"
+  },
+  {
+    "docPage": 111,
+    "firstLine": "PRE 7.8 HYDRAULIC LEAK PRIOR TO TAIL ROTOR SHUTOFF"
+  },
+  {
+    "docPage": 112,
+    "firstLine": "PRE 7.9 MAIN ROTOR SERVO PRESSURE"
+  },
+  {
+    "docPage": 113,
+    "firstLine": "PRE 7.10 TAIL ROTOR SERVO PRESSURE"
+  },
+  {
+    "docPage": 114,
+    "firstLine": "PRE 7.11 BOOST PRESSURE"
+  },
+  {
+    "docPage": 115,
+    "firstLine": "PRE 7.12 SAS PRESSURE"
+  },
+  {
+    "docPage": 116,
+    "firstLine": "PRE 7.13 LANDING GEAR WILL NOT RETRACT"
+  },
+  {
+    "docPage": 117,
+    "firstLine": "PRE 7.14 LANDING WITH GEAR RETRACTED"
+  },
+  {
+    "docPage": 118,
+    "firstLine": "PRE 7.15 LANDING GEAR WILL NOT EXTEND"
+  },
+  {
+    "docPage": 119,
+    "firstLine": "PRE 7.16 HARD LANDING"
+  },
+  {
+    "docPage": 120,
+    "firstLine": "PRE"
+  },
+  {
+    "docPage": 121,
+    "firstLine": "PRE 8.1 AC GENERATOR – SINGLE FAILURE"
+  },
+  {
+    "docPage": 122,
+    "firstLine": "PRE 8.2 AC GENERATOR – DUAL FAILURE"
+  },
+  {
+    "docPage": 123,
+    "firstLine": "5. If unable to reset, set generator switch to OFF"
+  },
+  {
+    "docPage": 124,
+    "firstLine": "Considerations:"
+  },
+  {
+    "docPage": 125,
+    "firstLine": "PRE 8.3 AC GENERATOR CONTROL UNIT FAILURE"
+  },
+  {
+    "docPage": 126,
+    "firstLine": "PRE 8.4 BATTERY HOT"
+  },
+  {
+    "docPage": 127,
+    "firstLine": "PRE 8.5 BATTERY CHARGE FAIL"
+  },
+  {
+    "docPage": 128,
+    "firstLine": "PRE 8.6 CURRENT LIMITER FAILURES"
+  },
+  {
+    "docPage": 129,
+    "firstLine": "PRE 8.7 DC CONVERTER – SINGLE FAILURE"
+  },
+  {
+    "docPage": 130,
+    "firstLine": "PRE 8.8 DC CONVERTER – DUAL FAILURE"
+  },
+  {
+    "docPage": 131,
+    "firstLine": "• If reset of DC is NOT successful:"
+  },
+  {
+    "docPage": 132,
+    "firstLine": "PRE 8.9 DC CONVERTER DUAL FAILURE AND BACKUP"
+  },
+  {
+    "docPage": 133,
+    "firstLine": "Note:"
+  },
+  {
+    "docPage": 134,
+    "firstLine": "• If reset of DC is successful:"
+  },
+  {
+    "docPage": 135,
+    "firstLine": "PRE 8.10 BACKUP CONVERTER OFF"
+  },
+  {
+    "docPage": 136,
+    "firstLine": "PRE 8.11 BATTERY OFF"
+  },
+  {
+    "docPage": 137,
+    "firstLine": "PRE"
+  },
+  {
+    "docPage": 138,
+    "firstLine": "PRE"
+  },
+  {
+    "docPage": 139,
+    "firstLine": "PRE 9.1 AFCS DEGRADED"
+  },
+  {
+    "docPage": 140,
+    "firstLine": "PRE 9.2 FD DEGRADED"
+  },
+  {
+    "docPage": 141,
+    "firstLine": "PRE 9.3 FD ALTITUDE DEGRADED"
+  },
+  {
+    "docPage": 142,
+    "firstLine": "PRE 9.4 AHRS VELOCITY DEGRADED"
+  },
+  {
+    "docPage": 143,
+    "firstLine": "PRE 9.5 AHRS – SINGLE FAILURE"
+  },
+  {
+    "docPage": 144,
+    "firstLine": "PRE 9.6 AHRS – DUAL FAILURE"
+  },
+  {
+    "docPage": 145,
+    "firstLine": "PRE 9.7 PSAS FAULTS"
+  },
+  {
+    "docPage": 146,
+    "firstLine": "B: On helideck or ground rotors running during a flight:"
+  },
+  {
+    "docPage": 147,
+    "firstLine": "PRE 9.8 AUTOPILOT – SINGLE FAILURE"
+  },
+  {
+    "docPage": 148,
+    "firstLine": "PRE 9.9 AUTOPILOT – DUAL FAILURE"
+  },
+  {
+    "docPage": 149,
+    "firstLine": "7. If AP 1 RESET unsuccessful:"
+  },
+  {
+    "docPage": 150,
+    "firstLine": "PRE 9.10 JAMMED OR RESTRICTED FLIGHT CONTROLS"
+  },
+  {
+    "docPage": 151,
+    "firstLine": "PRE 9.11 BOOST HARDOVERS"
+  },
+  {
+    "docPage": 152,
+    "firstLine": "PRE 9.12 SAS HARDOVERS"
+  },
+  {
+    "docPage": 153,
+    "firstLine": "PRE 9.13 TRIM HARDOVERS"
+  },
+  {
+    "docPage": 154,
+    "firstLine": "PRE 9.14 FD FAILURE BELOW 50 KIAS"
+  },
+  {
+    "docPage": 155,
+    "firstLine": "PRE"
+  },
+  {
+    "docPage": 156,
+    "firstLine": "PRE 10.1 PITOT HEAT FAILURE"
+  },
+  {
+    "docPage": 157,
+    "firstLine": "PRE 10.2 TURN PITOT HEAT ON"
+  },
+  {
+    "docPage": 158,
+    "firstLine": "PRE 10.3 TURN PITOT HEAT OFF"
+  },
+  {
+    "docPage": 159,
+    "firstLine": "PRE 10.4 TURN ENGINE ANTI-ICE ON"
+  },
+  {
+    "docPage": 160,
+    "firstLine": "PRE 10.5 ENGINE ANTI-ICE DEGRADED"
+  },
+  {
+    "docPage": 161,
+    "firstLine": "PRE 10.6 ENGINE INLET ANTI-ICE FAILURE"
+  },
+  {
+    "docPage": 162,
+    "firstLine": "PRE"
+  },
+  {
+    "docPage": 163,
+    "firstLine": "PRE 11.1 RIPS FAILURE"
+  },
+  {
+    "docPage": 164,
+    "firstLine": "PRE 11.2 DROOP HEATER FAILURE"
+  },
+  {
+    "docPage": 165,
+    "firstLine": "PRE 11.3 TURN RIPS ON"
+  },
+  {
+    "docPage": 166,
+    "firstLine": "PRE 11.4 RIPS CONTROLLER FAILURE"
+  },
+  {
+    "docPage": 167,
+    "firstLine": "PRE 11.5 PRIMARY MAIN ROTOR SLIPRING BEARING FAILURE"
+  },
+  {
+    "docPage": 168,
+    "firstLine": "PRE 11.6 DUAL RIPS LWC SENSOR FAILURE"
+  },
+  {
+    "docPage": 169,
+    "firstLine": "PRE 11.7 ICE DETECTED"
+  },
+  {
+    "docPage": 170,
+    "firstLine": "PRE 11.8 RIPS MAIN ROTOR DEICE FAULT"
+  },
+  {
+    "docPage": 171,
+    "firstLine": "PRE 11.9 DUAL RIPS OAT SENSOR FAILURE"
+  },
+  {
+    "docPage": 172,
+    "firstLine": "PRE 11.10 INAPPROPRIATE RIPS MANUAL MODE"
+  },
+  {
+    "docPage": 173,
+    "firstLine": "PRE 11.11 RIPS MAIN ROTOR DEICE FAILURE"
+  },
+  {
+    "docPage": 174,
+    "firstLine": "PRE 11.12 RIPS TAIL ROTOR DEICE FAILURE"
+  },
+  {
+    "docPage": 175,
+    "firstLine": "PRE 11.13 RIPS AUTO MODE FAILURE"
+  },
+  {
+    "docPage": 176,
+    "firstLine": "5. If normal RIPS function is not restored:"
+  },
+  {
+    "docPage": 177,
+    "firstLine": "PRE"
+  },
+  {
+    "docPage": 178,
+    "firstLine": "PRE"
+  },
+  {
+    "docPage": 179,
+    "firstLine": "PRE 12.1 ADC – SINGLE FAILURE"
+  },
+  {
+    "docPage": 180,
+    "firstLine": "PRE 12.2 ADC – DUAL FAILURE"
+  },
+  {
+    "docPage": 181,
+    "firstLine": "PRE 12.3 ADS-B OUT FAILURE"
+  },
+  {
+    "docPage": 182,
+    "firstLine": "PRE 12.4 AVC SYSTEM MALFUNCTION"
+  },
+  {
+    "docPage": 183,
+    "firstLine": "PRE 12.5 CHIP SYSTEM FAULT"
+  },
+  {
+    "docPage": 184,
+    "firstLine": "PRE 12.6 CONFIGURATION MISCOMPARE"
+  },
+  {
+    "docPage": 185,
+    "firstLine": "PRE 12.7 COOLING FAN FAILURE"
+  },
+  {
+    "docPage": 186,
+    "firstLine": "PRE 12.8 DCP DEGRADE OR FAILURE"
+  },
+  {
+    "docPage": 187,
+    "firstLine": "PRE 12.9 DCU – MFD COMMUNICATION FAULT"
+  },
+  {
+    "docPage": 188,
+    "firstLine": "Note:"
+  },
+  {
+    "docPage": 189,
+    "firstLine": "PRE 12.10 DCU – SINGLE FAILURE OR MISCOMPARE"
+  },
+  {
+    "docPage": 190,
+    "firstLine": "2. Determine if fault is a simple miscompare or DCU failure / degraded:"
+  },
+  {
+    "docPage": 191,
+    "firstLine": "2. For DCU failure / degraded:"
+  },
+  {
+    "docPage": 192,
+    "firstLine": "PRE 12.11 DCU – DUAL FAILURE"
+  },
+  {
+    "docPage": 193,
+    "firstLine": "PRE 12.12 DOOR OPEN"
+  },
+  {
+    "docPage": 194,
+    "firstLine": "PRE 12.13 CPI/AD ELT UNINTENTIONAL OPERATION"
+  },
+  {
+    "docPage": 195,
+    "firstLine": "PRE 12.14 FLOATS ARMED"
+  },
+  {
+    "docPage": 196,
+    "firstLine": "PRE 12.15 FLOATS – INADVERTENT DEPLOYMENT"
+  },
+  {
+    "docPage": 197,
+    "firstLine": "PRE 12.16 HUNG DROOP STOP"
+  },
+  {
+    "docPage": 198,
+    "firstLine": "PRE 12.17 MAINTENANCE COMPUTER FAILURE"
+  },
+  {
+    "docPage": 199,
+    "firstLine": "PRE 12.18 RADIO TUNING UNIT FAILURE"
+  },
+  {
+    "docPage": 200,
+    "firstLine": "PRE 12.19 RAFTS ARMED"
+  },
+  {
+    "docPage": 201,
+    "firstLine": "PRE 12.20 RAMP OPEN"
+  },
+  {
+    "docPage": 202,
+    "firstLine": "PRE 12.21 ROTOR BRAKE"
+  },
+  {
+    "docPage": 203,
+    "firstLine": "PRE 12.22 WEIGHT ON WHEELS INTERLOCK FAILURE"
+  },
+  {
+    "docPage": 204,
+    "firstLine": "PRE"
+  },
+  {
+    "docPage": 205,
+    "firstLine": "PRE 13.1 HOIST OVERTEMP"
+  },
+  {
+    "docPage": 206,
+    "firstLine": "PRE 13.2 HOIST CONTROL FAILURE"
+  },
+  {
+    "docPage": 207,
+    "firstLine": "CASE B: No personnel on the hook"
+  },
+  {
+    "docPage": 208,
+    "firstLine": "PRE 13.3 HOIST CONTROL RUNAWAY"
+  },
+  {
+    "docPage": 209,
+    "firstLine": "PRE 13.4 HOIST EMERGENCY CHANGEOVER"
+  },
+  {
+    "docPage": 210,
+    "firstLine": "PRE 13.5 HOIST EMERGENCY RECOVERY OF THIRD PARTY ON"
+  },
+  {
+    "docPage": 211,
+    "firstLine": "PRE"
+  },
+  {
+    "docPage": 212,
+    "firstLine": "PRE 14.1 LIGHTNING STRIKE"
+  },
+  {
+    "docPage": 213,
+    "firstLine": "PRE 14.2 BOMB THREAT"
+  },
+  {
+    "docPage": 214,
+    "firstLine": "PRE 14.3 PILOT INCAPACITATION"
+  },
+  {
+    "docPage": 215,
+    "firstLine": "PRE 14.4 PASSENGER BRIEFINGS"
+  },
+  {
+    "docPage": 216,
+    "firstLine": "PRE 14.5 DITCHING / EMERGENCY LANDING"
+  },
+  {
+    "docPage": 217,
+    "firstLine": "19. If helicopter is unstable or taking on water:"
+  },
+  {
+    "docPage": 218,
+    "firstLine": "PRE 14.6 EMERGENCY EVACUATION ON WATER"
+  },
+  {
+    "docPage": 219,
+    "firstLine": "PRE 14.7 EMERGENCY EVACUATION ON LAND"
+  },
+  {
+    "docPage": 220,
+    "firstLine": "PRE"
+  },
+  {
+    "docPage": 221,
+    "firstLine": "PRE"
+  },
+  {
+    "docPage": 222,
+    "firstLine": "PRE"
+  },
+  {
+    "docPage": 223,
+    "firstLine": "PRE"
+  },
+  {
+    "docPage": 224,
+    "firstLine": "PRE"
+  },
+  {
+    "docPage": 225,
+    "firstLine": "PRE"
+  },
+  {
+    "docPage": 226,
+    "firstLine": "PRE"
+  },
+  {
+    "docPage": 227,
+    "firstLine": "PRE"
+  },
+  {
+    "docPage": 228,
+    "firstLine": "PRE"
+  },
+  {
+    "docPage": 229,
+    "firstLine": "PRE"
+  },
+  {
+    "docPage": 230,
+    "firstLine": "PRE"
+  },
+  {
+    "docPage": 231,
+    "firstLine": "PRE"
+  },
+  {
+    "docPage": 232,
+    "firstLine": "PRE"
+  },
+  {
+    "docPage": 233,
+    "firstLine": "PRE"
+  },
+  {
+    "docPage": 234,
+    "firstLine": "PRE"
+  },
+  {
+    "docPage": 235,
+    "firstLine": "EICAS warnings and cautions:"
+  },
+  {
+    "docPage": 236,
+    "firstLine": "DOOR OPEN 12.12 RAFTS ARMED 12.19"
+  }
+]

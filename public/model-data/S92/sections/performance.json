@@ -1,0 +1,308 @@
+{
+  "items": [
+    {
+      "id": "s92-perf-001",
+      "section": "PERFORMANCE INFORMATION",
+      "question": "What performance credit may be taken for engines delivering above-specification power (a positive power margin)?",
+      "options": [
+        "No performance credit is to be taken for above specification power",
+        "Full performance credit may be taken",
+        "50% of the power margin may be credited",
+        "Credit is limited to takeoff only, not landing"
+      ],
+      "answer": [0],
+      "explanation": "The performance charts are predicated on engines that deliver specification power; no performance credit is to be taken for above-specification power (positive power margin).",
+      "references": ["S-92 RFM Part 1 Sec IV: GENERAL / ENGINE HEALTH (p.4-1)"],
+      "tags": ["performance", "engine-health"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-perf-002",
+      "section": "PERFORMANCE INFORMATION",
+      "question": "Per WIND ACCOUNTABILITY, unless otherwise authorized by operating regulations, what performance credit/penalty applies to headwind and tailwind components?",
+      "options": [
+        "No more than 50% credit for the headwind performance increase, and 150% penalty applied to the tailwind performance decrement",
+        "Full 100% credit for headwind, and no penalty for tailwind",
+        "No credit for headwind, and no penalty for tailwind",
+        "50% credit for both headwind and tailwind equally"
+      ],
+      "answer": [0],
+      "explanation": "The pilot is not authorized to credit more than 50 percent of the performance increase from an actual headwind, and must reduce performance by 150 percent of the decrement resulting from an actual tailwind component.",
+      "references": ["S-92 RFM Part 1 Sec IV: WIND ACCOUNTABILITY (p.4-1)"],
+      "tags": ["performance", "wind"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-perf-003",
+      "section": "PERFORMANCE INFORMATION",
+      "question": "For the Category A horizontal takeoff procedure, in what range and increments is the Takeoff Decision Point (TDP) airspeed selectable, and how is Vtoss defined?",
+      "options": [
+        "Selectable in 1-knot increments between 30 and 48 knots; Vtoss = TDP + 15 knots",
+        "Selectable in 5-knot increments between 20 and 40 knots; Vtoss = TDP + 10 knots",
+        "Selectable in 1-knot increments between 35 and 55 knots; Vtoss = TDP + 20 knots",
+        "Fixed at 40 knots; Vtoss = TDP + 15 knots"
+      ],
+      "answer": [0],
+      "explanation": "TDP is selectable in 1-knot increments between 30 and 48 knots, with Vtoss defined as TDP + 15 knots, permitting payload to be traded against available field length.",
+      "references": ["S-92 RFM Part 1 Sec IV: CATEGORY A HORIZONTAL TAKEOFF DISTANCE (p.4-1)"],
+      "tags": ["performance", "category-a", "tdp"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-perf-004",
+      "section": "PERFORMANCE INFORMATION",
+      "question": "What two operational questions does the S-92 Category A variable-TDP takeoff procedure allow a pilot to answer?",
+      "options": [
+        "Determine the maximum takeoff gross weight for an available field length, or determine the required field length for a desired takeoff gross weight",
+        "Determine only the maximum passenger count for a given fuel load",
+        "Determine only the required crosswind limit for a given TDP",
+        "Determine the noise certification stage applicable to the flight"
+      ],
+      "answer": [0],
+      "explanation": "The variable-TDP Category A procedure lets a pilot trade payload against available field length: given a field length, determine the maximum takeoff gross weight; or given a desired takeoff gross weight, determine the required field length.",
+      "references": ["S-92 RFM Part 1 Sec IV: CATEGORY A HORIZONTAL TAKEOFF DISTANCE (p.4-1)"],
+      "tags": ["performance", "category-a", "tdp", "mission-planning"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-perf-005",
+      "section": "PERFORMANCE INFORMATION",
+      "question": "How does a lower TDP speed affect Category A rejected/continued takeoff field length and maximum takeoff gross weight?",
+      "options": [
+        "A lower TDP speed gives shorter RTO/CTO field lengths but also a lower maximum takeoff gross weight",
+        "A lower TDP speed gives longer field lengths and a higher maximum takeoff gross weight",
+        "TDP speed has no effect on either field length or maximum gross weight",
+        "A lower TDP speed only affects landing distance, not takeoff distance"
+      ],
+      "answer": [0],
+      "explanation": "RTO and CTO distances, and maximum takeoff/landing gross weight, are both directly proportional to TDP speed: lower TDP speeds mean shorter field lengths but also lower maximum gross weights, and vice versa.",
+      "references": ["S-92 RFM Part 1 Sec IV: CATEGORY A HORIZONTAL TAKEOFF DISTANCE (p.4-1)"],
+      "tags": ["performance", "category-a", "tdp"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-perf-006",
+      "section": "PERFORMANCE INFORMATION",
+      "question": "For a Category A ground level helipad takeoff, what does the \"maximum reject TDP\" represent?",
+      "options": [
+        "The highest height from which a rejected landing can be accomplished without damage to the aircraft",
+        "The lowest height from which the fly away maneuver can be accomplished with 15 feet of clearance",
+        "The minimum required field length for any takeoff",
+        "The maximum permitted obstacle height near the helipad"
+      ],
+      "answer": [0],
+      "explanation": "The maximum reject TDP is the highest height from which a rejected landing can be accomplished without damage to the aircraft, as distinct from the minimum fly-away TDP.",
+      "references": ["S-92 RFM Part 1 Sec IV: CATEGORY A VERTICAL GROUND LEVEL HELIPAD (p.4-2)"],
+      "tags": ["performance", "category-a", "tdp", "ground-level-helipad"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-perf-007",
+      "section": "PERFORMANCE INFORMATION",
+      "question": "For a Category A ground level helipad takeoff, what does the \"minimum fly-away TDP\" represent?",
+      "options": [
+        "The lowest height from which the fly-away maneuver can be accomplished with 15 feet of clearance from the helipad altitude",
+        "The highest height from which a rejected landing can be accomplished without damage",
+        "The maximum takeoff gross weight permitted at the helipad",
+        "The horizontal distance required to reach 35 feet above the helipad"
+      ],
+      "answer": [0],
+      "explanation": "The minimum fly-away TDP is the lowest height from which the fly-away maneuver can be accomplished with 15 feet of clearance from the helipad altitude.",
+      "references": ["S-92 RFM Part 1 Sec IV: CATEGORY A VERTICAL GROUND LEVEL HELIPAD (p.4-2)"],
+      "tags": ["performance", "category-a", "tdp", "ground-level-helipad"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-perf-008",
+      "section": "PERFORMANCE INFORMATION",
+      "question": "What safety concern arises if the minimum fly-away TDP is greater than the maximum reject TDP for a given weight/altitude/temperature?",
+      "options": [
+        "Safe continued flight or landing is not assured if an engine fails while climbing between the two TDPs",
+        "There is no concern; the aircraft can always land safely between the TDPs",
+        "It only affects fuel planning, not safety",
+        "It simply means the helipad is undersized for Category A operations"
+      ],
+      "answer": [0],
+      "explanation": "If the minimum fly-away TDP exceeds the maximum reject TDP, safe continued flight or landing is not assured for an engine failure occurring while climbing between the two TDPs.",
+      "references": ["S-92 RFM Part 1 Sec IV: CATEGORY A VERTICAL GROUND LEVEL HELIPAD (p.4-2)"],
+      "tags": ["performance", "category-a", "tdp", "safety"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-perf-009",
+      "section": "PERFORMANCE INFORMATION",
+      "question": "How is the Category A ground level helipad \"take off field length\" defined?",
+      "options": [
+        "The horizontal distance from the helipad required to reach 35 feet above the helipad or obstacle altitude at a Vtoss climb with 2 minute power selected, after an engine failure at the minimum TDP",
+        "The total distance needed for a rolling takeoff regardless of engine status",
+        "The distance from TDP to attaining Vy only",
+        "The distance required to descend from cruise altitude to the helipad"
+      ],
+      "answer": [0],
+      "explanation": "Take off field length is the horizontal distance, measured from the helipad, required to reach 35 feet above the helipad or obstacle altitude at a Vtoss climb with 2 minute power selected, following an engine failure at the minimum TDP.",
+      "references": ["S-92 RFM Part 1 Sec IV: CATEGORY A VERTICAL GROUND LEVEL HELIPAD (p.4-2)"],
+      "tags": ["performance", "category-a", "field-length"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-perf-010",
+      "section": "PERFORMANCE INFORMATION",
+      "question": "How is the Category A ground level helipad \"balked landing distance\" defined?",
+      "options": [
+        "The horizontal distance from the helipad required to reach 45 feet above the helipad, or 35 feet above the obstacle (whichever is higher), at a Vtoss climb after an engine failure at the LDP",
+        "The distance required to stop the aircraft during a rejected landing",
+        "The distance from the LDP to touchdown during a normal landing",
+        "The distance flown during a go-around at Vy"
+      ],
+      "answer": [0],
+      "explanation": "Balked landing distance is the horizontal distance from the helipad required to reach 45 feet above the helipad or 35 feet above the obstacle, whichever is higher, at a Vtoss climb following an engine failure at the LDP.",
+      "references": ["S-92 RFM Part 1 Sec IV: CATEGORY A VERTICAL GROUND LEVEL HELIPAD (p.4-2)"],
+      "tags": ["performance", "category-a", "balked-landing"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-perf-011",
+      "section": "PERFORMANCE INFORMATION",
+      "question": "If there are no obstacles over 10 feet in the balked landing path, what minimum Landing Decision Point (LDP) may the pilot choose?",
+      "options": [
+        "125 feet, providing 25 feet of clearance above helipad level (15 feet clearance of a 10 foot obstacle)",
+        "200 feet, providing 50 feet of clearance",
+        "55 feet, matching the balked landing climb speed in KIAS",
+        "35 feet, matching the takeoff field length obstacle-clearance height"
+      ],
+      "answer": [0],
+      "explanation": "With no obstacles over 10 feet in the balked landing path, the pilot can choose the minimum LDP of 125 feet, providing 25 feet of clearance above helipad level (15 feet of clearance over a 10 foot obstacle).",
+      "references": ["S-92 RFM Part 1 Sec IV: CATEGORY A VERTICAL GROUND LEVEL HELIPAD (p.4-2)"],
+      "tags": ["performance", "category-a", "ldp"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-perf-012",
+      "section": "PERFORMANCE INFORMATION",
+      "question": "For a Category A vertical takeoff, if an obstacle is close enough to and low enough over the helipad that it lies within the obstacle exempt region, how must the pilot treat it when determining minimum fly-away TDP?",
+      "options": [
+        "It can be disregarded — no correction to the minimum fly-away TDP is required",
+        "It must always be added to the minimum fly-away TDP regardless of its height or distance",
+        "It automatically cancels the takeoff regardless of aircraft weight",
+        "It must be treated as reducing the maximum reject TDP instead"
+      ],
+      "answer": [0],
+      "explanation": "Obstacles within the defined obstacle exempt region are guaranteed at least 15 feet of clearance along the takeoff profile due to their low height and close proximity to the pad, and are therefore exempt from obstacle clearance consideration when determining minimum fly-away TDP.",
+      "references": ["S-92 RFM Part 1 Sec IV: CATEGORY A GROUND LEVEL HELIPAD OBSTACLE EXEMPTION REGION FOR TAKEOFF (p.4-38)"],
+      "tags": ["performance", "category-a", "obstacle", "tdp"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-perf-013",
+      "section": "PERFORMANCE INFORMATION",
+      "question": "For a Category A vertical takeoff, if an obstacle lies outside the obstacle exempt region (i.e. it is high enough and/or far enough from the pad), what must the pilot do to the minimum fly-away TDP?",
+      "options": [
+        "Correct it by adding the obstacle height to the no-obstacle minimum fly-away TDP",
+        "Ignore the obstacle since only obstacles within the exempt region matter",
+        "Reduce gross weight by an amount equal to the obstacle height in feet",
+        "Add the obstacle height to the maximum reject TDP instead"
+      ],
+      "answer": [0],
+      "explanation": "If an obstacle falls outside the obstacle exempt region, the minimum fly-away TDP must be corrected by adding the obstacle height to it; if that corrected TDP then exceeds the maximum reject TDP, a Category A takeoff cannot be performed for the planned weight, altitude, temperature and obstacle.",
+      "references": ["S-92 RFM Part 1 Sec IV: CATEGORY A GROUND LEVEL HELIPAD OBSTACLE EXEMPTION REGION FOR TAKEOFF (p.4-38)"],
+      "tags": ["performance", "category-a", "obstacle", "tdp", "safety"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-perf-014",
+      "section": "PERFORMANCE INFORMATION",
+      "question": "Per the notes on the Category A Horizontal Takeoff and Landing Gross Weight chart, what minimum TDP speed applies when the crosswind component exceeds 20 knots?",
+      "options": [
+        "45 KIAS",
+        "30 KIAS",
+        "35 KIAS",
+        "48 KIAS"
+      ],
+      "answer": [0],
+      "explanation": "With a crosswind component greater than 20 knots, the minimum TDP speed for Category A horizontal operations is 45 KIAS, higher than the normal 30 knot minimum TDP baseline.",
+      "references": ["S-92 RFM Part 1 Sec IV: Figure 4-9 usage notes (p.4-12)"],
+      "tags": ["performance", "category-a", "crosswind", "tdp"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-perf-015",
+      "section": "PERFORMANCE INFORMATION",
+      "question": "What is the fundamental performance guarantee that distinguishes a correctly flown Category A takeoff/landing from a Category B one?",
+      "options": [
+        "Category A, flown within the approved weight/altitude/temperature/field-length/wind conditions, guarantees continued safe flight and landing after an engine failure; Category B does not provide this guarantee",
+        "Category A and Category B provide an identical guarantee following an engine failure",
+        "Category B guarantees continued flight after an engine failure, while Category A does not",
+        "The distinction is only about cabin configuration and has no bearing on engine-failure outcomes"
+      ],
+      "answer": [0],
+      "explanation": "Category A takeoff and landing procedures, flown at the approved weight, altitude, temperature, field length and wind conditions, guarantee continued safe flight and landing after an engine failure. Operating outside those approved conditions, or under Category B, does not carry this guarantee.",
+      "references": ["S-92 RFM Part 1 Sec II: TAKEOFF AND LANDING PROCEDURES (p.2-29)"],
+      "tags": ["performance", "category-a", "category-b", "engine-failure"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-perf-016",
+      "section": "PERFORMANCE INFORMATION",
+      "question": "During Category A takeoff and landing maneuvers, what is the Non-Flying Pilot's (NFP) role with respect to TDP/LDP?",
+      "options": [
+        "Announce when the aircraft attains the TDP or LDP airspeed and/or altitude, and call out deviations from required performance parameters",
+        "Take over the flight controls at the TDP so the Flying Pilot can monitor instruments",
+        "Remain silent until the aircraft is on the ground to avoid distracting the Flying Pilot",
+        "Only handle radio communications during Category A maneuvers"
+      ],
+      "answer": [0],
+      "explanation": "The Non-Flying Pilot supports the Flying Pilot by announcing when the aircraft attains the TDP or LDP airspeed/altitude, and by calling out when actual performance (e.g. Nr range, ground track, or Vtoss) deviates from what is required for the maneuver.",
+      "references": ["S-92 RFM Part 1 Sec II: TAKEOFF AND LANDING PROCEDURES (p.2-29)"],
+      "tags": ["performance", "category-a", "crew-coordination", "tdp", "ldp"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["S92"]
+    }
+  ]
+}

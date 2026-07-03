@@ -4,6 +4,9 @@
     "eng-fire-flight.json",
     "apu-fire-ground.json",
     "apu-fire-flight.json",
-    "smoke-baggage.json"
+    "smoke-baggage.json",
+    "intentional-engine-shutdown.json",
+    "ditching-emergency-landing.json",
+    "emergency-evacuation-land.json"
   ]
 }

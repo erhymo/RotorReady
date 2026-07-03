@@ -27,11 +27,19 @@ const MID_DROP_PATTERNS = [/^-{3,}\s*END\s*-{3,}$/i];
 // (1.3 POST SHUTDOWN FIRE and 1.7 FIRE/SMOKE IN CABIN OR COCKPIT have no dedicated light
 // and are intentionally excluded per "red lights only".)
 const LIGHTS = [
-  { id: "eng-fire-ground", name: "ENG FIRE (GROUND)", pages: [10, 11] }, // 1.1
-  { id: "eng-fire-flight", name: "ENG FIRE (FLIGHT)", pages: [12, 13] }, // 1.2
-  { id: "apu-fire-ground", name: "APU FIRE (GROUND)", pages: [15, 16] }, // 1.4
-  { id: "apu-fire-flight", name: "APU FIRE (FLIGHT)", pages: [17, 18] }, // 1.5
-  { id: "smoke-baggage", name: "SMOKE IN BAGGAGE", pages: [19] }, // 1.6
+  { id: "eng-fire-ground", name: "ENG FIRE (GROUND)", pages: [10, 11], severity: "warning" }, // 1.1
+  { id: "eng-fire-flight", name: "ENG FIRE (FLIGHT)", pages: [12, 13], severity: "warning" }, // 1.2
+  { id: "apu-fire-ground", name: "APU FIRE (GROUND)", pages: [15, 16], severity: "warning" }, // 1.4
+  { id: "apu-fire-flight", name: "APU FIRE (FLIGHT)", pages: [17, 18], severity: "warning" }, // 1.5
+  { id: "smoke-baggage", name: "SMOKE IN BAGGAGE", pages: [19], severity: "warning" }, // 1.6
+  // Referenced-only procedures: no discrete master-warning/caution light of their own
+  // (pilot-initiated checklists, not annunciator-driven), so they're excluded from the
+  // red-lights CWP grid (severity "caution" keeps them out of the warning-only filter).
+  // They exist purely so the cross-reference links on the FIRE-unit cards above resolve
+  // to something real instead of staying inert.
+  { id: "intentional-engine-shutdown", name: "INTENTIONAL ENGINE SHUTDOWN IN FLIGHT", pages: [33, 34], severity: "caution" }, // 2.7
+  { id: "ditching-emergency-landing", name: "DITCHING / EMERGENCY LANDING", pages: [216, 217], severity: "caution" }, // 14.5
+  { id: "emergency-evacuation-land", name: "EMERGENCY EVACUATION ON LAND", pages: [219], severity: "caution" }, // 14.7
 ];
 
 function analyzePage(doc, pageNumber1based) {
@@ -166,7 +174,7 @@ function main() {
       {
         id: light.id,
         name: light.name,
-        severity: "warning",
+        severity: light.severity || "warning",
         description: "",
         pageImage: `/training/lights/pages/${imageFileName}`,
         imageWidth: imageWidthPx,

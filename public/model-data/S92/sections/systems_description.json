@@ -1,0 +1,384 @@
+{
+  "items": [
+    {
+      "id": "s92-sys-001",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "What is the continuous power rating of each main AC generator, and what does it increase to for emergency operation?",
+      "options": [
+        "75 kva continuous, 90 kva for emergency operation",
+        "90 kva continuous, 75 kva for emergency operation",
+        "35 kva continuous, 45 kva for emergency operation",
+        "115 kva continuous, no emergency rating"
+      ],
+      "answer": [0],
+      "explanation": "The two main generators are oil-cooled, brushless units producing three-phase 400 Hz power, rated at 75 kva for continuous operation and 90 kva for emergency operation. (35/45 kva are the APU generator's ratings, not the main generators.)",
+      "references": ["S-92 RFM Part 2 Sec I: ELECTRICAL SYSTEM (p.I-2-1)"],
+      "tags": ["electrical", "generators"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-002",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "What is the APU generator's power rating for continuous use versus five-minute use?",
+      "options": [
+        "35 kva continuous, 45 kva for five minutes",
+        "45 kva continuous, 35 kva for five minutes",
+        "75 kva continuous, 90 kva for five minutes",
+        "25 kva continuous, 35 kva for five minutes"
+      ],
+      "answer": [0],
+      "explanation": "The air-cooled, brushless APU-driven auxiliary generator produces 115 vac three-phase 400 Hz power, rated at 35 kva for continuous use and 45 kva for five minutes.",
+      "references": ["S-92 RFM Part 2 Sec I: ELECTRICAL SYSTEM (p.I-2-1)"],
+      "tags": ["electrical", "apu", "generators"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-003",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "Which electrical bus remains powered ('hot') regardless of the BATT switch position?",
+      "options": [
+        "The battery utility bus",
+        "The battery hold-up bus",
+        "The dc essential bus",
+        "None — all buses are unpowered with BATT OFF"
+      ],
+      "answer": [0],
+      "explanation": "The battery utility bus is always hot regardless of BATT switch position; turning the BATT switch ON connects the rest of the battery buses if the battery is the only source of power.",
+      "references": ["S-92 RFM Part 2 Sec I: ELECTRICAL SYSTEM (p.I-2-4)"],
+      "tags": ["electrical", "battery"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-004",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "If both main generators fail and the APU generator is supplying reduced power, which of the following is automatically load-shed?",
+      "options": [
+        "Pilot and copilot windshield anti-ice, No. 1 engine anti-ice, and main/tail rotor blade de-ice",
+        "The dc essential bus and both primary dc converters",
+        "Both engine FADECs and the AFCS",
+        "The fuel boost pumps and fuel quantity indication"
+      ],
+      "answer": [0],
+      "explanation": "Because the APU cannot support all aircraft ac loads, automatic load shedding disables pilot/copilot windshield anti-ice, No. 1 engine anti-ice, main and tail rotor blade de-ice, the AVC system, and the second air conditioning compressor (if installed).",
+      "references": ["S-92 RFM Part 2 Sec I: ELECTRICAL SYSTEM (p.I-2-7)"],
+      "tags": ["electrical", "load-shedding"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-005",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "Which fuel tank supplies the APU, and does it also supply an engine?",
+      "options": [
+        "The No. 1 tank supplies both the APU and the No. 1 engine",
+        "The No. 2 tank supplies both the APU and the No. 2 engine",
+        "A separate, dedicated APU tank supplies only the APU",
+        "Both tanks supply the APU equally via the crossfeed line"
+      ],
+      "answer": [0],
+      "explanation": "Fuel from the No. 1 tank supplies both the No. 1 engine and the APU; fuel from the No. 2 tank supplies only the No. 2 engine. This asymmetry matters when planning fuel balance and APU availability.",
+      "references": ["S-92 RFM Part 2 Sec I: FUEL SYSTEM (p.I-7-1)"],
+      "tags": ["fuel", "apu"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-006",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "What does a SOV1 WRNG POSN or SOV2 WRNG POSN caution indicate?",
+      "options": [
+        "The affected engine fuel prime shutoff valve does not match its commanded position (e.g. starter on with the valve closed, or starter off with the valve open)",
+        "The affected engine fuel filter is nearing bypass",
+        "The affected engine fuel tank quantity is below 215 pounds",
+        "The affected engine fuel crossfeed valve has frozen open"
+      ],
+      "answer": [0],
+      "explanation": "Each fuel prime valve is monitored by a position indicator; the SOV WRNG POSN caution illuminates when the valve doesn't match its commanded position — for example, engine starter on with the affected shutoff valve closed, starter off with the valve open, or the prime pump manually selected on with the valve closed.",
+      "references": ["S-92 RFM Part 2 Sec I: FUEL SYSTEM (p.I-7-1)"],
+      "tags": ["fuel", "prime-valve"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-007",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "What is the purpose of the Inlet Particle Separator (IPS) in the engine's cold section?",
+      "options": [
+        "It removes foreign particles from the air before it enters the compressor",
+        "It separates fuel from air prior to combustion",
+        "It cools the compressed air before it reaches the diffuser",
+        "It filters oil before it reaches the main bearings"
+      ],
+      "answer": [0],
+      "explanation": "The cold section includes the Inlet Particle Separator (IPS), which removes foreign particles from the air before it enters the compressor, protecting the engine from FOD and erosion.",
+      "references": ["S-92 RFM Part 2 Sec I: ENGINE (p.I-8-1)"],
+      "tags": ["engine", "ips"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-008",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "How do the two FADEC channels (A and B) share control of an engine over time?",
+      "options": [
+        "They take turns controlling the engine, swapping control after every engine shutdown; if a FADEC is degraded, the channel with the least faults takes control",
+        "Channel A always has primary control, with Channel B only as a hot standby",
+        "Both channels always control the engine simultaneously with no swapping",
+        "Control alternates every 30 seconds during flight regardless of faults"
+      ],
+      "answer": [0],
+      "explanation": "Each FADEC has two channels (A and B) that take turns controlling the engine, swapping control after every engine shutdown. In case of a degraded FADEC, the channel with the least faults takes control.",
+      "references": ["S-92 RFM Part 2 Sec I: ENGINE (p.I-8-3)"],
+      "tags": ["engine", "fadec"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-009",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "Besides a rapid Ng deceleration rate, what other single Ng criterion will cause the FADEC to declare an engine failure?",
+      "options": [
+        "Ng below 55%",
+        "Ng below 70%",
+        "Ng below 90%",
+        "Ng below 100%"
+      ],
+      "answer": [0],
+      "explanation": "The FADEC uses two indications to determine an engine failure: Ng decreasing at a rate faster than the FADEC commands, or Ng going below 55%.",
+      "references": ["S-92 RFM Part 2 Sec I: ENGINE (p.I-8-7)"],
+      "tags": ["engine", "fadec", "engine-failure"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-010",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "What is the operational purpose of the 30-second, 2-minute, and maximum continuous OEI power ranges, respectively?",
+      "options": [
+        "30 second stops the initial descent and recovers Nr/airspeed; 2 minute allows climb away from threatening terrain; maximum continuous allows cruise to a safe landing zone",
+        "30 second is for cruise to a safe landing zone; 2 minute stops the initial descent; maximum continuous allows climb away from terrain",
+        "All three ranges serve the identical purpose of maximizing cruise range",
+        "30 second and 2 minute are identical; only maximum continuous differs, for landing only"
+      ],
+      "answer": [0],
+      "explanation": "After an engine failure, 30 second OEI power stops the initial descent and helps recover Nr and airspeed; 2 minute OEI power allows the aircraft to climb away from threatening terrain; maximum continuous OEI power allows the aircraft to cruise to a safe landing zone.",
+      "references": ["S-92 RFM Part 2 Sec I: ENGINE (p.I-8-7)"],
+      "tags": ["engine", "oei-power"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-011",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "Under which condition will the FADEC automatically arm two-minute OEI power on the good engine without pilot action, aside from moving a throttle out of FLY?",
+      "options": [
+        "When there is a torque split of more than 20% and the low engine is below 70% torque",
+        "Whenever Nr exceeds 104% momentarily",
+        "Whenever the collective is raised above the hover torque setting",
+        "Only when the pilot manually selects it — there is no other automatic case"
+      ],
+      "answer": [0],
+      "explanation": "The FADEC automatically arms one of the OEI limits in three cases: when one engine fails, the remaining engine automatically arms 30 second power; when one engine throttle is moved out of FLY, the good engine automatically arms two minute power; and if there is a torque split of more than 20% with the low engine below 70% torque, the good engine automatically arms two minute power.",
+      "references": ["S-92 RFM Part 2 Sec I: ENGINE (p.I-8-7)"],
+      "tags": ["engine", "oei-power", "fadec"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-012",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "With the AIR SRCE HEAT/START switch in the ENG position and the APU on, which source provides bleed air at low engine power settings?",
+      "options": [
+        "The APU is used as the bleed air source at low power settings, while the engine takes over at high engine power settings",
+        "The engine is always the source regardless of power setting or APU status",
+        "The APU is used exclusively at all power settings whenever ENG is selected",
+        "Bleed air is unavailable at low power settings in the ENG position"
+      ],
+      "answer": [0],
+      "explanation": "In the ENG position, the system selects the higher-pressure bleed air source: if the APU is on, it supplies bleed air at low engine power settings, while the engine itself becomes the source at high engine power settings.",
+      "references": ["S-92 RFM Part 2 Sec I: ENGINE (p.I-8-3)"],
+      "tags": ["engine", "bleed-air", "apu"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-013",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "How are the No. 2 engine and APU fire compartments linked for fire protection?",
+      "options": [
+        "Arming the No. 2 engine discharges the selected bottle into both the No. 2 engine and APU compartments, and arming the APU discharges into both the APU and No. 2 engine compartments",
+        "They are completely independent; arming one has no effect on the other",
+        "Arming the APU discharges into the No. 1 engine compartment instead of the No. 2",
+        "The link only works one way: arming the APU affects No. 2 engine, but not vice versa"
+      ],
+      "answer": [0],
+      "explanation": "The No. 2 engine and APU compartments are linked together for fire protection: when the No. 2 engine is armed, the selected fire bottle discharges into both the No. 2 engine and APU compartments, and when the APU is armed, the selected bottle discharges into both the APU and No. 2 engine compartments.",
+      "references": ["S-92 RFM Part 2 Sec I: FIRE PROTECTION SYSTEM (p.I-11-2)"],
+      "tags": ["fire-protection", "apu"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-014",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "When the FIRE EXTG switch is set to RESERVE for an armed engine, which compartment receives the discharge?",
+      "options": [
+        "The opposite engine compartment's reserve container discharges into the armed engine's compartment",
+        "The same engine's reserve container discharges into its own compartment, identical to MAIN",
+        "The reserve position discharges into the APU compartment regardless of which engine is armed",
+        "RESERVE only arms the system without discharging anything"
+      ],
+      "answer": [0],
+      "explanation": "In the MAIN position, the No. 1 or No. 2 fire extinguisher container discharges into its own respective engine compartment. In the RESERVE position, the No. 1 or No. 2 container discharges into the opposite engine compartment via the crossfeed system.",
+      "references": ["S-92 RFM Part 2 Sec I: FIRE PROTECTION SYSTEM (p.I-11-2)"],
+      "tags": ["fire-protection", "fire-extinguisher"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-015",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "What triggers the crash-actuated fire extinguisher system, and what does it do?",
+      "options": [
+        "An inertia switch senses a crash impact of 10 Gs or more and automatically fires both extinguishing containers into both engine compartments",
+        "It triggers at 10 Gs and discharges only into the APU compartment",
+        "It requires manual pilot activation even after a crash impact is sensed",
+        "It triggers only when the FIRE/ARM pushbuttons have already been pressed"
+      ],
+      "answer": [0],
+      "explanation": "An inertia switch hard-mounted to the airframe senses crash forces; upon a crash impact of 10 Gs or more, the switch automatically fires both extinguishing containers into both engine compartments, without requiring the FIRE/ARM pushbuttons to be pressed first.",
+      "references": ["S-92 RFM Part 2 Sec I: FIRE PROTECTION SYSTEM (p.I-11-3)"],
+      "tags": ["fire-protection", "crash-system"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-016",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "Why are the engine and APU fire detectors powered from the dc battery bus rather than a generator bus?",
+      "options": [
+        "So fire extinguishing capability remains available through battery power any time the generators are not operating",
+        "Because the battery bus is the only bus with enough current capacity for the detectors",
+        "It is purely a legacy wiring choice with no operational significance",
+        "So the detectors can be tested only while on battery power during preflight"
+      ],
+      "answer": [0],
+      "explanation": "The No. 1 engine, No. 2 engine, and APU fire detectors all receive power from the dc battery bus through dedicated circuit breakers, ensuring fire extinguishing capability is available through battery power any time the generators are not operating.",
+      "references": ["S-92 RFM Part 2 Sec I: FIRE PROTECTION SYSTEM (p.I-11-2)"],
+      "tags": ["fire-protection", "electrical"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-017",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "Besides backing up the No. 1 and No. 2 hydraulic systems, what else does the No. 3 hydraulic system power?",
+      "options": [
+        "The landing gear, cargo ramp, and automatic recharging of the APU accumulator",
+        "The AFCS servo actuators exclusively",
+        "The main and tail rotor blade de-ice system",
+        "The engine FADEC hydraulic actuators"
+      ],
+      "answer": [0],
+      "explanation": "The No. 3 hydraulic system provides backup pressure to the No. 1 or No. 2 systems in the event of a failure, and also provides hydraulic power for the landing gear, cargo ramp, and automatic recharging of the APU accumulator.",
+      "references": ["S-92 RFM Part 2 Sec I: HYDRAULIC SYSTEM (p.I-14-1)"],
+      "tags": ["hydraulics"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-018",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "Why do the hydraulic backup shutoff valves automatically close during engine start and shutdown?",
+      "options": [
+        "To prevent unwanted shuttling caused by interaction between the two primary hydraulic systems and the No. 3 system",
+        "To conserve hydraulic fluid while the rotor is not turning",
+        "To allow the ground checkout pump to operate without interference",
+        "It is a manual pilot action, not an automatic function"
+      ],
+      "answer": [0],
+      "explanation": "Both backup shutoff valves automatically close during engine start and shutdown to prevent unwanted shuttling from interaction between the two primary hydraulic systems and the No. 3 system; the DCUs close them when the first engine exceeds 15% Ng during start, and reopen them once Nr exceeds 50%.",
+      "references": ["S-92 RFM Part 2 Sec I: HYDRAULIC SYSTEM (p.I-14-3)"],
+      "tags": ["hydraulics", "dcu"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-019",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "How does the emergency flotation system's design sea state depend on aircraft weight?",
+      "options": [
+        "At or above 18,590 pounds it is designed for mid sea state 5 (8-12 ft waves); below that weight, mid sea state 4 (4-8 ft waves)",
+        "At or above 18,590 pounds it is designed for sea state 4; below that weight, sea state 5",
+        "The design sea state is fixed at sea state 5 regardless of aircraft weight",
+        "Weight has no bearing on the flotation system's design sea state"
+      ],
+      "answer": [0],
+      "explanation": "At aircraft weights at or above 18,590 pounds (8,432 kg), the emergency flotation system is designed to keep the helicopter upright and afloat long enough to evacuate in mid sea state 5 (8-12 ft waves, 18-25 kt wind); below that weight, it is designed for mid sea state 4 (4-8 ft waves, 17-21 kt wind).",
+      "references": ["S-92 RFM Part 2 Sec I (OPTIONS): EMERGENCY FLOTATION SYSTEM (p.I-18-1)"],
+      "tags": ["flotation", "ditching"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-020",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "What redundancy is built into each of the three emergency float bags, and how many nitrogen bottles inflate them in total?",
+      "options": [
+        "Each bag has two independent pockets so a single pocket failure still leaves sufficient buoyancy; four nitrogen bottles inflate all the floats (two forward, two aft)",
+        "Each bag has a single pocket with no redundancy; two nitrogen bottles inflate all the floats",
+        "Each bag has three independent pockets; six nitrogen bottles inflate all the floats",
+        "The floats share one common pocket across all three bags, inflated by a single nitrogen bottle"
+      ],
+      "answer": [0],
+      "explanation": "Each of the three float bags consists of two separate, independent pockets, so a single pocket failure still leaves the remaining pocket providing sufficient buoyancy for that section. Four nitrogen bottles inflate the floats: two forward bottles (each inflating one pocket of the left and right forward floats) and two bottles in the tail boom (each inflating one aft float bag pocket).",
+      "references": ["S-92 RFM Part 2 Sec I (OPTIONS): EMERGENCY FLOTATION SYSTEM (p.I-18-1)"],
+      "tags": ["flotation", "ditching", "redundancy"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    }
+  ]
+}

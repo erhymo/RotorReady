@@ -5,7 +5,13 @@
       "id": "description-and-systems",
       "title": "Description And Systems",
       "file": "sections/description-and-systems.json",
-      "count": 20
+      "count": 37
+    },
+    {
+      "id": "performance",
+      "title": "Performance",
+      "file": "sections/performance.json",
+      "count": 10
     },
     {
       "id": "limitations",

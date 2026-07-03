@@ -52,6 +52,18 @@ const LIGHTS = [
   // Referenced-only (gray checklist, no discrete light) — 2.2 links to both 2.7 (already
   // built) and 2.8, so 2.8 is added purely to resolve that link.
   { id: "engine-restart-in-flight", name: "ENGINE RESTART IN FLIGHT", pages: [35, 36], severity: "caution" }, // 2.8
+
+  // PWRTN unit: header-color scan of all procedures found 6 genuine red warnings across
+  // PWRTN (5.x) and CTRL/DCU (12.x).
+  { id: "swashplate-temperature-warning", name: "SWASHPLATE TEMPERATURE WARNING", pages: [72], severity: "warning" }, // 5.2
+  { id: "mgb-oil-pres-warning", name: "MGB OIL PRES - WARNING", pages: [78, 79], severity: "warning" }, // 5.7
+  { id: "mgb-oil-out", name: "MGB OIL OUT", pages: [80], severity: "warning" }, // 5.8
+  { id: "dcp-degrade-failure", name: "DCP DEGRADE OR FAILURE", pages: [186], severity: "warning" }, // 12.8
+  { id: "dcu-mfd-comm-fault", name: "DCU - MFD COMMUNICATION FAULT", pages: [187, 188], severity: "warning" }, // 12.9
+  { id: "dcu-dual-failure", name: "DCU - DUAL FAILURE", pages: [192], severity: "warning" }, // 12.11
+  // Referenced-only (caution, no discrete light) — 5.7 MGB OIL PRES links to both of these.
+  { id: "input-acc-hot", name: "INPUT / ACC HOT", pages: [81, 82], severity: "caution" }, // 5.9
+  { id: "mgb-pump-fail", name: "MGB PUMP FAIL", pages: [83, 84, 85], severity: "caution" }, // 5.10
 ];
 
 function analyzePage(doc, pageNumber1based) {

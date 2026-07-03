@@ -10,6 +10,14 @@
     "emergency-evacuation-land.json",
     "engine-dual-failure.json",
     "engine-single-failure.json",
-    "engine-restart-in-flight.json"
+    "engine-restart-in-flight.json",
+    "swashplate-temperature-warning.json",
+    "mgb-oil-pres-warning.json",
+    "mgb-oil-out.json",
+    "dcp-degrade-failure.json",
+    "dcu-mfd-comm-fault.json",
+    "dcu-dual-failure.json",
+    "input-acc-hot.json",
+    "mgb-pump-fail.json"
   ]
 }

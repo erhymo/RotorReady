@@ -14,6 +14,7 @@
       "answer": [
         2
       ],
+      "explanation": "Intentional P/R–C/Y trim de-clutching (EDCU TRIM page) in flight is prohibited.",
       "references": [
         "QRH Avionics Limitations p.1"
       ],
@@ -38,6 +39,7 @@
       "answer": [
         1
       ],
+      "explanation": "AFCS upper modes (except HOV, TDH, TU, and coupled approach modes) must be disengaged after failure of one AP, one AHRS, or ADI-STDBY, after an actuator failure, loss of CAS messages, or an AFCS oscillatory malfunction.",
       "references": [
         "QRH Avionics Limitations p.1"
       ],
@@ -62,6 +64,7 @@
       "answer": [
         0
       ],
+      "explanation": "AFCS upper modes must be disengaged if one AHRS has failed (\"AP AHRS 1(2) FAIL\" or \"1(2) AHRS FAIL\" displayed).",
       "references": [
         "QRH Avionics Limitations p.1"
       ],
@@ -86,6 +89,7 @@
       "answer": [
         1
       ],
+      "explanation": "When PWR LIM is displayed, fly attentive or reduce/increase power accordingly to keep the power margin.",
       "references": [
         "QRH Avionics Limitations p.1"
       ],
@@ -110,6 +114,7 @@
       "answer": [
         1
       ],
+      "explanation": "RHT, TU, and TDH modes may only be engaged over flat surfaces clear of obstructions.",
       "references": [
         "QRH AFCS Mode Limitations p.1"
       ],
@@ -134,6 +139,7 @@
       "answer": [
         0
       ],
+      "explanation": "VNAV, MOT, and WTR are inoperative on the AFCS control panel; \"FUNCTION UNAVL\" is displayed on the PFD if selected.",
       "references": [
         "QRH AFCS Mode Limitations p.1"
       ],
@@ -158,6 +164,7 @@
       "answer": [
         2
       ],
+      "explanation": "ALT mode MUH is 200 ft AGL in cruise.",
       "references": [
         "QRH AFCS Modes MUH p.1"
       ],
@@ -182,6 +189,7 @@
       "answer": [
         1
       ],
+      "explanation": "ALT mode MUH is 50 ft AGL in hover/low speed.",
       "references": [
         "QRH AFCS Modes MUH p.1"
       ],
@@ -206,6 +214,7 @@
       "answer": [
         0
       ],
+      "explanation": "ALTA mode MUH is 200 ft AGL.",
       "references": [
         "QRH AFCS Modes MUH p.1"
       ],
@@ -230,6 +239,7 @@
       "answer": [
         2
       ],
+      "explanation": "VS mode (in descent) MUH is 200 ft AGL.",
       "references": [
         "QRH AFCS Modes MUH p.1"
       ],
@@ -254,6 +264,7 @@
       "answer": [
         2
       ],
+      "explanation": "RHT mode MUH is 150 ft AGL in cruise.",
       "references": [
         "QRH AFCS Modes MUH p.1"
       ],
@@ -278,6 +289,7 @@
       "answer": [
         3
       ],
+      "explanation": "RHT mode MUH is 30 ft AGL in hover/low speed.",
       "references": [
         "QRH AFCS Modes MUH p.1"
       ],
@@ -302,6 +314,7 @@
       "answer": [
         3
       ],
+      "explanation": "GA mode MUH is 160 ft AGL during approach (150 ft AGL in cruise up to 5000 ft, then reducing 2 kts every 1000 ft).",
       "references": [
         "QRH AFCS Modes MUH p.1"
       ],
@@ -326,6 +339,7 @@
       "answer": [
         2
       ],
+      "explanation": "TDH and TU modes MUH is 30 ft AGL.",
       "references": [
         "QRH AFCS Modes MUH p.1"
       ],
@@ -350,6 +364,7 @@
       "answer": [
         0
       ],
+      "explanation": "IAS mode MUH is 150 ft AGL in cruise.",
       "references": [
         "QRH AFCS Modes MUH p.2"
       ],
@@ -374,6 +389,7 @@
       "answer": [
         1
       ],
+      "explanation": "IAS mode MUH is 160 ft AGL during approach.",
       "references": [
         "QRH AFCS Modes MUH p.2"
       ],
@@ -398,6 +414,7 @@
       "answer": [
         0
       ],
+      "explanation": "GSPD mode MUH is 150 ft AGL in cruise.",
       "references": [
         "QRH AFCS Modes MUH p.2"
       ],
@@ -422,6 +439,7 @@
       "answer": [
         1
       ],
+      "explanation": "GSPD mode MUH is 160 ft AGL during approach.",
       "references": [
         "QRH AFCS Modes MUH p.2"
       ],
@@ -446,6 +464,7 @@
       "answer": [
         3
       ],
+      "explanation": "DCL mode MUH is 230 ft AGL.",
       "references": [
         "QRH AFCS Modes MUH p.2"
       ],
@@ -470,6 +489,7 @@
       "answer": [
         2
       ],
+      "explanation": "HOV mode MUH is 30 ft AGL.",
       "references": [
         "QRH AFCS Modes MUH p.2"
       ],
@@ -494,6 +514,7 @@
       "answer": [
         1
       ],
+      "explanation": "APP modes (VAPP, LOC, BC, GS, NLOC, NGS, NAPP, NDCL) MUH is 160 ft AGL.",
       "references": [
         "QRH AFCS Modes MUH p.2"
       ],
@@ -518,6 +539,7 @@
       "answer": [
         2
       ],
+      "explanation": "Maximum ROD for AFCS coupled approach is 900 fpm.",
       "references": [
         "QRH AFCS Approach Modes Limitations p.3"
       ],
@@ -542,6 +564,7 @@
       "answer": [
         1
       ],
+      "explanation": "Maximum airspeed for AFCS coupled approach is 130 KIAS up to 5000 ft, then reducing 2 kts every 1000 ft.",
       "references": [
         "QRH AFCS Approach Modes Limitations p.3"
       ],
@@ -566,6 +589,7 @@
       "answer": [
         2
       ],
+      "explanation": "The helicopter is certified for CAT I ILS approaches up to 7° glideslope.",
       "references": [
         "QRH AFCS Approach Modes Limitations p.3"
       ],
@@ -590,6 +614,7 @@
       "answer": [
         1
       ],
+      "explanation": "The pilot must verify that the FMS Navigation Data Base (NAV DB) is current and coherent with the procedure to be flown.",
       "references": [
         "QRH FMS Limitations p.3"
       ],
@@ -614,6 +639,7 @@
       "answer": [
         2
       ],
+      "explanation": "Manual FMS reversion to DME/DME or VOR/DME as navigation sensor source is prohibited; the FMS is not Multi-Sensor Approved for navigation.",
       "references": [
         "QRH FMS Limitations p.3"
       ],
@@ -638,6 +664,7 @@
       "answer": [
         2
       ],
+      "explanation": "Maximum ROD during coupled FMS approaches is 800 fpm.",
       "references": [
         "QRH FMS Limitations p.3"
       ],
@@ -662,6 +689,7 @@
       "answer": [
         0
       ],
+      "explanation": "Headset/helmet used in the aircraft must be of the same electrical characteristics and authorised by the aircraft manufacturer.",
       "references": [
         "QRH Headset/Helmet Limitations p.3"
       ],

@@ -110,6 +110,13 @@ function Bar(props: { href: string; title: string; description: string; tone?: "
 
 		      <section className="space-y-3">
 		        <h2 className="text-sm font-semibold uppercase tracking-wide text-slate-700 dark:text-zinc-200">Reference</h2>
+		        <Bar
+		          href="/ifr-vfr"
+		          title="IFR - VFR"
+		          description="EASA instrument and visual flight rules, as a reference to keep fresh."
+		          tone="slate"
+		          icon={<BookIcon className="h-4 w-4" />}
+		        />
 		        {activeVariant?.productId === "AW169" && (
 	          <Bar
 	            href="/aw169/quick-reference"

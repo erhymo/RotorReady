@@ -59,10 +59,51 @@ export const VFR_TOPICS: RuleTopic[] = [
           "Track 000°–179° (magnetic): odd flight level/altitude + 500 ft (e.g. FL035, FL055, 3500 ft, 5500 ft).",
           "Track 180°–359° (magnetic): even flight level/altitude + 500 ft (e.g. FL045, FL065, 4500 ft, 6500 ft).",
           "The +500 ft offset from IFR levels is what keeps VFR traffic vertically separated from IFR traffic on the same semicircular scheme.",
+          "Unlike for IFR, compliance with the VFR cruising level table outside controlled airspace is good practice but is not itself mandatory — always follow any ATC instruction or established traffic pattern first.",
         ],
       },
     ],
-    reference: "SERA.5015 – Table of cruising levels",
+    reference: "SERA.5015 / SERA.5025 – Table of cruising levels",
+  },
+  {
+    slug: "airspace-special-areas",
+    title: "Aerodrome traffic zones & prohibited/restricted/danger areas",
+    groups: [
+      {
+        heading: "Aerodrome Traffic Zone (ATZ)",
+        bullets: [
+          "Protects traffic near an aerodrome; vertical extent from the surface up to 2000 ft.",
+          "Radius centred on the mid-point of the longest runway: 2 nm if that runway is up to 1850 m long, 2.5 nm if longer (check the AIP for the exact local dimensions).",
+          "Active only during notified hours of watch, and has the same airspace status as the surrounding airspace outside those hours.",
+          "You may not enter an ATZ without permission from the relevant ATS unit — even outside notified hours, there may still be traffic.",
+        ],
+      },
+      {
+        heading: "Prohibited, restricted & danger areas",
+        bullets: [
+          "Prohibited area: flight is prohibited within specified limits.",
+          "Restricted area: flight is restricted, subject to specified conditions.",
+          "Danger area: hazardous activity may be occurring — flight through is not itself prohibited, but is inadvisable without checking activity status first.",
+        ],
+      },
+    ],
+    reference: "ICAO Annex 11 / national AIP – Airspace and special-use areas",
+  },
+  {
+    slug: "notam-basics",
+    title: "NOTAM basics",
+    groups: [
+      {
+        bullets: [
+          "A NOTAM (Notice to Airmen) is a warning about anything temporary, or issued too late to be charted, that could affect a flight — e.g. navaid outages, runway/lighting closures, temporary danger areas.",
+          "NOTAMs don't amend the AIP, but they can override or supplement what it says (e.g. a temporary change to a permanent danger area's hours).",
+          "Category letter: N = new NOTAM, R = replacing an earlier one, C = cancelling one.",
+          "Standard fields: A) location/FIR, B) start date/time (UTC), C) end date/time (UTC, \"EST\" = estimated, remains active until cancelled/replaced), E) the free-text NOTAM content in ICAO abbreviations.",
+          "Always check current NOTAMs as part of flight preparation, in addition to charts and the AIP.",
+        ],
+      },
+    ],
+    reference: "ICAO Annex 15 – Aeronautical Information Services",
   },
   {
     slug: "minimum-heights",
@@ -172,8 +213,40 @@ export const IFR_TOPICS: RuleTopic[] = [
           "Above the applicable transition altitude, levels are flown and reported as flight levels; at or below it, as altitudes on QNH.",
         ],
       },
+      {
+        heading: "En-route minimum altitude (no published MEA/MOCA)",
+        bullets: [
+          "Over high terrain or in mountainous areas: at least 2000 ft above the highest obstacle within 8 km of the aircraft's estimated position.",
+          "Elsewhere: at least 1000 ft above the highest obstacle within 8 km of the estimated position.",
+          "Both figures assume normal navigational accuracy for the conditions — add margin if position uncertainty is greater than usual.",
+        ],
+      },
     ],
-    reference: "SERA.5015 – Table of cruising levels",
+    reference: "SERA.5015 / ICAO Annex 2 – Cruising levels and minimum altitude",
+  },
+  {
+    slug: "ifr-vfr-change",
+    title: "Changing between IFR and VFR",
+    groups: [
+      {
+        heading: "Cancelling IFR (going to VFR)",
+        bullets: [
+          "Only valid when the PIC transmits the specific phrase \"Cancelling my IFR flight\", together with any necessary changes to the current flight plan, to an ATS unit.",
+          "ATC does not invite this change, directly or by implication — it is the pilot's decision alone.",
+          "ATC's only expected reply is an acknowledgement such as \"IFR flight cancelled at (time)\".",
+          "The ATS unit that receives the cancellation informs all other units the IFR flight plan was addressed to, except any it has already flown past.",
+        ],
+      },
+      {
+        heading: "Changing from VFR to IFR",
+        bullets: [
+          "If a flight plan was already filed, submit the necessary changes to it before or as you make the change.",
+          "Within controlled airspace: fly the IFR semicircular cruising levels (SERA.5020).",
+          "Outside controlled airspace, above 3000 ft AMSL or the transition altitude (whichever is higher): also fly a semicircular level appropriate to track, using 1013.25 hPa unless the competent authority requires otherwise (SERA.5025).",
+        ],
+      },
+    ],
+    reference: "ICAO Doc 4444 (PANS-ATM) 4.8 / SERA.5020–5025",
   },
   {
     slug: "transition-altitude-level",
@@ -247,10 +320,48 @@ export const IFR_TOPICS: RuleTopic[] = [
           "Outbound leg timing: 1 minute at or below 14 000 ft; 1.5 minutes above 14 000 ft.",
           "Entry technique (direct, teardrop, or parallel/offset) depends on the aircraft's inbound heading relative to the holding course.",
           "Maintain the last assigned altitude/level and the speed limit for the aircraft category unless otherwise cleared by ATC.",
+          "A holding clearance normally specifies: the fix, direction to hold from it, inbound track, DME distances (if holding on DME), the altitude/level to maintain, and an Expect Further Clearance (EFC) or Expect Approach Clearance (EAC) time.",
+          "\"Shuttling\" — climbing or descending in a hold-like pattern — is used in mountainous terrain, when a descent of more than 2000 ft is needed on an initial/intermediate segment, or when required descent rates exceed normal racetrack/reversal design limits.",
+          "If no further clearance arrives, hold on the inbound track at your last cleared point until the EFC/EAC time, using right-hand turns unless published otherwise; if you can't reach ATC, apply the communication-failure procedure.",
         ],
       },
     ],
     reference: "ICAO Doc 8168 (PANS-OPS) – Holding procedures",
+  },
+  {
+    slug: "circling-approach",
+    title: "Circling approach (visual manoeuvring)",
+    groups: [
+      {
+        bullets: [
+          "An extension to an instrument approach: visually manoeuvring to land on a runway other than the one the approach was flown to, or the same runway when a straight-in isn't possible (offset more than 30°).",
+          "The circling area is built from arcs drawn off each runway threshold joined by tangents, sized for aircraft category, speed, a 25 kt wind assumption, and an average 20° (or Rate 1, whichever is less) bank angle.",
+          "If you need more than 30° of bank to stay within the circling area, go around and set up again rather than tightening the turn.",
+          "Circling minima are expressed as visibility, not RVR, and are limiting for approach-ban purposes whenever circling is required.",
+          "Fly slightly above the MDA (about 50 ft) while circling, but remember you are still below a normal visual circuit height — and configure for the missed approach before reaching MDA, since the whole point of circling is that the weather is marginal.",
+          "If not published, a circling height can be approximated as 300 ft above the highest obstacle within 5 NM of the aerodrome (provided that is at least 500 ft AGL); a rough circling visibility in metres is your circuit speed in knots × 20.",
+          "Losing visual reference at any point means an immediate missed approach: initial turn toward the landing runway, then establish on the published missed approach track.",
+        ],
+      },
+    ],
+    reference: "ICAO Doc 8168 (PANS-OPS) Vol I, Part I, Section 4, Ch. 7 – Circling approach",
+  },
+  {
+    slug: "rnav-rnp-approaches",
+    title: "RNAV/RNP approaches (LNAV, LNAV/VNAV, LP, LPV)",
+    groups: [
+      {
+        bullets: [
+          "RNP APCH LNAV: lateral guidance only, from GPS — a 2D non-precision approach flown to an MDA/MDH.",
+          "RNP APCH LNAV/VNAV (\"APV Baro\"): adds vertical guidance from certified barometric VNAV (or SBAS) to the GPS lateral guidance — a 3D approach flown to a DA/DH; the BaroVNAV portion is only usable within a promulgated aerodrome temperature range.",
+          "RNP APCH LP: lateral guidance only, using GPS plus SBAS (e.g. EGNOS) instead of basic GPS — still a 2D, MDA/MDH approach, but more precise laterally than LNAV.",
+          "RNP APCH LPV (\"APV SBAS\"): GPS plus SBAS for both lateral and vertical guidance — a 3D approach flown to a DA/DH, needing a FAS (Final Approach Segment) data block; not usable with basic GNSS receivers that lack SBAS.",
+          "The approach must be retrievable by its charted procedure name from the aircraft's navigation database and flown exactly as published — if a waypoint is missing, revert to conventional navaids if available.",
+          "Correct altimeter setting is critical for any BaroVNAV, LNAV, or other approach relying on barometric vertical information.",
+        ],
+      },
+    ],
+    reference: "ICAO Doc 9613 (PBN Manual) / EASA AMC – RNP APCH approach types",
   },
   {
     slug: "approach-ban-rvr",
@@ -341,12 +452,21 @@ export const IFR_TOPICS: RuleTopic[] = [
         bullets: [
           "Attempt contact on other frequencies, via other aircraft, or by other means; select 7600 on the transponder.",
           "If in VMC: continue in VMC, land at the nearest suitable aerodrome, and report arrival by the most expeditious means.",
-          "If in IMC: continue per the flight plan — the route and level last assigned, or if none, as filed — then commence descent/approach at the expected approach time if one was given, otherwise at the ETA from the flight plan.",
+          "If in IMC: continue per the flight plan — the route and level last assigned, or if none, as filed — then commence descent/approach at the Expected Approach Time (EAT) if one was given, otherwise at the ETA from the flight plan.",
+          "You must land within 30 minutes of that ETA, or the last EAT received, whichever is later.",
           "Squawk 7600 as soon as a communications failure is recognized, so ATC can apply their own lost-comm procedures.",
         ],
       },
+      {
+        heading: "Expected Approach Time (EAT)",
+        bullets: [
+          "The time ATC estimates an aircraft delayed by 10 minutes or more can leave the holding fix to begin its approach — not a clearance, but what ATC expects to be able to grant.",
+          "Issued when a delay of 10 minutes or more is expected, or an anticipated hold of 30 minutes or more.",
+          "A revision of 5 minutes or more from a previously given EAT should be passed to the aircraft as soon as possible.",
+        ],
+      },
     ],
-    reference: "SERA.8020 / ICAO Annex 2 Appendix 2 – Communication failure",
+    reference: "SERA.8020 / ICAO Annex 2 Appendix 2, Doc 4444 §6.5.7 – Communication failure & EAT",
   },
 ];
 

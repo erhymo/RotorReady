@@ -1,1 +1,1 @@
-Improved training app reliability, feedback handling, and recent app usage visibility for administrators.
+Added a Sikorsky S-92 Quick Reference page and expanded S-92 quiz coverage. Quiz answer positions now shuffle every time, including when practicing previously missed questions, so you can't just memorize where the right answer sits. Cleaned up AW139 and AW189 emergency procedure cards for a clearer read, and added missing answer explanations to AW169 Avionics & FMS Limitations questions.

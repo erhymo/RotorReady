@@ -162,6 +162,15 @@ function Bar(props: { href: string; title: string; description: string; tone?: "
 		            icon={<BookIcon className="h-4 w-4" />}
 		          />
 		        )}
+		        {activeVariant?.id === "S92" && (
+		          <Bar
+		            href="/s92/quick-reference"
+		            title="Quick Reference"
+		            description="Key S-92 RFM limitations and numbers."
+		            tone="slate"
+		            icon={<BookIcon className="h-4 w-4" />}
+		          />
+		        )}
 		      </section>
 
 		      {showPlanningTools && (

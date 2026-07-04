@@ -379,6 +379,2879 @@
       "sectionId": "systems_description",
       "type": "single",
       "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-021",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "In the standard transport configuration, what is the maximum number of passenger seats allowed, and how many for Category B operations?",
+      "options": [
+        "19 passenger seats for transport configuration; 9 for Category B operations",
+        "24 passenger seats for transport configuration; 12 for Category B operations",
+        "19 passenger seats for both configurations",
+        "9 passenger seats for transport configuration; 19 for Category B operations"
+      ],
+      "answer": [0],
+      "explanation": "A maximum of 19 passenger seats is allowed in the transport configuration; Category B configuration is limited to a maximum of 9 passenger seats.",
+      "references": ["S-92 RFM Part 2 Sec I: AIRFRAME (p.I-1-2, I-1-4)"],
+      "tags": ["airframe", "seating"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-022",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "How much does an empty standard passenger seat weigh, compared to an empty observer or attendant seat?",
+      "options": [
+        "24 lb for a passenger seat; 32 lb for an observer/attendant seat",
+        "32 lb for a passenger seat; 24 lb for an observer/attendant seat",
+        "20 lb for a passenger seat; 20 lb for an observer/attendant seat",
+        "24 lb for a passenger seat; 24 lb for an observer/attendant seat"
+      ],
+      "answer": [0],
+      "explanation": "Each empty passenger seat weighs 24 lb; the empty observer and attendant seats each weigh 32 lb.",
+      "references": ["S-92 RFM Part 2 Sec I: AIRFRAME (p.I-1-2)"],
+      "tags": ["airframe", "weight-and-balance"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-023",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "What indication comes on if an air stair door section is unlocked while on the ground, versus in flight?",
+      "options": [
+        "DOOR OPEN advisory on the ground; DOOR OPEN caution in flight",
+        "DOOR OPEN caution on the ground; DOOR OPEN advisory in flight",
+        "No indication on the ground; DOOR OPEN caution in flight",
+        "MASTER WARNING on the ground; DOOR OPEN advisory in flight"
+      ],
+      "answer": [0],
+      "explanation": "If either air stair door section is unlocked while on the ground, the DOOR OPEN advisory illuminates. If either section is unlocked in flight, the DOOR OPEN caution illuminates instead.",
+      "references": ["S-92 RFM Part 2 Sec I: AIRFRAME (p.I-1-7)"],
+      "tags": ["airframe", "doors"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-024",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "What is the maximum load the cargo ramp can support?",
+      "options": ["1000 lb", "500 lb", "1500 lb", "2000 lb"],
+      "answer": [0],
+      "explanation": "The cargo ramp is a hydraulically operated, electrically controlled platform that can support up to 1000 lb, and includes a roller assembly for loading or unloading palletized equipment.",
+      "references": ["S-92 RFM Part 2 Sec I: AIRFRAME (p.I-1-9)"],
+      "tags": ["airframe", "cargo"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-025",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "What powers normal landing gear extension and retraction, and what is used for emergency extension?",
+      "options": [
+        "Normal: utility hydraulic system; emergency: a self-contained nitrogen blowdown system per actuator",
+        "Normal: electric motors; emergency: a hand-crank system",
+        "Normal: the No. 1 hydraulic system; emergency: the APU hydraulic pump",
+        "Normal and emergency both use the utility hydraulic system"
+      ],
+      "answer": [0],
+      "explanation": "Normal landing gear extension/retraction uses hydraulic pressure from the utility hydraulic system (specifically the No. 3 hydraulic system supplying the actuators). Each actuator also has a self-contained nitrogen blowdown system for emergency extension, released via the EMER DN switch.",
+      "references": ["S-92 RFM Part 2 Sec I: AIRFRAME (p.I-1-15, I-1-16)"],
+      "tags": ["airframe", "landing-gear"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-026",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "What does the HARD LANDING caution indicate, and what triggers it?",
+      "options": [
+        "A shear fuse switch on a shock strut has activated, indicating the shear ring has yielded",
+        "The weight-on-wheels switch has failed",
+        "The landing gear failed to lock down",
+        "Tire pressure has dropped below limits"
+      ],
+      "answer": [0],
+      "explanation": "A shear fuse switch on each shock strut activates the HARD LANDING caution, indicating that the shear ring — a frangible element designed to absorb energy from a hard landing — has yielded.",
+      "references": ["S-92 RFM Part 2 Sec I: AIRFRAME (p.I-1-15)"],
+      "tags": ["airframe", "landing-gear"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-027",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "Is the S-92 nose landing gear steerable?",
+      "options": [
+        "No — it casters 360° and is non-steerable",
+        "Yes, via a nosewheel steering tiller",
+        "Yes, but only below 10 knots ground speed",
+        "It is steerable only when the parking brake is off"
+      ],
+      "answer": [0],
+      "explanation": "The nose landing gear wheel and tire assembly can caster a full 360° and is non-steerable.",
+      "references": ["S-92 RFM Part 2 Sec I: AIRFRAME (p.I-1-15)"],
+      "tags": ["airframe", "landing-gear"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-028",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "Under what conditions does the LDG GEAR UP warning (and the EGPWS \"Too Low Gear\" aural warning) activate?",
+      "options": [
+        "Airspeed below 60 KIAS and radar altitude below 150 ft AGL (100 ft AGL in EGPWS low altitude mode), with the gear not down",
+        "Airspeed below 100 KIAS at any altitude",
+        "Radar altitude below 500 ft AGL regardless of airspeed",
+        "Only when the collective is below a set position"
+      ],
+      "answer": [0],
+      "explanation": "Both the LDG GEAR UP master warning and the EGPWS \"Too Low Gear\" aural warning trigger when the landing gear is not down, airspeed is below 60 KIAS, and radar altitude is below 150 ft AGL (100 ft AGL if EGPWS is in low altitude mode).",
+      "references": ["S-92 RFM Part 2 Sec I: AIRFRAME (p.I-1-18)"],
+      "tags": ["airframe", "landing-gear", "warnings"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-029",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "On the ground, what does the weight-on-wheels (WOW) switch do to the TCAS?",
+      "options": [
+        "Disables TCAS on the ground; enables it in flight",
+        "Enables TCAS on the ground; disables it in flight",
+        "No effect — TCAS is always enabled",
+        "Switches TCAS to standby only above 10,000 ft"
+      ],
+      "answer": [0],
+      "explanation": "The weight-on-wheels switch disables TCAS while the aircraft is on the ground, and enables it once airborne.",
+      "references": ["S-92 RFM Part 2 Sec I: AIRFRAME (p.I-1-17)"],
+      "tags": ["airframe", "landing-gear", "avionics"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-030",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "On the ground, the weight-on-wheels switch disables ATT (attitude) hold on the AFCS — but what does the display still show?",
+      "options": [
+        "The ATT hold indicator still shows ON, even though the function is disabled",
+        "The display blanks completely",
+        "It shows a red X over the attitude indicator",
+        "It automatically switches to heading hold display"
+      ],
+      "answer": [0],
+      "explanation": "On the ground, the WOW switch disables ATT hold on the AFCS, but the ATT hold indicator on the display still shows ON — a detail worth knowing so it isn't mistaken for a fault.",
+      "references": ["S-92 RFM Part 2 Sec I: AIRFRAME (p.I-1-16)"],
+      "tags": ["airframe", "afcs", "landing-gear"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-031",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "What is the maximum weight the engine cowling platform is designed to hold for maintenance access?",
+      "options": ["400 lb", "150 lb", "800 lb", "250 lb"],
+      "answer": [0],
+      "explanation": "Each engine cowling serves as a platform for preflight inspection and engine maintenance, and holds a maximum of 400 lb.",
+      "references": ["S-92 RFM Part 2 Sec I: AIRFRAME (p.I-1-19)"],
+      "tags": ["airframe", "maintenance"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-032",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "What does the sliding fairing on top of the fuselage provide access to?",
+      "options": [
+        "The forward main rotor pylon area, including trim actuators via a secondary access door",
+        "The tail rotor gearbox only",
+        "The APU compartment only",
+        "The nose landing gear bay"
+      ],
+      "answer": [0],
+      "explanation": "A sliding fairing allows access to the forward main rotor pylon area. When slid open, a sliding fairing access door additionally allows access to the trim actuators.",
+      "references": ["S-92 RFM Part 2 Sec I: AIRFRAME (p.I-1-19)"],
+      "tags": ["airframe", "maintenance"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-033",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "How many cabin emergency exits does the S-92 have, in addition to both pilots' windows and the air stair door's upper section?",
+      "options": ["Three", "Two", "Four", "One"],
+      "answer": [0],
+      "explanation": "The S-92 has three cabin emergency exits, in addition to both pilots' windows and the upper section of the air stair door, which also serves as a cabin emergency exit.",
+      "references": ["S-92 RFM Part 2 Sec I: AIRFRAME (p.I-1-10)"],
+      "tags": ["airframe", "emergency-exits"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-034",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "How are the pilots' windows jettisoned in an emergency?",
+      "options": [
+        "By rotating the interior release handle aft, or pressing the red button and rotating the exterior release handle counterclockwise",
+        "By pulling a single red T-handle beside the seat",
+        "They cannot be jettisoned; only the cabin exits can",
+        "By breaking the glass with an emergency hammer"
+      ],
+      "answer": [0],
+      "explanation": "The pilots' windows can be jettisoned by rotating the interior emergency release handle aft, or from outside by pressing the red button and rotating the exterior release handle counterclockwise. The window is removed lower end first.",
+      "references": ["S-92 RFM Part 2 Sec I: AIRFRAME (p.I-1-10)"],
+      "tags": ["airframe", "emergency-exits"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-035",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "How can the S-92 be fueled, and when is the fuel system interconnecting line used?",
+      "options": [
+        "By pressure or gravity fueling; the interconnecting line is used only during closed-circuit pressure fueling",
+        "By gravity fueling only; the interconnecting line is used at all times",
+        "By pressure fueling only; there is no interconnecting line",
+        "By pressure or gravity fueling; the interconnecting line is used only during gravity fueling"
+      ],
+      "answer": [0],
+      "explanation": "The helicopter can be pressure or gravity fueled. During gravity fueling, the tanks are serviced independently — the fuel system interconnecting line is used only during closed-circuit pressure fueling.",
+      "references": ["S-92 RFM Part 2 Sec I: AIRFRAME (p.I-1-20)"],
+      "tags": ["airframe", "fuel"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-036",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "What material is used for the upper cowling area and horizontal stabilizer of the S-92 airframe?",
+      "options": [
+        "Graphite and graphite honeycomb",
+        "Sheet aluminum with stringers and longerons",
+        "Acrylic plastic",
+        "Titanium alloy"
+      ],
+      "answer": [0],
+      "explanation": "The entire upper cowling area and horizontal stabilizer are constructed of graphite and graphite honeycomb, while the cabin/fuselage uses sheet aluminum with stringers and longerons for strength.",
+      "references": ["S-92 RFM Part 2 Sec I: AIRFRAME (p.I-1-4A)"],
+      "tags": ["airframe", "structure"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-037",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "What indication illuminates if the cargo ramp or cargo upper door is unlocked during ground operations, versus in flight?",
+      "options": [
+        "RAMP OPEN advisory on the ground; RAMP OPEN caution in flight",
+        "RAMP OPEN caution on the ground; RAMP OPEN advisory in flight",
+        "No indication on the ground; MASTER WARNING in flight",
+        "DOOR OPEN advisory in both cases"
+      ],
+      "answer": [0],
+      "explanation": "If the cargo ramp or upper door is unlocked during ground operations, a RAMP OPEN advisory illuminates. If unlocked in flight, a RAMP OPEN caution illuminates instead.",
+      "references": ["S-92 RFM Part 2 Sec I: AIRFRAME (p.I-1-9)"],
+      "tags": ["airframe", "cargo", "doors"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-038",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "Can the sliding upper door be combined with the standard lower air stair door for SAR operations?",
+      "options": [
+        "The sliding upper door may be used with the standard air stair (lower) door, but SAR operations with that combination are not permissible",
+        "Yes, this is the standard configuration for all SAR operations",
+        "No, the two door types can never be combined on the same aircraft",
+        "Only during daytime operations"
+      ],
+      "answer": [0],
+      "explanation": "The sliding upper door may be used together with the standard lower air stair door; however, SAR operations using that particular combination (lower air stair door with upper sliding door) are not permissible.",
+      "references": ["S-92 RFM Part 2 Sec I: AIRFRAME (p.I-1-9)"],
+      "tags": ["airframe", "doors", "sar"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-039",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "How long can the Helicopter Emergency Egress Lighting System (HEELS) operate underwater?",
+      "options": ["At least 10 minutes", "At least 2 minutes", "At least 30 minutes", "It is not rated for underwater use"],
+      "answer": [0],
+      "explanation": "HEELS lights, which outline the cabin/cockpit emergency exits and push-out windows, are capable of operating underwater for at least 10 minutes and have a self-contained power supply.",
+      "references": ["S-92 RFM Part 2 Sec I: LIGHTING SYSTEMS (p.I-3-5)"],
+      "tags": ["lighting", "emergency", "ditching"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-040",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "How many external emergency lights are installed, and where?",
+      "options": [
+        "Six: four near the main cabin emergency exits and two at the cargo ramp",
+        "Four: one at each cabin emergency exit only",
+        "Two: one at each side of the fuselage",
+        "Eight: two at each cabin exit"
+      ],
+      "answer": [0],
+      "explanation": "Six external emergency lights illuminate exit areas when helicopter electrical power is lost — four near the four main cabin emergency exits, and two at the cargo ramp.",
+      "references": ["S-92 RFM Part 2 Sec I: LIGHTING SYSTEMS (p.I-3-5)"],
+      "tags": ["lighting", "emergency"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-041",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "How many anti-collision lights does the S-92 have, and where are they located?",
+      "options": [
+        "Two: one on top of the tail pylon and one on the bottom of the fuselage",
+        "One, on top of the tail pylon only",
+        "Four: one on each sponson and two on the tail pylon",
+        "Two: one on each wingtip sponson"
+      ],
+      "answer": [0],
+      "explanation": "There are two anti-collision lights — one on top of the tail pylon, the other on the bottom of the fuselage. Both are red and can be either a rotating beacon or a strobe.",
+      "references": ["S-92 RFM Part 2 Sec I: LIGHTING SYSTEMS (p.I-3-6)"],
+      "tags": ["lighting", "exterior"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-042",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "What are the colors and locations of the S-92's position lights?",
+      "options": [
+        "Red on the left sponson, green on the right sponson, white on top of the tail pylon",
+        "Green on the left sponson, red on the right sponson, white on the nose",
+        "Red and green both on the nose, white on the tail",
+        "All white, one on each sponson and one on the tail pylon"
+      ],
+      "answer": [0],
+      "explanation": "Position lights are mounted outboard on the left (red) and right (green) sponson, and on top (white) of the tail pylon.",
+      "references": ["S-92 RFM Part 2 Sec I: LIGHTING SYSTEMS (p.I-3-6)"],
+      "tags": ["lighting", "exterior"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-043",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "How many landing lights are fitted under the nose, and what is each rated at?",
+      "options": ["Two, each 450 watts", "One, 900 watts", "Two, each 250 watts", "Four, each 200 watts"],
+      "answer": [0],
+      "explanation": "Two 450-watt landing lights are located under the nose of the helicopter.",
+      "references": ["S-92 RFM Part 2 Sec I: LIGHTING SYSTEMS (p.I-3-6)"],
+      "tags": ["lighting", "exterior"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-044",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "Through what arc can the controllable searchlight pivot, and how is it controlled?",
+      "options": [
+        "0° (stowed) to 120° full forward, with 360° rotation, controlled from the collective stick grips",
+        "0° to 90°, controlled from the cyclic stick grip",
+        "A fixed position with no articulation, controlled from the console",
+        "0° to 180°, controlled by a floor pedal"
+      ],
+      "answer": [0],
+      "explanation": "The 450-watt controllable searchlight, mounted under the right nose, is controlled from either collective stick grip: the SRCHLT SLEW switch allows 360° rotation and varies the pivot angle from 0° (stowed) to 120° (full forward).",
+      "references": ["S-92 RFM Part 2 Sec I: LIGHTING SYSTEMS (p.I-3-6, I-3-7)"],
+      "tags": ["lighting", "exterior"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-045",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "How many cabin emergency lights are there, and what powers the forward and aft lights?",
+      "options": [
+        "Three lights, with the forward and aft lights each using separate emergency power supplies",
+        "Three lights, all sharing a single common emergency power supply",
+        "Six lights, powered only by the main aircraft battery",
+        "One light per exit, powered by the DC Essential bus"
+      ],
+      "answer": [0],
+      "explanation": "The three cabin emergency lights, located adjacent to the cabin dome lights, are controlled by the EMERG LTS CABIN switch. The forward and aft lights each use separate emergency power supplies.",
+      "references": ["S-92 RFM Part 2 Sec I: LIGHTING SYSTEMS (p.I-3-4)"],
+      "tags": ["lighting", "emergency"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-046",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "What is the normal in-flight position for the cockpit emergency lighting switches, and why?",
+      "options": [
+        "ARM — so the emergency power supplies automatically turn the lights on if aircraft power is lost",
+        "ON — so the lights are always illuminated during flight",
+        "OFF — to conserve the emergency battery",
+        "It doesn't matter, as the cabin panel always takes priority"
+      ],
+      "answer": [0],
+      "explanation": "Normally the cockpit emergency lighting control switches are set to ARM (with the cabin EMERGENCY LIGHTS panel switches OFF), so the emergency power supplies automatically activate the lights if helicopter power is lost.",
+      "references": ["S-92 RFM Part 2 Sec I: LIGHTING SYSTEMS (p.I-3-4)"],
+      "tags": ["lighting", "emergency"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-047",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "What does the rotor head inspection light illuminate, and for whom?",
+      "options": [
+        "The main rotor droop stops, for ground personnel",
+        "The tail rotor gearbox, for maintenance crew in flight",
+        "The main rotor blades in flight, for the pilot",
+        "The engine intakes, for ground personnel"
+      ],
+      "answer": [0],
+      "explanation": "The rotor head inspection light illuminates the main rotor droop stops for ground personnel; it's mounted on the main rotor fairing, forward and to the right of the transmission.",
+      "references": ["S-92 RFM Part 2 Sec I: LIGHTING SYSTEMS (p.I-3-7)"],
+      "tags": ["lighting", "maintenance"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-048",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "Where does the cargo load light illuminate?",
+      "options": [
+        "The area beneath the tail cone and immediately aft of the cargo ramp",
+        "The cabin interior directly above the cargo hook",
+        "The area forward of the nose gear",
+        "The main rotor pylon area"
+      ],
+      "answer": [0],
+      "explanation": "The cargo load light illuminates the area beneath the tail cone and immediately aft of the cargo ramp, controlled by the CARGO LOAD switch (with a CREW position that transfers control to the ramp control panel).",
+      "references": ["S-92 RFM Part 2 Sec I: LIGHTING SYSTEMS (p.I-3-6)"],
+      "tags": ["lighting", "cargo"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-049",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "What does moving the P/B LAMP TEST switch to TEST verify in the cockpit?",
+      "options": [
+        "That AFCS pushbuttons, fire extinguisher test indicators, landing gear position indicators, master warning indicators, and engine/APU ARM pushbuttons illuminate (plus optional equipment if installed)",
+        "Only the master warning panel bulbs",
+        "Only the landing gear position lights",
+        "The entire electrical system's circuit breakers"
+      ],
+      "answer": [0],
+      "explanation": "The P/B LAMP TEST switch tests all cockpit pushbutton and indicator lights: AFCS pushbuttons, fire extinguisher test indicators, landing gear position indicators, master warning indicators, engine and APU ARM pushbuttons, standby instrument EMER PWR and BATTERY TEST pushbuttons, plus optional equipment (weather radar, life raft, flotation, ELT, hoist) if installed.",
+      "references": ["S-92 RFM Part 2 Sec I: LIGHTING SYSTEMS (p.I-3-2)"],
+      "tags": ["lighting", "cockpit"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-050",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "Turning on the FASTEN SEATBELTS or NO SMOKING cabin lights also does what else?",
+      "options": [
+        "Activates the cabin alerting system's voice recording for that announcement",
+        "Automatically dims all cabin overhead lights",
+        "Triggers a chime in the cockpit only",
+        "Locks the cargo ramp closed"
+      ],
+      "answer": [0],
+      "explanation": "Turning on the FASTEN SEATBELTS and/or NO SMOKING lights also activates the appropriate cabin alerting system voice recording, in addition to illuminating the passenger advisory light.",
+      "references": ["S-92 RFM Part 2 Sec I: LIGHTING SYSTEMS (p.I-3-3)"],
+      "tags": ["lighting", "cabin"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-051",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "What are the main components of the Avionics Management System (AMS)?",
+      "options": [
+        "Four MFDs (optional fifth), two Display Control Panels, two Data Concentrator Units, and one Maintenance Data Computer",
+        "Two MFDs, one DCP, one DCU",
+        "Six MFDs and a single central processor",
+        "One MFD per pilot and a shared FMS only"
+      ],
+      "answer": [0],
+      "explanation": "The AMS consists of four Multi-Function Displays (an optional fifth is available), two Display Control Panels (DCPs), two Data Concentrator Units (DCUs), and a Maintenance Data Computer (MDC).",
+      "references": ["S-92 RFM Part 2 Sec I: AVIONICS MANAGEMENT SYSTEM (p.I-4-1)"],
+      "tags": ["avionics"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-052",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "On power-up, what display mode does each MFD default to?",
+      "options": [
+        "Outboard MFDs default to PFD, inboard MFDs default to EICAS, the center MFD defaults to NAV",
+        "All MFDs default to PFD",
+        "Outboard MFDs default to NAV, inboard MFDs default to PFD",
+        "All MFDs default to EICAS until manually changed"
+      ],
+      "answer": [0],
+      "explanation": "When power is first applied (or after being off for one second or more), the outboard MFDs default to PFD, the inboard MFDs default to EICAS, and the center MFD defaults to NAV display.",
+      "references": ["S-92 RFM Part 2 Sec I: AVIONICS MANAGEMENT SYSTEM (p.I-4-1)"],
+      "tags": ["avionics", "mfd"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-053",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "If one MFD fails, what happens to the other MFD on that same side of the instrument panel?",
+      "options": [
+        "It automatically reverts to full-format PFD; the mode can be manually changed 2 seconds after the reversion",
+        "It also fails, requiring both to be reset",
+        "Nothing changes automatically; the pilot must manually select PFD",
+        "It switches to EICAS automatically and cannot be changed"
+      ],
+      "answer": [0],
+      "explanation": "If a display fails, automatic reversion forces the other MFD on that side of the instrument panel to full-format PFD. The display and format can then be manually changed two seconds after the automatic reversion takes place.",
+      "references": ["S-92 RFM Part 2 Sec I: AVIONICS MANAGEMENT SYSTEM (p.I-4-1)"],
+      "tags": ["avionics", "mfd"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-054",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "What are the three MFD built-in-test (BIT) types, and when does each run?",
+      "options": [
+        "PBIT (power-up, runs at turn-on), CBIT (continuous, runs while operating), IBIT (initiated, runs when the operator triggers it)",
+        "PBIT, CBIT and IBIT all run continuously and cannot be triggered manually",
+        "There is only one BIT type, which runs once per flight",
+        "PBIT (pilot-initiated), CBIT (crew-initiated), IBIT (inspector-initiated)"
+      ],
+      "answer": [0],
+      "explanation": "The Power-up built-in-test (PBIT) runs each time an MFD is turned on; the Continuous built-in-test (CBIT) runs continuously while the MFD is operating; the Initiated built-in-test (IBIT) runs when initiated by the operator.",
+      "references": ["S-92 RFM Part 2 Sec I: AVIONICS MANAGEMENT SYSTEM (p.I-4-1)"],
+      "tags": ["avionics", "mfd"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-055",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "What is the difference between an \"MFD Fail\" and an \"MFD Degraded\" condition?",
+      "options": [
+        "MFD Fail means data may be incorrect or misleading and is removed; MFD Degraded means normal operation continues with all valid data retained",
+        "They mean the same thing, just different labels",
+        "MFD Fail is a cosmetic issue only; MFD Degraded means the display is completely blank",
+        "MFD Degraded is more severe than MFD Fail"
+      ],
+      "answer": [0],
+      "explanation": "MFD Fail means the fault could allow incorrect or misleading data, so that data is removed from display and other MFDs are notified. MFD Degraded means normal operation is not prevented — the display retains all valid data and simply flags data affected by the fault.",
+      "references": ["S-92 RFM Part 2 Sec I: AVIONICS MANAGEMENT SYSTEM (p.I-4-1, I-4-2)"],
+      "tags": ["avionics", "mfd"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-056",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "In the Display Control Panel's master/slave arrangement, which display is always the \"master\"?",
+      "options": [
+        "The outboard display — it computes new values for DCP inputs and sends them to the inboard display",
+        "The inboard display",
+        "Whichever display the pilot last touched",
+        "The center MFD"
+      ],
+      "answer": [0],
+      "explanation": "The outboard display is always designated the master: it computes new values for each DCP input and sends them to the inboard display. If the inboard display stops receiving that data, it computes its own values from the DCP inputs directly.",
+      "references": ["S-92 RFM Part 2 Sec I: AVIONICS MANAGEMENT SYSTEM (p.I-4-2)"],
+      "tags": ["avionics", "dcp"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-057",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "How many Data Concentrator Units (DCUs) are required for all MFD displays to remain available?",
+      "options": [
+        "Only one — the DCUs operate independently",
+        "Both are required at all times",
+        "None — MFDs can operate with zero DCUs",
+        "Three of the four MFDs must have a working DCU"
+      ],
+      "answer": [0],
+      "explanation": "The pilot's and copilot's DCUs operate independently, and only one is required for all MFD displays to be available. If a DCU fails, the affected data is replaced by red dashes and a DCU1 or DCU2 annunciation appears on all EICAS pages.",
+      "references": ["S-92 RFM Part 2 Sec I: AVIONICS MANAGEMENT SYSTEM (p.I-4-3)"],
+      "tags": ["avionics", "dcu"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-058",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "How long does the AHRS ground alignment normally take, and when is a temperature stabilization phase added?",
+      "options": [
+        "30 seconds normally; an additional ~25 seconds if OAT is below +15°C or above +35°C",
+        "5 seconds normally, with no temperature-dependent extension",
+        "2 minutes normally, reduced in cold weather",
+        "It takes as long as the engine start sequence and cannot be timed separately"
+      ],
+      "answer": [0],
+      "explanation": "After applying power, the AHRS automatically performs a 30-second ground alignment during which the helicopter must not be moved. If OAT is below +15°C or above +35°C, a temperature stabilization phase is added that could last an additional 25 seconds.",
+      "references": ["S-92 RFM Part 2 Sec I: AVIONICS MANAGEMENT SYSTEM (p.I-4-4)"],
+      "tags": ["avionics", "ahrs"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-059",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "If the AHRS needs to perform an in-flight alignment after a power interruption, what must the pilot do?",
+      "options": [
+        "Fly straight and level for at least 120 seconds (possibly longer in turbulence)",
+        "Enter a standard rate turn for 60 seconds",
+        "Descend below 500 ft AGL until alignment completes",
+        "Nothing — in-flight alignment is not possible and a full landing is required"
+      ],
+      "answer": [0],
+      "explanation": "During an in-flight AHRS alignment, the aircraft must be flown straight and level for a period of at least 120 seconds; in turbulent air, alignment may take longer even while flying straight and level.",
+      "references": ["S-92 RFM Part 2 Sec I: AVIONICS MANAGEMENT SYSTEM (p.I-4-4, I-4-5)"],
+      "tags": ["avionics", "ahrs"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-060",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "On the DCP's REF SET control, which parameter is the one exception that each pilot must set independently rather than it adjusting both sides at once?",
+      "options": [
+        "BARO (barometric altimeter setting)",
+        "ALTP (altitude preselect)",
+        "MIN (minimum barometric altitude)",
+        "RA (radar altitude alert)"
+      ],
+      "answer": [0],
+      "explanation": "With the exception of BARO, each REF SET knob adjustment updates both sides of the cockpit. BARO is the one exception — each pilot must set his own altimeter independently.",
+      "references": ["S-92 RFM Part 2 Sec I: AVIONICS MANAGEMENT SYSTEM (p.I-4-5)"],
+      "tags": ["avionics", "dcp"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-061",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "What is the difference between a DCP \"degraded\" flag and a DCP \"failed\" flag?",
+      "options": [
+        "Degraded means the onside displays don't agree with each other; failed means the displays aren't receiving data from the DCP at all",
+        "They are the same condition, shown with different colors",
+        "Degraded is worse than failed",
+        "Failed only applies to the pilot's DCP, degraded only to the copilot's"
+      ],
+      "answer": [0],
+      "explanation": "A DCP is \"degraded\" when the information received from the onside displays does not agree; a DCP is \"failed\" when the displays do not receive any data from the DCP at all.",
+      "references": ["S-92 RFM Part 2 Sec I: AVIONICS MANAGEMENT SYSTEM (p.I-4-6)"],
+      "tags": ["avionics", "dcp"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-062",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "What do the hook buttons on the hand-grip slew controllers do?",
+      "options": [
+        "Transfer the current cursor position to the FMS, establishing a temporary waypoint",
+        "Lock the cursor in place on the MFD",
+        "Switch the display between PFD and NAV modes",
+        "Silence the current aural alert"
+      ],
+      "answer": [0],
+      "explanation": "The slew button moves the cursor on the MFD like a computer mouse; pressing any of the three hook buttons sends the current cursor location to the FMS, establishing a temporary waypoint.",
+      "references": ["S-92 RFM Part 2 Sec I: AVIONICS MANAGEMENT SYSTEM (p.I-4-6)"],
+      "tags": ["avionics", "fms"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-063",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "What four PFD display formats are available, selectable from any other PFD format?",
+      "options": [
+        "Full rose HSI, HSI arc, Composite, and Category A",
+        "PFD, NAV, EICAS, and HLTH only",
+        "Day, Night, Dusk, and NVG modes",
+        "Full, Half, Quarter, and Minimized"
+      ],
+      "answer": [0],
+      "explanation": "The four PFD formats are Full rose HSI (\"FULL\"), HSI arc (\"ARC\"), Composite (\"COMP\"), and Category A (\"CAT A\"), each selectable via a soft bezel key.",
+      "references": ["S-92 RFM Part 2 Sec I: AVIONICS MANAGEMENT SYSTEM (p.I-4-7)"],
+      "tags": ["avionics", "pfd"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-064",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "On the PFD attitude display, what do the black and magenta symbols represent?",
+      "options": [
+        "Black shows actual aircraft attitude; magenta shows the flight director's commanded/requested attitude",
+        "Black shows commanded attitude; magenta shows actual attitude",
+        "Black is for the pilot's side, magenta for the copilot's side",
+        "Both colors show actual attitude, just from different sensors"
+      ],
+      "answer": [0],
+      "explanation": "On both the Single Cue and Cross Pointer symbology, the black symbol represents actual aircraft attitude while the magenta symbol represents the flight director's requested/commanded attitude — the FD command is satisfied when the two are aligned.",
+      "references": ["S-92 RFM Part 2 Sec I: AVIONICS MANAGEMENT SYSTEM (p.I-4-8)"],
+      "tags": ["avionics", "pfd", "afcs"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-065",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "At what pitch and roll thresholds does the PFD shift to a de-cluttered \"unusual attitude\" display mode?",
+      "options": [
+        "Pitch greater than +30° or less than -20°, or roll angle greater than ±65°",
+        "Pitch greater than +10° or less than -10°, or roll greater than ±30°",
+        "Only on roll exceeding ±90°, regardless of pitch",
+        "Only during autorotation, regardless of attitude"
+      ],
+      "answer": [0],
+      "explanation": "When pitch exceeds +30° or is less than -20°, or roll angle exceeds ±65°, the PFD shifts to a de-cluttered display, removing items like flight director cues, airspeed/altitude reference bugs, and deviation scales. Full information returns once pitch is back within -15° to +25° and roll is back within ±60°.",
+      "references": ["S-92 RFM Part 2 Sec I: AVIONICS MANAGEMENT SYSTEM (p.I-4-11, I-4-12)"],
+      "tags": ["avionics", "pfd"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-066",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "What does the red hash mark at 120 KIAS on the airspeed indicator denote?",
+      "options": [
+        "The maximum speed for autorotation, single engine, and SAS-off operation",
+        "The never-exceed speed (Vne) for all configurations",
+        "The minimum speed for safe autorotation entry",
+        "The maximum speed for external load operations"
+      ],
+      "answer": [0],
+      "explanation": "A hash-marked red line at 120 KIAS on the airspeed indicator denotes the maximum speed for autorotation, single engine operation, and SAS-off operation.",
+      "references": ["S-92 RFM Part 2 Sec I: AVIONICS MANAGEMENT SYSTEM (p.I-4-13)"],
+      "tags": ["avionics", "airspeed"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-067",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "If ADC airspeed data becomes unavailable, how can indicated airspeed be restored to the display?",
+      "options": [
+        "By using the ADC switch on the reversionary panel",
+        "By recycling the MFD power",
+        "It cannot be restored until landing",
+        "By switching to the standby/backup airspeed indicator, which permanently replaces the primary display"
+      ],
+      "answer": [0],
+      "explanation": "If an ADC input becomes unavailable, the airspeed pointer and digital readout are replaced by an \"IAS\" flag. Airspeed indication can be restored by using the ADC switch on the reversionary panel to select the other (functioning) ADC.",
+      "references": ["S-92 RFM Part 2 Sec I: AVIONICS MANAGEMENT SYSTEM (p.I-4-13, I-4-14)"],
+      "tags": ["avionics", "adc", "airspeed"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-068",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "What two aircraft parameters does the ADC use to continuously compute Vne?",
+      "options": [
+        "Gross weight and density altitude",
+        "Outside air temperature and rotor speed only",
+        "Fuel quantity and torque",
+        "Pressure altitude and true airspeed"
+      ],
+      "answer": [0],
+      "explanation": "The ADC continuously computes the Vne value based on the aircraft's gross weight and density altitude; a red arc on the airspeed scale shows the Vne region, and the pointer/readout turn red if Vne is exceeded.",
+      "references": ["S-92 RFM Part 2 Sec I: AVIONICS MANAGEMENT SYSTEM (p.I-4-13)"],
+      "tags": ["avionics", "adc", "vne"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-069",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "What is the function of the BRG 1 and BRG 2 knobs on the Display Control Panel?",
+      "options": [
+        "They select the navigation source (ADF, VOR/NAV, or LNAV/FMS) for the #1 and #2 bearing needles on the PFD and NAV page",
+        "They set the barometric pressure reference for each pilot",
+        "They control MFD screen brightness",
+        "They toggle between metric and imperial units"
+      ],
+      "answer": [0],
+      "explanation": "The BRG 1 and BRG 2 knobs select the navigation source for the #1 and #2 bearing needles: ADF selects the Automatic Direction Finder, NAV selects the VOR receiver, and LNAV selects the onside FMS (if two FMS are installed).",
+      "references": ["S-92 RFM Part 2 Sec I: AVIONICS MANAGEMENT SYSTEM (p.I-4-5)"],
+      "tags": ["avionics", "dcp", "navigation"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-070",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "How is reversion accomplished when one of the redundant AHRS, DCU, or ADC systems fails or becomes unreliable?",
+      "options": [
+        "By moving the affected system's reversion switch out of NORM and selecting the functioning side, so it provides data to both sides of the cockpit",
+        "The system reverts automatically with no pilot action possible",
+        "By pulling the affected system's circuit breaker",
+        "By restarting the affected MFD"
+      ],
+      "answer": [0],
+      "explanation": "Reversion control is provided for the redundant AHRS, DCU and ADC systems. If one fails or becomes unreliable, the pilot moves that system's reversion switch out of NORM and selects the functioning side, so it supplies single-source data to both sides of the cockpit — annunciated on each PFD.",
+      "references": ["S-92 RFM Part 2 Sec I: AVIONICS MANAGEMENT SYSTEM (p.I-4-3)"],
+      "tags": ["avionics", "reversion"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-071",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "What does the RTU's IDENT key do?",
+      "options": [
+        "Causes an ATC identification pulse to be transmitted by the transponder, with a blue-green ID shown on the RTU display",
+        "Identifies which radio is currently active on the display",
+        "Runs a self-test of the RTU processor",
+        "Switches the RTU to cross-side tuning mode"
+      ],
+      "answer": [0],
+      "explanation": "The IDENT key causes an ATC identification pulse to be transmitted by the transponder; when pressed, a blue-green ID indication appears on the RTU display confirming the pulse was sent.",
+      "references": ["S-92 RFM Part 2 Sec I: COMMUNICATIONS (p.I-5-1, I-5-2)"],
+      "tags": ["communications", "rtu"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-072",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "What does the DME-H key on the RTU do?",
+      "options": [
+        "Toggles DME hold, decoupling the DME frequency from the VOR/ILS frequency so a new VOR/ILS frequency can be selected without detuning the DME",
+        "Holds the current COM frequency and prevents any changes",
+        "Switches the DME to a backup antenna",
+        "Mutes the DME audio identification tone permanently"
+      ],
+      "answer": [0],
+      "explanation": "The DME-H key toggles DME hold on or off. When hold is active, the DME frequency is decoupled from the VOR/ILS frequency, so a new VOR/ILS frequency can be tuned without affecting the held DME frequency (shown in green followed by a yellow H).",
+      "references": ["S-92 RFM Part 2 Sec I: COMMUNICATIONS (p.I-5-2)"],
+      "tags": ["communications", "rtu", "dme"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-073",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "On the RTU's color convention, what does magenta indicate?",
+      "options": [
+        "A control fault for that radio from that RTU — if both RTUs show magenta, the radio itself has failed",
+        "The radio is actively transmitting",
+        "The radio is tuned to an emergency frequency",
+        "The radio is in cross-side tuning mode"
+      ],
+      "answer": [0],
+      "explanation": "Magenta on one RTU indicates a control fault for that radio from that particular RTU. If both RTUs display magenta for the same radio, this indicates the radio itself has failed.",
+      "references": ["S-92 RFM Part 2 Sec I: COMMUNICATIONS (p.I-5-2)"],
+      "tags": ["communications", "rtu"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-074",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "If both RTUs try to command the same radio simultaneously, which one takes precedence?",
+      "options": ["The pilot's RTU", "The copilot's RTU", "Whichever RTU issued the command first", "Neither — the command is rejected and an error page is shown"],
+      "answer": [0],
+      "explanation": "When both RTUs attempt to command the same radio simultaneously, the pilot's RTU takes precedence.",
+      "references": ["S-92 RFM Part 2 Sec I: COMMUNICATIONS (p.I-5-3)"],
+      "tags": ["communications", "rtu"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-075",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "If an RTU fails, how does the pilot enable \"reversionary tuning\" to control the cross-side radios from the working RTU?",
+      "options": [
+        "Turn the failed RTU off, then push the 1/2 function key on the onside (working) RTU",
+        "Pull the circuit breaker for the cross-side radio",
+        "Reversionary tuning happens automatically with no pilot action",
+        "Press IDENT twice on the working RTU"
+      ],
+      "answer": [0],
+      "explanation": "To select reversionary tuning, turn the failed RTU off using its brightness/on-off knob, then push the 1/2 function key on the onside RTU. The failed RTU should remain off for the rest of the flight.",
+      "references": ["S-92 RFM Part 2 Sec I: COMMUNICATIONS (p.I-5-3)"],
+      "tags": ["communications", "rtu"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-076",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "In cold weather, how does the RTU's power-up delay behave below −20°C?",
+      "options": [
+        "1 minute of additional power-up delay for each degree below −20°C, up to a maximum of 10 minutes",
+        "A fixed 4-second delay regardless of temperature",
+        "The RTU will not power up at all below −20°C",
+        "5 minutes of delay regardless of how cold it is"
+      ],
+      "answer": [0],
+      "explanation": "Between −20°C and +70°C, the RTU powers up normally with just a 4-second delay. Below −20°C, there is an additional 1-minute power-up delay per degree below −20°C, up to a maximum of 10 minutes; full display brightness may take up to another 10 minutes after that.",
+      "references": ["S-92 RFM Part 2 Sec I: COMMUNICATIONS (p.I-5-4)"],
+      "tags": ["communications", "rtu", "cold-weather"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-077",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "On the cyclic PTT (push-to-talk) trigger switch, what is the difference between the first and second detent?",
+      "options": [
+        "First detent transmits over the ICS; second detent transmits over the selected radio",
+        "First detent transmits over the selected radio; second detent transmits over the ICS",
+        "Both detents do the same thing for redundancy",
+        "First detent is for the pilot, second detent is for the copilot"
+      ],
+      "answer": [0],
+      "explanation": "The cyclic PTT is a two-position trigger switch: pressing it to the first detent transmits over the ICS, while pressing it to the second detent transmits over a selected radio.",
+      "references": ["S-92 RFM Part 2 Sec I: COMMUNICATIONS (p.I-5-5)"],
+      "tags": ["communications", "ics"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-078",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "What does the EMER switch on the No. 1 audio controller do when pushed down, and on which controller is it disabled?",
+      "options": [
+        "Connects the copilot's headset to the No. 1 radio regardless of other panel settings, cutting that station off from the ICS; the switch is disabled on audio controller No. 3",
+        "Broadcasts a MAYDAY call automatically on all radios; disabled on controller No. 2",
+        "Silences all audio to the affected station; disabled on controller No. 1 itself",
+        "Switches all radios to the emergency frequency 121.5 MHz; not disabled on any controller"
+      ],
+      "answer": [0],
+      "explanation": "Pushing EMER on the No. 1 audio controller connects the copilot's headset directly to the No. 1 radio regardless of other settings (the equivalent switch on the No. 2 controller connects the pilot to the No. 2 radio). While EMER is selected, that station cannot hear or be heard on the ICS. This switch is disabled on audio controller No. 3.",
+      "references": ["S-92 RFM Part 2 Sec I: COMMUNICATIONS (p.I-5-5)"],
+      "tags": ["communications", "ics"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-079",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "In what frequency increments can the VHF-422D COM radio be tuned, and where does the finer increment apply?",
+      "options": [
+        "25 kHz across the full range, or 8.33 kHz — but only from 118.00 to 136.990 MHz",
+        "8.33 kHz across the entire range with no restriction",
+        "50 kHz only, with no fine-tune option",
+        "25 kHz below 130 MHz, 8.33 kHz above 130 MHz"
+      ],
+      "answer": [0],
+      "explanation": "The COM can be tuned in 25 kHz increments between 118.00–151.975 MHz, or in 8.33 kHz increments only between 118.00–136.990 MHz — 8.33 kHz operation is not permitted above 136.990 MHz.",
+      "references": ["S-92 RFM Part 2 Sec I: COMMUNICATIONS (p.I-5-7)"],
+      "tags": ["communications", "com-radio"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-080",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "Which COM preset is permanently programmed to the emergency frequency, and what is that frequency?",
+      "options": ["Preset 20, at 121.5 MHz", "Preset 1, at 121.5 MHz", "Preset 10, at 123.45 MHz", "There is no fixed emergency preset"],
+      "answer": [0],
+      "explanation": "Preset 20 is permanently programmed to the emergency frequency of 121.5 MHz, located on preset page 5 and identified by the EMER label.",
+      "references": ["S-92 RFM Part 2 Sec I: COMMUNICATIONS (p.I-5-7)"],
+      "tags": ["communications", "com-radio"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-081",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "Which electrical bus powers the pilot's VHF radio, and which powers the copilot's?",
+      "options": [
+        "Pilot's VHF: NO. 2 DC PRI bus; Copilot's VHF: BATT bus",
+        "Both are powered by the BATT bus",
+        "Pilot's VHF: BATT bus; Copilot's VHF: NO. 1 DC PRI bus",
+        "Both are powered by the NO. 2 DC PRI bus"
+      ],
+      "answer": [0],
+      "explanation": "The pilot's VHF radio is powered by the NO. 2 DC PRI bus (through the PLT VHF breaker), while the copilot's VHF radio is powered by the BATT bus (through the CPLT VHF breaker) — giving the copilot's radio power even if both generators and the primary buses are lost.",
+      "references": ["S-92 RFM Part 2 Sec I: COMMUNICATIONS (p.I-5-7)"],
+      "tags": ["communications", "electrical"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-082",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "How many presets are available for each of the COM, NAV, and ADF radios on the RTU?",
+      "options": ["Up to twenty", "Up to five", "Up to ten", "Only one, which must be reprogrammed each flight"],
+      "answer": [0],
+      "explanation": "Up to twenty presets can be programmed, across five preset pages, for each of the COM, NAV, and ADF radios.",
+      "references": ["S-92 RFM Part 2 Sec I: COMMUNICATIONS (p.I-5-1, I-5-3)"],
+      "tags": ["communications", "rtu"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-083",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "What happens to the RTU display if left on a main or preset page with no input for 20 seconds?",
+      "options": [
+        "It automatically returns to the top-level display",
+        "It powers itself off to save the battery",
+        "It locks and requires a password to unlock",
+        "Nothing — the RTU stays on whatever page was last selected indefinitely"
+      ],
+      "answer": [0],
+      "explanation": "The RTU automatically returns to the top-level page after 20 seconds of inactivity on a lower-level page.",
+      "references": ["S-92 RFM Part 2 Sec I: COMMUNICATIONS (p.I-5-1)"],
+      "tags": ["communications", "rtu"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-084",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "What does the independent DME tuning function let the pilot do?",
+      "options": [
+        "Select a separate DME station for distance while bearing continues to be determined relative to the original VOR station",
+        "Tune two different DME stations simultaneously and average their distances",
+        "Disable the DME entirely while keeping VOR bearing active",
+        "Automatically slave the DME to whichever VOR is nearest"
+      ],
+      "answer": [0],
+      "explanation": "With independent DME tuning, pressing DME-H while locked onto a VOR/DME station and then tuning to a new DME station gives distance from the new DME station while bearing information continues to come from the original VOR station.",
+      "references": ["S-92 RFM Part 2 Sec I: NAVIGATION (p.I-6-1)"],
+      "tags": ["navigation", "dme"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-085",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "Where is marker beacon sensitivity controlled, and what are the two settings?",
+      "options": [
+        "At the ICS (audio controller) panel — MB SENS pushed in selects HI sensitivity, popped out selects LO",
+        "On the NAV main display page only, toggling between AUTO and MANUAL",
+        "On the RTU top-level page, toggling between STRONG and WEAK",
+        "Marker beacon sensitivity is fixed and cannot be adjusted"
+      ],
+      "answer": [0],
+      "explanation": "Marker Beacon sensitivity is controlled at the ICS (audio controller) panel: pushing MB SENS in selects HI sensitivity; pressing again to pop it out selects LO sensitivity.",
+      "references": ["S-92 RFM Part 2 Sec I: NAVIGATION (p.I-6-2)"],
+      "tags": ["navigation", "marker-beacon"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-086",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "What is distinctive about how the ADF-462 tunes between its two frequency bands?",
+      "options": [
+        "Tuning is continuous and \"wraps\" seamlessly between the 190.0–1799.0 kHz and 2179.0–2185.0 kHz bands as the tuning knob is turned",
+        "The pilot must manually select which of the two bands to tune into via a separate switch",
+        "Only one band is usable in flight; the second is for ground testing only",
+        "The two bands can never both be tuned in the same flight"
+      ],
+      "answer": [0],
+      "explanation": "The ADF frequency is tunable in 500 Hz increments across two bands (190.0–1799.0 kHz and 2179.0–2185.0 kHz), and the tuning is configured to wrap seamlessly between the two bands as the tuning knob is adjusted.",
+      "references": ["S-92 RFM Part 2 Sec I: NAVIGATION (p.I-6-3)"],
+      "tags": ["navigation", "adf"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-087",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "Which ADF preset is permanently programmed to the emergency frequency, and what is that frequency?",
+      "options": ["Preset 20, at 2182.0 kHz", "Preset 1, at 500.0 kHz", "Preset 10, at 1000.0 kHz", "There is no dedicated ADF emergency preset"],
+      "answer": [0],
+      "explanation": "ADF preset 20 is permanently programmed to the emergency frequency of 2182.0 kHz, identified by the EMER label.",
+      "references": ["S-92 RFM Part 2 Sec I: NAVIGATION (p.I-6-3)"],
+      "tags": ["navigation", "adf"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-088",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "Regardless of switch position, when does the transponder automatically select STBY mode?",
+      "options": ["When the aircraft is on the ground", "Above 10,000 ft", "During autorotation only", "It never automatically changes mode"],
+      "answer": [0],
+      "explanation": "Regardless of the ON/STBY switch position, the transponder automatically selects STBY mode whenever the aircraft is on the ground.",
+      "references": ["S-92 RFM Part 2 Sec I: NAVIGATION (p.I-6-4)"],
+      "tags": ["navigation", "transponder"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-089",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "What is the Mode A transponder code range, and how long does pressing IDENT transmit the identification signal?",
+      "options": ["Code range 0000–7777; IDENT transmits for 20 seconds", "Code range 0000–9999; IDENT transmits for 5 seconds", "Code range 0000–7777; IDENT transmits for 10 seconds", "Code range 1000–7000; IDENT transmits continuously until cancelled"],
+      "answer": [0],
+      "explanation": "The Mode A ATC code range is 0000–7777. Pressing IDENT causes the transponder to transmit the IDENT signal for 20 seconds (note this differs from the ADF/ATC self-test duration, which is 10 seconds).",
+      "references": ["S-92 RFM Part 2 Sec I: NAVIGATION (p.I-6-4)"],
+      "tags": ["navigation", "transponder"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-090",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "What is TCAS's normal maximum range, and how far can it exceptionally track intruders?",
+      "options": ["Typically 18 NM, though intruders may be seen out to 36 NM", "Typically 5 NM, up to 10 NM", "Typically 50 NM, up to 100 NM", "TCAS range is fixed at exactly 30 NM with no variation"],
+      "answer": [0],
+      "explanation": "The typical maximum TCAS range is 18 NM, though there are instances where intruders may be seen out to 36 NM. TCAS can track as many as 45 aircraft and displays up to 30 of them.",
+      "references": ["S-92 RFM Part 2 Sec I: NAVIGATION (p.I-6-5, I-6-6)"],
+      "tags": ["navigation", "tcas"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-091",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "Under what conditions does TCAS Sensitivity Level A (SL A) apply, versus Sensitivity Level B (SL B)?",
+      "options": [
+        "SL A applies below 2000 ft AGL or when the landing gear is extended; SL B applies under all other flight conditions",
+        "SL A applies above 10,000 ft; SL B applies below 10,000 ft",
+        "SL A applies only on the ground; SL B applies only in flight",
+        "SL A and SL B are selected manually by the pilot at all times"
+      ],
+      "answer": [0],
+      "explanation": "TCAS applies Sensitivity Level A (a less sensitive TA threshold, to reduce unnecessary advisories in dense terminal-area traffic) when below 2000 ft AGL or when the landing gear is extended. Sensitivity Level B applies under all other flight conditions.",
+      "references": ["S-92 RFM Part 2 Sec I: NAVIGATION (p.I-6-5)"],
+      "tags": ["navigation", "tcas"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-092",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "What are the three TCAS display range modes, and their altitude volumes relative to own aircraft?",
+      "options": [
+        "Normal (-2700 to +2700 ft), Above (-2700 to +9000 ft), Below (-9000 to +2700 ft)",
+        "Normal (-1000 to +1000 ft), Above (0 to +5000 ft), Below (-5000 to 0 ft)",
+        "There is only one fixed display mode covering ±2700 ft",
+        "Climb, Cruise, and Descent modes, selected automatically by flight phase"
+      ],
+      "answer": [0],
+      "explanation": "The three TCAS display modes are Normal (-2700 ft to +2700 ft), Above (-2700 ft to +9000 ft), and Below (-9000 ft to +2700 ft), determining which altitude volume of intruders is displayed.",
+      "references": ["S-92 RFM Part 2 Sec I: NAVIGATION (p.I-6-6)"],
+      "tags": ["navigation", "tcas"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-093",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "If a TCAS traffic warning triggers with no TCAS display currently selected, what happens (\"pop up\" mode), and how does EGPWS interact with it?",
+      "options": [
+        "TCAS forces a NAV ARC page onto the center MFD first, then the pilot's inboard MFD, then the copilot's inboard MFD; an EGPWS pop-up takes precedence over a TCAS pop-up",
+        "Nothing happens automatically — the pilot must manually select the TCAS display",
+        "TCAS pop-up always overrides and blocks any EGPWS display",
+        "The pop-up only appears on the copilot's MFD, never the pilot's"
+      ],
+      "answer": [0],
+      "explanation": "In pop-up mode, if more than three displays are operational and none is currently showing TCAS, a traffic warning forces a NAV ARC page with TCAS onto the center MFD (if installed), then the pilot's inboard MFD, then the copilot's inboard MFD, in that order. An EGPWS pop-up display takes precedence over a TCAS pop-up.",
+      "references": ["S-92 RFM Part 2 Sec I: NAVIGATION (p.I-6-6)"],
+      "tags": ["navigation", "tcas", "egpws"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-094",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "On the TCAS traffic display, what does a filled yellow circle around an intruder symbol indicate?",
+      "options": [
+        "The intruder is potentially hazardous",
+        "The intruder is a friendly/known aircraft",
+        "The intruder's transponder is not reporting altitude",
+        "The intruder is more than 20 NM away"
+      ],
+      "answer": [0],
+      "explanation": "A filled yellow circle around a TCAS traffic symbol indicates that intruder is potentially hazardous.",
+      "references": ["S-92 RFM Part 2 Sec I: NAVIGATION (p.I-6-6)"],
+      "tags": ["navigation", "tcas"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-095",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "What triggers a TCAS Traffic Advisory (TA) in terms of time to Closest Point of Approach (CPA)?",
+      "options": [
+        "When TCAS predicts time to CPA is between 15 and 30 seconds (depending on sensitivity level)",
+        "Only when the intruder is within 100 ft vertically, regardless of time",
+        "TAs are issued continuously for any detected transponder-equipped aircraft",
+        "Only when two intruders are detected simultaneously"
+      ],
+      "answer": [0],
+      "explanation": "TCAS issues a Traffic Advisory (aural \"Traffic, Traffic\" plus a TRAFFIC display) when it predicts a possible collision hazard — specifically when time to CPA falls between 15 and 30 seconds, with the exact threshold depending on the active sensitivity level (SL A or SL B).",
+      "references": ["S-92 RFM Part 2 Sec I: NAVIGATION (p.I-6-4, I-6-5)"],
+      "tags": ["navigation", "tcas"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-096",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "Can TCAS detect an intruding aircraft that has no operating transponder?",
+      "options": [
+        "No — TCAS is unable to detect any intruding aircraft without an operating transponder",
+        "Yes, using onboard radar independent of any transponder",
+        "Yes, but only within 1 NM range",
+        "Yes, as long as the intruder is reporting altitude via ADS-B"
+      ],
+      "answer": [0],
+      "explanation": "TCAS is unable to detect any intruding aircraft that does not have an operating transponder — it works by interrogating other aircraft's transponders (ATCRBS Mode A/C or Mode S).",
+      "references": ["S-92 RFM Part 2 Sec I: NAVIGATION (p.I-6-5)"],
+      "tags": ["navigation", "tcas"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-097",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "Which fuel tank supplies the APU, and does the APU supply power to the buses at all times?",
+      "options": [
+        "The No. 1 fuel tank supplies the APU; the APU does not supply power to the buses unless both main generators are offline",
+        "The No. 2 fuel tank supplies the APU; it always supplies power to the buses when running",
+        "The APU has its own dedicated fuel tank separate from the engines",
+        "The No. 1 fuel tank supplies the APU; it powers the buses only when on the ground"
+      ],
+      "answer": [0],
+      "explanation": "Fuel is supplied to the APU by the No. 1 fuel tank. The APU generator provides power to the helicopter buses on the ground (rotors not turning) and as emergency power in flight, but it does not supply the buses at all unless both main generators are offline.",
+      "references": ["S-92 RFM Part 2 Sec I: AUXILIARY POWER UNIT (p.I-9-1)"],
+      "tags": ["apu", "fuel", "electrical"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-098",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "What happens for four seconds after the APU CTRL switch is placed to ON, before the APU actually starts?",
+      "options": [
+        "The APU runs through its built-in test (BIT)",
+        "The fuel prime pump runs alone with no other checks",
+        "Nothing — this is simply a mandatory cool-down wait unrelated to testing",
+        "The pilot must manually confirm three separate prompts"
+      ],
+      "answer": [0],
+      "explanation": "When the APU CTRL switch is placed to ON, there is a four-second delay while the APU goes through its built-in test (BIT) before it actually starts.",
+      "references": ["S-92 RFM Part 2 Sec I: AUXILIARY POWER UNIT (p.I-9-1)"],
+      "tags": ["apu", "start-sequence"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-099",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "How does the ESU's response to a sensed \"protective condition\" differ between on the ground and in flight?",
+      "options": [
+        "On the ground it causes an APU FAIL caution and automatic shutdown; in flight it only causes an APU FAULT caution, with no automatic shutdown",
+        "It behaves identically on the ground and in flight",
+        "In flight it shuts the APU down automatically; on the ground it does not",
+        "Protective conditions never cause a caution in either case, only safety conditions do"
+      ],
+      "answer": [0],
+      "explanation": "On the ground, the ESU treats both safety and protective conditions the same way: APU FAIL caution plus automatic shutdown. In flight, a safety condition still causes APU FAIL and automatic shutdown, but a protective condition only causes an APU FAULT caution — the ESU does not command an automatic shutdown for a protective condition in flight.",
+      "references": ["S-92 RFM Part 2 Sec I: AUXILIARY POWER UNIT (p.I-9-1, I-9-2)"],
+      "tags": ["apu", "malfunctions"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-100",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "When the FIRE APU/ARM pushbutton is pushed, which four things happen?",
+      "options": [
+        "The fire extinguisher system arms, the ESU commands an APU shutdown, the prime/APU boost pump turns off, and the APU fuel shutoff valve closes",
+        "Only the fire extinguisher discharges — nothing else changes",
+        "The APU immediately restarts to burn off residual fuel",
+        "It only illuminates a warning light with no other system action"
+      ],
+      "answer": [0],
+      "explanation": "Pushing FIRE APU/ARM arms the fire extinguisher system, commands the ESU to shut down the APU, turns off the prime/APU boost pump, and closes the APU fuel shutoff valve.",
+      "references": ["S-92 RFM Part 2 Sec I: AUXILIARY POWER UNIT (p.I-9-2)"],
+      "tags": ["apu", "fire-protection"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-101",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "What pressure range does the APU accumulator operate between (fully charged vs. discharged), and at what pressure does APU ACCUM LOW illuminate?",
+      "options": [
+        "4000 psig fully charged, 2500 psig discharged; APU ACCUM LOW illuminates at 3450 psig",
+        "1000 psig fully charged, 500 psig discharged; APU ACCUM LOW illuminates at 750 psig",
+        "8000 psig fully charged, 6000 psig discharged; APU ACCUM LOW illuminates at 7000 psig",
+        "The accumulator has no low-pressure warning"
+      ],
+      "answer": [0],
+      "explanation": "The APU accumulator pressure gauge indicates 4000 psig fully charged and 2500 psig discharged. If accumulator pressure drops to 3450 psig, the APU ACCUM LOW advisory illuminates.",
+      "references": ["S-92 RFM Part 2 Sec I: AUXILIARY POWER UNIT (p.I-9-2)"],
+      "tags": ["apu", "accumulator"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-102",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "What powers the APU starter motor for engine start, and what recharges this system?",
+      "options": [
+        "A nitrogen-pressurized accumulator with hydraulic fluid, recharged by the No. 3 hydraulic system (or manually via a hand pump)",
+        "A dedicated 24V battery pack recharged by the No. 1 generator",
+        "Compressed air from the ECS, recharged by engine bleed air",
+        "It uses main engine hydraulic pressure exclusively, with no backup"
+      ],
+      "answer": [0],
+      "explanation": "The APU accumulator (in the cabin overhead) contains pressurized nitrogen and hydraulic fluid, separated by a piston, to operate the starter motor. It's normally recharged by the No. 3 hydraulic system, with a hand pump available for manual recharge if that system is unavailable.",
+      "references": ["S-92 RFM Part 2 Sec I: AUXILIARY POWER UNIT (p.I-9-2)"],
+      "tags": ["apu", "accumulator", "hydraulics"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-103",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "At what APU speed does the start valve close and the starter motor secure, and at what speed does the ignition unit secure?",
+      "options": [
+        "Start valve closes / starter secures at 50%; ignition unit secures at 94.5%",
+        "Start valve closes at 10%; ignition secures at 50%",
+        "Both occur simultaneously at 100%",
+        "Start valve closes at 94.5%; ignition secures at 50%"
+      ],
+      "answer": [0],
+      "explanation": "During APU start: at 10% speed the fuel shutoff solenoid and ignition unit energize; at 50% speed the start valve closes and the starter motor is secured; at 94.5% the ignition unit is secured and the hour meter/start counter begin operating.",
+      "references": ["S-92 RFM Part 2 Sec I: AUXILIARY POWER UNIT (p.I-9-2, I-9-3)"],
+      "tags": ["apu", "start-sequence"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-104",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "Besides electrical power, what other two functions does the APU provide?",
+      "options": [
+        "Pneumatic power for engine starting, and heating for the cockpit and cabin",
+        "Hydraulic power for the flight controls, and fuel transfer between tanks",
+        "Rotor brake actuation, and windshield anti-ice",
+        "Only electrical power — it has no other function"
+      ],
+      "answer": [0],
+      "explanation": "In addition to providing electrical power, the APU supplies pneumatic power for engine starting and heating for the cockpit and cabin.",
+      "references": ["S-92 RFM Part 2 Sec I: AUXILIARY POWER UNIT (p.I-9-1)"],
+      "tags": ["apu"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-105",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "How are the engine inlets anti-iced, versus the compressor inlet guide vanes and IPS axial inlet?",
+      "options": [
+        "Inlets: electrically heated dual-zone mats; guide vanes/IPS inlet: engine bleed air, metered by FADEC based on Ng and T1",
+        "Both are anti-iced by engine bleed air only",
+        "Both are anti-iced electrically, with no bleed air involved",
+        "Inlets: bleed air; guide vanes/IPS inlet: electrical heating mats"
+      ],
+      "answer": [0],
+      "explanation": "The engine inlets are anti-iced by electrically (AC) powered, dual-zone heating mats. The compressor inlet guide vanes and IPS axial inlet are anti-iced by engine bleed air instead, with the FADEC determining how much bleed air to route based on Ng and T1 (engine inlet temperature).",
+      "references": ["S-92 RFM Part 2 Sec I: UTILITY SYSTEMS (p.I-10-1)"],
+      "tags": ["utility-systems", "anti-ice", "engine"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-106",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "What temperature does the inlet anti-ice controller aim to maintain the inlet surface above?",
+      "options": ["4°C", "0°C", "10°C", "-5°C"],
+      "answer": [0],
+      "explanation": "The inlet anti-ice controller regulates the two heating mats to ensure the inlet surface stays greater than 4°C.",
+      "references": ["S-92 RFM Part 2 Sec I: UTILITY SYSTEMS (p.I-10-1)"],
+      "tags": ["utility-systems", "anti-ice"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-107",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "Under what conditions does the TRN PIT HEAT OFF caution illuminate, and what does it warn the pilot to do?",
+      "options": [
+        "On the ground with Nr below 80% and any PITOT HT switch ON — warning that pitot heat should be turned off",
+        "In flight with OAT above 20°C — warning to turn pitot heat off since it's no longer needed",
+        "It illuminates continuously any time pitot heat is on, regardless of conditions",
+        "Only during engine start, to prevent pitot tube overheating"
+      ],
+      "answer": [0],
+      "explanation": "TRN PIT HEAT OFF illuminates when the helicopter is on the ground, Nr is below 80%, and any of the PITOT HT switches are ON — prompting the crew to turn pitot heat off since it isn't needed and unnecessarily draws power/heats the tube on the ground.",
+      "references": ["S-92 RFM Part 2 Sec I: UTILITY SYSTEMS (p.I-10-1)"],
+      "tags": ["utility-systems", "pitot-heat"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-108",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "Under what conditions does the TRN PIT HEAT ON caution illuminate?",
+      "options": [
+        "In flight, OAT below 40°F (4°C), and not all three PITOT HT switches are ON",
+        "On the ground with OAT below freezing, regardless of switch position",
+        "Whenever the standby pitot heat switch alone is OFF",
+        "Only during the before-takeoff check, regardless of temperature"
+      ],
+      "answer": [0],
+      "explanation": "TRN PIT HEAT ON illuminates when the helicopter is in flight, OAT is below 40°F (4°C), and not all three PITOT HT switches are ON — prompting the crew to turn all pitot heat on in icing-prone conditions.",
+      "references": ["S-92 RFM Part 2 Sec I: UTILITY SYSTEMS (p.I-10-1)"],
+      "tags": ["utility-systems", "pitot-heat"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-109",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "When operating on APU generator power only, what happens to the copilot's windshield anti-ice, and how can the pilot's be recovered?",
+      "options": [
+        "Copilot windshield anti-ice is not available; pilot windshield anti-ice can be recovered by selecting the OVRD (override) position",
+        "Both pilot and copilot windshield anti-ice remain fully available",
+        "Neither windshield anti-ice is available under any circumstances on APU power",
+        "Only the copilot's anti-ice remains available; the pilot's is lost with no recovery option"
+      ],
+      "answer": [0],
+      "explanation": "On APU generator power only, copilot windshield anti-ice is not available. Pilot windshield anti-ice can be recovered by selecting the override (OVRD) position on the ANTI-ICE WDSHLD PLT switch.",
+      "references": ["S-92 RFM Part 2 Sec I: UTILITY SYSTEMS (p.I-10-1)"],
+      "tags": ["utility-systems", "anti-ice", "windshield"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-110",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "How much continuous operating time does the windshield washer reservoir provide?",
+      "options": ["About 2 minutes (2-quart reservoir)", "About 10 minutes", "About 30 seconds", "It has no fixed capacity — it draws from the potable water tank"],
+      "answer": [0],
+      "explanation": "The windshield washer reservoir has a two-quart capacity, enough for about two minutes of continuous operation.",
+      "references": ["S-92 RFM Part 2 Sec I: UTILITY SYSTEMS (p.I-10-2)"],
+      "tags": ["utility-systems", "windshield"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-111",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "What main components make up the Active Vibration Control (AVC) system?",
+      "options": [
+        "Ten accelerometers, an Nr sensor, an AVC computer, an Electronic Unit (EU), and three or more Force Generators (FGs)",
+        "A single accelerometer and one Force Generator",
+        "Only software running on the existing FADEC, with no dedicated hardware",
+        "Two accelerometers and a hydraulic damper"
+      ],
+      "answer": [0],
+      "explanation": "The AVC system uses ten accelerometers, an Nr sensor, an AVC computer, an Electronic Unit (EU), and three or more Force Generators (FGs) to detect and cancel airframe vibration.",
+      "references": ["S-92 RFM Part 2 Sec I: UTILITY SYSTEMS (p.I-10-2)"],
+      "tags": ["utility-systems", "avc"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-112",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "How does a Force Generator (FG) in the AVC system actually cancel vibration?",
+      "options": [
+        "It has two mechanical units with counter-rotating weights; driven exactly 180° out of phase they produce zero net force, but slightly out of that phase they produce a net force used to cancel vibration",
+        "It uses a single spinning weight that always produces a constant cancelling force",
+        "It hydraulically dampens vibration using engine oil pressure",
+        "It relies entirely on software prediction with no moving parts"
+      ],
+      "answer": [0],
+      "explanation": "Each FG has two mechanical units (MUs) with motor-driven concentric weights rotating in opposite directions. Driven 180° out of phase, they cancel each other's force (net zero); when slightly out of that phase, they produce a net force that's used to cancel airframe vibration.",
+      "references": ["S-92 RFM Part 2 Sec I: UTILITY SYSTEMS (p.I-10-3)"],
+      "tags": ["utility-systems", "avc"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-113",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "Under what conditions is the AVC system automatically disabled?",
+      "options": [
+        "When Nr is below 90%, or when both main generators are offline",
+        "Only when the aircraft is on the ground",
+        "It is never automatically disabled — only manually via its switch",
+        "When OAT is below freezing, regardless of rotor speed"
+      ],
+      "answer": [0],
+      "explanation": "The AVC system is automatically disabled when Nr is below 90%, or when both main generators are offline.",
+      "references": ["S-92 RFM Part 2 Sec I: UTILITY SYSTEMS (p.I-10-3)"],
+      "tags": ["utility-systems", "avc"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-114",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "What is the difference between the AVC FAIL and AVC DEGRADED cautions?",
+      "options": [
+        "AVC FAIL means the BIT shut the whole system down; AVC DEGRADED means it continues operating in a reduced-performance mode",
+        "They indicate the same fault, just with different display colors",
+        "AVC DEGRADED is more severe and always precedes AVC FAIL",
+        "AVC FAIL only applies on the ground; AVC DEGRADED only applies in flight"
+      ],
+      "answer": [0],
+      "explanation": "If the AVC computer's built-in test detects an error, it either shuts the system down (AVC FAIL caution) or continues operating in a degraded mode (AVC DEGRADED caution), depending on the severity of the fault.",
+      "references": ["S-92 RFM Part 2 Sec I: UTILITY SYSTEMS (p.I-10-3)"],
+      "tags": ["utility-systems", "avc"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-115",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "In the WDSHLD WIPER switch's three positions, what does OFF do specifically (versus simply stopping the wipers wherever they are)?",
+      "options": [
+        "OFF parks the wipers in the inboard position", "OFF parks the wipers in the outboard position", "OFF leaves the wipers wherever they happen to stop", "OFF folds the wiper arms away from the glass entirely"
+      ],
+      "answer": [0],
+      "explanation": "When the WDSHLD WIPER switch is set to OFF, the wipers park in the inboard position (rather than stopping wherever they happen to be); SLOW and FAST select the two operating speeds.",
+      "references": ["S-92 RFM Part 2 Sec I: UTILITY SYSTEMS (p.I-10-1)"],
+      "tags": ["utility-systems", "windshield"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-116",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "What are the five modules that make up the Main Gearbox (MGB)?",
+      "options": [
+        "Two input modules, the main module, and two accessory modules",
+        "One input module, two main modules, and two accessory modules",
+        "Two input modules and three main modules",
+        "One combined module with no separate sections"
+      ],
+      "answer": [0],
+      "explanation": "The MGB consists of five modules: two input modules, the main module, and two accessory modules, and it has a built-in 5° forward tilt.",
+      "references": ["S-92 RFM Part 2 Sec I: POWERTRAIN (p.I-12-1)"],
+      "tags": ["powertrain", "mgb"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-117",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "What does the freewheel unit in the input module allow, and what continues to be driven if an engine fails?",
+      "options": [
+        "It allows the engine to disengage during autorotation or OEI operation; the accessory module continues to be driven by the MGB",
+        "It locks the engine to the rotor system permanently, preventing any disengagement",
+        "It allows the rotor brake to engage automatically on engine failure",
+        "It disengages the tail rotor drive shaft only, leaving the main rotor unaffected either way"
+      ],
+      "answer": [0],
+      "explanation": "The freewheel unit in the input module allows the engine to disengage from the drivetrain during autorotation or OEI (one engine inoperative) operation. If an engine fails, its accessory module continues to be driven by the MGB.",
+      "references": ["S-92 RFM Part 2 Sec I: POWERTRAIN (p.I-12-1, I-12-2)"],
+      "tags": ["powertrain", "engine"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-118",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "What triggers the LOW ROTOR light and aural warning, and how can the aural be silenced?",
+      "options": [
+        "Nr below 95% with weight-on-wheels not detected; silenced by Nr recovering above 95%, landing, or pressing VOICE CNCL on the cyclic",
+        "Nr below 100% at any time, silenced only by landing",
+        "It only triggers on the ground, never in flight",
+        "It cannot be silenced except by shutting down the engines"
+      ],
+      "answer": [0],
+      "explanation": "If Nr drops below 95% and weight-on-wheels is not detected, the LOW ROTOR light illuminates and the aural sounds continuously until Nr increases above 95%, the helicopter lands, or the VOICE CNCL button on the cyclic is pressed.",
+      "references": ["S-92 RFM Part 2 Sec I: POWERTRAIN (p.I-12-2)"],
+      "tags": ["powertrain", "warnings"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-119",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "Between the two Nr sensors on the accessory modules, what does each one feed?",
+      "options": [
+        "No. 1 Nr sensor feeds the DCU (cockpit display, HUMS, AVC computer); No. 2 Nr sensor feeds each engine's FADEC",
+        "Both sensors feed only the cockpit display, for redundancy",
+        "No. 1 feeds the FADEC; No. 2 feeds the DCU",
+        "Each sensor feeds only its own accessory module, with no cockpit connection"
+      ],
+      "answer": [0],
+      "explanation": "The No. 1 Nr sensor supplies rotor speed information to the DCU for cockpit display, HUMS, and the AVC computer, while the No. 2 Nr sensor supplies rotor speed information to each engine's FADEC.",
+      "references": ["S-92 RFM Part 2 Sec I: POWERTRAIN (p.I-12-2)"],
+      "tags": ["powertrain", "nr"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-120",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "What is the difference between the MGB OIL PRES caution and the MGB OIL PRES warning?",
+      "options": [
+        "Caution: either the input manifold or last-jet pressure switch trips; Warning: both trip together, also triggering a \"GEARBOX PRESSURE\" aural alert",
+        "They are the same indication, just shown in different colors depending on flight phase",
+        "Caution applies in flight; warning applies only on the ground",
+        "Warning occurs first, and if uncorrected downgrades to a caution"
+      ],
+      "answer": [0],
+      "explanation": "If either the input manifold pressure switch or the last-jet pressure switch trips, an MGB OIL PRES caution displays. If both trip together, it escalates to an MGB OIL PRES warning with a \"GEARBOX PRESSURE\" aural alert.",
+      "references": ["S-92 RFM Part 2 Sec I: POWERTRAIN (p.I-12-2, I-12-3)"],
+      "tags": ["powertrain", "mgb", "warnings"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-121",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "What does the 30-second time-delay relay in the MGB chip detector system do?",
+      "options": [
+        "Allows small chips and fuzz to burn off and/or wash away, preventing false chip warnings",
+        "Delays the entire chip detection system from arming for 30 seconds after engine start",
+        "Automatically shuts down the MGB oil pump for 30 seconds to clear debris",
+        "Delays the aural alert only, not the visual caution"
+      ],
+      "answer": [0],
+      "explanation": "The chip detectors are magnetic plugs that attract ferrous particles; a 30-second time-delay relay allows small chips and fuzz to burn off and/or wash away, preventing false chip warnings from trivial debris.",
+      "references": ["S-92 RFM Part 2 Sec I: POWERTRAIN (p.I-12-3)"],
+      "tags": ["powertrain", "chip-detection"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-122",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "Why does a hot oil indication disable the chip detector's fuzz burn-off feature?",
+      "options": [
+        "To prevent electrical arcing when the oil is in a vaporous state",
+        "To save electrical power during an already-abnormal condition",
+        "It doesn't disable it — fuzz burn-off always remains active",
+        "To force an immediate precautionary landing"
+      ],
+      "answer": [0],
+      "explanation": "A hot oil indication disables the fuzz burn-off feature to prevent electrical arcing, since the oil may be in a vaporous state at high temperature.",
+      "references": ["S-92 RFM Part 2 Sec I: POWERTRAIN (p.I-12-3)"],
+      "tags": ["powertrain", "chip-detection"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-123",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "What does the Bearing Monitor System (BMS) monitor, and what does it illuminate if it detects an out-of-limit condition?",
+      "options": [
+        "Vibration and temperature on the swashplate, tail rotor drive shaft bearings #1 and #2, and the oil cooler bearing — illuminating CHECK BMS",
+        "Only main rotor blade track and balance, illuminating TRACK FAULT",
+        "Engine oil pressure only, illuminating ENG OIL PRES",
+        "Cabin vibration levels for passenger comfort, illuminating CABIN VIB"
+      ],
+      "answer": [0],
+      "explanation": "The BMS processes vibration and temperature data on the swashplate, tail rotor drive shaft bearings #1 and #2, and the oil cooler bearing. Detecting an out-of-limit temperature or vibration condition illuminates the CHECK BMS advisory.",
+      "references": ["S-92 RFM Part 2 Sec I: POWERTRAIN (p.I-12-3)"],
+      "tags": ["powertrain", "bms"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-124",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "Is the rotor brake designed to stop the rotor before engine shutdown?",
+      "options": [
+        "No — it holds the rotor stationary during start and slows/stops it after shutdown, but is not designed to stop it beforehand",
+        "Yes, it is the primary means of stopping the rotor at any time, including before shutdown",
+        "It can only be used to stop the rotor in an emergency, never during normal operations",
+        "It is only used for maintenance ground runs, never in normal flight operations"
+      ],
+      "answer": [0],
+      "explanation": "The rotor brake holds the rotor stationary during engine start and slows/stops the rotor after engine shutdown — it is explicitly not designed to stop the rotor prior to engine shutdown.",
+      "references": ["S-92 RFM Part 2 Sec I: POWERTRAIN (p.I-12-3, I-12-4)"],
+      "tags": ["powertrain", "rotor-brake"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-125",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "How does the ROTOR BRAKE caution logic differ between being on the ground versus in the air?",
+      "options": [
+        "On the ground, either the pressure switch or the puck position sensor triggers the caution; in the air, both sensors must agree to trigger it",
+        "It behaves identically in both cases",
+        "In the air, either sensor triggers it; on the ground, both must agree",
+        "The caution is completely disabled while airborne"
+      ],
+      "answer": [0],
+      "explanation": "Either the pressure switch or the puck position sensor illuminates the ROTOR BRAKE caution while on the ground; while in the air, both sensors must trip to illuminate the caution.",
+      "references": ["S-92 RFM Part 2 Sec I: POWERTRAIN (p.I-12-4)"],
+      "tags": ["powertrain", "rotor-brake"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-126",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "Can both engines be started with the rotor brake engaged, and what limits engine advancement in that case?",
+      "options": [
+        "Yes, both engines may be started with the rotor brake on; the FADEC will not advance either engine past idle until Np is above 24%",
+        "No, the rotor brake must be fully released before any engine start is attempted",
+        "Only one engine may be started with the brake on; the second requires the brake off",
+        "The rotor brake automatically releases once engine start is initiated"
+      ],
+      "answer": [0],
+      "explanation": "Both engines may be started with the rotor brake on. The FADEC will not allow the engines to advance past idle until Np is above 24%.",
+      "references": ["S-92 RFM Part 2 Sec I: POWERTRAIN (p.I-12-4)"],
+      "tags": ["powertrain", "rotor-brake", "engine-start"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-127",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "What does the Intermediate Gearbox (IGB) do, and where is it located?",
+      "options": [
+        "Located at the base of the tail pylon, it transfers torque from the No. 3 to No. 4 drive shaft, changes drive direction, and reduces shaft speed",
+        "Located in the MGB itself, it has no separate function from the main module",
+        "Located at the top of the tail pylon, it drives the tail rotor directly with no speed reduction",
+        "It only provides lubrication to the tail rotor gearbox, with no torque transfer role"
+      ],
+      "answer": [0],
+      "explanation": "The IGB, located at the base of the tail pylon, transfers torque from the No. 3 drive shaft to the No. 4 drive shaft, changes the direction of the drive, and reduces shaft speed.",
+      "references": ["S-92 RFM Part 2 Sec I: POWERTRAIN (p.I-12-4)"],
+      "tags": ["powertrain", "igb"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-128",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "When can the IGB and TGB oil level be checked using their optical liquid sensors?",
+      "options": [
+        "Only on the ground with rotors not turning", "At any time, in flight or on the ground", "Only in flight above 500 ft AGL", "Only during the power assurance check"
+      ],
+      "answer": [0],
+      "explanation": "The IGB and TGB each have an optical liquid sensor that detects oil level only on the ground with rotors not turning, illuminating IGB OIL LEVEL or TGB OIL LEVEL if oil is not present.",
+      "references": ["S-92 RFM Part 2 Sec I: POWERTRAIN (p.I-12-4, I-12-5)"],
+      "tags": ["powertrain", "igb", "tgb"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-129",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "What does the MGB OIL BYP switch's TEST position do?",
+      "options": [
+        "A momentary position that actuates the bypass valve and illuminates MGB BYPASS on EICAS, then returns to NORM when released",
+        "Permanently routes oil through the bypass valve until manually reset",
+        "Simulates a chip detection fault for crew training",
+        "Disables the MGB oil pressure alert system for maintenance"
+      ],
+      "answer": [0],
+      "explanation": "TEST is a momentary switch position: placing it in TEST actuates the bypass valve and illuminates MGB BYPASS on EICAS, then the switch automatically returns to NORM when released.",
+      "references": ["S-92 RFM Part 2 Sec I: POWERTRAIN (p.I-12-3)"],
+      "tags": ["powertrain", "mgb"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-130",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "At what Nr does the main rotor droop stops move fully outward during run-up, and what happens during shutdown?",
+      "options": [
+        "Fully outward at 70–75% Nr; during shutdown, they move back into position as Nr decreases below 50%",
+        "Fully outward at 100% Nr only; they never move back into position until the rotor fully stops",
+        "Fully outward at 20% Nr; move into position below 90% Nr",
+        "Droop stops are fixed and do not move with Nr at all"
+      ],
+      "answer": [0],
+      "explanation": "Centrifugal force pulls the droop stops fully outward at 70–75% Nr during run-up, allowing full blade motion. During shutdown, as Nr decreases below 50%, the droop stops move back into position to limit blade droop at low/stopped rotor speed.",
+      "references": ["S-92 RFM Part 2 Sec I: ROTOR SYSTEM (p.I-13-1)"],
+      "tags": ["rotor-system", "droop-stops"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-131",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "What do the flap restraints limit at low Nr, and to what maximum flap angle is the blade allowed as Nr increases?",
+      "options": [
+        "At low Nr, upward flap is limited to 0.5°; as Nr increases, full motion up to +25° maximum is allowed",
+        "At low Nr, upward flap is limited to 10°; full motion is never allowed regardless of Nr",
+        "Flap restraints only limit downward movement, not upward",
+        "The maximum flap angle is fixed at 5° regardless of Nr"
+      ],
+      "answer": [0],
+      "explanation": "The flap restraints and anti-flap stop limit upward blade movement (flap) to just 0.5° at low Nr; as centrifugal force increases with Nr, the restraints pull outward allowing full vertical motion up to +25° maximum.",
+      "references": ["S-92 RFM Part 2 Sec I: ROTOR SYSTEM (p.I-13-1)"],
+      "tags": ["rotor-system", "flap-restraints"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-132",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "What fluid do the main rotor blade dampers use, and how much does each contain?",
+      "options": ["Silicone fluid, one quart per damper", "Hydraulic mineral oil, one gallon per damper", "Synthetic engine oil, half a quart per damper", "Dampers are dry and require no fluid"],
+      "answer": [0],
+      "explanation": "Each main rotor blade damper contains one quart of silicone fluid, with a fluid level rod and FULL/REFILL scale on the reservoir end to check the level.",
+      "references": ["S-92 RFM Part 2 Sec I: ROTOR SYSTEM (p.I-13-1)"],
+      "tags": ["rotor-system", "dampers"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-133",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "What is the function of the \"lead stop\" (also called the \"hunting stop\") on a main rotor blade damper?",
+      "options": [
+        "It prevents over-extension of the damper in the horizontal (lead/lag) axis",
+        "It stops the blade from flapping upward past its limit",
+        "It locks the damper completely during ground shutdown",
+        "It limits pitch change authority on that blade only"
+      ],
+      "answer": [0],
+      "explanation": "Each damper has internal stops that limit blade travel during normal operations; the lead stop (hunting stop) specifically prevents over-extension of the damper in the horizontal lead/lag axis.",
+      "references": ["S-92 RFM Part 2 Sec I: ROTOR SYSTEM (p.I-13-1)"],
+      "tags": ["rotor-system", "dampers"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-134",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "What vibration does the bifilar vibration absorber cancel, and what provides its \"constant tuning\" across the Nr range?",
+      "options": [
+        "4-per-revolution vibrations; tuning is constant because it uses the rotating system's centrifugal force field as the restoring force",
+        "1-per-revolution vibrations; tuning is fixed mechanically and does not vary with Nr",
+        "Engine-induced vibrations only, tuned electronically by the AVC computer",
+        "It cancels all vibration frequencies indiscriminately with a passive rubber mount"
+      ],
+      "answer": [0],
+      "explanation": "The bifilar is a four-armed, X-shaped device with pendulum weights that cancel 4-per-revolution vibrations. Using the rotating system's centrifugal force field as the restoring force gives it constant tuning throughout the Nr range, without needing active adjustment.",
+      "references": ["S-92 RFM Part 2 Sec I: ROTOR SYSTEM (p.I-13-2)"],
+      "tags": ["rotor-system", "bifilar"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-135",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "What are the S-92 main rotor blades constructed from, and how many are there?",
+      "options": [
+        "Four composite blades: graphite/fiberglass spar with honeycomb core, fiberglass skin, and a titanium/nickel leading-edge abrasion strip",
+        "Five aluminum-alloy blades with a steel leading edge",
+        "Two wooden-core blades wrapped in carbon fiber",
+        "Four blades made entirely of titanium"
+      ],
+      "answer": [0],
+      "explanation": "There are four composite main rotor blades: each has a graphite/fiberglass spar with a honeycomb core, wrapped in a fiberglass skin, with a titanium and nickel abrasion strip on the leading edge.",
+      "references": ["S-92 RFM Part 2 Sec I: ROTOR SYSTEM (p.I-13-2)"],
+      "tags": ["rotor-system", "main-rotor-blades"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-136",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "What is the twist of the main rotor blade from root to tip, and how are the tips shaped?",
+      "options": [
+        "13° of twist root to tip; tips are swept back, tapered, and anhedral (angled downward 20°)",
+        "0° twist (constant chord); tips are square-cut with no sweep",
+        "45° of twist; tips are dihedral (angled upward)",
+        "13° of twist; tips are straight with no sweep or anhedral"
+      ],
+      "answer": [0],
+      "explanation": "Each main rotor blade has 13° of twist from root to tip, with tips that are swept back, tapered, and anhedral — angled downward at 20°.",
+      "references": ["S-92 RFM Part 2 Sec I: ROTOR SYSTEM (p.I-13-2)"],
+      "tags": ["rotor-system", "main-rotor-blades"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-137",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "Does the S-92 tail rotor require lubrication?",
+      "options": [
+        "No — it is a bearingless controllable-pitch system requiring no lubrication",
+        "Yes, it requires the same oil servicing as the tail gearbox",
+        "Only the pitch links require periodic greasing, but the blades themselves do not",
+        "Yes, via a dedicated hydraulic reservoir feeding the hub bearings"
+      ],
+      "answer": [0],
+      "explanation": "The tail rotor is a bearingless, controllable-pitch system that requires no lubrication.",
+      "references": ["S-92 RFM Part 2 Sec I: ROTOR SYSTEM (p.I-13-3)"],
+      "tags": ["rotor-system", "tail-rotor"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-138",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "At what angle is the tail rotor canted, and what percentage of total lift does this provide in hover?",
+      "options": ["Canted 20°, providing about 4% of total lift in hover", "Canted 90° (perpendicular), providing no lift contribution", "Canted 5°, providing about 15% of total lift", "Canted 45°, providing about 25% of total lift"],
+      "answer": [0],
+      "explanation": "The tail rotor is canted 20°, which provides approximately 4% of the helicopter's total lift during hover operations, in addition to its directional/anti-torque function.",
+      "references": ["S-92 RFM Part 2 Sec I: ROTOR SYSTEM (p.I-13-3)"],
+      "tags": ["rotor-system", "tail-rotor"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-139",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "How do the tail rotor blades change pitch, given the tail rotor has no conventional pitch-change bearings at the blade root?",
+      "options": [
+        "By twisting the flexbeam that attaches each blade to the rotor hub",
+        "Through a conventional feathering bearing at the blade root",
+        "Pitch is fixed and cannot be changed in flight",
+        "Through a swashplate identical in design to the main rotor's"
+      ],
+      "answer": [0],
+      "explanation": "Tail rotor pitch change and blade flap are accomplished by twisting the flexbeam that attaches each blade to the rotor hub, rather than through a conventional bearing.",
+      "references": ["S-92 RFM Part 2 Sec I: ROTOR SYSTEM (p.I-13-3)"],
+      "tags": ["rotor-system", "tail-rotor"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-140",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "What is the difference between the S/P TEMP DETECT caution and the S/P TEMP LIMIT caution for swashplate temperature?",
+      "options": [
+        "S/P TEMP DETECT illuminates at 110°F above ambient temperature; S/P TEMP LIMIT illuminates when swashplate temperature exceeds an absolute 300°F",
+        "They are the same caution, just displayed at different times of flight",
+        "S/P TEMP DETECT is only active on the ground; S/P TEMP LIMIT only in flight",
+        "S/P TEMP LIMIT is a less severe indication than S/P TEMP DETECT"
+      ],
+      "answer": [0],
+      "explanation": "The Bearing Monitor Unit (BMU) uses two swashplate temperature sensors plus ambient temperature from the ADC. S/P TEMP DETECT illuminates when swashplate temperature is 110°F above the ambient baseline; S/P TEMP LIMIT illuminates when the absolute swashplate temperature exceeds 300°F.",
+      "references": ["S-92 RFM Part 2 Sec I: ROTOR SYSTEM (p.I-13-3)"],
+      "tags": ["rotor-system", "swashplate", "warnings"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-141",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "What are the hub's precone and prelag angles on the S-92 main rotor head?",
+      "options": ["Preconed 6°, prelagged 9°", "Preconed 0°, prelagged 0° (fully rigid)", "Preconed 20°, prelagged 20°", "Preconed 9°, prelagged 6°"],
+      "answer": [0],
+      "explanation": "The titanium main rotor hub is preconed 6° and prelagged 9°, with elastomeric bearings that allow the blades to lead/lag and flap.",
+      "references": ["S-92 RFM Part 2 Sec I: ROTOR SYSTEM (p.I-13-1)"],
+      "tags": ["rotor-system", "main-rotor-head"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-142",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "How does the rotating swashplate transmit flight control inputs to the main rotor blades?",
+      "options": [
+        "Through the pitch control links and the rotating scissors assembly to the blade retention yokes",
+        "Directly through a rigid mechanical shaft with no intermediate linkage",
+        "Via electrical actuators mounted on each blade root",
+        "Through the stationary swashplate only, bypassing the blade retention yokes entirely"
+      ],
+      "answer": [0],
+      "explanation": "The rotating swashplate is connected to the main rotor hub by the rotating scissors and to the blade retention yokes by adjustable pitch control links, which vary blade pitch as the swashplate tilts or moves with flight control input.",
+      "references": ["S-92 RFM Part 2 Sec I: ROTOR SYSTEM (p.I-13-2)"],
+      "tags": ["rotor-system", "swashplate"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-143",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "What does the Collective-to-Pitch mixing unit coupling compensate for?",
+      "options": [
+        "Changes in rotor downwash on the horizontal stabilizer caused by collective pitch changes — providing forward input to the main rotor as collective increases, aft as it decreases",
+        "Changes in torque effect from collective position changes",
+        "Rolling moments caused by changes in tail rotor thrust",
+        "The vertical thrust component of the canted tail rotor"
+      ],
+      "answer": [0],
+      "explanation": "Collective-to-Pitch coupling compensates for changes in rotor downwash effects on the horizontal stabilizer caused by collective changes: the mixing unit provides forward input to the main rotor as collective increases, and aft input as collective decreases.",
+      "references": ["S-92 RFM Part 2 Sec I: MECHANICAL FLIGHT CONTROLS (p.I-15-2)"],
+      "tags": ["flight-controls", "mixing-unit"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-144",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "What does the Collective-to-Yaw mixing unit coupling do as collective is increased?",
+      "options": [
+        "It increases tail rotor pitch, compensating for the increased torque effect",
+        "It decreases tail rotor pitch to reduce anti-torque authority",
+        "It has no effect on tail rotor pitch, only on the horizontal stabilizer",
+        "It disengages the tail rotor servo entirely"
+      ],
+      "answer": [0],
+      "explanation": "Collective-to-Yaw coupling compensates for changes in torque effect caused by collective changes: the mixing unit increases tail rotor pitch as collective is increased, and decreases it as collective is decreased.",
+      "references": ["S-92 RFM Part 2 Sec I: MECHANICAL FLIGHT CONTROLS (p.I-15-2)"],
+      "tags": ["flight-controls", "mixing-unit"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-145",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "What does the Collective-to-Roll mixing unit coupling compensate for?",
+      "options": [
+        "Rolling moments caused by changes in tail rotor thrust as collective is changed",
+        "Pitching moments from changes in rotor downwash on the stabilizer",
+        "Yaw moments from asymmetric engine torque",
+        "Vibration from the main rotor blades at high collective settings"
+      ],
+      "answer": [0],
+      "explanation": "Collective-to-Roll coupling compensates for the rolling moments caused by changes in tail rotor thrust: the mixing unit provides left lateral input to the main rotor as collective is increased, and right lateral input as collective is decreased.",
+      "references": ["S-92 RFM Part 2 Sec I: MECHANICAL FLIGHT CONTROLS (p.I-15-2, I-15-3)"],
+      "tags": ["flight-controls", "mixing-unit"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-146",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "What does the Yaw-to-Pitch mixing unit coupling compensate for?",
+      "options": [
+        "The vertical thrust component of the canted tail rotor as tail rotor pitch changes",
+        "The rolling moment from tail rotor thrust changes",
+        "Rotor downwash effects on the horizontal stabilizer",
+        "Engine torque changes during OEI operation"
+      ],
+      "answer": [0],
+      "explanation": "Yaw-to-Pitch coupling compensates for changes in the vertical thrust component produced by the canted tail rotor as its pitch changes: the mixing unit provides aft input to the main rotor as tail rotor pitch increases, and forward input as it decreases.",
+      "references": ["S-92 RFM Part 2 Sec I: MECHANICAL FLIGHT CONTROLS (p.I-15-3)"],
+      "tags": ["flight-controls", "mixing-unit"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-147",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "What happens if one of the two tail rotor yaw control cables breaks?",
+      "options": [
+        "Tail rotor control is maintained by tail rotor quadrant spring tension, triggering a TR QUAD caution and the MASTER caution",
+        "The tail rotor immediately loses all control authority",
+        "The remaining cable automatically doubles its mechanical advantage with no caution shown",
+        "The AFCS automatically takes over full yaw control with no pilot indication"
+      ],
+      "answer": [0],
+      "explanation": "If one of the two tail rotor control cables breaks, control is maintained by the tail rotor quadrant's spring tension, which triggers a TR QUAD caution along with the MASTER caution.",
+      "references": ["S-92 RFM Part 2 Sec I: MECHANICAL FLIGHT CONTROLS (p.I-15-3)"],
+      "tags": ["flight-controls", "tail-rotor"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-148",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "What happens if BOTH tail rotor control cables break?",
+      "options": [
+        "A centering spring sets a fixed tail rotor position", "The tail rotor is left completely free to flap uncontrolled", "The rotor brake automatically engages", "The aircraft immediately becomes uncontrollable with no fallback"
+      ],
+      "answer": [0],
+      "explanation": "If both tail rotor control cables break, a centering spring sets the tail rotor to a fixed position (rather than leaving it completely uncontrolled).",
+      "references": ["S-92 RFM Part 2 Sec I: MECHANICAL FLIGHT CONTROLS (p.I-15-3)"],
+      "tags": ["flight-controls", "tail-rotor"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-149",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "What function is disengaged automatically when the tail rotor pedal switches are pressed?",
+      "options": [
+        "The AFCS heading hold feature", "The AFCS attitude hold feature", "The rotor brake", "The engine anti-ice system"
+      ],
+      "answer": [0],
+      "explanation": "The tail rotor pedals contain switches that, when pressed, disengage the heading hold feature of the AFCS.",
+      "references": ["S-92 RFM Part 2 Sec I: MECHANICAL FLIGHT CONTROLS (p.I-15-3)"],
+      "tags": ["flight-controls", "afcs", "pedals"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-150",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "How does a pilot adjust the tail rotor pedal leg length?",
+      "options": [
+        "Pull the PED ADJ T-handle on the outboard side of the instrument panel, which unlocks the spring-loaded pedals; apply pressure to both pedals to position them, then release the handle to lock",
+        "Loosen a floor-mounted bolt on each pedal individually with a hand tool",
+        "Pedal position is fixed and cannot be adjusted in flight or on the ground",
+        "Use the AFCS control panel to electrically motor the pedals to the desired position"
+      ],
+      "answer": [0],
+      "explanation": "Pulling the T-handle marked PED ADJ (on the outboard side of the instrument panel) unlocks the pedals, which are spring-loaded to move toward the operator. Pressure on both pedals simultaneously positions them; releasing the handle locks them in place.",
+      "references": ["S-92 RFM Part 2 Sec I: MECHANICAL FLIGHT CONTROLS (p.I-15-3)"],
+      "tags": ["flight-controls", "pedals"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-151",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "On the collective stick, what does pressing TRIM REL do, and what happens to the collective position when it's released?",
+      "options": [
+        "It releases the collective stick trim; when released, the stick maintains whatever new position it was moved to",
+        "It resets the collective to a fixed neutral detent position",
+        "It disengages the collective entirely, requiring a manual reset procedure",
+        "It only works when the aircraft is on the ground"
+      ],
+      "answer": [0],
+      "explanation": "TRIM REL on the collective grip releases the collective stick trim; once released, the stick maintains its new (moved) position rather than snapping back.",
+      "references": ["S-92 RFM Part 2 Sec I: MECHANICAL FLIGHT CONTROLS (p.I-15-2)"],
+      "tags": ["flight-controls", "collective"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-152",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "What does the OEI SELECT control on the collective grip do?",
+      "options": [
+        "Selects OEI limiter ratings", "Selects between main and reserve fire bottles", "Selects the active hydraulic system", "Arms the emergency flotation system"
+      ],
+      "answer": [0],
+      "explanation": "OEI SELECT, located on the collective grip, is used to select OEI (one engine inoperative) limiter ratings.",
+      "references": ["S-92 RFM Part 2 Sec I: MECHANICAL FLIGHT CONTROLS (p.I-15-2)"],
+      "tags": ["flight-controls", "collective", "oei"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-153",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "Is the AFCS dual redundant in all of its features?",
+      "options": [
+        "It is dual redundant in every feature except the trim actuators",
+        "It is fully dual redundant with no exceptions",
+        "Only the SAS function is redundant; everything else is single-string",
+        "The AFCS has no redundancy at all"
+      ],
+      "answer": [0],
+      "explanation": "The AFCS is dual redundant in all features (SAS, ATT hold, CFD) except the trim actuators, which are single.",
+      "references": ["S-92 RFM Part 2 Sec I: AFCS (p.I-16-1)"],
+      "tags": ["afcs"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-154",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "What do the four RVDTs (Rotary Variable Differential Transformers) tell the AFCS, and why does this matter?",
+      "options": [
+        "They report actual flight control position, letting the AFCS distinguish a pilot-commanded input from a gust-induced disturbance",
+        "They measure engine torque for OEI limiting",
+        "They report rotor RPM for the AVC computer",
+        "They detect ice accumulation on the flight controls"
+      ],
+      "answer": [0],
+      "explanation": "Four RVDTs are installed in line with the mechanical flight controls to report control position to the AFCS. This lets the AFCS differentiate between a gust-related aircraft disturbance and a pilot-commanded attitude change.",
+      "references": ["S-92 RFM Part 2 Sec I: AFCS (p.I-16-1)"],
+      "tags": ["afcs", "sensors"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-155",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "What is the key functional difference between the trim actuators and the SAS servos in terms of cockpit control movement?",
+      "options": [
+        "When trim actuators move, the cockpit flight controls also move; when SAS servos move, the cockpit controls do not move",
+        "Neither ever moves the cockpit controls", "Both always move the cockpit controls identically", "Only SAS servos move the cockpit controls; trim actuators never do"
+      ],
+      "answer": [0],
+      "explanation": "When the trim actuators move, the cockpit flight controls move along with them (visible stick movement). When the SAS servos move, the cockpit controls do not move — SAS authority is applied \"invisibly\" between the cockpit controls and the rotor.",
+      "references": ["S-92 RFM Part 2 Sec I: AFCS (p.I-16-3)"],
+      "tags": ["afcs", "trim", "sas"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-156",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "How much control authority does a single SAS servo have, and how much do the two SAS servos in one axis combine to provide?",
+      "options": [
+        "5% authority per servo; 10% combined per axis", "50% authority per servo; 100% combined", "100% authority per servo, fully redundant", "1% authority per servo; 2% combined"
+      ],
+      "answer": [0],
+      "explanation": "Each SAS servo can move the flight controls quickly but is limited to 5% control authority. During normal operation, the two SAS servos in each axis combine for a total of 10% control authority.",
+      "references": ["S-92 RFM Part 2 Sec I: AFCS (p.I-16-3)"],
+      "tags": ["afcs", "sas"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-157",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "What do the boost servos do, and does the AFCS have any input to them?",
+      "options": [
+        "They act like power steering, reducing control force and limiting feedback; the AFCS has no input to the boost servos",
+        "They provide full autopilot authority and are directly commanded by the AFCS",
+        "They are only used during autorotation to lighten pedal loads",
+        "They replace the SAS servos entirely on this aircraft"
+      ],
+      "answer": [0],
+      "explanation": "The four hydraulic boost servos act like power steering in a car, reducing the force required to move the flight controls and limiting feedback. The AFCS has no input to the boost servos at all.",
+      "references": ["S-92 RFM Part 2 Sec I: AFCS (p.I-16-3)"],
+      "tags": ["afcs", "boost-servos"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-158",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "What is the fundamental behavior of SAS (Stability Augmentation System) — does it try to return the aircraft to its original attitude after a disturbance?",
+      "options": [
+        "No — SAS only provides rate damping to stop the disturbance; it does not attempt to return the aircraft to its original attitude",
+        "Yes, SAS always restores the exact pre-disturbance attitude",
+        "SAS only works below 50 KIAS and does nothing above that speed",
+        "SAS is purely a warning system with no control authority"
+      ],
+      "answer": [0],
+      "explanation": "SAS senses a disturbance (e.g. an uncommanded nose-up pitch from a gust) and makes small, immediate control inputs to stop it — this is rate damping. SAS does not attempt to return the aircraft to its original attitude; that is the AP's job once engaged.",
+      "references": ["S-92 RFM Part 2 Sec I: AFCS (p.I-16-3)"],
+      "tags": ["afcs", "sas"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-159",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "If a primary SAS computer or its sensors fail, what can the pilot select instead, and what powers it?",
+      "options": [
+        "Secondary SAS, in which the AP computer (using AHRS data) controls that side's SAS servos",
+        "There is no backup — a primary SAS failure disables SAS on that side permanently",
+        "The boost servos automatically take over full SAS function",
+        "The trim actuators substitute directly for the failed SAS computer"
+      ],
+      "answer": [0],
+      "explanation": "If a primary SAS computer or its primary sensors are not functioning, the pilot may select secondary SAS — in this mode, the AP computer uses AHRS data to control that side's SAS servos.",
+      "references": ["S-92 RFM Part 2 Sec I: AFCS (p.I-16-3)"],
+      "tags": ["afcs", "sas"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-160",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "What must be engaged before the AP (autopilot) section can be engaged?",
+      "options": [
+        "Primary or secondary SAS", "Nothing — AP can engage independently of SAS", "Both FMS units must be coupled first", "The rotor brake must be released"
+      ],
+      "answer": [0],
+      "explanation": "Primary or secondary SAS must be engaged before the AP can be engaged, since the AP section adds attitude hold and enhancements on top of the basic SAS function.",
+      "references": ["S-92 RFM Part 2 Sec I: AFCS (p.I-16-3)"],
+      "tags": ["afcs", "autopilot"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-161",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "How does the AP's heading hold behavior change above versus below 50 KIAS?",
+      "options": [
+        "Below 50 KIAS, AP provides heading hold; above 50 KIAS, it provides heading hold in level flight and turn coordination during a turn",
+        "Heading hold is only available above 50 KIAS; below that, only attitude hold works",
+        "The behavior is identical at all airspeeds",
+        "Heading hold disengages automatically above 50 KIAS with no substitute function"
+      ],
+      "answer": [0],
+      "explanation": "The AP provides heading hold when below 50 KIAS. Above 50 KIAS, it provides heading hold during level flight and turn coordination during a turn — both delivered through the trim actuators.",
+      "references": ["S-92 RFM Part 2 Sec I: AFCS (p.I-16-3)"],
+      "tags": ["afcs", "autopilot"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-162",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "On the AFCS control panel, what is the difference between the ATT and SAS positions?",
+      "options": [
+        "ATT: attitude hold and AP enhancements both function (normal mode). SAS: attitude hold is unavailable, but AP enhancements still function",
+        "They are identical settings with different labels",
+        "SAS provides more capability than ATT and is the normal mode",
+        "ATT disables the SAS servos entirely"
+      ],
+      "answer": [0],
+      "explanation": "When ATT is selected (the normal mode), attitude hold and AP enhancements both function. When SAS is selected instead, attitude hold is not available, but AP enhancements (like hover augmentation and gust alleviation) still function.",
+      "references": ["S-92 RFM Part 2 Sec I: AFCS (p.I-16-5)"],
+      "tags": ["afcs", "control-panel"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-163",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "What happens when the COUPLE button is pushed while the aircraft is already coupled?",
+      "options": [
+        "The aircraft decouples, although the CFD command bars remain visible on the PFD",
+        "It re-engages the coupled mode with a fresh reference",
+        "It has no effect while already coupled", "It switches from FD1 to FD2 control"
+      ],
+      "answer": [0],
+      "explanation": "The COUPLE button illuminates when at least one control axis is coupled. Pushing it while coupled decouples the aircraft, though the CFD command bars will still be present on the PFD.",
+      "references": ["S-92 RFM Part 2 Sec I: AFCS (p.I-16-5)"],
+      "tags": ["afcs", "control-panel", "cfd"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-164",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "Which Mode Select Panel (MSP) controls which Flight Director?",
+      "options": [
+        "The copilot's MSP controls the #1 Flight Director; the pilot's MSP controls the #2 Flight Director",
+        "The pilot's MSP controls the #1 Flight Director; the copilot's controls the #2",
+        "Each MSP only controls the flight director on its own side, with no cross-control",
+        "Both MSPs jointly control a single shared Flight Director"
+      ],
+      "answer": [0],
+      "explanation": "Somewhat counterintuitively, the copilot's MSP controls the #1 Flight Director, and the pilot's MSP controls the #2 Flight Director. The FD 1-2 button on the AFCS control panel selects which MSP is actually in control of the coupled functions.",
+      "references": ["S-92 RFM Part 2 Sec I: AFCS (p.I-16-6)"],
+      "tags": ["afcs", "msp", "flight-director"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-165",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "If the aircraft is banked beyond 30° in ATT mode and the trim release button is released, what does the AFCS do?",
+      "options": [
+        "It automatically attempts to return the aircraft to 30° angle of bank",
+        "It holds whatever bank angle the aircraft was at, however extreme",
+        "It disengages ATT mode entirely and reverts to SAS only",
+        "It commands a full wings-level recovery to 0° bank"
+      ],
+      "answer": [0],
+      "explanation": "In ATT mode, if the aircraft is rolled beyond 30° angle of bank when the cyclic trim release button is released, the AFCS will automatically attempt to return the aircraft to 30° of bank rather than holding the excessive angle.",
+      "references": ["S-92 RFM Part 2 Sec I: AFCS (p.I-16-6)"],
+      "tags": ["afcs", "att-mode"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-166",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "What must be turned ON for yaw pedal position hold, turn coordination, and heading hold to function?",
+      "options": ["The yaw trim button/actuator", "The collective trim button only", "Both AP1 and AP2 simultaneously", "The RESET button on the AFCS control panel"],
+      "answer": [0],
+      "explanation": "The yaw trim button turns the yaw trim actuator on or off, and yaw trim must be ON for yaw pedal position hold, turn coordination, and heading hold to function.",
+      "references": ["S-92 RFM Part 2 Sec I: AFCS (p.I-16-5)"],
+      "tags": ["afcs", "trim"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-167",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "What is used to provide radar altitude hold, and what other approach function does the same radar altimeter data support?",
+      "options": [
+        "The radar altimeter provides height above ground for radar altitude hold, and is also used in the ILS approach deceleration and level-off functions",
+        "The ADC alone provides both radar altitude hold and ILS deceleration data",
+        "GPS altitude is used instead of a radar altimeter for both functions",
+        "Radar altitude hold and ILS deceleration are unrelated to any shared sensor"
+      ],
+      "answer": [0],
+      "explanation": "The radar altimeter provides height above the ground to the AFCS, used for radar altitude hold, and this same data is also part of the ILS approach deceleration and level-off functions.",
+      "references": ["S-92 RFM Part 2 Sec I: AFCS (p.I-16-2)"],
+      "tags": ["afcs", "radar-altimeter"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-168",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "How does the FADEC data fed to the Coupled Flight Director (CFD) get used?",
+      "options": [
+        "To limit the collective axis when coupled to altitude or vertical speed modes",
+        "To directly control cyclic trim during an ILS approach",
+        "Only for engine instrument display, with no AFCS function",
+        "To determine when to engage secondary SAS"
+      ],
+      "answer": [0],
+      "explanation": "The FADECs provide torque, engine temperature, Np, Ng and fuel flow information to the CFD, which is used to limit the collective axis when the aircraft is coupled to altitude or vertical speed modes — preventing the CFD from commanding more power than the engines can safely deliver.",
+      "references": ["S-92 RFM Part 2 Sec I: AFCS (p.I-16-2)"],
+      "tags": ["afcs", "fadec", "cfd"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-169",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "At what ejector outlet temperature, and at what cabin ejector inlet temperature, will the heating system shut down?",
+      "options": [
+        "Outlet exceeding 180°F, or cabin inlet exceeding 80°F",
+        "Outlet exceeding 300°F, or cabin inlet exceeding 150°F",
+        "Only outlet temperature matters — inlet temperature has no shutdown threshold",
+        "Outlet exceeding 100°F, or cabin inlet exceeding 50°F"
+      ],
+      "answer": [0],
+      "explanation": "Each ejector has an overtemperature sensor that shuts the heating system down if ejector outlet temperature exceeds 180°F. The system will also shut down if cabin ejector inlet temperature exceeds 80°F.",
+      "references": ["S-92 RFM Part 2 Sec I: ENVIRONMENTAL SYSTEMS (p.I-17-1)"],
+      "tags": ["environmental", "heating"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-170",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "Why can the cockpit be heated above the normal 80°F maximum in certain situations?",
+      "options": [
+        "To allow for defogging the windshield", "To speed up engine warm-up on cold days", "It cannot be heated above 80°F under any circumstances", "Only to dry out wet avionics equipment"
+      ],
+      "answer": [0],
+      "explanation": "The cockpit can be heated above 80°F specifically to allow for defogging.",
+      "references": ["S-92 RFM Part 2 Sec I: ENVIRONMENTAL SYSTEMS (p.I-17-1)"],
+      "tags": ["environmental", "heating"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-171",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "With the AIR SRCE HEAT/START switch in the ENG position, where does heater bleed air actually come from?",
+      "options": [
+        "Whichever of the engine or APU is providing the highest pressure bleed air at the time",
+        "Always from the engines, never the APU, regardless of pressure",
+        "Always from the APU as the default, with the engine as backup only",
+        "From a dedicated auxiliary compressor unrelated to the engines or APU"
+      ],
+      "answer": [0],
+      "explanation": "With the switch in the ENG position, heater bleed air comes from whichever system — engine or APU — is providing the highest pressure bleed air. In the APU position, bleed air comes only from the APU.",
+      "references": ["S-92 RFM Part 2 Sec I: ENVIRONMENTAL SYSTEMS (p.I-17-1)"],
+      "tags": ["environmental", "heating", "bleed-air"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-172",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "Why does the heating system automatically shut down if the APU FIRE or #1 ENG FIRE warning light is on, when the APU is the bleed air source?",
+      "options": [
+        "To avoid ingesting smoke or flames into the heating system", "To conserve APU power for the fire extinguisher system", "It's an unrelated coincidental shutdown with no specific safety purpose", "To prevent overheating of the APU generator"
+      ],
+      "answer": [0],
+      "explanation": "When the APU is providing bleed air for heating, the heater shuts down if the APU FIRE or #1 ENG FIRE warning is on, specifically to avoid ingesting smoke or flames into the heating system and cabin/cockpit air supply.",
+      "references": ["S-92 RFM Part 2 Sec I: ENVIRONMENTAL SYSTEMS (p.I-17-1)"],
+      "tags": ["environmental", "heating", "fire-protection"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-173",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "Does the heating system automatically shut down during an APU start, and what should the crew do about the HEAT switch beforehand?",
+      "options": [
+        "It will not automatically shut down during an APU start — APU starts should not be attempted with the HEAT switch ON",
+        "It always shuts down automatically for both engine and APU starts, so switch position doesn't matter",
+        "It never shuts down for any type of start", "The HEAT switch has no relationship to APU starting at all"
+      ],
+      "answer": [0],
+      "explanation": "The heating system will momentarily shut down during a main engine start, but it will NOT automatically shut down during an APU start — so APU starts should not be attempted with the HEAT switch in the ON position.",
+      "references": ["S-92 RFM Part 2 Sec I: ENVIRONMENTAL SYSTEMS (p.I-17-1)"],
+      "tags": ["environmental", "heating", "apu"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-174",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "What is different about aircraft prior to serial number 10 regarding APU heat?",
+      "options": [
+        "They cannot use the APU as an inflight heat source", "They cannot use the APU for ground heat", "They have no APU-sourced heat capability at all, ground or flight", "They require a longer APU warm-up before heat is available"
+      ],
+      "answer": [0],
+      "explanation": "Aircraft prior to serial number 10 cannot use the APU as an inflight heat source (ground use is not restricted by this note).",
+      "references": ["S-92 RFM Part 2 Sec I: ENVIRONMENTAL SYSTEMS (p.I-17-1)"],
+      "tags": ["environmental", "heating", "apu"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-175",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "How many overhead gaspers does the air conditioning system use in the cabin versus the cockpit?",
+      "options": ["18 in the cabin, 4 in the cockpit", "4 in the cabin, 18 in the cockpit", "10 in the cabin, 10 in the cockpit", "2 in the cabin, 2 in the cockpit"],
+      "answer": [0],
+      "explanation": "The air conditioning system uses 18 overhead gaspers in the cabin and 4 overhead gaspers in the cockpit.",
+      "references": ["S-92 RFM Part 2 Sec I: ENVIRONMENTAL SYSTEMS (p.I-17-2)"],
+      "tags": ["environmental", "air-conditioning"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-176",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "What is the difference between AC mode and MAX AC mode on the air conditioning system?",
+      "options": [
+        "AC mode mixes fresh air with conditioned air; MAX AC mode closes the fresh air valves and recirculates compartment air through the condensers for maximum cooling",
+        "AC mode is for the cockpit only; MAX AC is for the cabin only",
+        "They are identical, just different display labels",
+        "MAX AC only operates one of the two compressors instead of both"
+      ],
+      "answer": [0],
+      "explanation": "In AC mode, fresh air is mixed with conditioned air. In MAX AC mode, the fresh air valves close and compartment air is recirculated through the condensers instead, for maximum cooling.",
+      "references": ["S-92 RFM Part 2 Sec I: ENVIRONMENTAL SYSTEMS (p.I-17-1)"],
+      "tags": ["environmental", "air-conditioning"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-177",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "How is avionics equipment cooled, and what happens if a primary cooling fan fails?",
+      "options": [
+        "Each avionics compartment has a primary and backup DC-driven fan; the backup automatically takes over if the primary fails",
+        "A single fan cools all avionics racks with no backup",
+        "Avionics racks rely solely on passive airflow from the cabin ventilation system",
+        "Cooling fans are only used on the ground; in flight, ram air alone cools the avionics"
+      ],
+      "answer": [0],
+      "explanation": "The left/right avionics racks and center console each have a primary and backup DC-driven cooling fan; the backup automatically takes over when a primary fan failure is sensed. Each MFD also has its own dedicated cooling fan.",
+      "references": ["S-92 RFM Part 2 Sec I: ENVIRONMENTAL SYSTEMS (p.I-17-2)"],
+      "tags": ["environmental", "avionics-cooling"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-178",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "Can the ventilation system be used independently of the heating system?",
+      "options": [
+        "Yes — the ventilation system can be used with or without the heating system on",
+        "No — ventilation only functions when heating is also selected",
+        "No — the two systems share a single combined switch with no independent options",
+        "Ventilation is only available on the ground, never in flight"
+      ],
+      "answer": [0],
+      "explanation": "The ventilation system can be used with or without the heating system on, drawing in fresh ambient air via separate fans and discharging it through cockpit overhead and cabin ceiling ducts.",
+      "references": ["S-92 RFM Part 2 Sec I: ENVIRONMENTAL SYSTEMS (p.I-17-1)"],
+      "tags": ["environmental", "ventilation"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
     }
   ]
 }

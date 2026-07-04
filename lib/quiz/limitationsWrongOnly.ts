@@ -1,9 +1,10 @@
 import { modelScopedKey } from "@/lib/models/storage";
 import { buildInitialQuizResumeSession, type QuizResumeSessionLike } from "@/lib/quiz/resumeSnapshot";
+import { shuffleOptionsForItem, type ShuffleableItem } from "@/lib/quiz/shuffleOptions";
 
 const SECTION_ID = "limitations" as const;
 
-type LimitationsWrongOnlyItem = {
+type LimitationsWrongOnlyItem = ShuffleableItem & {
   id?: string | number | null;
 };
 
@@ -11,10 +12,11 @@ type LimitationsWrongOnlySession<TItem> = {
   section: typeof SECTION_ID;
 } & QuizResumeSessionLike<TItem>;
 
-function buildLimitationsWrongOnlySession<TItem>(items: TItem[]): LimitationsWrongOnlySession<TItem> {
+function buildLimitationsWrongOnlySession<TItem extends ShuffleableItem>(items: TItem[]): LimitationsWrongOnlySession<TItem> {
+  const randomized = items.map(shuffleOptionsForItem);
   return {
     section: SECTION_ID,
-    ...buildInitialQuizResumeSession(items),
+    ...buildInitialQuizResumeSession(randomized),
   };
 }
 

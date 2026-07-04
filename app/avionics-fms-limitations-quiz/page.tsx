@@ -6,6 +6,7 @@ import { loadSectionOffline } from "@/lib/offline";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 import { modelScopedKey } from "@/lib/models/storage";
 import { buildInitialQuizResumeSession, buildValidatedQuizResumeSession, clearQuizResumeSnapshot, findLatestQuizResumeInfo, readQuizResumeSnapshot, writeQuizResumeSnapshot } from "@/lib/quiz/resumeSnapshot";
+import { shuffleOptionsForItem } from "@/lib/quiz/shuffleOptions";
 
 import TopBarBackButton from "@/components/TopBarBackButton";
 
@@ -52,18 +53,6 @@ function shuffle<T>(arr: T[]) {
 }
 
 function signature(items: QuizItem[]) { return items.map(it => it.id).join(","); }
-
-function shuffleOptionsForItem(it: QuizItem): QuizItem {
-  if (!Array.isArray(it.options) || !Array.isArray(it.answer)) return it;
-  const idx = it.options.map((_, i) => i);
-  for (let i = idx.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [idx[i], idx[j]] = [idx[j], idx[i]];
-  }
-  const options = idx.map(i => it.options[i]);
-  const answer = it.answer.map(a => idx.indexOf(a)).filter(n => n >= 0).sort((a,b)=>a-b);
-  return { ...it, options, answer };
-}
 
 export default function AvionicsFmsQuizStart() {
   const router = useRouter();
@@ -209,9 +198,10 @@ export default function AvionicsFmsQuizStart() {
     try {
       const data = JSON.parse(raw) as { items?: QuizItem[] };
       const items = Array.isArray(data.items) ? data.items : [];
+      const randomized = items.map(shuffleOptionsForItem);
       const session = {
         section: SECTION,
-        ...buildInitialQuizResumeSession(items),
+        ...buildInitialQuizResumeSession(randomized),
       };
       sessionStorage.setItem(SESSION_KEY, JSON.stringify(session));
       router.push("/avionics-fms-limitations-quiz/1");

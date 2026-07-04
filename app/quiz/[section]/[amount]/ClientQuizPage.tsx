@@ -9,6 +9,7 @@ import { loadAllQuestions } from "@/lib/loadAllQuestions";
 import { modelScopedKey } from "@/lib/models/storage";
 import { clearQuizOverrideSession, readQuizOverrideSession } from "@/lib/quiz/overrideSession";
 import { buildInitialQuizResumeSession, buildQuizResumeSession, getQuizResumeStorageKey, readQuizResumeSnapshot, writeQuizResumeSnapshot } from "@/lib/quiz/resumeSnapshot";
+import { shuffleOptionsForItem } from "@/lib/quiz/shuffleOptions";
 
 type ActiveVariantInfo = { id: string; productId?: string };
 type QuizItem = {
@@ -117,18 +118,6 @@ async function loadNetworkSectionItems(section: string, activeVariant: ActiveVar
 
   networkSectionItemsPromiseCache.set(key, promise);
   return promise;
-}
-
-function shuffleOptionsForItem(it: QuizItem): QuizItem {
-  if (!Array.isArray(it.options) || !Array.isArray(it.answer)) return it;
-  const idx = it.options.map((_, i) => i);
-  for (let i = idx.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [idx[i], idx[j]] = [idx[j], idx[i]];
-  }
-  const options = idx.map(i => it.options[i]);
-  const answer = it.answer.map(a => idx.indexOf(a)).filter(n => n >= 0).sort((a,b)=>a-b);
-  return { ...it, options, answer };
 }
 
 export default function ClientQuizPage({ section, amount }: { section: string; amount: number | null }) {

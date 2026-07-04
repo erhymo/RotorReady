@@ -6,6 +6,7 @@ import { loadSectionOffline } from "@/lib/offline";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 import { modelScopedKey } from "@/lib/models/storage";
 import { buildInitialQuizResumeSession, buildQuizResumeSession, clearQuizResumeSnapshot, findLatestQuizResumeInfo, getQuizResumeStorageKey, readQuizResumeSnapshot, writeQuizResumeSnapshot } from "@/lib/quiz/resumeSnapshot";
+import { shuffleOptionsForItem } from "@/lib/quiz/shuffleOptions";
 
 import TopBarBackButton from "@/components/TopBarBackButton";
 
@@ -60,19 +61,6 @@ function shuffle<T>(arr: T[]) {
 }
 
 function signature(items: any[]) { return items.map((it:any) => it.id).join(","); }
-
-function shuffleOptionsForItem<T extends { options?: string[]; answer?: number[] }>(it: T): T {
-  if (!Array.isArray((it as any).options) || !Array.isArray((it as any).answer)) return it;
-  const idx = (it as any).options.map((_: any, i: number) => i);
-  for (let i = idx.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [idx[i], idx[j]] = [idx[j], idx[i]];
-  }
-  const options = idx.map((i: number) => (it as any).options[i]);
-  const answer = (it as any).answer.map((a: number) => idx.indexOf(a)).filter((n: number) => n >= 0).sort((a:number,b:number)=>a-b);
-  return { ...(it as any), options, answer } as T;
-}
-
 
 export default function EngineSystemsStart() {
   const router = useRouter();
@@ -167,11 +155,12 @@ export default function EngineSystemsStart() {
     const raw = localStorage.getItem(key) || (activeVariant.id === "AW169" ? localStorage.getItem(`rr_progress_last_wrong:${SECTION_ID}`) : null);
     if (!raw) { alert("No wrong-answer set available. Complete a quiz first."); return; }
     try {
-      const data = JSON.parse(raw) as { items?: unknown[] };
+      const data = JSON.parse(raw) as { items?: Array<{ options?: string[]; answer?: number[] }> };
       const items = Array.isArray(data.items) ? data.items : [];
+      const randomized = items.map(shuffleOptionsForItem);
       const session = {
         section: SECTION,
-        ...buildInitialQuizResumeSession(items),
+        ...buildInitialQuizResumeSession(randomized),
       } as any;
       sessionStorage.setItem("engineq_session", JSON.stringify(session));
       router.push("/engine-systems-quiz/1");

@@ -6,6 +6,7 @@ import { loadQuestionsForSectionId } from "@/lib/loadAllQuestions";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 import { clearLimitationsWrongOnlyRawStorage, loadLimitationsWrongOnlySession } from "@/lib/quiz/limitationsWrongOnly";
 import { buildInitialQuizResumeSession, buildQuizResumeSession, clearQuizResumeSnapshot, findLatestQuizResumeInfo, getQuizResumeStorageKey, readQuizResumeSnapshot, writeQuizResumeSnapshot } from "@/lib/quiz/resumeSnapshot";
+import { shuffleOptionsForItem } from "@/lib/quiz/shuffleOptions";
 
 import TopBarBackButton from "@/components/TopBarBackButton";
 
@@ -48,19 +49,6 @@ function shuffle<T>(arr: T[]) {
 }
 
 function signature(items: QuizItem[]) { return items.map(it => it.id).join(","); }
-
-function shuffleOptionsForItem(it: QuizItem): QuizItem {
-  if (!Array.isArray(it.options) || !Array.isArray(it.answer)) return it;
-  const idx = it.options.map((_, i) => i);
-  for (let i = idx.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [idx[i], idx[j]] = [idx[j], idx[i]];
-  }
-  const options = idx.map(i => it.options[i]);
-  const answer = it.answer.map(a => idx.indexOf(a)).filter(n => n >= 0).sort((a,b)=>a-b);
-  return { ...it, options, answer };
-}
-
 
 export default function LimitationsStart() {
   const router = useRouter();

@@ -9,6 +9,85 @@ const OUT_PAGES_DIR = path.resolve('public/training/lights/pages');
 const OUT_MEMORY_DIR = path.resolve('public/training/lights/memory');
 const OUT_MODEL_DATA = path.resolve('public/model-data/AW189/training/lights');
 
+// Drops the left/right-margin chapter tab and the bottom footer (page/issue/rev
+// stamp), matching the S92/AW139 training-lights convention so procedure cards
+// show content only, no page furniture.
+const TAB_X_MAX = 55;
+const TAIL_DROP_PATTERNS = [/^Emerg-Malfunc Page\s*\d+/i, /^Issue\s*\d+(\s*Rev\s*\d+)?$/i, /^Rev\.\s*\d+$/i];
+
+// Distinguishes an actual chapter-tab label (short, all-caps, no digits/periods)
+// from body content that happens to sit near an edge, such as numbered step
+// markers ("1.", "2.") or footer page refs.
+function looksLikeTabLabel(text) {
+  if (/[0-9.]/.test(text)) return false;
+  if (text.length < 3 || text.length > 20) return false;
+  return text === text.toUpperCase() && /[A-Z]/.test(text);
+}
+
+function computeCrop(mupdfDoc, pageNumber) {
+  const page = mupdfDoc.loadPage(pageNumber - 1);
+  const bounds = page.getBounds();
+  const pageWidth = bounds[2] - bounds[0];
+  const pageHeight = bounds[3] - bounds[1];
+  const stext = page.toStructuredText('preserve-whitespace');
+  const json = JSON.parse(stext.asJSON());
+
+  const lines = [];
+  for (const block of json.blocks || []) {
+    if (block.type !== 'text') continue;
+    for (const line of block.lines || []) {
+      const text = (line.text || '').trim();
+      if (!text) continue;
+      lines.push({ text, x: line.bbox.x, y: line.bbox.y, w: line.bbox.w, h: line.bbox.h });
+    }
+  }
+
+  let leftTabRight = 0;
+  let rightTabLeft = pageWidth;
+  let keptBottom = 40;
+  let excludedTop = Infinity;
+  for (const l of lines) {
+    const inLeftZone = l.x + l.w <= TAB_X_MAX;
+    const inRightZone = l.x >= pageWidth - TAB_X_MAX;
+    if ((inLeftZone || inRightZone) && looksLikeTabLabel(l.text)) {
+      if (inLeftZone) leftTabRight = Math.max(leftTabRight, l.x + l.w);
+      if (inRightZone) rightTabLeft = Math.min(rightTabLeft, l.x);
+      continue;
+    }
+    if (TAIL_DROP_PATTERNS.some((re) => re.test(l.text))) {
+      if (l.y < excludedTop) excludedTop = l.y;
+      continue;
+    }
+    const bottom = l.y + l.h;
+    if (bottom > keptBottom) keptBottom = bottom;
+  }
+  const contentBottom = Number.isFinite(excludedTop)
+    ? Math.min(keptBottom + 14, excludedTop - 4)
+    : pageHeight - 8;
+  // Tab background rectangles extend a few points past their label text, so pad
+  // generously to avoid a hairline sliver of the tab color bleeding into the crop.
+  const left = leftTabRight > 0 ? leftTabRight + 8 : 0;
+  const right = rightTabLeft < pageWidth ? rightTabLeft - 8 : pageWidth;
+
+  return { left, top: 0, right, bottom: contentBottom };
+}
+
+function renderCroppedSvg(mupdfDoc, pageNumber, crop) {
+  const page = mupdfDoc.loadPage(pageNumber - 1);
+  const cropW = crop.right - crop.left;
+  const cropH = crop.bottom - crop.top;
+  const outBuf = new mupdf.Buffer();
+  const writer = new mupdf.DocumentWriter(outBuf, 'svg', '');
+  const device = writer.beginPage([0, 0, cropW, cropH]);
+  const matrix = [1, 0, 0, 1, -crop.left, -crop.top];
+  page.run(device, matrix);
+  writer.endPage();
+  writer.close();
+  let svgText = outBuf.asString();
+  svgText = svgText.replace(/<svg([^>]*)>/, (m, attrs) => `<svg${attrs}><rect width='100%' height='100%' fill='white'/>`);
+  return svgText;
+}
+
 // Target red warning lights for AW189 (ids mirror AW169 where applicable)
 const TARGETS = [
   { id: 'eng-fire-flight',  label: '1(2) ENG FIRE', anyHints: ['FLIGHT','IN FLIGHT'] },
@@ -333,6 +412,7 @@ async function main() {
   }
   const data = new Uint8Array(fs.readFileSync(QRH_PDF));
   const doc = await pdfjs.getDocument({ data, disableFontFace: true }).promise;
+  const mupdfDoc = mupdf.Document.openDocument(QRH_PDF);
 
   // Preload uppercase text per page for fast scanning
   const pagesUpper = [];
@@ -434,18 +514,24 @@ async function main() {
       found[t.id] = docPage;
       const printedNote = printed ? ` (printed ${printed})` : '';
       console.log(`[map] ${t.id} -> doc page ${docPage}${printedNote}`);
+
+      const crop = computeCrop(mupdfDoc, docPage);
       try {
         let rect = findMemoryRectFromRed(svgText, pageW, pageH);
         if (!rect) {
           const bands = parseBands(svgText);
           rect = findMemoryRect(bands, pageW, pageH);
         }
-        if (rect) memoryCrops[t.id] = normalizeRect(rect, pageW, pageH);
+        if (rect) {
+          const adjusted = { x: rect.x - crop.left, y: rect.y - crop.top, w: rect.w, h: rect.h };
+          memoryCrops[t.id] = normalizeRect(adjusted, crop.right - crop.left, crop.bottom - crop.top);
+        }
       } catch {}
-      // Write page SVG
+      // Write cropped page SVG (content only, no chapter tab or page footer)
+      const croppedSvgText = renderCroppedSvg(mupdfDoc, docPage, crop);
       fs.mkdirSync(OUT_PAGES_DIR, { recursive: true });
       const outSvg = path.join(OUT_PAGES_DIR, `aw189-${t.id}.svg`);
-      fs.writeFileSync(outSvg, svgText, 'utf8');
+      fs.writeFileSync(outSvg, croppedSvgText, 'utf8');
     } catch (e) {
       console.warn(`[render-failed] ${t.id} (doc ${docPage}):`, e?.message || e);
     }

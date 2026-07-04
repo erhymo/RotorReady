@@ -348,20 +348,55 @@ export const IFR_TOPICS: RuleTopic[] = [
   },
   {
     slug: "rnav-rnp-approaches",
-    title: "RNAV/RNP approaches (LNAV, LNAV/VNAV, LP, LPV)",
+    title: "RNAV/RNP approaches (LNAV, LNAV/VNAV, LP, LPV) — what's the difference?",
+    intro: "All four are flown off the same charted RNP APCH procedure, but they differ in what guidance they give you and what equipment that requires. The chart normally publishes minima for several of them on the same plate — always fly to the line that matches what your avionics are actually giving you, not the lowest one printed.",
     groups: [
       {
+        heading: "LNAV — lateral only, GPS",
         bullets: [
-          "RNP APCH LNAV: lateral guidance only, from GPS — a 2D non-precision approach flown to an MDA/MDH.",
-          "RNP APCH LNAV/VNAV (\"APV Baro\"): adds vertical guidance from certified barometric VNAV (or SBAS) to the GPS lateral guidance — a 3D approach flown to a DA/DH; the BaroVNAV portion is only usable within a promulgated aerodrome temperature range.",
-          "RNP APCH LP: lateral guidance only, using GPS plus SBAS (e.g. EGNOS) instead of basic GPS — still a 2D, MDA/MDH approach, but more precise laterally than LNAV.",
-          "RNP APCH LPV (\"APV SBAS\"): GPS plus SBAS for both lateral and vertical guidance — a 3D approach flown to a DA/DH, needing a FAS (Final Approach Segment) data block; not usable with basic GNSS receivers that lack SBAS.",
-          "The approach must be retrievable by its charted procedure name from the aircraft's navigation database and flown exactly as published — if a waypoint is missing, revert to conventional navaids if available.",
-          "Correct altimeter setting is critical for any BaroVNAV, LNAV, or other approach relying on barometric vertical information.",
+          "Guidance: lateral (course) only, from basic GPS. No electronic vertical guidance.",
+          "Dimension: 2D non-precision approach.",
+          "Minima type: MDA/MDH — a floor you may level off at and continue toward the runway.",
+          "Equipment: any basic IFR GPS with an RNP APCH-capable database; the most widely usable of the four.",
+        ],
+      },
+      {
+        heading: "LNAV/VNAV — lateral GPS + certified vertical (\"APV Baro\")",
+        bullets: [
+          "Guidance: lateral from GPS, vertical from certified barometric VNAV (or SBAS where available).",
+          "Dimension: 3D approach — flown as a continuous descent, like an ILS.",
+          "Minima type: DA/DH — a single go/no-go point, not a floor.",
+          "Equipment: needs a certified BaroVNAV (or SBAS) capability, not just basic GPS; usable only within the aerodrome's promulgated temperature range, since cold temperatures distort barometric altitude.",
+        ],
+      },
+      {
+        heading: "LP — lateral only, GPS + SBAS",
+        bullets: [
+          "Guidance: lateral only, but from GPS augmented by SBAS (e.g. EGNOS in Europe, WAAS in the US) instead of basic GPS.",
+          "Dimension: 2D non-precision approach, same as LNAV.",
+          "Minima type: MDA/MDH.",
+          "Equipment: needs an SBAS-capable receiver; more laterally precise than plain LNAV, but still no vertical guidance — used where terrain/obstacles make publishing a vertical path (LPV) impractical.",
+        ],
+      },
+      {
+        heading: "LPV — lateral + vertical, GPS + SBAS (\"APV SBAS\")",
+        bullets: [
+          "Guidance: both lateral and vertical from GPS + SBAS.",
+          "Dimension: 3D approach, flown like an ILS, down to a DA/DH.",
+          "Minima type: DA/DH, often close to Cat I ILS minima at equipped runways.",
+          "Equipment: needs an SBAS-capable receiver and a FAS (Final Approach Segment) data block; not usable with a basic GPS receiver that lacks SBAS.",
+        ],
+      },
+      {
+        heading: "In practice",
+        bullets: [
+          "Rough precision/capability order: LNAV (least precise, most widely available) → LP → LNAV/VNAV → LPV (most precise, needs the most capable avionics).",
+          "The approach must be selected and flown exactly as published from the aircraft's navigation database — if a required waypoint is missing, revert to LNAV or a conventional navaid approach if available, rather than improvising.",
+          "Correct altimeter setting is critical for LNAV/VNAV (BaroVNAV) and for reading LNAV minima correctly — it is not needed for the vertical path itself on LPV, which is SBAS/GPS-based.",
         ],
       },
     ],
-    reference: "ICAO Doc 9613 (PBN Manual) / EASA AMC – RNP APCH approach types",
+    reference: "ICAO Doc 9613 (PBN Manual) / EASA AMC20-27, 28 – RNP APCH approach types",
   },
   {
     slug: "approach-ban-rvr",

@@ -68,6 +68,19 @@ platform :ios do
     UI.success("Connected to App Store Connect for #{app.name} (#{app.bundle_id})")
   end
 
+  desc "Print current App Store Connect version states (read-only)"
+  lane :status do
+    Spaceship::ConnectAPI.token = app_store_connect_token
+    app = Spaceship::ConnectAPI::App.find(required_env("APP_IDENTIFIER"))
+    UI.user_error!("No App Store Connect app found for #{required_env('APP_IDENTIFIER')}") if app.nil?
+
+    versions = app.get_app_store_versions(filter: { platform: "IOS" }, includes: "build")
+    versions.first(5).each do |v|
+      build_str = v.build ? "build #{v.build.version}" : "no build attached"
+      UI.important("Version #{v.version_string} — state: #{v.app_store_state} — #{build_str}")
+    end
+  end
+
   desc "Sync Capacitor iOS assets"
   lane :sync do
     sh("cd .. && env -u GEM_PATH -u GEM_HOME npm run ios:sync")

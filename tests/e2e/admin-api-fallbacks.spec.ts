@@ -13,6 +13,9 @@ test('admin APIs return fallback payloads instead of 500 when Firebase Admin is 
   const traffic = await trafficRes.json();
   expect(traffic.metrics).toEqual({
     totalTrackedUsers: 0,
+    last1Day: { appOpens: 0, uniqueVisitors: 0 },
+    last7Days: { appOpens: 0, uniqueVisitors: 0 },
+    last30Days: { appOpens: 0, uniqueVisitors: 0 },
     activeLast7Days: 0,
     activeLast30Days: 0,
     activeToday: 0,

@@ -41,9 +41,9 @@ for (const scenario of CASES) {
 
     const row = page.locator('li', { hasText: scenario.sectionTitle });
     await expect(row).toBeVisible({ timeout: 15000 });
-    await row.getByRole('button', { name: /last ned|oppdater/i }).click();
+    await row.getByRole('button', { name: /download|update/i }).click();
 
-    await expect(row.getByText('Lagret lokalt')).toBeVisible({ timeout: 15000 });
+    await expect(row.getByText('Stored locally')).toBeVisible({ timeout: 15000 });
     await expect
       .poll(() => REQUIRED_WARM_PATHS.every((path) => seenPaths.has(path)), { timeout: 15000 })
       .toBe(true);

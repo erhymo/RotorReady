@@ -3,7 +3,7 @@ import { test, expect } from '@playwright/test';
 test('flag feedback keeps text when typing f and F', async ({ page }) => {
   await page.goto('/limitations-quiz');
 
-  await page.getByRole('button', { name: /^start$/i }).first().click();
+  await page.getByRole('button', { name: /^start quiz$/i }).first().click();
 
   const flagButton = page.getByRole('button', { name: /flag/i });
   await expect(flagButton).toBeVisible();

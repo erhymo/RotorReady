@@ -6,8 +6,12 @@
     "system": "ENGINE",
     "description": "Engine bay fire warning covering start-up, hover/takeoff and in-flight procedures.",
     "pageImage": "/training/lights/pages/h125-eng-fire.svg",
-    "references": ["RFM H125 Section 3.6 – p. 3-1"],
-    "modelIds": ["H125_AS350_B3_2B1"]
+    "references": [
+      "RFM H125 Section 3.6 – p. 3-1"
+    ],
+    "modelIds": [
+      "H125_AS350_B3_2B1"
+    ]
   },
   {
     "id": "gov-failure",
@@ -16,8 +20,12 @@
     "system": "ENGINE",
     "description": "Major governor failure detected. Emergency mode is engaged.",
     "pageImage": "/training/lights/pages/h125-gov.svg",
-    "references": ["RFM H125 Section 3.6 – p. 3-2"],
-    "modelIds": ["H125_AS350_B3_2B1"]
+    "references": [
+      "RFM H125 Section 3.6 – p. 3-2"
+    ],
+    "modelIds": [
+      "H125_AS350_B3_2B1"
+    ]
   },
   {
     "id": "eng-oil-pressure",
@@ -26,8 +34,12 @@
     "system": "ENGINE",
     "description": "Engine oil pressure warning flow with immediate actions.",
     "pageImage": "/training/lights/pages/h125-eng-oil-press.svg",
-    "references": ["RFM H125 Section 3.6 – p. 3-2"],
-    "modelIds": ["H125_AS350_B3_2B1"]
+    "references": [
+      "RFM H125 Section 3.6 – p. 3-2"
+    ],
+    "modelIds": [
+      "H125_AS350_B3_2B1"
+    ]
   },
   {
     "id": "twt-grip",
@@ -36,8 +48,12 @@
     "system": "ENGINE",
     "description": "Twist grip out of FLIGHT position warning.",
     "pageImage": "/training/lights/pages/h125-twt-grip.svg",
-    "references": ["RFM H125 Section 3.6 – p. 3-2"],
-    "modelIds": ["H125_AS350_B3_2B1"]
+    "references": [
+      "RFM H125 Section 3.6 – p. 3-2"
+    ],
+    "modelIds": [
+      "H125_AS350_B3_2B1"
+    ]
   },
   {
     "id": "hydr-failure",
@@ -46,8 +62,12 @@
     "system": "HYDRAULIC",
     "description": "Loss or low hydraulic pressure warning procedure.",
     "pageImage": "/training/lights/pages/h125-hydr.svg",
-    "references": ["RFM H125 Section 3.6 – p. 3-4"],
-    "modelIds": ["H125_AS350_B3_2B1"]
+    "references": [
+      "RFM H125 Section 3.6 – p. 3-4"
+    ],
+    "modelIds": [
+      "H125_AS350_B3_2B1"
+    ]
   },
   {
     "id": "gov-caution",
@@ -56,8 +76,12 @@
     "system": "ENGINE",
     "description": "Minor FADEC failure indications.",
     "pageImage": "/training/lights/pages/h125-gov-caution.svg",
-    "references": ["RFM H125 Section 3.6 – p. 3-3"],
-    "modelIds": ["H125_AS350_B3_2B1"]
+    "references": [
+      "RFM H125 Section 3.6 – p. 3-3"
+    ],
+    "modelIds": [
+      "H125_AS350_B3_2B1"
+    ]
   },
   {
     "id": "eng-chip",
@@ -66,8 +90,12 @@
     "system": "ENGINE",
     "description": "Metal particles detected in engine oil circuit.",
     "pageImage": "/training/lights/pages/h125-eng-chip.svg",
-    "references": ["RFM H125 Section 3.6 – p. 3-3"],
-    "modelIds": ["H125_AS350_B3_2B1"]
+    "references": [
+      "RFM H125 Section 3.6 – p. 3-3"
+    ],
+    "modelIds": [
+      "H125_AS350_B3_2B1"
+    ]
   },
   {
     "id": "mgb-pressure",
@@ -76,8 +104,12 @@
     "system": "TRANSMISSION",
     "description": "Main gearbox low oil pressure warning.",
     "pageImage": "/training/lights/pages/h125-mgb-p.svg",
-    "references": ["RFM H125 Section 3.6 – p. 3-3"],
-    "modelIds": ["H125_AS350_B3_2B1"]
+    "references": [
+      "RFM H125 Section 3.6 – p. 3-3"
+    ],
+    "modelIds": [
+      "H125_AS350_B3_2B1"
+    ]
   },
   {
     "id": "mgb-temp",
@@ -86,8 +118,12 @@
     "system": "TRANSMISSION",
     "description": "Main gearbox oil temperature caution flow.",
     "pageImage": "/training/lights/pages/h125-mgb-temp.svg",
-    "references": ["RFM H125 Section 3.6 – p. 3-3"],
-    "modelIds": ["H125_AS350_B3_2B1"]
+    "references": [
+      "RFM H125 Section 3.6 – p. 3-3"
+    ],
+    "modelIds": [
+      "H125_AS350_B3_2B1"
+    ]
   },
   {
     "id": "mgb-chip",
@@ -96,8 +132,12 @@
     "system": "TRANSMISSION",
     "description": "Metal particles detected in main gearbox oil circuit.",
     "pageImage": "/training/lights/pages/h125-mgb-chip.svg",
-    "references": ["RFM H125 Section 3.6 – p. 3-3"],
-    "modelIds": ["H125_AS350_B3_2B1"]
+    "references": [
+      "RFM H125 Section 3.6 – p. 3-3"
+    ],
+    "modelIds": [
+      "H125_AS350_B3_2B1"
+    ]
   },
   {
     "id": "tgb-chip",
@@ -106,10 +146,13 @@
     "system": "TRANSMISSION",
     "description": "Tail gearbox chip light advisory.",
     "pageImage": "/training/lights/pages/h125-tgb-chip.svg",
-    "references": ["RFM H125 Section 3.6 – p. 3-3"],
-    "modelIds": ["H125_AS350_B3_2B1"]
-  }
-  ,
+    "references": [
+      "RFM H125 Section 3.6 – p. 3-3"
+    ],
+    "modelIds": [
+      "H125_AS350_B3_2B1"
+    ]
+  },
   {
     "id": "batt-temp",
     "name": "BATT TEMP",
@@ -117,10 +160,13 @@
     "system": "ELECTRICAL",
     "description": "Battery temperature above maximum.",
     "pageImage": "/training/lights/pages/h125-batt-temp.svg",
-    "references": ["RFM H125 Section 3.6 – p. 3-4"],
-    "modelIds": ["H125_AS350_B3_2B1"]
-  }
-,
+    "references": [
+      "RFM H125 Section 3.6 – p. 3-4"
+    ],
+    "modelIds": [
+      "H125_AS350_B3_2B1"
+    ]
+  },
   {
     "id": "gene",
     "name": "GENE",
@@ -128,9 +174,10 @@
     "system": "ELECTRICAL",
     "description": "DC generator offline.",
     "pageImage": "/training/lights/pages/h125-gene.svg",
-    "modelIds": ["H125_AS350_B3_2B1"]
-  }
-,
+    "modelIds": [
+      "H125_AS350_B3_2B1"
+    ]
+  },
   {
     "id": "inv",
     "name": "INV",
@@ -138,11 +185,10 @@
     "system": "ELECTRICAL",
     "description": "AC power supply failure (inverter).",
     "pageImage": "/training/lights/pages/h125-inv.svg",
-    "modelIds": ["H125_AS350_B3_2B1"]
-  }
-
-
-,
+    "modelIds": [
+      "H125_AS350_B3_2B1"
+    ]
+  },
   {
     "id": "fuel",
     "name": "FUEL",
@@ -150,9 +196,10 @@
     "system": "FUEL",
     "description": "Fuel quantity < 48 kg (106 lb).",
     "pageImage": "/training/lights/pages/h125-fuel.svg",
-    "modelIds": ["H125_AS350_B3_2B1"]
-  }
-,
+    "modelIds": [
+      "H125_AS350_B3_2B1"
+    ]
+  },
   {
     "id": "fuel-p",
     "name": "FUEL P",
@@ -160,11 +207,10 @@
     "system": "FUEL",
     "description": "Low fuel pressure.",
     "pageImage": "/training/lights/pages/h125-fuel-p.svg",
-    "modelIds": ["H125_AS350_B3_2B1"]
-  }
-
-
-,
+    "modelIds": [
+      "H125_AS350_B3_2B1"
+    ]
+  },
   {
     "id": "fuel-filt",
     "name": "FUEL FILT",
@@ -172,9 +218,10 @@
     "system": "FUEL",
     "description": "Fuel filter clogged.",
     "pageImage": "/training/lights/pages/h125-fuel-filt.svg",
-    "modelIds": ["H125_AS350_B3_2B1"]
-  }
-,
+    "modelIds": [
+      "H125_AS350_B3_2B1"
+    ]
+  },
   {
     "id": "pitot",
     "name": "PITOT",
@@ -182,9 +229,10 @@
     "system": "ELECTRICAL",
     "description": "Pitot heating not operative.",
     "pageImage": "/training/lights/pages/h125-pitot.svg",
-    "modelIds": ["H125_AS350_B3_2B1"]
-  }
-,
+    "modelIds": [
+      "H125_AS350_B3_2B1"
+    ]
+  },
   {
     "id": "horn",
     "name": "HORN",
@@ -192,10 +240,10 @@
     "system": "ELECTRICAL",
     "description": "Aural warning not operative.",
     "pageImage": "/training/lights/pages/h125-horn.svg",
-    "modelIds": ["H125_AS350_B3_2B1"]
-  }
-
-,
+    "modelIds": [
+      "H125_AS350_B3_2B1"
+    ]
+  },
   {
     "id": "door",
     "name": "DOOR",
@@ -203,7 +251,39 @@
     "system": "AIRFRAME",
     "description": "Cargo hold door(s) unlocked.",
     "pageImage": "/training/lights/pages/h125-door.svg",
-    "modelIds": ["H125_AS350_B3_2B1"]
+    "modelIds": [
+      "H125_AS350_B3_2B1"
+    ]
+  },
+  {
+    "id": "batt",
+    "name": "BATT",
+    "severity": "caution",
+    "system": "ELECTRICAL",
+    "description": "Battery off line.",
+    "procedure": [
+      {
+        "type": "action",
+        "text": "1. [EXT PWR BATT] or [BAT/EPU] ..................................... CHECK ON."
+      },
+      {
+        "type": "action",
+        "text": "2. If OFF: [EXT PWR BATT] or [BAT/EPU] ......................... ON, then CHECK voltage on VEMD."
+      },
+      {
+        "type": "action",
+        "text": "3. If BATT caution remains ON: LAND AS SOON AS PRACTICABLE."
+      },
+      {
+        "type": "action",
+        "text": "4. If BATT caution goes OFF: CONTINUE FLIGHT."
+      }
+    ],
+    "references": [
+      "RFM H125 Section 3.6 - Electrical Alarms"
+    ],
+    "modelIds": [
+      "H125_AS350_B3_2B1"
+    ]
   }
-
 ]

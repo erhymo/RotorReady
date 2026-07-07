@@ -41,7 +41,7 @@ test('generic wrong-only uses saved wrong-set and clears override session after 
     .filter({ has: page.getByText('Reuse the last wrong-answer set for focused practice.', { exact: true }) });
   await expect(wrongOnlyCard).toBeVisible();
   await expect(async () => {
-    await wrongOnlyCard.getByRole('button', { name: /^start$/i }).click();
+    await wrongOnlyCard.getByRole('button', { name: /practice wrong answers/i }).click();
     await expect(page).toHaveURL(/\/quiz\/normal_procedures\/all$/, { timeout: 5000 });
   }).toPass({ timeout: 15000 });
   await expect(page.getByText(/Seeded wrong-only question [12]\?/)).toBeVisible();
@@ -84,7 +84,7 @@ test('generic wrong-only prefers rr_wrong_history over last-wrong fallback', asy
     .filter({ has: page.getByText('Reuse the last wrong-answer set for focused practice.', { exact: true }) });
   await expect(wrongOnlyCard).toBeVisible();
   await expect(async () => {
-    await wrongOnlyCard.getByRole('button', { name: /^start$/i }).click();
+    await wrongOnlyCard.getByRole('button', { name: /practice wrong answers/i }).click();
     await expect(page).toHaveURL(/\/quiz\/normal_procedures\/all$/, { timeout: 5000 });
   }).toPass({ timeout: 15000 });
   await expect(page.getByText('Question 1 / 1').first()).toBeVisible();

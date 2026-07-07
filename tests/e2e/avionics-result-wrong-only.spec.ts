@@ -55,7 +55,7 @@ test('avionics result page persists wrong-only set and restarts from missed item
   await expect(wrongOnlyCard).toBeVisible();
 
   await expect(async () => {
-    await wrongOnlyCard.getByRole('button', { name: /^start$/i }).click();
+    await wrongOnlyCard.getByRole('button', { name: /practice wrong answers/i }).click();
     await expect(page).toHaveURL(/\/avionics-fms-limitations-quiz\/1$/, { timeout: 5000 });
   }).toPass({ timeout: 15000 });
 

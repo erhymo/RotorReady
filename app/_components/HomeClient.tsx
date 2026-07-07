@@ -171,6 +171,24 @@ function Bar(props: { href: string; title: string; description: string; tone?: "
 		            icon={<BookIcon className="h-4 w-4" />}
 		          />
 		        )}
+		        {activeVariant?.id === "AW139" && (
+		          <Bar
+		            href="/aw139/quick-reference"
+		            title="Quick Reference"
+		            description="Key AW139 RFM limitations and numbers."
+		            tone="slate"
+		            icon={<BookIcon className="h-4 w-4" />}
+		          />
+		        )}
+		        {activeVariant?.id === "AW189" && (
+		          <Bar
+		            href="/aw189/quick-reference"
+		            title="Quick Reference"
+		            description="Key AW189 QRH/RFM limitations and numbers."
+		            tone="slate"
+		            icon={<BookIcon className="h-4 w-4" />}
+		          />
+		        )}
 		      </section>
 
 		      {showPlanningTools && (

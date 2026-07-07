@@ -33,7 +33,7 @@ const GRID: Slot[][] = [
   [
     { label: "FUEL\nP", id: "fuel-p", severity: "caution" },
     { empty: true }, // TRIM FAIL - removed
-    { label: "BATT", severity: "caution" }, // shown but no procedure mapping (yet)
+    { label: "BATT", id: "batt", severity: "caution" },
     { label: "HORN", id: "horn", severity: "caution" },
     { label: "DOOR", id: "door", severity: "caution" },
     { label: "MGB\nCHIP", id: "mgb-chip", severity: "caution" },

@@ -60,7 +60,7 @@ for (const scenario of CASES) {
     await expect(page.getByText('1 total')).toBeVisible({ timeout: 15000 });
 
     await expect(async () => {
-      await page.getByRole('button', { name: /^start$/i }).first().click();
+      await page.getByRole('button', { name: /^start quiz$/i }).first().click();
       await expect.poll(() => page.evaluate(() => window.location.pathname)).toBe(`${scenario.path}/1`);
     }).toPass({ timeout: 15000 });
 

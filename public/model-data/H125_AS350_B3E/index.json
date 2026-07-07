@@ -5,25 +5,25 @@
       "id": "description-and-systems",
       "title": "Description And Systems",
       "file": "sections/description-and-systems.json",
-      "count": 37
+      "count": 60
     },
     {
       "id": "performance",
       "title": "Performance",
       "file": "sections/performance.json",
-      "count": 10
+      "count": 16
     },
     {
       "id": "limitations",
       "title": "Limitations",
       "file": "sections/limitations.json",
-      "count": 41
+      "count": 59
     },
     {
       "id": "emergency_procedures",
       "title": "Emergency Procedures",
       "file": "sections/emergency_procedures.json",
-      "count": 53
+      "count": 74
     },
     {
       "id": "normal_procedures",

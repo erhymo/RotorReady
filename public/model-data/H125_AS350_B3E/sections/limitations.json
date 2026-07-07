@@ -1304,6 +1304,548 @@
       "sectionId": "limitations",
       "type": "single",
       "source": "RFM AS350 Section 2"
+    },
+    {
+      "id": "H125-LIM-042",
+      "question": "In-flight intentional VEMD complete cut-off (lane 1 and 2 together) is:",
+      "options": [
+        "Permitted for training only",
+        "Prohibited",
+        "Permitted above 1000 ft AGL",
+        "Required before practice autorotation"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Section 2.1 lists in-flight intentional VEMD complete cut-off (lane 1 + 2) among the forbidden operations, alongside aerobatics and in-flight power reduction via the twist grip outside training/emergency use.",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM AS350 Section 2.1",
+      "reference": "p. 2-1",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM AS350 Section 2.1 – p. 2-1",
+        "p. 2-1",
+        "RFM AS350 Section 2.1"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM AS350 Section 2.1"
+    },
+    {
+      "id": "H125-LIM-043",
+      "question": "Flight in falling snow without the optional sand filter installed is:",
+      "options": [
+        "Permitted below 1000 ft",
+        "Not permitted",
+        "Permitted in daylight only",
+        "Permitted with reduced VNE"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Section 2.1 forbids flight in falling snow unless the optional sand filter is installed — a separate restriction from the icing/freezing rain prohibition.",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM AS350 Section 2.1",
+      "reference": "p. 2-1",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM AS350 Section 2.1 – p. 2-1",
+        "p. 2-1",
+        "RFM AS350 Section 2.1"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM AS350 Section 2.1"
+    },
+    {
+      "id": "H125-LIM-044",
+      "question": "What is the minimum internal weight for flight, takeoff and landing?",
+      "options": [
+        "1150 kg",
+        "1310 kg",
+        "1400 kg",
+        "1500 kg"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Section 2.2 gives the minimum internal weight for flight, takeoff and landing as 1310 kg (2888 lb).",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM AS350 Section 2.2",
+      "reference": "p. 2-2",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM AS350 Section 2.2 – p. 2-2",
+        "p. 2-2",
+        "RFM AS350 Section 2.2"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM AS350 Section 2.2"
+    },
+    {
+      "id": "H125-LIM-045",
+      "question": "With doors closed and OAT below -30 °C, how must the calculated power-on VNE be adjusted?",
+      "options": [
+        "No adjustment required",
+        "Reduced by 10 kt",
+        "Reduced by 20 kt",
+        "Increased by 10 kt"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Section 2.3 requires the calculated power-on VNE to be reduced by 10 kt (18.5 km/h) when OAT is below -30 °C, with doors closed.",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM AS350 Section 2.3",
+      "reference": "p. 2-3",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM AS350 Section 2.3 – p. 2-3",
+        "p. 2-3",
+        "RFM AS350 Section 2.3"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM AS350 Section 2.3"
+    },
+    {
+      "id": "H125-LIM-046",
+      "question": "With doors closed and OAT below -20 °C, how must the calculated power-off VNE be adjusted?",
+      "options": [
+        "Reduced by 10 kt, no minimum",
+        "Reduced by 20 kt, with a minimum of 65 kt",
+        "Reduced by 30 kt, no minimum",
+        "No adjustment required"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Section 2.3 requires the calculated power-off VNE to be reduced by 20 kt (37 km/h) when OAT is below -20 °C, down to a minimum of 65 kt (120 km/h).",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM AS350 Section 2.3",
+      "reference": "p. 2-3",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM AS350 Section 2.3 – p. 2-3",
+        "p. 2-3",
+        "RFM AS350 Section 2.3"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM AS350 Section 2.3"
+    },
+    {
+      "id": "H125-LIM-047",
+      "question": "Excluding emergencies and failures, what is the maximum speed for a running landing?",
+      "options": [
+        "20 kt",
+        "30 kt",
+        "40 kt",
+        "50 kt"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Section 2.3 limits running landings (excluding emergencies and failures) to a maximum speed of 40 kt (74 km/h).",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM AS350 Section 2.3",
+      "reference": "p. 2-6",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM AS350 Section 2.3 – p. 2-6",
+        "p. 2-6",
+        "RFM AS350 Section 2.3"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM AS350 Section 2.3"
+    },
+    {
+      "id": "H125-LIM-048",
+      "question": "When is it prohibited to use the rotor brake?",
+      "options": [
+        "After engine shutdown",
+        "Prior to engine shutdown",
+        "During autorotation training only",
+        "Above 50% NR only"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Section 2.4 Main Rotor Limitations prohibits using the rotor brake prior to engine shutdown.",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM AS350 Section 2.4",
+      "reference": "p. 2-7",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM AS350 Section 2.4 – p. 2-7",
+        "p. 2-7",
+        "RFM AS350 Section 2.4"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM AS350 Section 2.4"
+    },
+    {
+      "id": "H125-LIM-049",
+      "question": "What is the minimum time required between two consecutive rotor brake applications?",
+      "options": [
+        "1 min",
+        "2 min",
+        "5 min",
+        "10 min"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Section 2.4 requires a minimum of 5 minutes between two consecutive rotor brake applications.",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM AS350 Section 2.4",
+      "reference": "p. 2-7",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM AS350 Section 2.4 – p. 2-7",
+        "p. 2-7",
+        "RFM AS350 Section 2.4"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM AS350 Section 2.4"
+    },
+    {
+      "id": "H125-LIM-050",
+      "question": "Takeoff power use is limited to a maximum airspeed of:",
+      "options": [
+        "30 KIAS",
+        "40 KIAS",
+        "50 KIAS",
+        "60 KIAS"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Section 2.4 Takeoff Power limits use of takeoff power to a maximum airspeed of 40 KIAS.",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM AS350 Section 2.4",
+      "reference": "p. 2-7",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM AS350 Section 2.4 – p. 2-7",
+        "p. 2-7",
+        "RFM AS350 Section 2.4"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM AS350 Section 2.4"
+    },
+    {
+      "id": "H125-LIM-051",
+      "question": "On this helicopter, 100% torque (TRQ) corresponds to:",
+      "options": [
+        "535 kW at NR 386 rpm",
+        "480 kW at NR 394 rpm",
+        "600 kW at NR 400 rpm",
+        "450 kW at NR 375 rpm"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Section 2.4 Main Transmission Limitations notes that 100% torque corresponds to 535 kW at NR 386 rpm.",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM AS350 Section 2.4",
+      "reference": "p. 2-8",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM AS350 Section 2.4 – p. 2-8",
+        "p. 2-8",
+        "RFM AS350 Section 2.4"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM AS350 Section 2.4"
+    },
+    {
+      "id": "H125-LIM-052",
+      "question": "Using 5 cSt engine oil, what is the minimum oil temperature before power application?",
+      "options": [
+        "-10 °C",
+        "-5 °C",
+        "0 °C",
+        "+10 °C"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Section 2.4 Oil Temperature Limitations sets the minimum oil temperature before power application at 0 °C for 5 cSt oil (or -10 °C for 3 to 3.9 cSt oil).",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM AS350 Section 2.4",
+      "reference": "p. 2-9",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM AS350 Section 2.4 – p. 2-9",
+        "p. 2-9",
+        "RFM AS350 Section 2.4"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM AS350 Section 2.4"
+    },
+    {
+      "id": "H125-LIM-053",
+      "question": "What is the maximum load permitted in the RH cargo compartment?",
+      "options": [
+        "80 kg",
+        "100 kg",
+        "120 kg",
+        "150 kg"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Section 2.5 Baggage Compartment Load Limitations sets the RH cargo compartment maximum at 100 kg (220 lb), with a maximum distributed load of 300 kg/m².",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM AS350 Section 2.5",
+      "reference": "p. 2-11",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM AS350 Section 2.5 – p. 2-11",
+        "p. 2-11",
+        "RFM AS350 Section 2.5"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM AS350 Section 2.5"
+    },
+    {
+      "id": "H125-LIM-054",
+      "question": "What is the maximum load permitted in the LH cargo compartment?",
+      "options": [
+        "100 kg",
+        "120 kg",
+        "150 kg",
+        "180 kg"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Section 2.5 Baggage Compartment Load Limitations sets the LH cargo compartment maximum at 120 kg (264 lb).",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM AS350 Section 2.5",
+      "reference": "p. 2-11",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM AS350 Section 2.5 – p. 2-11",
+        "p. 2-11",
+        "RFM AS350 Section 2.5"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM AS350 Section 2.5"
+    },
+    {
+      "id": "H125-LIM-055",
+      "question": "What is the maximum load permitted on the rear cabin floor?",
+      "options": [
+        "150 kg",
+        "250 kg",
+        "310 kg",
+        "400 kg"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Section 2.5 Cabin Compartment Load Limitations sets the rear cabin floor maximum at 310 kg (682 lb), with a maximum distributed load of 300 kg/m².",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM AS350 Section 2.5",
+      "reference": "p. 2-11",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM AS350 Section 2.5 – p. 2-11",
+        "p. 2-11",
+        "RFM AS350 Section 2.5"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM AS350 Section 2.5"
+    },
+    {
+      "id": "H125-LIM-056",
+      "question": "After a second failed engine start attempt, how long must the starter cool before a further attempt?",
+      "options": [
+        "1 min",
+        "5 min",
+        "15 min",
+        "30 min"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "Section 2.5 Engine Starter/Generator limits give a 30-minute cooling period after a second failed start attempt, versus 1 minute cooling between the first two attempts.",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM AS350 Section 2.5",
+      "reference": "p. 2-11",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM AS350 Section 2.5 – p. 2-11",
+        "p. 2-11",
+        "RFM AS350 Section 2.5"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM AS350 Section 2.5"
+    },
+    {
+      "id": "H125-LIM-057",
+      "question": "What is the minimum number of radio/audio headsets required on board?",
+      "options": [
+        "One",
+        "Two",
+        "Three",
+        "Four"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Section 2.5 Mandatory Equipment requires at least two adequate radio/audio headsets on board — one worn by the pilot to monitor ICS audio warnings, plus a spare.",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM AS350 Section 2.5",
+      "reference": "p. 2-12",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM AS350 Section 2.5 – p. 2-12",
+        "p. 2-12",
+        "RFM AS350 Section 2.5"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM AS350 Section 2.5"
+    },
+    {
+      "id": "H125-LIM-058",
+      "question": "Continued flight operation in servo-transparency (load feedback felt in the controls) is:",
+      "options": [
+        "Permitted below VNE",
+        "Prohibited",
+        "Permitted during autorotation only",
+        "Permitted with the autopilot engaged"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Section 2.3 Maneuvering Limitations prohibits continued operation in servo-transparency, warning that the phenomenon can be hazardous at low clearance from the ground, particularly in a right turn.",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM AS350 Section 2.3",
+      "reference": "p. 2-6",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM AS350 Section 2.3 – p. 2-6",
+        "p. 2-6",
+        "RFM AS350 Section 2.3"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM AS350 Section 2.3"
+    },
+    {
+      "id": "H125-LIM-059",
+      "question": "On T-PED tolerant aircraft, where must transmitting portable electronic devices have their radio transmission inhibited?",
+      "options": [
+        "Cockpit",
+        "Cabin",
+        "Rear cargo hold",
+        "Nowhere — permitted everywhere"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Section 2.5 states that on T-PED tolerant aircraft, use is permitted without restriction except in the rear cargo hold, where any T-PED must be turned off and radio transmission inhibited.",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM AS350 Section 2.5",
+      "reference": "p. 2-12",
+      "difficulty": "medium",
+      "tags": [
+        "avionics"
+      ],
+      "references": [
+        "RFM AS350 Section 2.5 – p. 2-12",
+        "p. 2-12",
+        "RFM AS350 Section 2.5"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM AS350 Section 2.5"
     }
   ]
 }

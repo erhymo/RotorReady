@@ -11,13 +11,13 @@
       "id": "performance",
       "title": "Performance",
       "file": "sections/performance.json",
-      "count": 10
+      "count": 12
     },
     {
       "id": "emergency_procedures",
       "title": "Emergency Procedures",
       "file": "sections/emergency_procedures.json",
-      "count": 37
+      "count": 56
     },
     {
       "id": "limitations",

@@ -3,16 +3,29 @@
     {
       "id": "H125-PERF-001",
       "question": "Up to what wind speed has starting and stopping the rotor been demonstrated, with the wind from any direction?",
-      "options": ["30 kt (56 km/h)", "40 kt (74 km/h)", "50 kt (93 km/h)", "60 kt (111 km/h)"],
-      "answer": [1],
+      "options": [
+        "30 kt (56 km/h)",
+        "40 kt (74 km/h)",
+        "50 kt (93 km/h)",
+        "60 kt (111 km/h)"
+      ],
+      "answer": [
+        1
+      ],
       "explanation": "Starting and stopping the rotor has been demonstrated for winds of 40 kt (74 km/h) from any direction, and 50 kt (93 km/h) with a headwind (forward center axis ±30°).",
       "section": "performance",
-      "modelIds": ["H125_AS350_B3_2B1"],
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
       "manual": "RFM H125 Section 5.1",
       "reference": "p. 1",
       "difficulty": "medium",
       "tags": [],
-      "references": ["RFM H125 Section 5.1 – p. 1", "p. 1", "RFM H125 Section 5.1"],
+      "references": [
+        "RFM H125 Section 5.1 – p. 1",
+        "p. 1",
+        "RFM H125 Section 5.1"
+      ],
       "sectionId": "performance",
       "type": "single",
       "source": "RFM H125 Section 5.1"
@@ -20,16 +33,29 @@
     {
       "id": "H125-PERF-002",
       "question": "Hovering with wind from any direction has been demonstrated over the entire flight envelope up to what speed?",
-      "options": ["10 kt (19 km/h)", "17 kt (31 km/h)", "23 kt (43 km/h)", "30 kt (56 km/h)"],
-      "answer": [1],
+      "options": [
+        "10 kt (19 km/h)",
+        "17 kt (31 km/h)",
+        "23 kt (43 km/h)",
+        "30 kt (56 km/h)"
+      ],
+      "answer": [
+        1
+      ],
       "explanation": "Hovering with winds from any direction up to 17 kt (31 km/h) has been demonstrated over the entire flight envelope, although it is not to be taken as a limit.",
       "section": "performance",
-      "modelIds": ["H125_AS350_B3_2B1"],
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
       "manual": "RFM H125 Section 5.1",
       "reference": "p. 1",
       "difficulty": "medium",
       "tags": [],
-      "references": ["RFM H125 Section 5.1 – p. 1", "p. 1", "RFM H125 Section 5.1"],
+      "references": [
+        "RFM H125 Section 5.1 – p. 1",
+        "p. 1",
+        "RFM H125 Section 5.1"
+      ],
       "sectionId": "performance",
       "type": "single",
       "source": "RFM H125 Section 5.1"
@@ -43,15 +69,23 @@
         "That the VEMD FLI page shows GOOD",
         "That fuel flow is within 5% of the planned value"
       ],
-      "answer": [0],
+      "answer": [
+        0
+      ],
       "explanation": "In HIGE at 5 ft (1.5 m) and before initiating forward flight, the pilot pulls the collective pitch lever slightly to ensure the Ng can increase by at least 1%, without exceeding the max. transient rating.",
       "section": "performance",
-      "modelIds": ["H125_AS350_B3_2B1"],
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
       "manual": "RFM H125 Section 5.1",
       "reference": "p. 1",
       "difficulty": "medium",
       "tags": [],
-      "references": ["RFM H125 Section 5.1 – p. 1", "p. 1", "RFM H125 Section 5.1"],
+      "references": [
+        "RFM H125 Section 5.1 – p. 1",
+        "p. 1",
+        "RFM H125 Section 5.1"
+      ],
       "sectionId": "performance",
       "type": "single",
       "source": "RFM H125 Section 5.1"
@@ -65,15 +99,23 @@
         "Fuel flow margin and oil pressure margin",
         "Rotor speed margin and hydraulic pressure margin"
       ],
-      "answer": [0],
+      "answer": [
+        0
+      ],
       "explanation": "The engine power check consists of checking the power margin (torque margin) and the t4 margin, either from VEMD data or manually recorded parameters.",
       "section": "performance",
-      "modelIds": ["H125_AS350_B3_2B1"],
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
       "manual": "RFM H125 Section 5.1",
       "reference": "p. 1",
       "difficulty": "easy",
       "tags": [],
-      "references": ["RFM H125 Section 5.1 – p. 1", "p. 1", "RFM H125 Section 5.1"],
+      "references": [
+        "RFM H125 Section 5.1 – p. 1",
+        "p. 1",
+        "RFM H125 Section 5.1"
+      ],
       "sectionId": "performance",
       "type": "single",
       "source": "RFM H125 Section 5.1"
@@ -87,15 +129,23 @@
         "During autorotation, at any altitude",
         "On the ground at idle, with the rotor brake applied"
       ],
-      "answer": [1],
+      "answer": [
+        1
+      ],
       "explanation": "The VEMD engine power check must be performed in stabilized level flight at a power rating close to MCP, with Hp ≤ 12000 ft (3657 m) and the heating and demisting system OFF.",
       "section": "performance",
-      "modelIds": ["H125_AS350_B3_2B1"],
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
       "manual": "RFM H125 Section 5.1",
       "reference": "p. 2",
       "difficulty": "medium",
       "tags": [],
-      "references": ["RFM H125 Section 5.1 – p. 2", "p. 2", "RFM H125 Section 5.1"],
+      "references": [
+        "RFM H125 Section 5.1 – p. 2",
+        "p. 2",
+        "RFM H125 Section 5.1"
+      ],
       "sectionId": "performance",
       "type": "single",
       "source": "RFM H125 Section 5.1"
@@ -109,15 +159,23 @@
         "The correction table no longer applies and must be ignored",
         "The check must be repeated at a lower altitude only"
       ],
-      "answer": [1],
+      "answer": [
+        1
+      ],
       "explanation": "The t4-margin-to-corrected-t4-margin correction only applies if the t4 margin (before correction) is less than +35°C. If the t4 margin is greater than +35°C, the engine state shall be considered unsatisfactory.",
       "section": "performance",
-      "modelIds": ["H125_AS350_B3_2B1"],
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
       "manual": "RFM H125 Section 5.1",
       "reference": "p. 3",
       "difficulty": "hard",
       "tags": [],
-      "references": ["RFM H125 Section 5.1 – p. 3", "p. 3", "RFM H125 Section 5.1"],
+      "references": [
+        "RFM H125 Section 5.1 – p. 3",
+        "p. 3",
+        "RFM H125 Section 5.1"
+      ],
       "sectionId": "performance",
       "type": "single",
       "source": "RFM H125 Section 5.1"
@@ -131,15 +189,23 @@
         "Corrected t4 margin = torque margin × 2",
         "Corrected t4 margin = t4 margin ÷ torque margin"
       ],
-      "answer": [1],
+      "answer": [
+        1
+      ],
       "explanation": "The t4 margin correction equals the torque margin multiplied by a correction factor read from the Hp/OAT table; the corrected t4 margin is then the calculated t4 margin plus that correction.",
       "section": "performance",
-      "modelIds": ["H125_AS350_B3_2B1"],
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
       "manual": "RFM H125 Section 5.1",
       "reference": "p. 4",
       "difficulty": "hard",
       "tags": [],
-      "references": ["RFM H125 Section 5.1 – p. 4", "p. 4", "RFM H125 Section 5.1"],
+      "references": [
+        "RFM H125 Section 5.1 – p. 4",
+        "p. 4",
+        "RFM H125 Section 5.1"
+      ],
       "sectionId": "performance",
       "type": "single",
       "source": "RFM H125 Section 5.1"
@@ -153,15 +219,23 @@
         "8 ft skid height at zero airspeed",
         "Variable height at zero airspeed"
       ],
-      "answer": [2],
+      "answer": [
+        2
+      ],
       "explanation": "Point A is the low hover point: 8 ft (2.5 m) skid height at zero airspeed.",
       "section": "performance",
-      "modelIds": ["H125_AS350_B3_2B1"],
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
       "manual": "RFM H125 Section 5.1",
       "reference": "p. 8",
       "difficulty": "medium",
       "tags": [],
-      "references": ["RFM H125 Section 5.1 – p. 8", "p. 8", "RFM H125 Section 5.1"],
+      "references": [
+        "RFM H125 Section 5.1 – p. 8",
+        "p. 8",
+        "RFM H125 Section 5.1"
+      ],
       "sectionId": "performance",
       "type": "single",
       "source": "RFM H125 Section 5.1"
@@ -175,15 +249,23 @@
         "100 ft height, variable airspeed",
         "Variable height, zero airspeed"
       ],
-      "answer": [1],
+      "answer": [
+        1
+      ],
       "explanation": "Point B is defined by a constant height of 25 ft (8 m) and a constant airspeed of 40 kt (74 km/h).",
       "section": "performance",
-      "modelIds": ["H125_AS350_B3_2B1"],
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
       "manual": "RFM H125 Section 5.1",
       "reference": "p. 8",
       "difficulty": "medium",
       "tags": [],
-      "references": ["RFM H125 Section 5.1 – p. 8", "p. 8", "RFM H125 Section 5.1"],
+      "references": [
+        "RFM H125 Section 5.1 – p. 8",
+        "p. 8",
+        "RFM H125 Section 5.1"
+      ],
       "sectionId": "performance",
       "type": "single",
       "source": "RFM H125 Section 5.1"
@@ -197,18 +279,86 @@
         "0.25 NM per 1000 ft at IAS = 50 kt and NR ≥ 400 rpm",
         "0.75 NM per 1000 ft at IAS = 65 kt and NR ≥ 420 rpm"
       ],
-      "answer": [0],
+      "answer": [
+        0
+      ],
       "explanation": "The distance flown in autorotation is 0.54 NM per 1000 ft at an IAS of 65 kt and NR ≥ 410 rpm (1000 m per 300 m height at 120 km/h).",
       "section": "performance",
-      "modelIds": ["H125_AS350_B3_2B1"],
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
       "manual": "RFM H125 Section 5.1",
       "reference": "p. 14",
       "difficulty": "medium",
       "tags": [],
-      "references": ["RFM H125 Section 5.1 – p. 14", "p. 14", "RFM H125 Section 5.1"],
+      "references": [
+        "RFM H125 Section 5.1 – p. 14",
+        "p. 14",
+        "RFM H125 Section 5.1"
+      ],
       "sectionId": "performance",
       "type": "single",
       "source": "RFM H125 Section 5.1"
+    },
+    {
+      "id": "H125-PERF-011",
+      "question": "Starting and stopping the rotor has been demonstrated for what wind speed with a headwind (forward center axis ± 30°)?",
+      "options": [
+        "40 kt (74 km/h)",
+        "50 kt (93 km/h)",
+        "60 kt (111 km/h)",
+        "35 kt (65 km/h)"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Section 5.1 §2.1 gives 40 kt from any direction, but up to 50 kt (93 km/h) with a headwind within ±30° of the forward center axis.",
+      "section": "performance",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM AS350 Section 5.1",
+      "reference": "p. 5.1-1",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM AS350 Section 5.1 – p. 5.1-1",
+        "p. 5.1-1",
+        "RFM AS350 Section 5.1"
+      ],
+      "sectionId": "performance",
+      "type": "single",
+      "source": "RFM AS350 Section 5.1"
+    },
+    {
+      "id": "H125-PERF-012",
+      "question": "What is the published flyover noise level, and how does it compare to the ICAO/EASA CS-36 limit?",
+      "options": [
+        "84.6 EPNdB, below the 86.5 EPNdB limit",
+        "86.5 EPNdB, exactly at the limit",
+        "90.0 EPNdB, above the limit",
+        "80.0 EPNdB, well below the limit"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Section 5.1 §11 Noise Level gives a measured flyover noise level of 84.6 EPNdB, against an ICAO Annex 16 / EASA CS-36 limit of 86.5 EPNdB.",
+      "section": "performance",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM AS350 Section 5.1",
+      "reference": "p. 5.1-14",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM AS350 Section 5.1 – p. 5.1-14",
+        "p. 5.1-14",
+        "RFM AS350 Section 5.1"
+      ],
+      "sectionId": "performance",
+      "type": "single",
+      "source": "RFM AS350 Section 5.1"
     }
   ]
 }

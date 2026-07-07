@@ -1109,6 +1109,580 @@
       "sectionId": "emergency_procedures",
       "type": "single",
       "source": "RFM H125 Section 3.7"
+    },
+    {
+      "id": "H125-EP-119",
+      "question": "If the VEMD upper screen fails, what happens on the lower screen?",
+      "options": [
+        "Nothing changes",
+        "The 3-parameter engine page is displayed, but torque and ΔNg go off-line, leaving only T4 and digital Ng",
+        "The lower screen also switches off",
+        "Full FLI symbology is restored automatically"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Section 3.5 VEMD Screen Failures: if the top screen fails, the 3-parameter engine page is automatically displayed on the lower screen, but with torque and ΔNg off line — only T4 and digital Ng remain available.",
+      "section": "emergency_procedures",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM AS350 Section 3.5",
+      "reference": "p. 3.5-1",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM AS350 Section 3.5 – p. 3.5-1",
+        "p. 3.5-1",
+        "RFM AS350 Section 3.5"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM AS350 Section 3.5"
+    },
+    {
+      "id": "H125-EP-120",
+      "question": "If both VEMD screens fail, what governs the maximum authorized power?",
+      "options": [
+        "A fixed 80% torque limit",
+        "A level-flight IAS law: 100 kt at 0 Hp, minus 2 kt per 1000 ft",
+        "The last recorded FLI value",
+        "There is no longer any power limit"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Section 3.5: with both VEMD screens failed, maximum authorized power is the power needed for level flight at IAS = 100 kt at 0 Hp, decreasing 2 kt per 1000 ft; land as soon as practicable with a no-hover landing.",
+      "section": "emergency_procedures",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM AS350 Section 3.5",
+      "reference": "p. 3.5-1",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM AS350 Section 3.5 – p. 3.5-1",
+        "p. 3.5-1",
+        "RFM AS350 Section 3.5"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM AS350 Section 3.5"
+    },
+    {
+      "id": "H125-EP-121",
+      "question": "What does the VEMD caution message \"BAT PARAM OUT RANGE\" indicate?",
+      "options": [
+        "An abnormal generator parameter",
+        "An abnormal battery parameter",
+        "A GPS data failure",
+        "A crosstalk failure between VEMD lanes"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Section 3.5 Caution Messages on VEMD: BAT PARAM OUT RANGE indicates an abnormal battery parameter, appearing when the relevant parameter is not displayed on the vehicle page and an electrical limitation is reached.",
+      "section": "emergency_procedures",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM AS350 Section 3.5",
+      "reference": "p. 3.5-2",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM AS350 Section 3.5 – p. 3.5-2",
+        "p. 3.5-2",
+        "RFM AS350 Section 3.5"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM AS350 Section 3.5"
+    },
+    {
+      "id": "H125-EP-122",
+      "question": "In case of NR indication failure, how can rotor speed still be monitored?",
+      "options": [
+        "It cannot be monitored at all",
+        "Via the Nf pointer",
+        "Via the torque gauge only",
+        "Via the FLI page only"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Section 3.5 Abnormal NR/Nf Indications: with NR indication failure, NR reading is given by the Nf pointer; maintain collective to keep Tq above 10% and land as soon as practicable.",
+      "section": "emergency_procedures",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM AS350 Section 3.5",
+      "reference": "p. 3.5-3",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM AS350 Section 3.5 – p. 3.5-3",
+        "p. 3.5-3",
+        "RFM AS350 Section 3.5"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM AS350 Section 3.5"
+    },
+    {
+      "id": "H125-EP-123",
+      "question": "In case of engine oil temperature exceeding 115 °C, what is the first action?",
+      "options": [
+        "Land immediately",
+        "Set airspeed to 80 kt and check if temperature decreases",
+        "Shut down the engine in flight",
+        "Reduce Nf to idle"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Section 3.5 Abnormal Engine Parameter Indications: for oil temperature over 115°C, set airspeed to 80 kt (148 km/h); if temperature decreases, land as soon as practicable, otherwise land as soon as possible.",
+      "section": "emergency_procedures",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM AS350 Section 3.5",
+      "reference": "p. 3.5-4",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM AS350 Section 3.5 – p. 3.5-4",
+        "p. 3.5-4",
+        "RFM AS350 Section 3.5"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM AS350 Section 3.5"
+    },
+    {
+      "id": "H125-EP-124",
+      "question": "At what engine oil pressure does the ENG P caution activate?",
+      "options": [
+        "Below 2.5 bar (36 psi)",
+        "Below 1.1 bar (16 psi)",
+        "Below 3.5 bar (51 psi)",
+        "Below 0.5 bar (7 psi)"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Section 3.5: the ENG P caution corresponds to engine oil pressure below 1.1 bar (16 psi); if confirmed after a CWP light test, land immediately and apply the autorotation procedure.",
+      "section": "emergency_procedures",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM AS350 Section 3.5",
+      "reference": "p. 3.5-4",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM AS350 Section 3.5 – p. 3.5-4",
+        "p. 3.5-4",
+        "RFM AS350 Section 3.5"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM AS350 Section 3.5"
+    },
+    {
+      "id": "H125-EP-125",
+      "question": "In case of Ng/ΔNg indicator failure, what T4 limit must be respected?",
+      "options": [
+        "750 °C",
+        "810 °C",
+        "842 °C",
+        "900 °C"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Section 3.5 Loss of Ng, Torque or T4 Parameters: with Ng/ΔNg indicator failure, comply with the maximum torque value and a T4 limit of 810°C (the starting limitation value), landing as soon as practicable.",
+      "section": "emergency_procedures",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM AS350 Section 3.5",
+      "reference": "p. 3.5-5",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM AS350 Section 3.5 – p. 3.5-5",
+        "p. 3.5-5",
+        "RFM AS350 Section 3.5"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM AS350 Section 3.5"
+    },
+    {
+      "id": "H125-EP-126",
+      "question": "In case of T4 indicator failure, what should be done with the heating and demisting system, and can the engine be started on the ground?",
+      "options": [
+        "No change needed; ground starts are permitted",
+        "Switch it off; do not attempt to start the engine on the ground",
+        "Increase it to maximum; ground starts are permitted",
+        "It has no relation to T4 indicator failure"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Section 3.5: with T4 indicator failure, switch off the heating and demisting system and do not attempt to start the engine on the ground; land as soon as practicable.",
+      "section": "emergency_procedures",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM AS350 Section 3.5",
+      "reference": "p. 3.5-5",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM AS350 Section 3.5 – p. 3.5-5",
+        "p. 3.5-5",
+        "RFM AS350 Section 3.5"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM AS350 Section 3.5"
+    },
+    {
+      "id": "H125-EP-127",
+      "question": "What is the procedure for Main Gear Box (MGB) low oil pressure below 1 bar?",
+      "options": [
+        "Continue flight, monitor gauge",
+        "Reduce power and land as soon as possible",
+        "Land immediately with autorotation",
+        "Increase power to reduce heat"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Section 3.6 Transmission Alarms: MGB oil pressure below 1 bar (14.5 psi) requires reducing power and landing as soon as possible; if a safe landing isn't possible, continue to the nearest suitable site at minimum power speed (Vy).",
+      "section": "emergency_procedures",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM AS350 Section 3.6",
+      "reference": "p. 3.6-5",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM AS350 Section 3.6 – p. 3.6-5",
+        "p. 3.6-5",
+        "RFM AS350 Section 3.6"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM AS350 Section 3.6"
+    },
+    {
+      "id": "H125-EP-128",
+      "question": "Metal particles detected in the Tail Gear Box (TGB) oil circuit require the pilot to:",
+      "options": [
+        "Land immediately",
+        "Avoid prolonged hovering and continue flight",
+        "Reduce power and land as soon as possible",
+        "Shut down and autorotate"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Section 3.6: TGB CHIP requires avoiding prolonged hovering; flight may be continued (less severe than MGB CHIP, which requires reducing power and monitoring).",
+      "section": "emergency_procedures",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM AS350 Section 3.6",
+      "reference": "p. 3.6-5",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM AS350 Section 3.6 – p. 3.6-5",
+        "p. 3.6-5",
+        "RFM AS350 Section 3.6"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM AS350 Section 3.6"
+    },
+    {
+      "id": "H125-EP-129",
+      "question": "If the generator overvoltage exceeds 31.5 V, what is the correct response?",
+      "options": [
+        "Continue flight, no action required",
+        "Switch GEN/GENE OFF and land as soon as practicable",
+        "Switch battery power OFF only",
+        "Reduce collective immediately"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Section 3.5 Abnormal Electrical Parameter Indications: generator overvoltage above 31.5 V requires switching GEN (or GENE) OFF, monitoring the CWP, applying the GENE procedure, and landing as soon as practicable.",
+      "section": "emergency_procedures",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM AS350 Section 3.5",
+      "reference": "p. 3.5-6",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM AS350 Section 3.5 – p. 3.5-6",
+        "p. 3.5-6",
+        "RFM AS350 Section 3.5"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM AS350 Section 3.5"
+    },
+    {
+      "id": "H125-EP-130",
+      "question": "What does a flashing red underline on the generator current (I/GEN) indicate, and what should the pilot do?",
+      "options": [
+        "A short circuit — land immediately",
+        "Generator current over limit — switch off unnecessary equipment and continue flight",
+        "Battery failure — apply the VEMD both-screens-failed procedure",
+        "Nothing — this is a display fault, no action needed"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Section 3.5: a flashing red underline on I/GEN indicates generator current over limit; switch off unnecessary equipment and continue flight.",
+      "section": "emergency_procedures",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM AS350 Section 3.5",
+      "reference": "p. 3.5-7",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM AS350 Section 3.5 – p. 3.5-7",
+        "p. 3.5-7",
+        "RFM AS350 Section 3.5"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM AS350 Section 3.5"
+    },
+    {
+      "id": "H125-EP-131",
+      "question": "What does a fuel quantity caution below 48 kg (106 lb) indicate?",
+      "options": [
+        "Land as soon as possible; approximately 15 minutes of flight remain at MCP",
+        "Immediate engine shutdown required",
+        "Land as soon as practicable; no time constraint",
+        "The fuel gauge should be recalibrated"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Section 3.6 Fuel Alarms: fuel quantity below 48 kg requires landing as soon as possible, with approximately 15 minutes of flight time remaining at MCP; avoid large attitude changes to prevent flame-out.",
+      "section": "emergency_procedures",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM AS350 Section 3.6",
+      "reference": "p. 3.6-10",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM AS350 Section 3.6 – p. 3.6-10",
+        "p. 3.6-10",
+        "RFM AS350 Section 3.6"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM AS350 Section 3.6"
+    },
+    {
+      "id": "H125-EP-132",
+      "question": "In case of low fuel pressure in flight, what is the correct procedure?",
+      "options": [
+        "Reduce collective power and switch the fuel pump ON, landing as soon as possible",
+        "Continue flight, monitor only",
+        "Land immediately with no other action",
+        "Increase power to clear the blockage"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Section 3.6: low fuel pressure in flight requires reducing power, switching FUEL P/FUEL PUMP ON, and landing as soon as possible with a low-power approach, prepared for a possible flame-out.",
+      "section": "emergency_procedures",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM AS350 Section 3.6",
+      "reference": "p. 3.6-10",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM AS350 Section 3.6 – p. 3.6-10",
+        "p. 3.6-10",
+        "RFM AS350 Section 3.6"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM AS350 Section 3.6"
+    },
+    {
+      "id": "H125-EP-133",
+      "question": "If pitot heating is found inoperative, what should the pilot do?",
+      "options": [
+        "Land immediately",
+        "Confirm PITOT is ON and monitor the airspeed indicator, continuing flight",
+        "Reduce airspeed to 40 kt",
+        "Switch to the standby ASI only"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Section 3.6 Miscellaneous Alarms: for pitot heating inoperative, check PITOT is ON, monitor the airspeed indicator, and continue flight.",
+      "section": "emergency_procedures",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM AS350 Section 3.6",
+      "reference": "p. 3.6-12",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM AS350 Section 3.6 – p. 3.6-12",
+        "p. 3.6-12",
+        "RFM AS350 Section 3.6"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM AS350 Section 3.6"
+    },
+    {
+      "id": "H125-EP-134",
+      "question": "If one or both cargo hold doors are found unlocked in flight, what is the correct action?",
+      "options": [
+        "Reduce airspeed to 70 kt and land as soon as practicable",
+        "Continue flight without restriction",
+        "Land immediately",
+        "Increase airspeed to reduce door flutter"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Section 3.6: one or both cargo hold doors unlocked requires reducing airspeed to 70 kt (130 km/h) and landing as soon as practicable, with a low rate of descent on approach.",
+      "section": "emergency_procedures",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM AS350 Section 3.6",
+      "reference": "p. 3.6-12",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM AS350 Section 3.6 – p. 3.6-12",
+        "p. 3.6-12",
+        "RFM AS350 Section 3.6"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM AS350 Section 3.6"
+    },
+    {
+      "id": "H125-EP-135",
+      "question": "In abnormal Nf governing, to what rotor speed may NR/Nf decrease before the FADEC detects the failure and GOV illuminates?",
+      "options": [
+        "340 rpm",
+        "360 rpm",
+        "375 rpm",
+        "386 rpm"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Section 3.7 Abnormal Nf Governing: an erroneous collective anticipator (XPC) signal can cause the FADEC to govern Nf significantly lower than usual; NR/Nf may decrease to 360 rpm before the FADEC detects the failure and GOV comes on.",
+      "section": "emergency_procedures",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM AS350 Section 3.7",
+      "reference": "p. 3.7-3",
+      "difficulty": "medium",
+      "tags": [
+        "fadec"
+      ],
+      "references": [
+        "RFM AS350 Section 3.7 – p. 3.7-3",
+        "p. 3.7-3",
+        "RFM AS350 Section 3.7"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM AS350 Section 3.7"
+    },
+    {
+      "id": "H125-EP-136",
+      "question": "In abnormal Nf governing, if NR/Nf drop below 375 rpm in flight, what should be avoided during landing?",
+      "options": [
+        "Nothing extra — land normally",
+        "Hover flight with a left crosswind; carry out a no-hover landing",
+        "Any landing above 500 ft density altitude",
+        "Landings with the doors open"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Section 3.7: with NR/Nf below 375 rpm, reduced tail rotor control margins mean the pilot should avoid hover flight with left crosswind and carry out a no-hover landing, after checking engine parameters and that NR/Nf are aligned.",
+      "section": "emergency_procedures",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM AS350 Section 3.7",
+      "reference": "p. 3.7-3",
+      "difficulty": "medium",
+      "tags": [
+        "fadec"
+      ],
+      "references": [
+        "RFM AS350 Section 3.7 – p. 3.7-3",
+        "p. 3.7-3",
+        "RFM AS350 Section 3.7"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM AS350 Section 3.7"
+    },
+    {
+      "id": "H125-EP-137",
+      "question": "What distinguishes a flight control hardover from a servojam?",
+      "options": [
+        "A hardover causes uncommanded control movement; a servojam causes higher-than-normal force to move the controls",
+        "They are identical malfunctions",
+        "A hardover only affects the tail rotor; a servojam only affects the collective",
+        "A servojam only occurs on the ground"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Section 3.7: a hardover results in uncommanded movement of one or two flight controls (including yaw); a servojam results in a higher than normal force required to move the flight controls.",
+      "section": "emergency_procedures",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM AS350 Section 3.7",
+      "reference": "p. 3.7-1",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM AS350 Section 3.7 – p. 3.7-1",
+        "p. 3.7-1",
+        "RFM AS350 Section 3.7"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "source": "RFM AS350 Section 3.7"
     }
   ]
 }

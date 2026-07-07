@@ -603,16 +603,29 @@
     {
       "id": "H125-DS-221",
       "question": "On the B3e instrument panel, what does the rotor speed indicator display alongside NR?",
-      "options": ["Nf (free turbine speed)", "N2 (power turbine speed)", "N1 (gas generator speed) directly", "TOT only"],
-      "answer": [1],
+      "options": [
+        "Nf (free turbine speed)",
+        "N2 (power turbine speed)",
+        "N1 (gas generator speed) directly",
+        "TOT only"
+      ],
+      "answer": [
+        1
+      ],
       "explanation": "The B3e's Arriel 2D terminology uses N2 for the power turbine speed indicator, shown alongside NR — unlike the B3 2B1, which labels this indicator NR/Nf.",
       "section": "description-and-systems",
-      "modelIds": ["H125_AS350_B3E"],
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
       "manual": "RFM H125 Section 7.2",
       "reference": "p. 1",
       "difficulty": "medium",
       "tags": [],
-      "references": ["RFM H125 Section 7.2 – p. 1", "p. 1", "RFM H125 Section 7.2"],
+      "references": [
+        "RFM H125 Section 7.2 – p. 1",
+        "p. 1",
+        "RFM H125 Section 7.2"
+      ],
       "sectionId": "description-and-systems",
       "type": "single",
       "source": "RFM H125 Section 7.2"
@@ -620,16 +633,29 @@
     {
       "id": "H125-DS-222",
       "question": "Post MOD 07-20112/07-20228, what fault indicators are added to the overhead panel?",
-      "options": ["WACS and FDR", "HYD and FUEL", "ENG and MGB", "GPS and ELT"],
-      "answer": [0],
+      "options": [
+        "WACS and FDR",
+        "HYD and FUEL",
+        "ENG and MGB",
+        "GPS and ELT"
+      ],
+      "answer": [
+        0
+      ],
       "explanation": "A lighting plate on the overhead panel adds WACS (Wireless Airborne Communication System) and FDR (Flight Data Recorder) fault indicators.",
       "section": "description-and-systems",
-      "modelIds": ["H125_AS350_B3E"],
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
       "manual": "RFM H125 Section 7.3",
       "reference": "p. 1",
       "difficulty": "hard",
       "tags": [],
-      "references": ["RFM H125 Section 7.3 – p. 1", "p. 1", "RFM H125 Section 7.3"],
+      "references": [
+        "RFM H125 Section 7.3 – p. 1",
+        "p. 1",
+        "RFM H125 Section 7.3"
+      ],
       "sectionId": "description-and-systems",
       "type": "single",
       "source": "RFM H125 Section 7.3"
@@ -637,16 +663,29 @@
     {
       "id": "H125-DS-223",
       "question": "Where is the guarded EBCAU (engine back-up control) test switch located on the B3e?",
-      "options": ["On the overhead panel", "On the collective grip", "On the cyclic grip", "On the center console only"],
-      "answer": [0],
+      "options": [
+        "On the overhead panel",
+        "On the collective grip",
+        "On the cyclic grip",
+        "On the center console only"
+      ],
+      "answer": [
+        0
+      ],
       "explanation": "On the B3e, the guarded EBCAU test switch is located on the overhead panel.",
       "section": "description-and-systems",
-      "modelIds": ["H125_AS350_B3E"],
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
       "manual": "RFM H125 Section 7.5",
       "reference": "p. 3",
       "difficulty": "medium",
       "tags": [],
-      "references": ["RFM H125 Section 7.5 – p. 3", "p. 3", "RFM H125 Section 7.5"],
+      "references": [
+        "RFM H125 Section 7.5 – p. 3",
+        "p. 3",
+        "RFM H125 Section 7.5"
+      ],
       "sectionId": "description-and-systems",
       "type": "single",
       "source": "RFM H125 Section 7.5"
@@ -660,15 +699,23 @@
         "It tests the CWP warning lights on startup",
         "It flashes the anti-collision light faster in icing conditions"
       ],
-      "answer": [0],
+      "answer": [
+        0
+      ],
       "explanation": "Pulse Light blinks and flashes the taxi and landing headlights alternately, improving detectability in heavy traffic and reducing the likelihood of bird strikes. It is automatically deactivated if the landing or taxi light is switched on.",
       "section": "description-and-systems",
-      "modelIds": ["H125_AS350_B3E"],
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
       "manual": "RFM H125 Section 7.6",
       "reference": "p. 5",
       "difficulty": "medium",
       "tags": [],
-      "references": ["RFM H125 Section 7.6 – p. 5", "p. 5", "RFM H125 Section 7.6"],
+      "references": [
+        "RFM H125 Section 7.6 – p. 5",
+        "p. 5",
+        "RFM H125 Section 7.6"
+      ],
       "sectionId": "description-and-systems",
       "type": "single",
       "source": "RFM H125 Section 7.6"
@@ -676,16 +723,29 @@
     {
       "id": "H125-DS-225",
       "question": "Which of the following is NOT one of the B3e's optional NVG-compatible cockpit features?",
-      "options": ["VEMD", "The NR/N2 indicator display", "CWP amber lights", "The anti-collision light"],
-      "answer": [3],
+      "options": [
+        "VEMD",
+        "The NR/N2 indicator display",
+        "CWP amber lights",
+        "The anti-collision light"
+      ],
+      "answer": [
+        3
+      ],
       "explanation": "The anti-collision light is explicitly NOT NVG compatible; using the landing light can help limit disturbance to the pilot instead.",
       "section": "description-and-systems",
-      "modelIds": ["H125_AS350_B3E"],
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
       "manual": "RFM H125 Section 7.6",
       "reference": "p. 3",
       "difficulty": "hard",
       "tags": [],
-      "references": ["RFM H125 Section 7.6 – p. 3", "p. 3", "RFM H125 Section 7.6"],
+      "references": [
+        "RFM H125 Section 7.6 – p. 3",
+        "p. 3",
+        "RFM H125 Section 7.6"
+      ],
       "sectionId": "description-and-systems",
       "type": "single",
       "source": "RFM H125 Section 7.6"
@@ -693,16 +753,29 @@
     {
       "id": "H125-DS-226",
       "question": "What power class is the Turbomeca Arriel 2D engine fitted to the B3e?",
-      "options": ["550 kW (738 hp) class", "650 kW (870 hp) class", "700 kW (937 hp) class", "800 kW (1073 hp) class"],
-      "answer": [2],
+      "options": [
+        "550 kW (738 hp) class",
+        "650 kW (870 hp) class",
+        "700 kW (937 hp) class",
+        "800 kW (1073 hp) class"
+      ],
+      "answer": [
+        2
+      ],
       "explanation": "The Arriel 2D is a 700 kW (937 SHP) class turboshaft engine, higher than the 2B1's 650 kW (870 hp) class.",
       "section": "description-and-systems",
-      "modelIds": ["H125_AS350_B3E"],
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
       "manual": "RFM H125 Section 7.7",
       "reference": "p. 1",
       "difficulty": "medium",
       "tags": [],
-      "references": ["RFM H125 Section 7.7 – p. 1", "p. 1", "RFM H125 Section 7.7"],
+      "references": [
+        "RFM H125 Section 7.7 – p. 1",
+        "p. 1",
+        "RFM H125 Section 7.7"
+      ],
       "sectionId": "description-and-systems",
       "type": "single",
       "source": "RFM H125 Section 7.7"
@@ -716,15 +789,23 @@
         "An automatic reduction of collective travel",
         "A VEMD message reading \"SERVO\""
       ],
-      "answer": [0],
+      "answer": [
+        0
+      ],
       "explanation": "Post MOD 07-20039, operating close to servo transparency triggers a LIMIT light on the CWP plus a 285 Hz continuous tone, based on weight, altitude, OAT, airspeed and load factor.",
       "section": "description-and-systems",
-      "modelIds": ["H125_AS350_B3E"],
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
       "manual": "RFM H125 Section 7.10",
       "reference": "p. 2",
       "difficulty": "hard",
       "tags": [],
-      "references": ["RFM H125 Section 7.10 – p. 2", "p. 2", "RFM H125 Section 7.10"],
+      "references": [
+        "RFM H125 Section 7.10 – p. 2",
+        "p. 2",
+        "RFM H125 Section 7.10"
+      ],
       "sectionId": "description-and-systems",
       "type": "single",
       "source": "RFM H125 Section 7.10"
@@ -732,16 +813,29 @@
     {
       "id": "H125-DS-228",
       "question": "On the B3e, where may the static pressure ports be located, in addition to under the cabin?",
-      "options": ["In the tail boom (if installed)", "On top of the main rotor mast", "Inside the engine cowling", "On the landing gear skids"],
-      "answer": [0],
+      "options": [
+        "In the tail boom (if installed)",
+        "On top of the main rotor mast",
+        "Inside the engine cowling",
+        "On the landing gear skids"
+      ],
+      "answer": [
+        0
+      ],
       "explanation": "The two static pressure ports are located under the cabin, or in the tail boom if that configuration is installed.",
       "section": "description-and-systems",
-      "modelIds": ["H125_AS350_B3E"],
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
       "manual": "RFM H125 Section 7.12",
       "reference": "p. 1",
       "difficulty": "medium",
       "tags": [],
-      "references": ["RFM H125 Section 7.12 – p. 1", "p. 1", "RFM H125 Section 7.12"],
+      "references": [
+        "RFM H125 Section 7.12 – p. 1",
+        "p. 1",
+        "RFM H125 Section 7.12"
+      ],
       "sectionId": "description-and-systems",
       "type": "single",
       "source": "RFM H125 Section 7.12"
@@ -755,15 +849,23 @@
         "SD card dump in progress",
         "Camera startup"
       ],
-      "answer": [0],
+      "answer": [
+        0
+      ],
       "explanation": "On the AIRS-400 camera, steady red means the GPS antenna is not plugged in or not functioning, or a critical error has occurred (flashing red is also a critical error).",
       "section": "description-and-systems",
-      "modelIds": ["H125_AS350_B3E"],
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
       "manual": "RFM H125 Section 7.14",
       "reference": "p. 2",
       "difficulty": "hard",
       "tags": [],
-      "references": ["RFM H125 Section 7.14 – p. 2", "p. 2", "RFM H125 Section 7.14"],
+      "references": [
+        "RFM H125 Section 7.14 – p. 2",
+        "p. 2",
+        "RFM H125 Section 7.14"
+      ],
       "sectionId": "description-and-systems",
       "type": "single",
       "source": "RFM H125 Section 7.14"
@@ -771,16 +873,29 @@
     {
       "id": "H125-DS-230",
       "question": "The B3e cockpit video camera installation can be fitted with which two camera systems?",
-      "options": ["Vision 1000 and AIRS-400", "GoPro and Vision 1000", "AIRS-400 only", "Vision 1000 only"],
-      "answer": [0],
+      "options": [
+        "Vision 1000 and AIRS-400",
+        "GoPro and Vision 1000",
+        "AIRS-400 only",
+        "Vision 1000 only"
+      ],
+      "answer": [
+        0
+      ],
       "explanation": "The B3e's cockpit video camera section documents two possible systems: the Vision 1000 camera and the AIRS-400 camera, each with its own LED status code table.",
       "section": "description-and-systems",
-      "modelIds": ["H125_AS350_B3E"],
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
       "manual": "RFM H125 Section 7.14",
       "reference": "p. 2",
       "difficulty": "medium",
       "tags": [],
-      "references": ["RFM H125 Section 7.14 – p. 2", "p. 2", "RFM H125 Section 7.14"],
+      "references": [
+        "RFM H125 Section 7.14 – p. 2",
+        "p. 2",
+        "RFM H125 Section 7.14"
+      ],
       "sectionId": "description-and-systems",
       "type": "single",
       "source": "RFM H125 Section 7.14"
@@ -788,16 +903,29 @@
     {
       "id": "H125-DS-231",
       "question": "After the hydraulic pressure cut-off test on the B3e, what is the normal accumulator re-pressurization time?",
-      "options": ["1 to 2 seconds", "3 to 4 seconds", "5 to 6 seconds", "8 to 10 seconds"],
-      "answer": [1],
+      "options": [
+        "1 to 2 seconds",
+        "3 to 4 seconds",
+        "5 to 6 seconds",
+        "8 to 10 seconds"
+      ],
+      "answer": [
+        1
+      ],
       "explanation": "On the B3e, normal accumulator re-pressurization takes 3 to 4 seconds; a time reduced to 1 second or increased beyond 4 seconds indicates a faulty accumulator.",
       "section": "description-and-systems",
-      "modelIds": ["H125_AS350_B3E"],
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
       "manual": "RFM H125 Section 7.10",
       "reference": "p. 6",
       "difficulty": "hard",
       "tags": [],
-      "references": ["RFM H125 Section 7.10 – p. 6", "p. 6", "RFM H125 Section 7.10"],
+      "references": [
+        "RFM H125 Section 7.10 – p. 6",
+        "p. 6",
+        "RFM H125 Section 7.10"
+      ],
       "sectionId": "description-and-systems",
       "type": "single",
       "source": "RFM H125 Section 7.10"
@@ -811,15 +939,23 @@
         "A teetering hub identical to the tail rotor",
         "A rigid hub with hydraulic dampers"
       ],
-      "answer": [0],
+      "answer": [
+        0
+      ],
       "explanation": "The semi-rigid \"STARFLEX\" main rotor hub has no ball bearings nor a lubrication system; flapping is achieved through the composite star arms, with lead-lag and pitch hinges via elastomeric components.",
       "section": "description-and-systems",
-      "modelIds": ["H125_AS350_B3E"],
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
       "manual": "RFM H125 Section 7.9",
       "reference": "p. 4",
       "difficulty": "medium",
       "tags": [],
-      "references": ["RFM H125 Section 7.9 – p. 4", "p. 4", "RFM H125 Section 7.9"],
+      "references": [
+        "RFM H125 Section 7.9 – p. 4",
+        "p. 4",
+        "RFM H125 Section 7.9"
+      ],
       "sectionId": "description-and-systems",
       "type": "single",
       "source": "RFM H125 Section 7.9"
@@ -833,15 +969,23 @@
         "Four: two longitudinal and two lateral",
         "One combined servo for all axes"
       ],
-      "answer": [0],
+      "answer": [
+        0
+      ],
       "explanation": "There are three main rotor servos (one longitudinal, two lateral) plus a separate tail rotor servo for yaw control.",
       "section": "description-and-systems",
-      "modelIds": ["H125_AS350_B3E"],
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
       "manual": "RFM H125 Section 7.10",
       "reference": "p. 1",
       "difficulty": "easy",
       "tags": [],
-      "references": ["RFM H125 Section 7.10 – p. 1", "p. 1", "RFM H125 Section 7.10"],
+      "references": [
+        "RFM H125 Section 7.10 – p. 1",
+        "p. 1",
+        "RFM H125 Section 7.10"
+      ],
       "sectionId": "description-and-systems",
       "type": "single",
       "source": "RFM H125 Section 7.10"
@@ -855,15 +999,23 @@
         "SAMM servos only work on the tail rotor",
         "There is no functional difference between them"
       ],
-      "answer": [0],
+      "answer": [
+        0
+      ],
       "explanation": "SAMM servos include an input play locking system to reduce control freeplay in non-assisted (bypass) mode, which can cause a brief cyclic movement during pressurization; Dunlop lateral servos do not have this device.",
       "section": "description-and-systems",
-      "modelIds": ["H125_AS350_B3E"],
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
       "manual": "RFM H125 Section 7.10",
       "reference": "p. 3",
       "difficulty": "hard",
       "tags": [],
-      "references": ["RFM H125 Section 7.10 – p. 3", "p. 3", "RFM H125 Section 7.10"],
+      "references": [
+        "RFM H125 Section 7.10 – p. 3",
+        "p. 3",
+        "RFM H125 Section 7.10"
+      ],
       "sectionId": "description-and-systems",
       "type": "single",
       "source": "RFM H125 Section 7.10"
@@ -877,15 +1029,23 @@
         "Only in the RH cargo compartment",
         "Under the pilot seat"
       ],
-      "answer": [0],
+      "answer": [
+        0
+      ],
       "explanation": "The B3e's cockpit breaker panels sit on the left (44α) and right (30/31/32α, 16α) sides of the console, with an additional 50α breaker panel in the RH cargo compartment.",
       "section": "description-and-systems",
-      "modelIds": ["H125_AS350_B3E"],
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
       "manual": "RFM H125 Section 7.11",
       "reference": "p. 2",
       "difficulty": "hard",
       "tags": [],
-      "references": ["RFM H125 Section 7.11 – p. 2", "p. 2", "RFM H125 Section 7.11"],
+      "references": [
+        "RFM H125 Section 7.11 – p. 2",
+        "p. 2",
+        "RFM H125 Section 7.11"
+      ],
       "sectionId": "description-and-systems",
       "type": "single",
       "source": "RFM H125 Section 7.11"
@@ -893,16 +1053,29 @@
     {
       "id": "H125-DS-236",
       "question": "How many separate circuits provide cabin ventilation on the B3e?",
-      "options": ["One combined circuit", "Two: front ventilation and overhead ventilation", "Three, including a floor-level circuit", "Four independently controlled zones"],
-      "answer": [1],
+      "options": [
+        "One combined circuit",
+        "Two: front ventilation and overhead ventilation",
+        "Three, including a floor-level circuit",
+        "Four independently controlled zones"
+      ],
+      "answer": [
+        1
+      ],
       "explanation": "Two separate circuits ventilate the cabin: front ventilation (via two ducts to the crew) and overhead ventilation (via a ram air scoop through the structure posts).",
       "section": "description-and-systems",
-      "modelIds": ["H125_AS350_B3E"],
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
       "manual": "RFM H125 Section 7.13",
       "reference": "p. 1",
       "difficulty": "easy",
       "tags": [],
-      "references": ["RFM H125 Section 7.13 – p. 1", "p. 1", "RFM H125 Section 7.13"],
+      "references": [
+        "RFM H125 Section 7.13 – p. 1",
+        "p. 1",
+        "RFM H125 Section 7.13"
+      ],
       "sectionId": "description-and-systems",
       "type": "single",
       "source": "RFM H125 Section 7.13"
@@ -916,18 +1089,716 @@
         "By diverting exhaust gas directly into the cabin",
         "By a separate combustion heater"
       ],
-      "answer": [0],
+      "answer": [
+        0
+      ],
       "explanation": "Heating and demisting are achieved by mixing hot P2 air bled from the engine with outside air drawn from under the cabin floor, channelled to heating and demisting outlets.",
       "section": "description-and-systems",
-      "modelIds": ["H125_AS350_B3E"],
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
       "manual": "RFM H125 Section 7.13",
       "reference": "p. 2",
       "difficulty": "medium",
       "tags": [],
-      "references": ["RFM H125 Section 7.13 – p. 2", "p. 2", "RFM H125 Section 7.13"],
+      "references": [
+        "RFM H125 Section 7.13 – p. 2",
+        "p. 2",
+        "RFM H125 Section 7.13"
+      ],
       "sectionId": "description-and-systems",
       "type": "single",
       "source": "RFM H125 Section 7.13"
+    },
+    {
+      "id": "H125-DS-238",
+      "question": "What is the main gearbox (MGB) oil capacity, including the filter?",
+      "options": [
+        "3.0 l",
+        "6.2 l",
+        "8.5 l",
+        "12.0 l"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Section 7.1 Descriptive Data gives MGB oil capacity as 6.2 l (1.64 US gal) including the filter.",
+      "section": "description-and-systems",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM AS350 Section 7.1",
+      "reference": "p. 7.1-3",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM AS350 Section 7.1 – p. 7.1-3",
+        "p. 7.1-3",
+        "RFM AS350 Section 7.1"
+      ],
+      "sectionId": "description-and-systems",
+      "type": "single",
+      "source": "RFM AS350 Section 7.1"
+    },
+    {
+      "id": "H125-DS-239",
+      "question": "What is the engine oil capacity?",
+      "options": [
+        "3.5 l",
+        "5.0 l",
+        "6.5 l",
+        "9.0 l"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Section 7.1 Descriptive Data gives engine oil capacity as 6.5 l (1.7 US gal).",
+      "section": "description-and-systems",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM AS350 Section 7.1",
+      "reference": "p. 7.1-3",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM AS350 Section 7.1 – p. 7.1-3",
+        "p. 7.1-3",
+        "RFM AS350 Section 7.1"
+      ],
+      "sectionId": "description-and-systems",
+      "type": "single",
+      "source": "RFM AS350 Section 7.1"
+    },
+    {
+      "id": "H125-DS-240",
+      "question": "What is the maximum servo control fluid capacity per reservoir?",
+      "options": [
+        "0.33 l",
+        "1 l",
+        "3 l max",
+        "6.2 l"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Section 7.1 Descriptive Data gives servo control fluid capacity as 3 l maximum per reservoir (TGB oil capacity is 0.33 l, a separate figure).",
+      "section": "description-and-systems",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM AS350 Section 7.1",
+      "reference": "p. 7.1-3",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM AS350 Section 7.1 – p. 7.1-3",
+        "p. 7.1-3",
+        "RFM AS350 Section 7.1"
+      ],
+      "sectionId": "description-and-systems",
+      "type": "single",
+      "source": "RFM AS350 Section 7.1"
+    },
+    {
+      "id": "H125-DS-241",
+      "question": "Which Ancillary Systems Unit (ASU) card is part of the Engine Back-up Control Ancillary Unit (EBCAU)?",
+      "options": [
+        "ASU No. 1",
+        "ASU No. 2",
+        "ASU No. 3",
+        "All three ASU cards equally"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Section 7.3 states ASU No. 3 is part of the EBCAU, performing N2 indicator signal acquisition and computing/signal processing for the back-up fuel metering valve.",
+      "section": "description-and-systems",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM AS350 Section 7.3",
+      "reference": "p. 7.3-3",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM AS350 Section 7.3 – p. 7.3-3",
+        "p. 7.3-3",
+        "RFM AS350 Section 7.3"
+      ],
+      "sectionId": "description-and-systems",
+      "type": "single",
+      "source": "RFM AS350 Section 7.3"
+    },
+    {
+      "id": "H125-DS-242",
+      "question": "How many independent modules make up the Arriel 2D engine?",
+      "options": [
+        "Three",
+        "Four",
+        "Five",
+        "Six"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Section 7.7 describes the Arriel 2D as a modular free-wheel engine composed of five independent modules: accessory drive gearbox/transmission shaft, axial compressor, gas generator HP section, power turbine, and reduction gearbox.",
+      "section": "description-and-systems",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM AS350 Section 7.7",
+      "reference": "p. 7.7-1",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM AS350 Section 7.7 – p. 7.7-1",
+        "p. 7.7-1",
+        "RFM AS350 Section 7.7"
+      ],
+      "sectionId": "description-and-systems",
+      "type": "single",
+      "source": "RFM AS350 Section 7.7"
+    },
+    {
+      "id": "H125-DS-243",
+      "question": "The engine oil system's internal (engine-integrated) circuit includes how many scavenge pumps?",
+      "options": [
+        "One",
+        "Two",
+        "Three",
+        "Four"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Section 7.7 Engine Oil System describes the internal system as including one pressure pump and three scavenge pumps, a filter with by-pass valve, and one electric magnetic chip detector.",
+      "section": "description-and-systems",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM AS350 Section 7.7",
+      "reference": "p. 7.7-2",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM AS350 Section 7.7 – p. 7.7-2",
+        "p. 7.7-2",
+        "RFM AS350 Section 7.7"
+      ],
+      "sectionId": "description-and-systems",
+      "type": "single",
+      "source": "RFM AS350 Section 7.7"
+    },
+    {
+      "id": "H125-DS-244",
+      "question": "Down to what temperature can the fuel/oil heat exchanger allow engine operation without an anti-ice additive in the fuel?",
+      "options": [
+        "-10 °C",
+        "-20 °C",
+        "-30 °C",
+        "-40 °C"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Section 7.8 Engine Fuel Supply System states the fuel/oil heat exchanger allows operation at -20 °C without an anti-ice additive in the fuel.",
+      "section": "description-and-systems",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM AS350 Section 7.8",
+      "reference": "p. 7.8-1",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM AS350 Section 7.8 – p. 7.8-1",
+        "p. 7.8-1",
+        "RFM AS350 Section 7.8"
+      ],
+      "sectionId": "description-and-systems",
+      "type": "single",
+      "source": "RFM AS350 Section 7.8"
+    },
+    {
+      "id": "H125-DS-245",
+      "question": "If the FADEC does not receive the N2 datum (N2*) from the VEMD, what happens?",
+      "options": [
+        "The engine shuts down automatically",
+        "The FADEC reverts to an N2 of 394 rpm (NR equivalent) and GOV illuminates",
+        "N2 governing is unaffected",
+        "The EBCAU permanently takes over"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Section 7.8 N2 Governing: if the N2 datum is not received from the VEMD, the FADEC reverts to an N2 corresponding to 394 rpm NR, and the GOV caption comes on.",
+      "section": "description-and-systems",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM AS350 Section 7.8",
+      "reference": "p. 7.8-4",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM AS350 Section 7.8 – p. 7.8-4",
+        "p. 7.8-4",
+        "RFM AS350 Section 7.8"
+      ],
+      "sectionId": "description-and-systems",
+      "type": "single",
+      "source": "RFM AS350 Section 7.8"
+    },
+    {
+      "id": "H125-DS-246",
+      "question": "During autorotation or very low power settings, how does the FADEC adjust N2 in FLIGHT mode?",
+      "options": [
+        "It reduces N2 to improve fuel economy",
+        "It automatically increases N2 to about 400 rpm to improve engine response",
+        "It disengages N2 governing entirely",
+        "It has no effect on N2"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Section 7.8 states that in autorotation or at very low power, the FADEC automatically increases N2 to about 400 rpm in FLIGHT mode, improving engine response and reducing the NR drop on a rapid power demand increase.",
+      "section": "description-and-systems",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM AS350 Section 7.8",
+      "reference": "p. 7.8-4",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM AS350 Section 7.8 – p. 7.8-4",
+        "p. 7.8-4",
+        "RFM AS350 Section 7.8"
+      ],
+      "sectionId": "description-and-systems",
+      "type": "single",
+      "source": "RFM AS350 Section 7.8"
+    },
+    {
+      "id": "H125-DS-247",
+      "question": "What characterizes a Level 3 FADEC failure?",
+      "options": [
+        "Flashing GOV only, with no effect on engine control",
+        "Steady GOV, with degraded engine control",
+        "Total FADEC failure: main metering valve frozen at last computed value, back-up system automatically activated",
+        "A momentary GOV flicker with no other symptoms"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Section 7.8 FADEC Failures: Level 3 is total FADEC failure — the main metering valve freezes at its last computed value, the back-up system activates automatically, and automatic engine start becomes impossible.",
+      "section": "description-and-systems",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM AS350 Section 7.8",
+      "reference": "p. 7.8-5",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM AS350 Section 7.8 – p. 7.8-5",
+        "p. 7.8-5",
+        "RFM AS350 Section 7.8"
+      ],
+      "sectionId": "description-and-systems",
+      "type": "single",
+      "source": "RFM AS350 Section 7.8"
+    },
+    {
+      "id": "H125-DS-248",
+      "question": "When active, the back-up governor (EBCAU) controls N2 within what range?",
+      "options": [
+        "350 to 386 rpm",
+        "388 to 400 rpm",
+        "400 to 420 rpm",
+        "410 to 430 rpm"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Section 7.8 Fuel Governor Back-up System: the EBCAU back-up governor controls N2 between 388 and 400 rpm via a DC actuator operating the back-up metering valve.",
+      "section": "description-and-systems",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM AS350 Section 7.8",
+      "reference": "p. 7.8-6",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM AS350 Section 7.8 – p. 7.8-6",
+        "p. 7.8-6",
+        "RFM AS350 Section 7.8"
+      ],
+      "sectionId": "description-and-systems",
+      "type": "single",
+      "source": "RFM AS350 Section 7.8"
+    },
+    {
+      "id": "H125-DS-249",
+      "question": "During engine start, if ignition does not occur within 5 seconds after N1 exceeds 17%, what does the EECU do?",
+      "options": [
+        "Requires the pilot to manually abort and restart",
+        "Automatically stops the sequence, lets N1 decay to 10%, then automatically relaunches a new start sequence",
+        "Shuts down the aircraft battery",
+        "Switches immediately to EBCAU back-up mode"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Section 7.8 Automatic 2nd Chance Engine Start: if ignition fails within 5 seconds of N1 exceeding 17%, the EECU automatically stops the starting procedure, lets N1 decrease to 10%, then automatically launches a new start sequence — with no pilot action required.",
+      "section": "description-and-systems",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM AS350 Section 7.8",
+      "reference": "p. 7.8-7",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM AS350 Section 7.8 – p. 7.8-7",
+        "p. 7.8-7",
+        "RFM AS350 Section 7.8"
+      ],
+      "sectionId": "description-and-systems",
+      "type": "single",
+      "source": "RFM AS350 Section 7.8"
+    },
+    {
+      "id": "H125-DS-250",
+      "question": "On aircraft post MOD 07-4831 or MOD 07-20015, what happens if N2 exceeds 120% (463 rpm)?",
+      "options": [
+        "Nothing — this is within normal limits",
+        "The FADEC automatically activates the engine stop electro-valve, causing immediate engine shutdown",
+        "The EBCAU takes over governing automatically",
+        "A caution is displayed with no further action"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Section 7.8 states that post MOD 07-4831/07-20015, an N2 overspeed above 120% (463 rpm) causes the FADEC to automatically activate the engine stop electro-valve, stopping fuel supply and shutting down the engine immediately; restart capability is not impacted.",
+      "section": "description-and-systems",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM AS350 Section 7.8",
+      "reference": "p. 7.8-7",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM AS350 Section 7.8 – p. 7.8-7",
+        "p. 7.8-7",
+        "RFM AS350 Section 7.8"
+      ],
+      "sectionId": "description-and-systems",
+      "type": "single",
+      "source": "RFM AS350 Section 7.8"
+    },
+    {
+      "id": "H125-DS-251",
+      "question": "On the VEMD Performance page, what is the default crew weight (CREW) value at power-up?",
+      "options": [
+        "70 kg (154 lb)",
+        "75 kg (165 lb)",
+        "80 kg (176 lb)",
+        "90 kg (198 lb)"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Section 7.4 Performance Page states the default CREW value displayed at power-up is 80 kg (176 lb).",
+      "section": "description-and-systems",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM AS350 Section 7.4",
+      "reference": "p. 7.4-8",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM AS350 Section 7.4 – p. 7.4-8",
+        "p. 7.4-8",
+        "RFM AS350 Section 7.4"
+      ],
+      "sectionId": "description-and-systems",
+      "type": "single",
+      "source": "RFM AS350 Section 7.4"
+    },
+    {
+      "id": "H125-DS-252",
+      "question": "How is flight time defined on the VEMD Flight Report page?",
+      "options": [
+        "From engine start to engine shutdown",
+        "From N1 above 60% after start to N1 below 50% at engine shutdown",
+        "From liftoff to touchdown only",
+        "From rotor engagement to rotor stop"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Section 7.4 Flight Report Page defines flight time as running from N1 > 60% after start to N1 < 50% at engine shutdown; the page is automatically displayed at the end of flight when N1 < 10% and NR < 70 rpm.",
+      "section": "description-and-systems",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM AS350 Section 7.4",
+      "reference": "p. 7.4-10",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM AS350 Section 7.4 – p. 7.4-10",
+        "p. 7.4-10",
+        "RFM AS350 Section 7.4"
+      ],
+      "sectionId": "description-and-systems",
+      "type": "single",
+      "source": "RFM AS350 Section 7.4"
+    },
+    {
+      "id": "H125-DS-253",
+      "question": "How many interchangeable modules make up the main gear box (MGB)?",
+      "options": [
+        "Two",
+        "Three",
+        "Four",
+        "Five"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Section 7.9 states the MGB is made of three interchangeable modules, with its own lubricating system and monitoring systems.",
+      "section": "description-and-systems",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM AS350 Section 7.9",
+      "reference": "p. 7.9-2",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM AS350 Section 7.9 – p. 7.9-2",
+        "p. 7.9-2",
+        "RFM AS350 Section 7.9"
+      ],
+      "sectionId": "description-and-systems",
+      "type": "single",
+      "source": "RFM AS350 Section 7.9"
+    },
+    {
+      "id": "H125-DS-254",
+      "question": "How many ball bearing/support assemblies support the long tail rotor drive shaft?",
+      "options": [
+        "Three",
+        "Four",
+        "Five",
+        "Six"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Section 7.9 states the long light alloy tail rotor drive shaft is supported by five ball bearing/support assemblies mounted on elastomeric bushes for vibration damping.",
+      "section": "description-and-systems",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM AS350 Section 7.9",
+      "reference": "p. 7.9-3",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM AS350 Section 7.9 – p. 7.9-3",
+        "p. 7.9-3",
+        "RFM AS350 Section 7.9"
+      ],
+      "sectionId": "description-and-systems",
+      "type": "single",
+      "source": "RFM AS350 Section 7.9"
+    },
+    {
+      "id": "H125-DS-255",
+      "question": "How is the tail gear box (TGB) lubricated, and how is its oil level checked?",
+      "options": [
+        "Pressure-lubricated, checked via VEMD",
+        "Splash-lubricated, with a visual oil level indicator",
+        "Grease-packed, no level check required",
+        "Lubricated by the MGB oil system"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Section 7.9 states the TGB is splash-lubricated and comprises a visual oil level indicator and a chip detection caution light (TGB CHIP).",
+      "section": "description-and-systems",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM AS350 Section 7.9",
+      "reference": "p. 7.9-3",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM AS350 Section 7.9 – p. 7.9-3",
+        "p. 7.9-3",
+        "RFM AS350 Section 7.9"
+      ],
+      "sectionId": "description-and-systems",
+      "type": "single",
+      "source": "RFM AS350 Section 7.9"
+    },
+    {
+      "id": "H125-DS-256",
+      "question": "Viewed from above, in which direction does the main rotor turn?",
+      "options": [
+        "Counterclockwise",
+        "Clockwise",
+        "It alternates depending on flight mode",
+        "It does not rotate in a fixed sense"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Section 7.9 states the main rotor rotates clockwise when viewed from above.",
+      "section": "description-and-systems",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM AS350 Section 7.9",
+      "reference": "p. 7.9-4",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM AS350 Section 7.9 – p. 7.9-4",
+        "p. 7.9-4",
+        "RFM AS350 Section 7.9"
+      ],
+      "sectionId": "description-and-systems",
+      "type": "single",
+      "source": "RFM AS350 Section 7.9"
+    },
+    {
+      "id": "H125-DS-257",
+      "question": "Viewed from the RH side of the aircraft, in which direction do the tail rotor blades turn?",
+      "options": [
+        "Clockwise",
+        "Counterclockwise",
+        "They do not have a fixed rotational sense",
+        "Viewed direction does not apply to a see-saw rotor"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Section 7.9 states the two-blade, see-saw mounted tail rotor rotates counterclockwise when viewed from the RH side of the aircraft.",
+      "section": "description-and-systems",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM AS350 Section 7.9",
+      "reference": "p. 7.9-4",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM AS350 Section 7.9 – p. 7.9-4",
+        "p. 7.9-4",
+        "RFM AS350 Section 7.9"
+      ],
+      "sectionId": "description-and-systems",
+      "type": "single",
+      "source": "RFM AS350 Section 7.9"
+    },
+    {
+      "id": "H125-DS-258",
+      "question": "What is the total hydraulic system fluid volume, up to the maximum level mark on the reservoir?",
+      "options": [
+        "1 liter",
+        "3 liters",
+        "6.2 liters",
+        "10 liters"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Section 7.10 General states the total hydraulic system fluid volume is 3 liters (0.79 US gal / 0.66 UK gal) up to the maximum level mark.",
+      "section": "description-and-systems",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM AS350 Section 7.10",
+      "reference": "p. 7.10-1",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM AS350 Section 7.10 – p. 7.10-1",
+        "p. 7.10-1",
+        "RFM AS350 Section 7.10"
+      ],
+      "sectionId": "description-and-systems",
+      "type": "single",
+      "source": "RFM AS350 Section 7.10"
+    },
+    {
+      "id": "H125-DS-259",
+      "question": "How is the hydraulic pump driven?",
+      "options": [
+        "By an independent electric motor",
+        "By a drive belt from the engine power drive shaft near the MGB input",
+        "Directly by the tail rotor drive shaft",
+        "By the VEMD-controlled actuator"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Section 7.10 describes a single constant flow rate gear-pump driven by a drive belt mounted between the pump pulley and a pulley on the engine power drive shaft, close to the MGB power input.",
+      "section": "description-and-systems",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM AS350 Section 7.10",
+      "reference": "p. 7.10-1",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM AS350 Section 7.10 – p. 7.10-1",
+        "p. 7.10-1",
+        "RFM AS350 Section 7.10"
+      ],
+      "sectionId": "description-and-systems",
+      "type": "single",
+      "source": "RFM AS350 Section 7.10"
+    },
+    {
+      "id": "H125-DS-260",
+      "question": "What is a key function of the Electrical Master Box (EMB) in the DC electrical system?",
+      "options": [
+        "It converts DC power to AC for avionics",
+        "It regulates the starter generator and connects power supplies to the network via line contactors",
+        "It stores backup fuel data for the FADEC",
+        "It controls VEMD screen brightness"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Section 7.11 DC Electrical Power describes the EMB as regulating the starter generator, connecting power supplies to the electrical network via line contactors, distributing/protecting the network, and interfacing with the indicating, control and monitoring system.",
+      "section": "description-and-systems",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM AS350 Section 7.11",
+      "reference": "p. 7.11-2",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM AS350 Section 7.11 – p. 7.11-2",
+        "p. 7.11-2",
+        "RFM AS350 Section 7.11"
+      ],
+      "sectionId": "description-and-systems",
+      "type": "single",
+      "source": "RFM AS350 Section 7.11"
     }
   ]
 }

@@ -56,11 +56,9 @@ export async function getTrafficMetrics(now: Date = new Date()): Promise<Traffic
   const thirtyDaysAgoMs = nowMs - 30 * 24 * 60 * 60 * 1000;
   const thirtyDaysAgoIso = new Date(thirtyDaysAgoMs).toISOString();
 
-  const [eventsSnapshot, visitorsSnapshot, legacyUsersSnapshot] = await Promise.all([
+  const [eventsSnapshot, visitorsSnapshot] = await Promise.all([
     adminDb.collection("trafficEvents").where("createdAt", ">=", thirtyDaysAgoIso).get(),
     adminDb.collection("trafficVisitors").select("lastSeenAt").get(),
-    // Legacy fallback from the previous signed-in heartbeat implementation.
-    adminDb.collection("users").select("lastSeenAt").get(),
   ]);
 
   const unique1d = new Set<string>();
@@ -96,28 +94,12 @@ export async function getTrafficMetrics(now: Date = new Date()): Promise<Traffic
     const data = doc.data() as any;
     const lastSeen = toDate(data?.lastSeenAt);
     if (!lastSeen) return;
-    trackedVisitors.add(`visitor:${doc.id}`);
+    trackedVisitors.add(doc.id);
 
     const ts = lastSeen.getTime();
     if (ts >= thirtyDaysAgoMs) unique30d.add(doc.id);
     if (ts >= sevenDaysAgoMs) unique7d.add(doc.id);
     if (ts >= oneDayAgoMs) unique1d.add(doc.id);
-  });
-
-  legacyUsersSnapshot.forEach((doc: any) => {
-    const data = doc.data() as any;
-    const lastSeen = toDate(data?.lastSeenAt);
-    if (!lastSeen) return;
-    trackedVisitors.add(`user:${doc.id}`);
-
-    const ts = lastSeen.getTime();
-    if (ts >= thirtyDaysAgoMs) unique30d.add(`user:${doc.id}`);
-    if (ts >= sevenDaysAgoMs) {
-      unique7d.add(`user:${doc.id}`);
-    }
-    if (ts >= oneDayAgoMs) {
-      unique1d.add(`user:${doc.id}`);
-    }
   });
 
   return {

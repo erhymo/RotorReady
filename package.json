@@ -28,6 +28,7 @@
     "@capacitor/core": "^7.6.2",
     "@capacitor/ios": "^7.6.2",
     "@sentry/nextjs": "^10.17.0",
+    "@vercel/analytics": "^2.0.1",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "firebase": "^12.3.0",

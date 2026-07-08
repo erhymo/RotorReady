@@ -7,6 +7,7 @@ import ProtectedRoutes from "@/components/ProtectedRoutes";
 import ThemeInitializer from "@/components/ThemeInitializer";
 import AnalyticsProvider from "@/components/AnalyticsProvider";
 import PWARegister from "@/components/PWARegister";
+import { Analytics } from "@vercel/analytics/next";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -86,7 +87,7 @@ export default function RootLayout({
           {/* NOTE: ProtectedRoutes only guards specific prefixes (quiz/offline/training/...) */}
           <ProtectedRoutes>{children}</ProtectedRoutes>
         </main>
-
+        <Analytics />
       </body>
     </html>
   );

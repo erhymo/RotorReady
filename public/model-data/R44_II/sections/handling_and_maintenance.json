@@ -1,0 +1,364 @@
+{
+  "items": [
+    {
+      "id": "r44ii-hm-001",
+      "section": "HANDLING AND MAINTENANCE",
+      "type": "single",
+      "question": "Which document must be displayed in the R44 II at all times?",
+      "options": [
+        "The Airworthiness Certificate (FAA Form 8100-2)",
+        "The Aircraft Logbook",
+        "The Engine Logbook",
+        "The original factory weight and balance sheet"
+      ],
+      "answer": [0],
+      "explanation": "Section 8 REQUIRED DOCUMENTS states the Airworthiness Certificate (FAA Form 8100-2) must be displayed in the aircraft at all times.",
+      "references": ["R44 II POH Sec 8: REQUIRED DOCUMENTS (p.8-2)"],
+      "tags": ["handling-maintenance", "documents"],
+      "source": "R44 II POH",
+      "modelIds": ["R44_II"]
+    },
+    {
+      "id": "r44ii-hm-002",
+      "section": "HANDLING AND MAINTENANCE",
+      "type": "single",
+      "question": "Which documents must be carried in the aircraft in addition to the Airworthiness Certificate, per Section 8?",
+      "options": [
+        "Aircraft Logbook and Engine Logbook",
+        "Registration Certificate, Pilot's Operating Handbook, and Current Weight and Balance",
+        "Service Bulletins and Airworthiness Directives only",
+        "Insurance certificate and pilot medical certificate"
+      ],
+      "answer": [1],
+      "explanation": "Section 8 requires the Registration Certificate (FAA Form 8050-3), Pilot's Operating Handbook, and Current Weight and Balance to be carried in the aircraft, in addition to the displayed Airworthiness Certificate.",
+      "references": ["R44 II POH Sec 8: REQUIRED DOCUMENTS (p.8-2)"],
+      "tags": ["handling-maintenance", "documents"],
+      "source": "R44 II POH",
+      "modelIds": ["R44_II"]
+    },
+    {
+      "id": "r44ii-hm-003",
+      "section": "HANDLING AND MAINTENANCE",
+      "type": "single",
+      "question": "According to REQUIRED DOCUMENTS, which documents should NOT be carried in the aircraft but must be available for mechanics or pilots servicing it?",
+      "options": [
+        "The Aircraft Logbook and Engine Logbook",
+        "The Registration Certificate and POH",
+        "The Weight and Balance Record only",
+        "Service Bulletins only"
+      ],
+      "answer": [0],
+      "explanation": "Section 8 states the Aircraft Logbook and Engine Logbook should not be carried in the aircraft, but must be available for use by any mechanic or pilot servicing it.",
+      "references": ["R44 II POH Sec 8: REQUIRED DOCUMENTS (p.8-2)"],
+      "tags": ["handling-maintenance", "documents"],
+      "source": "R44 II POH",
+      "modelIds": ["R44_II"]
+    },
+    {
+      "id": "r44ii-hm-004",
+      "section": "HANDLING AND MAINTENANCE",
+      "type": "single",
+      "question": "In addition to the annual inspection, what other complete inspection does the R44 Maintenance Manual require?",
+      "options": [
+        "A complete inspection every 100 hours of operation",
+        "A complete inspection every 200 hours of operation",
+        "A complete inspection every 6 months regardless of hours",
+        "A complete inspection only after any hard landing"
+      ],
+      "answer": [0],
+      "explanation": "REQUIRED INSPECTIONS states that, in addition to the required annual inspection, the R44 Maintenance Manual requires a complete inspection after every 100 hours of operation.",
+      "references": ["R44 II POH Sec 8: REQUIRED INSPECTIONS (p.8-3)"],
+      "tags": ["handling-maintenance", "inspections"],
+      "source": "R44 II POH",
+      "modelIds": ["R44_II"]
+    },
+    {
+      "id": "r44ii-hm-005",
+      "section": "HANDLING AND MAINTENANCE",
+      "type": "single",
+      "question": "Who is qualified to perform maintenance, repairs, or inspections on the R44 II beyond standard A&P privileges?",
+      "options": [
+        "Any A&P mechanic without additional training",
+        "Only appropriately rated personnel who have completed a factory-approved maintenance course, or who work under their direct supervision",
+        "Only Robinson factory employees",
+        "Any pilot holding a commercial certificate"
+      ],
+      "answer": [1],
+      "explanation": "REQUIRED INSPECTIONS states that without special training, A&P mechanics are not qualified to perform these inspections; only personnel who completed a factory-approved maintenance course (or those under their direct supervision) should perform this work.",
+      "references": ["R44 II POH Sec 8: REQUIRED INSPECTIONS (p.8-3)"],
+      "tags": ["handling-maintenance", "inspections", "qualification"],
+      "source": "R44 II POH",
+      "modelIds": ["R44_II"]
+    },
+    {
+      "id": "r44ii-hm-006",
+      "section": "HANDLING AND MAINTENANCE",
+      "type": "single",
+      "question": "Which of the following is listed as preventive maintenance a certificated pilot may perform under 14 CFR Part 43, per Section 8?",
+      "options": [
+        "Overhaul the main rotor gearbox",
+        "Replace, clean, or gap spark plugs",
+        "Replace the main rotor blades",
+        "Repair the tail rotor drive shaft"
+      ],
+      "answer": [1],
+      "explanation": "PREVENTIVE MAINTENANCE BY THE PILOT lists replacing, cleaning, or gapping spark plugs as a pilot-performable item. Overhauling the main gearbox, replacing rotor blades, or repairing the drive shaft are not on the list and are not pilot-performable preventive maintenance.",
+      "references": ["R44 II POH Sec 8: PREVENTIVE MAINTENANCE BY THE PILOT (p.8-4)"],
+      "tags": ["handling-maintenance", "preventive-maintenance"],
+      "source": "R44 II POH",
+      "modelIds": ["R44_II"]
+    },
+    {
+      "id": "r44ii-hm-007",
+      "section": "HANDLING AND MAINTENANCE",
+      "type": "single",
+      "question": "After a pilot performs preventive maintenance, which of the following must be entered in the logbook?",
+      "options": [
+        "Date, description of work, total hours on aircraft, pilot certificate number, and pilot signature",
+        "Only the pilot's signature",
+        "Only the total hours on the aircraft",
+        "Nothing needs to be logged for preventive maintenance"
+      ],
+      "answer": [0],
+      "explanation": "PREVENTIVE MAINTENANCE BY THE PILOT requires the pilot to enter the date, description of work, total hours on aircraft, pilot certificate number, and signature in the appropriate logbook after completing the work.",
+      "references": ["R44 II POH Sec 8: PREVENTIVE MAINTENANCE BY THE PILOT (p.8-4)"],
+      "tags": ["handling-maintenance", "preventive-maintenance", "logbook"],
+      "source": "R44 II POH",
+      "modelIds": ["R44_II"]
+    },
+    {
+      "id": "r44ii-hm-008",
+      "section": "HANDLING AND MAINTENANCE",
+      "type": "single",
+      "question": "What is Robinson's position on alterations to the R44 II, per ALTERATIONS TO AIRCRAFT?",
+      "options": [
+        "Any modification is authorized as long as an A&P signs it off",
+        "No modification or alteration is authorized other than those factory-supplied and installed by factory-trained personnel",
+        "Only avionics modifications are prohibited",
+        "Modifications are allowed after the first 100 hours of operation"
+      ],
+      "answer": [1],
+      "explanation": "ALTERATIONS TO AIRCRAFT states that because of the hazards involved, Robinson does not authorize any modification or alteration other than those factory-supplied and installed by factory-trained personnel.",
+      "references": ["R44 II POH Sec 8: ALTERATIONS TO AIRCRAFT (p.8-5)"],
+      "tags": ["handling-maintenance", "alterations"],
+      "source": "R44 II POH",
+      "modelIds": ["R44_II"]
+    },
+    {
+      "id": "r44ii-hm-009",
+      "section": "HANDLING AND MAINTENANCE",
+      "type": "single",
+      "question": "What is the recommended tire pressure for the ground handling wheels?",
+      "options": [
+        "30 psi (2 bar)",
+        "45 psi (3 bar)",
+        "60 psi (4 bar)",
+        "75 psi (5 bar)"
+      ],
+      "answer": [2],
+      "explanation": "GROUND HANDLING states the recommended tire pressure for the ground handling wheels is 60 psi (4 bar), and that the wheels must be removed for flight.",
+      "references": ["R44 II POH Sec 8: GROUND HANDLING (p.8-6)"],
+      "tags": ["handling-maintenance", "ground-handling"],
+      "source": "R44 II POH",
+      "modelIds": ["R44_II"]
+    },
+    {
+      "id": "r44ii-hm-010",
+      "section": "HANDLING AND MAINTENANCE",
+      "type": "single",
+      "question": "What is the correct procedure sequence for PARKING the R44 II, per Section 8?",
+      "options": [
+        "Apply rotor brake first, then set cyclic and collective controls",
+        "Cyclic neutral with friction applied, collective full down with friction applied, then align blades and apply rotor brake",
+        "Leave cyclic and collective free, only apply the rotor brake",
+        "Shut off fuel first, then set controls"
+      ],
+      "answer": [1],
+      "explanation": "PARKING lists: place cyclic in neutral and apply friction; put collective full down and apply friction; align rotor blades approximately fore and aft and apply rotor brake; use tie-downs in windy conditions.",
+      "references": ["R44 II POH Sec 8: PARKING (p.8-6/8-7)"],
+      "tags": ["handling-maintenance", "parking"],
+      "source": "R44 II POH",
+      "modelIds": ["R44_II"]
+    },
+    {
+      "id": "r44ii-hm-011",
+      "section": "HANDLING AND MAINTENANCE",
+      "type": "single",
+      "question": "What is the maximum tension for rotor blade tie-down straps, per the PARKING caution?",
+      "options": [
+        "2 lb max tension",
+        "5 lb max tension",
+        "10 lb max tension",
+        "There is no specified maximum"
+      ],
+      "answer": [1],
+      "explanation": "The PARKING CAUTION states that if using rotor blade tie-downs, tie-down straps must not be overtightened beyond 5 lb max tension, and blades must not be pulled down to teeter the rotor.",
+      "references": ["R44 II POH Sec 8: PARKING (p.8-7)"],
+      "tags": ["handling-maintenance", "parking"],
+      "source": "R44 II POH",
+      "modelIds": ["R44_II"]
+    },
+    {
+      "id": "r44ii-hm-012",
+      "section": "HANDLING AND MAINTENANCE",
+      "type": "single",
+      "question": "Who may remove and install the R44 II's four cabin doors, per Section 8?",
+      "options": [
+        "Maintenance personnel or pilots",
+        "Only Robinson factory technicians",
+        "Only an A&P mechanic with Inspection Authorization",
+        "Doors are not removable in flight configuration"
+      ],
+      "answer": [0],
+      "explanation": "CABIN DOORS states that all four cabin doors may be removed and installed by maintenance personnel or pilots, and weight and balance must be adjusted as required when doors are removed or installed.",
+      "references": ["R44 II POH Sec 8: CABIN DOORS (p.8-7)"],
+      "tags": ["handling-maintenance", "cabin-doors"],
+      "source": "R44 II POH",
+      "modelIds": ["R44_II"]
+    },
+    {
+      "id": "r44ii-hm-013",
+      "section": "HANDLING AND MAINTENANCE",
+      "type": "single",
+      "question": "What are the recommended maximum and minimum engine oil quantities indicated on the dipstick, per Section 8 ENGINE OIL?",
+      "options": [
+        "Maximum 9 quarts, minimum 7 quarts for takeoff",
+        "Maximum 12 quarts, minimum 8 quarts for takeoff",
+        "Maximum 6 quarts, minimum 4 quarts for takeoff",
+        "Maximum 9 quarts, minimum 9 quarts for takeoff"
+      ],
+      "answer": [0],
+      "explanation": "ENGINE OIL states the recommended maximum oil quantity is nine quarts, and the minimum quantity for takeoff is seven quarts, as indicated on the oil dipstick.",
+      "references": ["R44 II POH Sec 8: ENGINE OIL (p.8-8)"],
+      "tags": ["handling-maintenance", "engine-oil"],
+      "source": "R44 II POH",
+      "modelIds": ["R44_II"]
+    },
+    {
+      "id": "r44ii-hm-014",
+      "section": "HANDLING AND MAINTENANCE",
+      "type": "single",
+      "question": "How often should the engine oil and filter be changed, per Section 8?",
+      "options": [
+        "Every 25 hours or 2 months, whichever occurs first",
+        "Every 50 hours or 4 months, whichever occurs first",
+        "Every 100 hours or 6 months, whichever occurs first",
+        "Only at the annual inspection"
+      ],
+      "answer": [1],
+      "explanation": "ENGINE OIL states the oil and filter should be changed at least every 50 hours or four months, whichever occurs first, and to check the alternator drive belt and fan shaft bearing at each oil change.",
+      "references": ["R44 II POH Sec 8: ENGINE OIL (p.8-8)"],
+      "tags": ["handling-maintenance", "engine-oil"],
+      "source": "R44 II POH",
+      "modelIds": ["R44_II"]
+    },
+    {
+      "id": "r44ii-hm-015",
+      "section": "HANDLING AND MAINTENANCE",
+      "type": "single",
+      "question": "What fluid specification is used to top up the hydraulic reservoir, per Section 8?",
+      "options": [
+        "Robinson P/N A257-15 fluid (MIL-PRF-5606)",
+        "Robinson P/N A257-2 gearbox oil",
+        "Any automotive brake fluid",
+        "MIL-PRF-83282 fluid"
+      ],
+      "answer": [0],
+      "explanation": "HYDRAULIC FLUID states that if fluid is not visible in the reservoir sight gage, Robinson part number A257-15 fluid (MIL-PRF-5606) should be added to the center of the sight gage, and the filler/vent cap torqued to 100 in.-lb.",
+      "references": ["R44 II POH Sec 8: HYDRAULIC FLUID (p.8-9)"],
+      "tags": ["handling-maintenance", "hydraulic-fluid"],
+      "source": "R44 II POH",
+      "modelIds": ["R44_II"]
+    },
+    {
+      "id": "r44ii-hm-016",
+      "section": "HANDLING AND MAINTENANCE",
+      "type": "single",
+      "question": "What caution applies when adding oil to the tail gearbox sight gage, per Section 8 GEARBOX OIL?",
+      "options": [
+        "Fill quickly to avoid contamination",
+        "Fill very slowly to the center of the sight gage; do not overfill, as less than a tablespoon is usually required",
+        "Fill to the top of the sight gage for maximum protection",
+        "No specific caution applies"
+      ],
+      "answer": [1],
+      "explanation": "GEARBOX OIL instructs to fill very slowly to the center of the sight gage and not overfill, noting that less than a tablespoon of oil is usually required.",
+      "references": ["R44 II POH Sec 8: GEARBOX OIL (p.8-10)"],
+      "tags": ["handling-maintenance", "gearbox-oil"],
+      "source": "R44 II POH",
+      "modelIds": ["R44_II"]
+    },
+    {
+      "id": "r44ii-hm-017",
+      "section": "HANDLING AND MAINTENANCE",
+      "type": "single",
+      "question": "When should fuel samples be drained from the gascolator and each tank, per Section 8 FUEL?",
+      "options": [
+        "Only at the annual inspection",
+        "Prior to the first flight each day and after refueling",
+        "Only when contamination is suspected",
+        "Only after flight in rain"
+      ],
+      "answer": [1],
+      "explanation": "The FUEL paragraph states a small quantity of fuel should be drained from the gascolator and each tank prior to the first flight each day and after refueling, to check for water, dirt, and approved fuel color.",
+      "references": ["R44 II POH Sec 8: FUEL (p.8-11)"],
+      "tags": ["handling-maintenance", "fuel"],
+      "source": "R44 II POH",
+      "modelIds": ["R44_II"]
+    },
+    {
+      "id": "r44ii-hm-018",
+      "section": "HANDLING AND MAINTENANCE",
+      "type": "single",
+      "question": "At what weight should the optional fire extinguisher (model RT-A400) be removed from service, per Section 8?",
+      "options": [
+        "If weight falls below 500 grams",
+        "If weight falls below 250 grams",
+        "If weight falls below 750 grams",
+        "There is no specified weight threshold"
+      ],
+      "answer": [0],
+      "explanation": "FIRE EXTINGUISHER (OPTIONAL) states the extinguisher should be weighed monthly, and if weight falls below 500 grams, it must be removed from service.",
+      "references": ["R44 II POH Sec 8: FIRE EXTINGUISHER (OPTIONAL) (p.8-12)"],
+      "tags": ["handling-maintenance", "fire-extinguisher"],
+      "source": "R44 II POH",
+      "modelIds": ["R44_II"]
+    },
+    {
+      "id": "r44ii-hm-019",
+      "section": "HANDLING AND MAINTENANCE",
+      "type": "single",
+      "question": "What does Section 8 state about a discharged battery?",
+      "options": [
+        "It is airworthy as long as the alternator is functioning",
+        "It is NOT AIRWORTHY, because it lacks reserve capacity if the charging system fails in flight",
+        "It is only a concern for night flights",
+        "It only affects avionics, not the engine"
+      ],
+      "answer": [1],
+      "explanation": "The BATTERY paragraph states a discharged battery is NOT AIRWORTHY because it will not have the reserve capacity to operate the electrical system should the charging system fail in flight.",
+      "references": ["R44 II POH Sec 8: BATTERY (p.8-13)"],
+      "tags": ["handling-maintenance", "battery"],
+      "source": "R44 II POH",
+      "modelIds": ["R44_II"]
+    },
+    {
+      "id": "r44ii-hm-020",
+      "section": "HANDLING AND MAINTENANCE",
+      "type": "single",
+      "question": "What is cautioned against when cleaning the exterior of the R44 II, per Section 8 CLEANING HELICOPTER?",
+      "options": [
+        "Using mild soap and water",
+        "Using a high-pressure spray or blowing compressed air into main or tail rotor blade tip drain holes",
+        "Applying carnauba wax to the rotor blades",
+        "Rinsing away loose dirt and salt residue with water"
+      ],
+      "answer": [1],
+      "explanation": "Section 8 cautions against using high-pressure spray to clean the helicopter and against blowing compressed air into main or tail rotor blade tip drain holes. Mild soap/water, carnauba wax on blades, and rinsing away loose dirt are all part of the recommended cleaning procedure.",
+      "references": ["R44 II POH Sec 8: CLEANING HELICOPTER (p.8-14)"],
+      "tags": ["handling-maintenance", "cleaning"],
+      "source": "R44 II POH",
+      "modelIds": ["R44_II"]
+    }
+  ]
+}

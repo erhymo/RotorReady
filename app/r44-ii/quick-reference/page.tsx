@@ -1,6 +1,8 @@
 "use client";
 
+import { useState } from "react";
 import AppTopBar from "@/components/AppTopBar";
+import R44_ABBREVIATIONS from "@/data/r44/abbreviations";
 
 const data = {
   airspeed: {
@@ -229,15 +231,47 @@ function GroupCard({ title, items }: Group) {
 }
 
 export default function R44IIQuickReferencePage() {
+  const [showAbbr, setShowAbbr] = useState(false);
+
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-zinc-900">
-	    <AppTopBar title="R44 II Quick Reference" backHref="/" backLabel="Home" />
+	    <AppTopBar
+	      title="R44 II Quick Reference"
+	      backHref="/"
+	      backLabel="Home"
+	      rightAction={
+	        <button
+	          type="button"
+	          onClick={() => setShowAbbr((v) => !v)}
+	          className="px-3 py-1 rounded border text-xs font-medium bg-white hover:bg-slate-50 dark:bg-zinc-900 dark:text-zinc-100 dark:border-zinc-700"
+	        >
+	          ABBR
+	        </button>
+	      }
+	    />
 
       <main className="mx-auto max-w-3xl p-4 space-y-4">
         <p className="text-xs text-slate-600 dark:text-zinc-300">
           For training use only. This is an informal quick reference of selected R44 II POH limitations, operating numbers and
           performance notes. Always use the official R44 II POH as primary reference.
         </p>
+
+        {showAbbr && (
+          <section className="rounded-xl border bg-white dark:bg-zinc-900 dark:border-zinc-700 p-4 space-y-3">
+            <h2 className="text-base font-semibold text-slate-900 dark:text-zinc-100">Abbreviations</h2>
+            <ul className="divide-y divide-slate-200 dark:divide-zinc-700 rounded-xl border border-slate-200 dark:border-zinc-700 overflow-hidden">
+              {R44_ABBREVIATIONS.map((row, i) => (
+                <li
+                  key={`${row.abbr}-${i}`}
+                  className="flex items-start gap-4 bg-white dark:bg-zinc-900 px-4 py-3 text-sm text-slate-800 dark:text-zinc-100"
+                >
+                  <div className="w-32 shrink-0 font-mono font-semibold">{row.abbr}</div>
+                  <div className="flex-1 text-slate-700 dark:text-zinc-200">{row.meaning}</div>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
 
         <GroupCard title={data.airspeed.title} items={data.airspeed.items} />
         <GroupCard title={data.rotor.title} items={data.rotor.items} />

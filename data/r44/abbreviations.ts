@@ -1,0 +1,35 @@
+export type Abbreviation = { abbr: string; meaning: string };
+
+export const R44_ABBREVIATIONS: Abbreviation[] = [
+  { abbr: "A&P", meaning: "Airframe and Powerplant (mechanic certificate)" },
+  { abbr: "AGL", meaning: "Above Ground Level" },
+  { abbr: "ALT", meaning: "Alternator" },
+  { abbr: "BHP", meaning: "Brake Horsepower — actual power output of the engine" },
+  { abbr: "CFR", meaning: "Code of Federal Regulations (e.g. 14 CFR Part 43)" },
+  { abbr: "CG", meaning: "Center of Gravity" },
+  { abbr: "CHT", meaning: "Cylinder Head Temperature" },
+  { abbr: "EMI", meaning: "Electromagnetic Interference" },
+  { abbr: "GPH", meaning: "Gallons Per Hour" },
+  { abbr: "IA", meaning: "Inspection Authorization (mechanic rating for annual inspections)" },
+  { abbr: "IGE", meaning: "In Ground Effect" },
+  { abbr: "ISA", meaning: "International Standard Atmosphere" },
+  { abbr: "KCAS", meaning: "Knots Calibrated Airspeed" },
+  { abbr: "KIAS", meaning: "Knots Indicated Airspeed" },
+  { abbr: "KTAS", meaning: "Knots True Airspeed" },
+  { abbr: "LTE", meaning: "Loss of Tail Rotor Effectiveness" },
+  { abbr: "MAP", meaning: "Manifold Absolute Pressure" },
+  { abbr: "MCP", meaning: "Maximum Continuous Power" },
+  { abbr: "OAT", meaning: "Outside Air Temperature" },
+  { abbr: "OGE", meaning: "Out of Ground Effect" },
+  { abbr: "POH", meaning: "Pilot's Operating Handbook" },
+  { abbr: "RPM", meaning: "Revolutions Per Minute (engine or rotor speed)" },
+  { abbr: "SN", meaning: "Safety Notice (Robinson Helicopter Company)" },
+  { abbr: "TOGW", meaning: "Takeoff Gross Weight" },
+  { abbr: "TOP", meaning: "Takeoff Power (limited to 5 minutes in the R44 II)" },
+  { abbr: "VRS", meaning: "Vortex Ring State" },
+  { abbr: "Vh", meaning: "Stabilized level-flight speed at maximum continuous power" },
+  { abbr: "Vne", meaning: "Never-Exceed Airspeed" },
+  { abbr: "Vy", meaning: "Speed for best rate of climb" },
+];
+
+export default R44_ABBREVIATIONS;

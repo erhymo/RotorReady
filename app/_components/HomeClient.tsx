@@ -115,6 +115,15 @@ function Bar(props: { href: string; title: string; description: string; tone?: "
 	              icon={<BookIcon className="h-4 w-4" />}
 	            />
 	        )}
+	        {activeVariant?.id === "H135_T3" && (
+	            <Bar
+	              href="/training/procedures/h135-t3"
+	              title="Procedures"
+	              description="Browse H135 T3 engine failure, fire, drive-system and slope-operation procedures."
+	              tone="emerald"
+	              icon={<BookIcon className="h-4 w-4" />}
+	            />
+	        )}
 		      </section>
 
 		      <section className="space-y-3">

@@ -899,6 +899,348 @@
       "tags": ["emergency", "gearbox-drive", "tail-rotor"],
       "source": "H135 T3 Flight Manual",
       "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-ep-051",
+      "section": "EMERGENCY PROCEDURES",
+      "type": "single",
+      "question": "For an MGB LOW PRESS warning (main gearbox oil pressure below minimum), what is the required urgency of landing, per Sect. 3.11.3?",
+      "options": [
+        "LAND AS SOON AS POSSIBLE, reducing power as much as possible",
+        "LAND AS SOON AS PRACTICABLE, no power restriction",
+        "Continue flight and monitor; no landing required",
+        "LAND IMMEDIATELY regardless of terrain"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 3.11.3 gives the procedure for MGB LOW PRESS as LAND AS SOON AS POSSIBLE, reducing power as much as possible; if an immediate safe landing is not possible, reduce power to a minimum (Vy in level flight) to reach a safe landing site. MGB dry-run capability has been demonstrated in a bench test (AEO) over more than 25 minutes.",
+      "references": ["FLM EC135 T3H Sect. 3.11.3 (Helionix Step 3.5, 3 MFD)"],
+      "tags": ["emergency", "gearbox-drive", "mgb-pressure"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-ep-052",
+      "section": "EMERGENCY PROCEDURES",
+      "type": "single",
+      "question": "MGB dry-run capability has been demonstrated in a bench test under what conditions and for how long, per the note in Sect. 3.11.3?",
+      "options": [
+        "AEO condition, more than 25 minutes",
+        "OEI condition, more than 10 minutes",
+        "AEO condition, more than 5 minutes",
+        "It has not been demonstrated at all"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 3.11.3 notes that main gearbox dryrun capabilities have been demonstrated in a bench test (AEO condition) over more than 25 minutes.",
+      "references": ["FLM EC135 T3H Sect. 3.11.3 (Helionix Step 3.5, 3 MFD)"],
+      "tags": ["emergency", "gearbox-drive", "mgb-dryrun"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-ep-053",
+      "section": "EMERGENCY PROCEDURES",
+      "type": "single",
+      "question": "At what MGB oil temperature does the MGB HIGH TEMP caution trigger, per Sect. 3.11.4?",
+      "options": [
+        "Above 105°C",
+        "Above 120°C",
+        "Above 90°C",
+        "Above 70°C"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 3.11.4 states MGB HIGH TEMP is triggered when MGB oil temperature is above 105°C; the procedure includes increasing airspeed and reducing power, landing as soon as practicable if temperature decreases, or as soon as possible if it remains in the amber range.",
+      "references": ["FLM EC135 T3H Sect. 3.11.4 (Helionix Step 3.5, 3 MFD)"],
+      "tags": ["emergency", "gearbox-drive", "mgb-temperature"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-ep-054",
+      "section": "EMERGENCY PROCEDURES",
+      "type": "single",
+      "question": "What defines the MGB OVERLIMIT caution range, per Sect. 3.11.4?",
+      "options": [
+        "Oil temperature below 0°C or above 105°C, or oil pressure below 0.5 bar or above 7.8 bar",
+        "Oil temperature below -20°C or above 130°C only",
+        "Oil pressure below 2 bar only, temperature not considered",
+        "Any deviation from exactly 50°C and 3 bar"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 3.11.4 defines MGB OVERLIMIT as MGB oil temperature outside 0°C to 105°C or oil pressure outside 0.5 to 7.8 bar; procedure is to check VMS page and land as soon as practicable, being prepared for an MGB LOW PRESS warning.",
+      "references": ["FLM EC135 T3H Sect. 3.11.4 (Helionix Step 3.5, 3 MFD)"],
+      "tags": ["emergency", "gearbox-drive", "mgb-overlimit"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-ep-055",
+      "section": "EMERGENCY PROCEDURES",
+      "type": "single",
+      "question": "In case of HYD PRESS (system II) failure, what specific effect occurs, per the CAUTION in Sect. 3.12.1?",
+      "options": [
+        "Yaw servo boost is lost; pedal forces increase (significantly on the left pedal in hover) but yaw controllability is unaffected",
+        "The tail rotor becomes completely inoperative",
+        "Only the collective axis is affected, pedals remain unchanged",
+        "The AFCS shuts down completely with no degraded mode available"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 3.12.1 CAUTION states that in case of HYD PRESS (system II) failure, yaw servo boost is lost; pedal forces will increase but yaw controllability is unaffected, with a significant increase of force on the left pedal in hover flight.",
+      "references": ["FLM EC135 T3H Sect. 3.12.1 (Helionix Step 3.5, 3 MFD)"],
+      "tags": ["emergency", "hydraulics", "hyd-press"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-ep-056",
+      "section": "EMERGENCY PROCEDURES",
+      "type": "single",
+      "question": "What is the WARNING regarding extended flight with a failed hydraulic system, per Sect. 3.12.1?",
+      "options": [
+        "Extended flight with a failed hydraulic system should be avoided, since additional loss of the second hydraulic system would render the helicopter uncontrollable",
+        "There is no specific risk; the aircraft can be flown indefinitely on one hydraulic system",
+        "Extended flight is only a concern below 500 ft AGL",
+        "The warning applies only to system 1, not system 2"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 3.12.1 WARNING states extended flight with a failed hydraulic system should be avoided, as additional loss of the second hydraulic system would render the helicopter uncontrollable; HYD1/2 LOW PRESS requires landing as soon as practicable.",
+      "references": ["FLM EC135 T3H Sect. 3.12.1 (Helionix Step 3.5, 3 MFD)"],
+      "tags": ["emergency", "hydraulics", "hyd-press"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-ep-057",
+      "section": "EMERGENCY PROCEDURES",
+      "type": "single",
+      "question": "What is the likely cause of abnormal vibration during flight, and the required action, per Sect. 3.13.1?",
+      "options": [
+        "Possible deposit of foreign objects (e.g. water, ice) in the control cuff(s); LAND AS SOON AS POSSIBLE",
+        "Always indicates a main rotor blade crack requiring immediate autorotation",
+        "Normal during high-speed flight; no action required",
+        "Caused only by tail rotor imbalance; land as soon as practicable"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 3.13.1 attributes abnormal vibration during flight to a possible deposit of foreign objects (e.g. water, ice) in the control cuff(s), with the required action being LAND AS SOON AS POSSIBLE.",
+      "references": ["FLM EC135 T3H Sect. 3.13.1 (Helionix Step 3.5, 3 MFD)"],
+      "tags": ["emergency", "system-level", "vibration"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-ep-058",
+      "section": "EMERGENCY PROCEDURES",
+      "type": "single",
+      "question": "If NR fails to increase below 50 KIAS despite HIGH NR mode being selected, what is the procedure, per Sect. 3.13.2?",
+      "options": [
+        "Check HIGH NR mode is selected and check NR; if NR remains lower than expected, continue flight (avoid landing with right crosswind above 2850 kg)",
+        "Immediately land regardless of terrain",
+        "Perform a double engine emergency shutdown",
+        "Switch to backup SAS mode to correct the NR discrepancy"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 3.13.2 gives the procedure for HIGH NR mode failure to increase NR below 50 KIAS: check HIGH NR mode selected and check NR; whether or not NR reaches the expected value, continue flight, avoiding landing with right crosswind for gross masses above 2850 kg.",
+      "references": ["FLM EC135 T3H Sect. 3.13.2 (Helionix Step 3.5, 3 MFD)"],
+      "tags": ["emergency", "system-level", "high-nr"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-ep-059",
+      "section": "EMERGENCY PROCEDURES",
+      "type": "single",
+      "question": "If NR fails to decrease (or increases) above 55 KIAS, and after pushing HI NR pb OFF the NR corresponds to increased HIGH NR, what airspeed restriction applies, per Sect. 3.13.2?",
+      "options": [
+        "Maximum airspeed VNE − 25 kt or below",
+        "Maximum airspeed VNE − 5 kt or below",
+        "No airspeed restriction applies",
+        "Maximum airspeed limited to 50 KIAS"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 3.13.2 states that if NR corresponds to the increased HIGH NR value after switching HI NR pb off, the maximum airspeed is VNE − 25 kt or below, and flight may continue.",
+      "references": ["FLM EC135 T3H Sect. 3.13.2 (Helionix Step 3.5, 3 MFD)"],
+      "tags": ["emergency", "system-level", "high-nr"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-ep-060",
+      "section": "EMERGENCY PROCEDURES",
+      "type": "single",
+      "question": "At what temperature does the BAT OVHT warning (battery overheat) trigger, per Sect. 3.7.1?",
+      "options": [
+        "Above 70°C",
+        "Above 50°C",
+        "Above 90°C",
+        "Above 40°C"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 3.7.1 states BAT OVHT is triggered by battery overtemperature above 70°C. On the ground, the procedure is to switch BAT MSTR sw OFF and shut down the engines; in flight, switch BAT MSTR sw OFF and land as soon as possible. In both cases the battery must be inspected or replaced before the next flight.",
+      "references": ["FLM EC135 T3H Sect. 3.7.1 (Helionix Step 3.5, 3 MFD)"],
+      "tags": ["emergency", "electrics", "battery-overheat"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-ep-061",
+      "section": "EMERGENCY PROCEDURES",
+      "type": "single",
+      "question": "If GEN1 DISCONNECTED appears as a result of an electrical failure, what caution applies to resetting the generator, per Sect. 3.7.2?",
+      "options": [
+        "A generator reset should only be performed if the generator was deliberately switched off, since resetting after an electrical failure could cause additional damage and electrical fire",
+        "The generator should always be reset immediately regardless of cause",
+        "Generators cannot be reset in flight under any circumstance",
+        "Resetting is only prohibited on the ground, always permitted in flight"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 3.7.2 CAUTION states that if GEN DISCONNECTED appears as a result of an electrical failure, resetting the generator could lead to additional damage and electrical fire; a reset should only be performed if the generator was deliberately switched off.",
+      "references": ["FLM EC135 T3H Sect. 3.7.2 (Helionix Step 3.5, 3 MFD)"],
+      "tags": ["emergency", "electrics", "generator"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-ep-062",
+      "section": "EMERGENCY PROCEDURES",
+      "type": "single",
+      "question": "If both generators fail (GEN1 DISCONNECTED GEN2), and the EMER SHD BUS sw is switched ON as required, within what time should the aircraft land, per Sect. 3.7.2?",
+      "options": [
+        "Within 30 minutes",
+        "Within 10 minutes",
+        "Within 60 minutes",
+        "There is no specific time limit"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 3.7.2 gives the double generator failure procedure: switch both GEN sw's OFF, reduce electrical consumers, switch EMER SHD BUS sw ON if necessary, check DC volts/battery amps, and land within 30 minutes; flight beyond 30 minutes may lead to total electrical failure.",
+      "references": ["FLM EC135 T3H Sect. 3.7.2 (Helionix Step 3.5, 3 MFD)"],
+      "tags": ["emergency", "electrics", "double-generator-failure"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-ep-063",
+      "section": "EMERGENCY PROCEDURES",
+      "type": "single",
+      "question": "In case of total electrical failure, what happens to COM/NAV, MFD indications, and aircraft stabilization, per the WARNING in Sect. 3.7.2?",
+      "options": [
+        "All COM/NAV will be lost, all MFD indications will be lost, all aircraft stabilization will be lost — only IESI remains, providing airspeed/altitude/attitude for approximately 30 minutes",
+        "Only the MFDs are affected; COM/NAV and stabilization continue to function normally",
+        "Total electrical failure has no effect on flight instruments, only on cabin lighting",
+        "The autopilot continues to operate normally on backup battery power"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 3.7.2 WARNING states that in case of total electrical failure: fuel available will be limited to the quantity in the supply tanks, IESI will provide airspeed/altitude/attitude data for approximately 30 minutes, all COM/NAV will be lost, all MFD indications will be lost, and all aircraft stabilization will be lost.",
+      "references": ["FLM EC135 T3H Sect. 3.7.2 (Helionix Step 3.5, 3 MFD)"],
+      "tags": ["emergency", "electrics", "total-electrical-failure"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-ep-064",
+      "section": "EMERGENCY PROCEDURES",
+      "type": "single",
+      "question": "For a GEN1/2 OVERHEAT caution that remains on for more than 1 minute after switching the affected generator off, what is the required procedure, per Sect. 3.7.2?",
+      "options": [
+        "Establish OEI flight condition, identify the affected engine, perform single engine emergency shutdown, and land as soon as possible",
+        "Continue flight normally with no further action",
+        "Immediately perform a double engine emergency shutdown",
+        "Switch the battery master off and continue to destination"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 3.7.2 states that if a GEN1/2 OVERHEAT caution remains on for more than 1 minute after switching the affected generator off, establish OEI flight condition, identify the affected engine, perform single engine emergency shutdown, and land as soon as possible.",
+      "references": ["FLM EC135 T3H Sect. 3.7.2 (Helionix Step 3.5, 3 MFD)"],
+      "tags": ["emergency", "electrics", "generator-overheat"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-ep-065",
+      "section": "EMERGENCY PROCEDURES",
+      "type": "single",
+      "question": "How long can the standby battery (emergency power supply unit) support the IESI and emergency lighting system, per Sect. 3.7.2?",
+      "options": [
+        "IESI for 30 minutes; emergency lighting (if installed) for 40 minutes",
+        "IESI for 10 minutes; emergency lighting for 10 minutes",
+        "IESI for 60 minutes; emergency lighting for 60 minutes",
+        "Neither system is powered by the standby battery"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 3.7.2 (STBY BAT DISCH) notes the IESI will continue to operate for 30 minutes, and the emergency lighting system (if installed) can be operated for 40 minutes, when the standby battery is discharging.",
+      "references": ["FLM EC135 T3H Sect. 3.7.2 (Helionix Step 3.5, 3 MFD)"],
+      "tags": ["emergency", "electrics", "standby-battery"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-ep-066",
+      "section": "EMERGENCY PROCEDURES",
+      "type": "single",
+      "question": "For the EPU DOOR caution (external power receptacle access door open, EPU not connected) occurring in flight, what is the required action, per Sect. 3.6.1?",
+      "options": [
+        "LAND AS SOON AS PRACTICABLE",
+        "Continue flight normally, no action required",
+        "LAND IMMEDIATELY",
+        "Close the door manually from the cockpit"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 3.6.1 gives the EPU DOOR procedure: on the ground, close the EPU access door; in flight, land as soon as practicable.",
+      "references": ["FLM EC135 T3H Sect. 3.6.1 (Helionix Step 3.5, 3 MFD)"],
+      "tags": ["emergency", "doors", "epu-door"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-ep-067",
+      "section": "EMERGENCY PROCEDURES",
+      "type": "single",
+      "question": "For a VOR/LOC/ILS failure occurring during final approach, what is the correct procedure, per Sect. 3.5.4.1?",
+      "options": [
+        "Push the GA pb, perform a missed approach, then select the remaining or an alternate navigation source",
+        "Continue the approach using the failed source, since indications remain reliable",
+        "Immediately declare an emergency and divert to the nearest suitable airfield",
+        "Switch to GPS navigation only, without performing a missed approach"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 3.5.4.1 states that during final approach, a VOR/LOC/ILS failure requires pushing the GA pb (on collective), performing a missed approach, then selecting the remaining or an alternate navigation source before continuing flight.",
+      "references": ["FLM EC135 T3H Sect. 3.5.4.1 (Helionix Step 3.5, 3 MFD)"],
+      "tags": ["emergency", "com-nav", "vor-ils"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-ep-068",
+      "section": "EMERGENCY PROCEDURES",
+      "type": "single",
+      "question": "For a loss of GPS integrity on both GTN units during the final approach of a GPS-based approach in IMC, what is the required procedure, per Sect. 3.5.5.1?",
+      "options": [
+        "Push the GA pb, perform a missed approach, using an alternate navigation source (VOR, ADF, DME, or radar guidance)",
+        "Continue the approach; loss of GPS integrity does not affect approach safety",
+        "Immediately switch off both GTN units and revert to dead reckoning only",
+        "Land immediately regardless of terrain"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 3.5.5.1 states that during the final approach of a GPS-based approach in IMC with loss of GPS integrity on both GTN units, the pilot must push the GA pb, perform a missed approach, and use an alternate navigation source (VOR, ADF, DME, radar guidance).",
+      "references": ["FLM EC135 T3H Sect. 3.5.5.1 (Helionix Step 3.5, 3 MFD)"],
+      "tags": ["emergency", "com-nav", "gps-integrity"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-ep-069",
+      "section": "EMERGENCY PROCEDURES",
+      "type": "single",
+      "question": "If an approach is downgraded from LPV/LNAV-VNAV to LNAV before the FAF, what should the pilot do, per Sect. 3.5.5.2?",
+      "options": [
+        "Adjust DA and DH to LNAV minima and perform an LNAV approach",
+        "Continue using the original LPV minima regardless of the downgrade",
+        "Abort the approach entirely; no LNAV alternative is permitted",
+        "Ignore the downgrade message since it is only advisory"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 3.5.5.2 states that if the approach downgrade to LNAV occurs before the FAF, the pilot should adjust DA and DH to LNAV minima and perform an LNAV approach; if it occurs during final approach below LNAV minima with the runway not yet visible, a missed approach must be performed instead.",
+      "references": ["FLM EC135 T3H Sect. 3.5.5.2 (Helionix Step 3.5, 3 MFD)"],
+      "tags": ["emergency", "com-nav", "approach-downgrade"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
     }
   ]
 }

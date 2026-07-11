@@ -1,4 +1,4 @@
-export type ProductId = "AW169" | "AW189" | "AW139" | "H125" | "R44_II" | "S92";
+export type ProductId = "AW169" | "AW189" | "AW139" | "H125" | "R44_II" | "S92" | "H135_T3";
 
 export type ModelStatus = "available" | "coming_soon";
 
@@ -68,6 +68,13 @@ export const MODEL_VARIANTS: ModelVariantDefinition[] = [
     productId: "S92",
     status: "available",
   },
+  {
+    id: "H135_T3",
+    label: "H135 T3",
+    description: "Airbus H135 T3 (EC135 T3H) – Flight Manual og Pilot's Checklist-basert treningsinnhold.",
+    productId: "H135_T3",
+    status: "coming_soon",
+  },
 ];
 
 export const DEFAULT_MODEL_VARIANT_ID = "AW169";
@@ -96,6 +103,7 @@ export function isProductId(value: unknown): value is ProductId {
     value === "AW139" ||
     value === "H125" ||
     value === "R44_II" ||
-    value === "S92"
+    value === "S92" ||
+    value === "H135_T3"
   );
 }

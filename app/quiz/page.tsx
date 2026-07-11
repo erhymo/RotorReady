@@ -48,6 +48,7 @@ export default function QuizTypeSelectPage() {
     (activeVariant.productId === "H125" ||
       activeVariant.productId === "AW169" ||
       activeVariant.productId === "S92" ||
+      activeVariant.productId === "H135_T3" ||
       activeVariant.id === "R44_II");
 
   const currentLoadedSections = loadedSections?.modelId === activeVariant.id ? loadedSections : null;

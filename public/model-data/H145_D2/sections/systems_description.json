@@ -1,0 +1,301 @@
+{
+  "items": [
+    {
+      "id": "h145d2-sd-001",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "Per Sect. 7.1, what type of main rotor system and anti-torque design does the BK117 D-2 use?",
+      "options": [
+        "Four-bladed hingeless main rotor with fibre-reinforced composite blades and a Fenestron anti-torque design",
+        "Two-bladed teetering main rotor with a conventional open tail rotor",
+        "Five-bladed bearingless main rotor with a Fenestron anti-torque design",
+        "Four-bladed articulated main rotor with a conventional open tail rotor"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 7.1: the BK117 D-2 is a multi-purpose helicopter utilizing a four-bladed hingeless main rotor system with fibre-reinforced composite blades and a FENESTRON anti-torque design.",
+      "references": ["FLM BK117 D-2 Sect. 7.1"],
+      "tags": ["systems-description", "general"],
+      "source": "H145 D2 Flight Manual",
+      "modelIds": ["H145_D2"]
+    },
+    {
+      "id": "h145d2-sd-002",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "Per Sect. 7.1, on which side is the pilot's seat located?",
+      "options": ["The right-hand (RH) side", "The left-hand (LH) side", "Either side, per operator preference with no fixed default", "Center console, tandem seating"],
+      "answer": [0],
+      "explanation": "Sect. 7.1: the pilot's seat is on the RH side of the BK117 D-2.",
+      "references": ["FLM BK117 D-2 Sect. 7.1"],
+      "tags": ["systems-description", "general"],
+      "source": "H145 D2 Flight Manual",
+      "modelIds": ["H145_D2"]
+    },
+    {
+      "id": "h145d2-sd-003",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "Per Sect. 7.1.1, through how many doors is the BK117 D-2 accessible in its standard configuration?",
+      "options": [
+        "Six: two hinged crew doors, two sliding passenger doors, and two aft clam shell doors",
+        "Four: two hinged crew doors and two sliding passenger doors only",
+        "Eight, including two dedicated cargo hatches",
+        "Two: only the sliding passenger doors"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 7.1.1: the BK117 D-2 is accessible through six doors — two hinged doors for the crew/front occupant, two sliding doors for the rear passengers, and two aft clam shell doors for the rear compartment.",
+      "references": ["FLM BK117 D-2 Sect. 7.1.1"],
+      "tags": ["systems-description", "general", "fuselage"],
+      "source": "H145 D2 Flight Manual",
+      "modelIds": ["H145_D2"]
+    },
+    {
+      "id": "h145d2-sd-004",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "Per Sect. 7.1.2, what components does the (detachable) tail boom consist of?",
+      "options": [
+        "Horizontal stabilizer, vertical fin (including Fenestron structure), housing and gearbox",
+        "Only the vertical fin and horizontal stabilizer, with the Fenestron mounted on the fuselage",
+        "Tail rotor blades only, all other structure is part of the main fuselage",
+        "Horizontal stabilizer and main rotor mast extension"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 7.1.2: the tail boom can be separated from the fuselage and consists of the horizontal stabilizer, vertical fin (including the Fenestron structure), housing, and gearbox.",
+      "references": ["FLM BK117 D-2 Sect. 7.1.2"],
+      "tags": ["systems-description", "general", "tail-boom"],
+      "source": "H145 D2 Flight Manual",
+      "modelIds": ["H145_D2"]
+    },
+    {
+      "id": "h145d2-sd-005",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "Per Sect. 7.9.1, what is the approximate DC bus voltage when the electrical system is powered by the generators versus the main battery?",
+      "options": [
+        "About 28V DC on generators, about 24V DC on battery power",
+        "About 24V DC on generators, about 28V DC on battery power",
+        "Both generators and battery supply exactly 24V DC at all times",
+        "Generators supply 115V AC; the battery supplies 28V DC"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 7.9.1: when operated by the generators, the system supplies about 28V DC to the airborne electrical system, and about 24V DC when operated by the battery; the standby battery supplies about 24V DC to emergency equipment.",
+      "references": ["FLM BK117 D-2 Sect. 7.9.1"],
+      "tags": ["systems-description", "electrical"],
+      "source": "H145 D2 Flight Manual",
+      "modelIds": ["H145_D2"]
+    },
+    {
+      "id": "h145d2-sd-006",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "Per Sect. 7.9.1, which busbar type connects the consumers of secondary importance that are shed in case of a double generator failure?",
+      "options": ["SHED BUSes 1 and 2", "ESS BUSes 1 and 2", "NON ESS BUSes 1 and 2", "EMER BUS"],
+      "answer": [0],
+      "explanation": "Sect. 7.9.1: SHED BUSes 1 and 2 connect consumers of secondary importance that are shed in case of a double generator failure; each is supplied by its MAIN BUS. ESS BUSes carry flight-essential consumers, NON ESS BUSes carry high-load consumers needing both generators/EPU, and the EMER BUS feeds IESI and emergency exit lights.",
+      "references": ["FLM BK117 D-2 Sect. 7.9.1"],
+      "tags": ["systems-description", "electrical"],
+      "source": "H145 D2 Flight Manual",
+      "modelIds": ["H145_D2"]
+    },
+    {
+      "id": "h145d2-sd-007",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "Per Sect. 7.9.1, which busbar directly supplies the standby air data and attitude indicator (IESI) and the emergency exit lights, with an alternate supply from the standby battery?",
+      "options": ["EMER BUS, supplied by ESS BUS 2", "SHED BUS 1, supplied by MAIN BUS 1", "NON ESS BUS 2, supplied by MAIN BUS 2", "BAT BUS directly, with no ESS BUS involvement"],
+      "answer": [0],
+      "explanation": "Sect. 7.9.1: the EMER BUS connects the standby air data and attitude indicator (IESI) and the emergency exit lights; it is supplied by ESS BUS 2, with an alternate power supply from the standby battery.",
+      "references": ["FLM BK117 D-2 Sect. 7.9.1"],
+      "tags": ["systems-description", "electrical"],
+      "source": "H145 D2 Flight Manual",
+      "modelIds": ["H145_D2"]
+    },
+    {
+      "id": "h145d2-sd-008",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "Per Sect. 7.9.2.1, how is a tripped generator reset and reconnected?",
+      "options": [
+        "The GEN switch is momentarily set to the spring-loaded RES position, then released to return to NORM",
+        "The BAT MSTR switch must be cycled OFF and back ON",
+        "Only maintenance personnel can reset a generator on the ground",
+        "The BUS TIE switch for the opposite side must be turned OFF first"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 7.9.2.1: to reset and reconnect a generator, the GEN switch is momentarily set to the spring-loaded RES position and then released to return to the NORM position.",
+      "references": ["FLM BK117 D-2 Sect. 7.9.2.1"],
+      "tags": ["systems-description", "electrical"],
+      "source": "H145 D2 Flight Manual",
+      "modelIds": ["H145_D2"]
+    },
+    {
+      "id": "h145d2-sd-009",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "Per Sect. 7.9.3, what color is the generator state symbol when the generator is disconnected or degraded while its respective engine is still running?",
+      "options": ["Amber", "Green", "Light gray", "Red"],
+      "answer": [0],
+      "explanation": "Sect. 7.9.3: generator state symbol color logic — Green: connected; Amber: disconnected or degraded while its engine is running; Light gray: disconnected and its engine is off.",
+      "references": ["FLM BK117 D-2 Sect. 7.9.3"],
+      "tags": ["systems-description", "electrical"],
+      "source": "H145 D2 Flight Manual",
+      "modelIds": ["H145_D2"]
+    },
+    {
+      "id": "h145d2-sd-010",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "Per Sect. 7.9.3, what color is the battery state symbol used to indicate a battery overheat condition?",
+      "options": ["Red", "Amber", "Green", "Light gray"],
+      "answer": [0],
+      "explanation": "Sect. 7.9.3: battery state symbol color logic — Green: connected; Amber: disconnected or degraded; Red: battery overheat; Light gray: battery off, power provided by EPU.",
+      "references": ["FLM BK117 D-2 Sect. 7.9.3"],
+      "tags": ["systems-description", "electrical"],
+      "source": "H145 D2 Flight Manual",
+      "modelIds": ["H145_D2"]
+    },
+    {
+      "id": "h145d2-sd-011",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "Per Sect. 7.9.3, how is discharging vs. charging battery current represented in the digital indication?",
+      "options": [
+        "Charging is shown as negative current, discharging as positive current",
+        "Charging is shown as positive current, discharging as negative current",
+        "Both are shown as positive values, distinguished only by color",
+        "Only discharging current is ever digitally displayed"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 7.9.3: battery charging is indicated as negative current, discharging as positive current; if the battery is discharged in flight, the battery current value is marked with an amber frame.",
+      "references": ["FLM BK117 D-2 Sect. 7.9.3"],
+      "tags": ["systems-description", "electrical"],
+      "source": "H145 D2 Flight Manual",
+      "modelIds": ["H145_D2"]
+    },
+    {
+      "id": "h145d2-sd-012",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "Per Sect. 7.9.4, when the optional GND PWR switch (not pushbutton variant) is activated, how long is ground power activation automatically limited to?",
+      "options": ["10 minutes", "45 minutes", "60 minutes", "Indefinitely, until manually switched off"],
+      "answer": [0],
+      "explanation": "Sect. 7.9.4: for the GND PWR switch variant, activation is automatically limited to 10 minutes, after which power shuts off automatically (the GND PWR pushbutton variant is limited to 45 minutes instead).",
+      "references": ["FLM BK117 D-2 Sect. 7.9.4"],
+      "tags": ["systems-description", "electrical"],
+      "source": "H145 D2 Flight Manual",
+      "modelIds": ["H145_D2"]
+    },
+    {
+      "id": "h145d2-sd-013",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "Per Sect. 7.10.1, the bleed air heating system is automatically switched off by the FADEC under which condition?",
+      "options": [
+        "As soon as engine power exceeds OEI maximum continuous (i.e. OEI 2 min or OEI 30 sec ratings are used)",
+        "Whenever the cabin temperature exceeds 25°C",
+        "Whenever both generators are online simultaneously",
+        "It is never automatically switched off by the FADEC; only the crew can switch it off"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 7.10.1: the bleed air heating system is automatically switched off by the FADEC as soon as engine power exceeds OEI maximum continuous (OEI 2 min or 30 sec ratings in use); it automatically returns to normal function once power reduces below OEI continuous.",
+      "references": ["FLM BK117 D-2 Sect. 7.10.1"],
+      "tags": ["systems-description", "heating-ventilation"],
+      "source": "H145 D2 Flight Manual",
+      "modelIds": ["H145_D2"]
+    },
+    {
+      "id": "h145d2-sd-014",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "Per Sect. 7.10.2, under what two conditions is the optional electrical heater active?",
+      "options": [
+        "The bleed air heating system is on, AND demisting is selected (PUSH FOR DEFOG lever fully pushed)",
+        "The battery voltage exceeds 26V AND OAT is below 0°C",
+        "Both engines are at IDLE AND the aircraft is on the ground",
+        "The EPU is connected AND the avionics master switches are OFF"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 7.10.2: the electrical heater is active only when the bleed air heating system is on (heating symbol indicated) AND demisting is selected (PUSH FOR DEFOG lever fully pushed); it draws about 40A total (20A per generator).",
+      "references": ["FLM BK117 D-2 Sect. 7.10.2"],
+      "tags": ["systems-description", "heating-ventilation"],
+      "source": "H145 D2 Flight Manual",
+      "modelIds": ["H145_D2"]
+    },
+    {
+      "id": "h145d2-sd-015",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "Per Sect. 7.10.2, after switching off the electrical heater, for how long is it recommended to allow the ventilation to keep running?",
+      "options": ["At least 30 seconds", "At least 5 minutes", "At least 2 minutes", "No cooldown period is recommended"],
+      "answer": [0],
+      "explanation": "Sect. 7.10.2: it is recommended to allow the ventilation to run for at least 30 seconds after the electrical heater is switched off.",
+      "references": ["FLM BK117 D-2 Sect. 7.10.2"],
+      "tags": ["systems-description", "heating-ventilation"],
+      "source": "H145 D2 Flight Manual",
+      "modelIds": ["H145_D2"]
+    },
+    {
+      "id": "h145d2-sd-016",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "Per Sect. 7.10.3.1, what happens when the PUSH FOR AIR lever is pulled (rather than pushed)?",
+      "options": [
+        "Air from the cockpit is recirculated, instead of outside air from the NACA inlet",
+        "Outside air from the NACA inlet is used for ventilation",
+        "The bleed air heating system is disabled entirely",
+        "It has no functional effect; it is a purely mechanical stow position"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 7.10.3.1: when the PUSH FOR AIR lever is pushed, outside air from the NACA inlet is used for ventilation; when pulled, air from the cockpit is recirculated instead.",
+      "references": ["FLM BK117 D-2 Sect. 7.10.3.1"],
+      "tags": ["systems-description", "heating-ventilation"],
+      "source": "H145 D2 Flight Manual",
+      "modelIds": ["H145_D2"]
+    },
+    {
+      "id": "h145d2-sd-017",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "Per Sect. 7.11.1.1, in which switch position does the emergency lighting system automatically activate on door opening, impact-switch activation, or ESS BUS 2 power loss?",
+      "options": ["ARM position", "ON position", "OFF position", "It activates regardless of switch position"],
+      "answer": [0],
+      "explanation": "Sect. 7.11.1.1: with the INT LIGHTS EM/EX sw in the ARM position, emergency lighting switches on automatically in case of impact switch activation, an opened door, activation of the cabin EM/EXIT LT sw, or ESS BUS 2 power supply breakdown. The ON position turns all lights on unconditionally; OFF turns them all off.",
+      "references": ["FLM BK117 D-2 Sect. 7.11.1.1"],
+      "tags": ["systems-description", "lighting"],
+      "source": "H145 D2 Flight Manual",
+      "modelIds": ["H145_D2"]
+    },
+    {
+      "id": "h145d2-sd-018",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "Per Sect. 7.11.3.3, when must the (optional) cockpit dome light be switched off?",
+      "options": ["During flight", "During ground operations only", "Only when the EPU is disconnected", "It has no restriction and may remain on at any time"],
+      "answer": [0],
+      "explanation": "Sect. 7.11.3.3 note: the cockpit dome light must be switched off during flight.",
+      "references": ["FLM BK117 D-2 Sect. 7.11.3.3"],
+      "tags": ["systems-description", "lighting"],
+      "source": "H145 D2 Flight Manual",
+      "modelIds": ["H145_D2"]
+    },
+    {
+      "id": "h145d2-sd-019",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "Per Sect. 7.11.5.2, which switch position on the collective grip controls the S/L (search and landing) light on the pilot side, and is it also controllable from the copilot's grip?",
+      "options": [
+        "Controlled from the collective lever grip; equally controllable from the copilot's grip unless a second S/L light is installed",
+        "Controlled exclusively from the overhead panel, not from either collective grip",
+        "Only the copilot's collective grip can control the S/L light",
+        "The S/L light has no manual control; it activates automatically below 500 ft AGL"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 7.11.5.2: the S/L lights are operated by switches on the pilot-side collective lever grip; unless a second S/L light is installed, the S/L light is equally controllable from the copilot's collective grip.",
+      "references": ["FLM BK117 D-2 Sect. 7.11.5.2"],
+      "tags": ["systems-description", "lighting"],
+      "source": "H145 D2 Flight Manual",
+      "modelIds": ["H145_D2"]
+    }
+  ]
+}

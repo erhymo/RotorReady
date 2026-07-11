@@ -1,4 +1,4 @@
-export type ProductId = "AW169" | "AW189" | "AW139" | "H125" | "R44_II" | "S92" | "H135_T3";
+export type ProductId = "AW169" | "AW189" | "AW139" | "H125" | "R44_II" | "S92" | "H135_T3" | "H145_D2" | "H145_D3";
 
 export type ModelStatus = "available" | "coming_soon";
 
@@ -75,6 +75,13 @@ export const MODEL_VARIANTS: ModelVariantDefinition[] = [
     productId: "H135_T3",
     status: "available",
   },
+  {
+    id: "H145_D2",
+    label: "H145 D2",
+    description: "Airbus H145 D2 (BK117 D-2, 4-bladet rotor) – Flight Manual og Pilot's Checklist-basert treningsinnhold.",
+    productId: "H145_D2",
+    status: "available",
+  },
 ];
 
 export const DEFAULT_MODEL_VARIANT_ID = "AW169";
@@ -104,6 +111,8 @@ export function isProductId(value: unknown): value is ProductId {
     value === "H125" ||
     value === "R44_II" ||
     value === "S92" ||
-    value === "H135_T3"
+    value === "H135_T3" ||
+    value === "H145_D2" ||
+    value === "H145_D3"
   );
 }

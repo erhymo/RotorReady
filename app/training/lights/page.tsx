@@ -177,6 +177,7 @@ const CWP_TRAINER_LINKS: Record<string, { label: string; href: string }> = {
   H125_AS350_B3E: { label: "AS350 B3e", href: "/training/lights/cwp/b3e" },
   AW189: { label: "AW189", href: "/training/lights/cwp/aw189" },
   S92: { label: "S-92", href: "/training/lights/cwp/s92" },
+  H135_T3: { label: "H135 T3", href: "/training/lights/cwp/h135-t3" },
 };
 
 function WarningTriangleIcon() {

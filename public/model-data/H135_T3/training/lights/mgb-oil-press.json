@@ -1,0 +1,16 @@
+[
+  {
+    "id": "mgb-oil-press",
+    "name": "MGB OIL P",
+    "severity": "warning",
+    "system": "GEARBOX",
+    "description": "Main gearbox oil pressure is below minimum. Voice message \"MAIN GEARBOX, LOW PRESSURE\".",
+    "procedure": [
+      { "type": "action", "text": "1. LAND AS SOON AS POSSIBLE" },
+      { "type": "note", "text": "Reduce power as much as possible. If an immediate safe landing is not possible, reduce power to a minimum for continuation of flight (Vy in level flight) to reach a safe landing site." },
+      { "type": "note", "text": "Main gearbox dry-run capability has been demonstrated in a bench test (AEO condition) over more than 25 minutes." }
+    ],
+    "references": ["FLM EC135 T3H Sect. 3.11.3 (Helionix Step 3.5, 3 MFD)"],
+    "modelIds": ["H135_T3"]
+  }
+]

@@ -1,0 +1,17 @@
+[
+  {
+    "id": "ap-fail",
+    "name": "AP",
+    "severity": "warning",
+    "system": "AFCS",
+    "description": "Both autopilot systems are lost. Audio tone and voice message \"HANDS ON\". AUTOPILOT shown on the ML, AP shown on the Warning Unit.",
+    "procedure": [
+      { "type": "action", "text": "1. Flight controls — Fly manually" },
+      { "type": "action", "text": "2. AP/BKUP ON sw — Single press forward (to recycle AP1 + AP2)" },
+      { "type": "branch", "heading": "If successful:", "text": "3. Continue flight" },
+      { "type": "branch", "heading": "If unsuccessful:", "text": "4. Airspeed and angle of bank — Reduce to VNE AP OFF and max 45°\nIf VFR or DPIFR flight:\n5. Continue flight\nIf SPIFR flight:\n5. LAND AS SOON AS PRACTICABLE" }
+    ],
+    "references": ["FLM EC135 T3H Sect. 3.2.1.1 (Helionix Step 3.5, 3 MFD)"],
+    "modelIds": ["H135_T3"]
+  }
+]

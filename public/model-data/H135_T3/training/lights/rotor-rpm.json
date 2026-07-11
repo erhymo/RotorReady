@@ -1,0 +1,17 @@
+[
+  {
+    "id": "rotor-rpm",
+    "name": "ROTOR RPM",
+    "severity": "warning",
+    "system": "GEARBOX AND DRIVE SYSTEM",
+    "description": "Rotor RPM (NR) is outside normal range. NR LOW: 97% or less (steady light, slow beep, mutable). NR HIGH: 107.5% up to 112% (flashing light, fast beep, mutable) or 112%+ (flashing light, fast beep, not mutable).",
+    "procedure": [
+      { "type": "action", "text": "1. Rotor RPM indicator — Check" },
+      { "type": "action", "text": "2. Collective lever — Adjust as necessary to maintain NR within normal range" },
+      { "type": "note", "text": "If NR is also indicated below both N2 values, suspect an NR indication system failure. In this case maintain torque above 10% to keep N2 and Rotor RPM matched." },
+      { "type": "warning", "text": "Main rotor lead-lag resonance may occur in the 60-68% rotor RPM range. Any stimulation of lead-lag oscillation in this range may severely damage the main rotor blades — maintain the cyclic stick in neutral position and the collective in full down position." }
+    ],
+    "references": ["FLM EC135 T3H Sect. 3.11.1 (Helionix Step 3.5, 3 MFD)"],
+    "modelIds": ["H135_T3"]
+  }
+]

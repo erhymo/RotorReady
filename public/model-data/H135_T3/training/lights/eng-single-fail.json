@@ -1,0 +1,20 @@
+[
+  {
+    "id": "eng-single-fail",
+    "name": "ENG1 or 2 FAIL",
+    "severity": "warning",
+    "system": "ENGINE",
+    "description": "One engine has failed. Jerk in yaw axis (nose left), possible ROTOR RPM warning, red OEI flag on FLI, VMS indicates power loss of the affected engine.",
+    "procedure": [
+      { "type": "note", "text": "Possibly: Warning Unit ROTOR RPM light and warning tone (if NR low). Master List shows GEN1 DISCONNECTED or GEN2 DISCONNECTED for the affected engine. FLI shows a red OEI flag." },
+      { "type": "action", "text": "Perform the single engine failure procedure matching the current flight phase (see branches below)." },
+      { "type": "branch", "heading": "HIGE (hover in ground effect):", "text": "1. Landing attitude — Establish\n2. Collective lever — Raise to cushion landing (note: below 95% rotor RPM, torque could increase from 128% up to 133%)\nAfter landing:\n3. Double engine emergency shutdown — Perform" },
+      { "type": "branch", "heading": "HOGE (hover out of ground effect):", "text": "1. Collective lever — Adjust to maintain NR in normal range\nForced landing:\n2. Landing attitude — Establish, raise collective to cushion landing, then perform double engine emergency shutdown\nTransition to OEI flight (if height/airspeed permit):\n2. Airspeed — Accelerate to Vy\n3. Collective lever — Reduce power to OEI 2 min limit (at the latest when red OEI counter flashes), then to OEI MCP or below (amber counter flashes)\n4. Affected engine — Identify\n5. Single engine emergency shutdown — Perform\n6. LAND AS SOON AS PRACTICABLE" },
+      { "type": "branch", "heading": "Takeoff:", "text": "1. Collective lever — Adjust to maintain NR in normal range\nRejected takeoff:\n2. Landing attitude — Establish, raise collective to cushion landing, then perform double engine emergency shutdown\nTransition to OEI flight:\n2. Airspeed — Accelerate to Vy\n3. Collective lever — Reduce power to OEI 2 min limit, then OEI MCP or below\n4. Affected engine — Identify\n5. Single engine emergency shutdown — Perform\n6. LAND AS SOON AS PRACTICABLE" },
+      { "type": "branch", "heading": "In flight:", "text": "1. OEI flight condition — Establish\n2. Affected engine — Identify\n3. Single engine emergency shutdown — Perform\n4. LAND AS SOON AS PRACTICABLE" },
+      { "type": "note", "text": "Above 40 KIAS in AFCS 4-axis mode, NR stabilization is supported by AFCS collective inputs, depending on selected topping (OEI 30 sec/2 min)." }
+    ],
+    "references": ["FLM EC135 T3H Sect. 3.8.1 / 3.8.1.1-3.8.1.4 (Helionix Step 3.5, 3 MFD)"],
+    "modelIds": ["H135_T3"]
+  }
+]

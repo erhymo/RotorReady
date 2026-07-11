@@ -1,0 +1,12 @@
+{
+  "files": [
+    "ap-fail.json",
+    "bat-ovht.json",
+    "eng-double-fail.json",
+    "eng-fire.json",
+    "eng-single-fail.json",
+    "low-fuel.json",
+    "mgb-oil-press.json",
+    "rotor-rpm.json"
+  ]
+}

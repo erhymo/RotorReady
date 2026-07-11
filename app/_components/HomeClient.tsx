@@ -171,6 +171,15 @@ function Bar(props: { href: string; title: string; description: string; tone?: "
 		            icon={<BookIcon className="h-4 w-4" />}
 		          />
 		        )}
+		        {activeVariant?.id === "H135_T3" && (
+		          <Bar
+		            href="/h135-t3/quick-reference"
+		            title="Quick Reference"
+		            description="Key H135 T3 Flight Manual limitations and numbers."
+		            tone="slate"
+		            icon={<BookIcon className="h-4 w-4" />}
+		          />
+		        )}
 		        {activeVariant?.id === "AW139" && (
 		          <Bar
 		            href="/aw139/quick-reference"

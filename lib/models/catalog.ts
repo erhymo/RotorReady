@@ -73,7 +73,7 @@ export const MODEL_VARIANTS: ModelVariantDefinition[] = [
     label: "H135 T3",
     description: "Airbus H135 T3 (EC135 T3H) – Flight Manual og Pilot's Checklist-basert treningsinnhold.",
     productId: "H135_T3",
-    status: "coming_soon",
+    status: "available",
   },
 ];
 

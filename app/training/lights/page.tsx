@@ -770,10 +770,14 @@ export default function LightsTrainer() {
   const reveal = useCallback(() => {
     if (!current) return;
     setMode("procedure");
-    if (typeof window !== "undefined") {
+    // Only push a history entry on mobile, where the popstate listener below consumes it
+    // to close the revealed card back to the "light" card on a native back gesture. On
+    // desktop nothing ever pops this state, so pushing it here just stacks up dead history
+    // entries that make the top-bar "Home" back-button require one extra click per reveal.
+    if (isMobile && typeof window !== "undefined") {
       try { window.history.pushState({ rr: "procedure" }, "", window.location.href); } catch {}
     }
-  }, [current]);
+  }, [current, isMobile]);
 
 		  const next = useCallback(() => {
 		    if (idx + 1 >= deck.length) {

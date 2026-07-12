@@ -1,0 +1,326 @@
+{
+  "items": [
+    {
+      "id": "h145d3-sd-001",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "Per Sect. 7.1, what type of main rotor system and anti-torque design does the BK117 D-3 use?",
+      "options": [
+        "Five-bladed bearingless main rotor with fibre-reinforced composite blades and a Fenestron anti-torque design",
+        "Four-bladed hingeless main rotor with a Fenestron anti-torque design (H145 D2 configuration)",
+        "Five-bladed articulated main rotor with a conventional open tail rotor",
+        "Four-bladed bearingless main rotor with a conventional open tail rotor"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 7.1: the BK117 D-3 is a multi-purpose helicopter utilizing a five-bladed bearingless main rotor system with fibre-reinforced composite blades and a FENESTRON anti-torque design — the H145 D2 instead uses a four-bladed hingeless rotor.",
+      "references": ["FLM BK117 D-3 Sect. 7.1"],
+      "tags": ["systems-description", "general"],
+      "source": "H145 D3 Flight Manual",
+      "modelIds": ["H145_D3"]
+    },
+    {
+      "id": "h145d3-sd-002",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "Per Sect. 7.1.1, through how many doors is the BK117 D-3 accessible in its standard configuration?",
+      "options": [
+        "Six: two hinged crew doors, two sliding passenger doors, and two aft clam shell doors",
+        "Four: two hinged crew doors and two sliding passenger doors only",
+        "Eight, including two dedicated cargo hatches",
+        "Two: only the sliding passenger doors"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 7.1.1: the BK117 D-3 is accessible through six doors — two hinged doors for the crew/front occupant, two sliding doors for the rear passengers, and two aft clam shell doors for the rear compartment.",
+      "references": ["FLM BK117 D-3 Sect. 7.1.1"],
+      "tags": ["systems-description", "general", "fuselage"],
+      "source": "H145 D3 Flight Manual",
+      "modelIds": ["H145_D3"]
+    },
+    {
+      "id": "h145d3-sd-003",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "Per Sect. 7.8.1, how is the main rotor blade assembly attached to the main rotor hub?",
+      "options": [
+        "By two bolts each, to hub flanges on a one-piece steel-alloy forged hub/mast",
+        "By a single central bolt per blade, on a bearing-mounted hub",
+        "By a quick-release pin system requiring no tools",
+        "The blades are permanently welded to the hub"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 7.8.1/7.8.1.1: the main rotor blade assembly (flex-control-unit plus blade) is attached to the main rotor hub by two bolts each; the hub and mast are a one-piece forging made of steel alloy, with flanges for the five main rotor blades.",
+      "references": ["FLM BK117 D-3 Sect. 7.8.1"],
+      "tags": ["systems-description", "rotor-system"],
+      "source": "H145 D3 Flight Manual",
+      "modelIds": ["H145_D3"]
+    },
+    {
+      "id": "h145d3-sd-004",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "Per Sect. 7.8.1.1, how is lead-lag, flap and pitch movement of the rotor blades accomplished on the bearingless main rotor?",
+      "options": [
+        "Without mechanical hinges, through the flex-control-unit that is part of the main rotor blade assembly",
+        "Through conventional flapping and lead-lag hinges at the hub",
+        "Through a fully rigid hub with no blade movement permitted",
+        "Through hydraulic dampers mounted externally on each blade root"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 7.8.1.1: lead-lag, flap and pitch movement of the rotor blades is accomplished without mechanical hinges through the flex-control-unit, which is part of the main rotor blade assembly — this is the defining feature of a bearingless rotor.",
+      "references": ["FLM BK117 D-3 Sect. 7.8.1.1"],
+      "tags": ["systems-description", "rotor-system"],
+      "source": "H145 D3 Flight Manual",
+      "modelIds": ["H145_D3"]
+    },
+    {
+      "id": "h145d3-sd-005",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "Per Sect. 7.8.1.2, what are the two main parts of the main rotor blade assembly?",
+      "options": [
+        "The flex-control-unit and the rotor blade",
+        "The hub cap and the swashplate",
+        "The pitch link and the mixing unit only",
+        "The tension-torsion strap and the blade root fitting"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 7.8.1.2: the main rotor blade assembly consists of two main parts — the flex-control unit (flexbeam plus control cuff, both composite fiber material) and the rotor blade, attached to the hub flanges by two hub attachment bolts.",
+      "references": ["FLM BK117 D-3 Sect. 7.8.1.2"],
+      "tags": ["systems-description", "rotor-system"],
+      "source": "H145 D3 Flight Manual",
+      "modelIds": ["H145_D3"]
+    },
+    {
+      "id": "h145d3-sd-006",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "Per Sect. 7.8.1.2, what does the control cuff of the flex-control-unit integrate?",
+      "options": [
+        "The elastomeric lead-lag damper, transforming vertical pitch-link motion into a blade angle change",
+        "The main rotor hub cap only",
+        "The engine oil cooler fan",
+        "The tail rotor gearbox output shaft"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 7.8.1.2: the control cuff integrates the elastomeric lead-lag damper and transforms the vertical motion of the pitch link into a blade angle change.",
+      "references": ["FLM BK117 D-3 Sect. 7.8.1.2"],
+      "tags": ["systems-description", "rotor-system"],
+      "source": "H145 D3 Flight Manual",
+      "modelIds": ["H145_D3"]
+    },
+    {
+      "id": "h145d3-sd-007",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "Per Sect. 7.8.2, how many tail rotor (Fenestron) blades does the H145 D3 have, and how is their pitch angle adjusted?",
+      "options": [
+        "Ten blades, pitch adjusted collectively",
+        "Four blades, pitch adjusted individually",
+        "Eight blades, fixed pitch with no adjustment",
+        "Thirteen blades, pitch adjusted collectively"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 7.8.2: the tail rotor counteracts main rotor torque and provides yaw control by adjusting the pitch angle of the ten tail rotor blades collectively; control inputs from the pilot or AFCS are boosted by the tail rotor actuator.",
+      "references": ["FLM BK117 D-3 Sect. 7.8.2"],
+      "tags": ["systems-description", "tail-rotor"],
+      "source": "H145 D3 Flight Manual",
+      "modelIds": ["H145_D3"]
+    },
+    {
+      "id": "h145d3-sd-008",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "Per Sect. 7.8.2, in which direction does the H145 D3's Fenestron tail rotor rotate, as seen from the right side of the helicopter?",
+      "options": ["Counter-clockwise", "Clockwise", "It alternates direction based on flight phase", "The rotation direction is not fixed by design"],
+      "answer": [0],
+      "explanation": "Sect. 7.8.2: the direction of rotation of the fenestron-type shrouded tail rotor is counter-clockwise as seen from the right side of the helicopter.",
+      "references": ["FLM BK117 D-3 Sect. 7.8.2"],
+      "tags": ["systems-description", "tail-rotor"],
+      "source": "H145 D3 Flight Manual",
+      "modelIds": ["H145_D3"]
+    },
+    {
+      "id": "h145d3-sd-009",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "Per Sect. 7.8.2, what mechanism compensates for centrifugal forces on the tail rotor blades?",
+      "options": [
+        "Integrated tension-torsion straps mounting the blades to the tail rotor head",
+        "A hydraulic damper at the blade root",
+        "A mechanical flapping hinge at each blade",
+        "Counterweights installed inside the Fenestron shroud"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 7.8.2: the tail rotor blades are mounted to the tail rotor head by integrated tension-torsion straps to compensate the centrifugal forces.",
+      "references": ["FLM BK117 D-3 Sect. 7.8.2"],
+      "tags": ["systems-description", "tail-rotor"],
+      "source": "H145 D3 Flight Manual",
+      "modelIds": ["H145_D3"]
+    },
+    {
+      "id": "h145d3-sd-010",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "Per Sect. 7.9.1, what is the approximate DC bus voltage when the electrical system is powered by the generators versus the main battery?",
+      "options": [
+        "About 28V DC on generators, about 24V DC on battery power",
+        "About 24V DC on generators, about 28V DC on battery power",
+        "Both generators and battery supply exactly 24V DC at all times",
+        "Generators supply 115V AC; the battery supplies 28V DC"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 7.9.1: when supplied by the generators, the system provides about 28V DC to the airborne electrical system, and about 24V DC when supplied by the battery; the standby battery supplies about 24V DC to emergency equipment.",
+      "references": ["FLM BK117 D-3 Sect. 7.9.1"],
+      "tags": ["systems-description", "electrical"],
+      "source": "H145 D3 Flight Manual",
+      "modelIds": ["H145_D3"]
+    },
+    {
+      "id": "h145d3-sd-011",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "Per Sect. 7.9.1, which busbar type connects the consumers of secondary importance that are shed in case of a double generator failure?",
+      "options": ["SHED BUSes 1 and 2", "ESS BUSes 1 and 2", "NON ESS BUSes 1 and 2", "EMER BUS"],
+      "answer": [0],
+      "explanation": "Sect. 7.9.1: SHED BUSes 1 and 2 connect consumers of secondary importance that are shed in case of a double generator failure; each is supplied by its MAIN BUS. ESS BUSes carry flight-essential consumers, NON ESS BUSes carry high-load consumers needing both generators/EPU, and the EMER BUS feeds IESI and emergency exit lights.",
+      "references": ["FLM BK117 D-3 Sect. 7.9.1"],
+      "tags": ["systems-description", "electrical"],
+      "source": "H145 D3 Flight Manual",
+      "modelIds": ["H145_D3"]
+    },
+    {
+      "id": "h145d3-sd-012",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "Per Sect. 7.9.1, which busbar directly supplies the standby air data and attitude indicator (IESI) and the emergency exit lights, with an alternate supply from the standby battery?",
+      "options": ["EMER BUS, supplied by ESS BUS 2", "SHED BUS 1, supplied by MAIN BUS 1", "NON ESS BUS 2, supplied by MAIN BUS 2", "BAT BUS directly, with no ESS BUS involvement"],
+      "answer": [0],
+      "explanation": "Sect. 7.9.1: the EMER BUS connects the standby air data and attitude indicator (IESI) and the emergency exit lights; it is supplied by ESS BUS 2, with an alternate power supply from the standby battery.",
+      "references": ["FLM BK117 D-3 Sect. 7.9.1"],
+      "tags": ["systems-description", "electrical"],
+      "source": "H145 D3 Flight Manual",
+      "modelIds": ["H145_D3"]
+    },
+    {
+      "id": "h145d3-sd-013",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "Per Sect. 7.9.1, what does the BUS TIE control system connect during normal operation?",
+      "options": [
+        "MAIN BUS 1 to MAIN BUS 2 and to the BAT BUS",
+        "Only the two ESS BUSes to each other",
+        "The EMER BUS directly to the generators, bypassing the batteries",
+        "SHED BUS 1 to SHED BUS 2 only"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 7.9.1: the BUS TIE control system connects MAIN BUS 1 to MAIN BUS 2 and to the BAT BUS; in case of an abnormal electrical condition, the respective BUS TIE opens and separates the affected MAIN BUS from the opposite MAIN BUS and the BAT BUS.",
+      "references": ["FLM BK117 D-3 Sect. 7.9.1"],
+      "tags": ["systems-description", "electrical"],
+      "source": "H145 D3 Flight Manual",
+      "modelIds": ["H145_D3"]
+    },
+    {
+      "id": "h145d3-sd-014",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "Per Sect. 7.10.1, the bleed air heating system is automatically switched off by the FADEC under which condition?",
+      "options": [
+        "As soon as engine power exceeds OEI maximum continuous (i.e. OEI 2 min or OEI 30 sec ratings are used)",
+        "Whenever the cabin temperature exceeds 25°C",
+        "Whenever both generators are online simultaneously",
+        "It is never automatically switched off by the FADEC; only the crew can switch it off"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 7.10.1: the bleed air heating system is automatically switched off by the FADEC as soon as engine power exceeds OEI maximum continuous (OEI 2 min or 30 sec ratings in use); it automatically returns to normal function once power reduces below OEI continuous.",
+      "references": ["FLM BK117 D-3 Sect. 7.10.1"],
+      "tags": ["systems-description", "heating-ventilation"],
+      "source": "H145 D3 Flight Manual",
+      "modelIds": ["H145_D3"]
+    },
+    {
+      "id": "h145d3-sd-015",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "Per Sect. 7.10.2, under what two conditions is the optional electrical heater active?",
+      "options": [
+        "The bleed air heating system is on, AND demisting is selected (PUSH FOR DEFOG lever fully pushed)",
+        "The battery voltage exceeds 26V AND OAT is below 0°C",
+        "Both engines are at IDLE AND the aircraft is on the ground",
+        "The EPU is connected AND the avionics master switches are OFF"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 7.10.2: the electrical heater is active only when the bleed air heating system is on (heating symbol indicated) AND demisting is selected (PUSH FOR DEFOG lever fully pushed); it draws about 40A total (20A per generator).",
+      "references": ["FLM BK117 D-3 Sect. 7.10.2"],
+      "tags": ["systems-description", "heating-ventilation"],
+      "source": "H145 D3 Flight Manual",
+      "modelIds": ["H145_D3"]
+    },
+    {
+      "id": "h145d3-sd-016",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "Per Sect. 7.10.2, after switching off the electrical heater, for how long is it recommended to allow the ventilation to keep running?",
+      "options": ["At least 30 seconds", "At least 5 minutes", "At least 2 minutes", "No cooldown period is recommended"],
+      "answer": [0],
+      "explanation": "Sect. 7.10.2: it is recommended to allow the ventilation to run for at least 30 seconds after the electrical heater is switched off.",
+      "references": ["FLM BK117 D-3 Sect. 7.10.2"],
+      "tags": ["systems-description", "heating-ventilation"],
+      "source": "H145 D3 Flight Manual",
+      "modelIds": ["H145_D3"]
+    },
+    {
+      "id": "h145d3-sd-017",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "Per Sect. 7.10.3.1, what happens when the PUSH FOR AIR lever is pulled (rather than pushed)?",
+      "options": [
+        "Air from the cockpit is recirculated, instead of outside air from the NACA inlet",
+        "Outside air from the NACA inlet is used for ventilation",
+        "The bleed air heating system is disabled entirely",
+        "It has no functional effect; it is a purely mechanical stow position"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 7.10.3.1: when the PUSH FOR AIR lever is pushed, outside air from the NACA inlet is used for ventilation; when pulled, air from the cockpit is recirculated instead.",
+      "references": ["FLM BK117 D-3 Sect. 7.10.3.1"],
+      "tags": ["systems-description", "heating-ventilation"],
+      "source": "H145 D3 Flight Manual",
+      "modelIds": ["H145_D3"]
+    },
+    {
+      "id": "h145d3-sd-018",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "Per Sect. 7.10.3.2, what automatically activates the avionics cooling blower?",
+      "options": [
+        "A thermoswitch, depending on the temperature inside the instrument panel",
+        "A manual switch on the overhead panel only",
+        "The BLD HTG rheostat position",
+        "The VENTILATION PAX switch"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 7.10.3.2: a thermoswitch activates the avionics cooling blower automatically depending on the temperature inside the instrument panel.",
+      "references": ["FLM BK117 D-3 Sect. 7.10.3.2"],
+      "tags": ["systems-description", "heating-ventilation"],
+      "source": "H145 D3 Flight Manual",
+      "modelIds": ["H145_D3"]
+    },
+    {
+      "id": "h145d3-sd-019",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "Per Sect. 7.8.3, how is the main rotor RPM (NR) sensed for indication purposes?",
+      "options": [
+        "By a sensor in the main transmission, with a backup sensor in the tail rotor transmission",
+        "By a single sensor mounted directly on the main rotor mast, with no backup",
+        "By GPS-derived groundspeed calculation only",
+        "By the FADEC using engine N2 as a proxy, with no independent NR sensor"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 7.8.3: NR (main rotor RPM) is picked up by a sensor in the main transmission and by a backup sensor in the tail rotor transmission, and is displayed on the FND and VMD.",
+      "references": ["FLM BK117 D-3 Sect. 7.8.3"],
+      "tags": ["systems-description", "rotor-system"],
+      "source": "H145 D3 Flight Manual",
+      "modelIds": ["H145_D3"]
+    }
+  ]
+}

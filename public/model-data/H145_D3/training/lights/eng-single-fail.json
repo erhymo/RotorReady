@@ -1,0 +1,18 @@
+[
+  {
+    "id": "eng-single-fail",
+    "name": "ENG1 or 2 FAIL",
+    "severity": "warning",
+    "system": "ENGINE",
+    "description": "One engine has failed. Warning Unit may show ROTOR RPM (NR low, depending on power setting). Master List shows the affected engine's GEN DISCONNECTED. FLI shows a red OEI flag. Jerk in yaw axis nose left.",
+    "procedure": [
+      { "type": "branch", "heading": "HIGE:", "text": "1. Landing attitude — Establish\n2. Collective lever — Raise to cushion landing\nAfter landing: 3. Double engine emergency shutdown — Perform" },
+      { "type": "branch", "heading": "HOGE at or above 100 ft:", "text": "1. Attitude — Adjust to -15° to -25° nose down\n2. Collective lever — Adjust to maintain NR, adjust to OEI 30s limit as required\n3. Landing attitude — Establish\n4. Collective lever — Raise to cushion landing" },
+      { "type": "branch", "heading": "HOGE below 100 ft:", "text": "1. Attitude — Adjust to -5° nose down\n2. Collective lever — Adjust to maintain NR, adjust to OEI 30s limit as required\n3. Landing attitude — Establish\n4. Collective lever — Raise to cushion landing" },
+      { "type": "branch", "heading": "Takeoff (rejected):", "text": "1. Collective lever — Adjust to maintain NR\n2. Landing attitude — Establish\n3. Collective lever — Raise to cushion landing" },
+      { "type": "branch", "heading": "In flight:", "text": "1. OEI flight condition — Establish\n2. Affected engine — Identify\n3. Single engine emergency shutdown — Perform\nIf situation permits: 4. Perform in-flight restart\n5. LAND AS SOON AS PRACTICABLE" }
+    ],
+    "references": ["FLM BK117 D-3 Sect. 3.8.1.1-3.8.1.4"],
+    "modelIds": ["H145_D3"]
+  }
+]

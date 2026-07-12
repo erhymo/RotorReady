@@ -82,6 +82,13 @@ export const MODEL_VARIANTS: ModelVariantDefinition[] = [
     productId: "H145_D2",
     status: "available",
   },
+  {
+    id: "H145_D3",
+    label: "H145 D3",
+    description: "Airbus H145 D3 (BK117 D-3, 5-bladet rotor) – Flight Manual og Pilot's Checklist-basert treningsinnhold.",
+    productId: "H145_D3",
+    status: "available",
+  },
 ];
 
 export const DEFAULT_MODEL_VARIANT_ID = "AW169";

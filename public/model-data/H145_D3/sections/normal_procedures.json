@@ -1,0 +1,521 @@
+{
+  "items": [
+    {
+      "id": "h145d3-np-001",
+      "section": "NORMAL PROCEDURES",
+      "type": "single",
+      "question": "Per the caution in Sect. 4.2.3, what must never be done regarding the mission database (HTAWS, DMAP, SVS)?",
+      "options": [
+        "Never load or swap the mission database in flight, as this could lead to loss of the SVS image",
+        "Never check database expiry before flight",
+        "Never use the DATAB pushbutton on the VMS/SYST page",
+        "Never install more than one database version per flight"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 4.2.3 caution: loading or swapping the mission database in flight could lead to loss of the SVS image — never load or swap the mission database in flight.",
+      "references": ["FLM BK117 D-3 Sect. 4.2.3"],
+      "tags": ["normal-procedures", "general"],
+      "source": "H145 D3 Flight Manual",
+      "modelIds": ["H145_D3"]
+    },
+    {
+      "id": "h145d3-np-002",
+      "section": "NORMAL PROCEDURES",
+      "type": "single",
+      "question": "Per Sect. 4.4.1.1, how frequently must the fire protection test (TEST FIRE 1/2) be performed?",
+      "options": ["At least once a day", "Before every single flight, regardless of frequency", "Once a week", "Only after maintenance work on the fire system"],
+      "answer": [0],
+      "explanation": "Sect. 4.4.1.1 note: the fire protection check must be performed at least once a day, testing both FIRE 1 and FIRE 2 systems.",
+      "references": ["FLM BK117 D-3 Sect. 4.4.1.1"],
+      "tags": ["normal-procedures", "engine-start", "fire-test"],
+      "source": "H145 D3 Flight Manual",
+      "modelIds": ["H145_D3"]
+    },
+    {
+      "id": "h145d3-np-003",
+      "section": "NORMAL PROCEDURES",
+      "type": "single",
+      "question": "Per Sect. 4.4.1.1, what minimum battery voltage should be confirmed on the VMS page during the pre-start check?",
+      "options": ["23.5 V", "20.0 V", "28.0 V", "22.0 V"],
+      "answer": [0],
+      "explanation": "Sect. 4.4.1.1: during the pre-start check, the VMS page volt reading should be checked as ≥23.5 V. If ELEC OVERLIMIT appears during engine start, the same 23.5 V threshold is used to determine if starting is still permitted.",
+      "references": ["FLM BK117 D-3 Sect. 4.4.1.1"],
+      "tags": ["normal-procedures", "engine-start"],
+      "source": "H145 D3 Flight Manual",
+      "modelIds": ["H145_D3"]
+    },
+    {
+      "id": "h145d3-np-004",
+      "section": "NORMAL PROCEDURES",
+      "type": "single",
+      "question": "Per Sect. 4.4.1.1, what is the AUX PUMP switch checked to deliver to hydraulic system 1 during the pre-start flight control check?",
+      "options": [
+        "Approximately 80 bar",
+        "Approximately 150 bar",
+        "Approximately 30 bar",
+        "The AUX PUMP has no defined pressure target"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 4.4.1.1: the AUX PUMP sw is switched ON before checking free movement of the flight controls (TRIM REL sw pressed); it should deliver approximately 80 bar to hydraulic system 1. If pressure is insufficient to move the controls, the pedals should be moved twice from end stop to end stop.",
+      "references": ["FLM BK117 D-3 Sect. 4.4.1.1"],
+      "tags": ["normal-procedures", "engine-start", "hydraulics"],
+      "source": "H145 D3 Flight Manual",
+      "modelIds": ["H145_D3"]
+    },
+    {
+      "id": "h145d3-np-005",
+      "section": "NORMAL PROCEDURES",
+      "type": "single",
+      "question": "Per the caution in Sect. 4.4.1.2, what should immediately abort the engine start sequence if ignition does not occur within a certain time?",
+      "options": ["30 seconds with no TOT rise", "10 seconds with no TOT rise", "60 seconds with no TOT rise", "90 seconds with no TOT rise"],
+      "answer": [0],
+      "explanation": "Sect. 4.4.1.2 caution: immediately abort the start if ignition does not occur within 30 seconds (no TOT rise), if TOT reaches 840°C and the automatic stop function activates, if oil pressure indications are absent, or if N2/NR needles are unmatched at stabilized ground idle.",
+      "references": ["FLM BK117 D-3 Sect. 4.4.1.2"],
+      "tags": ["normal-procedures", "engine-start"],
+      "source": "H145 D3 Flight Manual",
+      "modelIds": ["H145_D3"]
+    },
+    {
+      "id": "h145d3-np-006",
+      "section": "NORMAL PROCEDURES",
+      "type": "single",
+      "question": "Per Sect. 4.4.1.2, at approximately what N1 value does the STARTER ON indication extinguish during a normal engine start?",
+      "options": ["Approximately 60% N1", "Approximately 30% N1", "Approximately 80% N1", "Approximately 100% N1"],
+      "answer": [0],
+      "explanation": "Sect. 4.4.1.2: at approximately 60% N1, the STARTER ON indication (FND ML) and the START label (VMS page) extinguish; N2/NR should read approximately 78% in IDLE mode, matched.",
+      "references": ["FLM BK117 D-3 Sect. 4.4.1.2"],
+      "tags": ["normal-procedures", "engine-start"],
+      "source": "H145 D3 Flight Manual",
+      "modelIds": ["H145_D3"]
+    },
+    {
+      "id": "h145d3-np-007",
+      "section": "NORMAL PROCEDURES",
+      "type": "single",
+      "question": "Per Sect. 4.4.1.2 (Hydraulic check), what caution applies during this daily check regarding the mast moment?",
+      "options": [
+        "Mast moment limits must be observed during the hydraulic check",
+        "Mast moment indication is automatically disabled during the check",
+        "The hydraulic check must never be performed with rotor turning",
+        "TEST HYD sw may be used freely during flight for this check"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 4.4.1.2 caution: the TEST HYD sw must not be operated during flight, and mast moment limits must be observed during the hydraulic check (performed at least once a day, on ground, checking SYS1 and SYS2 individually).",
+      "references": ["FLM BK117 D-3 Sect. 4.4.1.2"],
+      "tags": ["normal-procedures", "engine-start", "hydraulic-check"],
+      "source": "H145 D3 Flight Manual",
+      "modelIds": ["H145_D3"]
+    },
+    {
+      "id": "h145d3-np-008",
+      "section": "NORMAL PROCEDURES",
+      "type": "single",
+      "question": "Per Sect. 4.4.1.3, why should the pilot avoid disconnecting the EPU later on during the pre-flight procedure rather than right after the second engine start?",
+      "options": [
+        "It can cause systems and the AFCS to disengage, requiring them to be re-engaged before takeoff",
+        "It will trigger an unrecoverable ELEC OVERLIMIT fault",
+        "It permanently disables the standby battery",
+        "It has no operational effect and is purely a matter of preference"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 4.4.1.3 note: disconnecting the EPU later in the pre-flight procedure can cause systems and the AFCS to disengage; in that case they must be re-engaged before takeoff.",
+      "references": ["FLM BK117 D-3 Sect. 4.4.1.3"],
+      "tags": ["normal-procedures", "engine-start"],
+      "source": "H145 D3 Flight Manual",
+      "modelIds": ["H145_D3"]
+    },
+    {
+      "id": "h145d3-np-009",
+      "section": "NORMAL PROCEDURES",
+      "type": "single",
+      "question": "Per Sect. 4.4.1.3 (AFCS/Avionics Pre-flight Test), when must this test be performed, per the note?",
+      "options": [
+        "Before each IFR flight; at least once a day before VFR flights",
+        "Only once per week, regardless of flight rules",
+        "Only after maintenance actions",
+        "Only for the first flight after a cold start below -30°C"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 4.4.1.3 note: the AFCS/Avionics pre-flight test must be performed before each IFR flight; before VFR flights, it must be performed at least once a day.",
+      "references": ["FLM BK117 D-3 Sect. 4.4.1.3"],
+      "tags": ["normal-procedures", "afcs-preflight-test"],
+      "source": "H145 D3 Flight Manual",
+      "modelIds": ["H145_D3"]
+    },
+    {
+      "id": "h145d3-np-010",
+      "section": "NORMAL PROCEDURES",
+      "type": "single",
+      "question": "Per Sect. 4.5, which set of conditions means the quick start-up procedure must NOT be used?",
+      "options": [
+        "Engine oil temperature below 0°C (5 cSt oil), or below -10°C (3 cSt oil), or main gearbox oil temperature below -30°C",
+        "Only if OAT is below -10°C, regardless of oil type or MGB temperature",
+        "Only if the aircraft has been unattended for more than 1 hour",
+        "The quick start-up procedure has no temperature-based restrictions"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 4.5: on the H145 D3, the quick start-up procedure must not be used if engine oil temperature is below 0°C with 5 cSt oil, below -10°C with 3 cSt oil, or if main gearbox oil temperature is below -30°C — a more detailed restriction set than the H145 D2's single MGB-temperature condition.",
+      "references": ["FLM BK117 D-3 Sect. 4.5"],
+      "tags": ["normal-procedures", "quick-start-up"],
+      "source": "H145 D3 Flight Manual",
+      "modelIds": ["H145_D3"]
+    },
+    {
+      "id": "h145d3-np-011",
+      "section": "NORMAL PROCEDURES",
+      "type": "single",
+      "question": "Per Sect. 4.5.1.1, the quick start-up procedure must NOT be used if which of the following applies?",
+      "options": [
+        "More than 12 hours have passed since completion of the standard and additional pre-flight checks",
+        "The OAT is above +35°C",
+        "Only one pilot is operating the aircraft",
+        "The aircraft was refueled since the pre-flight checks"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 4.5.1.1 caution: do not use the quick start-up procedure if the helicopter was left unattended, its settings/configuration were changed, or more than 12 hours have passed since the standard and additional pre-flight checks were completed.",
+      "references": ["FLM BK117 D-3 Sect. 4.5.1.1"],
+      "tags": ["normal-procedures", "quick-start-up"],
+      "source": "H145 D3 Flight Manual",
+      "modelIds": ["H145_D3"]
+    },
+    {
+      "id": "h145d3-np-012",
+      "section": "NORMAL PROCEDURES",
+      "type": "single",
+      "question": "Per Sect. 4.7 (Takeoff check), what N2/NR value must be confirmed during the hover check?",
+      "options": ["102% or greater", "101% or greater", "85% or greater", "110% or greater"],
+      "answer": [0],
+      "explanation": "Sect. 4.7: during the takeoff check, hover flight is performed and N2/NR is checked to be ≥102% (the H145 D2 uses a 101% threshold instead), FLI checked for AEO indication, and hover power noted (blue line position on FLI) at 4 ft skid height.",
+      "references": ["FLM BK117 D-3 Sect. 4.7"],
+      "tags": ["normal-procedures", "takeoff"],
+      "source": "H145 D3 Flight Manual",
+      "modelIds": ["H145_D3"]
+    },
+    {
+      "id": "h145d3-np-013",
+      "section": "NORMAL PROCEDURES",
+      "type": "single",
+      "question": "Per Sect. 4.8 (Takeoff), what skid height is used for the hover before beginning acceleration and climb?",
+      "options": ["4 ft", "10 ft", "2 ft", "8 ft"],
+      "answer": [0],
+      "explanation": "Sect. 4.8: takeoff is performed from a hover at 4 ft skid height; acceleration begins with nose-down pitch and a smooth power increase (hover power plus 0.5-1.0 FLI, without exceeding TOP).",
+      "references": ["FLM BK117 D-3 Sect. 4.8"],
+      "tags": ["normal-procedures", "takeoff"],
+      "source": "H145 D3 Flight Manual",
+      "modelIds": ["H145_D3"]
+    },
+    {
+      "id": "h145d3-np-014",
+      "section": "NORMAL PROCEDURES",
+      "type": "single",
+      "question": "Per the note in Sect. 4.8, if operating above 7500 ft density altitude and the 'high hover' point of the H-V diagram is above 300 ft AGL, how should the normal takeoff be adapted?",
+      "options": [
+        "Adjust pitch attitude at 30 KIAS to achieve 40 KIAS at 15 ft height (instead of 20 KIAS to 30 KIAS)",
+        "Reduce takeoff gross mass by 10% before attempting takeoff",
+        "The takeoff profile is not adapted; the normal procedure remains unchanged at all altitudes",
+        "Perform a vertical takeoff to at least 500 ft AGL before accelerating"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 4.8 note: above 7500 ft density altitude, the pilot shall determine the 'high hover' point from the H-V diagram (Sect. 5.1.9); if it is above 300 ft AGL, the takeoff is adapted by adjusting pitch attitude at 30 KIAS to achieve 40 KIAS at 15 ft height, instead of the normal 20 KIAS to 30 KIAS profile.",
+      "references": ["FLM BK117 D-3 Sect. 4.8"],
+      "tags": ["normal-procedures", "takeoff", "high-altitude"],
+      "source": "H145 D3 Flight Manual",
+      "modelIds": ["H145_D3"]
+    },
+    {
+      "id": "h145d3-np-015",
+      "section": "NORMAL PROCEDURES",
+      "type": "single",
+      "question": "Per the recommended landing procedure in Sect. 4.10, what approach parameters should be targeted at 100 ft?",
+      "options": ["40 KIAS with a rate of descent of not more than 500 ft/min", "60 KIAS with a rate of descent of not more than 1000 ft/min", "20 KIAS with a rate of descent of not more than 200 ft/min", "80 KIAS with no rate-of-descent restriction"],
+      "answer": [0],
+      "explanation": "Sect. 4.10: the approach is initiated to arrive at 100 ft with a speed of 40 KIAS and a rate of descent of not more than 500 ft/min, then gradually slowing to 30 KIAS at 50 ft before proceeding into ground cushion.",
+      "references": ["FLM BK117 D-3 Sect. 4.10"],
+      "tags": ["normal-procedures", "landing"],
+      "source": "H145 D3 Flight Manual",
+      "modelIds": ["H145_D3"]
+    },
+    {
+      "id": "h145d3-np-016",
+      "section": "NORMAL PROCEDURES",
+      "type": "single",
+      "question": "Per the note in Sect. 4.10, if the 'high hover' point above 7500 ft density altitude is above 300 ft AGL, how is the landing adapted?",
+      "options": [
+        "Aim for 40 KIAS at 50 ft, maintain 40 KIAS to 15 ft, then proceed into ground cushion",
+        "Land only at airports with a published Cat A profile",
+        "Increase the rate of descent to 1000 ft/min to compensate",
+        "The landing profile cannot be adapted; a diversion to lower altitude is required"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 4.10 note: above 7500 ft density altitude, if the 'high hover' point (H-V diagram, Sect. 5.1.9) is above 300 ft AGL, aim for 40 KIAS at 50 ft, maintain 40 KIAS to 15 ft, then continue into ground cushion for landing.",
+      "references": ["FLM BK117 D-3 Sect. 4.10"],
+      "tags": ["normal-procedures", "landing", "high-altitude"],
+      "source": "H145 D3 Flight Manual",
+      "modelIds": ["H145_D3"]
+    },
+    {
+      "id": "h145d3-np-017",
+      "section": "NORMAL PROCEDURES",
+      "type": "single",
+      "question": "Per Sect. 4.11 (Engine shutdown), the rotor brake may be applied once NR has decreased below what value?",
+      "options": ["50% NR", "80% NR", "30% NR", "70% NR"],
+      "answer": [0],
+      "explanation": "Sect. 4.11: after both ENG MAIN sw's are set OFF and TOT/N1 are monitored decreasing, the rotor brake (if required) may be applied below 50% NR.",
+      "references": ["FLM BK117 D-3 Sect. 4.11"],
+      "tags": ["normal-procedures", "engine-shutdown"],
+      "source": "H145 D3 Flight Manual",
+      "modelIds": ["H145_D3"]
+    },
+    {
+      "id": "h145d3-np-018",
+      "section": "NORMAL PROCEDURES",
+      "type": "single",
+      "question": "Per the caution in Sect. 4.12.1 (Flight controls), what is prohibited during ground operations with the rotor turning?",
+      "options": [
+        "Extreme cyclic stick displacements; only minimum control movements (less than 3 cm from neutral) are allowed for functional tests",
+        "Any movement of the cyclic stick whatsoever",
+        "Applying the rotor brake at any NR value",
+        "Selecting FND format on the MFDs"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 4.12.1 caution: avoid extreme cyclic stick displacements when on ground with rotor turning; the cyclic must remain neutral and collective full down, except minimum control movements (less than 3 cm from neutral) for functional test purposes.",
+      "references": ["FLM BK117 D-3 Sect. 4.12.1"],
+      "tags": ["normal-procedures", "flight-characteristics"],
+      "source": "H145 D3 Flight Manual",
+      "modelIds": ["H145_D3"]
+    },
+    {
+      "id": "h145d3-np-019",
+      "section": "NORMAL PROCEDURES",
+      "type": "single",
+      "question": "Per Sect. 4.12.2, what is the recommended maximum rate of descent during HOGE or low speed flight (up to 20 KIAS)?",
+      "options": ["Less than 500 ft/min", "Less than 1000 ft/min", "Less than 200 ft/min", "Less than 1500 ft/min"],
+      "answer": [0],
+      "explanation": "Sect. 4.12.2: any descent during hover or low speed flight (up to 20 KIAS) should be performed with a descent rate of less than 500 ft/min, to avoid inadvertent entry into vortex ring state.",
+      "references": ["FLM BK117 D-3 Sect. 4.12.2"],
+      "tags": ["normal-procedures", "flight-characteristics"],
+      "source": "H145 D3 Flight Manual",
+      "modelIds": ["H145_D3"]
+    },
+    {
+      "id": "h145d3-np-020",
+      "section": "NORMAL PROCEDURES",
+      "type": "single",
+      "question": "Per the caution in Sect. 4.13, when using altitude constrained legs, what must be true of the baro setting?",
+      "options": ["It must be identical on MFD1 and MFD2, and re-synchronized whenever changed", "It only needs to be set on MFD1", "It automatically synchronizes and needs no crew action", "It is irrelevant for altitude constrained legs"],
+      "answer": [0],
+      "explanation": "Sect. 4.13 caution: when using altitude constrained legs, the baro setting must be identical on MFD1 and MFD2; the crew must remember to synchronize it whenever it is changed.",
+      "references": ["FLM BK117 D-3 Sect. 4.13"],
+      "tags": ["normal-procedures", "ifr"],
+      "source": "H145 D3 Flight Manual",
+      "modelIds": ["H145_D3"]
+    },
+    {
+      "id": "h145d3-np-021",
+      "section": "NORMAL PROCEDURES",
+      "type": "single",
+      "question": "Per Sect. 4.13.3.1 (OBS navigation), what effect does selecting OBS have on automatic waypoint sequencing?",
+      "options": [
+        "Automatic leg sequencing is suspended (SUSP appears on FND/NAVD)",
+        "It has no effect on sequencing, only on displayed course",
+        "It permanently disables sequencing until the flight plan is deleted",
+        "It forces immediate sequencing to the next waypoint"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 4.13.3.1: the OBS function allows selecting a desired course to/from a waypoint and prevents the FMS from sequencing to the next waypoint — automatic leg sequencing is suspended, indicated by SUSP on FND/NAVD.",
+      "references": ["FLM BK117 D-3 Sect. 4.13.3.1"],
+      "tags": ["normal-procedures", "ifr", "obs-navigation"],
+      "source": "H145 D3 Flight Manual",
+      "modelIds": ["H145_D3"]
+    },
+    {
+      "id": "h145d3-np-022",
+      "section": "NORMAL PROCEDURES",
+      "type": "single",
+      "question": "Per Sect. 4.13.4.2 (ILS approach), what is the minimum localizer interception distance, and within what deviation will LOC/GS capture automatically occur?",
+      "options": [
+        "Minimum 4 NM interception distance; automatic capture within 2 dots (LOC) and 0.5 dots (GS)",
+        "Minimum 10 NM interception distance; automatic capture within 5 dots (LOC) and 2 dots (GS)",
+        "Minimum 2 NM interception distance; automatic capture within 1 dot (LOC) and 0.25 dots (GS)",
+        "There is no minimum interception distance specified"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 4.13.4.2: minimum LOC interception distance is 4 NM; capturing of LOC and GS occurs automatically when the aircraft is within 2 dots (LOC) and 0.5 dots (GS).",
+      "references": ["FLM BK117 D-3 Sect. 4.13.4.2"],
+      "tags": ["normal-procedures", "ifr", "ils-approach"],
+      "source": "H145 D3 Flight Manual",
+      "modelIds": ["H145_D3"]
+    },
+    {
+      "id": "h145d3-np-023",
+      "section": "NORMAL PROCEDURES",
+      "type": "single",
+      "question": "Per Sect. 4.13.4.3 (LNAV or LP approach), if LP or LP+V does not appear but LNAV is indicated (e.g. due to loss of SBAS), what should the crew do?",
+      "options": [
+        "Perform an approach using LNAV minima, adjusting DA/DH accordingly",
+        "Abort the approach entirely; no fallback is permitted",
+        "Continue using the original LP minima regardless",
+        "Switch immediately to an ILS approach instead"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 4.13.4.3: if LNAV, LNAV+V, LP, or LP+V do not appear (GPS degradation), perform a missed approach; if LP/LP+V specifically don't appear but LNAV is shown (SBAS loss), perform the approach using LNAV minima with adjusted DA/DH.",
+      "references": ["FLM BK117 D-3 Sect. 4.13.4.3"],
+      "tags": ["normal-procedures", "ifr", "lnav-approach"],
+      "source": "H145 D3 Flight Manual",
+      "modelIds": ["H145_D3"]
+    },
+    {
+      "id": "h145d3-np-024",
+      "section": "NORMAL PROCEDURES",
+      "type": "single",
+      "question": "Per Sect. 4.13.4.4 (LPV or LNAV/VNAV approach), if the autopilot IAS mode is engaged, to what maximum rate of descent will it automatically adjust the IAS during the approach?",
+      "options": ["1000 ft/min", "500 ft/min", "1500 ft/min", "2000 ft/min"],
+      "answer": [0],
+      "explanation": "Sect. 4.13.4.4 note: if the autopilot IAS mode is engaged during an LPV/LNAV-VNAV approach, it will automatically adjust IAS to achieve a maximum rate of descent of 1000 ft/min; the pilot may further reduce IAS but not increase it above that limit.",
+      "references": ["FLM BK117 D-3 Sect. 4.13.4.4"],
+      "tags": ["normal-procedures", "ifr", "lpv-approach"],
+      "source": "H145 D3 Flight Manual",
+      "modelIds": ["H145_D3"]
+    },
+    {
+      "id": "h145d3-np-025",
+      "section": "NORMAL PROCEDURES",
+      "type": "single",
+      "question": "Per Sect. 4.13.4.5 (Missed approach, GPS approaches only), what does pushing the GA pb on the collective do to the autopilot NAV mode?",
+      "options": [
+        "The autopilot remains coupled on NAV mode with automatic waypoint sequencing provided",
+        "It fully disengages the autopilot, requiring manual flight through the missed approach",
+        "It switches the autopilot to HOVER mode automatically",
+        "It has no effect on NAV mode, only on vertical guidance"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 4.13.4.5 note: when using the GA pb on the collective to initiate a missed approach, the autopilot remains coupled on the NAV mode and automatic waypoint sequencing is provided.",
+      "references": ["FLM BK117 D-3 Sect. 4.13.4.5"],
+      "tags": ["normal-procedures", "ifr", "missed-approach"],
+      "source": "H145 D3 Flight Manual",
+      "modelIds": ["H145_D3"]
+    },
+    {
+      "id": "h145d3-np-026",
+      "section": "NORMAL PROCEDURES",
+      "type": "single",
+      "question": "Per Sect. 4.14.1, how long does the HTAWS self-test take after power-on, indicated by 'HTAWS TEST' on the FND?",
+      "options": ["About 2 minutes", "About 30 seconds", "About 10 minutes", "About 5 minutes"],
+      "answer": [0],
+      "explanation": "Sect. 4.14.1: after power on, HTAWS performs a self-test for about 2 minutes, indicated by the HTAWS TEST label on the FND.",
+      "references": ["FLM BK117 D-3 Sect. 4.14.1"],
+      "tags": ["normal-procedures", "htaws"],
+      "source": "H145 D3 Flight Manual",
+      "modelIds": ["H145_D3"]
+    },
+    {
+      "id": "h145d3-np-027",
+      "section": "NORMAL PROCEDURES",
+      "type": "single",
+      "question": "Per Sect. 4.14.2, after the HTAWS audio is manually inhibited (MUTE), how long until it is automatically re-activated?",
+      "options": ["After 5 minutes", "After 30 minutes", "After 1 minute", "It remains inhibited until manually reactivated only"],
+      "answer": [0],
+      "explanation": "Sect. 4.14.2: HTAWS audio warnings can be inhibited via MUTE (held for 2 seconds); after 5 minutes, the audio is automatically re-activated and TAWS MUTE disappears from the master list.",
+      "references": ["FLM BK117 D-3 Sect. 4.14.2"],
+      "tags": ["normal-procedures", "htaws"],
+      "source": "H145 D3 Flight Manual",
+      "modelIds": ["H145_D3"]
+    },
+    {
+      "id": "h145d3-np-028",
+      "section": "NORMAL PROCEDURES",
+      "type": "single",
+      "question": "Per Sect. 4.15.1 (AHRS free steering / DG mode), what caution applies to HDG1 and HDG2 settings when using DG mode?",
+      "options": [
+        "HDG1 and HDG2 must be set to the same value (±7°) within one minute",
+        "HDG1 and HDG2 can be set to any independent values with no time limit",
+        "Only HDG1 needs to be set; HDG2 auto-syncs after landing",
+        "DG mode is only usable if both AHRS units have already failed"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 4.15.1 caution: to avoid discrepancy indications and automatic deselection of heading sources, HDG1 and HDG2 must be set to the same value (±7°) within one minute; prolonged operation (>10 min) with one AHRS in MAG and the other in DG mode should be avoided.",
+      "references": ["FLM BK117 D-3 Sect. 4.15.1"],
+      "tags": ["normal-procedures", "ahrs"],
+      "source": "H145 D3 Flight Manual",
+      "modelIds": ["H145_D3"]
+    },
+    {
+      "id": "h145d3-np-029",
+      "section": "NORMAL PROCEDURES",
+      "type": "single",
+      "question": "Per Sect. 4.17.3 (Maximum ventilation / cooling), what is done with the BLD HTG rheostat?",
+      "options": ["Set to OFF", "Set to MAX", "Set to 40%", "It is not part of this procedure"],
+      "answer": [0],
+      "explanation": "Sect. 4.17.3: for maximum ventilation/cooling, the BLD HTG rheostat is set OFF, VENTILATION CKPT rheostat set to HI, VENTILATION PAX sw ON, all pax vent nozzles opened, and airspeed increased if possible.",
+      "references": ["FLM BK117 D-3 Sect. 4.17.3"],
+      "tags": ["normal-procedures", "heating-ventilation"],
+      "source": "H145 D3 Flight Manual",
+      "modelIds": ["H145_D3"]
+    },
+    {
+      "id": "h145d3-np-030",
+      "section": "NORMAL PROCEDURES",
+      "type": "single",
+      "question": "Per Sect. 4.17.5, how is recirculated air selected to prevent outside air (e.g. sand/dust) from entering the ventilation system?",
+      "options": ["Pull the PUSH FOR AIR lever", "Push the PUSH FOR AIR lever", "Set BLD HTG rheostat to MAX", "Switch VENTILATION PAX sw to OFF only"],
+      "answer": [0],
+      "explanation": "Sect. 4.17.5: to select recirculated air (e.g. during landings in sand/dust or very cold conditions), pull the PUSH FOR AIR lever.",
+      "references": ["FLM BK117 D-3 Sect. 4.17.5"],
+      "tags": ["normal-procedures", "heating-ventilation"],
+      "source": "H145 D3 Flight Manual",
+      "modelIds": ["H145_D3"]
+    },
+    {
+      "id": "h145d3-np-031",
+      "section": "NORMAL PROCEDURES",
+      "type": "single",
+      "question": "Per Sect. 4.18, which of the four (semi-)automatic pre-flight test phases is initiated manually by the crew BEFORE engine start?",
+      "options": ["Lamp test", "Power-up test", "Start-up test", "Pre-flight test"],
+      "answer": [0],
+      "explanation": "Sect. 4.18: the power-up test launches automatically when both AMCs power up; the lamp test is initiated by the crew before engine start; the start-up test launches automatically when one engine starts; the pre-flight test is initiated by the crew once both engines are running and avionics master switches are on.",
+      "references": ["FLM BK117 D-3 Sect. 4.18"],
+      "tags": ["normal-procedures", "system-tests"],
+      "source": "H145 D3 Flight Manual",
+      "modelIds": ["H145_D3"]
+    },
+    {
+      "id": "h145d3-np-032",
+      "section": "NORMAL PROCEDURES",
+      "type": "single",
+      "question": "Per Sect. 4.18, what symbol appears above the master list area to remind the crew that a completed test phase ended with failure messages?",
+      "options": ["An encircled (T)", "A flashing red X", "A yellow triangle", "The letters 'FAIL' in red"],
+      "answer": [0],
+      "explanation": "Sect. 4.18: when the next test phase begins, messages from the previous phase are removed from the master list, but an encircled (T) is displayed above the master list area as a reminder that a test phase ended with failure messages (viewable anytime on the CT page).",
+      "references": ["FLM BK117 D-3 Sect. 4.18"],
+      "tags": ["normal-procedures", "system-tests"],
+      "source": "H145 D3 Flight Manual",
+      "modelIds": ["H145_D3"]
+    },
+    {
+      "id": "h145d3-np-033",
+      "section": "NORMAL PROCEDURES",
+      "type": "single",
+      "question": "Per Sect. 4.18.1, if FADEC1 SIGNAL FAIL or SIGNAL FAIL FADEC2 appears during the power-up test, what is the required action?",
+      "options": ["Abort mission — no information is being received from the FADECs", "Consult MEL/MMEL for VFR flight only", "Continue flight, this fault clears itself after start-up test", "Reset the FADEC using the EMER sw"],
+      "answer": [0],
+      "explanation": "Sect. 4.18.1: FADEC1 SIGNAL FAIL / SIGNAL FAIL FADEC2 during the power-up test means no information is being received from the FADECs — the required action is to abort the mission.",
+      "references": ["FLM BK117 D-3 Sect. 4.18.1"],
+      "tags": ["normal-procedures", "system-tests"],
+      "source": "H145 D3 Flight Manual",
+      "modelIds": ["H145_D3"]
+    },
+    {
+      "id": "h145d3-np-034",
+      "section": "NORMAL PROCEDURES",
+      "type": "single",
+      "question": "Per Sect. 4.3.2.4, an item unique to the H145 D3 exterior check requires window curtains on the sliding door and emergency exits to be removed under what condition?",
+      "options": ["If offshore flight is planned", "If IFR flight is planned", "Whenever NVGs will be used", "Only during Cat A operations"],
+      "answer": [0],
+      "explanation": "Sect. 4.3.2.4: window curtains on the sliding door and emergency exits (if installed) must be removed if offshore flight is planned, ensuring the emergency exit windows remain usable.",
+      "references": ["FLM BK117 D-3 Sect. 4.3.2.4"],
+      "tags": ["normal-procedures", "preflight-check"],
+      "source": "H145 D3 Flight Manual",
+      "modelIds": ["H145_D3"]
+    }
+  ]
+}

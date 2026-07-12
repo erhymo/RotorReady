@@ -478,6 +478,7 @@ export default function AccountPage() {
   const h125Variants = listVariantsByProduct("H125");
   const h135t3Variants = listVariantsByProduct("H135_T3");
   const h145d2Variants = listVariantsByProduct("H145_D2");
+  const h145d3Variants = listVariantsByProduct("H145_D3");
   const activeVariantId = getStoredActiveModelVariantId();
   const selectVariant = (id: string) => {
     // Store locally immediately for a seamless experience
@@ -653,6 +654,31 @@ export default function AccountPage() {
               })}
 
               {h145d2Variants.map((v) => {
+                const coming = v.status === "coming_soon";
+                const isActive = activeVariantId === v.id;
+                return (
+                  <button
+                    type="button"
+                    key={v.id}
+                    disabled={coming}
+                    onClick={() => !coming && selectVariant(v.id)}
+                    className={`px-3 py-1 rounded-lg border text-sm transition ${
+                      isActive
+                        ? "border-emerald-400 bg-emerald-50 text-emerald-700"
+                        : "bg-white dark:bg-zinc-900 dark:text-zinc-100 hover:border-slate-300 dark:hover:border-zinc-600"
+                    } ${coming ? "opacity-60 cursor-not-allowed" : "cursor-pointer"}`}
+                  >
+                    {v.label}
+                    {coming && (
+                      <span className="ml-2 inline-flex items-center rounded-full border border-amber-400/70 bg-amber-50 px-1.5 py-0.5 text-[10px] font-semibold text-amber-700 dark:border-amber-500/40 dark:bg-amber-900/30 dark:text-amber-200">
+                        Coming soon
+                      </span>
+                    )}
+                  </button>
+                );
+              })}
+
+              {h145d3Variants.map((v) => {
                 const coming = v.status === "coming_soon";
                 const isActive = activeVariantId === v.id;
                 return (

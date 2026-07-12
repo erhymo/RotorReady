@@ -133,6 +133,15 @@ function Bar(props: { href: string; title: string; description: string; tone?: "
 	              icon={<BookIcon className="h-4 w-4" />}
 	            />
 	        )}
+	        {activeVariant?.id === "H145_D3" && (
+	            <Bar
+	              href="/training/procedures/h145-d3"
+	              title="Procedures"
+	              description="Browse H145 D3 engine failure, fire, drive-system and slope-operation procedures."
+	              tone="emerald"
+	              icon={<BookIcon className="h-4 w-4" />}
+	            />
+	        )}
 		      </section>
 
 		      <section className="space-y-3">
@@ -203,6 +212,15 @@ function Bar(props: { href: string; title: string; description: string; tone?: "
 		            href="/h145-d2/quick-reference"
 		            title="Quick Reference"
 		            description="Key H145 D2 Flight Manual limitations and numbers."
+		            tone="slate"
+		            icon={<BookIcon className="h-4 w-4" />}
+		          />
+		        )}
+		        {activeVariant?.id === "H145_D3" && (
+		          <Bar
+		            href="/h145-d3/quick-reference"
+		            title="Quick Reference"
+		            description="Key H145 D3 Flight Manual limitations and numbers."
 		            tone="slate"
 		            icon={<BookIcon className="h-4 w-4" />}
 		          />

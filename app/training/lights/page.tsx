@@ -67,6 +67,49 @@ const AW169_MEMORY_CROPS: Record<string, [number, number, number, number]> = {
   "rotor-low": [0.104171, 0.341954, 0.743812, 0.049185]
 };
 
+// H135 T3 / H145 D2 / H145 D3 memory-item crop coordinates: normalized rects (relative to
+// each light's own pageImage/imageWidth/imageHeight) locating the FLM's gray-shaded
+// "immediate action" table rows. Detected directly from the already-committed composite
+// page images (pixel-level gray-shading detection), one light can have several rects since
+// the FLM shades memory rows individually per flight regime, not as a single contiguous box.
+const H135_T3_MEMORY_CROPS: Record<string, [number, number, number, number][]> = {
+  "ap-fail": [[0.18550, 0.41202, 0.75344, 0.01133], [0.13817, 0.83884, 0.74198, 0.01133]],
+  "bat-ovht": [[0.13817, 0.46980, 0.74198, 0.02225], [0.13817, 0.64590, 0.74198, 0.02289], [0.13817, 0.69803, 0.74198, 0.02225]],
+  "eng-double-fail": [[0.18550, 0.60165, 0.74198, 0.15248], [0.18550, 0.78335, 0.74198, 0.02287]],
+  "eng-fire": [[0.13817, 0.24079, 0.74198, 0.02140], [0.13817, 0.31980, 0.74198, 0.02675], [0.18550, 0.53447, 0.74198, 0.03462]],
+  "eng-single-fail": [[0.18550, 0.26305, 0.74198, 0.00989], [0.13817, 0.41956, 0.74198, 0.00438], [0.13817, 0.42982, 0.74198, 0.00839], [0.17557, 0.46137, 0.70458, 0.00989], [0.17557, 0.49631, 0.70458, 0.00438], [0.17557, 0.50657, 0.70458, 0.01240], [0.17557, 0.52473, 0.70458, 0.01240], [0.18550, 0.62038, 0.74198, 0.00851], [0.22366, 0.65193, 0.70382, 0.00989], [0.22366, 0.68674, 0.70382, 0.00451], [0.22366, 0.69713, 0.71527, 0.01240], [0.22366, 0.71529, 0.71527, 0.01240], [0.13817, 0.82108, 0.74198, 0.00438]],
+  "low-fuel": [[0.18550, 0.26786, 0.74198, 0.01133]],
+  "mgb-oil-press": [[0.13817, 0.37826, 0.74198, 0.02225]],
+  "rotor-rpm": [[0.18550, 0.59149, 0.74198, 0.09085]]
+};
+
+const H145_D2_MEMORY_CROPS: Record<string, [number, number, number, number][]> = {
+  "bat-ovht": [[0.18550, 0.47656, 0.74198, 0.02279], [0.18550, 0.65039, 0.74198, 0.02279], [0.18550, 0.70378, 0.74198, 0.02344]],
+  "cargo-smoke": [[0.18550, 0.53646, 0.74198, 0.07943], [0.18550, 0.67904, 0.74198, 0.12826], [0.19008, 0.92969, 0.73740, 0.02734]],
+  "eng-double-fail": [[0.13817, 0.79746, 0.74198, 0.12153], [0.13817, 0.95631, 0.74198, 0.02859]],
+  "eng-fire": [[0.14275, 0.24383, 0.73740, 0.01389], [0.14275, 0.29938, 0.73740, 0.05903], [0.14275, 0.40008, 0.73740, 0.04514], [0.18092, 0.48650, 0.69924, 0.03974], [0.19008, 0.60957, 0.73740, 0.03048], [0.19008, 0.68210, 0.73740, 0.04205], [0.19008, 0.76582, 0.73740, 0.02855], [0.22824, 0.88079, 0.69847, 0.01389], [0.22824, 0.92091, 0.69924, 0.03974], [0.26641, 0.97840, 0.66107, 0.01389]],
+  "eng-single-fail": [[0.13817, 0.25519, 0.74198, 0.01012], [0.22366, 0.30797, 0.70382, 0.03549], [0.22366, 0.40776, 0.70382, 0.03215], [0.17557, 0.52511, 0.70458, 0.04381], [0.21374, 0.62734, 0.66641, 0.01307], [0.18550, 0.70830, 0.74198, 0.00858], [0.22366, 0.72291, 0.70382, 0.01012], [0.22366, 0.80938, 0.70382, 0.02690], [0.21374, 0.91033, 0.66641, 0.01307], [0.13817, 0.96938, 0.74198, 0.00461]],
+  "low-fuel": [[0.13817, 0.48780, 0.74198, 0.01626], [0.17557, 0.52484, 0.70382, 0.01626], [0.17557, 0.56233, 0.70382, 0.01581]],
+  "mgb-oil-press": [[0.13817, 0.75217, 0.74198, 0.10609]]
+};
+
+const H145_D3_MEMORY_CROPS: Record<string, [number, number, number, number][]> = {
+  "bat-ovht": [[0.13817, 0.47266, 0.74198, 0.02279], [0.13817, 0.64844, 0.74198, 0.02344], [0.13817, 0.70182, 0.74198, 0.02344]],
+  "cargo-smoke": [[0.13817, 0.53646, 0.74198, 0.07943], [0.13817, 0.67904, 0.74198, 0.12826], [0.14275, 0.92969, 0.73740, 0.02734]],
+  "eng-double-fail": [[0.13817, 0.79746, 0.74198, 0.12153], [0.13817, 0.95631, 0.74198, 0.02859]],
+  "eng-fire": [[0.19008, 0.24308, 0.73740, 0.01385], [0.19008, 0.29846, 0.73740, 0.05962], [0.19008, 0.39962, 0.73740, 0.04500], [0.22824, 0.48577, 0.69924, 0.04038], [0.14275, 0.60923, 0.73740, 0.03038], [0.14275, 0.68154, 0.73740, 0.04269], [0.14275, 0.76577, 0.73740, 0.02846], [0.18092, 0.88038, 0.69847, 0.01385], [0.18092, 0.92038, 0.69924, 0.04038], [0.21908, 0.97885, 0.66107, 0.01346]],
+  "eng-single-fail": [[0.13817, 0.24866, 0.74198, 0.00986], [0.22366, 0.30159, 0.70382, 0.03495], [0.22366, 0.41468, 0.70382, 0.03171], [0.17557, 0.53452, 0.70458, 0.04332], [0.21374, 0.63525, 0.66641, 0.01261], [0.18550, 0.71339, 0.74198, 0.00836], [0.22366, 0.72750, 0.70382, 0.00986], [0.22366, 0.81176, 0.70382, 0.02634], [0.21374, 0.91025, 0.66641, 0.01273], [0.18550, 0.97017, 0.74198, 0.00449]],
+  "low-fuel": [[0.18550, 0.48780, 0.74198, 0.01626], [0.22366, 0.52484, 0.70305, 0.01626], [0.22366, 0.56233, 0.70305, 0.01581]],
+  "mgb-oil-press": [[0.18550, 0.75217, 0.74198, 0.10609]]
+};
+
+function getMemoryCropRects(variantId: string, lightId: string): [number, number, number, number][] | null {
+  if (variantId === "H135_T3") return H135_T3_MEMORY_CROPS[lightId] || null;
+  if (variantId === "H145_D2") return H145_D2_MEMORY_CROPS[lightId] || null;
+  if (variantId === "H145_D3") return H145_D3_MEMORY_CROPS[lightId] || null;
+  return null;
+}
+
 function shuffle<T>(arr: T[]): T[] {
   const a = [...arr];
   for (let i = a.length - 1; i > 0; i--) {
@@ -213,6 +256,8 @@ export default function LightsTrainer() {
 	  const isH125 = activeVariant.productId === "H125";
 	  const isAw169 = activeVariant.productId === "AW169";
 	  const isB3e = activeVariant.id === "H125_AS350_B3E";
+	  const isS92 = activeVariant.id === "S92";
+	  const hasImageMemory = activeVariant.id === "H135_T3" || activeVariant.id === "H145_D2" || activeVariant.id === "H145_D3";
 	  const [all, setAll] = useState<LightItem[]>([]);
 	  const [loading, setLoading] = useState(true);
 	  const [pageIndex, setPageIndex] = useState<Record<string, string>>({});
@@ -381,13 +426,12 @@ export default function LightsTrainer() {
 
 	  const warningLights = useMemo(() => all.filter((item) => item.severity === "warning"), [all]);
 
-	  const aw169RedMemoryLights = useMemo(
-	    () =>
-	      isAw169
-	        ? warningLights.filter((item) => (AW169_MEMORY_CROPS as any)[item.id])
-	        : [],
-	    [warningLights, activeVariant.id]
-	  );
+	  const aw169RedMemoryLights = useMemo(() => {
+	    if (isAw169) return warningLights.filter((item) => (AW169_MEMORY_CROPS as any)[item.id]);
+	    if (isS92) return warningLights.filter((item) => (item.procedure || []).some((s) => s.type === "action"));
+	    if (hasImageMemory) return warningLights.filter((item) => !!getMemoryCropRects(activeVariant.id, item.id));
+	    return [];
+	  }, [warningLights, activeVariant.id, isAw169, isS92, hasImageMemory]);
 
 	  const aw169AmberMemoryLights = useMemo(
 	    () =>
@@ -513,6 +557,33 @@ export default function LightsTrainer() {
     );
   }
 
+  // Renders one or more cropped excerpts of an already-published composite Flight Manual
+  // page image (no new image asset is created — this is a client-side SVG viewport, same
+  // technique as AW169MemoryCrop). Used for H135 T3 / H145 D2 / H145 D3, where the FLM marks
+  // memory items with gray row shading rather than AW169's single black-bordered box.
+  function MemoryCropStack({ item, rects }: { item: LightItem; rects: [number, number, number, number][] }) {
+    const w = item.imageWidth || 1000;
+    const h = item.imageHeight || 1000;
+    const href = String(item.pageImage || "");
+    if (!rects.length) return null as any;
+    return (
+      <div className="space-y-3">
+        {rects.map(([nx, ny, nw, nh], i) => {
+          const vbX = Math.max(0, Math.min(w, nx * w));
+          const vbY = Math.max(0, Math.min(h, ny * h));
+          const vbW = Math.max(10, Math.min(w, nw * w));
+          const vbH = Math.max(10, Math.min(h, nh * h));
+          return (
+            <figure key={`${item.id}-crop-${i}`} className="p-0 m-0 rounded-lg overflow-hidden border border-slate-300 dark:border-zinc-600 bg-transparent">
+              <svg viewBox={`${vbX} ${vbY} ${vbW} ${vbH}`} width="100%" xmlns="http://www.w3.org/2000/svg" className="block w-full h-auto">
+                <image href={href} width={w} height={h} preserveAspectRatio="xMidYMid meet" />
+              </svg>
+            </figure>
+          );
+        })}
+      </div>
+    );
+  }
 
   const hasMemory = useCallback((item: LightItem) => {
     const steps = item.procedure || [];
@@ -520,7 +591,7 @@ export default function LightsTrainer() {
   }, []);
 
 	  const memoryCount = useMemo(() => {
-	    if (isAw169) {
+	    if (isAw169 || isS92 || hasImageMemory) {
 	      return aw169RedMemoryLights.length;
 	    }
 	    if (activeVariant.id === "AW189") {
@@ -528,7 +599,7 @@ export default function LightsTrainer() {
 	      return warningLights.length;
 	    }
 	    return 0;
-	  }, [aw169RedMemoryLights, warningLights, activeVariant.id]);
+	  }, [aw169RedMemoryLights, warningLights, activeVariant.id, isAw169, isS92, hasImageMemory]);
 
 	  const amberMemoryCount = useMemo(
 	    () => (isAw169 ? aw169AmberMemoryLights.length : 0),
@@ -553,8 +624,8 @@ export default function LightsTrainer() {
 
   const startMemoryOnly = useCallback(async () => {
 	    let pool: LightItem[] = [];
-	    if (isAw169) {
-	      // Include ONLY lights that have a detected QRH memory box crop
+	    if (isAw169 || isS92 || hasImageMemory) {
+	      // Include ONLY lights that have detected memory-item content
 	      pool = aw169RedMemoryLights;
 	    } else if (activeVariant.id === "AW189") {
 	      // Until explicit memory items exist for AW189, include all red lights
@@ -569,7 +640,7 @@ export default function LightsTrainer() {
 	    setIdx(0);
 	    setMemoryOnly(true);
 	    setMode("light");
-	  }, [aw169RedMemoryLights, warningLights, activeVariant.id]);
+	  }, [aw169RedMemoryLights, warningLights, activeVariant.id, isAw169, isS92, hasImageMemory]);
 
 		  const startAmberMemoryOnly = useCallback(async () => {
 	    if (!isAw169) return;
@@ -588,7 +659,7 @@ export default function LightsTrainer() {
 	    const sev: Severity = lastSeverity ?? (deck[0]?.severity ?? "warning");
 	    let pool = warningLights;
 	    if (memoryOnly) {
-	      if (isAw169) {
+	      if (isAw169 || isS92 || hasImageMemory) {
 	        pool = aw169RedMemoryLights;
 	      } else if (activeVariant.id === "AW189") {
 	        pool = warningLights;
@@ -612,7 +683,7 @@ export default function LightsTrainer() {
 			    setDeck(next as LightItem[]);
 			    setIdx(0);
 			    setMode("light");
-			  }, [lastSeverity, deck, warningLights, activeVariant.id, memoryOnly, aw169RedMemoryLights]);
+			  }, [lastSeverity, deck, warningLights, activeVariant.id, memoryOnly, aw169RedMemoryLights, isAw169, isS92, hasImageMemory]);
 
 		  async function openMemoryItem(item: LightItem) {
 	    setDeck([item]);
@@ -1000,6 +1071,13 @@ export default function LightsTrainer() {
       if (isAw169 && item.pageImage) {
         return <AW169MemoryCrop item={item} />;
       }
+      // H135 T3 / H145 D2 / H145 D3: show FLM-accurate cropped memory rows
+      if (hasImageMemory) {
+        const rects = getMemoryCropRects(activeVariant.id, item.id);
+        if (rects && rects.length) {
+          return <MemoryCropStack item={item} rects={rects} />;
+        }
+      }
       const { actions } = splitProcedure(item.procedure || []);
       // AW189: show our own framed table layout (no QRH image)
       if (activeVariant.id === "AW189") {
@@ -1336,6 +1414,17 @@ export default function LightsTrainer() {
                 tone="slate"
                 title={`Memory items – Trainer (${activeVariant.id})`}
                 description="Train only on memory items from the QRH for red lights."
+                actionLabel={loading ? "Loading…" : `Start (${memoryCount})`}
+                onClick={startMemoryOnly}
+                disabled={loading || memoryCount === 0}
+              />
+            )}
+
+            {(isS92 || hasImageMemory) && (
+              <LightsBar
+                tone="slate"
+                title={`Memory items – Trainer (${activeVariant.id})`}
+                description="Train only on the immediate-action memory items — the boxed/shaded steps from the source manual."
                 actionLabel={loading ? "Loading…" : `Start (${memoryCount})`}
                 onClick={startMemoryOnly}
                 disabled={loading || memoryCount === 0}

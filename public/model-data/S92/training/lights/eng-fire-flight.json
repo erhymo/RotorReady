@@ -7,6 +7,10 @@
     "pageImage": "/training/lights/pages/s92-eng-fire-flight.png",
     "imageWidth": 1159,
     "imageHeight": 2450,
+    "procedure": [
+      { "type": "action", "text": "Steady cockpit fire warning — Confirm" },
+      { "type": "action", "text": "Safe OEI flight — Attain" }
+    ],
     "links": [
       {
         "destPage": 216,

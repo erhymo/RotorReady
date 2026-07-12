@@ -7,6 +7,9 @@
     "pageImage": "/training/lights/pages/s92-engine-single-failure.png",
     "imageWidth": 1159,
     "imageHeight": 1808,
+    "procedure": [
+      { "type": "action", "text": "Safe OEI flight — Attain" }
+    ],
     "links": [
       {
         "destPage": 35,

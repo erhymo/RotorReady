@@ -7,6 +7,13 @@
     "pageImage": "/training/lights/pages/s92-engine-dual-failure.png",
     "imageWidth": 1159,
     "imageHeight": 2343,
+    "procedure": [
+      { "type": "action", "text": "Autorotation — Enter immediately (80 to 100 KIAS, 105% NR)" },
+      { "type": "action", "text": "APU CTRL — ON" },
+      { "type": "action", "text": "Landing gear — Down" },
+      { "type": "action", "text": "Radio call — Complete" },
+      { "type": "action", "text": "If over water: Floats — ARM" }
+    ],
     "links": [],
     "modelIds": [
       "S92"

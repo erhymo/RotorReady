@@ -119,7 +119,7 @@ function Bar(props: { href: string; title: string; description: string; tone?: "
 	            <Bar
 	              href="/training/procedures/h135-t3"
 	              title="Procedures"
-	              description="Browse H135 T3 engine failure, fire, drive-system and slope-operation procedures."
+	              description="Browse H135 T3 normal, engine emergency, fire, drive-system and fuel procedures."
 	              tone="emerald"
 	              icon={<BookIcon className="h-4 w-4" />}
 	            />
@@ -128,7 +128,7 @@ function Bar(props: { href: string; title: string; description: string; tone?: "
 	            <Bar
 	              href="/training/procedures/h145-d2"
 	              title="Procedures"
-	              description="Browse H145 D2 engine failure, fire, drive-system and slope-operation procedures."
+	              description="Browse H145 D2 normal, engine emergency, fire, drive-system and fuel procedures."
 	              tone="emerald"
 	              icon={<BookIcon className="h-4 w-4" />}
 	            />
@@ -137,7 +137,7 @@ function Bar(props: { href: string; title: string; description: string; tone?: "
 	            <Bar
 	              href="/training/procedures/h145-d3"
 	              title="Procedures"
-	              description="Browse H145 D3 engine failure, fire, drive-system and slope-operation procedures."
+	              description="Browse H145 D3 normal, engine emergency, fire, drive-system and fuel procedures."
 	              tone="emerald"
 	              icon={<BookIcon className="h-4 w-4" />}
 	            />

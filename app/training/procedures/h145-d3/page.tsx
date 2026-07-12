@@ -6,6 +6,22 @@ import { H145D3_PROCEDURES } from "@/lib/h145d3Procedures/data";
 
 const GROUPS: { heading: string; slugs: string[] }[] = [
   {
+    heading: "Preparation & ground checks",
+    slugs: ["exterior-check", "engine-start"],
+  },
+  {
+    heading: "Takeoff & landing",
+    slugs: ["takeoff", "slope-takeoff", "landing", "slope-landing"],
+  },
+  {
+    heading: "Shutdown",
+    slugs: ["engine-shutdown-normal"],
+  },
+  {
+    heading: "IFR procedures",
+    slugs: ["ifr-approach"],
+  },
+  {
     heading: "Engine emergencies",
     slugs: ["single-engine-failure", "double-engine-failure-autorotation", "single-engine-emergency-shutdown", "inflight-restart"],
   },
@@ -21,10 +37,6 @@ const GROUPS: { heading: string; slugs: string[] }[] = [
     heading: "Fuel",
     slugs: ["low-fuel-emergency"],
   },
-  {
-    heading: "Slope operations (normal procedures)",
-    slugs: ["slope-takeoff", "slope-landing"],
-  },
 ];
 
 export default function H145D3ProceduresListPage() {
@@ -34,7 +46,8 @@ export default function H145D3ProceduresListPage() {
       <main className="mx-auto max-w-3xl p-6 space-y-5">
         <h1 className="text-2xl font-bold text-slate-900 dark:text-zinc-100">H145 D3 Procedures</h1>
         <p className="text-sm text-slate-600 dark:text-zinc-300">
-          Browse H145 D3 engine emergency, fire, drive-system, fuel, and slope-operation procedures.
+          Browse H145 D3 normal procedures — exterior check, engine start, takeoff, landing and IFR approaches —
+          plus engine emergency, fire, drive-system and fuel procedures.
         </p>
         {GROUPS.map((group) => (
           <section key={group.heading} className="space-y-3">

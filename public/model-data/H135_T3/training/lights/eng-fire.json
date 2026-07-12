@@ -6,13 +6,38 @@
     "system": "FIRE",
     "description": "Overtemperature detected in the engine compartment. Voice message \"FIRE, ENGINE ONE/TWO FIRE\".",
     "procedure": [
-      { "type": "branch", "heading": "On ground:", "text": "1. EMER OFF sw (affected engine) — Raise guard, press and release\n2. Both FUEL PRIME PUMP sw's — Check OFF\n3. Both ENG MAIN sw's — OFF\n4. Passengers — Alert / evacuate\n5. BAT MSTR sw — OFF" },
-      { "type": "branch", "heading": "In flight:", "text": "1. OEI flight condition — Establish\n2. EMER OFF sw (affected engine) — Raise guard, press and release\n3. VMS page — Select\n4. Affected engine — Identify\n5. Single engine emergency shutdown — Perform" },
-      { "type": "branch", "heading": "If ENG FIRE warning is off after shutdown:", "text": "6. LAND AS SOON AS POSSIBLE" },
-      { "type": "warning", "text": "If ENG FIRE warning remains on: LAND IMMEDIATELY. Alert / evacuate passengers." },
-      { "type": "note", "text": "Pressing EMER OFF automatically shuts down the affected engine (ACTIVE illuminates, FUEL VALVE CLSD caution appears). The extinguisher bottle (if installed) automatically discharges when N1 < 50%." }
+      {
+        "type": "branch",
+        "heading": "On ground:",
+        "text": "1. EMER OFF sw (affected engine) — Raise guard, press and release\n2. Both FUEL PRIME PUMP sw's — Check OFF\n3. Both ENG MAIN sw's — OFF\n4. Passengers — Alert / evacuate\n5. BAT MSTR sw — OFF"
+      },
+      {
+        "type": "branch",
+        "heading": "In flight:",
+        "text": "1. OEI flight condition — Establish\n2. EMER OFF sw (affected engine) — Raise guard, press and release\n3. VMS page — Select\n4. Affected engine — Identify\n5. Single engine emergency shutdown — Perform"
+      },
+      {
+        "type": "branch",
+        "heading": "If ENG FIRE warning is off after shutdown:",
+        "text": "6. LAND AS SOON AS POSSIBLE"
+      },
+      {
+        "type": "warning",
+        "text": "If ENG FIRE warning remains on: LAND IMMEDIATELY. Alert / evacuate passengers."
+      },
+      {
+        "type": "note",
+        "text": "Pressing EMER OFF automatically shuts down the affected engine (ACTIVE illuminates, FUEL VALVE CLSD caution appears). The extinguisher bottle (if installed) automatically discharges when N1 < 50%."
+      }
     ],
-    "references": ["FLM EC135 T3H Sect. 3.9.1 (Helionix Step 3.5, 3 MFD)"],
-    "modelIds": ["H135_T3"]
+    "references": [
+      "FLM EC135 T3H Sect. 3.9.1 (Helionix Step 3.5, 3 MFD)"
+    ],
+    "modelIds": [
+      "H135_T3"
+    ],
+    "pageImage": "/training/lights/pages/h135t3-eng-fire.png",
+    "imageWidth": 1310,
+    "imageHeight": 3177
   }
 ]

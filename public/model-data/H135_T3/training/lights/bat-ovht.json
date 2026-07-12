@@ -6,11 +6,29 @@
     "system": "ELECTRICS",
     "description": "Battery overtemperature, above 70°C. Voice message \"BATTERY OVERHEAT\".",
     "procedure": [
-      { "type": "branch", "heading": "On ground:", "text": "1. BAT MSTR sw — OFF (BAT DISCONN will appear)\n2. Engines — Shut down" },
-      { "type": "branch", "heading": "In flight:", "text": "1. BAT MSTR sw — OFF (BAT DISCONN will appear)\n2. LAND AS SOON AS POSSIBLE\nAfter landing:\n3. Engines — Leave running in IDLE\nIf EPU is available:\n4. EPU — Connect\n5. BAT MSTR sw — ON\n6. Engine shutdown — Perform\nIf EPU is not available:\n4. Engine shutdown — Perform" },
-      { "type": "caution", "text": "Battery must be inspected or replaced prior to next flight." }
+      {
+        "type": "branch",
+        "heading": "On ground:",
+        "text": "1. BAT MSTR sw — OFF (BAT DISCONN will appear)\n2. Engines — Shut down"
+      },
+      {
+        "type": "branch",
+        "heading": "In flight:",
+        "text": "1. BAT MSTR sw — OFF (BAT DISCONN will appear)\n2. LAND AS SOON AS POSSIBLE\nAfter landing:\n3. Engines — Leave running in IDLE\nIf EPU is available:\n4. EPU — Connect\n5. BAT MSTR sw — ON\n6. Engine shutdown — Perform\nIf EPU is not available:\n4. Engine shutdown — Perform"
+      },
+      {
+        "type": "caution",
+        "text": "Battery must be inspected or replaced prior to next flight."
+      }
     ],
-    "references": ["FLM EC135 T3H Sect. 3.7.1 (Helionix Step 3.5, 3 MFD)"],
-    "modelIds": ["H135_T3"]
+    "references": [
+      "FLM EC135 T3H Sect. 3.7.1 (Helionix Step 3.5, 3 MFD)"
+    ],
+    "modelIds": [
+      "H135_T3"
+    ],
+    "pageImage": "/training/lights/pages/h135t3-bat-ovht.png",
+    "imageWidth": 1310,
+    "imageHeight": 1573
   }
 ]

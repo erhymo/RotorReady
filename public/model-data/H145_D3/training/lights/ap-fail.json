@@ -6,13 +6,37 @@
     "system": "AFCS",
     "description": "Both autopilot systems are lost. AP on Warning Unit for 10 sec, AUTOPILOT on Master List, audio tone and voice message \"HANDS ON\".",
     "procedure": [
-      { "type": "action", "text": "1. Flying controls — Fly manually" },
-      { "type": "action", "text": "2. AP2 + AP1 — Re-engage (cyclic grip)" },
-      { "type": "branch", "heading": "If successful:", "text": "3. Continue flight" },
-      { "type": "branch", "heading": "If unsuccessful:", "text": "3. Airspeed — Reduce to VNE AP OFF (110 kt)\n4. LAND AS SOON AS PRACTICABLE" },
-      { "type": "note", "text": "Observe the operating limitations for flight with BACKUP SAS or AFCS OFF (Sect. 2.6.4), if possible." }
+      {
+        "type": "action",
+        "text": "1. Flying controls — Fly manually"
+      },
+      {
+        "type": "action",
+        "text": "2. AP2 + AP1 — Re-engage (cyclic grip)"
+      },
+      {
+        "type": "branch",
+        "heading": "If successful:",
+        "text": "3. Continue flight"
+      },
+      {
+        "type": "branch",
+        "heading": "If unsuccessful:",
+        "text": "3. Airspeed — Reduce to VNE AP OFF (110 kt)\n4. LAND AS SOON AS PRACTICABLE"
+      },
+      {
+        "type": "note",
+        "text": "Observe the operating limitations for flight with BACKUP SAS or AFCS OFF (Sect. 2.6.4), if possible."
+      }
     ],
-    "references": ["FLM BK117 D-3 Sect. 3.2.1"],
-    "modelIds": ["H145_D3"]
+    "references": [
+      "FLM BK117 D-3 Sect. 3.2.1"
+    ],
+    "modelIds": [
+      "H145_D3"
+    ],
+    "pageImage": "/training/lights/pages/h145d3-ap-fail.png",
+    "imageWidth": 1310,
+    "imageHeight": 2052
   }
 ]

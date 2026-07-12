@@ -6,13 +6,37 @@
     "system": "FUEL AND WEIGHT",
     "description": "Respective supply tank fuel quantity below 26 kg. Warning Unit shows LOW FUEL1/LOW FUEL2 and audio tone, Master List shows FUEL1 LOW or LOW FUEL2, voice message \"FUEL ONE/TWO, LOW\". Endurance indication no longer shown.",
     "procedure": [
-      { "type": "action", "text": "1. Clock — Start stopwatch" },
-      { "type": "branch", "heading": "If one LOW FUEL warning light is on:", "text": "Expect single engine failure after approx. 10 minutes" },
-      { "type": "branch", "heading": "If both LOW FUEL warning lights are on:", "text": "LAND WITHIN 8 MINUTES" },
-      { "type": "warning", "text": "After 8 minutes, a flameout of both engines must be expected. If no adequate landing site is found within 8 minutes, consider a power-on immediate landing." },
-      { "type": "action", "text": "If positive fuel indication in the main tank: check FUEL XFER PUMP A and F sw's ON, check FUEL XPMP - A and - F cb's in." }
+      {
+        "type": "action",
+        "text": "1. Clock — Start stopwatch"
+      },
+      {
+        "type": "branch",
+        "heading": "If one LOW FUEL warning light is on:",
+        "text": "Expect single engine failure after approx. 10 minutes"
+      },
+      {
+        "type": "branch",
+        "heading": "If both LOW FUEL warning lights are on:",
+        "text": "LAND WITHIN 8 MINUTES"
+      },
+      {
+        "type": "warning",
+        "text": "After 8 minutes, a flameout of both engines must be expected. If no adequate landing site is found within 8 minutes, consider a power-on immediate landing."
+      },
+      {
+        "type": "action",
+        "text": "If positive fuel indication in the main tank: check FUEL XFER PUMP A and F sw's ON, check FUEL XPMP - A and - F cb's in."
+      }
     ],
-    "references": ["FLM BK117 D-2 Sect. 3.10.1"],
-    "modelIds": ["H145_D2"]
+    "references": [
+      "FLM BK117 D-2 Sect. 3.10.1"
+    ],
+    "modelIds": [
+      "H145_D2"
+    ],
+    "pageImage": "/training/lights/pages/h145d2-low-fuel.png",
+    "imageWidth": 1310,
+    "imageHeight": 2214
   }
 ]

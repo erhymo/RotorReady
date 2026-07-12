@@ -6,13 +6,38 @@
     "system": "FIRE",
     "description": "Overtemperature detected in an engine compartment. Warning Unit shows FIRE and audio tone, Master List shows ENG1 FIRE or ENG2 FIRE, voice message \"FIRE, ENGINE ONE/TWO FIRE\".",
     "procedure": [
-      { "type": "branch", "heading": "In flight:", "text": "1. OEI flight condition — Establish\n2. FIRE sw (affected engine) — Raise guard, press\n3. BOT 1/BOT 2 pb — Press; bottle 1 activated\n4. Clock stop watch — Start, after BOT1 and EXT light extinguish\n5. VMS page — Select, identify affected engine\n6. Single engine emergency shutdown — Perform\n7. Passengers — Alert" },
-      { "type": "note", "text": "Extinguisher bottle begins discharging when N1 ≤ 45%. After discharge, BOT 1 label and EXT light go off; BOT 2 label comes on." },
-      { "type": "branch", "heading": "If FIRE warning disappears:", "text": "LAND AS SOON AS POSSIBLE" },
-      { "type": "branch", "heading": "If FIRE warning still on after 1 minute:", "text": "Press BOT 1/BOT 2 pb again (bottle 2 activated)" },
-      { "type": "warning", "text": "If the FIRE warning remains on after both bottles have discharged: LAND IMMEDIATELY." }
+      {
+        "type": "branch",
+        "heading": "In flight:",
+        "text": "1. OEI flight condition — Establish\n2. FIRE sw (affected engine) — Raise guard, press\n3. BOT 1/BOT 2 pb — Press; bottle 1 activated\n4. Clock stop watch — Start, after BOT1 and EXT light extinguish\n5. VMS page — Select, identify affected engine\n6. Single engine emergency shutdown — Perform\n7. Passengers — Alert"
+      },
+      {
+        "type": "note",
+        "text": "Extinguisher bottle begins discharging when N1 ≤ 45%. After discharge, BOT 1 label and EXT light go off; BOT 2 label comes on."
+      },
+      {
+        "type": "branch",
+        "heading": "If FIRE warning disappears:",
+        "text": "LAND AS SOON AS POSSIBLE"
+      },
+      {
+        "type": "branch",
+        "heading": "If FIRE warning still on after 1 minute:",
+        "text": "Press BOT 1/BOT 2 pb again (bottle 2 activated)"
+      },
+      {
+        "type": "warning",
+        "text": "If the FIRE warning remains on after both bottles have discharged: LAND IMMEDIATELY."
+      }
     ],
-    "references": ["FLM BK117 D-2 Sect. 3.9.1"],
-    "modelIds": ["H145_D2"]
+    "references": [
+      "FLM BK117 D-2 Sect. 3.9.1"
+    ],
+    "modelIds": [
+      "H145_D2"
+    ],
+    "pageImage": "/training/lights/pages/h145d2-eng-fire.png",
+    "imageWidth": 1310,
+    "imageHeight": 2592
   }
 ]

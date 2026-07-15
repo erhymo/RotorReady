@@ -4,6 +4,13 @@ Use this as a working note if Google Play flags RotorReady for the Webviews and 
 
 ## Status log
 
+- **2026-07-15**: Submitted the advance notice form (package name
+  `com.mayday.rotorready`, scenario "Intellectual Property proof of
+  permission") with a ~727-character explanation referencing the earlier
+  failed appeal (case 2-5376000040345) and attaching the signed declaration
+  PDF plus the Vercel domain-evidence file. Now waiting on Google's response.
+  Do not re-upload any build until either the suspension is lifted or Google
+  asks for one.
 - **2026-05-30**: First flagged. Guidance drafted below. Code mitigation shipped
   (custom `native-error.html` branded error screen instead of the generic
   WebView network error page) — this is live at `capacitor.config.ts` /

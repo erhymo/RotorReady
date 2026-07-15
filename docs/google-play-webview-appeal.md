@@ -34,22 +34,55 @@ Use this as a working note if Google Play flags RotorReady for the Webviews and 
   repo (this repo is public on GitHub, so the signed PDF must never be
   committed here) at
   `~/Mayday/Secure/RotorReady/GooglePlay/appeal/Mayday-AS-RotorReady-Declaration-signed-2026-07-06.pdf`.
-  Still pending: submitting the appeal itself through Play Console, which
-  requires a human login and can't be done by an agent.
+- **2026-07-13**: Discovered an appeal was already submitted earlier —
+  **case 2-5376000040345, submitted 2026-05-30 11:34 by
+  myhre.oyvind@gmail.com**, and Google has already responded (status: "Svar på
+  anken er sendt"). This was missed in earlier notes. Details of that appeal,
+  read back from Play Console's "Ankeinformasjon" panel:
+  - **Reason selected**: "Jeg forstår hva som har ført til dette problemet, og
+    jeg skal rette det" (I understand what caused this problem and will fix
+    it) — a *concession*, not a *dispute* of the decision.
+  - **Details submitted**: plain text only, no attached documentation (the
+    signed declaration didn't exist yet — it wasn't signed until over a month
+    later, 2026-07-06). Google's own policy is explicit that "screenshots,
+    emails, and other informal communication are not accepted as proof," so
+    this appeal almost certainly failed for lack of the one thing it needed.
+  - The "Submit an appeal" link in the suspension email now just routes back
+    to the policy status page showing this same old case — **there is no
+    self-service "submit a second appeal" button**; the one-shot appeal for
+    this suspension has already been used.
+  - Vercel domain-ownership export saved as supplementary evidence:
+    `~/Mayday/Secure/RotorReady/GooglePlay/appeal/vercel-domain-evidence-2026-07-13.txt`
+    (confirms `rotor-ready.com` sits under the same Vercel account as the
+    person who signed the declaration).
+  - Next path being tried: since the appeal channel is exhausted, use the
+    **"forhåndsvarselskjemaet" (advance notice form)** linked from the same
+    policy status page instead — the suspension email's own resolution text
+    frames this as the parallel channel for submitting proof documentation
+    ("If you haven't already provided advance notice, submit an appeal...").
+    Scenario to select: **"Intellectual Property proof of permission"**,
+    package name `com.mayday.rotorready`, with the signed declaration PDF (and
+    optionally the Vercel evidence) attached.
 
 ## What's needed to actually resolve this (manual steps — cannot be done by an agent)
 
 1. ~~Put the declaration text below on Mayday AS letterhead, fill in title and
    date, and get it signed by an authorized person~~ — done 2026-07-06, see
    status log above.
-2. Log in to Play Console → the policy status / appeal page linked from the
-   suspension email → **Submit an appeal**.
-3. Attach the signed declaration (as a PDF) and paste the appeal message
-   below into the appeal form.
-4. Optionally attach supporting technical context (not a substitute for the
-   signed declaration, but reinforces it): a screenshot of the Vercel project
-   dashboard showing `rotor-ready.com` under the Mayday AS account, and/or a
-   Google Search Console domain-verification screenshot for the same domain.
+2. ~~Log in to Play Console → the policy status / appeal page linked from the
+   suspension email → Submit an appeal~~ — done 2026-05-30, but rejected/no
+   effect (no proof attached, concession-style reason). The self-service
+   appeal channel appears to be one-shot and is now exhausted for this case.
+3. **Current plan**: log in to Play Console → policy status page → the
+   **"forhåndsvarselskjemaet" (advance notice form)** link → package name
+   `com.mayday.rotorready` → scenario **"Intellectual Property proof of
+   permission"** → attach the signed declaration PDF (and optionally the
+   Vercel evidence file) with an explanation that this is now-available formal
+   proof that wasn't attached to the original 2026-05-30 appeal.
+4. If the advance notice form doesn't produce a route back into review (e.g.
+   it's meant for a different scenario than expected), fall back to Play
+   Console's developer support / contact-a-human channel and reference case
+   `2-5376000040345` directly, since the automated one-shot appeal is spent.
 5. After submitting, wait for Google's response before re-uploading any new
    build — suspended apps typically cannot receive new releases until the
    suspension is lifted.

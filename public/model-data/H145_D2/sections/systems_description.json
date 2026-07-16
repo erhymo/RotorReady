@@ -296,6 +296,258 @@
       "tags": ["systems-description", "lighting"],
       "source": "H145 D2 Flight Manual",
       "modelIds": ["H145_D2"]
+    },
+    {
+      "id": "h145d2-sd-020",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "Per Sect. 7.3.6.1, how many axes does the AFCS control?",
+      "options": [
+        "4-axis",
+        "2-axis",
+        "3-axis",
+        "5-axis"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 7.3.6.1: the helicopter is equipped with a 4-axis AFCS, connected to the 28 V DC power system.",
+      "references": ["FLM BK117 D-2 Sect. 7.3.6.1"],
+      "tags": ["systems-description", "afcs"],
+      "source": "H145 D2 Flight Manual",
+      "modelIds": ["H145_D2"]
+    },
+    {
+      "id": "h145d2-sd-021",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "Per Sect. 7.3.6.4, what does a LEFT press of the cyclic stick's AP/BKUP ON switch do?",
+      "options": [
+        "Simultaneously engages AP1 and sets back-up SAS in stand-by, and tries to recover a fully functional AP1 state by resetting transient failures",
+        "Simultaneously engages AP2 and sets back-up SAS in stand-by",
+        "Disengages AP1 and AP2 together, then arms back-up SAS",
+        "Engages tactical mode (TAC) only"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 7.3.6.4: a left press of AP/BKUP ON engages AP1 and sets back-up SAS in stand-by, attempting to recover a fully functional AP1 state by resetting transient failures. A right press does the equivalent for AP2.",
+      "references": ["FLM BK117 D-2 Sect. 7.3.6.4"],
+      "tags": ["systems-description", "afcs"],
+      "source": "H145 D2 Flight Manual",
+      "modelIds": ["H145_D2"]
+    },
+    {
+      "id": "h145d2-sd-022",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "Per Sect. 7.3.6.4, what does a double forward press of the AP/BKUP ON switch do in flight?",
+      "options": [
+        "Provides quick engagement of the traditional upper modes (ALT, IAS, HDG/TRK) to establish a safe flight attitude, e.g. in case of disorientation",
+        "Engages tactical mode (TAC)",
+        "Disengages AFCS in two steps",
+        "Resets back-up SAS only, without engaging either autopilot"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 7.3.6.4: a double forward press of AP/BKUP ON in flight gives quick engagement of the traditional upper modes (ALT, IAS, HDG/TRK), establishing a safe flight attitude such as after disorientation. A long forward press instead engages tactical mode (TAC).",
+      "references": ["FLM BK117 D-2 Sect. 7.3.6.4"],
+      "tags": ["systems-description", "afcs"],
+      "source": "H145 D2 Flight Manual",
+      "modelIds": ["H145_D2"]
+    },
+    {
+      "id": "h145d2-sd-023",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "Per Sect. 7.3.6.4, how does the AP/BKUP CUT switch disengage the AFCS?",
+      "options": [
+        "In two steps: the first press disconnects AP1 and AP2, a re-press after 0.3 sec disconnects back-up SAS",
+        "In a single press that disconnects both autopilots and back-up SAS simultaneously",
+        "In three steps, disconnecting AP1, then AP2, then back-up SAS",
+        "It only disconnects back-up SAS; the autopilots must be disengaged separately on the APCP"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 7.3.6.4: AP/BKUP CUT disengages the AFCS in 2 steps - press once for AP1 and AP2 disconnection, then re-press after 0.3 sec to disconnect back-up SAS.",
+      "references": ["FLM BK117 D-2 Sect. 7.3.6.4"],
+      "tags": ["systems-description", "afcs"],
+      "source": "H145 D2 Flight Manual",
+      "modelIds": ["H145_D2"]
+    },
+    {
+      "id": "h145d2-sd-024",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "Per Sect. 7.3.6.4, what happens if the cyclic AP UM OFF button is pressed for more than 1 second while airborne?",
+      "options": [
+        "It erases the pre-selected references of upper modes (e.g. ALT.A)",
+        "It approximately centers the cyclic stick and pedals",
+        "It engages the AFCS recovery function",
+        "It arms back-up SAS in stand-by"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 7.3.6.4: AP UM OFF disarms and disengages all upper modes. Pressed for more than 1 sec on the ground with the autopilot engaged, it centers the cyclic stick and pedals; pressed for more than 1 sec in flight, it instead erases pre-selected upper-mode references such as ALT.A.",
+      "references": ["FLM BK117 D-2 Sect. 7.3.6.4"],
+      "tags": ["systems-description", "afcs"],
+      "source": "H145 D2 Flight Manual",
+      "modelIds": ["H145_D2"]
+    },
+    {
+      "id": "h145d2-sd-025",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "Per Sect. 7.3.6.4, what does a double press of the cyclic GTC button do?",
+      "options": [
+        "Engages HEIGHT and HOVER mode",
+        "Engages GTC mode only",
+        "Disengages all AFCS upper modes",
+        "Engages ALT.A mode"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 7.3.6.4: a single press of GTC engages GTC mode; a double press instead engages HEIGHT and HOVER mode.",
+      "references": ["FLM BK117 D-2 Sect. 7.3.6.4"],
+      "tags": ["systems-description", "afcs"],
+      "source": "H145 D2 Flight Manual",
+      "modelIds": ["H145_D2"]
+    },
+    {
+      "id": "h145d2-sd-026",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "Per Sect. 7.3.6.7, what happens if the AFCS recovery function is engaged while the helicopter is in a hover?",
+      "options": [
+        "The aircraft will automatically accelerate to 40 KT",
+        "The aircraft remains in the hover and only wings-level attitude is captured",
+        "The recovery function is inhibited and cannot be engaged from a hover",
+        "The aircraft automatically climbs to a safe altitude before accelerating"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 7.3.6.7 CAUTION: when the AFCS recovery function (double forward press of AP/BKUP ON) is engaged from hover, the aircraft will automatically accelerate to 40 KT.",
+      "references": ["FLM BK117 D-2 Sect. 7.3.6.7"],
+      "tags": ["systems-description", "afcs", "caution"],
+      "source": "H145 D2 Flight Manual",
+      "modelIds": ["H145_D2"]
+    },
+    {
+      "id": "h145d2-sd-027",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "Per Sect. 7.3.6.7, what does back-up SAS provide and where is it implemented?",
+      "options": [
+        "Stability augmentation on the pitch, roll, and yaw axes in case of loss of both autopilots, implemented in the stand-by instrument (IESI)",
+        "Full 4-axis autopilot function as a redundant backup to AP1/AP2, implemented in the APCP",
+        "Stability augmentation on the collective axis only, implemented in the trim actuator",
+        "A fully independent second AFCS computer with its own sensor suite"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 7.3.6.7: the back-up SAS mode provides stability augmentation on pitch, roll, and yaw axes in case of loss of both autopilots, and is implemented in the stand-by instrument (IESI).",
+      "references": ["FLM BK117 D-2 Sect. 7.3.6.7"],
+      "tags": ["systems-description", "afcs"],
+      "source": "H145 D2 Flight Manual",
+      "modelIds": ["H145_D2"]
+    },
+    {
+      "id": "h145d2-sd-028",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "Per Sect. 7.3.6.9, what does a STEADY RED indication on an axis of the AFCS strip mean?",
+      "options": [
+        "Total loss of stabilization on the affected axis, requiring hands-on piloting",
+        "Minor degradation causing the system to be fail-passive instead of fail-operative",
+        "The upper mode is armed and functioning normally",
+        "Pilot override action is in progress"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 7.3.6.9: on the AFCS strip, RED steady means total loss of stabilization on the affected axis, requiring hands-on piloting; RED inverse video flashing means manual recovery or the pilot's immediate attention is required.",
+      "references": ["FLM BK117 D-2 Sect. 7.3.6.9"],
+      "tags": ["systems-description", "afcs"],
+      "source": "H145 D2 Flight Manual",
+      "modelIds": ["H145_D2"]
+    },
+    {
+      "id": "h145d2-sd-029",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "Per Sect. 7.3.6.9, on the AFCS strip, what does a CYAN inverse-video-flashing indication mean, and what should the pilot do?",
+      "options": [
+        "The upper mode is about to disarm automatically; the pilot shall re-arm it if required",
+        "The upper mode has already disarmed; no pilot action is possible",
+        "The axis has totally lost stabilization; the pilot must take manual control",
+        "The mode is engaged and functioning normally; no action is needed"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 7.3.6.9: CYAN inverse video flashing on the AFCS strip means an armed upper mode is about to disarm automatically, and the pilot shall re-arm it if required. CYAN steady instead means the upper mode is armed (normal operation).",
+      "references": ["FLM BK117 D-2 Sect. 7.3.6.9"],
+      "tags": ["systems-description", "afcs"],
+      "source": "H145 D2 Flight Manual",
+      "modelIds": ["H145_D2"]
+    },
+    {
+      "id": "h145d2-sd-030",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "Per Sect. 7.3.6.10, on the AFCS status area, what does a GREY component color indicate?",
+      "options": [
+        "Inactive - either failed but recoverable via the AP/BKUP ON switch on the cyclic, or deliberately deactivated by the pilot",
+        "Failed and unrecoverable",
+        "Active, but on stand-by",
+        "Degraded but still functioning"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 7.3.6.10: GREY on the AFCS status area means the component is inactive - either it failed but the failure can be recovered via the AP/BKUP ON switch on the cyclic, or it was deliberately deactivated by the pilot. RED means failed (unrecoverable), CYAN means active but stand-by, and AMBER means degraded.",
+      "references": ["FLM BK117 D-2 Sect. 7.3.6.10"],
+      "tags": ["systems-description", "afcs"],
+      "source": "H145 D2 Flight Manual",
+      "modelIds": ["H145_D2"]
+    },
+    {
+      "id": "h145d2-sd-031",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "Per Sect. 7.3.6.12, when coupling the autopilot to a navigation source via the MFD, what does it mean if the coupling key shows no label at all?",
+      "options": [
+        "Coupling is inactive",
+        "The autopilot is coupled to the selected navigation source",
+        "The autopilot is armed but not yet coupled",
+        "A navigation source fault is present"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 7.3.6.12: the coupling key label is CPL (couples to the selected source), DCPL (decouples), or DISARM (disarms the autopilot) - or it disappears entirely, which means coupling is inactive.",
+      "references": ["FLM BK117 D-2 Sect. 7.3.6.12"],
+      "tags": ["systems-description", "afcs", "avionics"],
+      "source": "H145 D2 Flight Manual",
+      "modelIds": ["H145_D2"]
+    },
+    {
+      "id": "h145d2-sd-032",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "Per Sect. 7.3.6.2, what is the difference between the HDG+VS and TRK+FPA mode combinations selected on the APCP's HDG-VS/TRK-FPA switch?",
+      "options": [
+        "HDG+VS is the traditional combination, while TRK+FPA is GPS-based",
+        "HDG+VS is only available in IFR, while TRK+FPA is VFR-only",
+        "TRK+FPA is the traditional combination, while HDG+VS is GPS-based",
+        "There is no functional difference; the switch only changes the display format"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 7.3.6.2: the HDG-VS/TRK-FPA rotary switch on the APCP selects between mode combinations HDG+VS (traditional) or TRK+FPA (GPS based).",
+      "references": ["FLM BK117 D-2 Sect. 7.3.6.2"],
+      "tags": ["systems-description", "afcs"],
+      "source": "H145 D2 Flight Manual",
+      "modelIds": ["H145_D2"]
+    },
+    {
+      "id": "h145d2-sd-033",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "Per Sect. 7.3.6.5, why does the back-up SAS function use only one SEMA actuator set (SEMA set No. 1) in the pitch, roll, and yaw axes?",
+      "options": [
+        "For safety reasons",
+        "Because SEMA set No. 2 is reserved exclusively for the collective axis",
+        "Because SEMA set No. 2 only operates when both autopilots are engaged",
+        "Because SEMA set No. 1 has greater control authority than SEMA set No. 2"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 7.3.6.5: pitch, roll, and yaw each have two SEMA actuators, but for safety reasons the back-up SAS function uses only one SEMA actuator (SEMA set No. 1) per axis.",
+      "references": ["FLM BK117 D-2 Sect. 7.3.6.5"],
+      "tags": ["systems-description", "afcs"],
+      "source": "H145 D2 Flight Manual",
+      "modelIds": ["H145_D2"]
     }
   ]
 }

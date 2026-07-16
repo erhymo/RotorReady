@@ -16,10 +16,10 @@ Use this as a working note if Google Play flags RotorReady for the Webviews and 
   submission — no update reflecting the 2026-07-15 advance notice submission.
   The "Submit an appeal" link now just redirects back to the Policy Status
   overview page (no way to open a new appeal or add info through the console
-  — a dead-end loop). Replied to Jamie's email explaining this directly,
-  re-summarizing what was submitted 2026-07-15, re-attaching the signed
-  declaration, and asking for confirmation the documentation was reviewed and
-  what (if anything) is still missing. Waiting on a reply to that email now —
+  — a dead-end loop). **Replied to Jamie's email 2026-07-16** explaining this
+  directly, re-summarizing what was submitted 2026-07-15, re-attaching the
+  signed declaration, and asking for confirmation the documentation was
+  reviewed and what (if anything) is still missing. Now waiting on a reply —
   email is the live channel, not the Play Console self-service UI.
 - **2026-07-15**: Submitted the advance notice form (package name
   `com.mayday.rotorready`, scenario "Intellectual Property proof of

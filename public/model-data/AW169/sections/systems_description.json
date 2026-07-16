@@ -149,7 +149,235 @@
     { "id": "AW169-SYS-147", "section": "SYSTEMS DESCRIPTION", "type": "single", "question": "According to the Hydraulic System description, what is the purpose of priority valves?", "options": ["To ensure that hydraulic pressure is maintained to essential users before supplying non-essential users.", "To prioritise fuel flow to one engine over the other.", "To give electrical power priority to the cabin lighting.", "To keep the landing gear extended at all times."], "answer": [0], "explanation": "The Hydraulic System section states that priority valves are used to maintain pressure to essential services such as flight controls before supplying less critical users.", "references": ["AW169 RFM Section 7 - Hydraulic system, priority valves"], "difficulty": "medium", "tags": ["systems", "hydraulic", "priority-valves"], "source": "AW169 RFM", "modelIds": ["AW169"] },
     { "id": "AW169-SYS-148", "section": "SYSTEMS DESCRIPTION", "type": "single", "question": "In the Electrical System description, what is the normal function of the external power receptacle?", "options": ["To allow connection of an external power source for ground operations or engine start.", "To provide a point for refuelling the helicopter.", "To attach the cargo hook equipment.", "To connect the rotor brake system to ground air supply."], "answer": [0], "explanation": "The Electrical System section notes that an external power receptacle permits the helicopter to be powered from an external source, supporting ground operations and starts without using the battery excessively.", "references": ["AW169 RFM Section 7 - Electrical power, external power"], "difficulty": "easy", "tags": ["systems", "electrical", "external-power"], "source": "AW169 RFM", "modelIds": ["AW169"] },
     { "id": "AW169-SYS-149", "section": "SYSTEMS DESCRIPTION", "type": "single", "question": "According to the Environmental Control System description, what is one purpose of the cabin temperature control?", "options": ["To allow the crew to select and maintain a comfortable cabin temperature for occupants.", "To control the fuel temperature in the main tanks.", "To cool the engine oil directly.", "To adjust the tail rotor gearbox temperature."], "answer": [0], "explanation": "The ECS section describes temperature control as providing means for the crew to regulate cabin temperature within a comfortable range for crew and passengers.", "references": ["AW169 RFM Section 7 - Environmental Control System, temperature control"], "difficulty": "easy", "tags": ["systems", "ECS", "temperature"], "source": "AW169 RFM", "modelIds": ["AW169"] },
-    { "id": "AW169-SYS-150", "section": "SYSTEMS DESCRIPTION", "type": "single", "question": "In the Communications System description, what is the function of the intercom system?", "options": ["To provide internal voice communication between crew members and, where installed, with passengers.", "To transmit flight data to air traffic control automatically.", "To control hydraulic pressure to the flight controls.", "To adjust rotor RPM based on voice commands."], "answer": [0], "explanation": "The Communications System section explains that the intercom system allows crew members, and in some configurations passengers, to communicate with each other via headsets and microphones.", "references": ["AW169 RFM Section 7 - Communications, intercom"], "difficulty": "easy", "tags": ["systems", "communications", "intercom"], "source": "AW169 RFM", "modelIds": ["AW169"] }
+    { "id": "AW169-SYS-150", "section": "SYSTEMS DESCRIPTION", "type": "single", "question": "In the Communications System description, what is the function of the intercom system?", "options": ["To provide internal voice communication between crew members and, where installed, with passengers.", "To transmit flight data to air traffic control automatically.", "To control hydraulic pressure to the flight controls.", "To adjust rotor RPM based on voice commands."], "answer": [0], "explanation": "The Communications System section explains that the intercom system allows crew members, and in some configurations passengers, to communicate with each other via headsets and microphones.", "references": ["AW169 RFM Section 7 - Communications, intercom"], "difficulty": "easy", "tags": ["systems", "communications", "intercom"], "source": "AW169 RFM", "modelIds": ["AW169"] },
+    {
+      "id": "AW169-SYS-151",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "According to the AFCS System Description, what is the difference in effect between the cyclic (PITCH/ROLL) beep trim switch and the collective (COLL/YAW) beep trim switch?",
+      "options": [
+        "Pressing the cyclic beep trim causes engagement of HOV mode in position-hover, while pressing the collective beep trim causes disengagement of any AFCS collective mode",
+        "Both switches have the identical effect of adjusting the currently engaged mode's reference, with no engagement or disengagement function",
+        "The cyclic beep trim disengages all AFCS modes, while the collective beep trim engages HOV mode",
+        "The collective beep trim only functions on the ground; the cyclic beep trim only functions in flight"
+      ],
+      "answer": [0],
+      "explanation": "The AFCS control panel key describes an asymmetry: pressing the PITCH/ROLL beep trim switch causes engagement of HOV mode in position-hover, while pressing the COLL/YAW beep trim switch causes disengagement of any AFCS collective mode.",
+      "references": ["AW169 RFM Section 7 - AFCS (Chap 22), Figure 7-12 key items 23 and 29 (p.7-32/7-33)"],
+      "difficulty": "hard",
+      "tags": ["systems", "AFCS", "trim"],
+      "source": "AW169 RFM",
+      "modelIds": ["AW169"]
+    },
+    {
+      "id": "AW169-SYS-152",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "According to the AFCS System Description, pressing the DCL push-button arms/engages which mode, and what determines which one?",
+      "options": [
+        "Either DCL (Deceleration mode) or NDCL (Autonomous Deceleration mode), depending on the condition",
+        "Always DCL mode; NDCL can only be selected from the NAV push-button",
+        "Always NDCL mode; DCL is a display-only annunciation with no separate engagement",
+        "DCL engages an emergency descent mode unrelated to deceleration approaches"
+      ],
+      "answer": [0],
+      "explanation": "The AFCS control panel key states that pressing the DCL push-button causes one of the following to be armed/engaged according to the condition: DCL - Deceleration mode, or NDCL - Autonomous Deceleration mode.",
+      "references": ["AW169 RFM Section 7 - AFCS (Chap 22), Figure 7-12 key item 5 (p.7-30)"],
+      "difficulty": "medium",
+      "tags": ["systems", "AFCS", "DCL"],
+      "source": "AW169 RFM",
+      "modelIds": ["AW169"]
+    },
+    {
+      "id": "AW169-SYS-153",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "According to the AFCS System Description, which APP sub-mode is only available for Avionic Phase 6.0 and later?",
+      "options": [
+        "BC (Back course approach mode)",
+        "GS (Glide slope approach mode)",
+        "VAPP (VOR approach mode)",
+        "LOC (Localizer approach mode)"
+      ],
+      "answer": [0],
+      "explanation": "Pressing the APP push-button arms/engages one or more sub-modes depending on the condition: VAPP, LOC, BC, GS, NAPP, NLOC, or NGS. Of these, BC (Back course approach mode) is specifically noted as available only for Avionic Phase 6.0 and later.",
+      "references": ["AW169 RFM Section 7 - AFCS (Chap 22), Figure 7-12 key item 7 (p.7-30)"],
+      "difficulty": "hard",
+      "tags": ["systems", "AFCS", "approach"],
+      "source": "AW169 RFM",
+      "modelIds": ["AW169"]
+    },
+    {
+      "id": "AW169-SYS-154",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "According to the AFCS System Description, what does pressing the NAV push-button arm or engage?",
+      "options": [
+        "One or more of VOR (VOR navigation mode) or NAV (Autonomous navigation mode), depending on the condition",
+        "Only the FMS-coupled NAV mode; VOR navigation is selected from a separate push-button",
+        "The WLVL mode as a prerequisite before navigation modes can engage",
+        "Only the back course approach mode"
+      ],
+      "answer": [0],
+      "explanation": "The AFCS control panel key states that pressing the NAV push-button causes one or more of the following modes to be armed/engaged, according to the condition: VOR - VOR navigation mode, NAV - Autonomous navigation mode.",
+      "references": ["AW169 RFM Section 7 - AFCS (Chap 22), Figure 7-12 key item 11 (p.7-31)"],
+      "difficulty": "medium",
+      "tags": ["systems", "AFCS", "navigation"],
+      "source": "AW169 RFM",
+      "modelIds": ["AW169"]
+    },
+    {
+      "id": "AW169-SYS-155",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "According to the AFCS System Description, what is required for the TD/H push-button (Transition Down / Transition Down to Hover modes) to be usable?",
+      "options": [
+        "It is only available for Avionic Phase 6.0 and later, and displays \"FUNCTION UNAVL\" if operated when the option file for TD/TDH/TU modes has not been enabled",
+        "It is available on all Avionic Phases with no option-file dependency",
+        "It requires both AP1 and AP2 to be disengaged before it can be pressed",
+        "It is only usable below 50 KIAS"
+      ],
+      "answer": [0],
+      "explanation": "The AFCS control panel key states the TD/H push-button, only for Avionic Phase 6.0 and later, arms/engages TD (Transition down mode) or TDH (Transition down to hover mode); \"FUNCTION UNAVL\" is displayed on the PFD if operated when the option file for TD/TDH/TU modes has not been enabled.",
+      "references": ["AW169 RFM Section 7 - AFCS (Chap 22), Figure 7-12 key item 15 (p.7-31)"],
+      "difficulty": "medium",
+      "tags": ["systems", "AFCS"],
+      "source": "AW169 RFM",
+      "modelIds": ["AW169"]
+    },
+    {
+      "id": "AW169-SYS-156",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "According to the AFCS System Description, what do the three colored indications on an AFCS mode's active box mean: a green flash, an amber flash that remains solid, and amber chevrons surrounding the box?",
+      "options": [
+        "Green flash = engagement/disengagement transition; amber flash then solid = mode degradation; amber chevrons = excessive deviation from reference for the active mode",
+        "Green flash = mode armed; amber flash then solid = mode captured; amber chevrons = mode about to disengage automatically",
+        "Green flash = AFCS channel failure; amber flash then solid = normal operation; amber chevrons = pilot override in progress",
+        "All three indications mean the same thing: the mode is degraded"
+      ],
+      "answer": [0],
+      "explanation": "The AFCS control panel key describes the collective/pitch/yaw-roll active boxes: they flash green to indicate engagement/disengagement transitions, flash amber and remain solid to indicate mode degradation for the active mode, and are surrounded by amber chevrons to indicate excessive deviation from reference for the active mode.",
+      "references": ["AW169 RFM Section 7 - AFCS (Chap 22), Figure 7-12 key items 32, 35, 37 (p.7-33/7-34)"],
+      "difficulty": "hard",
+      "tags": ["systems", "AFCS", "indications"],
+      "source": "AW169 RFM",
+      "modelIds": ["AW169"]
+    },
+    {
+      "id": "AW169-SYS-157",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "According to the AFCS System Description, once the AFCS Collective mode has been automatically uncoupled (UCPL) due to a transition to OEI with power above COEI, what re-couples it?",
+      "options": [
+        "Reducing power to below COEI (Continuous OEI) automatically re-couples the collective mode when the pilot releases the collective",
+        "The collective mode re-couples automatically as soon as power drops below COEI, regardless of collective position",
+        "Only a manual press of the AP1 or AP2 push-button can re-couple the collective mode after UCPL",
+        "UCPL is permanent for the remainder of the flight once it occurs"
+      ],
+      "answer": [0],
+      "explanation": "UCPL indicates the AFCS Collective mode has uncoupled automatically (Avionic Phase 6.0 and later) due to a transition to OEI with power above COEI. Reducing power to below COEI automatically re-couples the collective mode when the pilot releases the collective.",
+      "references": ["AW169 RFM Section 7 - AFCS (Chap 22), Figure 7-12 key item 51 (p.7-35)"],
+      "difficulty": "hard",
+      "tags": ["systems", "AFCS", "OEI"],
+      "source": "AW169 RFM",
+      "modelIds": ["AW169"]
+    },
+    {
+      "id": "AW169-SYS-158",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "According to the AFCS System Description, how does the SCAS actuator authority compare between the Main Rotor Actuators (MRAs) and the Tail Rotor Actuator (TRA)?",
+      "options": [
+        "The MRA SCAS authority is limited to \u00b110% of the servoactuator half-stroke, while the TRA SCAS authority is \u00b120%",
+        "Both the MRA and TRA SCAS authority are limited to \u00b110% of the servoactuator half-stroke",
+        "The MRA SCAS authority is \u00b120% while the TRA SCAS authority is \u00b110%",
+        "SCAS authority is unlimited on both the MRAs and the TRA"
+      ],
+      "answer": [0],
+      "explanation": "The System Description states the MRA SCAS actuator authority is limited to a value corresponding to \u00b110% of the servoactuator half stroke, while the TRA SCAS actuator has \u00b120% authority of the servo actuator half-stroke - a safety feature restricting flight control movement in case of a system failure or jam.",
+      "references": ["AW169 RFM Section 7 - AFCS (Chap 22), Main Rotor Actuators and Tail Rotor Actuator (p.7-36/7-37)"],
+      "difficulty": "hard",
+      "tags": ["systems", "AFCS", "SCAS"],
+      "source": "AW169 RFM",
+      "modelIds": ["AW169"]
+    },
+    {
+      "id": "AW169-SYS-159",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "According to the AFCS System Description, how does the electromagnetic clutch on the pitch, roll, yaw, and collective trim actuators behave?",
+      "options": [
+        "The actuator shaft is mechanically coupled to the DC motor when the clutch is NOT energized; the shaft is free to rotate when the clutch IS energized",
+        "The actuator shaft is mechanically coupled to the DC motor when the clutch IS energized; the shaft is free to rotate when the clutch is NOT energized",
+        "The clutch has no effect on shaft coupling; it only controls trim actuator power supply",
+        "The clutch permanently locks the shaft regardless of energization state"
+      ],
+      "answer": [0],
+      "explanation": "Each trim actuator (pitch, roll, yaw, collective) is equipped with an electromagnetic clutch providing mechanical coupling between the actuator shaft and the DC motor when the clutch is NOT energized, with the shaft free to rotate if the clutch IS energized - operated by the pilot pressing the relevant trim release control.",
+      "references": ["AW169 RFM Section 7 - AFCS (Chap 22), Pitch/Roll/Yaw/Collective Trim Actuator (p.7-37/7-38)"],
+      "difficulty": "medium",
+      "tags": ["systems", "AFCS", "trim"],
+      "source": "AW169 RFM",
+      "modelIds": ["AW169"]
+    },
+    {
+      "id": "AW169-SYS-160",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "According to the AFCS System Description, what happens on the CAS when the C/Y (yaw) permanent force trim is disengaged?",
+      "options": [
+        "The green C/Y label goes off, and the advisory alert C/Y TRIM OFF plus the caution SAS OFF are generated",
+        "The green C/Y label goes off, and only the advisory alert C/Y TRIM OFF is generated, with no caution",
+        "The caution ATT OFF is generated, the same as when P/R trim is disengaged",
+        "No CAS indication is generated; only the AFCS control panel label changes"
+      ],
+      "answer": [0],
+      "explanation": "The C/Y PTR function on the AFCS page of the EDCU engages the cyclic permanent force trim system; when engaged a green label appears, and when disengaged the green label goes off and the advisory alert C/Y TRIM OFF and the caution SAS OFF are generated on the CAS. (This is distinct from P/R PTR, whose disengagement generates a P/R TRIM OFF advisory and an ATT OFF caution.)",
+      "references": ["AW169 RFM Section 7 - AFCS (Chap 22), Figure 7-12 key item 55 (p.7-35)"],
+      "difficulty": "medium",
+      "tags": ["systems", "AFCS", "trim"],
+      "source": "AW169 RFM",
+      "modelIds": ["AW169"]
+    },
+    {
+      "id": "AW169-SYS-161",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "According to the AFCS System Description, what does an FCS LINK FAIL indication mean?",
+      "options": [
+        "Loss of AFCS mode annunciations and mode datum reference - not necessarily a loss of the underlying AFCS control function itself",
+        "Total loss of both AFCS Autopilot channels (AP1 and AP2) with no stabilization remaining",
+        "A hydraulic failure in the main rotor actuators requiring immediate landing",
+        "Loss of the AFCS control panel's backlighting only"
+      ],
+      "answer": [0],
+      "explanation": "FCS LINK FAIL is defined in the AFCS controls and displays key as loss of AFCS mode annunciations and mode datum reference - a display/annunciation loss, distinct from an actual loss of AFCS stabilization or autopilot function.",
+      "references": ["AW169 RFM Section 7 - AFCS (Chap 22), Figure 7-12 key item 53 (p.7-35)"],
+      "difficulty": "hard",
+      "tags": ["systems", "AFCS", "caution"],
+      "source": "AW169 RFM",
+      "modelIds": ["AW169"]
+    },
+    {
+      "id": "AW169-SYS-162",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "According to the AFCS System Description, which three push-buttons on the AFCS control panel are inoperative and display \"FUNCTION UNAVL\" on the PFD if operated?",
+      "options": [
+        "VNAV, WTR, and MOT",
+        "IAS, ALT, and HDG",
+        "AP1, AP2, and TEST",
+        "GA/TU, WLVL, and ATT"
+      ],
+      "answer": [0],
+      "explanation": "The AFCS control panel key states that the VNAV, WTR, and MOT push-buttons are all inoperative on this configuration; \"FUNCTION UNAVL\" is displayed on the PFD if any of them is operated.",
+      "references": ["AW169 RFM Section 7 - AFCS (Chap 22), Figure 7-12 key items 9, 16, 17 (p.7-30/7-31)"],
+      "difficulty": "medium",
+      "tags": ["systems", "AFCS"],
+      "source": "AW169 RFM",
+      "modelIds": ["AW169"]
+    }
   ]
 }
 

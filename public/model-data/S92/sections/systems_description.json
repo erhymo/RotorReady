@@ -3252,6 +3252,310 @@
       "sectionId": "systems_description",
       "type": "single",
       "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-179",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "When Heading Hold is engaged on the S-92 AFCS, what happens immediately, and what is the maximum bank angle the CFD will command to get there?",
+      "options": [
+        "The aircraft immediately turns to the reference heading (the heading bug), with a maximum commanded bank angle of 22\u00b0",
+        "The aircraft holds its current heading until the pilot manually flies to a new one; there is no automatic turn",
+        "The aircraft turns to the reference heading with a maximum bank angle of 45\u00b0",
+        "Heading Hold only arms the mode; it does not capture or turn until a separate CAPTURE button is pressed"
+      ],
+      "answer": [0],
+      "explanation": "To engage heading hold, press HDG on the active MSP. Once engaged, the aircraft will immediately turn to the reference heading designated by the heading bug, with the CFD commanding a maximum 22\u00b0 bank angle when turning to the selected heading.",
+      "references": ["S-92 RFM Part 2 Sec I: AFCS, Heading Hold (p.I-16-10)"],
+      "tags": ["afcs", "autopilot"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-180",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "On the S-92, how can the reference airspeed be changed while Airspeed Hold is engaged, and what are the resulting airspeed limits via the cyclic beeper?",
+      "options": [
+        "Via trim-release-and-refly, or via the longitudinal cyclic beeper - beeping forward selects up to 155 KIAS, beeping aft selects down to 55 KIAS",
+        "Only via the collective beeper, with a range of 40 to 140 KIAS",
+        "The reference airspeed cannot be changed once Airspeed Hold is engaged; it must be disengaged and re-engaged",
+        "Via the cyclic beeper only, with no upper or lower limit"
+      ],
+      "answer": [0],
+      "explanation": "The reference airspeed can be changed either by depressing and holding the cyclic trim release and manually flying to the desired airspeed, or by using the longitudinal cyclic beeper: beeping forward selects higher airspeeds up to 155 KIAS, beeping aft selects lower airspeeds down to 55 KIAS.",
+      "references": ["S-92 RFM Part 2 Sec I: AFCS, Airspeed Hold (p.I-16-10)"],
+      "tags": ["afcs", "autopilot"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-181",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "On the S-92, what is the maximum climb/descend rate when changing the barometric altitude reference using the beep switch while Altitude Hold is engaged?",
+      "options": [
+        "500 fpm",
+        "1000 fpm",
+        "250 fpm",
+        "There is no limit; the rate matches the beeper's hold duration"
+      ],
+      "answer": [0],
+      "explanation": "When changing the barometric altitude reference with the collective (or cyclic, in two-cue) beep switch while Altitude Hold is engaged, the aircraft will climb/descend at a maximum of 500 fpm.",
+      "references": ["S-92 RFM Part 2 Sec I: AFCS, Barometric Altitude Hold (p.I-16-10)"],
+      "tags": ["afcs", "autopilot"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-182",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "On the S-92, how does the maximum descent rate for Radar Altitude Hold change as the aircraft descends below 500 feet AGL using the beep switch?",
+      "options": [
+        "It decreases linearly from a maximum of 500 fpm above 500 ft AGL to a maximum of 200 fpm at 200 ft AGL and below",
+        "It stays constant at 500 fpm regardless of radar altitude",
+        "It increases as the aircraft gets closer to the ground, to allow a faster approach",
+        "Radar Altitude Hold does not support beep-switch descent rate changes below 500 ft AGL"
+      ],
+      "answer": [0],
+      "explanation": "When decreasing radar altitude with the collective beep switch, above 500 feet AGL the aircraft descends at a maximum of 500 fpm; as the aircraft descends below 500 feet, the descent rate decreases linearly so that the maximum descent rate at 200 feet AGL and below is 200 fpm.",
+      "references": ["S-92 RFM Part 2 Sec I: AFCS, Radar Altitude Hold (p.I-16-10/I-16-11)"],
+      "tags": ["afcs", "autopilot"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-183",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "On the S-92, below what airspeed will the CFD not couple to the pitch or roll axis, and does this restriction also apply to Radar Altitude Hold?",
+      "options": [
+        "Below 50 KIAS; Radar Altitude Hold is the exception and may be engaged at any airspeed",
+        "Below 50 KIAS, and this applies equally to Radar Altitude Hold - it also requires at least 50 KIAS",
+        "Below 30 KIAS; the same restriction applies to all AFCS modes without exception",
+        "There is no minimum airspeed for CFD pitch or roll coupling"
+      ],
+      "answer": [0],
+      "explanation": "The CFD will not couple to the pitch or roll axis when airspeed is below 50 KIAS - however, Radar Altitude Hold (a collective-axis mode) may be engaged at any airspeed, since it does not couple to pitch or roll.",
+      "references": ["S-92 RFM Part 2 Sec I: AFCS, CFD Mode Engagement NOTE (p.I-16-10)"],
+      "tags": ["afcs", "autopilot"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-184",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "On the S-92, once the ALTP (Altitude Preselect) button is pushed, what does the system do automatically before the aircraft reaches the selected altitude?",
+      "options": [
+        "It automatically selects VS mode at 500 fpm in the direction of the selected altitude, with ALTP armed",
+        "It immediately jumps to the selected altitude without any climb or descent profile",
+        "It holds the current vertical speed unchanged until the aircraft is within 50 ft of the target altitude",
+        "It requires the pilot to manually select a vertical speed before ALTP can arm"
+      ],
+      "answer": [0],
+      "explanation": "Once the ALTP button is pushed on the active MSP, the system automatically selects VS mode at 500 fpm in the direction of the selected altitude, and ALTP will be armed; the pilot may adjust the vertical speed using the beeper, and the aircraft captures and maintains the selected altitude once within parameters.",
+      "references": ["S-92 RFM Part 2 Sec I: AFCS, Altitude Preselect (p.I-16-11)"],
+      "tags": ["afcs", "autopilot"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-185",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "On the S-92, when Go Around (GA) mode is engaged, what does the CFD command on the collective, pitch, and roll axes?",
+      "options": [
+        "A 750 fpm climb via the collective axis, 80 KIAS via the pitch axis, and the present heading via the roll axis",
+        "A 1000 fpm climb via the collective axis, 60 KIAS via the pitch axis, and wings-level via the roll axis with no heading hold",
+        "GA mode only controls the collective axis; pitch and roll remain under manual control",
+        "A 500 fpm climb via the collective axis, VNE via the pitch axis, and the last selected NAV course via the roll axis"
+      ],
+      "answer": [0],
+      "explanation": "Once Go Around is engaged (available above 50 KIAS), the CFD uses the collective axis to capture a 750 fpm vertical climb, the pitch axis to capture 80 KIAS, and the roll axis to maintain the present heading.",
+      "references": ["S-92 RFM Part 2 Sec I: AFCS, Go Around (p.I-16-11/I-16-12)"],
+      "tags": ["afcs", "autopilot"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-186",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "On the S-92, if the pilot presses the HDG button on the active MSP while in a Go Around climb, what happens to the heading bug?",
+      "options": [
+        "The aircraft is forced into HDG mode and turns to the selected heading, but the heading bug does NOT change to the present heading automatically",
+        "The heading bug automatically resets to the present heading the moment HDG is pressed",
+        "Pressing HDG during GA has no effect; HDG mode is inhibited until GA is disengaged",
+        "The heading bug is removed from the display entirely while GA is active"
+      ],
+      "answer": [0],
+      "explanation": "During a Go Around climb, pushing the HDG button on the active MSP will force the aircraft into HDG mode and it will turn to the selected heading - but note that the heading bug will NOT change to the present heading when GA is selected, so the pilot must ensure the bug is set appropriately.",
+      "references": ["S-92 RFM Part 2 Sec I: AFCS, Go Around (p.I-16-12)"],
+      "tags": ["afcs", "autopilot"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-187",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "On the S-92, what is the \"bucket airspeed\" used by the AFCS power-limiting function, and how does it vary with altitude?",
+      "options": [
+        "The minimum power required airspeed; it is 80 KIAS at sea level and decreases by 1 knot for every 1000 feet above sea level",
+        "The maximum structural cruise airspeed; it is 155 KIAS at sea level and decreases with altitude",
+        "A fixed reference of 60 KIAS regardless of altitude",
+        "The airspeed at which the AFCS automatically disengages, fixed at 50 KIAS"
+      ],
+      "answer": [0],
+      "explanation": "The bucket airspeed (minimum power required airspeed) is 80 KIAS at sea level and decreases by one knot for every 1000 feet above sea level. When on a power limit, the CFD attempts to maintain the desired altitude or climb rate by adjusting airspeed toward the bucket airspeed.",
+      "references": ["S-92 RFM Part 2 Sec I: AFCS, Power Limiting (p.I-16-12)"],
+      "tags": ["afcs", "autopilot"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-188",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "On the S-92, if the aircraft reaches bucket airspeed while power limiting and still cannot maintain the desired altitude or climb rate, what happens?",
+      "options": [
+        "The aircraft descends (in ALT mode) or decreases vertical speed (in VS mode), and a yellow CHECK POWER advisory with a single audio alert is generated",
+        "The AFCS automatically disengages completely and returns control to the pilot with no advisory",
+        "The engines automatically increase power beyond maximum continuous limits to maintain the profile",
+        "Nothing changes; the aircraft simply exceeds torque limits silently"
+      ],
+      "answer": [0],
+      "explanation": "If the aircraft reaches bucket airspeed and still cannot maintain the desired altitude or climb rate, the aircraft will descend (when in ALT mode) or decrease vertical speed (when in VS mode), a yellow CHECK POWER advisory is displayed on the PFD, and a single \"CHECK POWER\" audio alert is heard.",
+      "references": ["S-92 RFM Part 2 Sec I: AFCS, Power Limiting (p.I-16-12)"],
+      "tags": ["afcs", "autopilot"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-189",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "On the S-92, when does the CFD power limiting function switch from maximum continuous power levels to takeoff power levels, and when does it switch back?",
+      "options": [
+        "Takeoff power levels activate when descending below 200 feet AGL, and remain active until the aircraft climbs above 300 feet AGL",
+        "Takeoff power levels activate below 500 feet AGL and remain until climbing above 500 feet AGL (no hysteresis)",
+        "Takeoff power levels are only available during the first two minutes after takeoff, based on a timer",
+        "The power limiting schedule never changes with altitude"
+      ],
+      "answer": [0],
+      "explanation": "The CFD power limiting functions change from maximum continuous power levels to takeoff power levels when operating at low altitude: takeoff power levels are activated when descending below 200 feet AGL, and remain active until the aircraft climbs above 300 feet AGL.",
+      "references": ["S-92 RFM Part 2 Sec I: AFCS, Power Limiting NOTE (p.I-16-12)"],
+      "tags": ["afcs", "autopilot"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-190",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "On the S-92, if an engine fails while the collective axis is coupled (three-cue), what does the CFD do automatically before the pilot reacts?",
+      "options": [
+        "It automatically lowers the collective to restore Nr to 105% and stay below maximum continuous power, and automatically resets the reference airspeed to the bucket speed",
+        "It automatically raises the collective to maximum continuous power to maintain the current climb rate",
+        "It immediately disengages the AFCS entirely, requiring the pilot to fly fully manually",
+        "It has no automatic response; the pilot must manually adjust the collective before the CFD reacts"
+      ],
+      "answer": [0],
+      "explanation": "If an engine fails when coupled to the collective axis (three cue), the CFD will automatically lower the collective to restore Nr to 105% and to stay below maximum continuous power levels, and the reference airspeed will automatically be reset to the bucket speed.",
+      "references": ["S-92 RFM Part 2 Sec I: AFCS, Engine Failure While Coupled (p.I-16-12)"],
+      "tags": ["afcs", "autopilot", "emergency"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-191",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "On the S-92, if an engine fails while altitude or vertical speed is coupled to the pitch axis (two-cue) and sufficient power is not available, what happens?",
+      "options": [
+        "The aircraft slows below 50 KIAS and the system automatically decouples; the pilot should take control before decelerating below bucket speed",
+        "The CFD automatically increases collective pitch beyond limits to maintain the selected altitude regardless of power available",
+        "The system automatically re-couples to the collective axis to prioritize Nr protection",
+        "Nothing changes; two-cue coupling is unaffected by single-engine failure"
+      ],
+      "answer": [0],
+      "explanation": "If an engine fails when altitude or vertical speed is coupled to the pitch axis (two cue), the aircraft attempts to maintain altitude/vertical speed by decreasing airspeed. If sufficient power is not available, the aircraft will slow below 50 KIAS and the system will automatically decouple; the pilot should take control of the aircraft prior to decelerating below bucket speed.",
+      "references": ["S-92 RFM Part 2 Sec I: AFCS, Engine Failure While Coupled (p.I-16-12)"],
+      "tags": ["afcs", "autopilot", "emergency"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-192",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "On the S-92, if the pilot selects NAV mode but the aircraft is not within parameters to immediately intercept the chosen course and no other roll mode is active, what does the CFD do?",
+      "options": [
+        "It automatically engages the heading mode and turns to the heading bug",
+        "It refuses to arm NAV mode until the pilot manually intercepts the course",
+        "It automatically engages Go Around mode as a safety default",
+        "It holds the current roll attitude indefinitely with no automatic action"
+      ],
+      "answer": [0],
+      "explanation": "When NAV mode is selected and the aircraft is not within parameters to immediately intercept the chosen course, and no other roll mode is active, the CFD will automatically engage the heading mode and turn to the heading bug - the pilot should ensure the heading bug is on an appropriate intercept heading before selecting NAV mode.",
+      "references": ["S-92 RFM Part 2 Sec I: AFCS, Navigation Modes (NAV) NOTE (p.I-16-13)"],
+      "tags": ["afcs", "autopilot", "navigation"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-193",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "On the S-92, during an ILS approach with GS and DCL selected, what airspeed schedule does the CFD fly, and what happens once the commanded airspeed bug reaches 60 KIAS?",
+      "options": [
+        "It decelerates to reach 80 KIAS at 200 feet AGL and 60 KIAS before 50 feet AGL; once the bug reaches 60 KIAS, the mode changes from DCL to IAS and holds 60 KIAS",
+        "It decelerates to reach 60 KIAS immediately upon glideslope capture and holds that speed for the entire approach",
+        "It maintains a constant 80 KIAS throughout the approach with no further deceleration below 200 feet AGL",
+        "DCL only controls vertical profile; it has no effect on airspeed during an ILS approach"
+      ],
+      "answer": [0],
+      "explanation": "With GS and DCL selected during an ILS approach, the CFD uses a pre-programmed airspeed schedule to decelerate the aircraft so it reaches 80 KIAS at 200 feet AGL, continuing to decelerate to reach 60 KIAS before 50 feet AGL. Once the commanded airspeed bug reaches 60 KIAS, the mode changes from DCL to IAS and the system holds 60 KIAS.",
+      "references": ["S-92 RFM Part 2 Sec I: AFCS, ILS Approach (p.I-16-13/I-16-14)"],
+      "tags": ["afcs", "autopilot", "approach"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-sys-194",
+      "section": "SYSTEMS DESCRIPTION",
+      "question": "On the S-92, what happens to the DCL (deceleration) function during an ILS approach if the airspeed reference is changed while DCL is armed?",
+      "options": [
+        "The DCL function de-arms",
+        "The DCL function immediately captures at the current airspeed",
+        "The DCL function is unaffected; airspeed reference changes are ignored while armed",
+        "The entire ILS approach coupling is cancelled, including LOC and GS"
+      ],
+      "answer": [0],
+      "explanation": "A NOTE in the ILS Approach procedure states: if the airspeed reference is changed when the ILS DCL function is armed, the DCL function will de-arm.",
+      "references": ["S-92 RFM Part 2 Sec I: AFCS, ILS Approach NOTE (p.I-16-14)"],
+      "tags": ["afcs", "autopilot", "approach"],
+      "source": "S-92 RFM Part 2",
+      "sectionId": "systems_description",
+      "type": "single",
+      "modelIds": ["S92"]
     }
   ]
 }

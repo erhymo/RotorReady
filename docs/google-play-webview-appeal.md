@@ -4,6 +4,14 @@ Use this as a working note if Google Play flags RotorReady for the Webviews and 
 
 ## Status log
 
+- **2026-07-16**: Received a reply from Google ("Jamie", Google Play Team) to
+  the 2026-07-15 advance notice submission. It doesn't decide anything itself
+  — it says the submission was merged into the original appeal ticket
+  (**case 2-5376000040345**) and that all future communication happens there,
+  not as a separate case. Confirmed via a live Google Play Developer API call
+  that the app is **still suspended** as of this reply. Next: check the
+  "Ankeinformasjon" panel on case 2-5376000040345 in Play Console for the
+  actual updated decision/reasoning.
 - **2026-07-15**: Submitted the advance notice form (package name
   `com.mayday.rotorready`, scenario "Intellectual Property proof of
   permission") with a ~727-character explanation referencing the earlier

@@ -1,0 +1,3003 @@
+{
+  "items": [
+    {
+      "id": "s92-al-001",
+      "question": "During IFR, when must an alternate aerodrome be designated?",
+      "options": [
+        "Always, for every IFR flight",
+        "When weather forecast at destination does not guarantee required minima",
+        "Only if the destination has no radio aids",
+        "Only for flights over water"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "IFR requires an alternate unless forecast weather meets planning minima.",
+      "section": "airlaw_ifr",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "EASA Air Ops",
+      "references": [
+        "EASA Air Ops"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "alternate",
+        "IFR"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "EASA Air Ops"
+    },
+    {
+      "id": "s92-al-002",
+      "question": "What is final reserve fuel requirement for commercial IFR helicopter operations?",
+      "options": [
+        "10 minutes",
+        "15 minutes",
+        "30 minutes",
+        "45 minutes"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Helicopter IFR requires 30 minutes final reserve at holding speed.",
+      "section": "fuel_planning",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "EASA Air Ops",
+      "references": [
+        "EASA Air Ops"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "fuel",
+        "reserve"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "EASA Air Ops"
+    },
+    {
+      "id": "s92-al-003",
+      "question": "What does a 'minimum fuel' message to ATC imply?",
+      "options": [
+        "You are in emergency",
+        "You must land immediately",
+        "You have no extra fuel for delays but have reserve",
+        "You cannot deviate from planned route"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "'Minimum fuel' indicates advisory status: no extra for delay, not yet emergency.",
+      "section": "fuel_management",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "EASA Air Ops",
+      "references": [
+        "EASA Air Ops"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "minimum fuel",
+        "ATC"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "EASA Air Ops"
+    },
+    {
+      "id": "s92-al-004",
+      "question": "What is contingency fuel intended to cover?",
+      "options": [
+        "Diversion to alternate",
+        "Additional fuel for unforeseen factors (winds, routing)",
+        "Final descent",
+        "Holding only"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Contingency fuel is for unforeseen variations such as wind or routing.",
+      "section": "fuel_planning",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "EASA Air Ops",
+      "references": [
+        "EASA Air Ops"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "contingency",
+        "fuel"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "EASA Air Ops"
+    },
+    {
+      "id": "s92-al-005",
+      "question": "For a non-precision approach at alternate, what visibility increment must be added?",
+      "options": [
+        "400 m",
+        "800 m",
+        "1200 m",
+        "1600 m"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "EASA rules require 800 m visibility increment for non-precision approach alternate planning.",
+      "section": "alternate_minima",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "EASA Air Ops",
+      "references": [
+        "EASA Air Ops"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "alternate",
+        "visibility"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "EASA Air Ops"
+    },
+    {
+      "id": "s92-al-006",
+      "question": "For a precision approach at alternate, what visibility increment must be added?",
+      "options": [
+        "400 m",
+        "800 m",
+        "1200 m",
+        "1600 m"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "EASA rules require 400 m visibility increment for precision approach alternate planning.",
+      "section": "alternate_minima",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "EASA Air Ops",
+      "references": [
+        "EASA Air Ops"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "alternate",
+        "visibility"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "EASA Air Ops"
+    },
+    {
+      "id": "s92-al-007",
+      "question": "When must fuel to alternate aerodrome be planned?",
+      "options": [
+        "Immediately at departure",
+        "At about halfway during the flight",
+        "As part of pre-flight fuel planning",
+        "Only when diversion is required"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Alternate fuel must be included in pre-flight planning.",
+      "section": "fuel_planning",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "EASA Air Ops",
+      "references": [
+        "EASA Air Ops"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "alternate",
+        "fuel"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "EASA Air Ops"
+    },
+    {
+      "id": "s92-al-008",
+      "question": "For IFR flights, what minimum fuel must be on board at takeoff?",
+      "options": [
+        "Fuel to reach destination + alternate + final reserve",
+        "Fuel just to reach destination",
+        "Enough to reach alternate only",
+        "Unlimited fuel"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "EASA fuel policy requires fuel for destination, alternate, and reserve.",
+      "section": "fuel_planning",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "EASA Air Ops",
+      "references": [
+        "EASA Air Ops"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "fuel",
+        "IFR"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "EASA Air Ops"
+    },
+    {
+      "id": "s92-al-009",
+      "question": "If forecast weather at destination is below minima, what must be done?",
+      "options": [
+        "Cancel the flight",
+        "Fly VFR instead",
+        "Use alternate aerodrome",
+        "Depart anyway"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Alternate aerodrome is required when destination weather is below minima.",
+      "section": "alternate",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "EASA IFR",
+      "references": [
+        "EASA IFR"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "alternate",
+        "IFR"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "EASA IFR"
+    },
+    {
+      "id": "s92-al-010",
+      "question": "What is required fuel when two alternates are planned?",
+      "options": [
+        "Fuel to closest alternate only",
+        "Fuel to farthest alternate",
+        "Fuel to both alternates sum",
+        "Fuel to first alternate + reserve"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "EASA requires planning fuel to the farthest alternate when two alternates are listed.",
+      "section": "fuel_planning",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "EASA Air Ops",
+      "references": [
+        "EASA Air Ops"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "alternate",
+        "fuel"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "EASA Air Ops"
+    },
+    {
+      "id": "s92-al-011",
+      "question": "What is extra fuel in flight planning?",
+      "options": [
+        "Operator’s additional fuel margin",
+        "Fuel to reach alternate",
+        "Reserve fuel",
+        "Fuel burned in taxi"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Extra fuel is an operator’s margin beyond required minimums.",
+      "section": "fuel_planning",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "EASA Air Ops",
+      "references": [
+        "EASA Air Ops"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "fuel",
+        "planning"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "EASA Air Ops"
+    },
+    {
+      "id": "s92-al-012",
+      "question": "When can the 'alternate not required' clause be used?",
+      "options": [
+        "When weather odds are 50/50",
+        "When forecasts meet specific requirements (weather + nav aids)",
+        "For flights shorter than 1 hour",
+        "In VFR parts only"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "No alternate required only if forecast meets strict criteria of weather and nav aids.",
+      "section": "alternate",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "EASA IFR",
+      "references": [
+        "EASA IFR"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "alternate",
+        "IFR"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "EASA IFR"
+    },
+    {
+      "id": "s92-al-013",
+      "question": "What is the purpose of carrying alternate fuel?",
+      "options": [
+        "To reach a second alternate",
+        "To load extra cargo",
+        "To allow for diversion if needed",
+        "To hover overhead"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Alternate fuel ensures diversion capability.",
+      "section": "fuel_planning",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "EASA Air Ops",
+      "references": [
+        "EASA Air Ops"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "alternate",
+        "fuel"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "EASA Air Ops"
+    },
+    {
+      "id": "s92-al-014",
+      "question": "What is the maximum permissible deviation from planned fuel under EASA rules?",
+      "options": [
+        "1 %",
+        "3 %",
+        "5 %",
+        "10 %"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Deviation of up to 5% is acceptable for contingency planning.",
+      "section": "fuel_planning",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "EASA Air Ops",
+      "references": [
+        "EASA Air Ops"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "fuel",
+        "limits"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "EASA Air Ops"
+    },
+    {
+      "id": "s92-al-015",
+      "question": "Who is responsible for ensuring required fuel is onboard?",
+      "options": [
+        "The operator and commander",
+        "The pilot only",
+        "ATC",
+        "The ground engineer"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Both the operator and the commander are responsible under EASA.",
+      "section": "responsibility",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "EASA Air Ops",
+      "references": [
+        "EASA Air Ops"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "responsibility",
+        "fuel"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "EASA Air Ops"
+    },
+    {
+      "id": "s92-al-016",
+      "question": "Under IFR, when is a second alternate required?",
+      "options": [
+        "When destination has two runways",
+        "When forecast weather is very low (below planning minima)",
+        "If weather conditions approach minima",
+        "Never"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Second alternate is required when forecast is very low.",
+      "section": "alternate",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "EASA IFR",
+      "references": [
+        "EASA IFR"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "alternate",
+        "IFR"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "EASA IFR"
+    },
+    {
+      "id": "s92-al-017",
+      "question": "What must be included in preflight fuel besides trip and reserve?",
+      "options": [
+        "Alternate fuel, contingency fuel, taxi fuel",
+        "Cargo weight fuel",
+        "Maintenance fuel",
+        "Weather deviation fuel"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "EASA preflight fuel includes alternate, contingency, taxi.",
+      "section": "fuel_planning",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "EASA Fuel Planning",
+      "references": [
+        "EASA Fuel Planning"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "fuel",
+        "planning"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "EASA Fuel Planning"
+    },
+    {
+      "id": "s92-al-018",
+      "question": "If fuel drops below final reserve in flight, what must be done?",
+      "options": [
+        "Land anyway",
+        "Declare emergency",
+        "Divert to alternate immediately",
+        "Continue to next waypoint"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Reaching below final reserve requires emergency declaration.",
+      "section": "fuel_management",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "EASA Fuel Management",
+      "references": [
+        "EASA Fuel Management"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "fuel",
+        "emergency"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "EASA Fuel Management"
+    },
+    {
+      "id": "s92-al-019",
+      "question": "What flexibility do new fuel rules allow?",
+      "options": [
+        "None",
+        "Only for training flights",
+        "Performance-based variations",
+        "Only for small aircraft"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Performance-based variations are allowed under new rules.",
+      "section": "fuel_rules",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "EASA Fuel Rules",
+      "references": [
+        "EASA Fuel Rules"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "fuel",
+        "performance"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "EASA Fuel Rules"
+    },
+    {
+      "id": "s92-al-020",
+      "question": "Can helicopters refuel with rotors turning under EASA rules?",
+      "options": [
+        "Never",
+        "Yes, under specific safety conditions",
+        "Only VFR",
+        "Only fixed-wing"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Rotors turning refueling is allowed only under specific conditions.",
+      "section": "ground_ops",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "EASA Ops",
+      "references": [
+        "EASA Ops"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "refueling",
+        "ground"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "EASA Ops"
+    },
+    {
+      "id": "s92-al-021",
+      "question": "What is the visibility increment for precision approach at alternate?",
+      "options": [
+        "400 m",
+        "800 m",
+        "1200 m",
+        "1600 m"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "EASA requires 400 m visibility increment for precision approach alternate planning.",
+      "section": "alternate_minima",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "EASA Alternate Minima",
+      "references": [
+        "EASA Alternate Minima"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "alternate",
+        "visibility"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "EASA Alternate Minima"
+    },
+    {
+      "id": "s92-al-022",
+      "question": "If wind is stronger than forecast, which fuel block is consumed?",
+      "options": [
+        "Reserve fuel",
+        "Contingency fuel",
+        "Alternate fuel",
+        "Taxi fuel"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Contingency fuel covers unexpected wind variations.",
+      "section": "fuel_management",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "EASA Fuel Ops",
+      "references": [
+        "EASA Fuel Ops"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "contingency",
+        "fuel"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "EASA Fuel Ops"
+    },
+    {
+      "id": "s92-al-023",
+      "question": "Under IFR, can you depart without alternate if weather is good?",
+      "options": [
+        "Yes if forecast is well above planning minima",
+        "No, alternate always required",
+        "Yes if twin engine",
+        "Yes in daylight"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "If destination forecast is above planning minima, alternate may not be required.",
+      "section": "alternate",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "EASA IFR",
+      "references": [
+        "EASA IFR"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "IFR",
+        "alternate"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "EASA IFR"
+    },
+    {
+      "id": "s92-al-024",
+      "question": "What is the function of additional fuel?",
+      "options": [
+        "For holding, delays or unplanned diversion",
+        "As protest margin",
+        "For sightseeing",
+        "For last-minute cargo"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Additional fuel is used for expected delays, holding or diversions.",
+      "section": "fuel_planning",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "EASA Fuel Rules",
+      "references": [
+        "EASA Fuel Rules"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "additional",
+        "fuel"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "EASA Fuel Rules"
+    },
+    {
+      "id": "s92-al-025",
+      "question": "What defines a destination alternate aerodrome?",
+      "options": [
+        "Any airport 50 nm away",
+        "Aerodrome designated in preflight plan",
+        "The closest field in sight",
+        "The takeoff field"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Destination alternate is the one designated in the plan.",
+      "section": "alternate",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "EASA IFR",
+      "references": [
+        "EASA IFR"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "alternate",
+        "planning"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "EASA IFR"
+    },
+    {
+      "id": "s92-al-026",
+      "question": "What does 'fuel scheme with variations' allow?",
+      "options": [
+        "Small deviations from prescriptive fuel rules",
+        "Free choice of fuel",
+        "No alternate required",
+        "Reserved for military"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Variations scheme allows small deviations while ensuring safety.",
+      "section": "fuel_rules",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "EASA Fuel Ops",
+      "references": [
+        "EASA Fuel Ops"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "fuel",
+        "scheme"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "EASA Fuel Ops"
+    },
+    {
+      "id": "s92-al-027",
+      "question": "For helicopters, does EASA use the term fuel/energy planning?",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "EASA uses the term fuel/energy planning to include energy sources.",
+      "section": "fuel_rules",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "EASA Fuel Ops",
+      "references": [
+        "EASA Fuel Ops"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "fuel",
+        "terminology"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "EASA Fuel Ops"
+    },
+    {
+      "id": "s92-al-028",
+      "question": "What is the holding time assumed in final reserve?",
+      "options": [
+        "10 min",
+        "20 min",
+        "30 min",
+        "Not specified"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Final reserve for helicopters is 30 minutes at holding speed.",
+      "section": "fuel_reserve",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "EASA Fuel Ops",
+      "references": [
+        "EASA Fuel Ops"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "final reserve",
+        "fuel"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "EASA Fuel Ops"
+    },
+    {
+      "id": "s92-al-029",
+      "question": "What is alternate fuel?",
+      "options": [
+        "Fuel to go from destination to alternate",
+        "Extra margin",
+        "Taxi fuel",
+        "Reserve"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Alternate fuel is the amount to fly from destination to alternate.",
+      "section": "fuel_planning",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "EASA Fuel Ops",
+      "references": [
+        "EASA Fuel Ops"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "alternate",
+        "fuel"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "EASA Fuel Ops"
+    },
+    {
+      "id": "s92-al-030",
+      "question": "At what stage must alternate be part of plan?",
+      "options": [
+        "During descent",
+        "At final approach fix",
+        "Before takeoff",
+        "After passing destination"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Alternate must be included before takeoff.",
+      "section": "planning",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "EASA IFR",
+      "references": [
+        "EASA IFR"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "alternate",
+        "planning"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "EASA IFR"
+    },
+    {
+      "id": "s92-al-031",
+      "question": "If approach is cancelled due to weather, what is required?",
+      "options": [
+        "Proceed VFR",
+        "Divert to alternate",
+        "Continue visually",
+        "Hover"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "If approach cannot be made, divert to alternate.",
+      "section": "alternate",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "EASA IFR",
+      "references": [
+        "EASA IFR"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "alternate",
+        "IFR"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "EASA IFR"
+    },
+    {
+      "id": "s92-al-032",
+      "question": "What is the relation between fuel planning and aerodrome selection?",
+      "options": [
+        "Independent",
+        "Must interact to ensure safety",
+        "Aerodrome overrides fuel",
+        "Fuel ignores alternates"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Fuel planning and aerodrome selection must interact to ensure safety.",
+      "section": "fuel_planning",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "EASA Ops",
+      "references": [
+        "EASA Ops"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "fuel",
+        "alternate"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "EASA Ops"
+    },
+    {
+      "id": "s92-al-033",
+      "question": "Which fuel scheme gives most flexibility?",
+      "options": [
+        "Basic scheme",
+        "Basic with variations",
+        "Individual scheme",
+        "No scheme"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Individual scheme provides most flexibility when approved.",
+      "section": "fuel_rules",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "EASA Ops",
+      "references": [
+        "EASA Ops"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "fuel",
+        "scheme"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "EASA Ops"
+    },
+    {
+      "id": "s92-al-034",
+      "question": "When you file IFR alternate, must it have instrument approach?",
+      "options": [
+        "Yes",
+        "No",
+        "Only for jets",
+        "Only for fixed-wing"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Alternate must have an instrument approach available.",
+      "section": "alternate",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "EASA IFR",
+      "references": [
+        "EASA IFR"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "IFR",
+        "alternate"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "EASA IFR"
+    },
+    {
+      "id": "s92-al-035",
+      "question": "Under performance-based fuel rules, what must operator show?",
+      "options": [
+        "Random fuel load",
+        "Equivalent safety level",
+        "Lowest cost",
+        "No oversight"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Performance-based schemes must demonstrate equivalent safety level.",
+      "section": "fuel_rules",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "EASA Ops",
+      "references": [
+        "EASA Ops"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "performance",
+        "fuel"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "EASA Ops"
+    },
+    {
+      "id": "s92-al-036",
+      "question": "For helicopter alternate helipad, what factor is critical?",
+      "options": [
+        "Availability of fuel",
+        "Terrain",
+        "Approach minimums",
+        "Proximity"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Approach minimums determine suitability of alternate helipad.",
+      "section": "alternate",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "EASA IFR",
+      "references": [
+        "EASA IFR"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "helipad",
+        "alternate"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "EASA IFR"
+    },
+    {
+      "id": "s92-al-037",
+      "question": "IFR: what is minimum usable fuel at destination?",
+      "options": [
+        "Enough to reach alternate",
+        "Enough to keep final reserve intact",
+        "More than reserve",
+        "Exactly reserve"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "You must have enough fuel to keep final reserve intact at destination.",
+      "section": "fuel_management",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "EASA Fuel Ops",
+      "references": [
+        "EASA Fuel Ops"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "fuel",
+        "reserve"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "EASA Fuel Ops"
+    },
+    {
+      "id": "s92-al-038",
+      "question": "What is in-flight fuel management?",
+      "options": [
+        "Discard fuel",
+        "Monitor and adjust fuel use, diversion if needed",
+        "Pre-flight only",
+        "Extra pump"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "In-flight fuel management means monitoring and adjusting fuel and diversion decisions.",
+      "section": "fuel_management",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "EASA Fuel Ops",
+      "references": [
+        "EASA Fuel Ops"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "fuel",
+        "in-flight"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "EASA Fuel Ops"
+    },
+    {
+      "id": "s92-al-039",
+      "question": "What chart must be available for alternate planning?",
+      "options": [
+        "VFR map",
+        "Alternate spotting chart",
+        "Instrument approach charts",
+        "Terrain map"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Instrument approach charts are required for alternate planning.",
+      "section": "planning",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "EASA IFR",
+      "references": [
+        "EASA IFR"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "alternate",
+        "charts"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "EASA IFR"
+    },
+    {
+      "id": "s92-al-040",
+      "question": "If extra holding consumes fuel, which reserves are impacted?",
+      "options": [
+        "Taxi fuel",
+        "Contingency and reserve fuel",
+        "Alternate fuel only",
+        "None"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Extra holding consumes contingency and possibly reserve fuel.",
+      "section": "fuel_management",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "EASA Fuel Ops",
+      "references": [
+        "EASA Fuel Ops"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "fuel",
+        "holding"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "EASA Fuel Ops"
+    },
+    {
+      "id": "s92-al-041",
+      "question": "What is the minimum obstacle clearance in IFR en-route airways below 6000 ft?",
+      "options": [
+        "500 ft",
+        "1000 ft",
+        "1500 ft",
+        "2000 ft"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "En-route IFR clearance below 6000 ft ensures 1000 ft obstacle clearance.",
+      "section": "ifr_altitudes",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "EASA SERA",
+      "references": [
+        "EASA SERA"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "IFR",
+        "altitude"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "EASA SERA"
+    },
+    {
+      "id": "s92-al-042",
+      "question": "What vertical separation is required between IFR flights below FL290?",
+      "options": [
+        "500 ft",
+        "1000 ft",
+        "2000 ft",
+        "2500 ft"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Standard vertical separation below FL290 is 1000 ft.",
+      "section": "ifr_separation",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "EASA SERA",
+      "references": [
+        "EASA SERA"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "IFR",
+        "separation"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "EASA SERA"
+    },
+    {
+      "id": "s92-al-043",
+      "question": "Above FL290 in RVSM airspace, what vertical separation is applied?",
+      "options": [
+        "500 ft",
+        "1000 ft",
+        "2000 ft",
+        "3000 ft"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "RVSM reduces vertical separation above FL290 to 1000 ft.",
+      "section": "ifr_separation",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "EASA SERA",
+      "references": [
+        "EASA SERA"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "IFR",
+        "RVSM"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "EASA SERA"
+    },
+    {
+      "id": "s92-al-044",
+      "question": "What is the definition of transition altitude?",
+      "options": [
+        "The altitude at which standard pressure is set when climbing",
+        "The level at which transition to local QNH occurs",
+        "The lowest usable flight level",
+        "The MSA around an aerodrome"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Transition altitude = altitude where pilots change to standard setting climbing.",
+      "section": "ifr_altitudes",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "EASA SERA",
+      "references": [
+        "EASA SERA"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "altitude",
+        "transition"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "EASA SERA"
+    },
+    {
+      "id": "s92-al-045",
+      "question": "What is the definition of transition level?",
+      "options": [
+        "The lowest usable flight level above transition altitude",
+        "The altitude at which QNH is set",
+        "The MSA around destination",
+        "The FL assigned at destination"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Transition level = lowest usable FL above transition altitude.",
+      "section": "ifr_altitudes",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "EASA SERA",
+      "references": [
+        "EASA SERA"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "altitude",
+        "transition"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "EASA SERA"
+    },
+    {
+      "id": "s92-al-046",
+      "question": "What is the minimum sector altitude (MSA) around a radio aid?",
+      "options": [
+        "500 ft obstacle clearance",
+        "1000 ft obstacle clearance within 25 nm",
+        "1500 ft obstacle clearance within 25 nm",
+        "2000 ft anywhere in sector"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "MSA ensures 1000 ft obstacle clearance within 25 nm of aid.",
+      "section": "ifr_altitudes",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "EASA Ops",
+      "references": [
+        "EASA Ops"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "MSA",
+        "IFR"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "EASA Ops"
+    },
+    {
+      "id": "s92-al-047",
+      "question": "When is a takeoff alternate required?",
+      "options": [
+        "Always",
+        "If weather below landing minima at departure aerodrome",
+        "If destination is more than 1 hour away",
+        "Only at night"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Takeoff alternate required when weather at departure below landing minima.",
+      "section": "takeoff_minima",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "EASA CAT",
+      "references": [
+        "EASA CAT"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "takeoff",
+        "alternate"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "EASA CAT"
+    },
+    {
+      "id": "s92-al-048",
+      "question": "Maximum distance for takeoff alternate for helicopters?",
+      "options": [
+        "30 minutes flight time",
+        "1 hour flight time",
+        "45 minutes flight time",
+        "100 nm"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Helicopters: takeoff alternate must be within 30 minutes flight time.",
+      "section": "takeoff_minima",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "EASA CAT",
+      "references": [
+        "EASA CAT"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "takeoff",
+        "alternate"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "EASA CAT"
+    },
+    {
+      "id": "s92-al-049",
+      "question": "When must an instrument approach be discontinued?",
+      "options": [
+        "When DA/MDA reached without required visual reference",
+        "If ATC instructs",
+        "At any time pilot decides",
+        "When fuel is low"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "IFR approach must not continue below DA/MDA without visual reference.",
+      "section": "approach_minima",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "EASA Approach Rules",
+      "references": [
+        "EASA Approach Rules"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "approach",
+        "minima"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "EASA Approach Rules"
+    },
+    {
+      "id": "s92-al-050",
+      "question": "In IFR, when is circling approach allowed?",
+      "options": [
+        "Always",
+        "Only when published circling minima are met",
+        "Only in daylight",
+        "Never for helicopters"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Circling approach allowed if published circling minima met.",
+      "section": "approach_minima",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "EASA Approach Rules",
+      "references": [
+        "EASA Approach Rules"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "circling",
+        "approach"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "EASA Approach Rules"
+    },
+    {
+      "id": "s92-al-051",
+      "question": "What is the approach ban rule?",
+      "options": [
+        "No approach may be commenced if RVR below minima",
+        "No takeoff allowed below CAT I minima",
+        "Missed approach must always be executed",
+        "ATC may refuse IFR clearance"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Approach ban prohibits commencing approach when RVR below minima.",
+      "section": "approach_minima",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "EASA CAT",
+      "references": [
+        "EASA CAT"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "approach",
+        "RVR"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "EASA CAT"
+    },
+    {
+      "id": "s92-al-052",
+      "question": "What is the PIC responsibility during IFR flight?",
+      "options": [
+        "PIC is responsible for the safety of flight and compliance with rules",
+        "ATC assumes safety responsibility",
+        "Operator assumes full responsibility",
+        "Crew collectively shares authority"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "PIC retains ultimate authority and responsibility.",
+      "section": "responsibility",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "EASA Air Ops",
+      "references": [
+        "EASA Air Ops"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "PIC",
+        "responsibility"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "EASA Air Ops"
+    },
+    {
+      "id": "s92-al-053",
+      "question": "What does squawk 7600 mean?",
+      "options": [
+        "General emergency",
+        "Radio communication failure",
+        "Hijacking",
+        "Unlawful interference"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "7600 = communication failure.",
+      "section": "ATC_codes",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "ICAO Annex 10",
+      "references": [
+        "ICAO Annex 10"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "transponder",
+        "7600"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "ICAO Annex 10"
+    },
+    {
+      "id": "s92-al-054",
+      "question": "What does squawk 7700 mean?",
+      "options": [
+        "Radio failure",
+        "Hijacking",
+        "General emergency",
+        "Lost position"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "7700 = general emergency code.",
+      "section": "ATC_codes",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "ICAO Annex 10",
+      "references": [
+        "ICAO Annex 10"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "transponder",
+        "7700"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "ICAO Annex 10"
+    },
+    {
+      "id": "s92-al-055",
+      "question": "What does squawk 7500 mean?",
+      "options": [
+        "General emergency",
+        "Radio failure",
+        "Hijacking",
+        "Minimum fuel"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "7500 = unlawful interference / hijacking.",
+      "section": "ATC_codes",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "ICAO Annex 10",
+      "references": [
+        "ICAO Annex 10"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "transponder",
+        "7500"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "ICAO Annex 10"
+    },
+    {
+      "id": "s92-al-056",
+      "question": "What is the required action in IFR lost communications in controlled airspace?",
+      "options": [
+        "Land at nearest airfield",
+        "Maintain last assigned level and route according to flight plan",
+        "Climb immediately to highest available FL",
+        "Descend to MSA"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Lost comms = maintain last assigned, then continue according to plan.",
+      "section": "lost_comms",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "ICAO Annex 2",
+      "references": [
+        "ICAO Annex 2"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "lost comms",
+        "IFR"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "ICAO Annex 2"
+    },
+    {
+      "id": "s92-al-057",
+      "question": "In IFR, when must position reports be made?",
+      "options": [
+        "Only on request",
+        "At compulsory reporting points unless exempted",
+        "Every 10 minutes",
+        "Every 50 nm"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "IFR requires reports at compulsory points unless radar identified.",
+      "section": "IFR_reporting",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "EASA SERA",
+      "references": [
+        "EASA SERA"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "IFR",
+        "reporting"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "EASA SERA"
+    },
+    {
+      "id": "s92-al-058",
+      "question": "What are VMC minima in Class A airspace?",
+      "options": [
+        "1500 m visibility",
+        "Not applicable — only IFR permitted",
+        "5 km visibility",
+        "8 km visibility"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Class A allows only IFR, no VMC minima apply.",
+      "section": "airspace",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "EASA SERA",
+      "references": [
+        "EASA SERA"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "Class A",
+        "VMC"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "EASA SERA"
+    },
+    {
+      "id": "s92-al-059",
+      "question": "What are cruising levels based on magnetic track under semi-circular rule?",
+      "options": [
+        "Odd/even flight levels based on heading",
+        "Chosen freely by ATC",
+        "Only even levels for IFR",
+        "Only odd levels for VFR"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Semi-circular rule assigns odd/even levels by track.",
+      "section": "cruising_levels",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "ICAO Annex 2",
+      "references": [
+        "ICAO Annex 2"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "IFR",
+        "levels"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "ICAO Annex 2"
+    },
+    {
+      "id": "s92-al-060",
+      "question": "What is the required equipment for IFR helicopter flights?",
+      "options": [
+        "Altimeter, compass only",
+        "Instruments, navigation aids and redundancy as required",
+        "VHF radio only",
+        "None if short flight"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "IFR requires full set of instruments, radios, nav aids and redundancy.",
+      "section": "equipment",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "EASA Part-CAT",
+      "references": [
+        "EASA Part-CAT"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "equipment",
+        "IFR"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "EASA Part-CAT"
+    },
+    {
+      "id": "s92-al-061",
+      "question": "What is the maximum RVR requirement for helicopter takeoff in CAT A operations?",
+      "options": [
+        "200 m",
+        "400 m",
+        "600 m",
+        "800 m"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Helicopters may take off with RVR as low as 400 m if approved.",
+      "section": "takeoff_minima",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "EASA CAT.OP.MPA",
+      "references": [
+        "EASA CAT.OP.MPA"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "takeoff",
+        "RVR"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "EASA CAT.OP.MPA"
+    },
+    {
+      "id": "s92-al-062",
+      "question": "When is a takeoff not permitted under EASA rules?",
+      "options": [
+        "If visibility below VFR minima",
+        "If RVR below applicable takeoff minima",
+        "If alternate is more than 30 min away",
+        "If flight exceeds 1 hour"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Takeoff must not be commenced below required RVR minima.",
+      "section": "takeoff_minima",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "EASA CAT.OP.MPA",
+      "references": [
+        "EASA CAT.OP.MPA"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "takeoff",
+        "RVR"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "EASA CAT.OP.MPA"
+    },
+    {
+      "id": "s92-al-063",
+      "question": "When is an isolated aerodrome planning case applicable?",
+      "options": [
+        "When no alternate is available within required range",
+        "When destination has 3 runways",
+        "Only for VFR flights",
+        "When fuel is unlimited"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Isolated aerodrome requires special fuel planning when no alternate is available.",
+      "section": "fuel_planning",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "EASA Fuel Rules",
+      "references": [
+        "EASA Fuel Rules"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "isolated",
+        "aerodrome"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "EASA Fuel Rules"
+    },
+    {
+      "id": "s92-al-064",
+      "question": "For an isolated aerodrome, what additional fuel must be carried?",
+      "options": [
+        "15 minutes",
+        "30 minutes",
+        "2 hours holding at destination",
+        "45 minutes"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Isolated aerodrome planning requires 2 hours holding fuel.",
+      "section": "fuel_planning",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "EASA Fuel Rules",
+      "references": [
+        "EASA Fuel Rules"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "isolated",
+        "fuel"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "EASA Fuel Rules"
+    },
+    {
+      "id": "s92-al-065",
+      "question": "What is the function of the MEL (Minimum Equipment List)?",
+      "options": [
+        "To determine maximum payload",
+        "To allow dispatch with certain inoperative equipment",
+        "To list all maintenance items",
+        "To provide spare parts inventory"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "MEL allows flight with specified equipment unserviceable under conditions.",
+      "section": "MEL",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "EASA Part-MEL",
+      "references": [
+        "EASA Part-MEL"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "MEL",
+        "dispatch"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "EASA Part-MEL"
+    },
+    {
+      "id": "s92-al-066",
+      "question": "If equipment required for IFR is unserviceable and not in MEL, what is the rule?",
+      "options": [
+        "Flight may continue if pilot agrees",
+        "Flight may only be conducted VFR",
+        "Flight is not permitted",
+        "ATC may grant permission"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "If not in MEL, IFR flight cannot be conducted.",
+      "section": "MEL",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "EASA Part-MEL",
+      "references": [
+        "EASA Part-MEL"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "MEL",
+        "IFR"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "EASA Part-MEL"
+    },
+    {
+      "id": "s92-al-067",
+      "question": "What is the minimum number of altimeters required for IFR flight?",
+      "options": [
+        "One",
+        "Two",
+        "Three",
+        "Four"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "IFR flights require two independent pressure altimeters.",
+      "section": "equipment",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "EASA Part-CAT",
+      "references": [
+        "EASA Part-CAT"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "equipment",
+        "altimeter"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "EASA Part-CAT"
+    },
+    {
+      "id": "s92-al-068",
+      "question": "Which equipment is required for IFR en-route navigation?",
+      "options": [
+        "Only VHF radio",
+        "Instruments to navigate in controlled airspace as required",
+        "ADF only",
+        "GPS only"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "IFR requires navigation equipment adequate for intended route.",
+      "section": "equipment",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "EASA Part-CAT",
+      "references": [
+        "EASA Part-CAT"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "equipment",
+        "navigation"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "EASA Part-CAT"
+    },
+    {
+      "id": "s92-al-069",
+      "question": "What is the standard ATC phrase when declaring fuel emergency?",
+      "options": [
+        "PAN PAN, FUEL",
+        "MAYDAY MAYDAY MAYDAY, FUEL",
+        "FUEL EMERGENCY",
+        "MINIMUM FUEL"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Fuel emergency is declared with MAYDAY + 'FUEL'.",
+      "section": "ATC_phraseology",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "ICAO Doc 4444",
+      "references": [
+        "ICAO Doc 4444"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "fuel",
+        "ATC"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "ICAO Doc 4444"
+    },
+    {
+      "id": "s92-al-070",
+      "question": "What is the meaning of ‘PAN PAN’?",
+      "options": [
+        "Urgency, not immediate danger",
+        "General emergency",
+        "Hijacking",
+        "Fuel emergency"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "PAN PAN is urgency signal, less than distress.",
+      "section": "ATC_phraseology",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "ICAO Doc 4444",
+      "references": [
+        "ICAO Doc 4444"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "ATC",
+        "urgency"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "ICAO Doc 4444"
+    },
+    {
+      "id": "s92-al-071",
+      "question": "What is the meaning of ‘MAYDAY’?",
+      "options": [
+        "Aircraft is late",
+        "Immediate distress and grave danger",
+        "Minimum fuel",
+        "Lost communications"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "MAYDAY is distress call for immediate danger.",
+      "section": "ATC_phraseology",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "ICAO Doc 4444",
+      "references": [
+        "ICAO Doc 4444"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "ATC",
+        "distress"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "ICAO Doc 4444"
+    },
+    {
+      "id": "s92-al-072",
+      "question": "What is the PIC authority regarding flight safety?",
+      "options": [
+        "PIC may override any rule if required for safety",
+        "ATC has ultimate authority",
+        "Operator has full authority",
+        "Crew votes collectively"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "PIC may depart from rules if required for safety.",
+      "section": "responsibility",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "EASA Air Ops",
+      "references": [
+        "EASA Air Ops"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "PIC",
+        "authority"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "EASA Air Ops"
+    },
+    {
+      "id": "s92-al-073",
+      "question": "Who must ensure that weather reports and forecasts are obtained before IFR flight?",
+      "options": [
+        "ATC",
+        "The operator only",
+        "The PIC",
+        "The meteorological office"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "PIC is responsible for ensuring weather information is obtained.",
+      "section": "planning",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "EASA Air Ops",
+      "references": [
+        "EASA Air Ops"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "planning",
+        "weather"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "EASA Air Ops"
+    },
+    {
+      "id": "s92-al-074",
+      "question": "What must preflight preparation include besides fuel and weather?",
+      "options": [
+        "Only ATIS",
+        "NOTAMs and alternate planning",
+        "Cabin crew duty",
+        "Passenger lists"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Preflight includes NOTAMs and alternate selection.",
+      "section": "planning",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "EASA Air Ops",
+      "references": [
+        "EASA Air Ops"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "NOTAMs",
+        "planning"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "EASA Air Ops"
+    },
+    {
+      "id": "s92-al-075",
+      "question": "What does ATC expect when pilot reports ‘MINIMUM FUEL’?",
+      "options": [
+        "Priority handling must be given",
+        "No immediate emergency, but no extra fuel available",
+        "Aircraft must land immediately",
+        "Aircraft will divert"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Minimum fuel = advisory, not emergency.",
+      "section": "fuel_management",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "ICAO Doc 4444",
+      "references": [
+        "ICAO Doc 4444"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "fuel",
+        "ATC"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "ICAO Doc 4444"
+    },
+    {
+      "id": "s92-al-076",
+      "question": "In IFR, what clearance must be received before entering controlled airspace?",
+      "options": [
+        "None",
+        "ATC IFR clearance",
+        "Radio contact only",
+        "Clearance not needed below 5000 ft"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "IFR flight cannot enter controlled airspace without ATC clearance.",
+      "section": "ATC_clearance",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "EASA SERA",
+      "references": [
+        "EASA SERA"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "clearance",
+        "IFR"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "EASA SERA"
+    },
+    {
+      "id": "s92-al-077",
+      "question": "What is the meaning of “expect approach clearance at …” from ATC?",
+      "options": [
+        "Approach is approved immediately",
+        "Expect clearance at specified time",
+        "Visual approach must be flown",
+        "Clearance is denied"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "ATC may issue expect time for approach clearance.",
+      "section": "ATC_clearance",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "ICAO Doc 4444",
+      "references": [
+        "ICAO Doc 4444"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "ATC",
+        "clearance"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "ICAO Doc 4444"
+    },
+    {
+      "id": "s92-al-078",
+      "question": "If ATC clearance cannot be followed for safety, what must PIC do?",
+      "options": [
+        "Ignore clearance",
+        "Inform ATC immediately",
+        "Continue anyway",
+        "Cancel IFR flight plan"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "PIC must advise ATC if clearance cannot be followed.",
+      "section": "responsibility",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "ICAO Annex 2",
+      "references": [
+        "ICAO Annex 2"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "ATC",
+        "PIC"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "ICAO Annex 2"
+    },
+    {
+      "id": "s92-al-079",
+      "question": "What does the semi-circular rule apply to?",
+      "options": [
+        "VFR only",
+        "IFR cruising levels by magnetic track",
+        "Fuel planning",
+        "Alternate aerodromes"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Semi-circular rule applies to IFR levels by track.",
+      "section": "cruising_levels",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "ICAO Annex 2",
+      "references": [
+        "ICAO Annex 2"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "IFR",
+        "levels"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "ICAO Annex 2"
+    },
+    {
+      "id": "s92-al-080",
+      "question": "What is the rule for VFR-on-top clearance in IFR flight?",
+      "options": [
+        "Prohibited in all EASA states",
+        "Permitted if ATC authorizes",
+        "Always allowed above 5000 ft",
+        "Only helicopters may use it"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "VFR-on-top is allowed with ATC authorization under IFR flight plan.",
+      "section": "ATC_clearance",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "ICAO Annex 2",
+      "references": [
+        "ICAO Annex 2"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "IFR",
+        "VFR-on-top"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "ICAO Annex 2"
+    },
+    {
+      "id": "s92-al-081",
+      "question": "What is the obstacle clearance margin for an IFR missed approach?",
+      "options": [
+        "200 ft",
+        "250 ft",
+        "300 ft",
+        "30 m (98 ft)"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Missed approach design provides 300 ft obstacle clearance.",
+      "section": "missed_approach",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "ICAO PANS-OPS",
+      "references": [
+        "ICAO PANS-OPS"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "missed approach",
+        "obstacle clearance"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "ICAO PANS-OPS"
+    },
+    {
+      "id": "s92-al-082",
+      "question": "What is the minimum climb gradient required for a missed approach?",
+      "options": [
+        "2.0 %",
+        "2.5 %",
+        "3.3 %",
+        "5 %"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Missed approach gradient must be at least 2.5 %, but 3.3 % is used operationally for design minima.",
+      "section": "missed_approach",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "ICAO PANS-OPS",
+      "references": [
+        "ICAO PANS-OPS"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "missed approach",
+        "gradient"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "ICAO PANS-OPS"
+    },
+    {
+      "id": "s92-al-083",
+      "question": "When must a missed approach be initiated?",
+      "options": [
+        "At DA/MDA without required visual reference",
+        "At MAP regardless of visibility",
+        "When ATC instructs only",
+        "When fuel is low"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Missed approach is mandatory at DA/MDA if no visual reference is established.",
+      "section": "missed_approach",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "ICAO PANS-OPS",
+      "references": [
+        "ICAO PANS-OPS"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "missed approach",
+        "DA",
+        "MDA"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "ICAO PANS-OPS"
+    },
+    {
+      "id": "s92-al-084",
+      "question": "What is the circling area obstacle clearance for Category A helicopters?",
+      "options": [
+        "118 m (387 ft)",
+        "75 m (246 ft)",
+        "150 m (492 ft)",
+        "300 m (984 ft)"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Circling minima ensure 118 m clearance for Cat A helicopters.",
+      "section": "circling",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "ICAO PANS-OPS",
+      "references": [
+        "ICAO PANS-OPS"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "circling",
+        "obstacle clearance"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "ICAO PANS-OPS"
+    },
+    {
+      "id": "s92-al-085",
+      "question": "What is the minimum obstacle clearance in an IFR holding pattern?",
+      "options": [
+        "200 ft",
+        "300 ft",
+        "1000 ft",
+        "1500 ft"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Holding provides 1000 ft obstacle clearance within protected area.",
+      "section": "holding",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "ICAO PANS-OPS",
+      "references": [
+        "ICAO PANS-OPS"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "holding",
+        "IFR"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "ICAO PANS-OPS"
+    },
+    {
+      "id": "s92-al-086",
+      "question": "What is the standard bank angle in a holding pattern?",
+      "options": [
+        "20°",
+        "25°",
+        "30°",
+        "Rate 2 only"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Standard holding pattern bank angle is 25° or rate 1, whichever is less.",
+      "section": "holding",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "ICAO PANS-OPS",
+      "references": [
+        "ICAO PANS-OPS"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "holding",
+        "bank angle"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "ICAO PANS-OPS"
+    },
+    {
+      "id": "s92-al-087",
+      "question": "What is the maximum holding speed for Category A helicopters below 14,000 ft?",
+      "options": [
+        "90 kt",
+        "100 kt",
+        "120 kt",
+        "140 kt"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "ICAO holding speed limit for Category A helicopters is 100 kt.",
+      "section": "holding",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "ICAO PANS-OPS",
+      "references": [
+        "ICAO PANS-OPS"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "holding",
+        "speed"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "ICAO PANS-OPS"
+    },
+    {
+      "id": "s92-al-088",
+      "question": "When may a SID (Standard Instrument Departure) be disregarded?",
+      "options": [
+        "If pilot prefers direct route",
+        "Only when cleared otherwise by ATC",
+        "If visibility is high",
+        "If fuel is critical"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "SID must be flown unless ATC assigns another clearance.",
+      "section": "departure",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "EASA IFR",
+      "references": [
+        "EASA IFR"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "SID",
+        "departure"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "EASA IFR"
+    },
+    {
+      "id": "s92-al-089",
+      "question": "When must a STAR (Standard Arrival Route) be followed?",
+      "options": [
+        "Always",
+        "Only if filed in flight plan",
+        "Only if assigned by ATC",
+        "Only in IMC"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "STARs are only flown when assigned by ATC.",
+      "section": "arrival",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "EASA IFR",
+      "references": [
+        "EASA IFR"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "STAR",
+        "arrival"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "EASA IFR"
+    },
+    {
+      "id": "s92-al-090",
+      "question": "What is the purpose of a transition altitude?",
+      "options": [
+        "To separate IFR from VFR",
+        "To define the altitude where pilots set standard pressure",
+        "To define lowest usable FL",
+        "To indicate MSA"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Transition altitude is where pilots change to 1013 hPa climbing.",
+      "section": "altimetry",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "ICAO Annex 2",
+      "references": [
+        "ICAO Annex 2"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "transition altitude",
+        "altimetry"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "ICAO Annex 2"
+    },
+    {
+      "id": "s92-al-091",
+      "question": "What is the purpose of transition level?",
+      "options": [
+        "To ensure separation between aircraft on QNH and standard pressure",
+        "To set lowest usable altitude",
+        "To define MSA",
+        "To indicate lowest usable altitude for circling"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Transition level ensures safe buffer between QNH and standard setting.",
+      "section": "altimetry",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "ICAO Annex 2",
+      "references": [
+        "ICAO Annex 2"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "transition level",
+        "altimetry"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "ICAO Annex 2"
+    },
+    {
+      "id": "s92-al-092",
+      "question": "When should the standard pressure setting 1013 hPa be used?",
+      "options": [
+        "At or above transition altitude",
+        "Below transition altitude",
+        "Always in IFR",
+        "Only above FL100"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Standard setting applied at or above transition altitude.",
+      "section": "altimetry",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "ICAO Annex 2",
+      "references": [
+        "ICAO Annex 2"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "altimetry",
+        "pressure"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "ICAO Annex 2"
+    },
+    {
+      "id": "s92-al-093",
+      "question": "What should be set on altimeter when descending below transition level?",
+      "options": [
+        "1013 hPa",
+        "Local QNH",
+        "Local QFE",
+        "Standard FL setting"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Below transition level, QNH must be set.",
+      "section": "altimetry",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "ICAO Annex 2",
+      "references": [
+        "ICAO Annex 2"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "altimetry",
+        "QNH"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "ICAO Annex 2"
+    },
+    {
+      "id": "s92-al-094",
+      "question": "What is the minimum time outbound in a holding pattern at or below 14,000 ft?",
+      "options": [
+        "30 seconds",
+        "1 minute",
+        "1.5 minutes",
+        "2 minutes"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Standard outbound leg below 14,000 ft is 1 minute.",
+      "section": "holding",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "ICAO PANS-OPS",
+      "references": [
+        "ICAO PANS-OPS"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "holding",
+        "time"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "ICAO PANS-OPS"
+    },
+    {
+      "id": "s92-al-095",
+      "question": "What is the standard inbound leg time in holding at or below 14,000 ft?",
+      "options": [
+        "30 seconds",
+        "1 minute",
+        "2 minutes",
+        "90 seconds"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Inbound leg is adjusted to 1 minute below 14,000 ft.",
+      "section": "holding",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "ICAO PANS-OPS",
+      "references": [
+        "ICAO PANS-OPS"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "holding",
+        "time"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "ICAO PANS-OPS"
+    },
+    {
+      "id": "s92-al-096",
+      "question": "What is the meaning of ATC clearance limit?",
+      "options": [
+        "Last point pilot is cleared to proceed to",
+        "Maximum fuel available",
+        "Final approach fix always",
+        "Alternate aerodrome"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Clearance limit is the last point aircraft may proceed under clearance.",
+      "section": "ATC_clearance",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "ICAO Doc 4444",
+      "references": [
+        "ICAO Doc 4444"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "ATC",
+        "clearance"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "ICAO Doc 4444"
+    },
+    {
+      "id": "s92-al-097",
+      "question": "If expected approach clearance time is passed with no clearance, what must pilot do?",
+      "options": [
+        "Continue hold until fuel low",
+        "Execute approach",
+        "Commence approach at expected time",
+        "Divert immediately"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "If clearance not received, pilot must commence approach at expected time.",
+      "section": "ATC_clearance",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "ICAO Doc 4444",
+      "references": [
+        "ICAO Doc 4444"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "ATC",
+        "clearance"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "ICAO Doc 4444"
+    },
+    {
+      "id": "s92-al-098",
+      "question": "What is the ICAO definition of an alternate aerodrome?",
+      "options": [
+        "Any nearby airfield",
+        "Aerodrome selected for diversion if landing at destination is not possible",
+        "Aerodrome within 50 nm",
+        "Aerodrome with two runways"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Alternate aerodrome is defined as one where landing may occur if destination is not possible.",
+      "section": "alternate",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "ICAO Annex 14",
+      "references": [
+        "ICAO Annex 14"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "alternate",
+        "definition"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "ICAO Annex 14"
+    },
+    {
+      "id": "s92-al-099",
+      "question": "What are the VMC minima for helicopters in Class G below 3000 ft?",
+      "options": [
+        "Clear of cloud, 1500 m flight visibility",
+        "Clear of cloud, 5 km visibility",
+        "Clear of cloud, 1 km visibility",
+        "No minima apply"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "In Class G below 3000 ft, helicopters may operate with 1500 m vis clear of cloud.",
+      "section": "airspace",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "EASA SERA",
+      "references": [
+        "EASA SERA"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "VMC",
+        "Class G"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "EASA SERA"
+    },
+    {
+      "id": "s92-al-100",
+      "question": "What is the maximum indicated airspeed below 10,000 ft in controlled airspace unless otherwise authorized?",
+      "options": [
+        "200 kt",
+        "220 kt",
+        "250 kt",
+        "280 kt"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "ICAO/EASA maximum speed below 10,000 ft is 250 kt unless authorized.",
+      "section": "airspace",
+      "modelIds": [
+        "S92"
+      ],
+      "manual": "ICAO Annex 2",
+      "references": [
+        "ICAO Annex 2"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "speed",
+        "airspace"
+      ],
+      "sectionId": "air_law",
+      "type": "single",
+      "source": "ICAO Annex 2"
+    }
+  ]
+}

@@ -30,6 +30,12 @@
       "title": "Systems Description",
       "file": "sections/systems_description.json",
       "count": 194
+    },
+    {
+      "id": "air_law",
+      "title": "Air Law (EASA)",
+      "file": "sections/air_law.json",
+      "count": 100
     }
   ]
 }

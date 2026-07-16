@@ -548,6 +548,330 @@
       "tags": ["systems-description", "afcs"],
       "source": "H145 D2 Flight Manual",
       "modelIds": ["H145_D2"]
+    },
+    {
+      "id": "h145d2-sd-034",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "Per Sect. 7.3.6.13 (ALT MODE), what is the minimum ground height required to engage ALT mode?",
+      "options": [
+        "30 ft",
+        "50 ft",
+        "100 ft",
+        "0 ft (no minimum)"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 7.3.6.13 ALT MODE Conditions & Limitations: the minimum altitude (ground height) to engage ALT mode is 30 ft.",
+      "references": ["FLM BK117 D-2 Sect. 7.3.6.13"],
+      "tags": ["systems-description", "afcs"],
+      "source": "H145 D2 Flight Manual",
+      "modelIds": ["H145_D2"]
+    },
+    {
+      "id": "h145d2-sd-035",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "Per Sect. 7.3.6.13 (ALT MODE), what happens automatically when ground proximity is detected during a descent on any vertical upper mode (except CRHT)?",
+      "options": [
+        "The AFCS automatically reverts to ALT mode",
+        "The AFCS automatically disengages completely",
+        "The AFCS automatically engages CRHT mode",
+        "Nothing; the pilot must intervene manually"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 7.3.6.13 ALT MODE, Automatic engagement: the AFCS automatically reverts from any vertical upper mode (except CRHT) to ALT mode when ground proximity is detected in descent.",
+      "references": ["FLM BK117 D-2 Sect. 7.3.6.13"],
+      "tags": ["systems-description", "afcs"],
+      "source": "H145 D2 Flight Manual",
+      "modelIds": ["H145_D2"]
+    },
+    {
+      "id": "h145d2-sd-036",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "Per Sect. 7.3.6.13 (IAS MODE), what happens automatically if airspeed drops below the 60 kt protection speed while a vertical mode (e.g. ALT, VS) is engaged on the pitch axis?",
+      "options": [
+        "The vertical mode is transferred to the collective axis and IAS mode is engaged on the pitch axis",
+        "The AFCS disengages the vertical mode entirely",
+        "The vertical mode remains on the pitch axis and IAS mode is inhibited",
+        "The aircraft automatically enters a hover"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 7.3.6.13 IAS MODE, Automatic engagement: if airspeed drops below the 60 kt protection speed while a vertical mode is engaged on the pitch axis, and the collective axis is available, the vertical mode transfers to the collective axis and IAS mode engages on the pitch axis.",
+      "references": ["FLM BK117 D-2 Sect. 7.3.6.13"],
+      "tags": ["systems-description", "afcs"],
+      "source": "H145 D2 Flight Manual",
+      "modelIds": ["H145_D2"]
+    },
+    {
+      "id": "h145d2-sd-037",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "Per Sect. 7.3.6.13 (VS MODE), what happens automatically as the helicopter approaches the ground with VS mode engaged?",
+      "options": [
+        "VS mode automatically changes to ALT mode to achieve a level off at 150 ft",
+        "VS mode automatically changes to CRHT mode",
+        "VS mode disengages with no automatic level-off",
+        "The vertical speed reference is automatically set to zero at 500 ft"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 7.3.6.13 VS MODE, Automatic level off: when approaching the ground, VS mode is automatically changed to ALT mode, to achieve a level off at 150 ft.",
+      "references": ["FLM BK117 D-2 Sect. 7.3.6.13"],
+      "tags": ["systems-description", "afcs"],
+      "source": "H145 D2 Flight Manual",
+      "modelIds": ["H145_D2"]
+    },
+    {
+      "id": "h145d2-sd-038",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "Per Sect. 7.3.6.13 (ALT.A MODE), if an ALT.A reference is preselected but ALT.A mode is not engaged, when does the \"ALT.A crossing\" voice message sound?",
+      "options": [
+        "Only on the first crossing of the reference; it will not sound again on subsequent crossings",
+        "Every time the aircraft crosses the reference altitude",
+        "Only after the reference has been crossed three times",
+        "It never sounds unless ALT.A mode is engaged"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 7.3.6.13 ALT.A MODE: the \"ALT.A crossing\" voice message will sound only on the first crossing of a preselected but unengaged ALT.A reference; on subsequent crossings it will not sound.",
+      "references": ["FLM BK117 D-2 Sect. 7.3.6.13"],
+      "tags": ["systems-description", "afcs"],
+      "source": "H145 D2 Flight Manual",
+      "modelIds": ["H145_D2"]
+    },
+    {
+      "id": "h145d2-sd-039",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "Per Sect. 7.3.6.13 (CRHT MODE with FLY-UP), when is the FLY-UP protection mode automatically engaged, and what does it command?",
+      "options": [
+        "When the aircraft descends below 200 ft, or 30 ft below the CRHT reference (whichever is lower); it commands maximum climb rate and sounds \"AUTOPILOT FLYUP\"",
+        "When the aircraft climbs above the CRHT reference by more than 30 ft; it commands a descent",
+        "Only when the radar altimeter signal is lost; it disengages CRHT mode entirely",
+        "When airspeed exceeds 60 kt while CRHT is engaged; it commands a speed reduction"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 7.3.6.13 CRHT MODE with FLY-UP: FLY-UP is automatically engaged when the aircraft descends below whichever is lower of 200 ft or 30 ft below the CRHT reference. It commands maximum climb rate, the AFCS strip shows FLYUP flashing, and the voice message \"AUTOPILOT FLYUP\" sounds.",
+      "references": ["FLM BK117 D-2 Sect. 7.3.6.13"],
+      "tags": ["systems-description", "afcs", "caution"],
+      "source": "H145 D2 Flight Manual",
+      "modelIds": ["H145_D2"]
+    },
+    {
+      "id": "h145d2-sd-040",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "Per Sect. 7.3.6.13 (LOC MODE) CAUTION, what can happen if the final approach course is set incorrectly before engaging LOC mode?",
+      "options": [
+        "Erratic course changes or roll oscillations may occur",
+        "The LOC mode will simply refuse to arm",
+        "The autopilot will automatically correct the course setting",
+        "GS mode will compensate for the error"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 7.3.6.13 LOC MODE CAUTION: for the autopilot to function properly, the final course must be set correctly. If the course is set incorrectly, erratic course changes or roll oscillations may occur.",
+      "references": ["FLM BK117 D-2 Sect. 7.3.6.13"],
+      "tags": ["systems-description", "afcs", "caution"],
+      "source": "H145 D2 Flight Manual",
+      "modelIds": ["H145_D2"]
+    },
+    {
+      "id": "h145d2-sd-041",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "Per Sect. 7.3.6.13, if the navigation signal is lost while a mode is armed, after how many seconds does the \"AP DISARM\" voice message sound for LOC mode versus VOR mode?",
+      "options": [
+        "10 sec for LOC, 30 sec for VOR",
+        "30 sec for LOC, 10 sec for VOR",
+        "10 sec for both LOC and VOR",
+        "30 sec for both LOC and VOR"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 7.3.6.13: for LOC mode, \"AP DISARM\" sounds 10 sec after the armed mode's signal is lost or the frequency is changed; for VOR mode, the same voice message sounds after 30 sec.",
+      "references": ["FLM BK117 D-2 Sect. 7.3.6.13"],
+      "tags": ["systems-description", "afcs"],
+      "source": "H145 D2 Flight Manual",
+      "modelIds": ["H145_D2"]
+    },
+    {
+      "id": "h145d2-sd-042",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "Per Sect. 7.3.6.13 (GS MODE), if the glide slope signal is lost while GS mode is armed and then becomes available again, what happens?",
+      "options": [
+        "GS mode automatically re-arms, as long as LOC mode is not disarmed/decoupled",
+        "GS mode stays disarmed and must be re-armed manually via the MFD",
+        "GS mode automatically engages immediately without re-arming",
+        "LOC mode is also automatically disarmed"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 7.3.6.13 GS MODE: if the GS signal is lost while armed and becomes available again, GS mode will automatically re-arm, as long as the LOC mode is not disarmed/decoupled.",
+      "references": ["FLM BK117 D-2 Sect. 7.3.6.13"],
+      "tags": ["systems-description", "afcs"],
+      "source": "H145 D2 Flight Manual",
+      "modelIds": ["H145_D2"]
+    },
+    {
+      "id": "h145d2-sd-043",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "Per Sect. 7.3.6.13 (V.APP MODE), at what height above the ground does V.APP automatically revert to ALT mode to level off, and does it depend on the Level of Service used?",
+      "options": [
+        "Yes - 65 ft above ground for LPV, 150 ft above ground for LNAV/VNAV",
+        "No - always 150 ft above ground regardless of Level of Service",
+        "No - always 65 ft above ground regardless of Level of Service",
+        "Yes - 150 ft for LPV, 65 ft for LNAV/VNAV"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 7.3.6.13 V.APP MODE, Automatic level off: V.APP automatically reverts to ALT mode to level the aircraft off at 65 ft above the ground when LPV Level of Service is used, or 150 ft above the ground if LNAV/VNAV Level of Service is used.",
+      "references": ["FLM BK117 D-2 Sect. 7.3.6.13"],
+      "tags": ["systems-description", "afcs"],
+      "source": "H145 D2 Flight Manual",
+      "modelIds": ["H145_D2"]
+    },
+    {
+      "id": "h145d2-sd-044",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "Per Sect. 7.3.6.13 (V.APP MODE), how is the airspeed reference managed prior to the FAF during a V.APP-coupled approach?",
+      "options": [
+        "It is automatically set so that the rate of descent does not exceed 1000 ft/min",
+        "It is fixed at VY regardless of descent rate",
+        "The pilot must manually adjust IAS to control descent rate",
+        "It is automatically reduced to the minimum airspeed for the aircraft configuration"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 7.3.6.13 V.APP MODE, Airspeed management: prior to the FAF, the IAS reference is automatically set so that the rate of descent during the approach does not exceed 1000 ft/min.",
+      "references": ["FLM BK117 D-2 Sect. 7.3.6.13"],
+      "tags": ["systems-description", "afcs"],
+      "source": "H145 D2 Flight Manual",
+      "modelIds": ["H145_D2"]
+    },
+    {
+      "id": "h145d2-sd-045",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "Per Sect. 7.3.6.13 (VOR MODE), what does the AFCS do while the aircraft crosses the \"cone of silence\" directly over a VOR station?",
+      "options": [
+        "It maintains the current heading, then resumes tracking once the aircraft exits the cone of silence",
+        "It automatically disarms VOR mode and reverts to ATT mode",
+        "It commands an immediate turn to intercept the outbound radial",
+        "It ignores the bearing signal variations and continues tracking the previous radial unchanged"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 7.3.6.13 VOR MODE: while crossing the cone of silence over the VOR station, the bearing signal shows fast, large-amplitude variations and becomes invalid for some time. The mode maintains the current heading, and tracking resumes when exiting the cone of silence.",
+      "references": ["FLM BK117 D-2 Sect. 7.3.6.13"],
+      "tags": ["systems-description", "afcs"],
+      "source": "H145 D2 Flight Manual",
+      "modelIds": ["H145_D2"]
+    },
+    {
+      "id": "h145d2-sd-046",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "Per Sect. 7.3.6.13 (NAV MODE), how does the maximum bank angle used for track changes evolve during a turn?",
+      "options": [
+        "Standard rate turns (max. 21\u00b0 bank) for the first 60 sec, then up to 30\u00b0 bank is allowed afterward",
+        "A constant maximum of 30\u00b0 bank throughout the entire turn",
+        "A constant maximum of 21\u00b0 bank throughout the entire turn",
+        "45\u00b0 bank for the first 60 sec, then reduced to 21\u00b0 bank"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 7.3.6.13 NAV MODE: track changes are conducted with standard rate turns (max. 21\u00b0 bank) for the first 60 sec; after 60 sec, a maximum of 30\u00b0 bank angle is allowed, depending on the FMS command.",
+      "references": ["FLM BK117 D-2 Sect. 7.3.6.13"],
+      "tags": ["systems-description", "afcs"],
+      "source": "H145 D2 Flight Manual",
+      "modelIds": ["H145_D2"]
+    },
+    {
+      "id": "h145d2-sd-047",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "Per Sect. 7.3.6.13, the GTC, HOVER, and Helicopter TAKEOFF modes all carry the same CAUTION. What does it say?",
+      "options": [
+        "These modes rely on GPS and magnetic heading, and shall not be used with poor GPS reception or magnetic heading perturbations - the DG mode with correct heading shall be used instead",
+        "These modes are inhibited below 500 ft AGL and shall not be used at low altitude",
+        "These modes require both autopilots to be engaged and shall not be used with only one AP active",
+        "These modes are for VFR use only and shall not be used in IMC"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 7.3.6.13: GTC, HOVER, and Helicopter TAKEOFF mode all carry the same CAUTION - they rely on GPS and magnetic heading. In case of poor GPS reception (e.g. in a canyon, or with an associated GTN message) they shall not be used; in case of magnetic heading perturbations (e.g. near large metallic structures, or MAG DEGR indicated) the DG mode with correct heading shall be used instead.",
+      "references": ["FLM BK117 D-2 Sect. 7.3.6.13"],
+      "tags": ["systems-description", "afcs", "caution"],
+      "source": "H145 D2 Flight Manual",
+      "modelIds": ["H145_D2"]
+    },
+    {
+      "id": "h145d2-sd-048",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "Per Sect. 7.3.6.13 (HOVER MODE), what happens automatically in the vertical axis when HOVER mode is engaged?",
+      "options": [
+        "HEIGHT mode is automatically engaged in the vertical axis",
+        "CRHT mode is automatically engaged in the vertical axis",
+        "The vertical axis is left uncontrolled; the pilot must fly the collective manually",
+        "ALT mode is automatically engaged in the vertical axis"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 7.3.6.13 HOVER MODE: with engagement of HOVER mode, the HEIGHT mode is automatically engaged in the vertical axis.",
+      "references": ["FLM BK117 D-2 Sect. 7.3.6.13"],
+      "tags": ["systems-description", "afcs"],
+      "source": "H145 D2 Flight Manual",
+      "modelIds": ["H145_D2"]
+    },
+    {
+      "id": "h145d2-sd-049",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "Per Sect. 7.3.6.13 (HELICOPTER TAKEOFF MODE), if an engine failure occurs during the climb in REARWARD TAKEOFF or VERTICAL TAKEOFF, versus during the GO AROUND phase, what happens automatically in each case?",
+      "options": [
+        "During the climb: the REJECTED submode engages automatically to bring the helicopter back to the helipad (cushioning/touchdown flown manually). During GO AROUND: the CONTINUED TAKEOFF submode engages automatically to accelerate to at least VTOSS with a 1000 ft/min climb",
+        "In both cases the AFCS disengages completely and the pilot must fly manually",
+        "During the climb: CONTINUED TAKEOFF engages. During GO AROUND: REJECTED engages",
+        "The Helicopter TAKEOFF mode has no automatic response to engine failure in either phase"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 7.3.6.13 HELICOPTER TAKEOFF MODE, Automatic engagement: if an engine failure occurs during the climb in REARWARD TAKEOFF or VERTICAL TAKEOFF, the REJECTED submode engages automatically to bring the helicopter back towards the helipad, with cushioning and final touchdown flown manually. If the failure occurs during the GO AROUND phase, the CONTINUED TAKEOFF submode engages automatically to accelerate to at least VTOSS with a 1000 ft/min rate of climb.",
+      "references": ["FLM BK117 D-2 Sect. 7.3.6.13"],
+      "tags": ["systems-description", "afcs"],
+      "source": "H145 D2 Flight Manual",
+      "modelIds": ["H145_D2"]
+    },
+    {
+      "id": "h145d2-sd-050",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "Per Sect. 7.3.6.13 (TAC MODE), under what conditions is use of the tactical (TAC) mode permitted?",
+      "options": [
+        "Only in VFR conditions with good visual references, flown manually or attentive hands-on",
+        "In IMC only, as a substitute for a coupled approach",
+        "In any conditions, since TAC mode provides full hands-off stabilization",
+        "Only during Cat A takeoff and landing procedures"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 7.3.6.13 TAC MODE, Conditions & Limitations: use of the TAC mode is permitted only in VFR conditions with good visual references, and the mode shall be flown manually or attentive hands-on.",
+      "references": ["FLM BK117 D-2 Sect. 7.3.6.13"],
+      "tags": ["systems-description", "afcs"],
+      "source": "H145 D2 Flight Manual",
+      "modelIds": ["H145_D2"]
+    },
+    {
+      "id": "h145d2-sd-051",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "Per Sect. 7.3.6.13 (GA MODE), for how long does GA mode remain active before transferring control to VS/FPA and IAS mode, and how does this differ between cruise and hover?",
+      "options": [
+        "Typically 15 sec in cruise and 30 sec from hover",
+        "Typically 30 sec in cruise and 15 sec from hover",
+        "A fixed 20 sec regardless of the flight condition at engagement",
+        "GA mode remains active indefinitely until manually disengaged"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 7.3.6.13 GA MODE, Conditions & Limitations: GA mode is active for a few seconds - typically 15 sec in cruise and 30 sec from hover - and then transfers control to the VS/FPA mode and IAS mode.",
+      "references": ["FLM BK117 D-2 Sect. 7.3.6.13"],
+      "tags": ["systems-description", "afcs"],
+      "source": "H145 D2 Flight Manual",
+      "modelIds": ["H145_D2"]
     }
   ]
 }

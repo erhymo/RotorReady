@@ -4,6 +4,17 @@ Use this as a working note if Google Play flags RotorReady for the Webviews and 
 
 ## Status log
 
+- **2026-07-20 (evening)**: Verified `rotor-ready.com` in **Google Search
+  Console** (property type: Domain, method: DNS TXT record via Vercel's DNS
+  zone for the domain — nameservers are Vercel's, so the record was added
+  under Vercel → Domains → rotor-ready.com → DNS Records → type TXT, name
+  empty/root, value `google-site-verification=...`). Confirmed: "Eierskapet
+  er bekreftet". This is a second independent, Google-native ownership proof
+  alongside `assetlinks.json` — both machine-checkable by Google, unlike the
+  self-signed PDF. Worth noting if/when next contacting Google: the same
+  Google account that verified this domain is the one used for the Play
+  Console developer account, which cross-links the two identities directly
+  within Google's own systems.
 - **2026-07-20 (later same day)**: Confirmed hands-on in Play Console: both
   **"Test og publiser" (Test and release)** and, within it, **App
   integrity / App signing key certificate**, are greyed out and

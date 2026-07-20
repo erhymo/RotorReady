@@ -4,6 +4,23 @@ Use this as a working note if Google Play flags RotorReady for the Webviews and 
 
 ## Status log
 
+- **2026-07-20 (Dean reply)**: Received a substantive reply from "Dean, Google Play
+  Developer Support" on the new support case. Unlike Jamie's replies, this
+  one is clearly not templated — it correctly summarizes the specific
+  evidence submitted (assetlinks.json + Search Console verification under
+  the same Google account as the Play Console developer profile) and
+  explains the actual mechanism: the new support case generated its own
+  appeal ticket (**0-6452000041488**), which was auto-marked as a duplicate
+  of the original **2-5376000040345**. Dean asks us to "send the documents
+  to the original appeal ticket" so the appeals team (a different team from
+  Developer Support, which cannot reverse suspensions itself) can review
+  them. Problem: there is still no self-service way to attach anything to
+  case 2-5376000040345 — "Submit an appeal" only redirects to the Policy
+  Status overview, confirmed multiple times already. Replying to Dean
+  directly pointing out this exact gap and asking him to either forward the
+  evidence internally himself or give literal step-by-step instructions for
+  attaching something to an already-decided case, since the self-service UI
+  provides no path to do so.
 - **2026-07-20 (night)**: Filed a genuinely new **support case** via Play
   Console → Help → "Få hjelp fra brukerstøtteteamet vårt" → "Opprett en
   brukerstøttehenvendelse", category **"Retningslinjer for Google Play"**.

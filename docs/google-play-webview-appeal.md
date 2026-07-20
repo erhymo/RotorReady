@@ -4,6 +4,16 @@ Use this as a working note if Google Play flags RotorReady for the Webviews and 
 
 ## Status log
 
+- **2026-07-20 (later same day)**: Confirmed hands-on in Play Console: both
+  **"Test og publiser" (Test and release)** and, within it, **App
+  integrity / App signing key certificate**, are greyed out and
+  unclickable while the app is suspended. So the Play App Signing
+  certificate fingerprint is **not retrievable right now** — Google locks
+  this section for suspended apps. Proceeding with only the upload-keystore
+  fingerprint already published in `assetlinks.json` (see entry below); will
+  add the Play App Signing fingerprint as a second array entry once/if the
+  suspension lifts and that page becomes accessible again. Not a dead end —
+  the upload-key entry is still real, verifiable, Mayday AS-controlled proof.
 - **2026-07-20**: Received a **third** reply from Jamie, word-for-word
   identical to the 2026-07-19 one (same "As explained in the previous mail"
   opener, same body). Two verbatim-identical replies to two different,

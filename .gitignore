@@ -3,6 +3,9 @@
 node_modules/
 .DS_Store
 
+# Raw podcast source audio (staging area, never committed — see public/audio/ for the processed files that ship)
+/Podcast/
+
 # Env files
 .env.local
 .env

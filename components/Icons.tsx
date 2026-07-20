@@ -8,6 +8,14 @@ export function BoltIcon(props: React.SVGProps<SVGSVGElement>) {
 	);
 }
 
+export function HeadphonesIcon(props: React.SVGProps<SVGSVGElement>) {
+	return (
+		<svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" {...props}>
+			<path d="M10 3a6 6 0 0 0-6 6v4a1 1 0 0 0 1 1h1a2 2 0 0 0 2-2v-2a2 2 0 0 0-2-2h-.9a5 5 0 0 1 9.8 0H14a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h1a1 1 0 0 0 1-1V9a6 6 0 0 0-6-6z" />
+		</svg>
+	);
+}
+
 export function BookIcon(props: React.SVGProps<SVGSVGElement>) {
 	return (
 		<svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" {...props}>

@@ -1,0 +1,11 @@
+{
+  "items": [
+    {
+      "id": "afcs-logic-and-safety-limits",
+      "title": "AFCS Logic and Safety Limits",
+      "description": "How the AW169 autopilot modes, protections and safety functions actually work, with the numbers pilots need cold.",
+      "filename": "afcs.mp3",
+      "durationSeconds": 2973
+    }
+  ]
+}

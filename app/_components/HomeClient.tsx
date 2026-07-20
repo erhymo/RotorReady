@@ -2,9 +2,11 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 
-import { BoltIcon, BookIcon, DownloadIcon, MessageIcon } from "@/components/Icons";
+import { BoltIcon, BookIcon, DownloadIcon, HeadphonesIcon, MessageIcon } from "@/components/Icons";
 import { shouldShowNorwayTools } from "@/lib/geo/norwayToolsVisibility";
 import { useActiveModelVariant } from "@/lib/models/hooks";
+
+const AUDIO_ENABLED_VARIANT_IDS = new Set(["AW169"]);
 
 function Bar(props: { href: string; title: string; description: string; tone?: "blue"|"amber"|"slate"|"emerald"; icon?: React.ReactNode }) {
   const tones: Record<string, string> = {
@@ -88,7 +90,16 @@ function Bar(props: { href: string; title: string; description: string; tone?: "
 		          tone="blue"
 		          icon={<BookIcon className="h-4 w-4" />}
 		        />
-		        {activeVariant?.productId === "AW169" && (
+		        {AUDIO_ENABLED_VARIANT_IDS.has(activeVariant?.id || "") && (
+          <Bar
+            href="/audio"
+            title="Audio"
+            description="Deep-dive study podcasts you can listen to on the go."
+            tone="blue"
+            icon={<HeadphonesIcon className="h-4 w-4" />}
+          />
+        )}
+        {activeVariant?.productId === "AW169" && (
 	          <Bar
 	            href="/training/procedures/aw169"
 	            title="Procedures"

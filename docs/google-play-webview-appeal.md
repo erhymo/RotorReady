@@ -4,6 +4,67 @@ Use this as a working note if Google Play flags RotorReady for the Webviews and 
 
 ## Status log
 
+- **2026-07-20**: Received a **third** reply from Jamie, word-for-word
+  identical to the 2026-07-19 one (same "As explained in the previous mail"
+  opener, same body). Two verbatim-identical replies to two different,
+  increasingly specific emails is strong evidence this is a templated/
+  automated response, not a human reading the content — revising the
+  2026-07-19 "probably a human" assessment. Researched Google's actual
+  published policy and process instead of guessing further:
+  - Policy text (see link below) confirms the violation is specifically
+    "a webview of a website **without permission** from the website owner or
+    administrator" — the ownership angle is correct in principle.
+  - The **advance notice form** (used 2026-07-15) is documented as a
+    **proactive, pre-publication** tool for declaring IP permission — not a
+    mechanism for attaching new evidence to an already-decided suspension
+    case. This likely explains why it produced no real review: wrong tool.
+  - Checked `https://rotor-ready.com/.well-known/assetlinks.json` — returned
+    404 (didn't exist). This is Android's official machine-verifiable
+    mechanism (Digital Asset Links) for proving a domain and an Android app
+    are controlled by the same owner, and is a stronger signal than a
+    self-signed PDF since Google can check it automatically. **Added** this
+    file (`public/.well-known/assetlinks.json`) with the upload keystore's
+    SHA-256 cert fingerprint
+    (`E3:94:48:64:B6:9B:1F:37:7C:D5:8D:BF:F0:C7:72:D3:4E:6E:33:4E:16:6D:EF:59:40:4B:1F:07:A7:C4:03:4A`).
+    **Caveat**: if Play App Signing is enabled (default for all apps
+    registered since ~2021, and this app was very likely enrolled), the
+    certificate actually used to sign the distributed app is a *different*
+    one that only Google holds — visible in Play Console under **Setup → App
+    integrity → App signing key certificate**. That fingerprint should be
+    added as a second entry in the `sha256_cert_fingerprints` array once
+    available; the file supports multiple.
+  - Google's own official "Managing Policy Violations and Appeals" help page
+    documents a separate, official channel for exactly this situation:
+    **Help Center → "Contact Google Play about an account termination or app
+    removal"** troubleshooter — distinct from both the Policy Status appeal
+    button and the Jamie email thread. Not yet tried. This does not
+    contradict Jamie's "keep everything in this case" instruction the way
+    opening an arbitrary new support ticket would, since it's Google's own
+    documented process for this scenario, not an invented channel.
+  - Decided: pause the Jamie email thread for now (a 4th reply is unlikely
+    to add anything after two identical responses) in favor of (a) the
+    assetlinks.json fix (done), (b) Google Search Console domain verification
+    (not yet done — needs the user's Google account), and (c) trying the
+    official account/app-removal troubleshooter.
+- **2026-07-19**: Received a second reply from Jamie ("As explained in the
+  previous mail...") reiterating that case **2-5376000040345** is the only
+  channel and all future communication happens there. Confirmed via live
+  Google Play Developer API call that the app is **still suspended**.
+  Re-assessed: this reads more like a human repeating an instruction than an
+  autoresponder (it explicitly references "the previous mail"). The real
+  disconnect: Jamie calls this "the appeal ticket," but there is no
+  functioning ticket UI on our side — the Play Console "Ankeinformasjon" panel
+  for this case is a static view still showing only the 2026-05-30
+  submission, and "Submit an appeal" just redirects to the Policy Status
+  overview. The only channel that has actually produced replies is this email
+  thread — which is the opposite of what Jamie's wording suggests ("not a
+  separate case"). Decided **against** opening a new Play Console "Contact
+  support" channel, since that would directly contradict the instruction to
+  keep everything in this one case. Instead, next reply (drafted below) asks
+  one narrow, concrete procedural question — has the 2026-07-15 documentation
+  actually been attached to/reviewed under case 2-5376000040345, and if the
+  console gives no way to submit further evidence, how does Google want it
+  delivered — rather than re-explaining the whole history again.
 - **2026-07-16**: Received a reply from Google ("Jamie", Google Play Team) to
   the 2026-07-15 advance notice submission. It doesn't decide anything itself
   — it says the submission was merged into the original appeal ticket
@@ -110,6 +171,38 @@ Use this as a working note if Google Play flags RotorReady for the Webviews and 
 5. After submitting, wait for Google's response before re-uploading any new
    build — suspended apps typically cannot receive new releases until the
    suspension is lifted.
+
+## Reply to Jamie (same email thread — do NOT open a new Play Console support case, Jamie has explicitly said everything stays in this one)
+
+Keep this on the existing thread (reply to Jamie's 2026-07-19 email), quoting
+case 2-5376000040345. This is a short, narrow procedural question — not a
+re-explanation of the whole history (already done on 2026-07-16) — designed
+to force a concrete answer to the actual disconnect: Jamie calls it "the
+appeal ticket," but there's no ticket UI we can act on from Play Console.
+
+Message to paste:
+
+---
+
+Subject: Re: Action Required: com.mayday.rotorready — case 2-5376000040345
+
+Hi Jamie,
+
+Understood — we'll keep everything on this thread and case 2-5376000040345.
+
+One specific question so we know what to do next: on our side, Play Console's "Ankeinformasjon" panel for this case still only shows our original 2026-05-30 submission, and the "Submit an appeal" link just redirects to the general Policy Status overview — there is no ticket view or form we can use to attach anything further.
+
+On 2026-07-15 we submitted a signed declaration (proof that Mayday AS owns/administers rotor-ready.com and is the app's publisher) plus supporting domain-ownership evidence, via the advance notice form.
+
+Could you confirm:
+1. Has that documentation been attached to and reviewed under case 2-5376000040345?
+2. If not yet reviewed, is there anything else we need to do, or do we simply wait?
+3. Since Play Console gives us no way to submit further evidence ourselves, if anything else is needed, could you tell us exactly how to deliver it?
+
+Thanks,
+Mayday AS / RotorReady
+
+---
 
 ## Appeal message (paste into the Play Console appeal form)
 

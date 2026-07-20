@@ -4,6 +4,18 @@ Use this as a working note if Google Play flags RotorReady for the Webviews and 
 
 ## Status log
 
+- **2026-07-20 (night)**: Filed a genuinely new **support case** via Play
+  Console → Help → "Få hjelp fra brukerstøtteteamet vårt" → "Opprett en
+  brukerstøttehenvendelse", category **"Retningslinjer for Google Play"**.
+  This is a distinct channel from both the Policy Status appeal button and
+  the Jamie email thread — Google's own AI assistant tried to deflect back to
+  the "File an appeal" flow first (the one already exhausted), but choosing
+  "Nei, opprett en brukerstøttehenvendelse" got past that and created a real
+  new case. Message: short (<1000 char) summary referencing case
+  2-5376000040345, linking the two new verifiable proofs (assetlinks.json +
+  Search Console domain verification). Status: **Venter** (pending), reply
+  will come via email to myhre.oyvind@gmail.com. This is the most promising
+  open thread right now — check for a reply.
 - **2026-07-20 (evening)**: Verified `rotor-ready.com` in **Google Search
   Console** (property type: Domain, method: DNS TXT record via Vercel's DNS
   zone for the domain — nameservers are Vercel's, so the record was added

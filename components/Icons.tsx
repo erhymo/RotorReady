@@ -8,6 +8,24 @@ export function BoltIcon(props: React.SVGProps<SVGSVGElement>) {
 	);
 }
 
+export function SkipBackIcon(props: React.SVGProps<SVGSVGElement>) {
+	return (
+		<svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" {...props}>
+			<path d="M10.7 4.2a1 1 0 0 1 1.5.86v9.88a1 1 0 0 1-1.5.86l-6.1-4.11a1 1 0 0 1 0-1.72l6.1-3.77z" />
+			<rect x="3" y="4" width="1.6" height="12" rx="0.8" />
+		</svg>
+	);
+}
+
+export function SkipForwardIcon(props: React.SVGProps<SVGSVGElement>) {
+	return (
+		<svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" {...props}>
+			<path d="M9.3 4.2a1 1 0 0 0-1.5.86v9.88a1 1 0 0 0 1.5.86l6.1-4.11a1 1 0 0 0 0-1.72l-6.1-3.77z" />
+			<rect x="15.4" y="4" width="1.6" height="12" rx="0.8" />
+		</svg>
+	);
+}
+
 export function HeadphonesIcon(props: React.SVGProps<SVGSVGElement>) {
 	return (
 		<svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" {...props}>

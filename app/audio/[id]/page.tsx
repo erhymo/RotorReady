@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { useParams } from "next/navigation";
 
 import AppTopBar from "@/components/AppTopBar";
+import { SkipBackIcon, SkipForwardIcon } from "@/components/Icons";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 
 type AudioItem = {
@@ -71,6 +72,13 @@ export default function AudioPlayerPage() {
     if (audioRef.current) audioRef.current.playbackRate = next;
   };
 
+  const skip = (deltaSeconds: number) => {
+    const el = audioRef.current;
+    if (!el) return;
+    const duration = Number.isFinite(el.duration) ? el.duration : Infinity;
+    el.currentTime = Math.min(Math.max(el.currentTime + deltaSeconds, 0), duration);
+  };
+
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-zinc-900">
       <AppTopBar title="Audio" backHref="/audio" />
@@ -102,6 +110,27 @@ export default function AudioPlayerPage() {
               onLoadedMetadata={handleLoadedMetadata}
               onTimeUpdate={handleTimeUpdate}
             />
+
+            <div className="mt-4 flex items-center justify-center gap-4">
+              <button
+                type="button"
+                onClick={() => skip(-15)}
+                aria-label="Rewind 15 seconds"
+                className="inline-flex items-center gap-1.5 rounded-full border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-100 dark:border-zinc-600 dark:text-zinc-200 dark:hover:bg-zinc-700"
+              >
+                <SkipBackIcon className="h-4 w-4" />
+                15s
+              </button>
+              <button
+                type="button"
+                onClick={() => skip(15)}
+                aria-label="Forward 15 seconds"
+                className="inline-flex items-center gap-1.5 rounded-full border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-100 dark:border-zinc-600 dark:text-zinc-200 dark:hover:bg-zinc-700"
+              >
+                15s
+                <SkipForwardIcon className="h-4 w-4" />
+              </button>
+            </div>
 
             <div className="mt-4 flex items-center gap-2">
               <span className="text-xs font-medium text-slate-500 dark:text-zinc-400">Speed</span>

@@ -10,18 +10,22 @@ export function BoltIcon(props: React.SVGProps<SVGSVGElement>) {
 
 export function SkipBackIcon(props: React.SVGProps<SVGSVGElement>) {
 	return (
-		<svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" {...props}>
-			<path d="M10.7 4.2a1 1 0 0 1 1.5.86v9.88a1 1 0 0 1-1.5.86l-6.1-4.11a1 1 0 0 1 0-1.72l6.1-3.77z" />
-			<rect x="3" y="4" width="1.6" height="12" rx="0.8" />
+		<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" {...props}>
+			<path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z" />
+			<text x="12" y="15.6" fontSize="6.5" fontWeight="700" textAnchor="middle" stroke="none">
+				15
+			</text>
 		</svg>
 	);
 }
 
 export function SkipForwardIcon(props: React.SVGProps<SVGSVGElement>) {
 	return (
-		<svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" {...props}>
-			<path d="M9.3 4.2a1 1 0 0 0-1.5.86v9.88a1 1 0 0 0 1.5.86l6.1-4.11a1 1 0 0 0 0-1.72l-6.1-3.77z" />
-			<rect x="15.4" y="4" width="1.6" height="12" rx="0.8" />
+		<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" {...props}>
+			<path d="M12 5V1l5 5-5 5V7c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6h2c0 4.42-3.58 8-8 8s-8-3.58-8-8 3.58-8 8-8z" />
+			<text x="12" y="15.6" fontSize="6.5" fontWeight="700" textAnchor="middle" stroke="none">
+				15
+			</text>
 		</svg>
 	);
 }

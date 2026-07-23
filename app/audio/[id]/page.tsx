@@ -186,10 +186,9 @@ export default function AudioPlayerPage() {
                 type="button"
                 onClick={() => skip(-15)}
                 aria-label="Rewind 15 seconds"
-                className="inline-flex flex-col items-center text-slate-600 transition hover:text-slate-900 dark:text-zinc-300 dark:hover:text-white"
+                className="inline-flex items-center justify-center text-slate-600 transition hover:text-slate-900 dark:text-zinc-300 dark:hover:text-white"
               >
-                <SkipBackIcon className="h-7 w-7" />
-                <span className="-mt-1 text-[10px] font-semibold">15</span>
+                <SkipBackIcon className="h-9 w-9" />
               </button>
               <button
                 type="button"
@@ -203,10 +202,9 @@ export default function AudioPlayerPage() {
                 type="button"
                 onClick={() => skip(15)}
                 aria-label="Forward 15 seconds"
-                className="inline-flex flex-col items-center text-slate-600 transition hover:text-slate-900 dark:text-zinc-300 dark:hover:text-white"
+                className="inline-flex items-center justify-center text-slate-600 transition hover:text-slate-900 dark:text-zinc-300 dark:hover:text-white"
               >
-                <SkipForwardIcon className="h-7 w-7" />
-                <span className="-mt-1 text-[10px] font-semibold">15</span>
+                <SkipForwardIcon className="h-9 w-9" />
               </button>
             </div>
 

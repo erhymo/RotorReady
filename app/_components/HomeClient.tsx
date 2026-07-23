@@ -6,7 +6,19 @@ import { BoltIcon, BookIcon, DownloadIcon, HeadphonesIcon, MessageIcon } from "@
 import { shouldShowNorwayTools } from "@/lib/geo/norwayToolsVisibility";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 
-const AUDIO_ENABLED_VARIANT_IDS = new Set(["AW169", "AW169_EP", "S92"]);
+const AUDIO_ENABLED_VARIANT_IDS = new Set([
+  "AW169",
+  "AW169_EP",
+  "AW189",
+  "AW139",
+  "H125_AS350_B3_2B1",
+  "H125_AS350_B3E",
+  "R44_II",
+  "S92",
+  "H135_T3",
+  "H145_D2",
+  "H145_D3",
+]);
 
 function Bar(props: { href: string; title: string; description: string; tone?: "blue"|"amber"|"slate"|"emerald"; icon?: React.ReactNode }) {
   const tones: Record<string, string> = {

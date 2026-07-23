@@ -1,11 +1,25 @@
 {
   "items": [
     {
+      "id": "digital-limits-and-oei-operations",
+      "title": "Digital Limits and OEI Operations",
+      "description": "AW169 EP engine and transmission digital limitations, Safe OEI Flight, and the cockpit power-limit warning logic — including what's actually different from standard AW169.",
+      "filename": "engine-oei.mp3",
+      "durationSeconds": 1803
+    },
+    {
       "id": "tcas-ii-procedures-and-limits",
       "title": "TCAS II Procedures and Limits",
       "description": "How TCAS II actually works on the AW169 EP — TA/RA logic, resolution advisory maneuvers, the altitude inhibit table and every aural message.",
       "filename": "tcas.mp3",
       "durationSeconds": 2219
+    },
+    {
+      "id": "htaws-offshore-and-onshore-modes",
+      "title": "HTAWS: Offshore and Onshore Modes",
+      "description": "How the AW169 EP terrain awareness and warning system works, including the offshore-specific modes, SAR sensitivity mode and alerts not present on standard AW169.",
+      "filename": "taws.mp3",
+      "durationSeconds": 1193
     }
   ]
 }

@@ -6,6 +6,13 @@
       "description": "How the AW169 autopilot modes, protections and safety functions actually work, with the numbers pilots need cold.",
       "filename": "afcs.mp3",
       "durationSeconds": 2973
+    },
+    {
+      "id": "htaws-priority-logic-and-limitations",
+      "title": "HTAWS Priority Logic and Limitations",
+      "description": "How the AW169 terrain awareness and warning system actually works — alert priority, inhibit logic and every failure message.",
+      "filename": "taws.mp3",
+      "durationSeconds": 2116
     }
   ]
 }

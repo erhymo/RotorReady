@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { useParams } from "next/navigation";
 
 import AppTopBar from "@/components/AppTopBar";
-import { SkipBackIcon, SkipForwardIcon } from "@/components/Icons";
+import { PauseIcon, PlayIcon, SkipBackIcon, SkipForwardIcon } from "@/components/Icons";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 
 type AudioItem = {
@@ -21,11 +21,21 @@ function resumeKey(variantId: string, itemId: string) {
   return `rr_audio_pos_${variantId}_${itemId}`;
 }
 
+function formatTime(totalSeconds: number) {
+  if (!Number.isFinite(totalSeconds) || totalSeconds < 0) return "0:00";
+  const minutes = Math.floor(totalSeconds / 60);
+  const seconds = Math.floor(totalSeconds % 60);
+  return `${minutes}:${seconds.toString().padStart(2, "0")}`;
+}
+
 export default function AudioPlayerPage() {
   const params = useParams<{ id: string }>();
   const { variant: activeVariant } = useActiveModelVariant();
   const [item, setItem] = useState<AudioItem | null | undefined>(undefined);
   const [rate, setRate] = useState(1);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(0);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const resumedRef = useRef(false);
 
@@ -51,19 +61,28 @@ export default function AudioPlayerPage() {
 
   useEffect(() => {
     resumedRef.current = false;
+    queueMicrotask(() => {
+      setIsPlaying(false);
+      setCurrentTime(0);
+      setDuration(0);
+    });
   }, [item?.id]);
 
   const handleLoadedMetadata = () => {
+    if (!audioRef.current) return;
+    setDuration(audioRef.current.duration || 0);
     if (!item || resumedRef.current) return;
     resumedRef.current = true;
     const saved = Number(window.localStorage.getItem(resumeKey(activeVariant.id, item.id)) || 0);
-    if (audioRef.current && saved > 0 && saved < audioRef.current.duration - 5) {
+    if (saved > 0 && saved < audioRef.current.duration - 5) {
       audioRef.current.currentTime = saved;
+      setCurrentTime(saved);
     }
   };
 
   const handleTimeUpdate = () => {
     if (!item || !audioRef.current) return;
+    setCurrentTime(audioRef.current.currentTime);
     window.localStorage.setItem(resumeKey(activeVariant.id, item.id), String(audioRef.current.currentTime));
   };
 
@@ -75,9 +94,30 @@ export default function AudioPlayerPage() {
   const skip = (deltaSeconds: number) => {
     const el = audioRef.current;
     if (!el) return;
-    const duration = Number.isFinite(el.duration) ? el.duration : Infinity;
-    el.currentTime = Math.min(Math.max(el.currentTime + deltaSeconds, 0), duration);
+    const max = Number.isFinite(el.duration) ? el.duration : Infinity;
+    el.currentTime = Math.min(Math.max(el.currentTime + deltaSeconds, 0), max);
+    setCurrentTime(el.currentTime);
   };
+
+  const togglePlay = () => {
+    const el = audioRef.current;
+    if (!el) return;
+    if (el.paused) {
+      el.play();
+    } else {
+      el.pause();
+    }
+  };
+
+  const handleSeek = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const el = audioRef.current;
+    if (!el) return;
+    const next = Number(e.target.value);
+    el.currentTime = next;
+    setCurrentTime(next);
+  };
+
+  const progressPercent = duration > 0 ? (currentTime / duration) * 100 : 0;
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-zinc-900">
@@ -103,36 +143,72 @@ export default function AudioPlayerPage() {
 
             <audio
               ref={audioRef}
-              controls
               preload="metadata"
-              className="mt-5 w-full"
+              controlsList="nodownload noplaybackrate"
+              onContextMenu={(e) => e.preventDefault()}
               src={`/audio/${activeVariant.id}/${item.filename}`}
               onLoadedMetadata={handleLoadedMetadata}
+              onDurationChange={handleLoadedMetadata}
               onTimeUpdate={handleTimeUpdate}
+              onPlay={() => setIsPlaying(true)}
+              onPause={() => setIsPlaying(false)}
+              onEnded={() => setIsPlaying(false)}
+              className="hidden"
             />
 
-            <div className="mt-4 flex items-center justify-center gap-4">
+            {/* Progress bar */}
+            <div className="mt-6">
+              <div className="relative h-1.5 w-full rounded-full bg-slate-200 dark:bg-zinc-700">
+                <div
+                  className="absolute inset-y-0 left-0 rounded-full bg-blue-600 dark:bg-blue-400"
+                  style={{ width: `${progressPercent}%` }}
+                />
+                <input
+                  type="range"
+                  min={0}
+                  max={duration || 0}
+                  step={0.1}
+                  value={currentTime}
+                  onChange={handleSeek}
+                  aria-label="Seek"
+                  className="absolute inset-0 h-full w-full cursor-pointer appearance-none bg-transparent [&::-webkit-slider-thumb]:h-3.5 [&::-webkit-slider-thumb]:w-3.5 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-blue-600 dark:[&::-webkit-slider-thumb]:bg-blue-400"
+                />
+              </div>
+              <div className="mt-1.5 flex justify-between text-xs text-slate-500 dark:text-zinc-400">
+                <span>{formatTime(currentTime)}</span>
+                <span>{formatTime(duration)}</span>
+              </div>
+            </div>
+
+            {/* Transport controls: skip-back, big play/pause, skip-forward */}
+            <div className="mt-4 flex items-center justify-center gap-6">
               <button
                 type="button"
                 onClick={() => skip(-15)}
                 aria-label="Rewind 15 seconds"
-                className="inline-flex items-center gap-1.5 rounded-full border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-100 dark:border-zinc-600 dark:text-zinc-200 dark:hover:bg-zinc-700"
+                className="inline-flex items-center gap-1 text-slate-600 transition hover:text-slate-900 dark:text-zinc-300 dark:hover:text-white"
               >
-                <SkipBackIcon className="h-4 w-4" />
-                15s
+                <SkipBackIcon className="h-7 w-7" />
+              </button>
+              <button
+                type="button"
+                onClick={togglePlay}
+                aria-label={isPlaying ? "Pause" : "Play"}
+                className="inline-grid h-16 w-16 place-items-center rounded-full bg-blue-600 text-white shadow-md transition hover:bg-blue-700 active:scale-95 dark:bg-blue-500 dark:hover:bg-blue-600"
+              >
+                {isPlaying ? <PauseIcon className="h-7 w-7" /> : <PlayIcon className="h-7 w-7 pl-0.5" />}
               </button>
               <button
                 type="button"
                 onClick={() => skip(15)}
                 aria-label="Forward 15 seconds"
-                className="inline-flex items-center gap-1.5 rounded-full border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-100 dark:border-zinc-600 dark:text-zinc-200 dark:hover:bg-zinc-700"
+                className="inline-flex items-center gap-1 text-slate-600 transition hover:text-slate-900 dark:text-zinc-300 dark:hover:text-white"
               >
-                15s
-                <SkipForwardIcon className="h-4 w-4" />
+                <SkipForwardIcon className="h-7 w-7" />
               </button>
             </div>
 
-            <div className="mt-4 flex items-center gap-2">
+            <div className="mt-6 flex items-center justify-center gap-2">
               <span className="text-xs font-medium text-slate-500 dark:text-zinc-400">Speed</span>
               {PLAYBACK_RATES.map((r) => (
                 <button

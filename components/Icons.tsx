@@ -26,6 +26,23 @@ export function SkipForwardIcon(props: React.SVGProps<SVGSVGElement>) {
 	);
 }
 
+export function PlayIcon(props: React.SVGProps<SVGSVGElement>) {
+	return (
+		<svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" {...props}>
+			<path d="M6.5 4.27a1 1 0 0 1 1.5-.87l8 4.73a1 1 0 0 1 0 1.74l-8 4.73a1 1 0 0 1-1.5-.87V4.27z" />
+		</svg>
+	);
+}
+
+export function PauseIcon(props: React.SVGProps<SVGSVGElement>) {
+	return (
+		<svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" {...props}>
+			<rect x="5" y="3.5" width="3.2" height="13" rx="1" />
+			<rect x="11.8" y="3.5" width="3.2" height="13" rx="1" />
+		</svg>
+	);
+}
+
 export function HeadphonesIcon(props: React.SVGProps<SVGSVGElement>) {
 	return (
 		<svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" {...props}>

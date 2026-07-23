@@ -1,11 +1,11 @@
 {
   "items": [
     {
-      "id": "digital-limits-and-oei-operations",
-      "title": "Digital Limits and OEI Operations",
-      "description": "AW169 EP engine and transmission digital limitations, Safe OEI Flight, and the cockpit power-limit warning logic — including what's actually different from standard AW169.",
-      "filename": "engine-oei.mp3",
-      "durationSeconds": 1803
+      "id": "tcas-ii-procedures-and-limits",
+      "title": "TCAS II Procedures and Limits",
+      "description": "How TCAS II actually works on the AW169 EP — TA/RA logic, resolution advisory maneuvers, the altitude inhibit table and every aural message.",
+      "filename": "tcas.mp3",
+      "durationSeconds": 2219
     }
   ]
 }

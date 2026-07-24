@@ -27,6 +27,13 @@
       "description": "A checkride-style run-through of AW169 EP operating limits and performance — weight, speed, and power figures a pilot needs cold for an oral exam.",
       "filename": "checkride-limits-performance.mp3",
       "durationSeconds": 3222
+    },
+    {
+      "id": "adelt-activation-logic-and-procedures",
+      "title": "ADELT: Activation Logic and Procedures",
+      "description": "How the AW169 EP's Automatic Deployable ELT (Crash Position Indicator) works — automatic and manual activation logic, cockpit controls, and every limitation and procedure.",
+      "filename": "adelt.mp3",
+      "durationSeconds": 1176
     }
   ]
 }

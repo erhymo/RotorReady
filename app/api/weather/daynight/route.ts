@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 
 import { NO_AIRPORTS } from "@/lib/airports/no_icao";
 import { NO_AIRPORT_FEATURES } from "@/lib/airports/no_features";
+import { checkRateLimit, rateLimitResponse } from "@/lib/server/rateLimit";
 
 type DayNightPayload = {
   icao: string;
@@ -44,6 +45,9 @@ function formatLocalOslo(iso: string | null | undefined): string | null {
 }
 
 export async function GET(req: Request) {
+  const rl = checkRateLimit(req, { bucket: "weather:daynight", limit: 30, windowMs: 60_000 });
+  if (!rl.allowed) return rateLimitResponse(rl.retryAfterSeconds);
+
   const { searchParams } = new URL(req.url);
   const icao = (searchParams.get("icao") || "").toUpperCase();
 

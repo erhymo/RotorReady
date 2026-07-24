@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
 
+import { checkRateLimit, rateLimitResponse } from "@/lib/server/rateLimit";
+
 const TTL = 12 * 60 * 60 * 1000; // 12h = update twice daily
 const cache = new Map<string, { data: any; expires: number }>();
 const OPERATIONAL_HOURS_URL = "https://aim-prod.avinor.no/no/OperationalHours";
@@ -88,6 +90,9 @@ async function tryParseFromAIP(icao: string): Promise<{ ats: string | null; fuel
 }
 
 export async function GET(req: Request) {
+  const rl = checkRateLimit(req, { bucket: "airports:hours", limit: 20, windowMs: 60_000 });
+  if (!rl.allowed) return rateLimitResponse(rl.retryAfterSeconds);
+
   const { searchParams } = new URL(req.url);
   const icao = (searchParams.get("icao") || "").toUpperCase();
   if (!icao || icao.length !== 4) {

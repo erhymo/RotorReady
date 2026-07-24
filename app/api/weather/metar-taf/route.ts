@@ -1,5 +1,9 @@
 import { NextResponse } from "next/server";
 
+import { checkRateLimit, rateLimitResponse } from "@/lib/server/rateLimit";
+
+const ICAO_PATTERN = /^[A-Z0-9]{4}$/;
+
 // Simple in-memory cache per ICAO
 const CACHE_TTL_MS = 60_000; // 60 seconds
 const cache = new Map<string, { data: unknown; expires: number }>();
@@ -119,10 +123,13 @@ async function fetchMetarTaf(icao: string): Promise<{
 }
 
 export async function GET(req: Request) {
+  const rl = checkRateLimit(req, { bucket: "weather:metar-taf", limit: 30, windowMs: 60_000 });
+  if (!rl.allowed) return rateLimitResponse(rl.retryAfterSeconds);
+
   const { searchParams } = new URL(req.url);
   const icao = (searchParams.get("icao") || "").toUpperCase();
 
-  if (!icao || icao.length !== 4) {
+  if (!ICAO_PATTERN.test(icao)) {
     return NextResponse.json({ error: "Missing or invalid ICAO" }, { status: 400 });
   }
 

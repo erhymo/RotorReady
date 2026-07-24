@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
 
+import { checkRateLimit, rateLimitResponse } from "@/lib/server/rateLimit";
+
 // Simple in-memory cache by rounded lat/lon
 const CACHE_TTL_MS = 60_000; // 60 seconds
 const cache = new Map<string, { data: unknown; expires: number }>();
@@ -136,6 +138,9 @@ function extractStationsWithAlternates(metarJson: any, tafJson: any, maxCount: n
 }
 
 export async function GET(req: Request) {
+  const rl = checkRateLimit(req, { bucket: "weather:nearest-global", limit: 20, windowMs: 60_000 });
+  if (!rl.allowed) return rateLimitResponse(rl.retryAfterSeconds);
+
   const { searchParams } = new URL(req.url);
   const latStr = searchParams.get("lat");
   const lonStr = searchParams.get("lon");

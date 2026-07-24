@@ -20,6 +20,13 @@
       "description": "How the AW169 EP terrain awareness and warning system works, including the offshore-specific modes, SAR sensitivity mode and alerts not present on standard AW169.",
       "filename": "taws.mp3",
       "durationSeconds": 1193
+    },
+    {
+      "id": "checkride-operating-limits-and-performance",
+      "title": "Checkride: Operating Limits and Performance",
+      "description": "A checkride-style run-through of AW169 EP operating limits and performance — weight, speed, and power figures a pilot needs cold for an oral exam.",
+      "filename": "checkride-limits-performance.mp3",
+      "durationSeconds": 3222
     }
   ]
 }

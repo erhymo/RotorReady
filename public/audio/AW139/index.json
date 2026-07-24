@@ -1,0 +1,11 @@
+{
+  "items": [
+    {
+      "id": "afcs-failure-logic-and-checkride-prep",
+      "title": "AFCS Failure Logic and Checkride Prep",
+      "description": "How the AW139 AFCS autopilot works and every failure mode, with the numbers pilots need cold for checkride prep.",
+      "filename": "afcs.mp3",
+      "durationSeconds": 2907
+    }
+  ]
+}

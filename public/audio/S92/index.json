@@ -1,13 +1,6 @@
 {
   "items": [
     {
-      "id": "afcs-logic-and-emergencies",
-      "title": "AFCS Logic and Emergencies",
-      "description": "How the S-92 autopilot (SAS/AP/CFD) actually works, plus every AFCS malfunction procedure and the numbers pilots need cold.",
-      "filename": "afcs.mp3",
-      "durationSeconds": 2929
-    },
-    {
       "id": "electrical-architecture-and-emergencies",
       "title": "Electrical Architecture and Emergencies",
       "description": "How the S-92 electrical system (generators, GCUs, DC power chain, battery) actually works, plus every electrical malfunction procedure and the numbers pilots need cold.",

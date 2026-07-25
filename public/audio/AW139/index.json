@@ -1,3 +1,18 @@
 {
-  "items": []
+  "items": [
+    {
+      "id": "afcs-architecture-and-emergency-procedures",
+      "title": "AFCS Architecture and Emergency Procedures",
+      "description": "How the AW139 AFCS autopilot works and every malfunction procedure, with the numbers pilots need cold for checkride prep.",
+      "filename": "afcs.mp3",
+      "durationSeconds": 1886
+    },
+    {
+      "id": "operational-limits-and-flight-procedures",
+      "title": "Operational Limits and Flight Procedures",
+      "description": "AW139 operating limits and Category A performance — the weight, speed, and power numbers pilots need cold.",
+      "filename": "technical-limits-cat-a.mp3",
+      "durationSeconds": 2763
+    }
+  ]
 }

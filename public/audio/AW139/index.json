@@ -1,18 +1,3 @@
 {
-  "items": [
-    {
-      "id": "afcs-failure-logic-and-checkride-prep",
-      "title": "AFCS Failure Logic and Checkride Prep",
-      "description": "How the AW139 AFCS autopilot works and every failure mode, with the numbers pilots need cold for checkride prep.",
-      "filename": "afcs.mp3",
-      "durationSeconds": 2907
-    },
-    {
-      "id": "technical-limits-and-category-a-physics",
-      "title": "Technical Limits and Category A Physics",
-      "description": "AW139 operating limits and the physics behind Category A performance — the weight, speed, and power numbers pilots need cold.",
-      "filename": "technical-limits-cat-a.mp3",
-      "durationSeconds": 2727
-    }
-  ]
+  "items": []
 }

@@ -1,11 +1,3 @@
 {
-  "items": [
-    {
-      "id": "hydraulic-failure-and-servo-transparency",
-      "title": "Hydraulic Failure and Servo Transparency",
-      "description": "How the H125 / AS350 B3e hydraulic system works, hydraulic failure recognition and handling, and servo transparency — the numbers pilots need cold.",
-      "filename": "hydraulics.mp3",
-      "durationSeconds": 2131
-    }
-  ]
+  "items": []
 }

@@ -1,25 +1,3 @@
 {
-  "items": [
-    {
-      "id": "afcs-logic-and-safety-limits",
-      "title": "AFCS Logic and Safety Limits",
-      "description": "How the AW169 autopilot modes, protections and safety functions actually work, with the numbers pilots need cold.",
-      "filename": "afcs.mp3",
-      "durationSeconds": 2973
-    },
-    {
-      "id": "htaws-priority-logic-and-limitations",
-      "title": "HTAWS Priority Logic and Limitations",
-      "description": "How the AW169 terrain awareness and warning system actually works — alert priority, inhibit logic and every failure message.",
-      "filename": "taws.mp3",
-      "durationSeconds": 2116
-    },
-    {
-      "id": "tcas-ii-procedures-and-limits",
-      "title": "TCAS II Procedures and Limits",
-      "description": "How TCAS II actually works on the AW169 — TA/RA logic, resolution advisory maneuvers, the altitude inhibit table and every aural message.",
-      "filename": "tcas.mp3",
-      "durationSeconds": 2219
-    }
-  ]
+  "items": []
 }

@@ -20,6 +20,13 @@
       "description": "How TCAS II actually thinks, followed through a real traffic encounter from first contact to clear of conflict.",
       "filename": "tcas.mp3",
       "durationSeconds": 1836
+    },
+    {
+      "id": "htaws-managing-the-flying-data-center",
+      "title": "HTAWS: Managing the Flying Data Center",
+      "description": "How the terrain awareness and warning system thinks, followed through a real terrain event from first alert to resolution.",
+      "filename": "taws.mp3",
+      "durationSeconds": 1955
     }
   ]
 }

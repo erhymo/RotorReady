@@ -6,6 +6,20 @@
       "description": "How the AW169 EP's Automatic Flight Control System is built up layer by layer, followed through a real departure and approach to show how the modes actually work together in flight.",
       "filename": "afcs.mp3",
       "durationSeconds": 2345
+    },
+    {
+      "id": "automatic-ejection-of-emergency-beacons",
+      "title": "Automatic Ejection of Emergency Beacons",
+      "description": "How the ADELT crash position indicator works, followed through a real ditching and crash sequence to show what happens automatically versus what the pilot does.",
+      "filename": "adelt.mp3",
+      "durationSeconds": 1990
+    },
+    {
+      "id": "tcas-ii-vertical-escape-geometry",
+      "title": "How TCAS II Calculates Vertical Escape Geometry",
+      "description": "How TCAS II actually thinks, followed through a real traffic encounter from first contact to clear of conflict.",
+      "filename": "tcas.mp3",
+      "durationSeconds": 1836
     }
   ]
 }

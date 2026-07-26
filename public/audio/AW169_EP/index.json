@@ -34,6 +34,13 @@
       "description": "How the AW169 EP's Automatic Deployable ELT (Crash Position Indicator) works — automatic and manual activation logic, cockpit controls, and every limitation and procedure.",
       "filename": "adelt.mp3",
       "durationSeconds": 1176
+    },
+    {
+      "id": "afcs-flight-control-stack",
+      "title": "The AFCS Flight Control Stack",
+      "description": "How the AW169 EP's Automatic Flight Control System is built up layer by layer, followed through a real departure and approach to show how the modes actually work together in flight.",
+      "filename": "afcs.mp3",
+      "durationSeconds": 2345
     }
   ]
 }

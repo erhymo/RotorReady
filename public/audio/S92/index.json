@@ -1,3 +1,11 @@
 {
-  "items": []
+  "items": [
+    {
+      "id": "afcs-architecture-and-failure-logic",
+      "title": "AFCS Architecture and Failure Logic",
+      "description": "How the S-92's Automatic Flight Control System is built up layer by layer, followed through a real flight to show how the modes actually work together — plus every AFCS failure mode.",
+      "filename": "afcs.mp3",
+      "durationSeconds": 2625
+    }
+  ]
 }

@@ -6,6 +6,13 @@
       "description": "How the S-92's Automatic Flight Control System is built up layer by layer, followed through a real flight to show how the modes actually work together — plus every AFCS failure mode.",
       "filename": "afcs.mp3",
       "durationSeconds": 2625
+    },
+    {
+      "id": "fire-protection-logic-and-procedures",
+      "title": "Fire: Protection Logic and Procedures",
+      "description": "How the fire detection and extinguishing system is built, followed through a real engine fire from first indication to a safe outcome.",
+      "filename": "fire.mp3",
+      "durationSeconds": 1863
     }
   ]
 }

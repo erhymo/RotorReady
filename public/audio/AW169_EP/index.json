@@ -27,6 +27,20 @@
       "description": "How the terrain awareness and warning system thinks, followed through a real terrain event from first alert to resolution.",
       "filename": "taws.mp3",
       "durationSeconds": 1955
+    },
+    {
+      "id": "fire-protection-and-emergency-procedures",
+      "title": "Fire: Protection and Emergency Procedures",
+      "description": "How the fire detection and extinguishing system is built, followed through a real engine fire from first indication to a safe outcome.",
+      "filename": "fire.mp3",
+      "durationSeconds": 3070
+    },
+    {
+      "id": "electrical-failure-logic-and-survival",
+      "title": "Electrical: Failure Logic and Survival",
+      "description": "How the electrical system generates, converts, and distributes power, followed through a real generator failure to show exactly how the system protects itself and what the pilot does.",
+      "filename": "electrical.mp3",
+      "durationSeconds": 2446
     }
   ]
 }

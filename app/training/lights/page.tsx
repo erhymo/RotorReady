@@ -6,6 +6,7 @@ import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import AppTopBar from "@/components/AppTopBar";
+import { HeadphonesIcon } from "@/components/Icons";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 
 
@@ -1482,6 +1483,16 @@ export default function LightsTrainer() {
 	              description="AW169 warning panel  tap to train by pressing lights."
 	              href="/training/lights/cwp/aw169"
 	            />
+
+            {activeVariant.id === "AW169_EP" && (
+              <LightsBar
+                tone="slate"
+                icon={<HeadphonesIcon className="h-4 w-4" />}
+                title="Audio"
+                description="Tap a warning light and hear a focused audio explanation of that light."
+                href="/training/lights/audio"
+              />
+            )}
 
 		            <>
 		              <LightsBar

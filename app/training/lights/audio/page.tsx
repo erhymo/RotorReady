@@ -1,10 +1,12 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
 
 import AppTopBar from "@/components/AppTopBar";
+import DownloadButton from "@/components/DownloadButton";
 import { HeadphonesIcon } from "@/components/Icons";
+import { formatBytes, getDownloadedEpisodesSummary, offlineDownloadsSupported } from "@/lib/audioOffline";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 
 type LightAudioItem = {
@@ -24,6 +26,12 @@ export default function LightsAudioListPage() {
   const { variant: activeVariant } = useActiveModelVariant();
   const [items, setItems] = useState<LightAudioItem[] | null>(null);
   const [loadFailed, setLoadFailed] = useState(false);
+  const [downloadSummary, setDownloadSummary] = useState<{ count: number; bytes: number } | null>(null);
+
+  const refreshDownloadSummary = useCallback(() => {
+    if (!offlineDownloadsSupported()) return;
+    getDownloadedEpisodesSummary().then(setDownloadSummary);
+  }, []);
 
   useEffect(() => {
     let cancelled = false;
@@ -51,6 +59,10 @@ export default function LightsAudioListPage() {
     };
   }, [activeVariant.id]);
 
+  useEffect(() => {
+    refreshDownloadSummary();
+  }, [refreshDownloadSummary, items]);
+
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-zinc-900">
       <AppTopBar title="Light Audio" backHref="/training/lights" backLabel="Back" />
@@ -73,7 +85,7 @@ export default function LightsAudioListPage() {
         )}
 
         {items !== null && items.length > 0 && (
-          <div className="space-y-3">
+          <div className="space-y-3" onClickCapture={() => setTimeout(refreshDownloadSummary, 300)}>
             {items.map((item) => (
               <Link
                 key={item.lightId}
@@ -91,11 +103,20 @@ export default function LightsAudioListPage() {
                       <div className="mt-1 text-xs text-slate-500 dark:text-zinc-400">{formatDuration(item.durationSeconds)}</div>
                     </div>
                   </div>
-                  <div className="text-xl text-slate-400 transition-transform group-hover:translate-x-0.5 dark:text-zinc-400">›</div>
+                  <div className="flex items-center gap-1">
+                    <DownloadButton url={`/audio/${activeVariant.id}/lights/${item.filename}`} />
+                    <div className="text-xl text-slate-400 transition-transform group-hover:translate-x-0.5 dark:text-zinc-400">›</div>
+                  </div>
                 </div>
               </Link>
             ))}
           </div>
+        )}
+
+        {downloadSummary && downloadSummary.count > 0 && (
+          <p className="text-xs text-slate-500 dark:text-zinc-400">
+            {downloadSummary.count} episode{downloadSummary.count === 1 ? "" : "s"} downloaded — {formatBytes(downloadSummary.bytes)} used on this device.
+          </p>
         )}
       </div>
     </div>

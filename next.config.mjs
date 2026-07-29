@@ -18,6 +18,16 @@ const withPWA = withPWAInit({
   reloadOnOnline: true,
   cacheStartUrl: false,
   disable: process.env.NODE_ENV === 'development',
+  // Next.js App Router emits app-build-manifest.json as a webpack asset, but it isn't served
+  // as a fetchable static route — precaching it makes workbox's install() reject (404), which
+  // silently discards the ENTIRE service worker registration. next-pwa 5.6.0 predates the App
+  // Router and doesn't know to exclude it, so we exclude it ourselves.
+  buildExcludes: [/app-build-manifest\.json$/],
+  // Don't blanket-precache large reference PDFs (RFMs/QRHs) onto every visitor's device just
+  // because they live under public/ — fetch them on demand instead. One of them (an AW139 QRH
+  // with special characters in its filename) also currently 404s, which broke SW install the
+  // same way as app-build-manifest.json above.
+  publicExcludes: ['!**/*.pdf'],
   fallbacks: {
     document: '/offline',
   },
@@ -40,6 +50,16 @@ const withPWA = withPWAInit({
       handler: 'NetworkFirst',
       options: {
         cacheName: 'lights-json',
+        expiration: { maxEntries: 100, maxAgeSeconds: 60 * 60 * 24 * 30 },
+      },
+    },
+    {
+      // Podcast episode listings (not the mp3 files themselves — those are handled by the
+      // explicit per-episode "download for offline" feature, not auto-cached here).
+      urlPattern: ({ url }) => url.pathname.startsWith('/audio/') && url.pathname.endsWith('.json'),
+      handler: 'NetworkFirst',
+      options: {
+        cacheName: 'audio-json',
         expiration: { maxEntries: 100, maxAgeSeconds: 60 * 60 * 24 * 30 },
       },
     },

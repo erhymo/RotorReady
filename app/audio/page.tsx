@@ -1,10 +1,12 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
 
 import AppTopBar from "@/components/AppTopBar";
+import DownloadButton from "@/components/DownloadButton";
 import { HeadphonesIcon } from "@/components/Icons";
+import { formatBytes, getDownloadedEpisodesSummary, offlineDownloadsSupported } from "@/lib/audioOffline";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 
 type AudioItem = {
@@ -25,6 +27,12 @@ export default function AudioListPage() {
   const { variant: activeVariant } = useActiveModelVariant();
   const [items, setItems] = useState<AudioItem[] | null>(null);
   const [loadFailed, setLoadFailed] = useState(false);
+  const [downloadSummary, setDownloadSummary] = useState<{ count: number; bytes: number } | null>(null);
+
+  const refreshDownloadSummary = useCallback(() => {
+    if (!offlineDownloadsSupported()) return;
+    getDownloadedEpisodesSummary().then(setDownloadSummary);
+  }, []);
 
   useEffect(() => {
     let cancelled = false;
@@ -52,6 +60,10 @@ export default function AudioListPage() {
     };
   }, [activeVariant.id]);
 
+  useEffect(() => {
+    refreshDownloadSummary();
+  }, [refreshDownloadSummary, items]);
+
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-zinc-900">
       <AppTopBar title="Audio" backHref="/" />
@@ -71,7 +83,7 @@ export default function AudioListPage() {
         )}
 
         {items !== null && items.length > 0 && (
-          <div className="space-y-3">
+          <div className="space-y-3" onClickCapture={() => setTimeout(refreshDownloadSummary, 300)}>
             {items.map((item) => (
               <Link
                 key={item.id}
@@ -90,11 +102,20 @@ export default function AudioListPage() {
                       <div className="mt-1 text-xs text-slate-500 dark:text-zinc-400">{formatDuration(item.durationSeconds)}</div>
                     </div>
                   </div>
-                  <div className="text-xl text-slate-400 transition-transform group-hover:translate-x-0.5 dark:text-zinc-400">›</div>
+                  <div className="flex items-center gap-1">
+                    <DownloadButton url={`/audio/${activeVariant.id}/${item.filename}`} />
+                    <div className="text-xl text-slate-400 transition-transform group-hover:translate-x-0.5 dark:text-zinc-400">›</div>
+                  </div>
                 </div>
               </Link>
             ))}
           </div>
+        )}
+
+        {downloadSummary && downloadSummary.count > 0 && (
+          <p className="text-xs text-slate-500 dark:text-zinc-400">
+            {downloadSummary.count} episode{downloadSummary.count === 1 ? "" : "s"} downloaded — {formatBytes(downloadSummary.bytes)} used on this device.
+          </p>
         )}
       </div>
     </div>

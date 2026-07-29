@@ -4,8 +4,10 @@ import { useEffect, useRef, useState } from "react";
 import { useParams } from "next/navigation";
 
 import AppTopBar from "@/components/AppTopBar";
+import DownloadButton from "@/components/DownloadButton";
 import { PauseIcon, PlayIcon, SkipBackIcon, SkipForwardIcon } from "@/components/Icons";
 import { useActiveModelVariant } from "@/lib/models/hooks";
+import { useOfflineAudioSrc } from "@/lib/useOfflineAudioSrc";
 
 type LightAudioItem = {
   lightId: string;
@@ -32,6 +34,9 @@ export default function LightAudioPlayerPage() {
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  const networkUrl = item ? `/audio/${activeVariant.id}/lights/${item.filename}` : undefined;
+  const playbackSrc = useOfflineAudioSrc(networkUrl);
 
   useEffect(() => {
     let cancelled = false;
@@ -120,25 +125,32 @@ export default function LightAudioPlayerPage() {
 
         {item && (
           <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-zinc-700 dark:bg-zinc-800">
-            <div className="text-xs font-semibold uppercase tracking-wide text-red-600 dark:text-red-400">
-              {activeVariant.label}
+            <div className="flex items-start justify-between gap-3">
+              <div>
+                <div className="text-xs font-semibold uppercase tracking-wide text-red-600 dark:text-red-400">
+                  {activeVariant.label}
+                </div>
+                <h1 className="mt-1 text-xl font-bold text-slate-900 dark:text-zinc-100">{item.title}</h1>
+              </div>
+              {networkUrl && <DownloadButton url={networkUrl} className="mt-1" />}
             </div>
-            <h1 className="mt-1 text-xl font-bold text-slate-900 dark:text-zinc-100">{item.title}</h1>
 
-            <audio
-              ref={audioRef}
-              preload="metadata"
-              controlsList="nodownload noplaybackrate"
-              onContextMenu={(e) => e.preventDefault()}
-              src={`/audio/${activeVariant.id}/lights/${item.filename}`}
-              onLoadedMetadata={handleLoadedMetadata}
-              onDurationChange={handleLoadedMetadata}
-              onTimeUpdate={handleTimeUpdate}
-              onPlay={() => setIsPlaying(true)}
-              onPause={() => setIsPlaying(false)}
-              onEnded={() => setIsPlaying(false)}
-              className="hidden"
-            />
+            {playbackSrc && (
+              <audio
+                ref={audioRef}
+                preload="metadata"
+                controlsList="nodownload noplaybackrate"
+                onContextMenu={(e) => e.preventDefault()}
+                src={playbackSrc}
+                onLoadedMetadata={handleLoadedMetadata}
+                onDurationChange={handleLoadedMetadata}
+                onTimeUpdate={handleTimeUpdate}
+                onPlay={() => setIsPlaying(true)}
+                onPause={() => setIsPlaying(false)}
+                onEnded={() => setIsPlaying(false)}
+                className="hidden"
+              />
+            )}
 
             <div className="mt-6">
               <div className="relative h-1.5 w-full rounded-full bg-slate-200 dark:bg-zinc-700">

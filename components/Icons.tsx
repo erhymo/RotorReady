@@ -88,6 +88,22 @@ export function DownloadIcon(props: React.SVGProps<SVGSVGElement>) {
 		);
 	}
 
+export function CheckCircleIcon(props: React.SVGProps<SVGSVGElement>) {
+	return (
+		<svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" {...props}>
+			<path fillRule="evenodd" d="M10 2a8 8 0 1 0 0 16 8 8 0 0 0 0-16zm3.7 5.7-4.4 4.4a1 1 0 0 1-1.4 0L6.3 10.5a1 1 0 1 1 1.4-1.4l1 1 3.7-3.7a1 1 0 1 1 1.4 1.4z" clipRule="evenodd" />
+		</svg>
+	);
+}
+
+export function TrashIcon(props: React.SVGProps<SVGSVGElement>) {
+	return (
+		<svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" {...props}>
+			<path fillRule="evenodd" d="M8 2a1 1 0 0 0-1 1v1H4a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2h-3V3a1 1 0 0 0-1-1H8zM5 7a1 1 0 0 1 1 1v8a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2V8a1 1 0 1 1 2 0v8a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V8a1 1 0 0 1 1-1z" clipRule="evenodd" />
+		</svg>
+	);
+}
+
 export function MessageIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" {...props}>

@@ -41,6 +41,13 @@
       "description": "How the electrical system generates, converts, and distributes power, followed through a real generator failure to show exactly how the system protects itself and what the pilot does.",
       "filename": "electrical.mp3",
       "durationSeconds": 2446
+    },
+    {
+      "id": "operational-and-structural-flight-limits",
+      "title": "Limitations: Operational and Structural Flight Limits",
+      "description": "A complete walkthrough of every operating limitation for the AW169 EP — weight, speed, rotor, engine, and system limits — with a brief note on why each one is set where it is.",
+      "filename": "limitations.mp3",
+      "durationSeconds": 1255
     }
   ]
 }

@@ -1,3 +1,18 @@
 {
-  "items": []
+  "items": [
+    {
+      "id": "operating-limits",
+      "title": "Limitations: Operating Limits",
+      "description": "A complete walkthrough of every operating limitation for the AS350 B3 2B1 — weight, flight envelope, rotor, engine, and electrical limits — with a brief note on why each one is set where it is.",
+      "filename": "limitations.mp3",
+      "durationSeconds": 2840
+    },
+    {
+      "id": "surviving-a-helicopter-engine-flameout",
+      "title": "Engine Flame-Out: Autorotation and Recovery",
+      "description": "How to recognize and handle an engine flame-out, followed through a real autorotation from first indication to a safe landing.",
+      "filename": "engineflameout.mp3",
+      "durationSeconds": 2178
+    }
+  ]
 }

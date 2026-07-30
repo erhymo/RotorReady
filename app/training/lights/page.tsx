@@ -7,6 +7,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import AppTopBar from "@/components/AppTopBar";
 import { HeadphonesIcon } from "@/components/Icons";
+import ZoomableImage from "@/components/ZoomableImage";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 
 
@@ -551,9 +552,11 @@ export default function LightsTrainer() {
     const href = String(item.pageImage || "");
     return (
       <figure className="p-0 m-0 bg-transparent">
-        <svg viewBox={`${vbX} ${vbY} ${vbW} ${vbH}`} width="100%" xmlns="http://www.w3.org/2000/svg" className="block w-full h-auto">
-          <image href={href} width={AW169_PAGE_W} height={AW169_PAGE_H} preserveAspectRatio="xMidYMid meet" />
-        </svg>
+        <ZoomableImage>
+          <svg viewBox={`${vbX} ${vbY} ${vbW} ${vbH}`} width="100%" xmlns="http://www.w3.org/2000/svg" className="block w-full h-auto">
+            <image href={href} width={AW169_PAGE_W} height={AW169_PAGE_H} preserveAspectRatio="xMidYMid meet" />
+          </svg>
+        </ZoomableImage>
       </figure>
     );
   }
@@ -576,9 +579,11 @@ export default function LightsTrainer() {
           const vbH = Math.max(10, Math.min(h, nh * h));
           return (
             <figure key={`${item.id}-crop-${i}`} className="p-0 m-0 rounded-lg overflow-hidden border border-slate-300 dark:border-zinc-600 bg-transparent">
-              <svg viewBox={`${vbX} ${vbY} ${vbW} ${vbH}`} width="100%" xmlns="http://www.w3.org/2000/svg" className="block w-full h-auto">
-                <image href={href} width={w} height={h} preserveAspectRatio="xMidYMid meet" />
-              </svg>
+              <ZoomableImage>
+                <svg viewBox={`${vbX} ${vbY} ${vbW} ${vbH}`} width="100%" xmlns="http://www.w3.org/2000/svg" className="block w-full h-auto">
+                  <image href={href} width={w} height={h} preserveAspectRatio="xMidYMid meet" />
+                </svg>
+              </ZoomableImage>
             </figure>
           );
         })}
@@ -1219,17 +1224,19 @@ export default function LightsTrainer() {
 
       return (
         <figure className={fullBleed ? "bg-white dark:bg-zinc-900 p-0" : (flat ? "bg-white dark:bg-zinc-900 p-0" : `rounded-2xl border bg-white shadow ${ (isH125) ? "dark:bg-zinc-900/80 dark:border-zinc-600" : "dark:bg-zinc-900/80 dark:border-zinc-600" } p-4`)}>
-          <div className={fullBleed ? "relative" : "relative overflow-hidden rounded-xl"}>
-            <Image
-              src={item.pageImage}
-              alt={item.name}
-              width={1200}
-              height={1600}
-              className={`w-full h-auto transition ${item.severity === "warning" ? "dark:brightness-110 dark:contrast-125 dark:saturate-150" : "dark:brightness-110 dark:contrast-120 dark:saturate-140"}`}
-              priority
-            />
-            <LinkHotspots item={item} />
-          </div>
+          <ZoomableImage className={fullBleed ? "" : "rounded-xl"}>
+            <div className="relative">
+              <Image
+                src={item.pageImage}
+                alt={item.name}
+                width={1200}
+                height={1600}
+                className={`w-full h-auto transition ${item.severity === "warning" ? "dark:brightness-110 dark:contrast-125 dark:saturate-150" : "dark:brightness-110 dark:contrast-120 dark:saturate-140"}`}
+                priority
+              />
+              <LinkHotspots item={item} />
+            </div>
+          </ZoomableImage>
           {item.references?.length && !hideReferences ? (
             <figcaption className="mt-3 text-xs text-slate-500 dark:text-zinc-400">
               {item.references.join(", ")}

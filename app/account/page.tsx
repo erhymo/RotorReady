@@ -6,6 +6,7 @@ import AppTopBar from "@/components/AppTopBar";
 import { listVariantsByProduct } from "@/lib/models/catalog";
 import { getStoredActiveModelVariantId, storeActiveModelVariantId, modelScopedKey } from "@/lib/models/storage";
 import { writeQuizOverrideSession } from "@/lib/quiz/overrideSession";
+import { tryUnlockCode } from "@/lib/unlockCodes";
 
 type Summary = { section: string; total: number; correct: number; percent: number; at: string };
 type WrongSession = { section?: string; createdAt?: string | number; items?: unknown[] };
@@ -197,6 +198,31 @@ export default function AccountPage() {
   const [conversationLoading, setConversationLoading] = useState(false);
   const [conversationError, setConversationError] = useState<string | null>(null);
   const [messageText, setMessageText] = useState("");
+  const [supportTapCount, setSupportTapCount] = useState(0);
+  const [showUnlockField, setShowUnlockField] = useState(false);
+  const [unlockCode, setUnlockCode] = useState("");
+  const [unlockStatus, setUnlockStatus] = useState<"idle" | "error" | "success">("idle");
+
+  const handleSupportTap = useCallback(() => {
+    setSupportTapCount((n) => {
+      const next = n + 1;
+      if (next >= 2) {
+        setShowUnlockField(true);
+        return 0;
+      }
+      return next;
+    });
+  }, []);
+
+  const handleUnlockSubmit = useCallback((e: React.FormEvent) => {
+    e.preventDefault();
+    if (tryUnlockCode(unlockCode)) {
+      setUnlockStatus("success");
+      setUnlockCode("");
+    } else {
+      setUnlockStatus("error");
+    }
+  }, [unlockCode]);
   const [sendingMessage, setSendingMessage] = useState(false);
 
 
@@ -757,13 +783,43 @@ export default function AccountPage() {
       </section>
 
       <section className="rounded-2xl border border-slate-200 bg-white/90 p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-900/80 dark:text-zinc-100 space-y-3">
-        <h2 className="text-lg font-semibold text-slate-900 dark:text-white">Support</h2>
+        <h2
+          className="text-lg font-semibold text-slate-900 dark:text-white select-none"
+          onClick={handleSupportTap}
+        >
+          Support
+        </h2>
         <p className="text-sm text-slate-700 dark:text-zinc-300">
           For support, correction requests or feedback, use the public support page. No account is required.
         </p>
         <a href="/support" className="inline-flex rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-blue-700">
           Open support
         </a>
+        {showUnlockField && (
+          <form onSubmit={handleUnlockSubmit} className="mt-3 flex items-center gap-2">
+            <input
+              type="text"
+              value={unlockCode}
+              onChange={(e) => { setUnlockCode(e.target.value); setUnlockStatus("idle"); }}
+              placeholder="Enter code"
+              autoComplete="off"
+              autoCapitalize="characters"
+              className="w-32 rounded-lg border border-slate-300 px-3 py-2 text-sm dark:border-zinc-600 dark:bg-zinc-800 dark:text-zinc-100"
+            />
+            <button
+              type="submit"
+              className="rounded-lg border border-slate-300 px-3 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-100 dark:border-zinc-600 dark:text-zinc-200 dark:hover:bg-zinc-700"
+            >
+              Unlock
+            </button>
+            {unlockStatus === "error" && (
+              <span className="text-sm text-red-600 dark:text-red-400">Wrong code</span>
+            )}
+            {unlockStatus === "success" && (
+              <span className="text-sm text-emerald-600 dark:text-emerald-400">Unlocked</span>
+            )}
+          </form>
+        )}
       </section>
 
       <section className="rounded-2xl border border-slate-200 bg-white/90 p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-900/80 dark:text-zinc-100 space-y-3">

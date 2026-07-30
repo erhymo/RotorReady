@@ -8,6 +8,7 @@ import DownloadButton from "@/components/DownloadButton";
 import { HeadphonesIcon } from "@/components/Icons";
 import { formatBytes, getDownloadedEpisodesSummary, offlineDownloadsSupported } from "@/lib/audioOffline";
 import { useActiveModelVariant } from "@/lib/models/hooks";
+import { isUnlockFlagSet } from "@/lib/unlockCodes";
 
 type AudioItem = {
   id: string;
@@ -15,6 +16,7 @@ type AudioItem = {
   description: string;
   filename: string;
   durationSeconds: number;
+  unlockFlag?: string;
 };
 
 function formatDuration(totalSeconds: number) {
@@ -47,7 +49,10 @@ export default function AudioListPage() {
         return res.json();
       })
       .then((data) => {
-        if (!cancelled) setItems(Array.isArray(data?.items) ? data.items : []);
+        if (cancelled) return;
+        const allItems: AudioItem[] = Array.isArray(data?.items) ? data.items : [];
+        const visible = allItems.filter((item) => !item.unlockFlag || isUnlockFlagSet(item.unlockFlag));
+        setItems(visible);
       })
       .catch(() => {
         if (!cancelled) {

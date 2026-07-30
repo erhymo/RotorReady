@@ -7,6 +7,7 @@ import AppTopBar from "@/components/AppTopBar";
 import DownloadButton from "@/components/DownloadButton";
 import { PauseIcon, PlayIcon, SkipBackIcon, SkipForwardIcon } from "@/components/Icons";
 import { useActiveModelVariant } from "@/lib/models/hooks";
+import { isUnlockFlagSet } from "@/lib/unlockCodes";
 import { useOfflineAudioSrc } from "@/lib/useOfflineAudioSrc";
 
 type AudioItem = {
@@ -15,6 +16,7 @@ type AudioItem = {
   description: string;
   filename: string;
   durationSeconds: number;
+  unlockFlag?: string;
 };
 
 const PLAYBACK_RATES = [1, 1.25, 1.5, 1.75, 2];
@@ -54,7 +56,9 @@ export default function AudioPlayerPage() {
       .then((data) => {
         if (cancelled) return;
         const items: AudioItem[] = Array.isArray(data?.items) ? data.items : [];
-        setItem(items.find((entry) => entry.id === params.id) ?? null);
+        const found = items.find((entry) => entry.id === params.id) ?? null;
+        const visible = found && (!found.unlockFlag || isUnlockFlagSet(found.unlockFlag)) ? found : null;
+        setItem(visible);
       })
       .catch(() => {
         if (!cancelled) setItem(null);

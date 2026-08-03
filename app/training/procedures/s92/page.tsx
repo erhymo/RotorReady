@@ -6,6 +6,16 @@ import { S92_PROCEDURES } from "@/lib/s92Procedures/data";
 
 const GROUPS: { heading: string; slugs: string[] }[] = [
   {
+    heading: "Normal procedures",
+    slugs: [
+      "exterior-check",
+      "before-starting-and-starting-engines",
+      "rotor-engagement-and-before-takeoff",
+      "after-takeoff-and-landing-checks",
+      "shutdown",
+    ],
+  },
+  {
     heading: "Category A / B",
     slugs: [
       "cat-a-horizontal-takeoff",
@@ -23,7 +33,17 @@ const GROUPS: { heading: string; slugs: string[] }[] = [
   },
   {
     heading: "Engine failure",
-    slugs: ["single-engine-failure-on-takeoff", "single-engine-landing", "single-engine-failure-elevated-helideck", "dual-engine-failure-autorotation"],
+    slugs: ["single-engine-failure-on-takeoff", "single-engine-landing", "single-engine-failure-elevated-helideck", "dual-engine-failure-autorotation", "emergency-engine-shutdown"],
+  },
+  {
+    heading: "Fire, electrical & hydraulic",
+    slugs: [
+      "engine-and-apu-fire",
+      "cabin-cockpit-fire-and-smoke",
+      "electrical-fire-in-flight",
+      "electrical-system-malfunctions",
+      "hydraulic-system-malfunctions",
+    ],
   },
 ];
 

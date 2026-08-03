@@ -144,7 +144,10 @@ const groups = [
 export default function AW139CatAOeiContingenciesPage() {
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-zinc-900">
-      <div className="sticky top-0 z-10 border-b bg-white/80 backdrop-blur dark:border-zinc-700 dark:bg-zinc-900/90">
+      <div
+        className="sticky z-10 border-b bg-white/80 backdrop-blur dark:border-zinc-700 dark:bg-zinc-900/90"
+        style={{ top: "calc(4rem + env(safe-area-inset-top, 0px))" }}
+      >
         <div className="mx-auto max-w-3xl px-6 py-3">
           <BackButton label="Procedures" to="/training/procedures/aw139" />
         </div>

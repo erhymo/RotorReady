@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import AppTopBar from "@/components/AppTopBar";
+import AbbreviationsLinkCard from "@/app/components/AbbreviationsLinkCard";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 
 export default function AW169ProceduresListPage() {
@@ -44,6 +45,7 @@ export default function AW169ProceduresListPage() {
 	        <p className="text-sm text-slate-600 dark:text-zinc-300">
 	          Browse training procedures for the selected AW169 variant. Normal profiles are reused where the EP QRH matches; EP-only OEI contingency notes are shown separately.
 	        </p>
+	        <AbbreviationsLinkCard href="/aw169/abbreviations" />
 	        <section className="rounded-xl border bg-white p-4 shadow-sm dark:bg-zinc-900 dark:border-zinc-700">
           <div className="space-y-3">
             {procedures.map((p) => (

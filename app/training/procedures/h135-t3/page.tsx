@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import AppTopBar from "@/components/AppTopBar";
+import AbbreviationsLinkCard from "@/app/components/AbbreviationsLinkCard";
 import { H135T3_PROCEDURES } from "@/lib/h135t3Procedures/data";
 
 const GROUPS: { heading: string; slugs: string[] }[] = [
@@ -49,6 +50,7 @@ export default function H135T3ProceduresListPage() {
           Browse H135 T3 normal procedures — exterior check, engine start, takeoff, landing and IFR approaches —
           plus engine emergency, fire, drive-system and fuel procedures.
         </p>
+        <AbbreviationsLinkCard href="/h135-t3/abbreviations" />
         {GROUPS.map((group) => (
           <section key={group.heading} className="space-y-3">
             <h2 className="text-sm font-semibold uppercase tracking-wide text-slate-700 dark:text-zinc-200">{group.heading}</h2>

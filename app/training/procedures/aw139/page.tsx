@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import AppTopBar from "@/components/AppTopBar";
+import AbbreviationsLinkCard from "@/app/components/AbbreviationsLinkCard";
 import { AW139_PROCEDURES } from "@/lib/aw139Procedures/data";
 
 const GROUPS: { heading: string; slugs: string[]; extraLink?: { href: string; title: string; subtitle?: string } }[] = [
@@ -56,6 +57,7 @@ export default function AW139ProceduresListPage() {
           Browse AW139 normal procedures, engine-failure response, fire procedures, and other emergency/malfunction
           procedures.
         </p>
+        <AbbreviationsLinkCard href="/aw139/abbreviations" />
         {GROUPS.map((group) => (
           <section key={group.heading} className="space-y-3">
             <h2 className="text-sm font-semibold uppercase tracking-wide text-slate-700 dark:text-zinc-200">{group.heading}</h2>

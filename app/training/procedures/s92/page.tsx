@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import AppTopBar from "@/components/AppTopBar";
+import AbbreviationsLinkCard from "@/app/components/AbbreviationsLinkCard";
 import { S92_PROCEDURES } from "@/lib/s92Procedures/data";
 
 const GROUPS: { heading: string; slugs: string[] }[] = [
@@ -56,6 +57,7 @@ export default function S92ProceduresListPage() {
         <p className="text-sm text-slate-600 dark:text-zinc-300">
           Browse S-92 Category A/B takeoff and landing profiles, elevated helideck operations, and engine-failure response procedures.
         </p>
+        <AbbreviationsLinkCard href="/s92/abbreviations" />
         {GROUPS.map((group) => (
           <section key={group.heading} className="space-y-3">
             <h2 className="text-sm font-semibold uppercase tracking-wide text-slate-700 dark:text-zinc-200">{group.heading}</h2>

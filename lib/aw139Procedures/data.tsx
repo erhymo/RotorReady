@@ -20,6 +20,7 @@ export type ProcedureDefinition = {
   warnings?: string[];
   groups: ProcedureGroup[];
   notes?: string[];
+  image?: { src: string; alt: string; caption?: string };
 };
 
 export const AW139_PROCEDURES: ProcedureDefinition[] = [
@@ -761,6 +762,309 @@ export const AW139_PROCEDURES: ProcedureDefinition[] = [
     notes: [
       "With one hydraulic system operating, taxi at 5 kt or less and carry out turns carefully.",
       "After EMER DOWN is selected, the amber lights stay illuminated even with gear down until the LDG GEAR lever is moved to DOWN. After landing, EMER DOWN must be de-selected to unlock the nosewheel steering.",
+    ],
+  },
+
+  // ---------------------------------------------------------------------
+  // CATEGORY A OPERATIONS (RFM Supplement 12)
+  // ---------------------------------------------------------------------
+  {
+    slug: "ground-and-elevated-heliport-vertical-take-off",
+    title: "GROUND LEVEL / ELEVATED HELIPORT VERTICAL TAKE-OFF",
+    subtitle: "Category A — Supplement 12, Part A",
+    reference: "RFM Supplement 12, Part A — Section 2A Normal Procedures",
+    intro: (
+      <>
+        Vertical Category A take-off from a ground level or elevated heliport/helideck. TDP is 35 ft to 70 ft (TDP<sub>E</sub>)
+        ATS. Take-off is flown from a 5 ft ATS hover, climbing vertically to TDP before rotating to accelerate through
+        V<sub>TOSS</sub> (40 KIAS).
+      </>
+    ),
+    image: {
+      src: "/aw139/procedures/ground-and-elevated-heliport-vertical-take-off/ground-and-elevated-heliport-vertical-take-off.svg",
+      alt: "Take-off profile diagram for ground level / elevated heliport vertical take-off, showing TDP height band, VTOSS and VY",
+      caption: "Figure 2A-1 — Take-Off Profile Ground Level, Elevated Heliport/Helideck (RFM Supplement 12, Part A)",
+    },
+    cautions: [
+      "If this procedure is modified, it may not be possible, if an engine fails in the take-off path, to carry out a safe OEI landing or achieve the scheduled OEI performance.",
+    ],
+    groups: [
+      {
+        heading: "",
+        steps: [
+          { left: "1", right: <>LDG LT &amp; LDG LT2 switches — As required</> },
+          { left: "2", right: <>Rotor speed — Set 102% NR</> },
+          { left: "3", right: <>PARK BRAKE — Apply. Confirm PARK BRAKE ON advisory illuminated on CAS</> },
+          { left: "4", right: <>HEATER/ECS ENVIRO (if fitted) — Confirm SOV 1 &amp; 2 switches selected to NORMAL, cycle HTR/ECS CONTROL switch to check ITT rise and HEATER ON advisory, then select back OFF</> },
+          { left: "5", right: <>Power checks — Carry out as required per the Engine Power Checks procedure, Part K Common Performance</> },
+          { left: "6", right: <>Pilot Altimeter — Set 0 ft, or nearest 1000 ft setting to T-O altitude, with collective at MPOG</> },
+          { left: "7", right: <>Hover — Establish a 5 ft (1.5 m) ATS hover</> },
+          { left: "8", right: <>Flight controls — Check correct functioning</> },
+          { left: "9", right: <>MFD PWR PLANT page — Check all parameters within normal operating limits</> },
+          { left: "10", right: <>Warnings and Cautions — Confirm none displayed</> },
+          { left: "11", right: <>PI/NR — Check PI&rsquo;s matched, NR 102%. Note PI value</> },
+          { left: "12", right: <>Collective/Cyclic Control — Increase PI by 23% above hover value (or to 110% if 23% is not available) in 2 seconds, and initiate a vertical climb to TDP while adjusting pitch attitude to maintain position over the heliport/helideck</> },
+          { left: "13", right: <>Take-Off Decision Point (TDP) — At required TDP height rotate nose down to -10° attitude in 1 second, maintain for 1 second, then recover pitch attitude to 0° to climb and accelerate to V<sub>TOSS</sub> (40 KIAS). Maintain collective position</> },
+          { left: "14", right: <>Acceleration/Climb — When V<sub>TOSS</sub> (40 KIAS) is achieved, adjust pitch attitude to approximately 5° nose up. Maintain collective position, continue climb and acceleration until V<sub>Y</sub></> },
+          { left: "15", right: <>Climb — At V<sub>Y</sub> adjust attitude to stabilize speed. Continue climb</> },
+          { left: "16", right: <>Landing gear — UP (when reaching V<sub>Y</sub> but not below 200 ft ATS)</> },
+          { left: "17", right: <>NR/NF — Select 100% at V<sub>Y</sub></> },
+          { left: "18", right: <>After Take-Off checks — Complete</> },
+          { left: "19", right: <>Power — Adjust collective to continue climb at V<sub>Y</sub>, utilizing up to Take-Off power as required, to 1000 ft ATS</> },
+          { left: "20", right: <>At 1000 ft ATS — Adjust collective and cyclic to continue climb at V<sub>Y</sub> or accelerate to cruise speed as required</> },
+          { left: "21", right: <>HEATER/ECS ENVIRO (if fitted) — As required</> },
+          { left: "22", right: <>PARK BRAKE — Release. Confirm PARK BRAKE ON advisory not illuminated on CAS</> },
+          { left: "23", right: <>LDG LT &amp; LDG LT2 switches — OFF (if used)</> },
+          { left: "24", right: <>Pilot Altimeter — Set as required</> },
+        ],
+      },
+    ],
+    notes: [
+      "Radar altimeter heights are shown in the flight path profile. Refer to the barometric altimeter for elevated heliport/helideck operations or when obstacles are present in the take-off flight path.",
+    ],
+  },
+  {
+    slug: "offshore-helideck-take-off",
+    title: "OFFSHORE HELIDECK TAKE-OFF",
+    subtitle: "Category A — Supplement 12, Part E",
+    reference: "RFM Supplement 12, Part E — Section 2E Normal Procedures",
+    intro: (
+      <>
+        Vertical Category A take-off from an offshore helideck. TDP is 20 ft ATS with rotation at 30 ft ATS, held
+        &ldquo;light on wheels&rdquo; at take-off attitude before rotating to accelerate through V<sub>TOSS</sub> (40 KIAS).
+      </>
+    ),
+    image: {
+      src: "/aw139/procedures/offshore-helideck-take-off/offshore-helideck-take-off.svg",
+      alt: "Take-off profile diagram for offshore helideck take-off, showing rotation at 30 ft ATS, TDP 20 ft ATS and VTOSS",
+      caption: "Figure 2E-1 — Take-Off Profile Offshore Helideck (RFM Supplement 12, Part E)",
+    },
+    cautions: [
+      "If this procedure is modified, it may not be possible, if an engine fails in the take-off path, to carry out a safe OEI landing or achieve the scheduled OEI performance.",
+    ],
+    groups: [
+      {
+        heading: "",
+        steps: [
+          { left: "1", right: <>LDG LT &amp; LDG LT2 switches — As required</> },
+          { left: "2", right: <>Rotor speed — Set 102% NR</> },
+          { left: "3", right: <>PARK BRAKE — Apply. Confirm PARK BRAKE ON advisory illuminated on CAS</> },
+          { left: "4", right: <>HEATER/ECS ENVIRO (if fitted) — Confirm SOV 1 &amp; 2 switches selected to NORMAL, cycle HTR/ECS CONTROL switch to check ITT rise and HEATER ON advisory, then select back OFF</> },
+          { left: "5", right: <>Power checks — Carry out as required per the Engine Power Checks procedure, Section 4K Performance Data</> },
+          { left: "6", right: <>Pilot Altimeter — Set 0 ft, or nearest 1000 ft setting to T-O altitude, with collective at MPOG</> },
+          { left: "7", right: <>Hover IGE — Establish HIGE at 5 ft (1.5 m) ATS and note hovering PI value; from Figure 1E-1 confirm HIGE PI value within limit and note the corresponding Target PI value</> },
+          { left: "8", right: <>Flight controls — Check correct functioning</> },
+          { left: "9", right: <>MFD PWR PLANT page — Check all parameters within normal operating limits</> },
+          { left: "9A", right: <>Compass Controller — Select DG</> },
+          { left: "10", right: <>Warnings and Cautions — Confirm none displayed</> },
+          { left: "11", right: <>PI/NR — Check PI&rsquo;s matched, NR 102%</> },
+          { left: "12", right: <>Hover — Establish a hover with the aircraft in take-off attitude, light on the main wheel(s) (nose wheel up), or a 1–2 ft hover if more practicable</> },
+          { left: "13", right: <>Collective/Cyclic Control — Increase PI to Target PI value (from item 7) in 2 seconds and initiate a vertical climb to TDP, adjusting pitch attitude to maintain position over the centre of the helideck</> },
+          { left: "14", right: <>Take-Off Decision Point (TDP) — PNF calls TDP; continue vertical climb above centre of helideck to 30 ft (9 m) ATS</> },
+          { left: "15", right: <>Rotation — At 30 ft ATS PNF calls &ldquo;ROTATE&rdquo;; rotate nose down to -10° attitude in 1 second, maintain for 1 second, then recover pitch attitude to 0° and accelerate to V<sub>TOSS</sub> (40 KIAS). Maintain collective position</> },
+          { left: "16", right: <>Acceleration/Climb — When V<sub>TOSS</sub> (40 KIAS) is achieved, adjust pitch attitude to approximately 5° nose up. Maintain collective position, continue climb and acceleration until V<sub>Y</sub></> },
+          { left: "17", right: <>Climb — At V<sub>Y</sub> adjust attitude to stabilize speed. Continue climb</> },
+          { left: "18", right: <>Landing gear — UP (when reaching V<sub>Y</sub> but not below 200 ft ATS)</> },
+          { left: "19", right: <>NR/NF — Select 100% at V<sub>Y</sub></> },
+          { left: "19A", right: <>Compass Controller — Select MAG</> },
+          { left: "20", right: <>After Take-Off checks — Complete</> },
+          { left: "21", right: <>Power — Adjust collective to continue climb at V<sub>Y</sub>, utilizing up to Take-Off power as required, to 1000 ft ATS or cruise altitude if lower</> },
+          { left: "22", right: <>At 1000 ft ATS or cruise altitude if lower — Adjust collective and cyclic to continue climb at V<sub>Y</sub> or accelerate to cruise speed as required</> },
+          { left: "23", right: <>HEATER/ECS ENVIRO (if fitted) — As required</> },
+          { left: "24", right: <>PARK BRAKE — Release. Confirm PARK BRAKE ON advisory not illuminated on CAS</> },
+          { left: "25", right: <>LDG LT &amp; LDG LT2 switches — OFF (if used)</> },
+          { left: "26", right: <>Pilot Altimeter — Set as required</> },
+        ],
+      },
+    ],
+    notes: [
+      "Two climb techniques exist after VTOSS: the standard technique holds 40 KIAS to 200 ft then accelerates to VY (80 KIAS); the alternative technique accelerates straight through to 60 KIAS for both PATH 1 and PATH 2 climb segments.",
+    ],
+  },
+  {
+    slug: "clear-area-take-off",
+    title: "CLEAR AREA TAKE-OFF",
+    subtitle: "Category A — Supplement 12, Part F",
+    reference: "RFM Supplement 12, Part F — Section 2F Normal Procedures",
+    intro: (
+      <>
+        Running/rolling-style Category A take-off from a clear area. TDP is 30 ft AGL; from a 5 ft hover the aircraft
+        accelerates on a nose-down attitude change to reach V<sub>TOSS</sub> (50 KIAS) by TDP.
+      </>
+    ),
+    image: {
+      src: "/aw139/procedures/clear-area-take-off/clear-area-take-off.svg",
+      alt: "Take-off profile diagram for clear area take-off, showing TDP 30 ft AGL and VTOSS 50 KIAS",
+      caption: "Figure 2F-1 — Take-Off Profile Clear Area (RFM Supplement 12, Part F)",
+    },
+    cautions: [
+      "If this procedure is modified, it may not be possible, if an engine fails in the take-off path, to carry out a safe OEI landing or achieve the scheduled OEI performance.",
+    ],
+    groups: [
+      {
+        heading: "",
+        steps: [
+          { left: "1", right: <>LDG LT &amp; LDG LT2 switches — As required</> },
+          { left: "2", right: <>Rotor speed — Set 102% NR</> },
+          { left: "3", right: <>HEATER/ECS ENVIRO (if fitted) — Confirm SOV 1 &amp; 2 switches selected to NORMAL, cycle HTR/ECS CONTROL switch to check ITT rise and HEATER ON advisory, then select back OFF</> },
+          { left: "4", right: <>Power checks — Carry out as required per the Engine Power Checks procedure, Section 4K Performance Data</> },
+          { left: "5", right: <>Pilot Altimeter — Set 0 ft, or nearest 1000 ft setting to T-O altitude, with collective at MPOG</> },
+          { left: "6", right: <>PARK BRAKE — Confirm released</> },
+          { left: "7", right: <>Hover — Establish a 5 ft (1.5 m) AGL hover</> },
+          { left: "8", right: <>Flight controls — Check correct functioning</> },
+          { left: "9", right: <>MFD PWR PLANT page — Check all parameters within normal operating limits</> },
+          { left: "10", right: <>Warnings and Cautions — Confirm none displayed</> },
+          { left: "11", right: <>PI — Check PI&rsquo;s matched, NR 102%. Note PI value</> },
+          { left: "12", right: <>Collective/Cyclic Control — Apply cyclic to commence a nose-down attitude change to -5° and maintain; at approximately half way through the rotation apply collective to increase PI by 18% above hover value (or to 110% if 18% is not available)</> },
+          { left: "13", right: <>Take-Off Decision Point (TDP) — At 30 ft AGL (TDP), continue acceleration; verify V<sub>TOSS</sub> (50 KIAS) already achieved</> },
+          { left: "14", right: <>Acceleration/Climb — Adjust pitch attitude to approximately 5° nose up and continue climb up to 200 ft AGL</> },
+          { left: "15", right: <>Landing gear — UP (when reaching V<sub>Y</sub> but not before 200 ft AGL)</> },
+          { left: "16", right: <>NR/NF — Select 100% at V<sub>Y</sub></> },
+          { left: "17", right: <>Power — Adjust collective to continue climb at V<sub>Y</sub>, utilizing up to Take-Off power as required, to 1000 ft</> },
+          { left: "18", right: <>After Take-Off checks — Complete</> },
+          { left: "19", right: <>At 1000 ft AGL — Adjust collective and cyclic to continue climb at V<sub>Y</sub> or cruise speed as required</> },
+          { left: "20", right: <>HEATER/ECS ENVIRO (if fitted) — As required</> },
+          { left: "21", right: <>LDG LT &amp; LDG LT2 switches — OFF, if used</> },
+          { left: "22", right: <>Pilot Altimeter — Set as required</> },
+        ],
+      },
+    ],
+    notes: [
+      "OAT conditions close to 50°C may produce ITT-limited PI, in HIGE, above 92% PI. Under these conditions using 110% PI (even though the change in PI is less than 18%) produces the power required to guarantee CAT A performance.",
+    ],
+  },
+  {
+    slug: "heliport-landing",
+    title: "GROUND LEVEL / ELEVATED HELIPORT APPROACH AND LANDING",
+    subtitle: "Category A — Supplement 12, Part G",
+    reference: "RFM Supplement 12, Part G — Section 2G Normal Procedures",
+    intro: (
+      <>
+        Category A approach and landing to a ground level or elevated heliport/helideck. LDP is 50 ft ALS at 20 KIAS
+        with a rate of descent less than 350 ft/min, following an initial approach through 200 ft ALS at no more than
+        500 fpm.
+      </>
+    ),
+    image: {
+      src: "/aw139/procedures/heliport-landing/heliport-landing.svg",
+      alt: "Landing profile diagram for ground level / elevated heliport approach and landing, showing 200 ft initial point and LDP at 50 ft ALS, 20 KIAS",
+      caption: "Figure 2G-1 — Normal Landing Profile, Normal LDP (RFM Supplement 12, Part G)",
+    },
+    cautions: [
+      "If this procedure is modified, it may not be possible, if an engine fails in the landing path, to carry out a safe OEI landing or achieve the scheduled OEI performance.",
+    ],
+    groups: [
+      {
+        heading: "",
+        steps: [
+          { left: "1", right: <>Landing direction — If possible orientate the aircraft for an approach into the prevailing wind</> },
+          { left: "2", right: <>Pre-landing checks — Complete</> },
+          { left: "3", right: <>AWG — NORMAL</> },
+          { left: "4", right: <>LDG LT and LDG LT2 switches — As required</> },
+          { left: "5", right: <>Pilot Altimeter — Set QNH (landing surface elevation should be known)</> },
+          { left: "6", right: <>HEATER/ECS ENVIRO (if used) — Confirm SOV 1 &amp; 2 switches selected to NORMAL; select OFF and confirm HEATER ON advisory extinguished</> },
+          { left: "7", right: <>Rotor speed — Set 102%</> },
+          { left: "8", right: <>PARK BRAKE — Apply, PARK BRAKE ON advisory message illuminated on CAS</> },
+          { left: "9", right: <>Initial point — Establish an approach to pass through 200 ft ALS at a rate of descent of no more than 500 fpm. Initiate deceleration to achieve LDP (50 ft ALS) at 20 KIAS and rate of descent less than 350 ft/min, heliport/helideck in sight</> },
+          { left: "10", right: <>Landing — Continue the deceleration and descent to a HIGE. Maximum allowed groundspeed at touchdown 5 kts</> },
+          { left: "11", right: <>PARK BRAKE — As required</> },
+          { left: "12", right: <>LDG LT &amp; LDG LT2 switches — OFF, if used</> },
+        ],
+      },
+    ],
+    notes: [
+      "When descending below 150 ft radio altimeter height a vocal message ‘ONE FIFTY FEET’ is activated regardless of landing gear status, unless the AWG switch is set to REGRADE.",
+      "Variable LDP (LDP_V), 50 ft to 400 ft ALS at 20 KIAS, may be used to allow avoidance of obstacles along the balked landing profile after the heliport/helideck.",
+    ],
+  },
+  {
+    slug: "offshore-helideck-landing",
+    title: "OFFSHORE HELIDECK APPROACH AND LANDING",
+    subtitle: "Category A — Supplement 12, Part I",
+    reference: "RFM Supplement 12, Part I — Section 2I Normal Procedures",
+    intro: (
+      <>
+        Category A level approach and landing to an offshore helideck, flown with the helideck to the side of the
+        pilot flying. LDP is 40 ft ALS at 15 kts groundspeed with the rotor tip path plane held outboard of the
+        helideck, reached at approximately 45° from the centre of the landing point.
+      </>
+    ),
+    image: {
+      src: "/aw139/procedures/offshore-helideck-landing/offshore-helideck-landing.svg",
+      alt: "Landing profile diagram for offshore helideck approach and landing, showing 200 ft initial point, LDP at 40 ft ALS/15 kts at 45 degrees from the landing point, and touchdown offset",
+      caption: "Figure 2I-1 — Normal Landing Profile, PF in RH Seat (RFM Supplement 12, Part I)",
+    },
+    cautions: [
+      "If this procedure is modified, it may not be possible, if an engine fails in the landing path, to carry out a safe OEI landing or achieve the scheduled OEI performance.",
+    ],
+    groups: [
+      {
+        heading: "",
+        steps: [
+          { left: "1", right: <>Landing direction — If possible orientate the aircraft for an approach into the prevailing wind</> },
+          { left: "2", right: <>Pre-landing checks — Complete</> },
+          { left: "3", right: <>AWG — NORMAL</> },
+          { left: "4", right: <>LDG LT and LDG LT2 switches — As required</> },
+          { left: "5", right: <>Pilot Altimeter — Set QNH (landing surface elevation should be known)</> },
+          { left: "6", right: <>HEATER/ECS ENVIRO (if used) — Confirm SOV 1 &amp; 2 switches selected to NORMAL; select OFF and confirm HEATER ON advisory extinguished</> },
+          { left: "7", right: <>Rotor speed — Set 102%</> },
+          { left: "8", right: <>PARK BRAKE — Apply, PARK BRAKE ON advisory message illuminated on CAS</> },
+          { left: "8A", right: <>Compass Controller — Select DG</> },
+          { left: "9", right: <>Initial point — Establish an approach to pass through 200 ft ALS at 80 KIAS and a rate of descent of no more than 500 fpm</> },
+          { left: "10", right: <>Approach — Progressively reduce speed and height to achieve LDP at 15 kts groundspeed and 40 ft ALS, approaching into wind with the helideck to the side of the PF. Maintain the rotor tip path plane outboard, but close to the edge of the helideck, with the aircraft centreline parallel to the helideck edge</> },
+          { left: "11", right: <>LDP — Maintain 15 kts groundspeed and 40 ft ALS level; LDP is reached at approximately 45° from the centre of the landing point</> },
+          { left: "12", right: <>Landing — From the 45° position fly the aircraft forwards, sideways and downwards towards the landing point, decreasing collective slightly. Descending through 30 ft ALS, reduce nose-up attitude to a maximum of 10°. Continue to a hover over the helideck</> },
+          { left: "13", right: <>Touchdown — Descend vertically and use collective to cushion touchdown, with 30°–45° heading offset if wind speed is less than 10 kts; if wind speed exceeds 10 kts maintain heading with respect to the heading at LDP. Do not exceed 20 kts crosswind. Maximum allowed groundspeed at touchdown 5 kts</> },
+          { left: "14", right: <>PARK BRAKE — As required</> },
+          { left: "15", right: <>LDG LT &amp; LDG LT2 switches — OFF, if used</> },
+        ],
+      },
+    ],
+    notes: [
+      "If the approach is carried out with the helideck to the left of the aircraft, the pilot flying must be in the left-hand seat.",
+      "When descending below 150 ft radio altimeter height a vocal message ‘ONE FIFTY FEET’ is activated regardless of landing gear status, unless AWG is set to REGRADE or INHIBIT.",
+    ],
+  },
+  {
+    slug: "clear-area-landing",
+    title: "CLEAR AREA APPROACH AND LANDING",
+    subtitle: "Category A — Supplement 12, Part J",
+    reference: "RFM Supplement 12, Part J — Section 2J Normal Procedures",
+    intro: (
+      <>
+        Category A approach and landing to a clear area. LDP is 50 ft AGL at 50 KIAS with a rate of descent less
+        than 350 ft/min, following an initial approach through 200 ft AGL at no more than 500 fpm.
+      </>
+    ),
+    image: {
+      src: "/aw139/procedures/clear-area-landing/clear-area-landing.svg",
+      alt: "Landing profile diagram for clear area approach and landing, showing LDP at 50 ft AGL and 50 KIAS",
+      caption: "Figure 2J-1 — Landing Profile (RFM Supplement 12, Part J)",
+    },
+    cautions: [
+      "If this procedure is modified, it may not be possible, if an engine fails in the landing path, to carry out a safe OEI landing or achieve the scheduled OEI performance.",
+    ],
+    groups: [
+      {
+        heading: "",
+        steps: [
+          { left: "1", right: <>Landing direction — If possible orientate the aircraft for an approach into the prevailing wind</> },
+          { left: "2", right: <>Pre-landing checks — Complete</> },
+          { left: "3", right: <>AWG — NORMAL</> },
+          { left: "4", right: <>LDG LT and LDG LT2 switches — As required</> },
+          { left: "5", right: <>Pilot Altimeter — Set QNH (landing surface elevation should be known)</> },
+          { left: "6", right: <>HEATER/ECS ENVIRO (if used) — Confirm SOV 1 &amp; 2 switches selected to NORMAL; select OFF and confirm HEATER ON advisory extinguished</> },
+          { left: "7", right: <>Rotor speed — Set 102%</> },
+          { left: "8", right: <>PARK BRAKE — Confirm released</> },
+          { left: "9", right: <>Initial point — Establish an approach to pass through 200 ft AGL at a rate of descent of no more than 500 fpm. Initiate deceleration to achieve LDP (50 ft AGL) at 50 KIAS and rate of descent less than 350 ft/min</> },
+          { left: "10", right: <>Landing — Continue the deceleration and descent to a HIGE</> },
+          { left: "11", right: <>PARK BRAKE — As required</> },
+          { left: "12", right: <>LDG LT &amp; LDG LT2 switches — OFF, if used</> },
+        ],
+      },
+    ],
+    notes: [
+      "When descending below 150 ft radio altimeter height a vocal message ‘ONE FIFTY FEET’ is activated regardless of landing gear status, unless AWG is set to REGRADE.",
     ],
   },
 ];

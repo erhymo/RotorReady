@@ -14,6 +14,15 @@ export default function ProcedureDetail({ procedure }: { procedure: ProcedureDef
           {procedure.intro && <p className="mt-3 text-sm text-slate-700 dark:text-zinc-300">{procedure.intro}</p>}
         </header>
 
+        {procedure.image && (
+          <figure className="rounded-xl border bg-white dark:bg-zinc-800 dark:border-zinc-700 p-4">
+            <img src={procedure.image.src} alt={procedure.image.alt} className="w-full h-auto rounded-lg" />
+            {procedure.image.caption && (
+              <figcaption className="mt-2 text-xs text-slate-500 dark:text-zinc-400 text-center">{procedure.image.caption}</figcaption>
+            )}
+          </figure>
+        )}
+
         {procedure.warnings?.map((w, i) => (
           <div key={i} className="rounded-xl border-2 border-red-600 bg-red-50 dark:bg-red-900/30 dark:border-red-500 p-4 text-sm text-red-900 dark:text-red-100">
             <div className="font-bold text-center mb-1">WARNING</div>

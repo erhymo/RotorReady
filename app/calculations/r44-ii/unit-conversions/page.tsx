@@ -2,6 +2,6 @@
 
 import UnitConversionsCalculator from "@/app/components/calculations/UnitConversionsCalculator";
 
-export default function AW169ConversionsPage() {
-  return <UnitConversionsCalculator fuelType="jetA1" />;
+export default function R44IIConversionsPage() {
+  return <UnitConversionsCalculator fuelType="avgas100LL" />;
 }

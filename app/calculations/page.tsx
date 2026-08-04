@@ -3,7 +3,8 @@ export const dynamic = "force-dynamic";
 
 import Link from "next/link";
 import AppTopBar from "@/components/AppTopBar";
-
+import { useActiveModelVariant } from "@/lib/models/hooks";
+import type { ProductId } from "@/lib/models/catalog";
 
 function Bar(props: { href: string; title: string; description: string }) {
   return (
@@ -18,29 +19,45 @@ function Bar(props: { href: string; title: string; description: string }) {
     </Link>
   );
 }
+
+const CALCULATIONS_ROUTE_SLUG: Record<ProductId, string> = {
+  AW169: "aw169",
+  AW189: "aw189",
+  AW139: "aw139",
+  H125: "h125",
+  R44_II: "r44-ii",
+  S92: "s92",
+  H135_T3: "h135-t3",
+  H145_D2: "h145-d2",
+  H145_D3: "h145-d3",
+};
+
+const FUEL_LABEL: Partial<Record<ProductId, string>> = {
+  R44_II: "Avgas 100LL",
+};
+
 export default function CalculationsHub() {
+  const { variant } = useActiveModelVariant();
+  const slug = CALCULATIONS_ROUTE_SLUG[variant.productId];
+  const fuelLabel = FUEL_LABEL[variant.productId] ?? "Jet A-1";
+
   return (
     <>
     <AppTopBar title="Calculations" backHref="/" backLabel="Home" />
     <div className="max-w-3xl mx-auto p-6 space-y-6">
       <header>
         <h1 className="text-2xl font-bold text-slate-900 dark:text-white">Calculations</h1>
-        <p className="text-slate-600 dark:text-zinc-300 mt-1">Performance calculators based on aircraft RFM charts.</p>
+        <p className="text-slate-600 dark:text-zinc-300 mt-1">Performance calculators for {variant.label}.</p>
       </header>
 
       <section className="space-y-3">
         <Bar
-          href="/calculations/aw169/oge-oei-headwind"
-          title="HOVER CEILING OUT OF GROUND EFFECT UNFACTORED HEADWIND OEI 2.5 min"
-          description="AW169 (ISA+35). Find max gross weight and available weight from PA and headwind."
-        />
-        <Bar
-          href="/calculations/aw169/unit-conversions"
+          href={`/calculations/${slug}/unit-conversions`}
           title="Conversions"
-          description="Convert speed, distance, altitude, weight and Jet A-1 fuel for quick planning."
+          description={`Convert speed, distance, altitude, weight and ${fuelLabel} fuel for quick planning.`}
         />
         <Bar
-          href="/calculations/aw169/true-airspeed"
+          href={`/calculations/${slug}/true-airspeed`}
           title="True Airspeed"
           description="Compute TAS from IAS, pressure altitude and outside air temperature."
         />
@@ -49,4 +66,3 @@ export default function CalculationsHub() {
     </>
   );
 }
-

@@ -2,6 +2,6 @@
 
 import TrueAirspeedCalculator from "@/app/components/calculations/TrueAirspeedCalculator";
 
-export default function AW169TrueAirspeedPage() {
+export default function H145D2TrueAirspeedPage() {
   return <TrueAirspeedCalculator />;
 }

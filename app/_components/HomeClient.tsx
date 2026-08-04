@@ -63,7 +63,7 @@ function Bar(props: { href: string; title: string; description: string; tone?: "
 		    return () => window.clearTimeout(timer);
 		  }, []);
 
-		  const showCalculations = activeVariant?.productId === "AW169";
+		  const showCalculations = true;
 		  const showPlanningTools = showNorwayTools || showCalculations;
 
 		  return (
@@ -327,7 +327,7 @@ function Bar(props: { href: string; title: string; description: string; tone?: "
 		            <Bar
 		              href="/calculations"
 		              title="Calculations"
-		              description="Performance calculators such as AW169 OEI OGE headwind."
+		              description="TAS and unit conversions for quick planning."
 		              tone="slate"
 		            />
 		          )}

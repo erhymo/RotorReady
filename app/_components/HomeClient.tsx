@@ -129,6 +129,24 @@ function Bar(props: { href: string; title: string; description: string; tone?: "
 	            icon={<BookIcon className="h-4 w-4" />}
 	          />
 	        )}
+		        {activeVariant?.id === "H125_AS350_B3E" && (
+		            <Bar
+		              href="/training/procedures/h125-as350-b3e"
+		              title="Procedures"
+		              description="Browse H125 / AS350 B3e procedures and training checklists."
+		              tone="emerald"
+		              icon={<BookIcon className="h-4 w-4" />}
+		            />
+		        )}
+		        {activeVariant?.id === "R44_II" && (
+		            <Bar
+		              href="/training/procedures/r44-ii"
+		              title="Procedures"
+		              description="Browse R44 II normal and emergency procedures."
+		              tone="emerald"
+		              icon={<BookIcon className="h-4 w-4" />}
+		            />
+		        )}
 	        {activeVariant?.id === "S92" && (
 	            <Bar
 	              href="/training/procedures/s92"

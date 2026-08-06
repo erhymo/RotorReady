@@ -275,6 +275,53 @@ const WEATHER_RADAR_SHARED: SystemNote = {
   ],
 };
 
+const WEATHER_RADAR_RDR1600_SHARED: SystemNote = {
+  slug: "weather-radar-rdr-1600",
+  title: "Weather Radar RDR-1600",
+  subtitle: "A separate, optional maritime/SAR radar kit — the one with the SR1/SR2/SR3 surface-search modes, beacon detection, and its own tighter ground-transmission distance.",
+  rfmReference:
+    "AW169 / AW169 EP RFM Supplement 35 (Weather Radar RDR-1600 — General Information, Limitations, Normal Procedures, Malfunction Procedures) and Section 7 (System Description, OES — Kit Weather Radar RDR-1600). Verified identical between AW169 and AW169 EP. This is a different, alternative radar installation from the RTA-4112 covered in the Weather Radar RTA-4112 note — the two are not fitted together.",
+  sections: [
+    {
+      heading: "What it is",
+      paragraphs: [
+        "The Telephonics RDR-1600 is a multi-mode surveillance and weather radar built for maritime missions. Hardware: a 12 in flat-plate antenna and drive unit, a receiver/transmitter unit, an interface unit, and a static inverter. ADAHRS 1/2 data are used for antenna stabilization. Controlled through the MFD drop-down menu and the CCD, displayed on the PFDs and/or MFD.",
+        "It provides three families of modes: air-to-surface search and detection (SR1/SR2/SR3), weather avoidance (WX/WXA), and beacon detection/navigation (BCN).",
+      ],
+    },
+    {
+      heading: "Operating modes",
+      table: {
+        columns: ["Mode", "What it does", "Notes"],
+        rows: [
+          ["SR1 (Search 1)", "Sea clutter rejection — short transmitted pulse with clutter-rejection circuitry, for short-range mapping of targets in a sea-clutter environment. Detects surface targets down to 500 ft minimum range.", "Active only at 10 NM range or below; at 20 NM or greater the transmitter switches to a long pulse and clutter rejection disengages (behaves like SR3)"],
+          ["SR2 (Search 2)", "Short-range precision ground mapping — short transmitted pulse. Detects surface targets down to 500 ft minimum range.", "Active only at 10 NM range or below; at 20 NM or greater it effectively becomes SR3"],
+          ["SR3 (Search 3)", "Long-range ground mapping / searching for topographical features (bodies of water, islands, high ground, bridges). Returns the greatest amount of ground clutter of the three. Can also be used for oil slick detection in calm to moderate sea states.", "—"],
+          ["WX (Weather)", "Continuous enroute weather — rain, thunderstorms, icing areas. Red/yellow/green display by rainfall density; a sensitivity timing control keeps echo intensity roughly equal from near-zero range to ~45 NM. Gain is preset, not operator-selectable.", "~45 NM"],
+          ["WXA (Weather Alert)", "As WX, but red storm-cell areas flash, and the Target Alert function activates: it warns the pilot if a red storm cell is detected within 25 NM beyond the selected range and within ±10° of boresight — including when the pilot isn't looking at the weather display.", "Alert range 25 NM beyond selected range, ±10° boresight"],
+          ["BCN (Beacon)", "Interrogates and receives pulses from a fixed transponder on a dedicated beacon frequency. Selectable Mode A (0–9) or DO-172 Mode B (0–15) code.", "Up to 160 NM, depending on beacon sensitivity/power"],
+          ["STBY (Standby)", "No radar data displayed — used during system warm-up and whenever the helicopter is on the ground.", "—"],
+          ["TEST", "Checks system operability. No transmission occurs.", "—"],
+        ],
+      },
+      note: "Weather and search modes cannot run at the same time, but any of them can be paired with Beacon: WX/BCN, WXA/BCN, SR1/BCN, SR2/BCN, or SR3/BCN. The antenna scans 120° in azimuth by default, selectable down to a 60° sector (SCAN 120 / SCAN 60), with ±15° selectable tilt and a combined ±30° pitch/roll/tilt stabilization system (deselectable via STAB OFF).",
+    },
+    {
+      heading: "The one hard limitation",
+      paragraphs: [
+        "The radar must not be used for navigation or terrain avoidance — the same restriction as the RTA-4112.",
+      ],
+    },
+    {
+      heading: "Ground transmission",
+      paragraphs: [
+        "The weather radar does not transmit on the ground due to the weight-on-wheels (WOW) safety interlock, unless commanded to. Do not turn the radar on within 30 ft (9 m) of personnel or containers holding flammable or explosive material — a wider clearance than the RTA-4112's 17 ft (5 m).",
+        "Should the WOW switch fail on the ground, the radar will transmit if it is selected to transmit. The response is to confirm the radar is switched OFF.",
+      ],
+    },
+  ],
+};
+
 const TCAS_II_SHARED: SystemNote = {
   slug: "tcas-ii",
   title: "TCAS II: Traffic Advisory System",
@@ -1000,5 +1047,5 @@ const RNP_APCH_LPV_SHARED: SystemNote = {
   ],
 };
 
-export const AW169_EP_SYSTEM_NOTES: SystemNote[] = [AFCS_EP, PLUS_MODE_EP, AUTOROTATION_PROTECTION_EP, WEATHER_RADAR_SHARED, TCAS_II_SHARED, HTAWS_EP, SVS_SHARED, DIGITAL_MAP_SHARED, OPLS_SHARED, EVS_CAMERA_SHARED, EHPS_SHARED, ADI_STBY_BATTERY_SHARED, AUTOMATIC_SEARCH_MODES_EP, EXTERNAL_HOIST_SHARED, CARGO_HOOK_SHARED, DITCHING_SHARED, ADELT_SHARED, EAPS_EP, FUEL_TRANSFER_PUMP_SHARED, RNP_APCH_LPV_SHARED];
-export const AW169_STANDARD_SYSTEM_NOTES: SystemNote[] = [WEATHER_RADAR_SHARED, TCAS_II_SHARED, HTAWS_STANDARD, SVS_SHARED, DIGITAL_MAP_SHARED, OPLS_SHARED, EVS_CAMERA_SHARED, EHPS_SHARED, ADI_STBY_BATTERY_SHARED, EXTERNAL_HOIST_SHARED, CARGO_HOOK_SHARED, DITCHING_SHARED, ADELT_SHARED, EAPS_STANDARD, FUEL_TRANSFER_PUMP_SHARED, RNP_APCH_LPV_SHARED];
+export const AW169_EP_SYSTEM_NOTES: SystemNote[] = [AFCS_EP, PLUS_MODE_EP, AUTOROTATION_PROTECTION_EP, WEATHER_RADAR_SHARED, WEATHER_RADAR_RDR1600_SHARED, TCAS_II_SHARED, HTAWS_EP, SVS_SHARED, DIGITAL_MAP_SHARED, OPLS_SHARED, EVS_CAMERA_SHARED, EHPS_SHARED, ADI_STBY_BATTERY_SHARED, AUTOMATIC_SEARCH_MODES_EP, EXTERNAL_HOIST_SHARED, CARGO_HOOK_SHARED, DITCHING_SHARED, ADELT_SHARED, EAPS_EP, FUEL_TRANSFER_PUMP_SHARED, RNP_APCH_LPV_SHARED];
+export const AW169_STANDARD_SYSTEM_NOTES: SystemNote[] = [WEATHER_RADAR_SHARED, WEATHER_RADAR_RDR1600_SHARED, TCAS_II_SHARED, HTAWS_STANDARD, SVS_SHARED, DIGITAL_MAP_SHARED, OPLS_SHARED, EVS_CAMERA_SHARED, EHPS_SHARED, ADI_STBY_BATTERY_SHARED, EXTERNAL_HOIST_SHARED, CARGO_HOOK_SHARED, DITCHING_SHARED, ADELT_SHARED, EAPS_STANDARD, FUEL_TRANSFER_PUMP_SHARED, RNP_APCH_LPV_SHARED];

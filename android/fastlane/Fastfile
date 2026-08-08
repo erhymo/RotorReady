@@ -43,7 +43,7 @@ platform :android do
   desc "Sync Capacitor Android assets and build a signed release AAB"
   lane :build do
     sh("cd .. && env -u GEM_PATH -u GEM_HOME npm run android:sync")
-    sh("env -u GEM_PATH -u GEM_HOME ./gradlew bundleRelease")
+    sh("cd .. && env -u GEM_PATH -u GEM_HOME ./gradlew bundleRelease")
   end
 
   desc "Build and upload AAB to Google Play internal testing"

@@ -16,6 +16,14 @@ const config: CapacitorConfig = {
   ios: {
     contentInset: "always",
   },
+  android: {
+    // Android 15+ enforces edge-to-edge rendering (content draws behind the status/nav
+    // bars) and Capacitor's default ("disable") does nothing to compensate, so the WebView
+    // content — including the app's sticky headers — was rendering partly under the status
+    // bar. "force" applies native margins matching the system bar insets on every Android
+    // version, not just 15+.
+    adjustMarginsForEdgeToEdge: "force",
+  },
 };
 
 export default config;

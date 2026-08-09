@@ -34,6 +34,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 	export const viewport: Viewport = {
 	  themeColor: "#111827",
+	  viewportFit: "cover",
 	};
 
 export default function RootLayout({

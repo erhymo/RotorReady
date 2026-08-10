@@ -1,0 +1,1 @@
+Fixed an issue where Weather planning could not access your location on Android.

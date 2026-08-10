@@ -1,0 +1,14 @@
+RotorReady is a helicopter training and reference app designed for professional pilots, students and instructors.
+
+The app provides structured quiz training, quick reference material and procedure-focused study tools for selected helicopter types.
+
+Features include:
+- Aircraft-specific quiz training
+- AW169 and AW169 EP training content
+- Limitations, emergency procedures and systems questions
+- Quick reference pages
+- Procedure training support
+- Offline support for selected training content
+- Weather and airport tools
+
+RotorReady is intended as a training aid only. It is not approved operational documentation. Always use official manuals, approved checklists, operator procedures and instructor guidance for real operations.

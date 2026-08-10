@@ -24,6 +24,14 @@ def play_track
   ENV["GOOGLE_PLAY_TRACK"].to_s.empty? ? "internal" : ENV["GOOGLE_PLAY_TRACK"]
 end
 
+def current_version_code
+  gradle_path = File.expand_path("../app/build.gradle", __dir__)
+  contents = File.read(gradle_path)
+  match = contents.match(/versionCode\s+(\d+)/)
+  UI.user_error!("Could not find versionCode in #{gradle_path}") unless match
+  match[1].to_i
+end
+
 platform :android do
   before_all do
     load_secure_env
@@ -57,6 +65,20 @@ platform :android do
       release_status: "completed",
       skip_upload_metadata: true,
       skip_upload_changelogs: true,
+      skip_upload_images: true,
+      skip_upload_screenshots: true
+    )
+  end
+
+  desc "Upload store listing text and changelogs from fastlane/metadata/android — no new build"
+  lane :metadata do
+    upload_to_play_store(
+      package_name: required_env("GOOGLE_PLAY_PACKAGE_NAME"),
+      json_key: required_env("GOOGLE_PLAY_JSON_KEY_PATH"),
+      track: play_track,
+      version_code: current_version_code,
+      skip_upload_apk: true,
+      skip_upload_aab: true,
       skip_upload_images: true,
       skip_upload_screenshots: true
     )

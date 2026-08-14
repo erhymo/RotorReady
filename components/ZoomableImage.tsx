@@ -21,6 +21,10 @@ export default function ZoomableImage({
     const target = e.target as HTMLElement;
     if (target && target.closest("a,button,input,textarea,select,[data-prevent-back]")) return;
 
+    // Own the tap: a parent (e.g. a "tap anywhere to close" overlay) must not
+    // also react to it, or zooming and closing would fire from the same tap.
+    e.stopPropagation();
+
     const container = containerRef.current;
     if (!container) return;
 

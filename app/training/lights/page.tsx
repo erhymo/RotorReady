@@ -1728,6 +1728,7 @@ export default function LightsTrainer() {
 	            </button>
             <div
               className="h-full w-full overflow-y-auto"
+              style={{ paddingTop: "calc(3.5rem + env(safe-area-inset-top, 0px))" }}
               onClick={(e) => {
                 try {
                   const t = e.target as HTMLElement;

@@ -785,6 +785,23 @@ export default function LightsTrainer() {
     }
   }, [current, isMobile]);
 
+  const closeProcedure = useCallback(() => {
+    try {
+      const before = window.location.pathname + window.location.search;
+      router.back();
+      setTimeout(() => {
+        try {
+          if (window.location.pathname + window.location.search === before) {
+            const v = activeVariant?.id;
+            if (isAw169) router.push('/training/lights/cwp/aw169');
+            else if (v === 'H125_AS350_B3_2B1') router.push('/training/lights/cwp/b3-2b1');
+            else router.push('/training/lights');
+          }
+        } catch {}
+      }, 120);
+    } catch {}
+  }, [router, activeVariant, isAw169]);
+
 		  const next = useCallback(() => {
 		    if (idx + 1 >= deck.length) {
 		      // If this was a single-memory-item session started from Browse on AW169,
@@ -1703,27 +1720,22 @@ export default function LightsTrainer() {
 	          >
 	            <button
 	              type="button"
-	              className="fixed right-3 top-3 z-50 rounded-lg bg-slate-900/90 px-3 py-2 text-sm font-semibold text-white shadow dark:bg-white/90 dark:text-slate-900"
-	              onClick={() => {
-              try {
-                const before = window.location.pathname + window.location.search;
-                router.back();
-                setTimeout(() => {
-                  try {
-                    if (window.location.pathname + window.location.search === before) {
-	                      const v = activeVariant?.id;
-	                      if (isAw169) router.push('/training/lights/cwp/aw169');
-                      else if (v === 'H125_AS350_B3_2B1') router.push('/training/lights/cwp/b3-2b1');
-                      else router.push('/training/lights');
-                    }
-                  } catch {}
-                }, 120);
-              } catch {}
-	              }}
+	              className="fixed right-3 z-50 rounded-lg bg-slate-900/90 px-3 py-2 text-sm font-semibold text-white shadow dark:bg-white/90 dark:text-slate-900"
+	              style={{ top: "calc(0.75rem + env(safe-area-inset-top, 0px))" }}
+	              onClick={closeProcedure}
 	            >
 	              Close procedure
 	            </button>
-            <div className="h-full w-full overflow-y-auto">
+            <div
+              className="h-full w-full overflow-y-auto"
+              onClick={(e) => {
+                try {
+                  const t = e.target as HTMLElement;
+                  if (t && t.closest('a,button,input,textarea,select,[data-prevent-back]')) return;
+                  closeProcedure();
+                } catch {}
+              }}
+            >
               <div className="px-0">
                 <div className={`${!isMobile ? "max-w-3xl mx-auto my-6 px-4" : ""}`}>
                   <ProcedureLikePDF item={current} flat memoryOnly={memoryOnly} hideReferences />

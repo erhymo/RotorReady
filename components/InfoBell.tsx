@@ -1,26 +1,26 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { BellIcon } from "@/components/Icons";
 import { INFO_STORAGE_KEY, LATEST_INFO_VERSION } from "@/lib/info/infoConstants";
 
-function getInitialHasUnreadInfo() {
-  if (typeof window === "undefined") {
-    return false;
-  }
-
-  try {
-    const stored = window.localStorage.getItem(INFO_STORAGE_KEY);
-    return stored !== LATEST_INFO_VERSION;
-  } catch {
-    return false;
-  }
-}
-
 export default function InfoBell() {
-  const [hasUnreadInfo] = useState(getInitialHasUnreadInfo);
+  // Start false to match the server-rendered HTML, then read localStorage
+  // after mount — reading it during the initial render would make that
+  // render diverge from the server output (a hydration mismatch) for any
+  // user with unread info, which is most new visitors.
+  const [hasUnreadInfo, setHasUnreadInfo] = useState(false);
+
+  useEffect(() => {
+    try {
+      const stored = window.localStorage.getItem(INFO_STORAGE_KEY);
+      setHasUnreadInfo(stored !== LATEST_INFO_VERSION);
+    } catch {
+      // ignore
+    }
+  }, []);
 
 		  return (
 		    <div className="inline-flex items-center gap-2">

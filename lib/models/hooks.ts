@@ -49,15 +49,30 @@ function broadcastVariantState(variant: ModelVariantDefinition, source: VariantS
 }
 
 export function useActiveModelVariant(): ActiveModelState {
-  if (typeof window !== "undefined") {
-    hydrateFromStorage();
-  }
-
+  // Do NOT read localStorage during render: on the client's first render pass
+  // (used to reconcile against the server-rendered HTML), `window` is already
+  // defined, so hydrating here would make that first pass diverge from the
+  // server output whenever the stored model isn't the default — causing a
+  // hydration mismatch (and a flash of the wrong model) on every page for any
+  // user who has picked a non-default aircraft. Hydrate in an effect instead,
+  // which runs after hydration completes and is the React-safe way to bring
+  // in client-only state.
   const [{ variant, source }, setState] = useState<VariantState>(() => ({
     variant: currentVariant,
     source: currentSource,
   }));
-  const loading = false;
+  // Only "loading" until the very first hydration from storage has happened;
+  // guarded by the module-level flag so later mounts (client-side navigation
+  // within the same session) don't re-flash a loading state.
+  const [loading, setLoading] = useState(() => typeof window === "undefined" || !hydratedFromStorage);
+
+  useEffect(() => {
+    if (!hydratedFromStorage) {
+      hydrateFromStorage();
+      setState({ variant: currentVariant, source: currentSource });
+    }
+    setLoading(false);
+  }, []);
 
   useEffect(() => {
     const listener: VariantListener = (nextVariant, nextSource) => {

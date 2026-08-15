@@ -1,26 +1,32 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 
 import { BellIcon } from "@/components/Icons";
 import { INFO_STORAGE_KEY, LATEST_INFO_VERSION } from "@/lib/info/infoConstants";
 
-export default function InfoBell() {
-  // Start false to match the server-rendered HTML, then read localStorage
-  // after mount — reading it during the initial render would make that
-  // render diverge from the server output (a hydration mismatch) for any
-  // user with unread info, which is most new visitors.
-  const [hasUnreadInfo, setHasUnreadInfo] = useState(false);
+function subscribe() {
+  return () => {};
+}
 
-  useEffect(() => {
-    try {
-      const stored = window.localStorage.getItem(INFO_STORAGE_KEY);
-      setHasUnreadInfo(stored !== LATEST_INFO_VERSION);
-    } catch {
-      // ignore
-    }
-  }, []);
+function getSnapshot() {
+  try {
+    return window.localStorage.getItem(INFO_STORAGE_KEY) !== LATEST_INFO_VERSION;
+  } catch {
+    return false;
+  }
+}
+
+function getServerSnapshot() {
+  return false;
+}
+
+export default function InfoBell() {
+  // getServerSnapshot() matches what the server rendered (no localStorage
+  // access there), so useSyncExternalStore can safely swap in the real
+  // client value with no hydration mismatch and no manual effect.
+  const hasUnreadInfo = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 
 		  return (
 		    <div className="inline-flex items-center gap-2">

@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useMemo, useSyncExternalStore } from "react";
 
 import {
   getModelVariant,
@@ -11,7 +11,6 @@ import {
 import { getStoredActiveModelVariantId, storeActiveModelVariantId } from "@/lib/models/storage";
 
 type VariantSource = "default" | "local" | "user";
-type VariantListener = (variant: ModelVariantDefinition, source: VariantSource) => void;
 
 type VariantState = {
   variant: ModelVariantDefinition;
@@ -26,84 +25,67 @@ export type ActiveModelState = {
 };
 
 const FALLBACK_VARIANT = getModelVariant(DEFAULT_MODEL_VARIANT_ID)!;
+const SERVER_SNAPSHOT: VariantState = { variant: FALLBACK_VARIANT, source: "default" };
 
-let currentVariant: ModelVariantDefinition = FALLBACK_VARIANT;
-let currentSource: VariantSource = "default";
-let hydratedFromStorage = false;
-const listeners = new Set<VariantListener>();
+let state: VariantState = SERVER_SNAPSHOT;
+let hydrated = false;
+const listeners = new Set<() => void>();
 
-function hydrateFromStorage() {
-  if (hydratedFromStorage) return;
-  if (typeof window === "undefined") return;
-  hydratedFromStorage = true;
+// Reads localStorage the first time any component asks for a snapshot on the
+// client. Safe to call from getSnapshot() (which useSyncExternalStore only
+// calls post-hydration) — unlike calling it during render or in an effect,
+// this is exactly what useSyncExternalStore's getServerSnapshot/getSnapshot
+// split exists for: the server (and the client's hydration-matching pass)
+// see SERVER_SNAPSHOT, then React swaps in the real client value with no
+// manual effect and no hydration-mismatch warning.
+function hydrate() {
+  if (hydrated || typeof window === "undefined") return;
+  hydrated = true;
   const stored = getStoredActiveModelVariantId();
   const def = getModelVariant(stored) || FALLBACK_VARIANT;
-  currentVariant = def;
-  currentSource = stored && stored !== DEFAULT_MODEL_VARIANT_ID ? "local" : "default";
+  const source: VariantSource = stored && stored !== DEFAULT_MODEL_VARIANT_ID ? "local" : "default";
+  state = { variant: def, source };
 }
 
-function broadcastVariantState(variant: ModelVariantDefinition, source: VariantSource) {
-  currentVariant = variant;
-  currentSource = source;
-  listeners.forEach((listener) => listener(variant, source));
+function subscribe(onStoreChange: () => void) {
+  listeners.add(onStoreChange);
+  return () => {
+    listeners.delete(onStoreChange);
+  };
+}
+
+function getSnapshot(): VariantState {
+  hydrate();
+  return state;
+}
+
+function getServerSnapshot(): VariantState {
+  return SERVER_SNAPSHOT;
+}
+
+function setActiveVariantGlobal(variantId: string) {
+  const def = getModelVariant(variantId);
+  if (!def) return;
+  state = { variant: def, source: "local" };
+  storeActiveModelVariantId(def.id);
+  listeners.forEach((listener) => listener());
 }
 
 export function useActiveModelVariant(): ActiveModelState {
-  // Do NOT read localStorage during render: on the client's first render pass
-  // (used to reconcile against the server-rendered HTML), `window` is already
-  // defined, so hydrating here would make that first pass diverge from the
-  // server output whenever the stored model isn't the default — causing a
-  // hydration mismatch (and a flash of the wrong model) on every page for any
-  // user who has picked a non-default aircraft. Hydrate in an effect instead,
-  // which runs after hydration completes and is the React-safe way to bring
-  // in client-only state.
-  const [{ variant, source }, setState] = useState<VariantState>(() => ({
-    variant: currentVariant,
-    source: currentSource,
-  }));
-  // Only "loading" until the very first hydration from storage has happened;
-  // guarded by the module-level flag so later mounts (client-side navigation
-  // within the same session) don't re-flash a loading state.
-  const [loading, setLoading] = useState(() => typeof window === "undefined" || !hydratedFromStorage);
-
-  useEffect(() => {
-    // hydrateFromStorage() is idempotent (a no-op past the first call), but
-    // every instance of this hook — multiple components call it on the same
-    // page — must still sync its OWN local state from the module-level
-    // source of truth after mount. Gating the setState call behind "was I
-    // the instance that actually did the read" left every instance except
-    // the first stuck showing the default variant forever, since nothing
-    // else updates it short of an explicit setActiveVariant() call.
-    hydrateFromStorage();
-    setState({ variant: currentVariant, source: currentSource });
-    setLoading(false);
-  }, []);
-
-  useEffect(() => {
-    const listener: VariantListener = (nextVariant, nextSource) => {
-      setState({ variant: nextVariant, source: nextSource });
-    };
-    listeners.add(listener);
-    return () => {
-      listeners.delete(listener);
-    };
-  }, []);
+  const { variant, source } = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 
   const setActiveVariant = useCallback(async (variantId: string) => {
-    const def = getModelVariant(variantId);
-    if (!def) return;
-    broadcastVariantState(def, "local");
-    storeActiveModelVariantId(def.id);
+    setActiveVariantGlobal(variantId);
   }, []);
 
   return useMemo(
     () => ({
       variant,
-      loading,
+      loading: false,
       source,
       setActiveVariant,
     }),
-    [variant, loading, source, setActiveVariant],
+    [variant, source, setActiveVariant],
   );
 }
 

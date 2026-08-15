@@ -67,10 +67,15 @@ export function useActiveModelVariant(): ActiveModelState {
   const [loading, setLoading] = useState(() => typeof window === "undefined" || !hydratedFromStorage);
 
   useEffect(() => {
-    if (!hydratedFromStorage) {
-      hydrateFromStorage();
-      setState({ variant: currentVariant, source: currentSource });
-    }
+    // hydrateFromStorage() is idempotent (a no-op past the first call), but
+    // every instance of this hook — multiple components call it on the same
+    // page — must still sync its OWN local state from the module-level
+    // source of truth after mount. Gating the setState call behind "was I
+    // the instance that actually did the read" left every instance except
+    // the first stuck showing the default variant forever, since nothing
+    // else updates it short of an explicit setActiveVariant() call.
+    hydrateFromStorage();
+    setState({ variant: currentVariant, source: currentSource });
     setLoading(false);
   }, []);
 

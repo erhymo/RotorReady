@@ -49,12 +49,16 @@ export default function Page() {
   const [all, setAll] = useState<LightItem[]>([]);
   const [loading, setLoading] = useState(true);
 
-  // Ensure the active variant is AW169 when landing directly on this page
+  // Ensure an AW169-family variant is active when landing directly on this
+  // page (e.g. from a different product's context) — but don't clobber an
+  // EP pilot's stored preference back to Standard. CWP light content here
+  // is identical between AW169 and AW169 EP and served from this one route
+  // regardless of which is active, so only correct a genuine mismatch.
   useEffect(() => {
-    if (activeVariant.id !== VARIANT_ID) {
+    if (activeVariant.productId !== "AW169") {
       try { setActiveVariant(VARIANT_ID); } catch {}
     }
-  }, [activeVariant.id]);
+  }, [activeVariant.productId]);
 
   useEffect(() => {
     let cancelled = false;

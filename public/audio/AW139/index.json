@@ -20,6 +20,14 @@
       "description": "How the fire detection and extinguishing system is built, followed through a real engine fire from first indication to a safe outcome.",
       "filename": "fire.mp3",
       "durationSeconds": 2350
+    },
+    {
+      "id": "opc-26-icing-and-offshore-command-authority",
+      "title": "OPC 26",
+      "description": "Icing management and offshore command authority for the AW139, built around two real OPC practice scenarios — a day icing ferry flight and a night offshore passenger flight to a helideck under DP limits.",
+      "filename": "opc26.mp3",
+      "durationSeconds": 1495,
+      "unlockFlag": "rr_unlock_opc26"
     }
   ]
 }

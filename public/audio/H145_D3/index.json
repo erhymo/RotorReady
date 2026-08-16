@@ -6,6 +6,20 @@
       "description": "How the H145 D3's Helionix Automatic Flight Control System and Vehicle Management System are built up layer by layer, followed through a real flight to show how the modes actually work together — plus every AFCS/VMS failure mode.",
       "filename": "afcs.mp3",
       "durationSeconds": 2789
+    },
+    {
+      "id": "fire-emergency-and-manual-logic",
+      "title": "Fire: Emergency and Manual Logic",
+      "description": "How the H145 D3's fire detection and extinguishing system is built, followed through a real engine fire to show every automatic and manual step from first indication to a safe outcome.",
+      "filename": "fire.mp3",
+      "durationSeconds": 2154
+    },
+    {
+      "id": "htaws-logic-and-limitations",
+      "title": "HTAWS: Logic and Limitations",
+      "description": "How the H145 D3's terrain awareness and warning system thinks — its modes, database limitations, and alert priorities — followed through a real terrain event from first alert to resolution.",
+      "filename": "taws.mp3",
+      "durationSeconds": 1645
     }
   ]
 }

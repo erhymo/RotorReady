@@ -59,9 +59,9 @@ function ClearAreaTakeOffInner() {
                 <span className="font-semibold">20 ft (6 m) ATS</span>
               </div>
               <div className="flex items-baseline">
-                <span>Airspeed</span>
+                <span>{variant.id === "AW169_EP" ? "Ground speed" : "Airspeed"}</span>
                 <span className="mx-2 flex-1 border-b border-dotted border-slate-400/80 dark:border-zinc-500/60" />
-                  <span className="font-semibold">35 KIAS</span>
+                  <span className="font-semibold">{variant.id === "AW169_EP" ? "35 KTS GS" : "20 KIAS"}</span>
               </div>
             </div>
           </div>

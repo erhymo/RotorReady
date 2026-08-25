@@ -70,6 +70,22 @@ platform :android do
     )
   end
 
+  desc "Promote the current internal testing release to production — no new build/upload"
+  lane :promote_to_production do
+    upload_to_play_store(
+      package_name: required_env("GOOGLE_PLAY_PACKAGE_NAME"),
+      json_key: required_env("GOOGLE_PLAY_JSON_KEY_PATH"),
+      track: "internal",
+      track_promote_to: "production",
+      skip_upload_apk: true,
+      skip_upload_aab: true,
+      skip_upload_metadata: true,
+      skip_upload_changelogs: true,
+      skip_upload_images: true,
+      skip_upload_screenshots: true
+    )
+  end
+
   desc "Upload store listing text and changelogs from fastlane/metadata/android — no new build"
   lane :metadata do
     upload_to_play_store(

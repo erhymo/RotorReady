@@ -147,13 +147,19 @@ export default function Page() {
 
   function handleLampClick(id?: string) {
     if (!id) return;
+    // Use the actually-active variant (AW169 or AW169 EP), not the hardcoded
+    // page constant — this route is shared by both since CWP light content
+    // is identical, but hardcoding "AW169" here forced /training/lights to
+    // silently revert an EP pilot back to Standard the moment they opened a
+    // light's procedure, even though the CWP grid itself correctly stayed EP.
+    const activeId = activeVariant.productId === "AW169" ? activeVariant.id : VARIANT_ID;
     try {
       sessionStorage.setItem(
         "lights:resume",
-        JSON.stringify({ variantId: VARIANT_ID, lightId: id, memoryOnly: false, deck: [id], idx: 0, lastSeverity: "warning" as Severity })
+        JSON.stringify({ variantId: activeId, lightId: id, memoryOnly: false, deck: [id], idx: 0, lastSeverity: "warning" as Severity })
       );
     } catch {}
-    router.push(`/training/lights?resume=1&v=${encodeURIComponent(VARIANT_ID)}&light=${encodeURIComponent(id)}&mem=0&cwp=1`);
+    router.push(`/training/lights?resume=1&v=${encodeURIComponent(activeId)}&light=${encodeURIComponent(id)}&mem=0&cwp=1`);
   }
 
   return (

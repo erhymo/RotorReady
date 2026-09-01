@@ -20,7 +20,6 @@ ios/build/
 ios/fastlane/report.xml
 ios/fastlane/Preview.html
 ios/fastlane/README.md
-ios/fastlane/screenshots/
 ios/fastlane/test_output/
 android/fastlane/.env*
 android/fastlane/report.xml

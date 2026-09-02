@@ -230,6 +230,15 @@ function Bar(props: { href: string; title: string; description: string; tone?: "
 	            icon={<BookIcon className="h-4 w-4" />}
 	          />
 	        )}
+	        {activeVariant?.productId === "AW169" && (
+	          <Bar
+	            href="/aw169/exterior-map"
+	            title="Exterior Map"
+	            description="Tap the airframe to identify antennas and equipment."
+	            tone="slate"
+	            icon={<BookIcon className="h-4 w-4" />}
+	          />
+	        )}
 	        {activeVariant?.id === "H125_AS350_B3_2B1" && (
 	          <Bar
 	            href="/h125-as350-b3-2b1/quick-reference"

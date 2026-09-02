@@ -2,7 +2,6 @@
 
 import AppTopBar from "@/components/AppTopBar";
 import ExteriorMap from "@/components/ExteriorMap";
-import AW169Silhouette from "@/components/silhouettes/AW169Silhouette";
 import { AW169_EXTERIOR_HOTSPOTS } from "@/data/aw169/exteriorHotspots";
 
 export default function AW169ExteriorMapPage() {
@@ -17,10 +16,16 @@ export default function AW169ExteriorMapPage() {
           </p>
         </header>
 
-        <ExteriorMap silhouette={<AW169Silhouette />} hotspots={AW169_EXTERIOR_HOTSPOTS} />
+        <ExteriorMap
+          imageSrc="/aw169/exterior-map/aw169-side-view.png"
+          imageAlt="AW169 side profile, from RFM Figure I-1 Helicopter - Three Views"
+          hotspots={AW169_EXTERIOR_HOTSPOTS}
+          width={1270}
+          height={690}
+        />
 
         <p className="text-xs text-center text-slate-400 dark:text-zinc-500 pt-2">
-          Simplified illustration, not a scale technical drawing. For training use only.
+          Side profile from RFM Figure I-1 (Helicopter — Three Views). For training use only.
         </p>
       </main>
     </div>

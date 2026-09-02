@@ -16,15 +16,17 @@ export type ExteriorHotspot = {
 };
 
 export default function ExteriorMap({
-  silhouette,
+  imageSrc,
+  imageAlt,
   hotspots,
-  width = 900,
-  height = 360,
+  width,
+  height,
 }: {
-  silhouette: React.ReactNode;
+  imageSrc: string;
+  imageAlt: string;
   hotspots: ExteriorHotspot[];
-  width?: number;
-  height?: number;
+  width: number;
+  height: number;
 }) {
   const [activeId, setActiveId] = useState<string | null>(null);
   const [expandedId, setExpandedId] = useState<string | null>(null);
@@ -35,9 +37,7 @@ export default function ExteriorMap({
     <div className="space-y-3">
       <div className="overflow-x-auto rounded-xl border bg-white dark:bg-zinc-900 dark:border-zinc-700">
         <div className="relative" style={{ width: `${width}px`, minWidth: `${width}px` }}>
-          <svg viewBox={`0 0 ${width} ${height}`} width={width} height={height} className="block">
-            {silhouette}
-          </svg>
+          <img src={imageSrc} alt={imageAlt} width={width} height={height} className="block select-none" draggable={false} />
 
           {hotspots.map((h) => {
             const isActive = h.id === activeId;

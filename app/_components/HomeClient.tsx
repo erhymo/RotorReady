@@ -230,15 +230,9 @@ function Bar(props: { href: string; title: string; description: string; tone?: "
 	            icon={<BookIcon className="h-4 w-4" />}
 	          />
 	        )}
-	        {activeVariant?.productId === "AW169" && (
-	          <Bar
-	            href="/aw169/exterior-map"
-	            title="Exterior Map"
-	            description="Tap the airframe to identify antennas and equipment."
-	            tone="slate"
-	            icon={<BookIcon className="h-4 w-4" />}
-	          />
-	        )}
+	        {/* Exterior Map: work in progress, deliberately not linked from Home yet.
+	            Route/component/data stay in the repo — reachable directly at
+	            /aw169/exterior-map for local iteration — until it's ready to re-link. */}
 	        {activeVariant?.id === "H125_AS350_B3_2B1" && (
 	          <Bar
 	            href="/h125-as350-b3-2b1/quick-reference"

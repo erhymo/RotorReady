@@ -27,7 +27,15 @@ const withPWA = withPWAInit({
   // because they live under public/ — fetch them on demand instead. One of them (an AW139 QRH
   // with special characters in its filename) also currently 404s, which broke SW install the
   // same way as app-build-manifest.json above.
-  publicExcludes: ['!**/*.pdf'],
+  //
+  // Podcast mp3s are excluded for the same reason, but more severely: precaching all of them
+  // on install meant every first-time visitor's service worker tried to download ~400MB of
+  // audio before it could ever finish installing — on a real device this routinely never
+  // completed, so the SW stayed stuck in "installing" forever and never activated, silently
+  // disabling ALL offline support (not just audio) for most users. Audio downloads already
+  // have their own explicit, one-file-at-a-time Cache API flow (lib/audioOffline.ts) triggered
+  // by the in-app Download button — that's the only place episodes should be cached.
+  publicExcludes: ['!**/*.pdf', '!**/*.mp3'],
   fallbacks: {
     document: '/offline',
   },

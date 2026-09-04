@@ -35,7 +35,18 @@ const withPWA = withPWAInit({
   // disabling ALL offline support (not just audio) for most users. Audio downloads already
   // have their own explicit, one-file-at-a-time Cache API flow (lib/audioOffline.ts) triggered
   // by the in-app Download button — that's the only place episodes should be cached.
-  publicExcludes: ['!**/*.pdf', '!**/*.mp3'],
+  //
+  // Same reasoning again for reference imagery nested under public/ (QRH/CWP light page
+  // scans, procedure figures, RFM crops — ~640 files, ~10MB total): individually small, but
+  // that many separate requests still made a fresh install take about a minute end to end on
+  // the real deployment, which is still too slow for "downloaded a podcast right before
+  // boarding" to reliably finish before the phone goes into airplane mode. These aren't part
+  // of the app shell — they're fetched on first real visit to that specific page and cached
+  // from then on by the "Static assets and icons" StaleWhileRevalidate rule below, same as
+  // before, just not blocking install. The `*/*.png`/`*/*.svg` pattern (requires a directory
+  // level) deliberately leaves the handful of root-level app icons/logo precached, since
+  // those genuinely are app-shell chrome and there are too few of them to matter.
+  publicExcludes: ['!**/*.pdf', '!**/*.mp3', '!**/*/*.png', '!**/*/*.svg'],
   fallbacks: {
     document: '/offline',
   },

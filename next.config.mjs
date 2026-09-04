@@ -46,7 +46,15 @@ const withPWA = withPWAInit({
   // before, just not blocking install. The `*/*.png`/`*/*.svg` pattern (requires a directory
   // level) deliberately leaves the handful of root-level app icons/logo precached, since
   // those genuinely are app-shell chrome and there are too few of them to matter.
-  publicExcludes: ['!**/*.pdf', '!**/*.mp3', '!**/*/*.png', '!**/*/*.svg'],
+  //
+  // Turns out file COUNT, not bytes, was the real bottleneck: workbox precaches sequentially
+  // enough that ~475 individually-fast, individually-tiny files (confirmed via a direct fetch
+  // sweep: all 200s, ~0.3MB combined) still took well over 90s end to end on the live site.
+  // The other 227 of those entries are every quiz-data/model-data/training-lights/audio-json
+  // file across every model — already covered by the runtime-caching NetworkFirst rules below,
+  // so precaching them again at install is pure duplication. Excluding them leaves install
+  // down to essentially just the JS/CSS app shell.
+  publicExcludes: ['!**/*.pdf', '!**/*.mp3', '!**/*/*.png', '!**/*/*.svg', '!**/*.json'],
   fallbacks: {
     document: '/offline',
   },

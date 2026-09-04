@@ -1,20 +1,11 @@
-"use client";
+import { getQuizSectionIds, QUIZ_AMOUNT_TOKENS } from "@/lib/build/staticParams";
+import ClientQuizPageEntry from "./ClientQuizPageEntry";
 
-
-import dynamic from "next/dynamic";
-import { useParams } from "next/navigation";
-
-const ClientQuizPage = dynamic(() => import("./ClientQuizPage"), { ssr: false });
-
-
+export function generateStaticParams() {
+  const sections = getQuizSectionIds();
+  return sections.flatMap((section) => QUIZ_AMOUNT_TOKENS.map((amount) => ({ section, amount })));
+}
 
 export default function QuizPage() {
-  const params = useParams<{ section: string; amount: string }>()!;
-  const section = decodeURIComponent(params.section as string);
-  const rawAmount = decodeURIComponent((params.amount as string) ?? "");
-  const amount = rawAmount === "all"
-    ? null
-    : Math.max(1, parseInt(rawAmount, 10) || 10);
-
-  return <ClientQuizPage section={section} amount={amount} />;
+  return <ClientQuizPageEntry />;
 }

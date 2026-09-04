@@ -1,0 +1,17 @@
+{
+  "files": [
+    "rotor-low.json",
+    "eng-out.json",
+    "eng-fire.json",
+    "rotor-high.json",
+    "eng-idle.json",
+    "eec-fail.json",
+    "mgb-oil-press.json",
+    "mgb-oil-temp.json",
+    "eng-oil-press.json",
+    "dc-gen.json",
+    "main-batt-hot.json",
+    "aux-batt-hot.json",
+    "bag-fire.json"
+  ]
+}

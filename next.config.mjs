@@ -136,6 +136,15 @@ const withPWA = withPWAInit({
   ],
 });
 
+// NATIVE_EXPORT=1 builds a separate static bundle of just the offline-critical route
+// tree (home, quiz, AW169 training/lights, audio) to embed directly in the native app —
+// see scripts/build-native-shell.mjs. It needs `output: 'export'` (which disallows
+// redirects()/headers()/rewrites() and requires next/image without its default server
+// loader) and a separate distDir so it never collides with the normal Vercel build.
+// The service worker has no purpose inside a bundle that's already local, so it's
+// skipped entirely for this mode.
+const isNativeExport = process.env.NATIVE_EXPORT === '1';
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   serverExternalPackages: ['firebase-admin'],
@@ -149,13 +158,21 @@ const nextConfig = {
     }
     return config;
   },
-  async redirects() {
-    return [
-      { source: "/auth/signin", destination: "/login", permanent: true },
-      { source: "/auth/signup", destination: "/signup", permanent: true },
-    ];
-  },
+  ...(isNativeExport
+    ? {
+        output: 'export',
+        distDir: '.next-native',
+        images: { unoptimized: true },
+      }
+    : {
+        async redirects() {
+          return [
+            { source: "/auth/signin", destination: "/login", permanent: true },
+            { source: "/auth/signup", destination: "/signup", permanent: true },
+          ];
+        },
+      }),
 };
 
-export default withPWA(nextConfig);
+export default isNativeExport ? nextConfig : withPWA(nextConfig);
 

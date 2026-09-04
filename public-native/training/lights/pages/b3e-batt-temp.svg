@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="420" viewBox="0 0 820 420" role="img" aria-label="BAT TEMP – AS350 B3e battery overtemperature">
+  <rect width="100%" height="100%" fill="white"/>
+  <style>
+    :root {
+      --ink:#111; --rule:#111; --panel-bg:#000; --red:#e60000;
+    }
+
+    .frame { fill:none; stroke:var(--rule); stroke-width:1.5; }
+    .txt { font-family: Arial, Helvetica, sans-serif; fill:var(--ink); }
+    .label { font-size:14px; }
+    .title { font:700 16px/1.25 Arial, Helvetica, sans-serif; }
+    .tile { fill:var(--panel-bg); stroke:var(--rule); stroke-width:1; }
+    .tileText { font:700 16px/1 Arial, Helvetica, sans-serif; fill:var(--red); text-anchor:middle; }
+    .branch { font:700 18px/1.25 Arial, Helvetica, sans-serif; fill:var(--ink); text-anchor:middle; }
+  </style>
+
+  <rect x="12" y="12" width="796" height="396" class="frame"/>
+  <line x1="206" y1="12" x2="206" y2="408" stroke="var(--rule)" stroke-width="1.5"/>
+
+  <!-- Left column -->
+  <rect x="52" y="40" width="108" height="70" rx="3" class="tile"/>
+  <text x="106" y="66" class="tileText">BAT</text>
+  <text x="106" y="90" class="tileText">TEMP</text>
+
+  <text x="40" y="142" class="txt label">Battery temperature</text>
+  <text x="40" y="160" class="txt label">above maximum</text>
+
+  <!-- Right column: steps -->
+  <text x="220" y="54" class="txt title">1. [<tspan font-weight="700">BATT</tspan>] .................................................... OFF.</text>
+  <text x="220" y="82" class="txt title">2. U bus voltage ................................................ CHECK.</text>
+
+  <text x="316" y="128" class="txt label" text-anchor="middle">U bus NORMAL</text>
+  <text x="540" y="128" class="txt label" text-anchor="middle">U bus ABOVE Umax</text>
+
+  <!-- Vertical guides from U bus evaluation (schematic only) -->
+  <line x1="316" y1="92" x2="316" y2="112" stroke="var(--rule)" stroke-width="1"/>
+  <line x1="540" y1="92" x2="540" y2="112" stroke="var(--rule)" stroke-width="1"/>
+
+  <!-- Normal branch: simply land as soon as practicable -->
+  <line x1="316" y1="140" x2="316" y2="212" stroke="var(--rule)" stroke-width="1"/>
+  <text x="316" y="254" class="branch">LAND AS SOON AS PRACTICABLE</text>
+
+  <!-- Above Umax branch: battery back on, generator off, shed load -->
+  <text x="430" y="166" class="txt label">If U bus voltage ABOVE Umax:</text>
+  <text x="430" y="188" class="txt label">1. [<tspan font-weight="700">BATT</tspan>] ............................................. ON.</text>
+  <text x="430" y="208" class="txt label">2. [<tspan font-weight="700">GENE</tspan>] ........................................... OFF.</text>
+  <text x="430" y="228" class="txt label">3. Unnecessary equipment .................. OFF.</text>
+
+  <line x1="540" y1="232" x2="540" y2="260" stroke="var(--rule)" stroke-width="1"/>
+  <text x="540" y="302" class="branch">LAND AS SOON AS PRACTICABLE</text>
+
+  <text x="40" y="380" class="txt label">RFM H125 AS350 B3e – Section 3.6 – BATT TEMP (24-05)</text>
+</svg>

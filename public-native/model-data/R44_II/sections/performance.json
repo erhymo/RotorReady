@@ -1,0 +1,220 @@
+{
+  "items": [
+    {
+      "id": "r44ii-perf-001",
+      "section": "PERFORMANCE",
+      "type": "single",
+      "question": "Under what conditions has in-ground-effect (IGE) hover controllability been substantiated for the R44 II?",
+      "options": [
+        "10 knot headwind up to 8000 feet density altitude",
+        "17 knot wind from any direction up to 9800 feet density altitude",
+        "Calm wind only at sea level",
+        "25 knot tailwind up to 5000 feet density altitude"
+      ],
+      "answer": [1],
+      "explanation": "The GENERAL paragraph of Section 5 states that IGE hover controllability has been substantiated in a 17 knot wind from any direction up to 9800 feet (2990 m) density altitude.",
+      "references": ["R44 II POH Sec 5: GENERAL (p.5-1)"],
+      "tags": ["performance", "hover", "IGE"],
+      "source": "R44 II POH",
+      "modelIds": ["R44_II"]
+    },
+    {
+      "id": "r44ii-perf-002",
+      "section": "PERFORMANCE",
+      "type": "single",
+      "question": "To what density altitude has IGE hover controllability been substantiated, as stated in the Performance section?",
+      "options": [
+        "8000 feet (2440 m)",
+        "9000 feet (2740 m)",
+        "9800 feet (2990 m)",
+        "10,500 feet (3200 m)"
+      ],
+      "answer": [2],
+      "explanation": "Section 5 states that IGE hover controllability has been substantiated up to 9800 feet (2990 m) density altitude.",
+      "references": ["R44 II POH Sec 5: GENERAL (p.5-1)"],
+      "tags": ["performance", "hover", "density-altitude"],
+      "source": "R44 II POH",
+      "modelIds": ["R44_II"]
+    },
+    {
+      "id": "r44ii-perf-003",
+      "section": "PERFORMANCE",
+      "type": "single",
+      "question": "What caution is given about the performance data presented in Section 5?",
+      "options": [
+        "Data were obtained under typical operational conditions and may be pessimistic",
+        "Data were obtained under ideal conditions and actual performance may be substantially less",
+        "Data include a built-in safety margin that guarantees actual performance will be better than shown",
+        "Data apply only to new helicopters and not to in-service aircraft"
+      ],
+      "answer": [1],
+      "explanation": "The CAUTION in Section 5 explains that the performance data were obtained under ideal conditions and that performance under other conditions may be substantially less.",
+      "references": ["R44 II POH Sec 5: GENERAL (p.5-1)"],
+      "tags": ["performance", "caution"],
+      "source": "R44 II POH",
+      "modelIds": ["R44_II"]
+    },
+    {
+      "id": "r44ii-perf-004",
+      "section": "PERFORMANCE",
+      "type": "single",
+      "question": "What assumption about indicated airspeed is made for the performance charts in the R44 II POH?",
+      "options": [
+        "They assume a constant 5 knot instrument error",
+        "They assume zero instrument error",
+        "They assume a 3% high instrument error",
+        "They assume calibration only at 100 KIAS"
+      ],
+      "answer": [1],
+      "explanation": "Section 5 states that indicated airspeed shown on charts assumes zero instrument error.",
+      "references": ["R44 II POH Sec 5: GENERAL (p.5-1)"],
+      "tags": ["performance", "airspeed", "instruments"],
+      "source": "R44 II POH",
+      "modelIds": ["R44_II"]
+    },
+    {
+      "id": "r44ii-perf-005",
+      "section": "PERFORMANCE",
+      "type": "single",
+      "question": "To what outside air temperature at sea level has satisfactory engine cooling been demonstrated for the R44 II?",
+      "options": [
+        "30 C (86 F)",
+        "35 C (95 F)",
+        "38 C (100 F)",
+        "40 C (104 F)"
+      ],
+      "answer": [2],
+      "explanation": "The DEMONSTRATED OPERATING TEMPERATURE paragraph states that satisfactory engine cooling has been demonstrated to an outside air temperature of 38 C (100 F) at sea level.",
+      "references": ["R44 II POH Sec 5: DEMONSTRATED OPERATING TEMPERATURE (p.5-1)"],
+      "tags": ["performance", "temperature", "engine-cooling"],
+      "source": "R44 II POH",
+      "modelIds": ["R44_II"]
+    },
+    {
+      "id": "r44ii-perf-006",
+      "section": "PERFORMANCE",
+      "type": "single",
+      "question": "At altitude, satisfactory engine cooling has been demonstrated to what temperature margin above ISA?",
+      "options": [
+        "15 C (27 F) above ISA",
+        "20 C (36 F) above ISA",
+        "23 C (41 F) above ISA",
+        "25 C (45 F) above ISA"
+      ],
+      "answer": [2],
+      "explanation": "Section 5 states that satisfactory engine cooling has been demonstrated to 23 C (41 F) above ISA at altitude.",
+      "references": ["R44 II POH Sec 5: DEMONSTRATED OPERATING TEMPERATURE (p.5-1)"],
+      "tags": ["performance", "temperature", "ISA"],
+      "source": "R44 II POH",
+      "modelIds": ["R44_II"]
+    },
+    {
+      "id": "r44ii-perf-007",
+      "section": "PERFORMANCE",
+      "type": "single",
+      "question": "In the IGE hover ceiling chart, what skid height is assumed for in-ground-effect hover?",
+      "options": [
+        "1 foot skid height",
+        "2 foot skid height",
+        "3 foot skid height",
+        "4 foot skid height"
+      ],
+      "answer": [1],
+      "explanation": "The IGE HOVER CEILING VS GROSS WEIGHT chart specifies in-ground-effect hover at a 2 foot skid height.",
+      "references": ["R44 II POH Sec 5: IGE HOVER CEILING (p.5-3)"],
+      "tags": ["performance", "hover", "IGE"],
+      "source": "R44 II POH",
+      "modelIds": ["R44_II"]
+    },
+    {
+      "id": "r44ii-perf-008",
+      "section": "PERFORMANCE",
+      "type": "single",
+      "question": "Which power and wind conditions are assumed in the IGE hover ceiling chart?",
+      "options": [
+        "Maximum continuous power, 10 knot headwind",
+        "Takeoff power, 5 knot tailwind",
+        "Full throttle, zero wind",
+        "Reduced power, variable wind"
+      ],
+      "answer": [2],
+      "explanation": "The IGE hover ceiling chart is labeled FULL THROTTLE, ZERO WIND.",
+      "references": ["R44 II POH Sec 5: IGE HOVER CEILING (p.5-3)"],
+      "tags": ["performance", "hover", "power"],
+      "source": "R44 II POH",
+      "modelIds": ["R44_II"]
+    },
+    {
+      "id": "r44ii-perf-009",
+      "section": "PERFORMANCE",
+      "type": "single",
+      "question": "In the out-of-ground-effect (OGE) hover ceiling chart, which power condition is specified?",
+      "options": [
+        "Maximum continuous power only",
+        "Takeoff power or full throttle",
+        "Idle power",
+        "Climb power only"
+      ],
+      "answer": [1],
+      "explanation": "The OUT OF GROUND EFFECT hover ceiling chart is labeled TAKEOFF POWER OR FULL THROTTLE.",
+      "references": ["R44 II POH Sec 5: OGE HOVER CEILING (p.5-4)"],
+      "tags": ["performance", "hover", "OGE"],
+      "source": "R44 II POH",
+      "modelIds": ["R44_II"]
+    },
+	    {
+	      "id": "r44ii-perf-010",
+	      "section": "PERFORMANCE",
+	      "type": "single",
+	      "question": "According to the Height-Velocity diagram in the Performance section, what general guidance is given regarding the shaded areas?",
+	      "options": [
+	        "Use shaded areas for best performance",
+	        "Operate only in shaded areas during training",
+	        "Avoid operation in shaded areas",
+	        "Stay below the shaded areas at all times"
+	      ],
+	      "answer": [2],
+	      "explanation": "The HEIGHT-VELOCITY DIAGRAM for the R44 II is annotated with the instruction AVOID OPERATION IN SHADED AREAS.",
+	      "references": ["R44 II POH Sec 5: HEIGHT-VELOCITY DIAGRAM (p.5-5)"],
+	      "tags": ["performance", "height-velocity", "caution"],
+	      "source": "R44 II POH",
+	      "modelIds": ["R44_II"]
+	    },
+	    {
+	      "id": "r44ii-perf-011",
+	      "section": "PERFORMANCE",
+	      "type": "single",
+	      "question": "According to the PERFORMANCE DEFINITIONS in Section 1, how is calibrated airspeed (KCAS) defined?",
+	      "options": [
+	        "Indicated airspeed corrected for instrument and position error",
+	        "True airspeed corrected for altitude and temperature",
+	        "Indicated airspeed corrected for temperature only",
+	        "Groundspeed corrected for wind and slope"
+	      ],
+	      "answer": [0],
+	      "explanation": "In the PERFORMANCE DEFINITIONS of Section 1, calibrated airspeed (KCAS) is defined as indicated airspeed corrected for instrument and position error.",
+	      "references": ["R44 II POH Sec 1: PERFORMANCE DEFINITIONS (p.1-6)"],
+	      "tags": ["performance", "airspeed", "definitions"],
+	      "source": "R44 II POH",
+	      "modelIds": ["R44_II"]
+	    },
+	    {
+	      "id": "r44ii-perf-012",
+	      "section": "PERFORMANCE",
+	      "type": "single",
+	      "question": "According to the PERFORMANCE DEFINITIONS in Section 1, what does critical altitude mean?",
+	      "options": [
+	        "The altitude below which engine failure is most likely",
+	        "The altitude where VNE must first be reduced because of density altitude",
+	        "The altitude at which full throttle produces maximum allowable power (MCP or TOP)",
+	        "The altitude where hovering ceiling equals service ceiling"
+	      ],
+	      "answer": [2],
+	      "explanation": "Section 1 PERFORMANCE DEFINITIONS defines critical altitude as the altitude at which full throttle produces maximum allowable power (MCP or TOP).",
+	      "references": ["R44 II POH Sec 1: PERFORMANCE DEFINITIONS (p.1-6)"],
+	      "tags": ["performance", "critical-altitude", "definitions"],
+	      "source": "R44 II POH",
+	      "modelIds": ["R44_II"]
+	    }
+	  ]
+	}

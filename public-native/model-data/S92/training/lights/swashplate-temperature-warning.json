@@ -1,0 +1,25 @@
+[
+  {
+    "id": "swashplate-temperature-warning",
+    "name": "SWASHPLATE TEMPERATURE WARNING",
+    "severity": "warning",
+    "description": "",
+    "pageImage": "/training/lights/pages/s92-swashplate-temperature-warning.png",
+    "imageWidth": 1159,
+    "imageHeight": 620,
+    "links": [
+      {
+        "destPage": 216,
+        "rect": [
+          569,
+          562,
+          1018,
+          587
+        ]
+      }
+    ],
+    "modelIds": [
+      "S92"
+    ]
+  }
+]

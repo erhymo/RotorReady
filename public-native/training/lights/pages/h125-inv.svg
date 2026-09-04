@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 360">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L9,3 L0,6 Z" fill="black"/>
+    </marker>
+  </defs>
+
+  <!-- Outer frame -->
+  <rect x="1" y="1" width="838" height="310" fill="white" stroke="black" stroke-width="2"/>
+
+  <!-- Left column -->
+  <rect x="30" y="40" width="100" height="60" fill="black"/>
+  <text x="80" y="75" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="yellow" text-anchor="middle">INV</text>
+
+  <text x="30" y="120" font-family="Arial, sans-serif" font-size="18">AC power supply</text>
+  <text x="30" y="145" font-family="Arial, sans-serif" font-size="18">failure</text>
+
+  <!-- Separator line -->
+  <line x1="160" y1="20" x2="160" y2="300" stroke="black" stroke-width="1.5"/>
+
+  <!-- Right column -->
+  <text x="180" y="45" font-family="Arial, sans-serif" font-size="18">Inverter* AC system:</text>
+  <text x="180" y="70" font-family="Arial, sans-serif" font-size="18">[INV] ................................................ CHECK ON</text>
+
+  <!-- Arrow from CHECK ON to YES (slanted, above "YES") -->
+  <line x1="610" y1="70" x2="255" y2="98" stroke="black" stroke-width="1.2" marker-end="url(#arrow)"/>
+
+  <!-- YES branch -->
+  <text x="240" y="110" font-family="Arial, sans-serif" font-size="16">YES</text>
+  <line x1="250" y1="113" x2="250" y2="138" stroke="black" stroke-width="1.2" marker-end="url(#arrow)"/>
+
+  <text x="180" y="165" font-family="Arial, sans-serif" font-size="18">Loss of all AC consumers</text>
+  <text x="180" y="190" font-family="Arial, sans-serif" font-size="18" font-weight="bold">NOTE</text>
+  <text x="180" y="215" font-family="Arial, sans-serif" font-size="18" font-weight="bold">AFCS* disengages automatically</text>
+  <text x="180" y="240" font-family="Arial, sans-serif" font-size="18">Controls ............. HANDS ON</text>
+  <line x1="250" y1="245" x2="250" y2="265" stroke="black" stroke-width="1.2" marker-end="url(#arrow)"/>
+  <text x="180" y="295" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="green">CONTINUE FLIGHT</text>
+
+  <!-- NO branch -->
+  <text x="705" y="110" font-family="Arial, sans-serif" font-size="16">NO</text>
+  <line x1="610" y1="70" x2="705" y2="98" stroke="black" stroke-width="1.2" marker-end="url(#arrow)"/>
+  <line x1="705" y1="103" x2="705" y2="128" stroke="black" stroke-width="1.2" marker-end="url(#arrow)"/>
+
+  <text x="560" y="155" font-family="Arial, sans-serif" font-size="18">[INV] ............................ ON</text>
+  <!-- INV light (OFF = white text) -->
+  <rect x="580" y="175" width="60" height="26" fill="black"/>
+  <text x="610" y="194" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#ffffff" text-anchor="middle">INV</text>
+
+  <line x1="610" y1="200" x2="610" y2="265" stroke="black" stroke-width="1.2" marker-end="url(#arrow)"/>
+  <text x="540" y="295" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="green">CONTINUE FLIGHT</text>
+
+  <!-- Footnote outside frame -->
+  <text x="30" y="336" font-family="Arial, sans-serif" font-size="16">(*) If installed</text>
+</svg>
+

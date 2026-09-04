@@ -1,0 +1,25 @@
+[
+  {
+    "id": "mgb-oil-out",
+    "name": "MGB OIL OUT",
+    "severity": "warning",
+    "description": "",
+    "pageImage": "/training/lights/pages/s92-mgb-oil-out.png",
+    "imageWidth": 1159,
+    "imageHeight": 538,
+    "links": [
+      {
+        "destPage": 216,
+        "rect": [
+          520,
+          348,
+          968,
+          373
+        ]
+      }
+    ],
+    "modelIds": [
+      "S92"
+    ]
+  }
+]

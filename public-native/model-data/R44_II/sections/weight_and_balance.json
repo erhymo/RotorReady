@@ -1,0 +1,239 @@
+{
+  "items": [
+    {
+      "id": "r44ii-wb-001",
+      "section": "WEIGHT AND BALANCE",
+      "type": "single",
+      "question": "According to the GENERAL paragraph of Section 6, within which limits must the helicopter always be flown?",
+      "options": [
+        "Within weight and balance limits specified in Section 2",
+        "Within the performance envelopes of Section 5 only",
+        "Within the structural load limits of the maintenance manual",
+        "Within any limits agreed with the operator"
+      ],
+      "answer": [0],
+      "explanation": "Section 6 GENERAL states that the helicopter must be flown only within the weight and balance limits specified in Section 2.",
+      "references": ["R44 II POH Sec 6: GENERAL (p.6-1)"],
+      "tags": ["weight-and-balance", "limits"],
+      "source": "R44 II POH",
+      "modelIds": ["R44_II"]
+    },
+    {
+      "id": "r44ii-wb-002",
+      "section": "WEIGHT AND BALANCE",
+      "type": "single",
+      "question": "What is stated as a possible consequence of loading the helicopter outside the specified weight and balance limits?",
+      "options": [
+        "Excessive fuel consumption",
+        "Insufficient control travel for safe operation",
+        "Increased cruise speed beyond VNE",
+        "Higher main rotor vibration only at high speed"
+      ],
+      "answer": [1],
+      "explanation": "Section 6 warns that loadings outside the specified limits can result in insufficient control travel for safe operation.",
+      "references": ["R44 II POH Sec 6: GENERAL (p.6-1)"],
+      "tags": ["weight-and-balance", "safety", "controls"],
+      "source": "R44 II POH",
+      "modelIds": ["R44_II"]
+    },
+    {
+      "id": "r44ii-wb-003",
+      "section": "WEIGHT AND BALANCE",
+      "type": "single",
+      "question": "Where may removable ballast be added to adjust center of gravity, according to Section 6?",
+      "options": [
+        "Only in the aft baggage compartment behind the rotor mast",
+        "Only in a special ballast box in the tailcone",
+        "To any under-seat baggage compartment",
+        "Only in the nose compartment ahead of the instrument panel"
+      ],
+      "answer": [2],
+      "explanation": "Section 6 states that the center of gravity may be adjusted by adding removable ballast to any under-seat baggage compartment.",
+      "references": ["R44 II POH Sec 6: GENERAL (p.6-1)"],
+      "tags": ["weight-and-balance", "ballast", "CG"],
+      "source": "R44 II POH",
+      "modelIds": ["R44_II"]
+    },
+    {
+      "id": "r44ii-wb-004",
+      "section": "WEIGHT AND BALANCE",
+      "type": "single",
+      "question": "What must be done after adding removable ballast to adjust the helicopter's center of gravity?",
+      "options": [
+        "No further action is required if ballast is under a seat",
+        "Only note the ballast on the flight log if it exceeds 10 lb",
+        "Recalculate weight and balance and verify baggage compartment limits are not exceeded",
+        "Inform ATC of the new gross weight before takeoff"
+      ],
+      "answer": [2],
+      "explanation": "Section 6 requires that weight and balance be recalculated after adding ballast, and that the ballast be verified against baggage compartment limits given in Section 2.",
+      "references": ["R44 II POH Sec 6: GENERAL (p.6-1)"],
+      "tags": ["weight-and-balance", "ballast", "procedures"],
+      "source": "R44 II POH",
+      "modelIds": ["R44_II"]
+    },
+    {
+      "id": "r44ii-wb-005",
+      "section": "WEIGHT AND BALANCE",
+      "type": "single",
+      "question": "Which part of the weight and balance data is explicitly stated as not being subject to FAA approval?",
+      "options": [
+        "The loading instructions only",
+        "The detailed weight and balance data of Section 6",
+        "The CG limits published in Section 2",
+        "The performance charts used for loading calculations"
+      ],
+      "answer": [1],
+      "explanation": "Section 6 explains that, in accordance with FAA procedures, the detailed weight and balance data of this section are not subject to FAA approval, while the loading instructions are approved.",
+      "references": ["R44 II POH Sec 6: GENERAL (p.6-1)"],
+      "tags": ["weight-and-balance", "FAA", "approval"],
+      "source": "R44 II POH",
+      "modelIds": ["R44_II"]
+    },
+    {
+      "id": "r44ii-wb-006",
+      "section": "WEIGHT AND BALANCE",
+      "type": "single",
+      "question": "What caution is given in Section 6 regarding fuel burn and center of gravity?",
+      "options": [
+        "Fuel burn causes CG to move aft, possibly exceeding aft limits",
+        "Fuel burn causes CG to move forward, so loading must be checked with both takeoff and empty fuel",
+        "Fuel burn does not significantly affect CG and can be neglected",
+        "Fuel burn only affects lateral CG and not longitudinal CG"
+      ],
+      "answer": [1],
+      "explanation": "The CAUTION in Section 6 states that fuel burn causes CG to move forward during flight, and that safe loading must be determined with both empty fuel and takeoff fuel; payload may be limited by forward CG as fuel is burned.",
+      "references": ["R44 II POH Sec 6: CAUTION (p.6-1)"],
+      "tags": ["weight-and-balance", "fuel", "CG"],
+      "source": "R44 II POH",
+      "modelIds": ["R44_II"]
+    },
+    {
+      "id": "r44ii-wb-007",
+      "section": "WEIGHT AND BALANCE",
+      "type": "single",
+      "question": "When must a new entry be made in the Weight and Balance Record form according to Section 6?",
+      "options": [
+        "Only when major structural components are changed",
+        "Each time an item of equipment is removed or installed",
+        "Only when the basic empty weight changes by more than 10 lb",
+        "Only after an annual inspection by an authorized mechanic"
+      ],
+      "answer": [1],
+      "explanation": "The WEIGHT AND BALANCE RECORD paragraph specifies that an entry must be made each time an item of equipment is removed or installed, and the new empty CG must be determined.",
+      "references": ["R44 II POH Sec 6: WEIGHT AND BALANCE RECORD (p.6-2)"],
+      "tags": ["weight-and-balance", "record", "maintenance"],
+      "source": "R44 II POH",
+      "modelIds": ["R44_II"]
+    },
+    {
+      "id": "r44ii-wb-008",
+      "section": "WEIGHT AND BALANCE",
+      "type": "single",
+      "question": "What note is given in Section 6 regarding CG with full fuel and a 150 lb pilot?",
+      "options": [
+        "CG with full fuel and 150 lb pilot may be ignored if within gross weight limits",
+        "Calculated CG with full fuel and 150 lb pilot must be within CG limits and may require adjustment of fixed nose ballast",
+        "It is sufficient to check CG only with empty fuel and pilot weight",
+        "CG with full fuel and 150 lb pilot is always within limits and needs no verification"
+      ],
+      "answer": [1],
+      "explanation": "The NOTE in the WEIGHT AND BALANCE RECORD section states that calculated CG with full fuel and 150 lb pilot must be within CG limits and that, following modification, adjustment to fixed nose ballast may be required.",
+      "references": ["R44 II POH Sec 6: WEIGHT AND BALANCE RECORD (p.6-2)"],
+      "tags": ["weight-and-balance", "CG", "pilot"],
+      "source": "R44 II POH",
+      "modelIds": ["R44_II"]
+    },
+    {
+      "id": "r44ii-wb-009",
+      "section": "WEIGHT AND BALANCE",
+      "type": "single",
+      "question": "According to the COMMON ITEM WEIGHT & CG table, which longitudinal arm may be used for combined main and aux fuel when calculating longitudinal CG?",
+      "options": [
+        "92.9 in.",
+        "96.0 in.",
+        "104.5 in.",
+        "113.4 in."
+      ],
+      "answer": [2],
+      "explanation": "The note under the COMMON ITEM WEIGHT & CG and loading worksheets states that a longitudinal arm of 104.5 in. may be used for combined main and aux fuel when calculating longitudinal CG.",
+      "references": ["R44 II POH Sec 6: LOADING INSTRUCTIONS (p.6-4 to 6-7)"],
+      "tags": ["weight-and-balance", "fuel", "CG"],
+      "source": "R44 II POH",
+      "modelIds": ["R44_II"]
+    },
+	    {
+	      "id": "r44ii-wb-010",
+	      "section": "WEIGHT AND BALANCE",
+	      "type": "single",
+	      "question": "How is the center of gravity location (arm) for the loaded helicopter determined in the sample loading calculation?",
+	      "options": [
+	        "By dividing total weight by total moment",
+	        "By dividing total moment by total weight",
+	        "By subtracting empty weight from total moment",
+	        "By averaging the longitudinal and lateral arms"
+	      ],
+	      "answer": [1],
+	      "explanation": "Section 6 explains in the sample loading calculation that CG location (arm) for the loaded helicopter is determined by dividing total moment by total weight.",
+	      "references": ["R44 II POH Sec 6: SAMPLE LOADING CALCULATION (p.6-6 to 6-7)"],
+	      "tags": ["weight-and-balance", "CG", "calculation"],
+	      "source": "R44 II POH",
+	      "modelIds": ["R44_II"]
+	    },
+	    {
+	      "id": "r44ii-wb-011",
+	      "section": "WEIGHT AND BALANCE",
+	      "type": "single",
+	      "question": "According to the WEIGHT AND BALANCE DEFINITIONS in Section 1, where is the longitudinal reference datum for the R44 II located?",
+	      "options": [
+	        "At the main rotor shaft centerline",
+	        "100 inches forward of the main rotor shaft centerline",
+	        "At the tail rotor hub",
+	        "At fuselage station 0 at the nose"
+	      ],
+	      "answer": [1],
+	      "explanation": "Section 1 WEIGHT AND BALANCE DEFINITIONS state that the longitudinal reference datum for the R44 II is 100 inches forward of the main rotor shaft centerline.",
+	      "references": ["R44 II POH Sec 1: WEIGHT AND BALANCE DEFINITIONS (p.1-7)"],
+	      "tags": ["weight-and-balance", "reference-datum", "definitions"],
+	      "source": "R44 II POH",
+	      "modelIds": ["R44_II"]
+	    },
+	    {
+	      "id": "r44ii-wb-012",
+	      "section": "WEIGHT AND BALANCE",
+	      "type": "single",
+	      "question": "In the WEIGHT AND BALANCE DEFINITIONS of Section 1, how is arm defined?",
+	      "options": [
+	        "Horizontal distance from the reference datum to the center of gravity of an item",
+	        "Product of an item's weight and its station number",
+	        "Vertical distance between skid height and rotor disc",
+	        "Difference between two adjacent station numbers"
+	      ],
+	      "answer": [0],
+	      "explanation": "Section 1 defines arm as the horizontal distance from a reference datum to the center of gravity (CG) of an item.",
+	      "references": ["R44 II POH Sec 1: WEIGHT AND BALANCE DEFINITIONS (p.1-7)"],
+	      "tags": ["weight-and-balance", "arm", "definitions"],
+	      "source": "R44 II POH",
+	      "modelIds": ["R44_II"]
+	    },
+	    {
+	      "id": "r44ii-wb-013",
+	      "section": "WEIGHT AND BALANCE",
+	      "type": "single",
+	      "question": "How is unusable fuel defined in the WEIGHT AND BALANCE DEFINITIONS of Section 1?",
+	      "options": [
+	        "Fuel available for flight planning",
+	        "Fuel remaining in the tank that cannot reliably provide uninterrupted fuel flow in the critical flight attitude",
+	        "Fuel that may only be used for taxi, run-up, and hover checks",
+	        "Fuel carried in auxiliary tanks located outside the approved CG envelope"
+	      ],
+	      "answer": [1],
+	      "explanation": "The WEIGHT AND BALANCE DEFINITIONS define unusable fuel as fuel remaining in the tank that cannot reliably provide uninterrupted fuel flow in the critical flight attitude.",
+	      "references": ["R44 II POH Sec 1: WEIGHT AND BALANCE DEFINITIONS (p.1-7)"],
+	      "tags": ["weight-and-balance", "fuel", "definitions"],
+	      "source": "R44 II POH",
+	      "modelIds": ["R44_II"]
+	    }
+	  ]
+	}
+

@@ -1,0 +1,1044 @@
+{
+  "items": [
+    {
+      "id": "H125-DS-101",
+      "question": "What is the total length of the H125 (AS350 B3 2B1) helicopter?",
+      "options": [
+        "10.93 m (35.86 ft)",
+        "12.94 m (42.45 ft)",
+        "11.87 m (38.91 ft)",
+        "10.30 m (33.79 ft)"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "The helicopter's total length is 12.94 meters (42.45 ft).",
+      "section": "description-and-systems",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 7.1",
+      "reference": "p. 7-1",
+      "difficulty": "easy",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 7.1 – p. 7-1",
+        "p. 7-1",
+        "RFM H125 Section 7.1"
+      ],
+      "sectionId": "description-and-systems",
+      "type": "single",
+      "source": "RFM H125 Section 7.1"
+    },
+    {
+      "id": "H125-DS-102",
+      "question": "What is the diameter of the main rotor on the H125?",
+      "options": [
+        "12.94 m (42.45 ft)",
+        "10.69 m (35.07 ft)",
+        "9.86 m (32.35 ft)",
+        "11.22 m (36.81 ft)"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "The main rotor diameter is 10.69 meters (35.07 ft).",
+      "section": "description-and-systems",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 7.1",
+      "reference": "p. 7-1",
+      "difficulty": "easy",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 7.1 – p. 7-1",
+        "p. 7-1",
+        "RFM H125 Section 7.1"
+      ],
+      "sectionId": "description-and-systems",
+      "type": "single",
+      "source": "RFM H125 Section 7.1"
+    },
+    {
+      "id": "H125-DS-103",
+      "question": "Which engine powers the H125 (AS350 B3 2B1)?",
+      "options": [
+        "Pratt & Whitney PT6B",
+        "Turbomeca Arriel 2B1",
+        "Rolls-Royce 250-C47",
+        "Safran Arrius 2R"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "The helicopter is powered by a Turbomeca Arriel 2B1 engine.",
+      "section": "description-and-systems",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 7.1",
+      "reference": "p. 7-3",
+      "difficulty": "easy",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 7.1 – p. 7-3",
+        "p. 7-3",
+        "RFM H125 Section 7.1"
+      ],
+      "sectionId": "description-and-systems",
+      "type": "single",
+      "source": "RFM H125 Section 7.1"
+    },
+    {
+      "id": "H125-DS-104",
+      "question": "What is the maximum takeoff power rating (MTOP) of the Arriel 2B1 engine?",
+      "options": [
+        "543 kW (728 SHP)",
+        "557 kW (747 SHP)",
+        "600 kW (805 SHP)",
+        "510 kW (685 SHP)"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "The Arriel 2B1 engine has a maximum takeoff power rating (MTOP) of 557 kW (747 SHP).",
+      "section": "description-and-systems",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 7.1",
+      "reference": "p. 7-3",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 7.1 – p. 7-3",
+        "p. 7-3",
+        "RFM H125 Section 7.1"
+      ],
+      "sectionId": "description-and-systems",
+      "type": "single",
+      "source": "RFM H125 Section 7.1"
+    },
+    {
+      "id": "H125-DS-105",
+      "question": "What is the nominal rotor speed of the main rotor?",
+      "options": [
+        "386 rpm",
+        "410 rpm",
+        "360 rpm",
+        "420 rpm"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The main rotor speed is 386 rpm.",
+      "section": "description-and-systems",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 7.1",
+      "reference": "p. 7-3",
+      "difficulty": "easy",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 7.1 – p. 7-3",
+        "p. 7-3",
+        "RFM H125 Section 7.1"
+      ],
+      "sectionId": "description-and-systems",
+      "type": "single",
+      "source": "RFM H125 Section 7.1"
+    },
+    {
+      "id": "H125-DS-106",
+      "question": "What is the nominal tail rotor speed?",
+      "options": [
+        "2044 rpm",
+        "386 rpm",
+        "1700 rpm",
+        "2200 rpm"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The nominal tail rotor speed is 2044 rpm.",
+      "section": "description-and-systems",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 7.1",
+      "reference": "p. 7-3",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 7.1 – p. 7-3",
+        "p. 7-3",
+        "RFM H125 Section 7.1"
+      ],
+      "sectionId": "description-and-systems",
+      "type": "single",
+      "source": "RFM H125 Section 7.1"
+    },
+    {
+      "id": "H125-DS-001",
+      "question": "What do red warning lights on the caution and warning panel (CWP) indicate?",
+      "options": [
+        "Alarms requiring action which can be delayed",
+        "Alarms requiring immediate action",
+        "Normal system operation",
+        "Audio alerts only"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Red warning lights signal alarms requiring immediate action by the pilot.",
+      "section": "description-and-systems",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 7.3",
+      "reference": "p. 1",
+      "difficulty": "easy",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 7.3 – p. 1",
+        "p. 1",
+        "RFM H125 Section 7.3"
+      ],
+      "sectionId": "description-and-systems",
+      "type": "single",
+      "source": "RFM H125 Section 7.3"
+    },
+    {
+      "id": "H125-DS-002",
+      "question": "How are audio alarms generated in the H125?",
+      "options": [
+        "Through the autopilot system",
+        "Through the intercommunication system",
+        "Through the FADEC system",
+        "Through the fuel monitoring unit"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Audio alarms are generated through the intercommunication system when the HORN switch is ON.",
+      "section": "description-and-systems",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 7.3",
+      "reference": "p. 1",
+      "difficulty": "easy",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 7.3 – p. 1",
+        "p. 1",
+        "RFM H125 Section 7.3"
+      ],
+      "sectionId": "description-and-systems",
+      "type": "single",
+      "source": "RFM H125 Section 7.3"
+    },
+    {
+      "id": "H125-DS-003",
+      "question": "The Turbomeca Arriel 2B1 engine in the H125 is classified as what type?",
+      "options": [
+        "Turbofan",
+        "Turboshaft",
+        "Piston engine",
+        "Turbojet"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "The Arriel 2B1 is a 650 kW class turboshaft engine designed for helicopters.",
+      "section": "description-and-systems",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 7.7",
+      "reference": "p. 1",
+      "difficulty": "easy",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 7.7 – p. 1",
+        "p. 1",
+        "RFM H125 Section 7.7"
+      ],
+      "sectionId": "description-and-systems",
+      "type": "single",
+      "source": "RFM H125 Section 7.7"
+    },
+    {
+      "id": "H125-DS-004",
+      "question": "How many independent modules make up the Arriel 2B1 engine?",
+      "options": [
+        "Three",
+        "Four",
+        "Five",
+        "Six"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "The engine is composed of five modules: Axial Compressor, Gas Generator, Free Turbine, Reduction Gear, and Output Shaft.",
+      "section": "description-and-systems",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 7.7",
+      "reference": "p. 1",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 7.7 – p. 1",
+        "p. 1",
+        "RFM H125 Section 7.7"
+      ],
+      "sectionId": "description-and-systems",
+      "type": "single",
+      "source": "RFM H125 Section 7.7"
+    },
+    {
+      "id": "H125-DS-005",
+      "question": "Which module reduces the free turbine speed from 39,158 rpm down to 6,000 rpm?",
+      "options": [
+        "Axial Compressor Module",
+        "Reduction Gear Module",
+        "Free Turbine Module",
+        "Output Shaft Module"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "The Reduction Gear Module reduces turbine speed from 39,158 rpm to 6,000 rpm for transmission use.",
+      "section": "description-and-systems",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 7.7",
+      "reference": "p. 1",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 7.7 – p. 1",
+        "p. 1",
+        "RFM H125 Section 7.7"
+      ],
+      "sectionId": "description-and-systems",
+      "type": "single",
+      "source": "RFM H125 Section 7.7"
+    },
+    {
+      "id": "H125-DS-006",
+      "question": "What does the Output Shaft Module transmit power to?",
+      "options": [
+        "The main rotor and accessory drive couplings",
+        "Only the tail rotor",
+        "The gearbox lubrication system",
+        "The combustion chamber"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The Output Shaft Module transmits power to the MGB and accessory drive couplings.",
+      "section": "description-and-systems",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 7.7",
+      "reference": "p. 1",
+      "difficulty": "easy",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 7.7 – p. 1",
+        "p. 1",
+        "RFM H125 Section 7.7"
+      ],
+      "sectionId": "description-and-systems",
+      "type": "single",
+      "source": "RFM H125 Section 7.7"
+    },
+    {
+      "id": "H125-DS-007",
+      "question": "What are the two subsystems of the engine oil system?",
+      "options": [
+        "Main and auxiliary systems",
+        "External and internal systems",
+        "Pressure and scavenging systems",
+        "Primary and secondary pumps"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "The engine oil system is divided into an external and an internal system.",
+      "section": "description-and-systems",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 7.7",
+      "reference": "p. 2",
+      "difficulty": "easy",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 7.7 – p. 2",
+        "p. 2",
+        "RFM H125 Section 7.7"
+      ],
+      "sectionId": "description-and-systems",
+      "type": "single",
+      "source": "RFM H125 Section 7.7"
+    },
+    {
+      "id": "H125-DS-008",
+      "question": "What components are included in the external oil system?",
+      "options": [
+        "Tank and cooler",
+        "Three scavenging pumps and filter",
+        "Chip detector and scavenge pumps",
+        "By-pass valve and oil nozzles"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The external system includes one tank and one cooler, with fireproof hoses.",
+      "section": "description-and-systems",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 7.7",
+      "reference": "p. 2",
+      "difficulty": "easy",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 7.7 – p. 2",
+        "p. 2",
+        "RFM H125 Section 7.7"
+      ],
+      "sectionId": "description-and-systems",
+      "type": "single",
+      "source": "RFM H125 Section 7.7"
+    },
+    {
+      "id": "H125-DS-009",
+      "question": "How many scavenge pumps are part of the internal oil system?",
+      "options": [
+        "One",
+        "Two",
+        "Three",
+        "Four"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "The internal oil system includes one pressure pump and three scavenge pumps.",
+      "section": "description-and-systems",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 7.7",
+      "reference": "p. 2",
+      "difficulty": "easy",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 7.7 – p. 2",
+        "p. 2",
+        "RFM H125 Section 7.7"
+      ],
+      "sectionId": "description-and-systems",
+      "type": "single",
+      "source": "RFM H125 Section 7.7"
+    },
+    {
+      "id": "H125-DS-010",
+      "question": "What is the purpose of the tank booster pump in the H125 fuel system?",
+      "options": [
+        "To drive the tail rotor",
+        "To supply lubrication oil",
+        "To prime the fuel line during starting",
+        "To cool the FADEC"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "The booster pump primes the fuel line during starting to ensure proper fuel delivery.",
+      "section": "description-and-systems",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 7.8",
+      "reference": "p. 1",
+      "difficulty": "easy",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 7.8 – p. 1",
+        "p. 1",
+        "RFM H125 Section 7.8"
+      ],
+      "sectionId": "description-and-systems",
+      "type": "single",
+      "source": "RFM H125 Section 7.8"
+    },
+    {
+      "id": "H125-DS-011",
+      "question": "What does the hydro-mechanical unit of the FADEC control?",
+      "options": [
+        "The oil temperature",
+        "The landing gear extension",
+        "The engine fuel flow",
+        "The rotor brake"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "The hydro-mechanical unit of the FADEC is responsible for controlling engine fuel flow.",
+      "section": "description-and-systems",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 7.8",
+      "reference": "p. 1",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 7.8 – p. 1",
+        "p. 1",
+        "RFM H125 Section 7.8"
+      ],
+      "sectionId": "description-and-systems",
+      "type": "single",
+      "source": "RFM H125 Section 7.8"
+    },
+    {
+      "id": "H125-DS-012",
+      "question": "At what minimum temperature does the fuel heat exchanger allow operation without anti-ice additive?",
+      "options": [
+        "–10°C",
+        "–15°C",
+        "–20°C",
+        "–25°C"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "The fuel system heat exchanger enables operation down to –20°C without requiring anti-ice additive.",
+      "section": "description-and-systems",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM H125 Section 7.8",
+      "reference": "p. 1",
+      "difficulty": "medium",
+      "tags": [],
+      "references": [
+        "RFM H125 Section 7.8 – p. 1",
+        "p. 1",
+        "RFM H125 Section 7.8"
+      ],
+      "sectionId": "description-and-systems",
+      "type": "single",
+      "source": "RFM H125 Section 7.8"
+    },
+    {
+      "id": "H125-DS-013",
+      "question": "How many Ancillary System Unit (ASU) cards manage the ancillary service functions of the helicopter?",
+      "options": ["One", "Two", "Three", "Four"],
+      "answer": [2],
+      "explanation": "Three ASU cards manage all audio warnings, some visual warnings, processing of specific electrical signals, and the engine fuel control back-up system.",
+      "section": "description-and-systems",
+      "modelIds": ["H125_AS350_B3_2B1"],
+      "manual": "RFM H125 Section 7.3",
+      "reference": "p. 3",
+      "difficulty": "medium",
+      "tags": [],
+      "references": ["RFM H125 Section 7.3 – p. 3", "p. 3", "RFM H125 Section 7.3"],
+      "sectionId": "description-and-systems",
+      "type": "single",
+      "source": "RFM H125 Section 7.3"
+    },
+    {
+      "id": "H125-DS-014",
+      "question": "Which ASU card is part of the Engine Back-up Control Ancillary Unit (EBCAU)?",
+      "options": ["ASU No.1", "ASU No.2", "ASU No.3", "None of them"],
+      "answer": [2],
+      "explanation": "ASU No.3 is part of the EBCAU and handles engine Nf signal acquisition and computing/signal processing for the back-up fuel metering valve.",
+      "section": "description-and-systems",
+      "modelIds": ["H125_AS350_B3_2B1"],
+      "manual": "RFM H125 Section 7.3",
+      "reference": "p. 4",
+      "difficulty": "medium",
+      "tags": [],
+      "references": ["RFM H125 Section 7.3 – p. 4", "p. 4", "RFM H125 Section 7.3"],
+      "sectionId": "description-and-systems",
+      "type": "single",
+      "source": "RFM H125 Section 7.3"
+    },
+    {
+      "id": "H125-DS-015",
+      "question": "What three operating modes does the VEMD provide?",
+      "options": [
+        "OPERATIONAL, CONFIGURATION, MAINTENANCE",
+        "NORMAL, DEGRADED, TEST",
+        "GROUND, FLIGHT, STANDBY",
+        "ENGINE, VEHICLE, FUEL"
+      ],
+      "answer": [0],
+      "explanation": "The VEMD has three operating modes: OPERATIONAL (main mode, ground and flight), CONFIGURATION (ground only), and MAINTENANCE (ground only).",
+      "section": "description-and-systems",
+      "modelIds": ["H125_AS350_B3_2B1"],
+      "manual": "RFM H125 Section 7.4",
+      "reference": "p. 1",
+      "difficulty": "easy",
+      "tags": [],
+      "references": ["RFM H125 Section 7.4 – p. 1", "p. 1", "RFM H125 Section 7.4"],
+      "sectionId": "description-and-systems",
+      "type": "single",
+      "source": "RFM H125 Section 7.4"
+    },
+    {
+      "id": "H125-DS-016",
+      "question": "Which pages are available in the VEMD's OPERATIONAL mode?",
+      "options": [
+        "ENGINE, VEHICLE, FLI, FLIGHT REPORT, and ENGINE POWER CHECK",
+        "CONFIGURATION, MAINTENANCE, and TEST only",
+        "FUEL, HYDRAULIC, and ELECTRICAL only",
+        "Only the ENGINE page"
+      ],
+      "answer": [0],
+      "explanation": "OPERATIONAL mode contains the ENGINE, VEHICLE, FLI, FLIGHT REPORT and ENGINE POWER CHECK pages.",
+      "section": "description-and-systems",
+      "modelIds": ["H125_AS350_B3_2B1"],
+      "manual": "RFM H125 Section 7.4",
+      "reference": "p. 1",
+      "difficulty": "medium",
+      "tags": [],
+      "references": ["RFM H125 Section 7.4 – p. 1", "p. 1", "RFM H125 Section 7.4"],
+      "sectionId": "description-and-systems",
+      "type": "single",
+      "source": "RFM H125 Section 7.4"
+    },
+    {
+      "id": "H125-DS-017",
+      "question": "What happens automatically if a parameter on the VEMD's FLI (First Limitation Indicator) page becomes invalid?",
+      "options": [
+        "The VEMD shuts down",
+        "The ENGINE page is automatically displayed so the parameters can be read on independent scales",
+        "The aircraft reverts to CONFIGURATION mode",
+        "Nothing; the FLI page remains frozen"
+      ],
+      "answer": [1],
+      "explanation": "If a FLI page parameter becomes invalid, the ENGINE page is automatically displayed so the parameters can be read on independent scales.",
+      "section": "description-and-systems",
+      "modelIds": ["H125_AS350_B3_2B1"],
+      "manual": "RFM H125 Section 7.4",
+      "reference": "p. 6",
+      "difficulty": "medium",
+      "tags": [],
+      "references": ["RFM H125 Section 7.4 – p. 6", "p. 6", "RFM H125 Section 7.4"],
+      "sectionId": "description-and-systems",
+      "type": "single",
+      "source": "RFM H125 Section 7.4"
+    },
+    {
+      "id": "H125-DS-018",
+      "question": "On the VEMD PERFORMANCE page, what is the default crew weight (CREW) used at power-up?",
+      "options": ["70 kg (154 lb)", "80 kg (176 lb)", "90 kg (198 lb)", "100 kg (220 lb)"],
+      "answer": [1],
+      "explanation": "At power-up, the default CREW weight value on the PERFORMANCE page is 80 kg (176 lb).",
+      "section": "description-and-systems",
+      "modelIds": ["H125_AS350_B3_2B1"],
+      "manual": "RFM H125 Section 7.4",
+      "reference": "p. 8",
+      "difficulty": "hard",
+      "tags": [],
+      "references": ["RFM H125 Section 7.4 – p. 8", "p. 8", "RFM H125 Section 7.4"],
+      "sectionId": "description-and-systems",
+      "type": "single",
+      "source": "RFM H125 Section 7.4"
+    },
+    {
+      "id": "H125-DS-019",
+      "question": "When does the VEMD's FLIGHT REPORT page automatically replace the VEHICLE page?",
+      "options": [
+        "When the aircraft lands on a helipad",
+        "When the VEMD detects engine shutdown and NR below 70 rpm",
+        "Every 30 minutes of flight",
+        "When the fuel level drops below 10%"
+      ],
+      "answer": [1],
+      "explanation": "The FLIGHT REPORT page automatically replaces the VEHICLE page once the VEMD detects engine shutdown with NR below 70 rpm.",
+      "section": "description-and-systems",
+      "modelIds": ["H125_AS350_B3_2B1"],
+      "manual": "RFM H125 Section 7.4",
+      "reference": "p. 10",
+      "difficulty": "medium",
+      "tags": [],
+      "references": ["RFM H125 Section 7.4 – p. 10", "p. 10", "RFM H125 Section 7.4"],
+      "sectionId": "description-and-systems",
+      "type": "single",
+      "source": "RFM H125 Section 7.4"
+    },
+    {
+      "id": "H125-DS-020",
+      "question": "Where is the hydraulic pressure cut-off switch located?",
+      "options": ["On the cyclic stick grip", "On the collective lever grip", "On the center console", "On the overhead panel"],
+      "answer": [1],
+      "explanation": "The hydraulic pressure cut-off switch is mounted on the collective lever grip.",
+      "section": "description-and-systems",
+      "modelIds": ["H125_AS350_B3_2B1"],
+      "manual": "RFM H125 Section 7.5",
+      "reference": "p. 1",
+      "difficulty": "easy",
+      "tags": [],
+      "references": ["RFM H125 Section 7.5 – p. 1", "p. 1", "RFM H125 Section 7.5"],
+      "sectionId": "description-and-systems",
+      "type": "single",
+      "source": "RFM H125 Section 7.5"
+    },
+    {
+      "id": "H125-DS-021",
+      "question": "What other flight controls, besides the collective and cyclic grips, are described in Section 7.5?",
+      "options": [
+        "Rotor brake and fuel shut-off control, and the EBCAU test switch / engine starting selector",
+        "Only the anti-torque pedals",
+        "Only the trim release button",
+        "Autopilot disconnect and altitude hold switches"
+      ],
+      "answer": [0],
+      "explanation": "Section 7.5 also covers the rotor brake and fuel shut-off control (with their safety devices) and the guarded EBCAU test switch with the engine starting selector.",
+      "section": "description-and-systems",
+      "modelIds": ["H125_AS350_B3_2B1"],
+      "manual": "RFM H125 Section 7.5",
+      "reference": "p. 3",
+      "difficulty": "medium",
+      "tags": [],
+      "references": ["RFM H125 Section 7.5 – p. 3", "p. 3", "RFM H125 Section 7.5"],
+      "sectionId": "description-and-systems",
+      "type": "single",
+      "source": "RFM H125 Section 7.5"
+    },
+    {
+      "id": "H125-DS-022",
+      "question": "The forward adjustable spot light used for emergency cabin lighting is supplied directly by which source?",
+      "options": ["The generator only", "The battery", "The AC inverter", "The EPU"],
+      "answer": [1],
+      "explanation": "The forward spot light is supplied directly by the battery for use as an emergency light in case of total lighting failure.",
+      "section": "description-and-systems",
+      "modelIds": ["H125_AS350_B3_2B1"],
+      "manual": "RFM H125 Section 7.6",
+      "reference": "p. 1",
+      "difficulty": "medium",
+      "tags": [],
+      "references": ["RFM H125 Section 7.6 – p. 1", "p. 1", "RFM H125 Section 7.6"],
+      "sectionId": "description-and-systems",
+      "type": "single",
+      "source": "RFM H125 Section 7.6"
+    },
+    {
+      "id": "H125-DS-023",
+      "question": "What does exterior lighting on the H125 comprise?",
+      "options": [
+        "Three position lights, an anti-collision light, a fixed taxi light, and a fixed or swiveling landing light",
+        "Only a single strobe light",
+        "Two position lights and a searchlight only",
+        "A rotating beacon and two landing lights"
+      ],
+      "answer": [0],
+      "explanation": "Exterior lighting includes three position lights, an anti-collision light, a fixed taxi light, and a fixed or swiveling landing light.",
+      "section": "description-and-systems",
+      "modelIds": ["H125_AS350_B3_2B1"],
+      "manual": "RFM H125 Section 7.6",
+      "reference": "p. 5",
+      "difficulty": "easy",
+      "tags": [],
+      "references": ["RFM H125 Section 7.6 – p. 5", "p. 5", "RFM H125 Section 7.6"],
+      "sectionId": "description-and-systems",
+      "type": "single",
+      "source": "RFM H125 Section 7.6"
+    },
+    {
+      "id": "H125-DS-024",
+      "question": "What does the MGB (main gearbox) drive and support, besides transmitting power to the main rotor?",
+      "options": [
+        "The hydraulic pump, the MGB lubricating pump, and the rotor brake",
+        "Only the tail rotor drive shaft",
+        "Only the generator",
+        "The FADEC computer"
+      ],
+      "answer": [0],
+      "explanation": "The MGB transmits engine power to the main rotor with speed reduction, and drives/supports the hydraulic pump, the MGB lubricating pump, and the rotor brake.",
+      "section": "description-and-systems",
+      "modelIds": ["H125_AS350_B3_2B1"],
+      "manual": "RFM H125 Section 7.9",
+      "reference": "p. 2",
+      "difficulty": "medium",
+      "tags": [],
+      "references": ["RFM H125 Section 7.9 – p. 2", "p. 2", "RFM H125 Section 7.9"],
+      "sectionId": "description-and-systems",
+      "type": "single",
+      "source": "RFM H125 Section 7.9"
+    },
+    {
+      "id": "H125-DS-025",
+      "question": "How is the tail gearbox (TGB) lubricated?",
+      "options": ["By a dedicated electric oil pump", "By splash lubrication", "It shares the MGB's pressurized oil system", "It requires no lubrication"],
+      "answer": [1],
+      "explanation": "The TGB is splash-lubricated and includes a visual oil level indicator and a chip detection caution light.",
+      "section": "description-and-systems",
+      "modelIds": ["H125_AS350_B3_2B1"],
+      "manual": "RFM H125 Section 7.9",
+      "reference": "p. 3",
+      "difficulty": "medium",
+      "tags": [],
+      "references": ["RFM H125 Section 7.9 – p. 3", "p. 3", "RFM H125 Section 7.9"],
+      "sectionId": "description-and-systems",
+      "type": "single",
+      "source": "RFM H125 Section 7.9"
+    },
+    {
+      "id": "H125-DS-026",
+      "question": "What type of main rotor hub does the H125 use, and what is distinctive about it?",
+      "options": [
+        "STARFLEX hub, with no ball bearings and no lubrication system",
+        "A fully articulated hub with elastomeric bearings requiring regular lubrication",
+        "A teetering hub identical to the tail rotor",
+        "A rigid hub with hydraulic dampers"
+      ],
+      "answer": [0],
+      "explanation": "The semi-rigid \"STARFLEX\" main rotor hub has no ball bearings nor a lubrication system; flapping is achieved through the composite star arms, with lead-lag and pitch hinges via elastomeric items.",
+      "section": "description-and-systems",
+      "modelIds": ["H125_AS350_B3_2B1"],
+      "manual": "RFM H125 Section 7.9",
+      "reference": "p. 4",
+      "difficulty": "medium",
+      "tags": [],
+      "references": ["RFM H125 Section 7.9 – p. 4", "p. 4", "RFM H125 Section 7.9"],
+      "sectionId": "description-and-systems",
+      "type": "single",
+      "source": "RFM H125 Section 7.9"
+    },
+    {
+      "id": "H125-DS-027",
+      "question": "How many main rotor servos does the hydraulic system power, and how are they arranged?",
+      "options": [
+        "Three: one longitudinal and two lateral",
+        "Two: one longitudinal and one lateral",
+        "Four: two longitudinal and two lateral",
+        "One combined servo for all axes"
+      ],
+      "answer": [0],
+      "explanation": "There are three main rotor servos (one longitudinal, two lateral) plus a separate tail rotor servo for yaw control.",
+      "section": "description-and-systems",
+      "modelIds": ["H125_AS350_B3_2B1"],
+      "manual": "RFM H125 Section 7.10",
+      "reference": "p. 1",
+      "difficulty": "easy",
+      "tags": [],
+      "references": ["RFM H125 Section 7.10 – p. 1", "p. 1", "RFM H125 Section 7.10"],
+      "sectionId": "description-and-systems",
+      "type": "single",
+      "source": "RFM H125 Section 7.10"
+    },
+    {
+      "id": "H125-DS-028",
+      "question": "What is the hydraulic system's pressure regulating valve set to?",
+      "options": ["20 bar (290 psi)", "40 bar (580 psi)", "60 bar (870 psi)", "80 bar (1160 psi)"],
+      "answer": [1],
+      "explanation": "The regulator unit's pressure regulating valve is set to 40 bar (580 psi).",
+      "section": "description-and-systems",
+      "modelIds": ["H125_AS350_B3_2B1"],
+      "manual": "RFM H125 Section 7.10",
+      "reference": "p. 1",
+      "difficulty": "medium",
+      "tags": [],
+      "references": ["RFM H125 Section 7.10 – p. 1", "p. 1", "RFM H125 Section 7.10"],
+      "sectionId": "description-and-systems",
+      "type": "single",
+      "source": "RFM H125 Section 7.10"
+    },
+    {
+      "id": "H125-DS-029",
+      "question": "After a hydraulic pressure loss, what is the recommended safety speed range the pilot should reach?",
+      "options": ["20 to 30 kt", "40 to 60 kt", "70 to 90 kt", "100 to 120 kt"],
+      "answer": [1],
+      "explanation": "The recommended safety speed range is 40 to 60 kt (74 to 111 km/h); the average time to reach it from VNE or hover is less than 30 seconds.",
+      "section": "description-and-systems",
+      "modelIds": ["H125_AS350_B3_2B1"],
+      "manual": "RFM H125 Section 7.10",
+      "reference": "p. 6",
+      "difficulty": "medium",
+      "tags": [],
+      "references": ["RFM H125 Section 7.10 – p. 6", "p. 6", "RFM H125 Section 7.10"],
+      "sectionId": "description-and-systems",
+      "type": "single",
+      "source": "RFM H125 Section 7.10"
+    },
+    {
+      "id": "H125-DS-030",
+      "question": "What distinguishes SAMM main rotor servos from Dunlop servos?",
+      "options": [
+        "SAMM servos have an input clearance locking system; Dunlop servos do not",
+        "Dunlop servos are electrically actuated; SAMM servos are not",
+        "SAMM servos only work on the tail rotor",
+        "There is no functional difference between them"
+      ],
+      "answer": [0],
+      "explanation": "SAMM servos include an input clearance locking system to reduce control freeplay in bypass mode, which can cause a brief cyclic movement during pressurization; Dunlop lateral servos do not have this device.",
+      "section": "description-and-systems",
+      "modelIds": ["H125_AS350_B3_2B1"],
+      "manual": "RFM H125 Section 7.10",
+      "reference": "p. 3",
+      "difficulty": "hard",
+      "tags": [],
+      "references": ["RFM H125 Section 7.10 – p. 3", "p. 3", "RFM H125 Section 7.10"],
+      "sectionId": "description-and-systems",
+      "type": "single",
+      "source": "RFM H125 Section 7.10"
+    },
+    {
+      "id": "H125-DS-031",
+      "question": "What two hydraulic tests should be performed before each flight as a normal procedure?",
+      "options": [
+        "The hydraulic accumulator test and the hydraulic pressure cut-off test",
+        "The fuel dump test and the generator test",
+        "The rotor brake test and the FADEC reset test",
+        "The battery load test and the AC inverter test"
+      ],
+      "answer": [0],
+      "explanation": "Before each flight: the accumulator test (ACCU TST/HYD TEST) checks accumulator assistance, and the hydraulic cut-off test checks the main servo dump electro-valves.",
+      "section": "description-and-systems",
+      "modelIds": ["H125_AS350_B3_2B1"],
+      "manual": "RFM H125 Section 7.10",
+      "reference": "p. 5",
+      "difficulty": "medium",
+      "tags": [],
+      "references": ["RFM H125 Section 7.10 – p. 5", "p. 5", "RFM H125 Section 7.10"],
+      "sectionId": "description-and-systems",
+      "type": "single",
+      "source": "RFM H125 Section 7.10"
+    },
+    {
+      "id": "H125-DS-032",
+      "question": "Which three sources supply the DC electrical network?",
+      "options": [
+        "A starter generator, a 15 A/h battery, and a 28 V external power unit (EPU) receptacle",
+        "Two batteries and a wind-driven generator",
+        "A fuel cell, a battery, and a solar panel",
+        "Only the starter generator and the EPU"
+      ],
+      "answer": [0],
+      "explanation": "The DC network is supplied by a starter generator on the engine accessory gearbox, a 15 A/h battery, and an EPU receptacle (400 A max).",
+      "section": "description-and-systems",
+      "modelIds": ["H125_AS350_B3_2B1"],
+      "manual": "RFM H125 Section 7.11",
+      "reference": "p. 1",
+      "difficulty": "easy",
+      "tags": [],
+      "references": ["RFM H125 Section 7.11 – p. 1", "p. 1", "RFM H125 Section 7.11"],
+      "sectionId": "description-and-systems",
+      "type": "single",
+      "source": "RFM H125 Section 7.11"
+    },
+    {
+      "id": "H125-DS-033",
+      "question": "What is the current rating of the generator (standard/optional)?",
+      "options": ["100 A / 150 A optional", "150 A / 200 A optional", "200 A / 250 A optional", "250 A / 300 A optional"],
+      "answer": [1],
+      "explanation": "The generator is rated at 150 A, with 200 A as an optional rating.",
+      "section": "description-and-systems",
+      "modelIds": ["H125_AS350_B3_2B1"],
+      "manual": "RFM H125 Section 7.11",
+      "reference": "p. 9",
+      "difficulty": "medium",
+      "tags": [],
+      "references": ["RFM H125 Section 7.11 – p. 9", "p. 9", "RFM H125 Section 7.11"],
+      "sectionId": "description-and-systems",
+      "type": "single",
+      "source": "RFM H125 Section 7.11"
+    },
+    {
+      "id": "H125-DS-034",
+      "question": "What does the amber INV caution light on the CWP indicate?",
+      "options": [
+        "The inverter is not operating, or the AC power generating system has failed",
+        "The battery is overheating",
+        "The generator is overcharging",
+        "The EPU is connected"
+      ],
+      "answer": [0],
+      "explanation": "The amber INV caution light indicates the inverter is not operating, or there is a failure of the AC power generating system.",
+      "section": "description-and-systems",
+      "modelIds": ["H125_AS350_B3_2B1"],
+      "manual": "RFM H125 Section 7.11",
+      "reference": "p. 10",
+      "difficulty": "medium",
+      "tags": [],
+      "references": ["RFM H125 Section 7.11 – p. 10", "p. 10", "RFM H125 Section 7.11"],
+      "sectionId": "description-and-systems",
+      "type": "single",
+      "source": "RFM H125 Section 7.11"
+    },
+    {
+      "id": "H125-DS-035",
+      "question": "What does the amber PITOT caution light indicate?",
+      "options": [
+        "The pitot heating system is not operating, is OFF, or has failed",
+        "The static ports are blocked by ice",
+        "The VEMD has lost airspeed data entirely",
+        "The FADEC has failed"
+      ],
+      "answer": [0],
+      "explanation": "The amber PITOT caution light indicates the pitot tube heating system is not operating, is switched OFF, or has failed.",
+      "section": "description-and-systems",
+      "modelIds": ["H125_AS350_B3_2B1"],
+      "manual": "RFM H125 Section 7.12",
+      "reference": "p. 1",
+      "difficulty": "easy",
+      "tags": [],
+      "references": ["RFM H125 Section 7.12 – p. 1", "p. 1", "RFM H125 Section 7.12"],
+      "sectionId": "description-and-systems",
+      "type": "single",
+      "source": "RFM H125 Section 7.12"
+    },
+    {
+      "id": "H125-DS-036",
+      "question": "How is cabin heating and demisting air produced?",
+      "options": [
+        "By mixing hot P2 air bled from the engine with outside air drawn from under the cabin floor",
+        "By an electric resistive heater in the cabin floor",
+        "By diverting exhaust gas directly into the cabin",
+        "By a separate combustion heater"
+      ],
+      "answer": [0],
+      "explanation": "Heating and demisting are achieved by mixing hot P2 air bled from the engine with outside air drawn from under the cabin floor, channelled to heating and demisting outlets.",
+      "section": "description-and-systems",
+      "modelIds": ["H125_AS350_B3_2B1"],
+      "manual": "RFM H125 Section 7.13",
+      "reference": "p. 2",
+      "difficulty": "medium",
+      "tags": [],
+      "references": ["RFM H125 Section 7.13 – p. 2", "p. 2", "RFM H125 Section 7.13"],
+      "sectionId": "description-and-systems",
+      "type": "single",
+      "source": "RFM H125 Section 7.13"
+    },
+    {
+      "id": "H125-DS-037",
+      "question": "On the APPAREO Vision 1000 status LED, what does a steady green light mean?",
+      "options": ["Fault detected", "Boot sequence", "Normal operation", "SD card not inserted"],
+      "answer": [2],
+      "explanation": "Green indicates normal operation. Red indicates a fault, blue indicates the boot sequence, and yellow indicates an SD card, formatting, or GPS issue.",
+      "section": "description-and-systems",
+      "modelIds": ["H125_AS350_B3_2B1"],
+      "manual": "RFM H125 Section 7.14",
+      "reference": "p. 2",
+      "difficulty": "medium",
+      "tags": [],
+      "references": ["RFM H125 Section 7.14 – p. 2", "p. 2", "RFM H125 Section 7.14"],
+      "sectionId": "description-and-systems",
+      "type": "single",
+      "source": "RFM H125 Section 7.14"
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[8632],{80357:(e,s,u)=>{Promise.resolve().then(u.bind(u,82804))},82804:(e,s,u)=>{"use strict";u.r(s),u.d(s,{default:()=>a});var n=u(95155),r=u(91612);function a(){return(0,n.jsx)(r.A,{fuelType:"avgas100LL"})}}},e=>{e.O(0,[1612,8441,1255,7358],()=>e(e.s=80357)),_N_E=e.O()}]);

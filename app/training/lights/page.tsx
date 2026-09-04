@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState, useCallback, useRef } from "react";
+import { Suspense, useEffect, useMemo, useState, useCallback, useRef } from "react";
 import type { ReactNode } from "react";
 import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -253,6 +253,14 @@ function CwpPanelIcon() {
 	  }
 
 export default function LightsTrainer() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-slate-50 dark:bg-zinc-900" />}>
+      <LightsTrainerInner />
+    </Suspense>
+  );
+}
+
+function LightsTrainerInner() {
 	  const router = useRouter();
 	  const { variant: activeVariant, setActiveVariant } = useActiveModelVariant();
 	  const isH125 = activeVariant.productId === "H125";

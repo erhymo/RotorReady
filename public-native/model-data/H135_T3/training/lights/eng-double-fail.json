@@ -1,0 +1,38 @@
+[
+  {
+    "id": "eng-double-fail",
+    "name": "ENG1 and 2 FAIL",
+    "severity": "warning",
+    "system": "ENGINE",
+    "description": "Both engines have failed. Warning Unit ROTOR RPM light and warning tone (NR low). Yawing motion nose left, NR and both N2 decrease, VMS indicates power loss on both engines.",
+    "procedure": [
+      {
+        "type": "note",
+        "text": "Master List shows GEN1 DISCONNECTED GEN2. Yawing motion nose left as NR and both N2 decrease."
+      },
+      {
+        "type": "branch",
+        "heading": "HIGE (hover in ground effect):",
+        "text": "1. Right pedal — Apply as necessary to stop yaw\n2. Landing attitude — Establish\n3. Collective lever — Raise to cushion landing\nAfter steady ground contact:\n4. Collective lever — Lower rapidly"
+      },
+      {
+        "type": "branch",
+        "heading": "In flight:",
+        "text": "1. Autorotation — Perform"
+      },
+      {
+        "type": "note",
+        "text": "Autorotation: 75 KIAS recommended (90 KIAS max range, 60 KIAS min rate-of-descent). Establish flare attitude at approx. 100 ft AGL."
+      }
+    ],
+    "references": [
+      "FLM EC135 T3H Sect. 3.8.1 (Helionix Step 3.5, 3 MFD)"
+    ],
+    "modelIds": [
+      "H135_T3"
+    ],
+    "pageImage": "/training/lights/pages/h135t3-eng-double-fail.png",
+    "imageWidth": 1310,
+    "imageHeight": 1574
+  }
+]

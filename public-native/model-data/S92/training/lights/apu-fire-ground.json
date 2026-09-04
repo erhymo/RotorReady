@@ -1,0 +1,25 @@
+[
+  {
+    "id": "apu-fire-ground",
+    "name": "APU FIRE (GROUND)",
+    "severity": "warning",
+    "description": "",
+    "pageImage": "/training/lights/pages/s92-apu-fire-ground.png",
+    "imageWidth": 1159,
+    "imageHeight": 1610,
+    "links": [
+      {
+        "destPage": 219,
+        "rect": [
+          677,
+          1296,
+          726,
+          1321
+        ]
+      }
+    ],
+    "modelIds": [
+      "S92"
+    ]
+  }
+]

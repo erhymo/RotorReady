@@ -1,0 +1,53 @@
+{
+  "modelId": "AW169_EP",
+  "sections": [
+    {
+      "id": "limitations",
+      "title": "Limitations",
+      "file": "sections/limitations.json",
+      "count": 84
+    },
+    {
+      "id": "engine-systems",
+      "title": "Engine, Fuel, Lubricants, Hydraulics & System Limitations",
+      "file": "sections/engine-systems.json",
+      "count": 30
+    },
+    {
+      "id": "avionics_fms_limitations",
+      "title": "Avionics & FMS Limitations",
+      "file": "sections/avionics_fms_limitations.json",
+      "count": 28
+    },
+    {
+      "id": "emergency_procedures",
+      "title": "Emergency Procedures",
+      "file": "sections/emergency_procedures.json",
+      "count": 50
+    },
+    {
+      "id": "normal_procedures",
+      "title": "Normal Procedures",
+      "file": "sections/normal_procedures.json",
+      "count": 67
+    },
+    {
+      "id": "air_law",
+      "title": "Air Law (EASA)",
+      "file": "sections/air_law.json",
+      "count": 100
+    },
+    {
+      "id": "performance",
+      "title": "Performance",
+      "file": "sections/performance.json",
+      "count": 45
+    },
+    {
+      "id": "systems_description",
+      "title": "Systems Description",
+      "file": "sections/systems_description.json",
+      "count": 150
+    }
+  ]
+}

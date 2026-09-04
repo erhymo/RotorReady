@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 500" width="820" height="500" role="img" aria-label="RFM H125 Section 3.6 – GOV (Minor FADEC failure)">
+  <rect width="100%" height="100%" fill="white"/>
+  <style>
+    :root{
+      --paper:#ffffff; --ink:#111; --muted:#333; --rule:#111;
+      --panel-bg:#000; --panel-text:#ffe000;
+      --red:#c40000;
+      --note:#666;
+    }
+
+    .paper{fill:var(--paper)}
+    .frame{fill:none;stroke:var(--rule);stroke-width:2}
+    .rule{stroke:var(--rule);stroke-width:2}
+    .h3{font:700 18px/1.2 Arial,Helvetica,sans-serif; fill:var(--ink)}
+    .body{font:16px/1.35 Arial,Helvetica,sans-serif; fill:var(--ink)}
+    .small{font:14px/1.3 Arial,Helvetica,sans-serif; fill:var(--ink)}
+    .muted{fill:var(--muted)}
+    .panel{fill:var(--panel-bg);stroke:var(--rule);stroke-width:1.5}
+    .panelText{font:700 22px/1 Arial,Helvetica,sans-serif;fill:var(--panel-text);letter-spacing:1px}
+    .red{fill:var(--red);font-weight:700}
+    .note{fill:var(--note)}
+  </style>
+
+  <rect class="paper" x="0" y="0" width="820" height="500"/>
+
+  <rect class="frame" x="16" y="16" width="788" height="468"/>
+  <line class="rule" x1="200" y1="16" x2="200" y2="484"/>
+
+  <text class="h3" x="36" y="44">WARNING</text>
+  <text class="h3" x="36" y="66">PANEL</text>
+  <text class="h3" x="220" y="44">CORRECTIVE ACTIONS</text>
+
+  <rect class="panel" x="56" y="102" width="88" height="76" rx="4"/>
+  <text class="panelText" x="100" y="145" text-anchor="middle">GOV</text>
+  <text class="body muted" x="40" y="210" text-anchor="start">Minor FADEC</text>
+  <text class="body muted" x="40" y="232" text-anchor="start">failure</text>
+
+  <rect class="frame" x="200" y="86" width="604" height="168"/>
+  <text class="h3" x="216" y="107">-  Continuously on:</text>
+  <text class="body" x="216" y="132">Governing function degraded</text>
+  <text class="body" x="216" y="160"><tspan font-weight="700">1. Collective</tspan> .......................... <tspan font-weight="700">AVOID</tspan> abrupt power changes</text>
+  <text class="body" x="216" y="185"><tspan font-weight="700">2. IAS</tspan> ............................................. <tspan font-weight="700">MAINTAIN</tspan> below VNE power off</text>
+  <text class="h3 red" x="216" y="215">LAND AS SOON AS PRACTICABLE</text>
+  <text class="body note" x="216" y="240">On ground: Do not start engine.</text>
+
+  <rect class="frame" x="200" y="254" width="604" height="120"/>
+  <text class="h3" x="216" y="276">-  Flashing at idle or during starting or shutdown:</text>
+  <text class="body" x="216" y="301">Governor redundancy failure, no impact on governing function.</text>
+  <text class="body" x="216" y="329">. Start-up procedure: Abort, refer to Maintenance Manual</text>
+  <text class="body" x="216" y="355">. Autorotation training: Cancel training, return to base</text>
+</svg>

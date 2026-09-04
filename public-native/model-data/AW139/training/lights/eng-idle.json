@@ -1,0 +1,12 @@
+[
+  {
+    "id": "eng-idle",
+    "name": "1(2) ENG IDLE",
+    "severity": "warning",
+    "description": "",
+    "pageImage": "/training/lights/pages/aw139-eng-idle.svg",
+    "modelIds": [
+      "AW139"
+    ]
+  }
+]

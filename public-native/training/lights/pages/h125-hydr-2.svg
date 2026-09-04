@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 900" role="img" aria-label="HYDR – Hydraulic failure approach and landing">
+  <rect width="100%" height="100%" fill="white"/>
+  <style>
+    :root {
+      --paper:#ffffff; --ink:#111111; --warning:#d60000;
+    }
+
+    .sheet { fill:var(--paper); stroke:var(--ink); stroke-width:1; }
+    .body { font:18px/1.4 Arial, Helvetica, sans-serif; fill:var(--ink); }
+    .heading { font:700 22px/1.3 Arial, Helvetica, sans-serif; fill:#f97316; text-anchor:middle; }
+    .sub { font:700 18px/1.3 Arial, Helvetica, sans-serif; fill:var(--ink); text-decoration:underline; }
+    .warning { font:700 18px/1.3 Arial, Helvetica, sans-serif; fill:var(--warning); }
+  </style>
+
+  <rect x="1" y="1" width="798" height="898" class="sheet"/>
+
+  <text x="400" y="60" class="heading">LAND AS SOON AS POSSIBLE</text>
+
+  <text x="200" y="120" class="body" font-weight="700">NOTE</text>
+  <text x="200" y="145" class="body">Accumulators will compensate hydraulic pressure loss for a limited operation</text>
+  <text x="200" y="170" class="body">of the main rotor controls allowing to secure flight conditions and to establish</text>
+  <text x="200" y="195" class="body">hydraulic failure safety speed.</text>
+
+  <text x="200" y="230" class="body">Airspeed may be increased beyond safety speed as necessary but control loads</text>
+  <text x="200" y="255" class="body">will increase with speed.</text>
+
+  <text x="200" y="295" class="sub">Approach and landing</text>
+
+  <text x="200" y="335" class="warning" font-size="20">WARNING</text>
+  <text x="200" y="365" class="warning">DO NOT ATTEMPT TO CARRY OUT HOVER FLIGHT OR ANY</text>
+  <text x="200" y="390" class="warning">LOW SPEED MANEUVER BECAUSE THE INTENSITY AND</text>
+  <text x="200" y="415" class="warning">DIRECTION OF THE CONTROL FEEDBACK FORCE WILL</text>
+  <text x="200" y="440" class="warning">CHANGE RAPIDLY.</text>
+  <text x="200" y="470" class="warning">FAILURE TO COMPLY MAY RESULT IN POOR AIRCRAFT CONTROL AND POSSIBLE LOSS OF CONTROL.</text>
+
+  <text x="200" y="510" class="body">Over a clear and flat area:</text>
+  <text x="220" y="535" class="body">- Set IAS between 40 and 60 KIAS (74 km/h and 111 km/h)</text>
+  <text x="220" y="560" class="body">- Perform a flat approach into the wind</text>
+  <text x="220" y="585" class="body">- Make a slow no-hover running landing at around 10 kt ground speed (18.5 km/h)</text>
+  <text x="220" y="610" class="body" font-weight="700">- Do not hover or taxi without hydraulic pressure</text>
+
+  <text x="200" y="650" class="body">After landing:</text>
+  <text x="220" y="675" class="body">- Collective ........................ LOCK</text>
+  <text x="220" y="700" class="body">- Twist grip ......................... IDLE position</text>
+  <text x="220" y="725" class="body">- Shutdown procedure ...... Apply</text>
+</svg>

@@ -1,0 +1,34 @@
+[
+  {
+    "id": "engine-restart-in-flight",
+    "name": "ENGINE RESTART IN FLIGHT",
+    "severity": "caution",
+    "description": "",
+    "pageImage": "/training/lights/pages/s92-engine-restart-in-flight.png",
+    "imageWidth": 1159,
+    "imageHeight": 1933,
+    "links": [
+      {
+        "destPage": 33,
+        "rect": [
+          417,
+          1471,
+          980,
+          1496
+        ]
+      },
+      {
+        "destPage": 8,
+        "rect": [
+          100,
+          1873,
+          449,
+          1898
+        ]
+      }
+    ],
+    "modelIds": [
+      "S92"
+    ]
+  }
+]

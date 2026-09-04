@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1120" width="800" height="1120" role="img" aria-label="RFM H125 Section 3.6 - GOV warning page">
+  <rect width="100%" height="100%" fill="white"/>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --paper: #ffffff;
+      --ink: #111111;
+      --muted: #333333;
+      --table-border: #111111;
+      --panel-bg: #000000;
+      --panel-text: #ff2d2d;
+      --heading: #111111;
+      --subheading: #111111;
+      --emphasis: #000000;
+      --green: #0a8a0a;
+      --orange: #ff7a00;
+      --red: #c40000;
+      --note-bg: #fff7cc;
+      --note-text: #111111;
+      --hilite-bg: #ffee58;
+      --hilite-text: #111111;
+    }
+
+    .paper { fill: var(--paper); stroke: none; }
+    .frame { fill: none; stroke: var(--table-border); stroke-width: 2; }
+    .rule { stroke: var(--table-border); stroke-width: 2; }
+    .h1 { font: 700 26px/1.2 Arial, Helvetica, sans-serif; fill: var(--heading); }
+    .h2 { font: 700 20px/1.2 Arial, Helvetica, sans-serif; fill: var(--heading); }
+    .h3 { font: 700 18px/1.2 Arial, Helvetica, sans-serif; fill: var(--subheading); }
+    .body { font: 16px/1.35 Arial, Helvetica, sans-serif; fill: var(--ink); }
+    .muted { fill: var(--muted); }
+    .red { fill: var(--red); font-weight: 700; }
+    .panel { fill: var(--panel-bg); stroke: var(--table-border); stroke-width: 1.5; }
+    .panelText { font: 700 24px/1 Arial, Helvetica, sans-serif; fill: var(--panel-text); letter-spacing: 1px; }
+    .small { font: 14px/1.35 Arial, Helvetica, sans-serif; }
+    .noteBox { fill: var(--note-bg); stroke: var(--table-border); stroke-width: 1; }
+    .hilite { fill: var(--hilite-bg); }
+    .hiliteText { fill: var(--hilite-text); font: 700 16px/1 Arial, Helvetica, sans-serif; }
+  </style>
+
+  <rect class="paper" x="0" y="0" width="800" height="1120"/>
+
+  <text class="h1" x="400" y="70" text-anchor="middle">SECTION 3.6</text>
+  <text class="h2" x="400" y="105" text-anchor="middle">CAUTION AND WARNING PANEL</text>
+
+  <text class="h3" x="60" y="155">1 ENGINE ALARMS</text>
+
+  <rect class="frame" x="60" y="175" width="680" height="760" />
+  <line class="rule" x1="220" y1="175" x2="220" y2="935" />
+
+  <text class="h3" x="80" y="205">WARNING</text>
+  <text class="h3" x="80" y="230">PANEL</text>
+
+  <text class="h3" x="250" y="205">CORRECTIVE ACTIONS</text>
+
+  <rect class="panel" x="95" y="255" width="90" height="90" rx="4" />
+  <text class="panelText" x="140" y="290" text-anchor="middle">GOV</text>
+
+  <text class="body muted" x="80" y="370">Major governor</text>
+  <text class="body muted" x="80" y="392">failure</text>
+  <text class="body muted" x="80" y="420">Emergency mode</text>
+  <text class="body muted" x="80" y="442">engaged</text>
+
+  <text class="h3" x="240" y="250">-  IN FLIGHT:</text>
+
+  <text class="body" x="240" y="280"><tspan font-weight="700">1. Flight parameters</tspan> ............ <tspan font-weight="700">CHECK</tspan></text>
+  <text class="body" x="240" y="305">Emergency mode automatically self-engages</text>
+  <rect x="462" y="288" width="46" height="20" class="hilite" rx="3" />
+  <text class="hiliteText" x="485" y="303" text-anchor="middle">GOV</text>
+  <text class="body" x="515" y="305">illuminates.</text>
+
+  <text class="body" x="240" y="340"><tspan font-weight="700">2. Collective</tspan> .......................... <tspan font-weight="700">AVOID</tspan> abrupt changes</text>
+  <text class="small" x="240" y="365">Maintain Ng &gt; 80% Hp &lt; 20000 ft (6096 m)</text>
+  <text class="small" x="240" y="385">Maintain Ng &gt; 85% Hp ≥ 20000 ft (6096 m)</text>
+
+  <text class="h2" x="240" y="420"><tspan class="red">LAND AS SOON AS PRACTICABLE</tspan></text>
+
+  <text class="h3" x="240" y="460">Approach and Landing:</text>
+  <text class="body" x="260" y="485">• Make a powered approach</text>
+  <text class="body" x="260" y="510">• Avoid steep angle</text>
+
+  <text class="h3" x="240" y="550">After touch down, shut-down:</text>
+  <text class="body" x="260" y="575">• <tspan font-weight="700">Collective</tspan> .......................... <tspan font-weight="700">SLOWLY</tspan> down to low pitch</text>
+  <text class="body" x="260" y="600">• <tspan font-weight="700">Engine starting selector</tspan> ...... <tspan font-weight="700">OFF</tspan></text>
+
+  <rect class="noteBox" x="230" y="625" width="490" height="105" rx="6" />
+  <text class="body" x="245" y="650" fill="var(--note-text)">NOTE</text>
+  <rect x="345" y="635" width="32" height="20" class="hilite" rx="3" />
+  <text class="hiliteText" x="361" y="650" text-anchor="middle">FF</text>
+  <text class="body" x="385" y="650" fill="var(--note-text)">and</text>
+  <rect x="430" y="635" width="42" height="20" class="hilite" rx="3" />
+  <text class="hiliteText" x="451" y="650" text-anchor="middle">END</text>
+  <text class="small" x="245" y="675" fill="var(--note-text)">On VEHICLE page: FF and END.</text>
+  <text class="small" x="245" y="698" fill="var(--note-text)">
+    This failure can also result in loss of ΔNg and torque parameters on the VEMD.
+  </text>
+
+  <text class="h3" x="240" y="750">-  DURING ENGINE STARTING:</text>
+  <text class="body" x="240" y="778">Engine starting selector .......... <tspan font-weight="700">OFF</tspan> position immediately</text>
+
+  <text class="small muted" x="60" y="1000">APPROVED</text>
+  <text class="small muted" x="370" y="1000">350 B3  2B1</text>
+  <text class="h3" x="740" y="1000" text-anchor="end">3.6</text>
+  <text class="small muted" x="740" y="1022" text-anchor="end">Page 2</text>
+</svg>

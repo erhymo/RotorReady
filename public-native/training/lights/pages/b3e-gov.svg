@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1120" width="800" height="1120" role="img" aria-label="GOV – AS350 B3e major governor failure (EBCAU)">
+  <rect width="100%" height="100%" fill="white"/>
+  <style>
+    :root {
+      --paper:#ffffff; --ink:#111111; --muted:#333333; --border:#111111;
+      --panel-bg:#000000; --panel-text:#ff2d2d; --red:#c40000; --note-bg:#fff7cc;
+      --note-text:#111111; --hilite-bg:#ffee58; --hilite-text:#111111;
+    }
+
+    .paper { fill:var(--paper); }
+    .frame { fill:none; stroke:var(--border); stroke-width:2; }
+    .rule { stroke:var(--border); stroke-width:2; }
+    .h1 { font:700 26px/1.2 Arial, Helvetica, sans-serif; fill:var(--ink); }
+    .h2 { font:700 20px/1.2 Arial, Helvetica, sans-serif; fill:var(--ink); }
+    .h3 { font:700 18px/1.2 Arial, Helvetica, sans-serif; fill:var(--ink); }
+    .body { font:16px/1.35 Arial, Helvetica, sans-serif; fill:var(--ink); }
+    .small { font:14px/1.35 Arial, Helvetica, sans-serif; fill:var(--muted); }
+    .red { fill:var(--red); font-weight:700; }
+    .panel { fill:var(--panel-bg); stroke:var(--border); stroke-width:1.5; }
+    .panelText { font:700 24px/1 Arial, Helvetica, sans-serif; fill:var(--panel-text); letter-spacing:1px; }
+    .noteBox { fill:var(--note-bg); stroke:var(--border); stroke-width:1; }
+    .hilite { fill:var(--hilite-bg); }
+    .hiliteText { fill:var(--hilite-text); font:700 16px/1 Arial, Helvetica, sans-serif; }
+  </style>
+
+  <rect class="paper" x="0" y="0" width="800" height="1120"/>
+
+  <text class="h1" x="400" y="70" text-anchor="middle">SECTION 3.6</text>
+  <text class="h2" x="400" y="105" text-anchor="middle">CAUTION AND WARNING PANEL</text>
+
+  <text class="h3" x="60" y="155">1 ENGINE ALARMS</text>
+
+  <rect class="frame" x="60" y="175" width="680" height="760"/>
+  <line class="rule" x1="220" y1="175" x2="220" y2="935"/>
+
+  <text class="h3" x="80" y="205">WARNING</text>
+  <text class="h3" x="80" y="230">PANEL</text>
+
+  <text class="h3" x="250" y="205">CORRECTIVE ACTIONS</text>
+
+	  <rect class="panel" x="95" y="255" width="90" height="90" rx="4"/>
+	  <text class="panelText" x="140" y="290" text-anchor="middle">GOV</text>
+	  
+	  <text class="body" x="80" y="380">Major governor failure</text>
+	  <text class="body" x="80" y="405">Emergency mode (EBCAU)</text>
+	  <text class="body" x="80" y="430">engaged</text>
+
+  <!-- In flight branch -->
+  <text class="h3" x="240" y="250">-  IN FLIGHT:</text>
+
+  <text class="body" x="240" y="280"><tspan font-weight="700">1. Flight parameters</tspan> ............ CHECK, apply VEMD</text>
+  <text class="body" x="240" y="305">failure of both screens procedure, if required (see NOTE below).</text>
+	  <text class="body" x="240" y="330">Emergency mode (EBCAU) automatically self-engages.</text>
+	  <rect x="462" y="347" width="46" height="20" class="hilite" rx="3"/>
+	  <text class="hiliteText" x="485" y="362" text-anchor="middle">GOV</text>
+	  <text class="body" x="515" y="362">illuminates.</text>
+	  
+	  <text class="body" x="240" y="395"><tspan font-weight="700">2. Collective</tspan> .......................... AVOID abrupt changes.</text>
+	  <text class="body" x="240" y="420">If N1 still available:</text>
+	  <text class="small" x="260" y="445">Maintain N1 &gt; 80% Hp below 20000 ft (6096 m).</text>
+	  <text class="small" x="260" y="465">Maintain N1 &gt; 85% Hp at or above 20000 ft (6096 m).</text>
+	  
+	  <text class="h2 red" x="240" y="500">LAND AS SOON AS PRACTICABLE.</text>
+	  
+	  <text class="h3" x="240" y="540">Approach and landing (if N1 not available):</text>
+	  <text class="body" x="260" y="565">- Lower collective to maintain NR in normal operating range.</text>
+	  <text class="body" x="260" y="590">- Make a powered approach.</text>
+	  <text class="body" x="260" y="615">- Avoid steep angle.</text>
+	  
+	  <text class="h3" x="240" y="655">After touch down, shut-down:</text>
+	  <text class="body" x="260" y="680">• <tspan font-weight="700">Collective</tspan> .......................... SLOWLY down to low pitch.</text>
+	  <text class="body" x="260" y="705">• <tspan font-weight="700">Engine starting selector</tspan> ...... OFF.</text>
+	  
+	  <!-- NOTE box -->
+	  <rect class="noteBox" x="230" y="735" width="490" height="140" rx="6"/>
+	  <text class="body" x="245" y="760" fill="var(--note-text)">NOTE</text>
+	  <rect x="345" y="750" width="32" height="20" class="hilite" rx="3"/>
+	  <text class="hiliteText" x="361" y="765" text-anchor="middle">FF</text>
+	  <text class="body" x="395" y="765" fill="var(--note-text)">and</text>
+	  <rect x="440" y="750" width="42" height="20" class="hilite" rx="3"/>
+	  <text class="hiliteText" x="461" y="765" text-anchor="middle">END</text>
+	  <text class="small" x="245" y="790" fill="var(--note-text)">On VEHICLE page: FF and END.</text>
+	  <text class="small" x="245" y="813" fill="var(--note-text)">This failure can also result in loss of ΔN1, N1, TRQ, TOT</text>
+	  <text class="small" x="245" y="833" fill="var(--note-text)">parameters and engine oil temperature and pressure</text>
+	  <text class="small" x="245" y="853" fill="var(--note-text)">indications on the VEMD.</text>
+	 
+	 	  <!-- During engine starting -->
+	 	  <text class="h3" x="240" y="890">-  DURING ENGINE STARTING:</text>
+	 	  <text class="body" x="240" y="915">Engine starting selector .......... OFF position immediately.</text>
+
+  <text class="small muted" x="60" y="1000">APPROVED</text>
+  <text class="small muted" x="350" y="1000">350 B3e</text>
+  <text class="h3" x="740" y="1000" text-anchor="end">3.6</text>
+  <text class="small muted" x="740" y="1022" text-anchor="end">Page 2 (24-05)</text>
+</svg>

@@ -1,0 +1,13 @@
+[
+  {
+    "id": "elec-fail-double-dc-gen",
+    "name": "ELEC FAIL",
+    "severity": "warning",
+    "system": "ELEC",
+    "description": "",
+    "pageImage": "/training/lights/pages/aw189-elec-fail-double-dc-gen.svg",
+    "modelIds": [
+      "AW189"
+    ]
+  }
+]

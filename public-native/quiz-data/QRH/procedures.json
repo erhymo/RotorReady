@@ -1,0 +1,14 @@
+{
+  "procedures": [
+    {
+      "id": "qrh-hyd1-loss",
+      "title": "HYD 1 SYSTEM LOSS",
+      "steps": [
+        { "type": "action", "text": "HYD SYS 1 — OFF" },
+        { "type": "check", "text": "Monitor pressure and cautions." }
+      ],
+      "notes": ["Landing performance may be affected."],
+      "references": ["QRH 3-12"]
+    }
+  ]
+}

@@ -1,0 +1,157 @@
+[
+  {
+    "id": "lims-p16-001",
+    "section": "LIMITATIONS - ENG SYST",
+    "question": "What is the normal main gearbox oil pressure range?",
+    "options": [
+      "2.3 to 3.0 bar",
+      "3.1 to 6.0 bar",
+      "3.1 to 6.6 bar",
+      "6.1 to 10.0 bar"
+    ],
+    "answer": "3.1 to 6.0 bar",
+    "explanation": "Normal main gearbox oil pressure range is 3.1 to 6.0 bar.",
+    "references": "ENGINE SYSTEM LIMITS",
+    "printedPage": 16,
+    "difficulty": "medium",
+    "tags": [
+      "gearbox",
+      "oil pressure",
+      "limitations"
+    ],
+    "source": "QRH p16"
+  },
+  {
+    "id": "lims-p16-002",
+    "section": "LIMITATIONS - ENG SYST",
+    "question": "What is the maximum main gearbox oil pressure transient?",
+    "options": [
+      "15 bar",
+      "18 bar",
+      "18.1 bar (20 sec)",
+      "19 bar"
+    ],
+    "answer": "18.1 bar (20 sec)",
+    "explanation": "Maximum main gearbox oil pressure transient is 18.1 bar for 20 sec.",
+    "references": "ENGINE SYSTEM LIMITS",
+    "printedPage": 16,
+    "difficulty": "medium",
+    "tags": [
+      "gearbox",
+      "oil pressure",
+      "transient",
+      "limitations"
+    ],
+    "source": "QRH p16"
+  },
+  {
+    "id": "lims-p16-003",
+    "section": "LIMITATIONS - ENG SYST",
+    "question": "What is the maximum EOT (engine oil temperature)?",
+    "options": [
+      "125 \u00b0C",
+      "130 \u00b0C",
+      "131 \u00b0C",
+      "135 \u00b0C"
+    ],
+    "answer": "135 \u00b0C",
+    "explanation": "Maximum engine oil temperature (EOT) is 135 \u00b0C.",
+    "references": "ENGINE SYSTEM LIMITS",
+    "printedPage": 16,
+    "difficulty": "easy",
+    "tags": [
+      "engine",
+      "oil temperature",
+      "limitations"
+    ],
+    "source": "QRH p16"
+  },
+  {
+    "id": "lims-p16-004",
+    "section": "LIMITATIONS - ENG SYST",
+    "question": "What is the EMER BUS voltage normal range?",
+    "options": [
+      "20 to 28 V",
+      "22 to 30 V",
+      "24 to 32 V",
+      "26 to 28 V"
+    ],
+    "answer": "22 to 30 V",
+    "explanation": "Normal EMER BUS voltage range is 22 to 30 V.",
+    "references": "ENGINE SYSTEM LIMITS",
+    "printedPage": 16,
+    "difficulty": "easy",
+    "tags": [
+      "electrical",
+      "voltage",
+      "limitations"
+    ],
+    "source": "QRH p16"
+  },
+  {
+    "id": "lims-p16-005",
+    "section": "LIMITATIONS - ENG SYST",
+    "question": "What is the maximum DC GEN load transient?",
+    "options": [
+      "100 %",
+      "125 %",
+      "150 %",
+      "175 %"
+    ],
+    "answer": "150 %",
+    "explanation": "Maximum transient DC GEN load is 150%.",
+    "references": "ENGINE SYSTEM LIMITS",
+    "printedPage": 16,
+    "difficulty": "easy",
+    "tags": [
+      "electrical",
+      "dc gen",
+      "limitations"
+    ],
+    "source": "QRH p16"
+  },
+  {
+    "id": "lims-p16-006",
+    "section": "LIMITATIONS - ENG SYST",
+    "question": "What is the minimum battery load?",
+    "options": [
+      "-100 A",
+      "-150 A",
+      "-200 A",
+      "-250 A"
+    ],
+    "answer": "-200 A",
+    "explanation": "Minimum battery load is -200 A.",
+    "references": "ENGINE SYSTEM LIMITS",
+    "printedPage": 16,
+    "difficulty": "easy",
+    "tags": [
+      "battery",
+      "load",
+      "limitations"
+    ],
+    "source": "QRH p16"
+  },
+  {
+    "id": "lims-p16-007",
+    "section": "LIMITATIONS - ENG SYST",
+    "question": "What is the maximum battery charge?",
+    "options": [
+      "150 A",
+      "180 A",
+      "200 A",
+      "220 A"
+    ],
+    "answer": "200 A",
+    "explanation": "Maximum battery charge is 200 A.",
+    "references": "ENGINE SYSTEM LIMITS",
+    "printedPage": 16,
+    "difficulty": "easy",
+    "tags": [
+      "battery",
+      "charge",
+      "limitations"
+    ],
+    "source": "QRH p16"
+  }
+]

@@ -1,0 +1,12 @@
+[
+  {
+    "id": "main-batt-hot",
+    "name": "MAIN BATT HOT",
+    "severity": "warning",
+    "description": "",
+    "pageImage": "/training/lights/pages/aw139-main-batt-hot.svg",
+    "modelIds": [
+      "AW139"
+    ]
+  }
+]

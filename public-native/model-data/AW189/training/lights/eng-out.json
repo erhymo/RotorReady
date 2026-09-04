@@ -1,0 +1,13 @@
+[
+  {
+    "id": "eng-out",
+    "name": "ENG OUT",
+    "severity": "warning",
+    "system": "ENG",
+    "description": "",
+    "pageImage": "/training/lights/pages/aw189-eng-out.svg",
+    "modelIds": [
+      "AW189"
+    ]
+  }
+]

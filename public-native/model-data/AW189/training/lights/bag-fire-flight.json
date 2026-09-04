@@ -1,0 +1,13 @@
+[
+  {
+    "id": "bag-fire-flight",
+    "name": "BAG FIRE",
+    "severity": "warning",
+    "system": "FIRE",
+    "description": "",
+    "pageImage": "/training/lights/pages/aw189-bag-fire-flight.svg",
+    "modelIds": [
+      "AW189"
+    ]
+  }
+]

@@ -1,0 +1,23 @@
+<!-- ======================= Fixed SVG 3: DOOR (no text behind line) ======================= -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 260">
+  <rect x="1" y="1" width="778" height="258" fill="white" stroke="black" stroke-width="2"/>
+
+  <!-- Left column -->
+  <rect x="30" y="40" width="90" height="50" fill="black"/>
+  <text x="75" y="72" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="yellow" text-anchor="middle">DOOR</text>
+
+  <!-- Adjusted text fully inside left column -->
+  <text x="25" y="120" font-family="Arial, sans-serif" font-size="18">One or both</text>
+  <text x="25" y="145" font-family="Arial, sans-serif" font-size="18">cargo hold doors</text>
+  <text x="25" y="170" font-family="Arial, sans-serif" font-size="18">unlocked</text>
+
+  <!-- Separator -->
+  <line x1="160" y1="15" x2="160" y2="245" stroke="black" stroke-width="1.5"/>
+
+  <!-- Right column -->
+  <text x="190" y="55" font-family="Arial, sans-serif" font-size="18">Airspeed ............................. <tspan font-weight="bold">REDUCE to 70 kt (130 km/h)</tspan></text>
+
+  <text x="230" y="120" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="orange">LAND AS SOON AS PRACTICABLE</text>
+  <text x="220" y="155" font-family="Arial, sans-serif" font-size="18">Descent and approach at low rate of descent.</text>
+</svg>
+

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { BoltIcon, BookIcon, DownloadIcon, HeadphonesIcon, MessageIcon } from "@/components/Icons";
 import { shouldShowNorwayTools } from "@/lib/geo/norwayToolsVisibility";
 import { useActiveModelVariant } from "@/lib/models/hooks";
+import { openLiveOnlyLink } from "@/lib/liveOnlyLinks";
 
 const AUDIO_ENABLED_VARIANT_IDS = new Set([
   "AW169",
@@ -20,7 +21,7 @@ const AUDIO_ENABLED_VARIANT_IDS = new Set([
   "H145_D3",
 ]);
 
-function Bar(props: { href: string; title: string; description: string; tone?: "blue"|"amber"|"slate"|"emerald"; icon?: React.ReactNode }) {
+function Bar(props: { href: string; title: string; description: string; tone?: "blue"|"amber"|"slate"|"emerald"; icon?: React.ReactNode; liveOnly?: boolean }) {
   const tones: Record<string, string> = {
     blue: "border-blue-600 bg-blue-50/40 hover:bg-blue-50 dark:border-blue-400 dark:bg-blue-900/40 dark:hover:bg-blue-900/60",
     amber: "border-amber-500 bg-amber-50/40 hover:bg-amber-50 dark:border-amber-400 dark:bg-amber-900/40 dark:hover:bg-amber-900/60",
@@ -28,18 +29,34 @@ function Bar(props: { href: string; title: string; description: string; tone?: "
     emerald: "border-emerald-600 bg-emerald-50/40 hover:bg-emerald-50 dark:border-emerald-400 dark:bg-emerald-900/40 dark:hover:bg-emerald-900/60",
   };
   const tone = tones[props.tone || "slate"];
-  return (
-    <Link href={props.href} prefetch={false} className={`group w-full rounded-xl border-l-4 ${tone} transition block focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-zinc-900`}>
-      <div className="px-5 py-4 flex items-start justify-between gap-4">
-        <div className="flex items-start gap-3">
-          {props.icon && <span className="inline-grid place-items-center h-8 w-8 rounded-lg bg-white/70 text-slate-700 dark:bg-zinc-900/80 dark:text-zinc-100">{props.icon}</span>}
-          <div>
-            <div className="font-semibold text-slate-900 dark:text-zinc-100">{props.title}</div>
-            <div className="text-sm text-slate-600 dark:text-zinc-300 mt-0.5">{props.description}</div>
-          </div>
+  const className = `group w-full rounded-xl border-l-4 ${tone} transition block text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-zinc-900`;
+  const content = (
+    <div className="px-5 py-4 flex items-start justify-between gap-4">
+      <div className="flex items-start gap-3">
+        {props.icon && <span className="inline-grid place-items-center h-8 w-8 rounded-lg bg-white/70 text-slate-700 dark:bg-zinc-900/80 dark:text-zinc-100">{props.icon}</span>}
+        <div>
+          <div className="font-semibold text-slate-900 dark:text-zinc-100">{props.title}</div>
+          <div className="text-sm text-slate-600 dark:text-zinc-300 mt-0.5">{props.description}</div>
         </div>
-        <div className="text-slate-400 text-xl transition-transform group-hover:translate-x-0.5 dark:text-zinc-400">›</div>
       </div>
+      <div className="text-slate-400 text-xl transition-transform group-hover:translate-x-0.5 dark:text-zinc-400">›</div>
+    </div>
+  );
+
+  // Needs a live server (weather/airport data) — not part of the native app's
+  // bundled local shell, so it opens the live site instead of a dead
+  // client-side route. See lib/liveOnlyLinks.ts.
+  if (props.liveOnly) {
+    return (
+      <button type="button" onClick={() => openLiveOnlyLink(props.href)} className={`${className} w-full`}>
+        {content}
+      </button>
+    );
+  }
+
+  return (
+    <Link href={props.href} prefetch={false} className={className}>
+      {content}
     </Link>
   );
 }
@@ -353,12 +370,14 @@ function Bar(props: { href: string; title: string; description: string; tone?: "
 		                title="Weather planning"
 		                description="Nearest ICAO airports with METAR/TAF and alternates."
 		                tone="slate"
+		                liveOnly
 		              />
 		              <Bar
 		                href="/airports"
 		                title="Airports"
 		                description="Browse Avinor AIS airports, ATS and fuel opening hours."
 		                tone="slate"
+		                liveOnly
 		              />
 		            </>
 		          )}

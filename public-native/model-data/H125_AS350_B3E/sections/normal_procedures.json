@@ -1,0 +1,3008 @@
+{
+  "items": [
+    {
+      "id": "H125-NOR-001",
+      "question": "Before engine start, the [STBY INSTR] must be:",
+      "options": [
+        "Off",
+        "Tested then OFF",
+        "Engaged, checked",
+        "Pulled CB"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "The standby instrument must be engaged and checked before start.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 Section 4 – Normal Procedures",
+      "reference": "p. 4-3",
+      "references": [
+        "RFM H125 Section 4 – Normal Procedures – p. 4-3",
+        "p. 4-3",
+        "RFM H125 Section 4 – Normal Procedures"
+      ],
+      "difficulty": "easy",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 4 – Normal Procedures"
+    },
+    {
+      "id": "H125-NOR-002",
+      "question": "During engine start, which additional setting must be made with the G500H TXi installed?",
+      "options": [
+        "Check fuel shut-off",
+        "Set G500H TXi parameters (Obstacle, Terrain, DH)",
+        "Switch avionics OFF",
+        "Cross-check torque with NR"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "With G500H TXi, obstacle/terrain/DH parameters must be set.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 SUP.55 – Avionics",
+      "reference": "p. 4-5",
+      "references": [
+        "RFM H125 SUP.55 – Avionics – p. 4-5",
+        "p. 4-5",
+        "RFM H125 SUP.55 – Avionics"
+      ],
+      "difficulty": "medium",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 SUP.55 – Avionics"
+    },
+    {
+      "id": "H125-NOR-003",
+      "question": "At power-up, the GTX335R transponder starts in which mode?",
+      "options": [
+        "ALT",
+        "STBY",
+        "OFF",
+        "AUTO"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "GTX335R starts in ALT mode at power-up.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 SUP.55 – Avionics",
+      "reference": "p. 4-7",
+      "references": [
+        "RFM H125 SUP.55 – Avionics – p. 4-7",
+        "p. 4-7",
+        "RFM H125 SUP.55 – Avionics"
+      ],
+      "difficulty": "easy",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 SUP.55 – Avionics"
+    },
+    {
+      "id": "H125-NOR-004",
+      "question": "At power-up with engine OFF, the GTX345R transponder starts in:",
+      "options": [
+        "ALT",
+        "STBY",
+        "OFF",
+        "AUTO"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "With engine OFF, GTX345R initializes in STBY mode.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 SUP.55   Avionics",
+      "reference": "p. 4-7",
+      "references": [
+        "RFM H125 SUP.55   Avionics   p. 4-7",
+        "p. 4-7",
+        "RFM H125 SUP.55   Avionics"
+      ],
+      "difficulty": "easy",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 SUP.55   Avionics"
+    },
+    {
+      "id": "H125-NOR-005",
+      "question": "If GTN 650Xi fails, what happens to the transponder?",
+      "options": [
+        "Switches off",
+        "Freezes in last selected mode",
+        "Enters STBY automatically",
+        "Requires manual reset"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "In case of GTN failure, transponder freezes in last selected mode.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 SUP.55 – Avionics",
+      "reference": "p. 4-8",
+      "references": [
+        "RFM H125 SUP.55 – Avionics – p. 4-8",
+        "p. 4-8",
+        "RFM H125 SUP.55 – Avionics"
+      ],
+      "difficulty": "medium",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 SUP.55 – Avionics"
+    },
+    {
+      "id": "H125-NOR-006",
+      "question": "When using NVG or NIGHT mode in cockpit lighting, the selector should be set to:",
+      "options": [
+        "OFF",
+        "DAY",
+        "NIGHT or NVG",
+        "AUTO"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "The selector must be set to NIGHT or NVG for NVIS operations.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 SUP.41 – NVIS",
+      "reference": "p. 4-12",
+      "references": [
+        "RFM H125 SUP.41   NVIS   p. 4-12",
+        "p. 4-12",
+        "RFM H125 SUP.41 – NVIS"
+      ],
+      "difficulty": "medium",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 SUP.41 – NVIS"
+    },
+    {
+      "id": "H125-NOR-007",
+      "question": "With the optional two-passenger front seat, maximum number of occupants is:",
+      "options": [
+        "6",
+        "7",
+        "8",
+        "5"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "The two-passenger front seat allows for a total of 7 occupants.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 SUP.7   Seating",
+      "reference": "p. 4-14",
+      "references": [
+        "RFM H125 SUP.7   Seating   p. 4-14",
+        "p. 4-14",
+        "RFM H125 SUP.7   Seating"
+      ],
+      "difficulty": "easy",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 SUP.7   Seating"
+    },
+    {
+      "id": "H125-NOR-008",
+      "question": "Special attention when operating with two-passenger front seat must be paid to:",
+      "options": [
+        "NR limits",
+        "Fuel consumption",
+        "Center of Gravity changes",
+        "Oil pressure limits"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "CG changes must be considered with two front passengers.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 SUP.7   Seating",
+      "reference": "p. 4-15",
+      "references": [
+        "RFM H125 SUP.7   Seating   p. 4-15",
+        "p. 4-15",
+        "RFM H125 SUP.7   Seating"
+      ],
+      "difficulty": "medium",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 SUP.7   Seating"
+    },
+    {
+      "id": "H125-NOR-009",
+      "question": "For hoist operations, the BREEZE BL16600 hoist has a cable length of:",
+      "options": [
+        "25 m (82 ft)",
+        "33.5 m (110 ft)",
+        "40 m (130 ft)",
+        "50 m (164 ft)"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "BREEZE BL16600 hoist cable length is 33.5 m (110 ft).",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 SUP.19   Hoist",
+      "reference": "p. 4-20",
+      "references": [
+        "RFM H125 SUP.19   Hoist   p. 4-20",
+        "p. 4-20",
+        "RFM H125 SUP.19   Hoist"
+      ],
+      "difficulty": "easy",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 SUP.19   Hoist"
+    },
+    {
+      "id": "H125-NOR-010",
+      "question": "For hoist operations, the AIR EQUIPMENT 76370 hoist has a cable length of:",
+      "options": [
+        "25 m (82 ft)",
+        "33.5 m (110 ft)",
+        "40 m (130 ft)",
+        "50 m (164 ft)"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "AIR EQUIPMENT 76370 hoist cable length is 40 m (130 ft).",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 SUP.19   Hoist",
+      "reference": "p. 4-21",
+      "references": [
+        "RFM H125 SUP.19   Hoist   p. 4-21",
+        "p. 4-21",
+        "RFM H125 SUP.19   Hoist"
+      ],
+      "difficulty": "easy",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 SUP.19   Hoist"
+    },
+    {
+      "id": "H125-NOR-011",
+      "question": "During run-up, after GPS is stable, which GTN page must be pressed?",
+      "options": [
+        "MENU",
+        "Transponder page",
+        "Setup page",
+        "NAV page"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "GTN Transponder page must be pressed during run-up.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 SUP.55   Avionics",
+      "reference": "p. 4-22",
+      "references": [
+        "RFM H125 SUP.55   Avionics   p. 4-22",
+        "p. 4-22",
+        "RFM H125 SUP.55   Avionics"
+      ],
+      "difficulty": "easy",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 SUP.55   Avionics"
+    },
+    {
+      "id": "H125-NOR-012",
+      "question": "When an aural traffic alert occurs with GTX 345R, pilot action is:",
+      "options": [
+        "Ignore alert",
+        "Land immediately",
+        "Scan outside and maneuver",
+        "Switch transponder OFF"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Pilot must visually scan and maneuver if required.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 SUP.55   Avionics",
+      "reference": "p. 4-24",
+      "references": [
+        "RFM H125 SUP.55   Avionics   p. 4-24",
+        "p. 4-24",
+        "RFM H125 SUP.55   Avionics"
+      ],
+      "difficulty": "medium",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 SUP.55   Avionics"
+    },
+    {
+      "id": "H125-NOR-013",
+      "question": "To silence the aural traffic alert, pilot must press:",
+      "options": [
+        "GTN MENU",
+        "TRFC ACK pushbutton",
+        "COM 1/2 selector",
+        "ALT/STD button"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "TRFC ACK pushbutton silences traffic alerts.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 SUP.55   Avionics",
+      "reference": "p. 4-25",
+      "references": [
+        "RFM H125 SUP.55   Avionics   p. 4-25",
+        "p. 4-25",
+        "RFM H125 SUP.55   Avionics"
+      ],
+      "difficulty": "easy",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 SUP.55   Avionics"
+    },
+    {
+      "id": "H125-NOR-014",
+      "question": "At engine shutdown, [STBY INSTR] must be:",
+      "options": [
+        "Left ON",
+        "Checked then OFF",
+        "Pulled CB",
+        "Switched to DAY mode"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Standby instrument must be checked and then switched OFF.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 Section 4  000000000000013 Normal Procedures",
+      "reference": "p. 4-28",
+      "references": [
+        "RFM H125 Section 4   Normal Procedures   p. 4-28",
+        "p. 4-28",
+        "RFM H125 Section 4  000000000000013 Normal Procedures"
+      ],
+      "difficulty": "easy",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 4  000000000000013 Normal Procedures"
+    },
+    {
+      "id": "H125-NOR-015",
+      "question": "In engine prestart check (pre-MOD 07-20112), before [BATT] the pilot must check:",
+      "options": [
+        "STBY Horizon engaged",
+        "Avionics master ON",
+        "Pitot heat ON",
+        "GOV light off"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Before battery ON, the standby horizon must be engaged (pre-MOD).",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 Section 4   Normal Procedures",
+      "reference": "p. 4-30",
+      "references": [
+        "RFM H125 Section 4   Normal Procedures   p. 4-30",
+        "p. 4-30",
+        "RFM H125 Section 4   Normal Procedures"
+      ],
+      "difficulty": "medium",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 4   Normal Procedures"
+    },
+    {
+      "id": "H125-NOR-016",
+      "question": "In engine prestart check (post-MOD 07-20112), after [BATT] the pilot must check:",
+      "options": [
+        "Fuel pump",
+        "STBY INSTR engaged",
+        "Generator load",
+        "RPM indicator"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Post-MOD, standby instrument is checked after battery ON.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 Section 4   Normal Procedures",
+      "reference": "p. 4-31",
+      "references": [
+        "RFM H125 Section 4   Normal Procedures   p. 4-31",
+        "p. 4-31",
+        "RFM H125 Section 4   Normal Procedures"
+      ],
+      "difficulty": "medium",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 4   Normal Procedures"
+    },
+    {
+      "id": "H125-NOR-017",
+      "question": "In case of cabin smoke from IESI, procedure requires:",
+      "options": [
+        "Avionics OFF",
+        "Ventilate cabin",
+        "Battery OFF",
+        "Fuel shut-off"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Smoke from IESI requires ventilating cabin immediately.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 SUP.55   Avionics",
+      "reference": "p. 4-35",
+      "references": [
+        "RFM H125 SUP.55   Avionics   p. 4-35",
+        "p. 4-35",
+        "RFM H125 SUP.55   Avionics"
+      ],
+      "difficulty": "medium",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 SUP.55   Avionics"
+    },
+    {
+      "id": "H125-NOR-018",
+      "question": "When DC power is cycled in flight, GOV light will remain ON until:",
+      "options": [
+        "NR stabilizes",
+        "Next engine shutdown and battery OFF on ground",
+        "Hydraulic system reset",
+        "Avionics reboot"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "GOV light stays on until next engine shutdown and battery OFF on ground.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 Section 4   Normal Procedures",
+      "reference": "p. 4-36",
+      "references": [
+        "RFM H125 Section 4   Normal Procedures   p. 4-36",
+        "p. 4-36",
+        "RFM H125 Section 4   Normal Procedures"
+      ],
+      "difficulty": "medium",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 4   Normal Procedures"
+    },
+    {
+      "id": "H125-NOR-019",
+      "question": "In case of GTN waypoint auto-sequencing error, pilot must:",
+      "options": [
+        "Ignore",
+        "Use Active Leg or Direct To",
+        "Reboot GPS",
+        "Land immediately"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Correct action is to use Active Leg or Direct To.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 SUP.55   Avionics",
+      "reference": "p. 4-38",
+      "references": [
+        "RFM H125 SUP.55   Avionics   p. 4-38",
+        "p. 4-38",
+        "RFM H125 SUP.55   Avionics"
+      ],
+      "difficulty": "medium",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 SUP.55   Avionics"
+    },
+    {
+      "id": "H125-NOR-020",
+      "question": "For NVIS operation, cockpit display brightness must be:",
+      "options": [
+        "Set to maximum",
+        "Kept at minimum",
+        "Adjusted as required",
+        "Locked at mid-scale"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Brightness must be adjusted as required for NVIS.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 SUP.41   NVIS",
+      "reference": "p. 4-40",
+      "references": [
+        "RFM H125 SUP.41   NVIS   p. 4-40",
+        "p. 4-40",
+        "RFM H125 SUP.41   NVIS"
+      ],
+      "difficulty": "medium",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 SUP.41   NVIS"
+    },
+    {
+      "id": "H125-NOR-021",
+      "question": "During engine start, the starter must be released when NG reaches:",
+      "options": [
+        "40%",
+        "45%",
+        "50%",
+        "55%"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Starter is released at approximately 45% NG.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 Section 4 – Normal Procedures",
+      "reference": "p. 4-6",
+      "references": [
+        "RFM H125 Section 4 – Normal Procedures – p. 4-6",
+        "p. 4-6",
+        "RFM H125 Section 4 – Normal Procedures"
+      ],
+      "difficulty": "easy",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 4 – Normal Procedures"
+    },
+    {
+      "id": "H125-NOR-022",
+      "question": "When starting engine in hot weather, pilot must ensure:",
+      "options": [
+        "Ventilation fans ON",
+        "Ng acceleration above 15% within 10 s",
+        "Fuel pumps OFF",
+        "Pitot heat ON"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Ng acceleration must exceed 15% within 10 seconds to avoid hot start.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 Section 4 – Normal Procedures",
+      "reference": "p. 4-7",
+      "references": [
+        "RFM H125 Section 4 – Normal Procedures – p. 4-7",
+        "p. 4-7",
+        "RFM H125 Section 4 – Normal Procedures"
+      ],
+      "difficulty": "medium",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 4 – Normal Procedures"
+    },
+    {
+      "id": "H125-NOR-023",
+      "question": "After engine start, the red GOV light should go out when NG reaches approximately:",
+      "options": [
+        "40%",
+        "50%",
+        "60%",
+        "70%"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "The GOV light extinguishes at around 60% NG.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 Section 4 – Normal Procedures",
+      "reference": "p. 4-8",
+      "references": [
+        "RFM H125 Section 4 – Normal Procedures – p. 4-8",
+        "p. 4-8",
+        "RFM H125 Section 4 – Normal Procedures"
+      ],
+      "difficulty": "easy",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 4 – Normal Procedures"
+    },
+    {
+      "id": "H125-NOR-024",
+      "question": "During run-up, before pulling collective, NR must stabilize at:",
+      "options": [
+        "320 RPM",
+        "375 RPM",
+        "390 RPM",
+        "410 RPM"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "Rotor RPM must stabilize at 410 before applying collective.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 Section 4 – Normal Procedures",
+      "reference": "p. 4-9",
+      "references": [
+        "RFM H125 Section 4 – Normal Procedures – p. 4-9",
+        "p. 4-9",
+        "RFM H125 Section 4 – Normal Procedures"
+      ],
+      "difficulty": "easy",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 4 – Normal Procedures"
+    },
+    {
+      "id": "H125-NOR-025",
+      "question": "In case of VEMD failure of one screen, the pilot must:",
+      "options": [
+        "Land immediately",
+        "Use the remaining screen",
+        "Switch off battery",
+        "Reset avionics breaker"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Pilot continues with the remaining screen in case of single VEMD failure.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 Section 4 – Normal Procedures",
+      "reference": "p. 4-12",
+      "references": [
+        "RFM H125 Section 4 – Normal Procedures – p. 4-12",
+        "p. 4-12",
+        "RFM H125 Section 4 – Normal Procedures"
+      ],
+      "difficulty": "medium",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 4 – Normal Procedures"
+    },
+    {
+      "id": "H125-NOR-026",
+      "question": "If both VEMD screens fail, pilot must:",
+      "options": [
+        "Continue visually, using backup gauges",
+        "Land immediately",
+        "Shut down engine",
+        "Reset avionics"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Flight is continued using backup gauges if both VEMD screens fail.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 Section 4 – Normal Procedures",
+      "reference": "p. 4-13",
+      "references": [
+        "RFM H125 Section 4 – Normal Procedures – p. 4-13",
+        "p. 4-13",
+        "RFM H125 Section 4 – Normal Procedures"
+      ],
+      "difficulty": "medium",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 4 – Normal Procedures"
+    },
+    {
+      "id": "H125-NOR-027",
+      "question": "During flight, HYD TEST switch must be used at:",
+      "options": [
+        "70 kt IAS",
+        "Hover only",
+        "40–60 kt IAS",
+        "On ground only"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "HYD TEST is only performed on the ground, not in flight.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 Section 4 – Normal Procedures",
+      "reference": "p. 4-15",
+      "references": [
+        "RFM H125 Section 4 – Normal Procedures – p. 4-15",
+        "p. 4-15",
+        "RFM H125 Section 4 – Normal Procedures"
+      ],
+      "difficulty": "easy",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 4 – Normal Procedures"
+    },
+    {
+      "id": "H125-NOR-028",
+      "question": "Before switching HYD TEST ON, collective must be:",
+      "options": [
+        "Full up",
+        "Fully down",
+        "Neutral",
+        "50% torque"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Collective must be fully lowered before performing HYD TEST.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 Section 4 – Normal Procedures",
+      "reference": "p. 4-16",
+      "references": [
+        "RFM H125 Section 4 – Normal Procedures – p. 4-16",
+        "p. 4-16",
+        "RFM H125 Section 4 – Normal Procedures"
+      ],
+      "difficulty": "easy",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 4 – Normal Procedures"
+    },
+    {
+      "id": "H125-NOR-032",
+      "question": "When using optional dual GPS, initialization must be verified for:",
+      "options": [
+        "Both units independently",
+        "Only left GPS",
+        "Only right GPS",
+        "Whichever is selected as active"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Each GPS unit must be initialized independently.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 SUP.55   Avionics",
+      "reference": "p. 4-20",
+      "references": [
+        "RFM H125 SUP.55   Avionics   p. 4-20",
+        "p. 4-20",
+        "RFM H125 SUP.55   Avionics"
+      ],
+      "difficulty": "medium",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 SUP.55   Avionics"
+    },
+    {
+      "id": "H125-NOR-033",
+      "question": "When COM 1 is failed, COM 2 may be selected via:",
+      "options": [
+        "VEMD",
+        "GTN page",
+        "Audio control panel",
+        "AFCS selector"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "COM 2 can be accessed through the audio control panel.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 SUP.55   Avionics",
+      "reference": "p. 4-22",
+      "references": [
+        "RFM H125 SUP.55   Avionics   p. 4-22",
+        "p. 4-22",
+        "RFM H125 SUP.55   Avionics"
+      ],
+      "difficulty": "easy",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 SUP.55   Avionics"
+    },
+    {
+      "id": "H125-NOR-034",
+      "question": "After landing, rotor must be stopped with collective:",
+      "options": [
+        "Full up",
+        "Slightly raised",
+        "Fully down",
+        "Neutral"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Collective must be fully down when stopping rotor.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 Section 4   Normal Procedures",
+      "reference": "p. 4-25",
+      "references": [
+        "RFM H125 Section 4   Normal Procedures   p. 4-25",
+        "p. 4-25",
+        "RFM H125 Section 4   Normal Procedures"
+      ],
+      "difficulty": "easy",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 4   Normal Procedures"
+    },
+    {
+      "id": "H125-NOR-035",
+      "question": "When rotor brake is applied, NR must be below:",
+      "options": [
+        "170 RPM",
+        "200 RPM",
+        "210 RPM",
+        "250 RPM"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Rotor brake must only be applied when NR is below 170 RPM.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 Section 4   Normal Procedures",
+      "reference": "p. 4-26",
+      "references": [
+        "RFM H125 Section 4   Normal Procedures   p. 4-26",
+        "p. 4-26",
+        "RFM H125 Section 4   Normal Procedures"
+      ],
+      "difficulty": "easy",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 4   Normal Procedures"
+    },
+    {
+      "id": "H125-NOR-036",
+      "question": "At shutdown, avionics master must be switched OFF:",
+      "options": [
+        "Before fuel shut-off",
+        "After battery OFF",
+        "After generator OFF, before fuel shut-off",
+        "Only in training flights"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Avionics are switched OFF after generator OFF and before fuel shut-off.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 Section 4   Normal Procedures",
+      "reference": "p. 4-27",
+      "references": [
+        "RFM H125 Section 4   Normal Procedures   p. 4-27",
+        "p. 4-27",
+        "RFM H125 Section 4   Normal Procedures"
+      ],
+      "difficulty": "medium",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 4   Normal Procedures"
+    },
+    {
+      "id": "H125-NOR-037",
+      "question": "In case of sand/dust landing, pilot must keep NR at:",
+      "options": [
+        "Minimum idle",
+        "Flight idle",
+        "Maximum continuous",
+        "Below 300 RPM"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "NR must be maintained at flight idle to prevent engine surge during dust landings.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 Section 4   Normal Procedures",
+      "reference": "p. 4-29",
+      "references": [
+        "RFM H125 Section 4   Normal Procedures   p. 4-29",
+        "p. 4-29",
+        "RFM H125 Section 4   Normal Procedures"
+      ],
+      "difficulty": "medium",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 4   Normal Procedures"
+    },
+    {
+      "id": "H125-NOR-038",
+      "question": "For cold weather start, battery must be preheated below:",
+      "options": [
+        " 10  C",
+        " 15  C",
+        " 20  C",
+        " 25  C"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Below  20  C, the battery must be preheated before start.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 Section 4   Normal Procedures",
+      "reference": "p. 4-31",
+      "references": [
+        "RFM H125 Section 4   Normal Procedures   p. 4-31",
+        "p. 4-31",
+        "RFM H125 Section 4   Normal Procedures"
+      ],
+      "difficulty": "medium",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 4   Normal Procedures"
+    },
+    {
+      "id": "H125-NOR-040",
+      "question": "Before engine shutdown, stabilization period at idle must be at least:",
+      "options": [
+        "30 seconds",
+        "1 minute",
+        "2 minutes",
+        "3 minutes"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "A minimum of 1 minute at idle is required before shutdown.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 Section 4   Normal Procedures",
+      "reference": "p. 4-34",
+      "references": [
+        "RFM H125 Section 4   Normal Procedures   p. 4-34",
+        "p. 4-34",
+        "RFM H125 Section 4   Normal Procedures"
+      ],
+      "difficulty": "easy",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 4   Normal Procedures"
+    },
+    {
+      "id": "H125-NOR-041",
+      "question": "During engine and rotor shutdown, the cyclic must be placed in:",
+      "options": [
+        "Forward stop",
+        "Center",
+        "Aft stop",
+        "Neutral with 10° left"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "The cyclic must be centered during engine and rotor shutdown.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 Section 4 – Normal Procedures",
+      "reference": "p. 4-40",
+      "references": [
+        "RFM H125 Section 4 – Normal Procedures – p. 4-40",
+        "p. 4-40",
+        "RFM H125 Section 4 – Normal Procedures"
+      ],
+      "difficulty": "easy",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 4 – Normal Procedures"
+    },
+    {
+      "id": "H125-NOR-042",
+      "question": "During engine and rotor shutdown, the collective must be:",
+      "options": [
+        "Fully down and locked",
+        "Half raised",
+        "Neutral",
+        "At flight idle position"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The collective must be fully down and locked during shutdown.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 Section 4 – Normal Procedures",
+      "reference": "p. 4-41",
+      "references": [
+        "RFM H125 Section 4 – Normal Procedures – p. 4-41",
+        "p. 4-41",
+        "RFM H125 Section 4 – Normal Procedures"
+      ],
+      "difficulty": "easy",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 4 – Normal Procedures"
+    },
+    {
+      "id": "H125-NOR-043",
+      "question": "At shutdown, twist grip must be set to:",
+      "options": [
+        "Flight position",
+        "Idle position",
+        "OFF immediately",
+        "Detent position"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Twist grip must be set to idle before full shutdown.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 Section 4 – Normal Procedures",
+      "reference": "p. 4-42",
+      "references": [
+        "RFM H125 Section 4 – Normal Procedures – p. 4-42",
+        "p. 4-42",
+        "RFM H125 Section 4 – Normal Procedures"
+      ],
+      "difficulty": "easy",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 4 – Normal Procedures"
+    },
+    {
+      "id": "H125-NOR-044",
+      "question": "Engine oil cooling time before shutdown must be at least:",
+      "options": [
+        "10 seconds",
+        "20 seconds",
+        "30 seconds",
+        "60 seconds"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Engine must be cooled for at least 30 seconds before shutdown.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 Section 4 – Normal Procedures",
+      "reference": "p. 4-43",
+      "references": [
+        "RFM H125 Section 4 – Normal Procedures – p. 4-43",
+        "p. 4-43",
+        "RFM H125 Section 4 – Normal Procedures"
+      ],
+      "difficulty": "medium",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 4 – Normal Procedures"
+    },
+    {
+      "id": "H125-NOR-045",
+      "question": "In normal conditions, rotor brake may be applied below:",
+      "options": [
+        "140 RPM",
+        "170 RPM",
+        "200 RPM",
+        "250 RPM"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Rotor brake may only be applied below 140 RPM in normal conditions.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 Section 4 – Normal Procedures",
+      "reference": "p. 4-44",
+      "references": [
+        "RFM H125 Section 4 – Normal Procedures – p. 4-44",
+        "p. 4-44",
+        "RFM H125 Section 4 – Normal Procedures"
+      ],
+      "difficulty": "easy",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 4 – Normal Procedures"
+    },
+    {
+      "id": "H125-NOR-046",
+      "question": "In high wind conditions, rotor brake may be applied below:",
+      "options": [
+        "120 RPM",
+        "140 RPM",
+        "170 RPM",
+        "200 RPM"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Rotor brake may be applied below 170 RPM in high wind conditions.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 Section 4 – Normal Procedures",
+      "reference": "p. 4-45",
+      "references": [
+        "RFM H125 Section 4 – Normal Procedures – p. 4-45",
+        "p. 4-45",
+        "RFM H125 Section 4 – Normal Procedures"
+      ],
+      "difficulty": "medium",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 4 – Normal Procedures"
+    },
+    {
+      "id": "H125-NOR-047",
+      "question": "Maximum fuel tank capacity is:",
+      "options": [
+        "427 liters",
+        "500 liters",
+        "540 liters",
+        "560 liters"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "The maximum usable fuel tank capacity is 540 liters.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 Section 4 – Normal Procedures",
+      "reference": "p. 4-50",
+      "references": [
+        "RFM H125 Section 4 – Normal Procedures – p. 4-50",
+        "p. 4-50",
+        "RFM H125 Section 4 – Normal Procedures"
+      ],
+      "difficulty": "easy",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 4 – Normal Procedures"
+    },
+    {
+      "id": "H125-NOR-048",
+      "question": "Fuel density used for gauge calibration is:",
+      "options": [
+        "0.75",
+        "0.77",
+        "0.79",
+        "0.81"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Fuel gauge is calibrated using a density of 0.79.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 Section 4   Normal Procedures",
+      "reference": "p. 4-51",
+      "references": [
+        "RFM H125 Section 4   Normal Procedures   p. 4-51",
+        "p. 4-51",
+        "RFM H125 Section 4   Normal Procedures"
+      ],
+      "difficulty": "easy",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 4   Normal Procedures"
+    },
+    {
+      "id": "H125-NOR-049",
+      "question": "Unusable fuel is reached when the gauge indicates:",
+      "options": [
+        "5 liters",
+        "2 liters",
+        "1 liter",
+        "Zero"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "Unusable fuel is reached when the gauge reads zero.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 Section 4   Normal Procedures",
+      "reference": "p. 4-52",
+      "references": [
+        "RFM H125 Section 4   Normal Procedures   p. 4-52",
+        "p. 4-52",
+        "RFM H125 Section 4   Normal Procedures"
+      ],
+      "difficulty": "medium",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 4   Normal Procedures"
+    },
+    {
+      "id": "H125-NOR-050",
+      "question": "During normal refueling, what must be connected first?",
+      "options": [
+        "Fire extinguisher",
+        "Bowser earth cable to electrostatic connector",
+        "Fuel hose",
+        "Ground power unit"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "The earth cable must be connected before fueling to avoid static discharge.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 Section 4   Normal Procedures",
+      "reference": "p. 4-54",
+      "references": [
+        "RFM H125 Section 4   Normal Procedures   p. 4-54",
+        "p. 4-54",
+        "RFM H125 Section 4   Normal Procedures"
+      ],
+      "difficulty": "medium",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 4   Normal Procedures"
+    },
+    {
+      "id": "H125-NOR-051",
+      "question": "During refueling, smoking in the safety area is:",
+      "options": [
+        "Allowed if doors closed",
+        "Allowed if fire extinguisher nearby",
+        "Strictly prohibited",
+        "Allowed if wind above 15 kt"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Smoking is strictly prohibited during refueling.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 Section 4   Normal Procedures",
+      "reference": "p. 4-55",
+      "references": [
+        "RFM H125 Section 4   Normal Procedures   p. 4-55",
+        "p. 4-55",
+        "RFM H125 Section 4   Normal Procedures"
+      ],
+      "difficulty": "easy",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 4   Normal Procedures"
+    },
+    {
+      "id": "H125-NOR-052",
+      "question": "During refueling, the aircraft electrical power supply must be:",
+      "options": [
+        "On to read VEMD",
+        "Off",
+        "Standby only",
+        "Generator ON"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Aircraft electrical power must be OFF during refueling.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 Section 4   Normal Procedures",
+      "reference": "p. 4-56",
+      "references": [
+        "RFM H125 Section 4   Normal Procedures   p. 4-56",
+        "p. 4-56",
+        "RFM H125 Section 4   Normal Procedures"
+      ],
+      "difficulty": "easy",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 4   Normal Procedures"
+    },
+    {
+      "id": "H125-NOR-053",
+      "question": "Refueling with rotors spinning is allowed only:",
+      "options": [
+        "After maintenance",
+        "After approval by authority and per regulations",
+        "During night operations",
+        "If fuel is below 100 liters"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Refueling with rotors spinning requires approval by authority and adherence to regulations.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 Section 4   Normal Procedures",
+      "reference": "p. 4-57",
+      "references": [
+        "RFM H125 Section 4   Normal Procedures   p. 4-57",
+        "p. 4-57",
+        "RFM H125 Section 4   Normal Procedures"
+      ],
+      "difficulty": "hard",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 4   Normal Procedures"
+    },
+    {
+      "id": "H125-NOR-054",
+      "question": "When refueling with rotors spinning, maximum fuel level allowed is:",
+      "options": [
+        "90%",
+        "95%",
+        "98%",
+        "100%"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "When refueling with rotors spinning, maximum fuel fill is limited to 95%.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 Section 4   Normal Procedures",
+      "reference": "p. 4-58",
+      "references": [
+        "RFM H125 Section 4   Normal Procedures   p. 4-58",
+        "p. 4-58",
+        "RFM H125 Section 4   Normal Procedures"
+      ],
+      "difficulty": "hard",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 4   Normal Procedures"
+    },
+    {
+      "id": "H125-NOR-055",
+      "question": "During preflight in snow/ice, main rotor hub and mast must be checked for:",
+      "options": [
+        "Ice on swashplates and servo controls",
+        "Fuel leaks",
+        "Bird nests",
+        "Over-lubrication"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Main rotor hub and mast must be free of ice on swashplates and servo controls.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 Section 4   Normal Procedures",
+      "reference": "p. 4-60",
+      "references": [
+        "RFM H125 Section 4   Normal Procedures   p. 4-60",
+        "p. 4-60",
+        "RFM H125 Section 4   Normal Procedures"
+      ],
+      "difficulty": "medium",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 4   Normal Procedures"
+    },
+    {
+      "id": "H125-NOR-056",
+      "question": "Tail rotor must be manually rotated before start to:",
+      "options": [
+        "Align with wind",
+        "Ensure free rotation and freewheel operation",
+        "Lubricate gearbox",
+        "Position horizontal"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Tail rotor must be rotated by hand to ensure free rotation and freewheel operation.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 Section 4   Normal Procedures",
+      "reference": "p. 4-61",
+      "references": [
+        "RFM H125 Section 4   Normal Procedures   p. 4-61",
+        "p. 4-61",
+        "RFM H125 Section 4   Normal Procedures"
+      ],
+      "difficulty": "medium",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 4   Normal Procedures"
+    },
+    {
+      "id": "H125-NOR-057",
+      "question": "Cabin cover should be removed:",
+      "options": [
+        "At engine start",
+        "Immediately after landing",
+        "Just before engine start to avoid windscreen icing",
+        "At 50% NR"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Cabin cover should be removed just before engine start to avoid icing.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 Section 4   Normal Procedures",
+      "reference": "p. 4-62",
+      "references": [
+        "RFM H125 Section 4   Normal Procedures   p. 4-62",
+        "p. 4-62",
+        "RFM H125 Section 4   Normal Procedures"
+      ],
+      "difficulty": "easy",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 4   Normal Procedures"
+    },
+    {
+      "id": "H125-NOR-058",
+      "question": "In cold weather run-up, cyclic may be held 3 04 cm forward for 2 minutes to warm up:",
+      "options": [
+        "Tail gearbox",
+        "Hydraulic accumulators",
+        "Spherical thrust bearings",
+        "Swashplate servo controls"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Cyclic forward warms up the spherical thrust bearings.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 Section 4   Normal Procedures",
+      "reference": "p. 4-63",
+      "references": [
+        "RFM H125 Section 4   Normal Procedures   p. 4-63",
+        "p. 4-63",
+        "RFM H125 Section 4   Normal Procedures"
+      ],
+      "difficulty": "medium",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 4   Normal Procedures"
+    },
+    {
+      "id": "H125-NOR-059",
+      "question": "During cold weather run-up, yaw pedals must be moved over:",
+      "options": [
+        "25% of travel",
+        "50% of travel",
+        "75% of travel",
+        "Full travel"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Yaw pedals must be moved over 50% of their travel during cold weather run-up.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 Section 4   Normal Procedures",
+      "reference": "p. 4-64",
+      "references": [
+        "RFM H125 Section 4   Normal Procedures   p. 4-64",
+        "p. 4-64",
+        "RFM H125 Section 4   Normal Procedures"
+      ],
+      "difficulty": "medium",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 4   Normal Procedures"
+    },
+    {
+      "id": "H125-NOR-060",
+      "question": "In hydraulic failure training, hydraulic failure safety speed is:",
+      "options": [
+        "30 50 KIAS",
+        "35 55 KIAS",
+        "40 60 KIAS",
+        "50 70 KIAS"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Hydraulic failure training requires maintaining 40 60 KIAS.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 Section 4   Normal Procedures",
+      "reference": "p. 4-65",
+      "references": [
+        "RFM H125 Section 4   Normal Procedures   p. 4-65",
+        "p. 4-65",
+        "RFM H125 Section 4   Normal Procedures"
+      ],
+      "difficulty": "medium",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 4   Normal Procedures"
+    },
+    {
+      "id": "H125-NOR-061",
+      "question": "When an operating limitation is exceeded, what must be entered in the logbook?",
+      "options": [
+        "Only a note that a limit was exceeded",
+        "Limit exceeded, duration, extreme value and any additional information for maintenance",
+        "Time of day and pilot-in-command only",
+        "Maintenance release number only"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Section 4.1 requires the logbook entry to state which limit was exceeded, the duration, the extreme value attained and any additional information essential to determine the maintenance action.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 Section 4.1   General",
+      "reference": "p. 4-1",
+      "references": [
+        "RFM H125 Section 4.1   General   p. 4-1",
+        "p. 4-1",
+        "RFM H125 Section 4.1   General"
+      ],
+      "difficulty": "medium",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 4.1   General"
+    },
+    {
+      "id": "H125-NOR-062",
+      "question": "Flight planning for the AS350 B3e must comply with:",
+      "options": [
+        "Section 1 and Section 7 only",
+        "Section 2, Section 5, Section 6 and applicable Supplements",
+        "Emergency procedures section only",
+        "National air law only"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Section 4.1 states that flight planning must comply with helicopter limitations and performance as given in Sections 2, 5, 6 and the Supplements.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 Section 4.1   General",
+      "reference": "p. 4-1",
+      "references": [
+        "RFM H125 Section 4.1   General   p. 4-1",
+        "p. 4-1",
+        "RFM H125 Section 4.1   General"
+      ],
+      "difficulty": "easy",
+      "tags": [],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 4.1   General"
+    },
+    {
+      "id": "H125-NOR-063",
+      "question": "To ensure proper weight and balance before flight, the pilot must:",
+      "options": [
+        "Check fuel quantity only",
+        "Check pilot and copilot weights only",
+        "Ascertain fuel, oil and payload weights, compute takeoff and landing gross weights and verify CG within Section 2 limits",
+        "Ensure payload is below maximum passenger number only"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Section 4.1 requires checking fuel, oil and payload, computing takeoff and landing gross weights, and confirming that weight and CG remain within the limitations of Section 2.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 Section 4.1   General",
+      "reference": "p. 4-1",
+      "references": [
+        "RFM H125 Section 4.1   General   p. 4-1",
+        "p. 4-1",
+        "RFM H125 Section 4.1   General"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "weight-balance"
+      ],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 4.1   General"
+    },
+    {
+      "id": "H125-NOR-064",
+      "question": "Before beginning the preflight checks, what does Section 4.2 require regarding maintenance?",
+      "options": [
+        "Only scheduled maintenance must be completed",
+        "All corrective maintenance required for flightworthiness must have been performed",
+        "No maintenance is required if last flight was within 24 hours",
+        "Only engine-related maintenance must be done"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "The preflight check section specifies that all corrective maintenance operations required for flightworthiness must be completed before preflight.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 Section 4.2   Preflight Check",
+      "reference": "p. 4-3",
+      "references": [
+        "RFM H125 Section 4.2   Preflight Check   p. 4-3",
+        "p. 4-3",
+        "RFM H125 Section 4.2   Preflight Check"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "preflight"
+      ],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 4.2   Preflight Check"
+    },
+    {
+      "id": "H125-NOR-065",
+      "question": "According to the exterior preflight check, what must be done with picketing items (blanks, covers, blade socks) before flight?",
+      "options": [
+        "Leave them installed until engine start",
+        "Remove all picketing items before carrying out the checks",
+        "Only remove blade socks",
+        "Only remove pitot covers"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Section 4.2 states that all picketing items such as blanks, covers and blade socks must be removed before performing the exterior preflight checks.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 Section 4.2   Preflight Check",
+      "reference": "p. 4-4",
+      "references": [
+        "RFM H125 Section 4.2   Preflight Check   p. 4-4",
+        "p. 4-4",
+        "RFM H125 Section 4.2   Preflight Check"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "preflight"
+      ],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 4.2   Preflight Check"
+    },
+    {
+      "id": "H125-NOR-066",
+      "question": "During the exterior preflight, what must be checked at the engine air intake?",
+      "options": [
+        "Only that the cowl is locked",
+        "That it is clean, free of foreign objects, ice or snow accumulations and stagnant water",
+        "That the intake is painted white",
+        "That the bleed valve is closed"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Section 4.2 calls for the engine air intake area to be clean, with no foreign objects, no ice or snow in or around the intake and no stagnant water at the drain hole.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 Section 4.2   Preflight Check",
+      "reference": "p. 4-5",
+      "references": [
+        "RFM H125 Section 4.2   Preflight Check   p. 4-5",
+        "p. 4-5",
+        "RFM H125 Section 4.2   Preflight Check"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "preflight",
+        "engine-air-intake"
+      ],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 4.2   Preflight Check"
+    },
+    {
+      "id": "H125-NOR-067",
+      "question": "What hazard is specifically warned about if ice or snow remains in or around the engine air intake?",
+      "options": [
+        "It may reduce lift at low speed",
+        "It may be ingested and cause a sudden in-flight engine failure",
+        "It may cause temporary VEMD display loss only",
+        "It may only increase fuel burn"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "The preflight section includes a WARNING that ice or snow accumulations remaining in or around the engine air intake may be ingested and can cause a sudden in-flight engine failure.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 Section 4.2   Preflight Check",
+      "reference": "p. 4-5",
+      "references": [
+        "RFM H125 Section 4.2   Preflight Check   p. 4-5",
+        "p. 4-5",
+        "RFM H125 Section 4.2   Preflight Check"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "preflight",
+        "icing"
+      ],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 4.2   Preflight Check"
+    },
+    {
+      "id": "H125-NOR-068",
+      "question": "During exterior preflight, what must be confirmed regarding the ELT?",
+      "options": [
+        "Set to OFF",
+        "Set to TEST",
+        "Set to ARMED",
+        "Removed from the aircraft"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Section 4.2 lists the ELT on the exterior check with the requirement to confirm it is in the ARMED position.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 Section 4.2   Preflight Check",
+      "reference": "p. 4-6",
+      "references": [
+        "RFM H125 Section 4.2   Preflight Check   p. 4-6",
+        "p. 4-6",
+        "RFM H125 Section 4.2   Preflight Check"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "preflight",
+        "elt"
+      ],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 4.2   Preflight Check"
+    },
+    {
+      "id": "H125-NOR-069",
+      "question": "What must be checked regarding loads and objects carried in the cargo compartments during preflight?",
+      "options": [
+        "They are below maximum weight only",
+        "They are accessible during flight",
+        "They are stowed and secured",
+        "They are labeled with destination"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "The exterior and interior preflight checklists both require that all loads and objects carried are stowed and secured.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 Section 4.2   Preflight Check",
+      "reference": "p. 4-4",
+      "references": [
+        "RFM H125 Section 4.2   Preflight Check   p. 4-4",
+        "p. 4-4",
+        "RFM H125 Section 4.2   Preflight Check"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "preflight",
+        "loads"
+      ],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 4.2   Preflight Check"
+    },
+    {
+      "id": "H125-NOR-070",
+      "question": "During the interior preflight check, what must be verified about the fire extinguisher?",
+      "options": [
+        "That it is removed from its bracket",
+        "That it is secured and checked",
+        "That it is empty",
+        "That it is stowed in the baggage compartment"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "The interior preflight checklist requires the cabin fire extinguisher to be secured and checked.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 Section 4.2   Preflight Check",
+      "reference": "p. 4-7",
+      "references": [
+        "RFM H125 Section 4.2   Preflight Check   p. 4-7",
+        "p. 4-7",
+        "RFM H125 Section 4.2   Preflight Check"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "preflight",
+        "fire-extinguisher"
+      ],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 4.2   Preflight Check"
+    },
+    {
+      "id": "H125-NOR-071",
+      "question": "During engine prestart check, how must the rotor brake be set before engine start?",
+      "options": [
+        "Locked fully aft",
+        "Released, fully forward",
+        "Mid-position with slight friction",
+        "Set to PARK position"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Section 4.3 prestart item 1 requires the rotor brake to be RELEASE, fully forward before engine start.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 Section 4.3 – Start Up",
+      "reference": "p. 4-3",
+      "references": [
+        "RFM H125 Section 4.3 – Start Up – p. 4-3",
+        "p. 4-3",
+        "RFM H125 Section 4.3 – Start Up"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "engine-prestart",
+        "rotor-brake"
+      ],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 4.3 – Start Up"
+    },
+    {
+      "id": "H125-NOR-072",
+      "question": "In the engine prestart check, what is the correct position of the fuel shut-off lever?",
+      "options": [
+        "AFT, locked",
+        "FORWARD, with plastic guard in place",
+        "MID, detent only",
+        "CLOSED, guard removed"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "The prestart checklist in Section 4.3 calls for the fuel shut-off lever to be FORWARD, with its plastic guard in place.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 Section 4.3 – Start Up",
+      "reference": "p. 4-3",
+      "references": [
+        "RFM H125 Section 4.3 – Start Up – p. 4-3",
+        "p. 4-3",
+        "RFM H125 Section 4.3 – Start Up"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "engine-prestart",
+        "fuel"
+      ],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 4.3 – Start Up"
+    },
+    {
+      "id": "H125-NOR-073",
+      "question": "When performing the [W/LT TST] during engine prestart, what torque indication must be observed on the VEMD?",
+      "options": [
+        "TRQ briefly indicates 50% then returns to 0%",
+        "TRQ indicates 100% for about 2 seconds then returns to 0%",
+        "TRQ remains at 0% throughout the test",
+        "TRQ cycles between 0% and 100% for 10 seconds"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Section 4.3 specifies that during [W/LT TST] the torque indication must go to 100% for about 2 seconds and then return to 0%.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 Section 4.3 – Start Up",
+      "reference": "p. 4-3",
+      "references": [
+        "RFM H125 Section 4.3 – Start Up – p. 4-3",
+        "p. 4-3",
+        "RFM H125 Section 4.3 – Start Up"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "engine-prestart",
+        "warning-lights",
+        "VEMD"
+      ],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 4.3 – Start Up"
+    },
+    {
+      "id": "H125-NOR-074",
+      "question": "During the VEMD check at the end of the engine prestart check, which combination of indications is required?",
+      "options": [
+        "Hydraulic pressure 2000 psi, NR tape visible, TOT at zero",
+        "3-data page shows no messages, vehicle page shows no messages, battery voltage > 22 V, correct fuel quantity and bleed valve open",
+        "Only the FLI page is displayed with TOT on scale",
+        "Fuel flow page displayed with fuel flow at zero and GOV light ON"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Section 4.3 prestart item 14 requires the VEMD 3-data and vehicle pages to show no messages, battery voltage to be above 22 V, fuel quantity to be checked and the bleed valve to be open.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 Section 4.3 – Start Up",
+      "reference": "p. 4-4",
+      "references": [
+        "RFM H125 Section 4.3 – Start Up – p. 4-4",
+        "p. 4-4",
+        "RFM H125 Section 4.3 – Start Up"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "engine-prestart",
+        "VEMD"
+      ],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 4.3 – Start Up"
+    },
+    {
+      "id": "H125-NOR-075",
+      "question": "During engine start, which set of parameters must be monitored according to Section 4.3?",
+      "options": [
+        "Only torque, NR and hydraulic pressure",
+        "Ng increases, TOT remains within limits, rotor turns when Ng is ≤ 25% and engine oil pressure increases",
+        "Only TOT and NR",
+        "Only battery voltage above 22 V"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Engine start item 6 in Section 4.3 lists these four indications: Ng increasing, TOT staying within limits, rotor turning by Ng ≤ 25% and engine oil pressure increasing.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 Section 4.3 – Start Up",
+      "reference": "p. 4-6",
+      "references": [
+        "RFM H125 Section 4.3 – Start Up – p. 4-6",
+        "p. 4-6",
+        "RFM H125 Section 4.3 – Start Up"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "engine-start",
+        "Ng",
+        "TOT",
+        "oil-pressure"
+      ],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 4.3 – Start Up"
+    },
+    {
+      "id": "H125-NOR-076",
+      "question": "When Ng (N1) reaches at least 67% during engine start, which CWP lights must be checked?",
+      "options": [
+        "GOV, PITOT, HYDR",
+        "ENG P, MGB P, HYDR",
+        "GENE, BATT, HYDR",
+        "FUEL P, GOV, ENG P"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Section 4.3 engine starting item 8 calls for checking that ENG P, MGB P and HYDR are indicated on the CWP when Ng is at or above 67%.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 Section 4.3 – Start Up",
+      "reference": "p. 4-6",
+      "references": [
+        "RFM H125 Section 4.3 – Start Up – p. 4-6",
+        "p. 4-6",
+        "RFM H125 Section 4.3 – Start Up"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "engine-start",
+        "CWP",
+        "HYDR"
+      ],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 4.3 – Start Up"
+    },
+    {
+      "id": "H125-NOR-077",
+      "question": "How must the [FUEL P]/[FUEL PUMP] switch be used in the standard engine start sequence?",
+      "options": [
+        "Left OFF during the entire start to avoid overpressure",
+        "Set to ON before engine start, then set to OFF after start while checking that the FUEL P caution appears",
+        "Pulsed ON and OFF every 5 seconds during the start",
+        "Used only in case of hot start"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Section 4.3 engine starting items 2 and 10 require [FUEL P]/[FUEL PUMP] ON before start, then OFF after start with the FUEL P caution checked.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 Section 4.3 – Start Up",
+      "reference": "p. 4-6",
+      "references": [
+        "RFM H125 Section 4.3 – Start Up – p. 4-6",
+        "p. 4-6",
+        "RFM H125 Section 4.3 – Start Up"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "engine-start",
+        "fuel"
+      ],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 4.3 – Start Up"
+    },
+    {
+      "id": "H125-NOR-078",
+      "question": "During the hydraulic cut-off test in the run-up check, what HYDR warning timing is acceptable after returning the hydraulic cut-off switch to ON?",
+      "options": [
+        "HYDR light out after 1–2 seconds",
+        "HYDR light out after 3–4 seconds",
+        "HYDR light out immediately",
+        "HYDR light remains on for at least 10 seconds"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Section 4.3 run-up check states that HYDR must come back on the CWP after 3 to 4 seconds; if the time is reduced to 1 second or greater than 4 seconds, maintenance action is required.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 Section 4.3 – Start Up",
+      "reference": "p. 4-7",
+      "references": [
+        "RFM H125 Section 4.3 – Start Up – p. 4-7",
+        "p. 4-7",
+        "RFM H125 Section 4.3 – Start Up"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "run-up",
+        "HYDR",
+        "limits"
+      ],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 4.3 – Start Up"
+    },
+    {
+      "id": "H125-NOR-079",
+      "question": "During the [HORN] check in the run-up, when is the audio warning required to be ON and OFF?",
+      "options": [
+        "ON for NR ≤ 320 rpm and OFF above 320 rpm",
+        "ON for NR ≤ 340 rpm and OFF above 340 rpm",
+        "ON for NR ≤ 360 rpm and OFF for NR above 360 rpm",
+        "ON only at nominal rotor speed (394 rpm)"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Section 4.3 run-up check specifies that during the horn test the audio warning must be ON for NR at or below 360 rpm and OFF for NR above 360 rpm.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 Section 4.3 – Start Up",
+      "reference": "p. 4-8",
+      "references": [
+        "RFM H125 Section 4.3 – Start Up – p. 4-8",
+        "p. 4-8",
+        "RFM H125 Section 4.3 – Start Up"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "run-up",
+        "HORN",
+        "NR"
+      ],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 4.3 – Start Up"
+    },
+    {
+      "id": "H125-NOR-080",
+      "question": "According to the cranking procedure in Section 4.3, why must the engine not be cranked with the emergency fuel shutoff valve closed?",
+      "options": [
+        "It may discharge the battery too quickly",
+        "It may damage the engine high pressure fuel pump",
+        "It may cause the GOV light to remain on for the rest of the flight",
+        "It may overheat the starter-generator cooling fan"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "The cranking CAUTION in Section 4.3 warns that cranking with the emergency fuel shutoff valve closed can damage the engine high pressure fuel pump.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 Section 4.3 – Start Up",
+      "reference": "p. 4-9",
+      "references": [
+        "RFM H125 Section 4.3 – Start Up – p. 4-9",
+        "p. 4-9",
+        "RFM H125 Section 4.3 – Start Up"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "cranking",
+        "fuel-system",
+        "caution"
+      ],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 4.3 – Start Up"
+    },
+    {
+      "id": "H125-NOR-081",
+      "question": "Before takeoff, how must the doors be configured according to the checklist?",
+      "options": [
+        "Keep all doors open and unsecured for ventilation",
+        "Keep all doors closed and latched or sliding doors open and locked",
+        "Keep only cockpit doors closed, cabin doors may remain unlocked",
+        "Keep all doors partially open for quick egress"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Section 4.4 before takeoff requires that doors are either closed and latched or that sliding doors are open and locked in the open position.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 Section 4.4 – Takeoff",
+      "reference": "p. 4-10",
+      "references": [
+        "RFM H125 Section 4.4 – Takeoff – p. 4-10",
+        "p. 4-10",
+        "RFM H125 Section 4.4 – Takeoff"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "before-takeoff",
+        "doors"
+      ],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 4.4 – Takeoff"
+    },
+    {
+      "id": "H125-NOR-082",
+      "question": "What must be verified about engine and system parameters before takeoff?",
+      "options": [
+        "All parameters are in the red range to ensure maximum power",
+        "Temperatures and pressures are within normal ranges and all CWP and overhead lights are out",
+        "Only hydraulic pressure and fuel quantity are within limits",
+        "Only VEMD pages are displayed without regard to limits"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "The before takeoff check in Section 4.4 calls for all temperatures and pressures in the normal ranges with no CWP or overhead warning/caution lights remaining on.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 Section 4.4 – Takeoff",
+      "reference": "p. 4-10",
+      "references": [
+        "RFM H125 Section 4.4 – Takeoff – p. 4-10",
+        "p. 4-10",
+        "RFM H125 Section 4.4 – Takeoff"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "before-takeoff",
+        "engine-parameters",
+        "CWP"
+      ],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 4.4 – Takeoff"
+    },
+    {
+      "id": "H125-NOR-083",
+      "question": "At what approximate height should the helicopter be held in hover before initiating forward takeoff?",
+      "options": [
+        "About 1 ft above the ground",
+        "About 3 ft above the ground",
+        "About 5 ft above the ground",
+        "About 10 ft above the ground"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "The takeoff procedure in Section 4.4 specifies a hover at about 5 ft (HIGE) to check engine and mechanical parameters before accelerating.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 Section 4.4 – Takeoff",
+      "reference": "p. 4-11",
+      "references": [
+        "RFM H125 Section 4.4 – Takeoff – p. 4-11",
+        "p. 4-11",
+        "RFM H125 Section 4.4 – Takeoff"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "takeoff",
+        "hover",
+        "HIGE"
+      ],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 4.4 – Takeoff"
+    },
+    {
+      "id": "H125-NOR-084",
+      "question": "According to the standard takeoff path, which combination of height and IAS must be achieved as the helicopter leaves the hover?",
+      "options": [
+        "Pass 20 ft at 30 kt IAS",
+        "Pass 40 ft at 50 kt IAS",
+        "Pass 60 ft at 60 kt IAS",
+        "Pass 80 ft at 40 kt IAS"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Section 4.4 states that after hovering and accelerating with HIGE power, the helicopter should pass 40 ft at about 50 kt IAS while avoiding the shaded HV diagram area.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 Section 4.4 – Takeoff",
+      "reference": "p. 4-11",
+      "references": [
+        "RFM H125 Section 4.4 – Takeoff – p. 4-11",
+        "p. 4-11",
+        "RFM H125 Section 4.4 – Takeoff"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "takeoff",
+        "IAS",
+        "height-velocity"
+      ],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 4.4 – Takeoff"
+    },
+    {
+      "id": "H125-NOR-085",
+      "question": "What is the main reason for following the recommended takeoff profile given in Section 4.4?",
+      "options": [
+        "To minimize cabin noise for passengers",
+        "To avoid the shaded area of the height-velocity diagram while checking engine parameters",
+        "To reach cruise altitude as fast as possible regardless of limits",
+        "To keep rotor RPM intentionally low during takeoff"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "The takeoff profile is designed to keep the helicopter outside the shaded region of the height-velocity diagram while allowing verification of engine and mechanical parameters.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 Section 4.4 – Takeoff",
+      "reference": "p. 4-11",
+      "references": [
+        "RFM H125 Section 4.4 – Takeoff – p. 4-11",
+        "p. 4-11",
+        "RFM H125 Section 4.4 – Takeoff"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "takeoff",
+        "height-velocity",
+        "safety"
+      ],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 4.4 – Takeoff"
+    },
+    {
+      "id": "H125-NOR-086",
+      "question": "What indicated airspeed gives best rate of climb at sea level according to Section 4.5?",
+      "options": [
+        "55 kt",
+        "60 kt",
+        "65 kt",
+        "70 kt"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Section 4.5 specifies a best rate of climb speed of about 65 kt at sea level, decreasing with altitude.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 Section 4.5 – Climb, Cruise, Maneuvers, Approach, Landing",
+      "reference": "p. 4-12",
+      "references": [
+        "RFM H125 Section 4.5 – Climb, Cruise, Maneuvers, Approach, Landing – p. 4-12",
+        "p. 4-12",
+        "RFM H125 Section 4.5 – Climb, Cruise, Maneuvers, Approach, Landing"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "climb",
+        "Vy"
+      ],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 4.5 – Climb, Cruise, Maneuvers, Approach, Landing"
+    },
+    {
+      "id": "H125-NOR-087",
+      "question": "How is fast cruise speed defined in the Normal Procedures section?",
+      "options": [
+        "The highest IAS that keeps the FLI in the green range",
+        "The IAS corresponding to the first yellow limitation on the FLI",
+        "The IAS just below VNE",
+        "The IAS that gives minimum fuel consumption"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Section 4.5 defines fast cruise as flight at the first yellow limitation on the FLI, respecting all limits.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 Section 4.5 – Climb, Cruise, Maneuvers, Approach, Landing",
+      "reference": "p. 4-13",
+      "references": [
+        "RFM H125 Section 4.5 – Climb, Cruise, Maneuvers, Approach, Landing – p. 4-13",
+        "p. 4-13",
+        "RFM H125 Section 4.5 – Climb, Cruise, Maneuvers, Approach, Landing"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "cruise",
+        "FLI"
+      ],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 4.5 – Climb, Cruise, Maneuvers, Approach, Landing"
+    },
+    {
+      "id": "H125-NOR-088",
+      "question": "What limitation is given for hover turns in the Normal Procedures?",
+      "options": [
+        "Do not perform hover turns",
+        "Perform hover turns only into the wind",
+        "Avoid hover turns faster than one full rotation in 6 seconds",
+        "Avoid hover turns slower than one full rotation in 6 seconds"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Section 4.5 recommends avoiding hover turns faster than one full rotation in 6 seconds to limit loads on the tail rotor system.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 Section 4.5 – Climb, Cruise, Maneuvers, Approach, Landing",
+      "reference": "p. 4-14",
+      "references": [
+        "RFM H125 Section 4.5 – Climb, Cruise, Maneuvers, Approach, Landing – p. 4-14",
+        "p. 4-14",
+        "RFM H125 Section 4.5 – Climb, Cruise, Maneuvers, Approach, Landing"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "hover",
+        "maneuvers"
+      ],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 4.5 – Climb, Cruise, Maneuvers, Approach, Landing"
+    },
+    {
+      "id": "H125-NOR-089",
+      "question": "How should the approach be flown according to Section 4.5?",
+      "options": [
+        "Maintain VNE to short final and then reduce to hover in the last 10 ft",
+        "Begin the approach at best rate of climb speed and reduce IAS near 100 ft to arrive in hover at about 5 ft",
+        "Fly the entire approach at 40 kt IAS regardless of wind",
+        "Descend vertically from 200 ft with collective only"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "The approach procedure describes starting the approach at the recommended climb/cruise speed and reducing IAS near 100 ft to arrive in a hover at about 5 ft.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 Section 4.5 – Climb, Cruise, Maneuvers, Approach, Landing",
+      "reference": "p. 4-15",
+      "references": [
+        "RFM H125 Section 4.5 – Climb, Cruise, Maneuvers, Approach, Landing – p. 4-15",
+        "p. 4-15",
+        "RFM H125 Section 4.5 – Climb, Cruise, Maneuvers, Approach, Landing"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "approach",
+        "hover"
+      ],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 4.5 – Climb, Cruise, Maneuvers, Approach, Landing"
+    },
+    {
+      "id": "H125-NOR-090",
+      "question": "During a hover landing, how should the collective be used according to the Normal Procedures?",
+      "options": [
+        "Lower the collective abruptly to minimize ground run",
+        "Gradually lower the collective to touchdown and then continue the reduction to full down",
+        "Hold collective fixed until the skids touch and then raise it",
+        "Increase collective slightly during touchdown to soften the landing"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Section 4.5 landing procedure specifies that in hover landing the pilot should gradually lower the collective to touchdown and then continue to full down.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 Section 4.5 – Climb, Cruise, Maneuvers, Approach, Landing",
+      "reference": "p. 4-15",
+      "references": [
+        "RFM H125 Section 4.5 – Climb, Cruise, Maneuvers, Approach, Landing – p. 4-15",
+        "p. 4-15",
+        "RFM H125 Section 4.5 – Climb, Cruise, Maneuvers, Approach, Landing"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "landing",
+        "hover"
+      ],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 4.5 – Climb, Cruise, Maneuvers, Approach, Landing"
+    },
+    {
+      "id": "H125-NOR-091",
+      "question": "According to the engine and rotor shutdown procedure, what is the required position of the cyclic before shutdown?",
+      "options": [
+        "Full forward",
+        "Full aft",
+        "Centered",
+        "Full left"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Section 4.6 states that the cyclic must be placed in the CENTER position as the first item of the engine and rotor shutdown checklist.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 Section 4.6 – Engine and Rotor Shutdown",
+      "reference": "p. 4-16",
+      "references": [
+        "RFM H125 Section 4.6 – Engine and Rotor Shutdown – p. 4-16",
+        "p. 4-16",
+        "RFM H125 Section 4.6 – Engine and Rotor Shutdown"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "shutdown",
+        "controls"
+      ],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 4.6 – Engine and Rotor Shutdown"
+    },
+    {
+      "id": "H125-NOR-092",
+      "question": "How long must the engine be allowed to cool before continuing with shutdown items?",
+      "options": [
+        "10 seconds",
+        "20 seconds",
+        "30 seconds",
+        "60 seconds"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Item 4 of the engine and rotor shutdown checklist requires a 30-second engine oil cooling period before proceeding.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 Section 4.6 – Engine and Rotor Shutdown",
+      "reference": "p. 4-16",
+      "references": [
+        "RFM H125 Section 4.6 – Engine and Rotor Shutdown – p. 4-16",
+        "p. 4-16",
+        "RFM H125 Section 4.6 – Engine and Rotor Shutdown"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "shutdown",
+        "engine-oil"
+      ],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 4.6 – Engine and Rotor Shutdown"
+    },
+    {
+      "id": "H125-NOR-093",
+      "question": "At what rotor speed NR must the [GENE] switch be turned OFF in normal and high wind conditions?",
+      "options": [
+        "NR ≤ 200 rpm in all conditions",
+        "NR ≤ 140 rpm in normal conditions and NR ≤ 170 rpm in high wind conditions",
+        "NR ≤ 100 rpm in all conditions",
+        "NR ≤ 170 rpm in normal conditions and NR ≤ 140 rpm in high wind conditions"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Item 8 of Section 4.6 specifies that [GENE] must be turned OFF at NR ≤ 170 rpm in high wind conditions or NR ≤ 140 rpm in normal conditions.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 Section 4.6 – Engine and Rotor Shutdown",
+      "reference": "p. 4-16",
+      "references": [
+        "RFM H125 Section 4.6 – Engine and Rotor Shutdown – p. 4-16",
+        "p. 4-16",
+        "RFM H125 Section 4.6 – Engine and Rotor Shutdown"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "shutdown",
+        "GENE",
+        "NR",
+        "high-wind"
+      ],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 4.6 – Engine and Rotor Shutdown"
+    },
+    {
+      "id": "H125-NOR-094",
+      "question": "What is the purpose of the yaw load compensator check during shutdown?",
+      "options": [
+        "To verify that the left pedal can be fully depressed with high force",
+        "To confirm that the right pedal moves forward without pilot input or can be moved forward with low force",
+        "To test the parking brake",
+        "To verify that the pedals are locked in a fixed position"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Section 4.6 requires a yaw load compensator check where the right pedal moves forward without input or can be moved forward with low force before activating [ACCU TST].",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 Section 4.6 – Engine and Rotor Shutdown",
+      "reference": "p. 4-17",
+      "references": [
+        "RFM H125 Section 4.6 – Engine and Rotor Shutdown – p. 4-17",
+        "p. 4-17",
+        "RFM H125 Section 4.6 – Engine and Rotor Shutdown"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "shutdown",
+        "yaw-load-compensator"
+      ],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 4.6 – Engine and Rotor Shutdown"
+    },
+    {
+      "id": "H125-NOR-095",
+      "question": "After shutdown and before leaving the helicopter, what VEMD data must be checked on the Flight Report page?",
+      "options": [
+        "Only fuel remaining and outside air temperature",
+        "Operating time, usage counter, N1 and N2 cycles and any FAILURE or OVERLIMIT messages",
+        "Only accumulated flight time since last maintenance",
+        "Only the last displayed FLI values"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Section 4.6 item 12 calls for checking operating time, usage counter, N1 and N2 cycles and any FAILURE or OVERLIMIT messages on the VEMD Flight Report page.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 Section 4.6 – Engine and Rotor Shutdown",
+      "reference": "p. 4-17",
+      "references": [
+        "RFM H125 Section 4.6 – Engine and Rotor Shutdown – p. 4-17",
+        "p. 4-17",
+        "RFM H125 Section 4.6 – Engine and Rotor Shutdown"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "shutdown",
+        "VEMD"
+      ],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 4.6 – Engine and Rotor Shutdown"
+    },
+    {
+      "id": "H125-NOR-096",
+      "question": "What is the maximum fuel tank capacity given in Section 4.7?",
+      "options": [
+        "500 liters",
+        "520 liters",
+        "540 liters",
+        "560 liters"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Section 4.7 states that the maximum fuel tank capacity is 540 liters (142.7 US gal).",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 Section 4.7 – Miscellaneous Procedures and Data",
+      "reference": "p. 4-18",
+      "references": [
+        "RFM H125 Section 4.7 – Miscellaneous Procedures and Data – p. 4-18",
+        "p. 4-18",
+        "RFM H125 Section 4.7 – Miscellaneous Procedures and Data"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "fuel",
+        "tank-capacity"
+      ],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 4.7 – Miscellaneous Procedures and Data"
+    },
+    {
+      "id": "H125-NOR-097",
+      "question": "When is the unusable fuel quantity reached according to the fuel gauge note in Section 4.7?",
+      "options": [
+        "When 10 liters remain in the tank",
+        "When the FUEL caution light comes on",
+        "When zero is indicated on the fuel gauge",
+        "When the fuel flow indicator shows zero"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Note 1 under the fuel gauge in Section 4.7 specifies that the unusable fuel quantity is reached when zero is indicated on the fuel gauge.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 Section 4.7 – Miscellaneous Procedures and Data",
+      "reference": "p. 4-18",
+      "references": [
+        "RFM H125 Section 4.7 – Miscellaneous Procedures and Data – p. 4-18",
+        "p. 4-18",
+        "RFM H125 Section 4.7 – Miscellaneous Procedures and Data"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "fuel",
+        "unusable-fuel"
+      ],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 4.7 – Miscellaneous Procedures and Data"
+    },
+    {
+      "id": "H125-NOR-098",
+      "question": "Which fuel density is used as the basis for the fuel quantity and fuel flow indications in Section 4.7?",
+      "options": [
+        "0.72",
+        "0.75",
+        "0.79",
+        "0.83"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Note 2 in Section 4.7 states that fuel quantity in kg and fuel flow in kg/h are based on a fuel density of 0.79.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 Section 4.7 – Miscellaneous Procedures and Data",
+      "reference": "p. 4-18",
+      "references": [
+        "RFM H125 Section 4.7 – Miscellaneous Procedures and Data – p. 4-18",
+        "p. 4-18",
+        "RFM H125 Section 4.7 – Miscellaneous Procedures and Data"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "fuel",
+        "density"
+      ],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 4.7 – Miscellaneous Procedures and Data"
+    },
+    {
+      "id": "H125-NOR-099",
+      "question": "In high wind operation (wind above 30 kt), how must the helicopter be parked according to Section 4.8?",
+      "options": [
+        "With the tail into the wind and no rotor brake applied",
+        "Head into the wind with rotor brake applied and one blade at the 12 o'clock position and blade socks fitted",
+        "Across the wind with collective full up",
+        "Any heading as long as the parking brake is set"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Section 4.8 high wind operation recommends parking the helicopter head into the wind, maintaining rotor brake applied with one blade at 12 o'clock and keeping blade socks fitted until start up.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 Section 4.8 – Extreme Weather Operations",
+      "reference": "p. 4-19",
+      "references": [
+        "RFM H125 Section 4.8 – Extreme Weather Operations – p. 4-19",
+        "p. 4-19",
+        "RFM H125 Section 4.8 – Extreme Weather Operations"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "high-wind",
+        "parking"
+      ],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 4.8 – Extreme Weather Operations"
+    },
+    {
+      "id": "H125-NOR-100",
+      "question": "From the high wind operation section, above what wind speed must the helicopter be tied down?",
+      "options": [
+        "Above 30 kt",
+        "Above 35 kt",
+        "Above 40 kt",
+        "Above 50 kt"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Section 4.8 specifies that for wind above 40 kt the helicopter must be tied down.",
+      "section": "normal_procedures",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM H125 Section 4.8 – Extreme Weather Operations",
+      "reference": "p. 4-19",
+      "references": [
+        "RFM H125 Section 4.8 – Extreme Weather Operations – p. 4-19",
+        "p. 4-19",
+        "RFM H125 Section 4.8 – Extreme Weather Operations"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "high-wind",
+        "tie-down"
+      ],
+      "sectionId": "normal_procedures",
+      "type": "single",
+      "source": "RFM H125 Section 4.8 – Extreme Weather Operations"
+    }
+  ]
+}

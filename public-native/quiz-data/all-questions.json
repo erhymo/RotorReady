@@ -1,0 +1,2142 @@
+{
+  "id": "aw169-master-200",
+  "title": "AW169 QRH – Master Quizbank (200)",
+  "source": "QRH Issue 3 Rev.1 (Phase 8)",
+  "questions": [
+      {
+        "id": "aw169-master-200",
+        "title": "AW169 QRH – Master Quizbank (200)",
+        "source": "QRH Issue 3 Rev.1 (Phase 8)",
+        "questions": [],
+      "section": "Emergency Procedures",
+      "q": "Oppgi riktig verdi/prosedyre: ENG FAIL SHT DWN AW169 - QRH 169F0290X004 Volume AP8.0 35 Issue 3 Rev. 1 Emerg-Malfunc ENGINE SHUTDOWN IN EMERGENCY CAUTION Care should be taken in confirmin...",
+      "a": 3,
+      "choices": [
+        "tillatt",
+        "forbudt",
+        "ikke tillatt",
+        "required"
+      ],
+      "page": 39
+    },
+    {
+      "id": 17,
+      "section": "Emergency Procedures",
+      "q": "Oppgi riktig verdi/prosedyre: ENG FAIL SHT DWN AW169 - QRH 169F0290X004 Volume AP8.0 27 Issue 3 Emerg-Malfunc END 15. Wheel brakes — Apply as required. Note When on ground consider using ...",
+      "a": 3,
+      "choices": [
+        "tillatt",
+        "forbudt",
+        "ikke tillatt",
+        "required"
+      ],
+      "page": 31
+    },
+    {
+      "id": 18,
+      "section": "Emergency Procedures",
+      "q": "Hva er korrekt ifølge QRH: AW169 - QRH 169F0290X004 Volume AP8.0 221 Issue 3 Emerg-Malfunc OEI PROC CAT A 1. Collective/Cyclic — Rotate pitch down to -15°. Maintain this attitude until...",
+      "a": 2,
+      "choices": [
+        "199 ft",
+        "202 ft",
+        "200 ft",
+        "190 ft"
+      ],
+      "page": 233
+    },
+    {
+      "id": 19,
+      "section": "Emergency Procedures",
+      "q": "Hva er korrekt ifølge QRH: FIRE AW169 - QRH 169F0290X004 Volume AP8.0 43 Issue 3 Emerg-Malfunc ENGINE EXHAUST FIRE AFTER SHUTDOWN IF there are visible signs of fire in the engine exhau...",
+      "a": 3,
+      "choices": [
+        "tillatt",
+        "forbudt",
+        "ikke tillatt",
+        "required"
+      ],
+      "page": 47
+    },
+    {
+      "id": 20,
+      "section": "Emergency Procedures",
+      "q": "Oppgi riktig verdi/prosedyre: AW169 - QRH 169F0290X004 Volume AP8.0 241 Issue 3 Emerg-Malfunc OEI PROC CAT A 1. Collective/Cyclic Control — Apply collective to set OEI 2.5 min power setti...",
+      "a": 2,
+      "choices": [
+        "175 ft",
+        "210 ft",
+        "200 ft",
+        "199 ft"
+      ],
+      "page": 253
+    },
+    {
+      "id": 21,
+      "section": "Emergency Procedures",
+      "q": "Hva er faktakravet: AW169 - QRH 169F0290X004 Volume AP8.0 236 Emerg-Malfunc Issue 3 OEI PROC CAT A CAT A - OFFSHORE AND ELEVATED HELIDECK TAKE-OFF PROCEDURES EMERGENCY PROCEDURE...",
+      "a": 1,
+      "choices": [
+        "4 kts",
+        "5 kts",
+        "3 kts",
+        "30 kts"
+      ],
+      "page": 248
+    },
+    {
+      "id": 22,
+      "section": "Emergency Procedures",
+      "q": "Oppgi riktig verdi/prosedyre: ENG FAIL SHT DWN AW169 - QRH 169F0290X004 Volume AP8.0 29 Issue 3 Emerg-Malfunc END 12. Landing — Dependent on sea state, prevailing winds and current, appro...",
+      "a": 0,
+      "choices": [
+        "30 kts",
+        "25 kts",
+        "28 kts",
+        "55 kts"
+      ],
+      "page": 33
+    },
+    {
+      "id": 23,
+      "section": "Emergency Procedures",
+      "q": "Hva er korrekt ifølge QRH: ENG APU AW169 - QRH 169F0290X004 Volume AP8.0 120 Emerg-Malfunc Issue 3 ENGINE OIL TEMPERATURE END 1 ENG OIL TEMP Note This caution may illuminate in case of...",
+      "a": 3,
+      "choices": [
+        "tillatt",
+        "forbudt",
+        "ikke tillatt",
+        "min"
+      ],
+      "page": 130
+    },
+    {
+      "id": 24,
+      "section": "Emergency Procedures",
+      "q": "Hva er korrekt ifølge QRH: ENG FAIL SHT DWN AW169 - QRH 169F0290X004 Volume AP8.0 33 Issue 3 Rev. 1 Emerg-Malfunc SINGLE ENGINE FAILURE IN HOVER END SINGLE ENGINE FAILURE ON TAKE-OFF C...",
+      "a": 3,
+      "choices": [
+        "71 KIAS",
+        "68 KIAS",
+        "20 KIAS",
+        "70 KIAS"
+      ],
+      "page": 37
+    },
+    {
+      "id": 25,
+      "section": "Emergency Procedures",
+      "q": "Hva er korrekt ifølge QRH: AW169 - QRH 169F0290X004 Volume AP8.0 2 Emerg-Malfunc Issue 3 GENERAL This section contains the procedures th at should be performed in the event of an emerg...",
+      "a": 3,
+      "choices": [
+        "tillatt",
+        "forbudt",
+        "ikke tillatt",
+        "required"
+      ],
+      "page": 2
+    },
+    {
+      "id": 26,
+      "section": "Emergency Procedures",
+      "q": "Hva er korrekt ifølge QRH: ENG FAIL SHT DWN AW169 - QRH 169F0290X004 Volume AP8.0 34 Emerg-Malfunc Issue 3 END SINGLE ENGINE FAILURE DURING CRUISE END 4. Descent — At 300 ft initiate a...",
+      "a": 2,
+      "choices": [
+        "30 KIAS",
+        "90 KIAS",
+        "40 KIAS",
+        "35 KIAS"
+      ],
+      "page": 38
+    },
+    {
+      "id": 27,
+      "section": "Emergency Procedures",
+      "q": "Hva gjelder her: FIRE AW169 - QRH 169F0290X004 Volume AP8.0 45 Issue 3 Rev. 1 Emerg-Malfunc ELECTRICAL FIRE/SMOKE PROCEDURE CONTINUED END Battery power is available for maxim...",
+      "a": 2,
+      "choices": [
+        "tillatt",
+        "forbudt",
+        "maximum",
+        "ikke tillatt"
+      ],
+      "page": 49
+    },
+    {
+      "id": 28,
+      "section": "Emergency Procedures",
+      "q": "Hva er faktakravet: ENG FAIL SHT DWN AW169 - QRH 169F0290X004 Volume AP8.0 28 Emerg-Malfunc Issue 3 AUTOROTATIVE LANDING PROCEDURE ON WATER The procedure which follows outlines ...",
+      "a": 0,
+      "choices": [
+        "150 ft",
+        "149 ft",
+        "125 ft",
+        "152 ft"
+      ],
+      "page": 32
+    },
+    {
+      "id": 29,
+      "section": "Emergency Procedures",
+      "q": "Hva gjelder her: AW169 - QRH 169F0290X004 Volume AP8.0 229 Issue 3 Emerg-Malfunc OEI PROC CAT A CAT A - GROUND AND EL EVATED HELIPORT / HELIDECK VARIABLE TDP/LDP EMERGENCY PR...",
+      "a": 0,
+      "choices": [
+        "5 kts",
+        "6 kts",
+        "3 kts",
+        "0 kts"
+      ],
+      "page": 241
+    },
+    {
+      "id": 30,
+      "section": "Emergency Procedures",
+      "q": "Hva er faktakravet: ENG FAIL SHT DWN AW169 - QRH 169F0290X004 Volume AP8.0 25 Issue 3 Emerg-Malfunc DOUBLE ENGINE FAILURE A sequential or simultaneous failure of both engines wi...",
+      "a": 1,
+      "choices": [
+        "1999 ft",
+        "2000 ft",
+        "2002 ft",
+        "1950 ft"
+      ],
+      "page": 29
+    },
+    {
+      "id": 31,
+      "section": "Emergency Procedures",
+      "q": "Oppgi riktig verdi/prosedyre: LDG GR STC PRT AW169 - QRH 169F0290X004 Volume AP8.0 52 Emerg-Malfunc Issue 3 LANDING GEAR EMERGENCY DOWN PROCEDURE END Note When the landing gear has been e...",
+      "a": 3,
+      "choices": [
+        "48 kts",
+        "49 kts",
+        "70 kts",
+        "50 kts"
+      ],
+      "page": 56
+    },
+    {
+      "id": 32,
+      "section": "Emergency Procedures",
+      "q": "Hva er korrekt ifølge QRH: LDG GR STC PRT AW169 - QRH 169F0290X004 Volume AP8.0 49 Issue 3 Emerg-Malfunc LANDING GEAR LANDING GEAR FAIL S TO LOCK DOWN - Press LAMP TEST key and confirm...",
+      "a": 0,
+      "choices": [
+        "80 KIAS",
+        "60 KIAS",
+        "78 KIAS",
+        "81 KIAS"
+      ],
+      "page": 53
+    },
+    {
+      "id": 33,
+      "section": "Emergency Procedures",
+      "q": "Hva er korrekt ifølge QRH: LDG GR STC PRT AW169 - QRH 169F0290X004 Volume AP8.0 51 Issue 3 Emerg-Malfunc LANDING GEAR FAILS TO RAISE END IF , after selecting the landing gear UP one or...",
+      "a": 1,
+      "choices": [
+        "85 KIAS",
+        "80 KIAS",
+        "65 KIAS",
+        "79 KIAS"
+      ],
+      "page": 55
+    },
+    {
+      "id": 34,
+      "section": "Emergency Procedures",
+      "q": "Oppgi riktig verdi/prosedyre: AW169 - QRH 169F0290X004 Volume AP8.0 239 Issue 3 Emerg-Malfunc OEI PROC CAT A 1. Collective/Cyclic — Continue rotation to 12° nose down to achieve 15 kts GS...",
+      "a": 0,
+      "choices": [
+        "15 kts",
+        "10 kts",
+        "13 kts",
+        "65 kts"
+      ],
+      "page": 251
+    },
+    {
+      "id": 35,
+      "section": "Emergency Procedures",
+      "q": "Oppgi riktig verdi/prosedyre: LDG GR STC PRT AW169 - QRH 169F0290X004 Volume AP8.0 53 Issue 3 Emerg-Malfunc STATIC PORT OBSTRUCTION If erratic readings from the altimeter indicator occur,...",
+      "a": 2,
+      "choices": [
+        "201 ft",
+        "198 ft",
+        "200 ft",
+        "180 ft"
+      ],
+      "page": 57
+    },
+    {
+      "id": 36,
+      "section": "Emergency Procedures",
+      "q": "Hva gjelder her: AW169 - QRH 169F0290X004 Volume AP8.0 217 Issue 3 Emerg-Malfunc OEI PROC CAT A SINGLE ENGINE PROCEDURE The following procedure intends to indicate the proced...",
+      "a": 2,
+      "choices": [
+        "210 kg",
+        "145 kg",
+        "160 kg",
+        "155 kg"
+      ],
+      "page": 229
+    },
+    {
+      "id": 37,
+      "section": "Emergency Procedures",
+      "q": "Oppgi riktig verdi/prosedyre: AW169 - QRH 169F0290X004 Volume AP8.0 234 Emerg-Malfunc Issue 3 OEI PROC CAT A 4. Landing gear — Up . 5. At 1000 ft ALS — On failed engine carry out ENGINE S...",
+      "a": 1,
+      "choices": [
+        "990 ft",
+        "1000 ft",
+        "995 ft",
+        "1002 ft"
+      ],
+      "page": 246
+    },
+    {
+      "id": 38,
+      "section": "Emergency Procedures",
+      "q": "Oppgi riktig verdi/prosedyre: AW169 - QRH 169F0290X004 Volume AP8.0 232 Emerg-Malfunc Issue 3 OEI PROC CAT A 4. Landing gear — Select UP, when reaching V Y . 5. At 1000 ft ATS — On failed...",
+      "a": 1,
+      "choices": [
+        "1025 ft",
+        "1000 ft",
+        "985 ft",
+        "950 ft"
+      ],
+      "page": 244
+    },
+    {
+      "id": 39,
+      "section": "Normal Procedures",
+      "q": "Hva gjelder her: IN FLIGHT AW169 - QRH 169F0290X004 Volume AP8.0 170 Lims-Norm-Perf Issue 3 FLIGHT HANDLING The rotation of the main rotor is anti-clockwise when viewed from ...",
+      "a": 3,
+      "choices": [
+        "65 KIAS",
+        "74 KIAS",
+        "95 KIAS",
+        "75 KIAS"
+      ],
+      "page": 440
+    },
+    {
+      "id": 40,
+      "section": "Normal Procedures",
+      "q": "Hva gjelder her: APPR LAND AW169 - QRH 169F0290X004 Volume AP8.0 174 Lims-Norm-Perf Issue 3 Rev. 1 7. Initial point — Stabilize the aircraft on final approach course at 70 KI...",
+      "a": 3,
+      "choices": [
+        "90 KIAS",
+        "65 KIAS",
+        "69 KIAS",
+        "70 KIAS"
+      ],
+      "page": 444
+    },
+    {
+      "id": 41,
+      "section": "Normal Procedures",
+      "q": "Hva gjelder her: ENG START AW169 - QRH 169F0290X004 Volume AP8.0 135 Issue 3 Lims-Norm-Perf ENGINE PRE-START CHECKS 1. Master Cut-Off Switch — NORM, guard closed. 2. EXT PWR ...",
+      "a": 1,
+      "choices": [
+        "tillatt",
+        "required",
+        "forbudt",
+        "ikke tillatt"
+      ],
+      "page": 405
+    },
+    {
+      "id": 42,
+      "section": "Normal Procedures",
+      "q": "Oppgi riktig verdi/prosedyre: TAXI T-O CAT A/B AW169 - QRH 169F0290X004 Volume AP8.0 164 Lims-Norm-Perf Issue 3 11. Landing Lights — For night operations set as follows: Flying pilot side...",
+      "a": 2,
+      "choices": [
+        "20 kts",
+        "5 kts",
+        "15 kts",
+        "0 kts"
+      ],
+      "page": 434
+    },
+    {
+      "id": 43,
+      "section": "Normal Procedures",
+      "q": "Hva er faktakravet: IN FLIGHT AW169 - QRH 169F0290X004 Volume AP8.0 168 Lims-Norm-Perf Issue 3 CRUISE CHECKS 1. Engine and Transmission param- eters, temperatures and pres- sure...",
+      "a": 2,
+      "choices": [
+        "tillatt",
+        "forbudt",
+        "required",
+        "ikke tillatt"
+      ],
+      "page": 438
+    },
+    {
+      "id": 44,
+      "section": "Performance",
+      "q": "Hva er korrekt ifølge QRH: PFD/MFD MSGs AW169 - QRH 169F0290X004 Volume AP8.0 196 Emerg-Malfunc Issue 3 FMS MESSAGES ON PFD FMS DGR + RNP + MSG FMS DGR is the main alerting message on ...",
+      "a": 0,
+      "choices": [
+        "required",
+        "tillatt",
+        "forbudt",
+        "ikke tillatt"
+      ],
+      "page": 206
+    },
+    {
+      "id": 45,
+      "section": "Performance",
+      "q": "Hva er korrekt ifølge QRH: CAUTION MSGs AW169 - QRH 169F0290X004 Volume AP8.0 72 Emerg-Malfunc Issue 3 Rev. 1 on side of PI and between NG and ITT indications 185 Associated side engin...",
+      "a": 1,
+      "choices": [
+        "tillatt",
+        "min",
+        "forbudt",
+        "ikke tillatt"
+      ],
+      "page": 76
+    },
+    {
+      "id": 46,
+      "section": "Performance",
+      "q": "Hva er korrekt ifølge QRH: APPR LAND AW169 - QRH 169F0290X004 Volume AP8.0 176 Lims-Norm-Perf Issue 3 3. Landing lights — For night operations set as follows: Flying pilot side set poi...",
+      "a": 0,
+      "choices": [
+        "40 KIAS",
+        "0 KIAS",
+        "39 KIAS",
+        "42 KIAS"
+      ],
+      "page": 446
+    },
+    {
+      "id": 47,
+      "section": "Performance",
+      "q": "Hva gjelder her: HVR ROC PAC WIND AW169 - QRH 169F0290X004 Volume AP8.0 340 Lims-Norm-Perf Issue 3 Rev. 1 RATE OF CLIMB The climb performance shown is based on flight test re...",
+      "a": 3,
+      "choices": [
+        "3220 kg",
+        "3199 kg",
+        "3198 kg",
+        "3200 kg"
+      ],
+      "page": 610
+    },
+    {
+      "id": 48,
+      "section": "Performance",
+      "q": "Hva er korrekt ifølge QRH: AW169 - QRH 169F0290X004 Volume AP8.0 238 Lims-Norm-Perf Issue 3 Rev. 1 CONTR & H/V CHART A - FLYAWAY TRANSFER VALUE – EAPS OFF/ON UP TO 4600 KG 290 CHART B ...",
+      "a": 0,
+      "choices": [
+        "4600 KG",
+        "4601 KG",
+        "4575 KG",
+        "4585 KG"
+      ],
+      "page": 508
+    },
+    {
+      "id": 49,
+      "section": "Performance",
+      "q": "Hva er faktakravet: TAXI T-O CAT A/B AW169 - QRH 169F0290X004 Volume AP8.0 158 Lims-Norm-Perf Issue 3 4. Power checks — Carry out as required in accordance with ENGINE POWER CHE...",
+      "a": 0,
+      "choices": [
+        "1000 ft",
+        "1010 ft",
+        "998 ft",
+        "975 ft"
+      ],
+      "page": 428
+    },
+    {
+      "id": 50,
+      "section": "Performance",
+      "q": "Oppgi riktig verdi/prosedyre: FD/FMS OPER AW169 - QRH 169F0290X004 Volume AP8.0 193 Issue 3 Lims-Norm-Perf FLIGHT MANAGEMENT SYSTEM OPERATION PRE-DEPARTURE OPERATIONS — On EDCU HOME page,...",
+      "a": 1,
+      "choices": [
+        "tillatt",
+        "required",
+        "forbudt",
+        "ikke tillatt"
+      ],
+      "page": 463
+    },
+    {
+      "id": 51,
+      "section": "Performance",
+      "q": "Oppgi riktig verdi/prosedyre: TAXI T-O CAT A/B AW169 - QRH 169F0290X004 Volume AP8.0 156 Lims-Norm-Perf Issue 3 1. Pilot Altimeter — Set 0 ft or nearest 1000 ft setting to T-O altitude, w...",
+      "a": 0,
+      "choices": [
+        "1000 ft",
+        "1001 ft",
+        "990 ft",
+        "950 ft"
+      ],
+      "page": 426
+    },
+    {
+      "id": 52,
+      "section": "Performance",
+      "q": "Hva er korrekt ifølge QRH: TAXI T-O CAT A/B AW169 - QRH 169F0290X004 Volume AP8.0 160 Lims-Norm-Perf Issue 3 8. Warnings and Cautions — None/as required. 9. Flight controls — Check cor...",
+      "a": 2,
+      "choices": [
+        "985 ft",
+        "1010 ft",
+        "1000 ft",
+        "995 ft"
+      ],
+      "page": 430
+    },
+    {
+      "id": 53,
+      "section": "Performance",
+      "q": "Hva er korrekt ifølge QRH: APPR LAND AW169 - QRH 169F0290X004 Volume AP8.0 178 Lims-Norm-Perf Issue 3 1. Pre-landing checks — Complete 2. EDCU, MISC, AURAL INHIBIT — Select NORMAL or L...",
+      "a": 3,
+      "choices": [
+        "50 KIAS",
+        "20 KIAS",
+        "85 KIAS",
+        "70 KIAS"
+      ],
+      "page": 448
+    },
+    {
+      "id": 54,
+      "section": "Systems/Avionics",
+      "q": "Hva gjelder her: AW169 - QRH 169F0290X004 Volume AP8.0 149 Issue 3 Emerg-Malfunc HYD PARK BRAKE MALFUNCTION Note Differential braking may not be available. SECTION END PARK B...",
+      "a": 0,
+      "choices": [
+        "required",
+        "tillatt",
+        "forbudt",
+        "ikke tillatt"
+      ],
+      "page": 159
+    },
+    {
+      "id": 55,
+      "section": "Systems/Avionics",
+      "q": "Hva gjelder her: PFD/MFD MSGs AW169 - QRH 169F0290X004 Volume AP8.0 198 Emerg-Malfunc Issue 3 Lateral Deviation Pointer with Winglets on Approach During the approach phase or...",
+      "a": 2,
+      "choices": [
+        "tillatt",
+        "forbudt",
+        "required",
+        "ikke tillatt"
+      ],
+      "page": 208
+    },
+    {
+      "id": 56,
+      "section": "Systems/Avionics",
+      "q": "Hva gjelder her: AW169 - QRH 169F0290X004 Volume AP8.0 153 Issue 3 Rev. 1 Emerg-Malfunc LDG GR MISC LANDING GEAR LANDING GEAR RETRACTED END NOSE WHEEL UNLOCKED Note Landing g...",
+      "a": 2,
+      "choices": [
+        "201 ft",
+        "150 ft",
+        "200 ft",
+        "198 ft"
+      ],
+      "page": 163
+    },
+    {
+      "id": 57,
+      "section": "Systems/Avionics",
+      "q": "Oppgi riktig verdi/prosedyre: AFCS AW169 - QRH 169F0290X004 Volume AP8.0 79 Issue 3 Emerg-Malfunc AUTOPILOT MRA FAIL END AUTOPILOT TRA FAIL Note IF illuminates fly feet on pedals. END 1 A...",
+      "a": 0,
+      "choices": [
+        "120 KIAS",
+        "115 KIAS",
+        "110 KIAS",
+        "170 KIAS"
+      ],
+      "page": 83
+    },
+    {
+      "id": 58,
+      "section": "Systems/Avionics",
+      "q": "Hva gjelder her: PFD/MFD MSGs AW169 - QRH 169F0290X004 Volume AP8.0 200 Emerg-Malfunc Issue 3 3. Procedure when EPU + XTR > RNP CONTINUATION FROM PREVIOUS PAGE END EPU 300 IC...",
+      "a": 3,
+      "choices": [
+        "tillatt",
+        "forbudt",
+        "ikke tillatt",
+        "required"
+      ],
+      "page": 210
+    },
+    {
+      "id": 59,
+      "section": "Systems/Avionics",
+      "q": "Hva er faktakravet: AW169 - QRH 169F0290X004 Volume AP8.0 159 Issue 3 Emerg-Malfunc LDG GR MISC CABIN DOOR OPEN END BAGGAGE BAY DOOR OPEN END CABIN DOOR CAUTION When opening or ...",
+      "a": 1,
+      "choices": [
+        "61 KIAS",
+        "60 KIAS",
+        "58 KIAS",
+        "55 KIAS"
+      ],
+      "page": 169
+    },
+    {
+      "id": 60,
+      "section": "Systems/Avionics",
+      "q": "Hva er faktakravet: ENG APU AW169 - QRH 169F0290X004 Volume AP8.0 131 Issue 3 Rev. 1 Emerg-Malfunc RESTARTING PROCEDURE CAUTION In flight, should an engine re-starting be needed...",
+      "a": 1,
+      "choices": [
+        "110 KIAS",
+        "120 KIAS",
+        "140 KIAS",
+        "115 KIAS"
+      ],
+      "page": 141
+    },
+    {
+      "id": 61,
+      "section": "Systems/Avionics",
+      "q": "Hva er korrekt ifølge QRH: AVIONIC AW169 - QRH 169F0290X004 Volume AP8.0 95 Issue 3 Emerg-Malfunc AVIONICS AHRS FAILURE END 1 AHRS FAIL Note Fuel quantity indication accuracy degraded....",
+      "a": 2,
+      "choices": [
+        "115 KIAS",
+        "140 KIAS",
+        "120 KIAS",
+        "119 KIAS"
+      ],
+      "page": 99
+    },
+    {
+      "id": 62,
+      "section": "Systems/Avionics",
+      "q": "Hva er faktakravet: FD/FMS OPER AW169 - QRH 169F0290X004 Volume AP8.0 199 Issue 3 Lims-Norm-Perf The FMS defaults the VFR Approach parame ters any time the Pilot enters the VFR ...",
+      "a": 3,
+      "choices": [
+        "1475 ft",
+        "1515 ft",
+        "1480 ft",
+        "1500 ft"
+      ],
+      "page": 469
+    },
+    {
+      "id": 63,
+      "section": "Systems/Avionics",
+      "q": "Hva er faktakravet: AFCS AW169 - QRH 169F0290X004 Volume AP8.0 85 Issue 3 Emerg-Malfunc COLLECTIVE TRIM FAILURE END C TRIM FAIL - - Continue flight. being aware that AFCS collec...",
+      "a": 2,
+      "choices": [
+        "100 KIAS",
+        "135 KIAS",
+        "120 KIAS",
+        "110 KIAS"
+      ],
+      "page": 89
+    },
+    {
+      "id": 64,
+      "section": "Limitations",
+      "q": "Oppgi riktig verdi/prosedyre: GEN LIMS AW169 - QRH 169F0290X004 Volume AP8.0 9 Issue 3 Lims-Norm-Perf CABIN SLIDING DOOR OPEN LIMITATIONS Note To open the door the KIT DOOR LOCK PASSENGER...",
+      "a": 1,
+      "choices": [
+        "82 KIAS",
+        "80 KIAS",
+        "79 KIAS",
+        "70 KIAS"
+      ],
+      "page": 279
+    },
+    {
+      "id": 65,
+      "section": "Limitations",
+      "q": "Oppgi riktig verdi/prosedyre: TAXI T-O CAT A/B AW169 - QRH 169F0290X004 Volume AP8.0 154 Lims-Norm-Perf Issue 3 Rev. 1 7. Flight controls — Check correct functioning. 8. PI — Note PI valu...",
+      "a": 1,
+      "choices": [
+        "26 kts",
+        "25 kts",
+        "15 kts",
+        "5 kts"
+      ],
+      "page": 424
+    },
+    {
+      "id": 66,
+      "section": "Limitations",
+      "q": "Hva er korrekt ifølge QRH: ENG SYST AW169 - QRH 169F0290X004 Volume AP8.0 15 Issue 3 Lims-Norm-Perf ENGINE AND TRANSMISSION DIGITAL LIMITATIONS The following represent the digital valu...",
+      "a": 2,
+      "choices": [
+        "105 KIAS",
+        "65 KIAS",
+        "90 KIAS",
+        "85 KIAS"
+      ],
+      "page": 285
+    },
+    {
+      "id": 67,
+      "section": "Limitations",
+      "q": "Hva er korrekt ifølge QRH: AVIONICS FMS AW169 - QRH 169F0290X004 Volume AP8.0 21 Issue 3 Lims-Norm-Perf AVIONICS & FMS LIMITATIONS AVIONIC LIMITATIONS 23 AFCS LIMITATIONS 23 AFCS MODE ...",
+      "a": 3,
+      "choices": [
+        "tillatt",
+        "forbudt",
+        "ikke tillatt",
+        "MINIMUM"
+      ],
+      "page": 291
+    },
+    {
+      "id": 68,
+      "section": "Limitations",
+      "q": "Hva er faktakravet: CHARTS DIAGS AW169 - QRH 169F0290X004 Volume AP8.0 33 Issue 3 Lims-Norm-Perf WAT OEI LANDING OFFSHORE PROCEDURE 109 WAT OEI LANDING OFFSHORE PROCEDURE EAPS O...",
+      "a": 2,
+      "choices": [
+        "4625 KG",
+        "4550 KG",
+        "4600 KG",
+        "4599 KG"
+      ],
+      "page": 303
+    },
+    {
+      "id": 69,
+      "section": "Limitations",
+      "q": "Hva er korrekt ifølge QRH: AW169 - QRH 169F0290X004 Volume AP8.0 1 Issue 3 Lims-Norm-Perf L I M I T S GENERAL, TYPE OF OPER, MIN CREW, CG LIMITATIONS ENGINE, FUEL, LUBRICANTS, HYD & SY...",
+      "a": 0,
+      "choices": [
+        "MIN",
+        "tillatt",
+        "forbudt",
+        "ikke tillatt"
+      ],
+      "page": 255
+    },
+    {
+      "id": 70,
+      "section": "Limitations",
+      "q": "Hva gjelder her: CHARTS DIAGS AW169 - QRH 169F0290X004 Volume AP8.0 29 Issue 3 Rev. 1 Lims-Norm-Perf WAT FOR TAKE-OFF AND LANDING ZERO WIND OR HEADWIND - AEO TOP - HEATER ON ...",
+      "a": 3,
+      "choices": [
+        "4575 KG",
+        "4598 KG",
+        "4605 KG",
+        "4600 KG"
+      ],
+      "page": 299
+    },
+    {
+      "id": 71,
+      "section": "Limitations",
+      "q": "Hva er korrekt ifølge QRH: GEN LIMS AW169 - QRH 169F0290X004 Volume AP8.0 11 Issue 3 Lims-Norm-Perf PITOT HEATING LIMITATIONS Pitot heating must be selected to AUTO or ON for indicated...",
+      "a": 1,
+      "choices": [
+        "14 °C",
+        "4 °C",
+        "0 °C",
+        "3 °C"
+      ],
+      "page": 281
+    },
+    {
+      "id": 72,
+      "section": "Limitations",
+      "q": "Oppgi riktig verdi/prosedyre: AVIONICS FMS AW169 - QRH 169F0290X004 Volume AP8.0 26 Lims-Norm-Perf Issue 3 Rev. 1 AFCS APPROACH MODES LIMITATIONS Maximum ROD.................................",
+      "a": 1,
+      "choices": [
+        "131 KIAS",
+        "130 KIAS",
+        "128 KIAS",
+        "125 KIAS"
+      ],
+      "page": 296
+    },
+    {
+      "id": 73,
+      "section": "Limitations",
+      "q": "Hva gjelder her: CHARTS DIAGS AW169 - QRH 169F0290X004 Volume AP8.0 27 Issue 3 Rev. 1 Lims-Norm-Perf CHARTS & DIAGRAMS WEIGHT AND LONGITUDINAL CG LIMITATIONS 35 WEIGHT AND LA...",
+      "a": 0,
+      "choices": [
+        "4600 KG",
+        "4601 KG",
+        "4598 KG",
+        "4595 KG"
+      ],
+      "page": 297
+    },
+    {
+      "id": 74,
+      "section": "Limitations",
+      "q": "Hva er faktakravet: ENG SYST AW169 - QRH 169F0290X004 Volume AP8.0 16 Lims-Norm-Perf Issue 3 HYDOP BAR 163 163 to 184 185 to 227 228 to 235 235 EMER BUS VOLTAGE 22 30 HYDOT °C -...",
+      "a": 0,
+      "choices": [
+        "Min",
+        "tillatt",
+        "forbudt",
+        "ikke tillatt"
+      ],
+      "page": 286
+    },
+    {
+      "id": 75,
+      "section": "Limitations",
+      "q": "Hva gjelder her: AW169 - QRH 169F0290X004 Volume AP8.0 TOC-1 Issue 3 Rev. 1 Lims-Norm-Perf GENERAL, TYPE OF OPERATION, MINIMUM FLIGHT CREW, CG LIMITATIONS ......................",
+      "a": 2,
+      "choices": [
+        "tillatt",
+        "forbudt",
+        "MINIMUM",
+        "ikke tillatt"
+      ],
+      "page": 257
+    },
+    {
+      "id": 76,
+      "section": "Limitations",
+      "q": "Oppgi riktig verdi/prosedyre: APPR LAND AW169 - QRH 169F0290X004 Volume AP8.0 183 Issue 3 Lims-Norm-Perf 1. Pre-landing checks — Complete. 2. Landing direction — If possible carry out an ...",
+      "a": 1,
+      "choices": [
+        "3 kts",
+        "5 kts",
+        "0 kts",
+        "55 kts"
+      ],
+      "page": 453
+    },
+    {
+      "id": 77,
+      "section": "Limitations",
+      "q": "Hva er korrekt ifølge QRH: GEN LIMS AW169 - QRH 169F0290X004 Volume AP8.0 3 Issue 3 Lims-Norm-Perf GENERAL, TYPE OF OPERATION, MINIMUM FLIGHT CREW, CG LIMITATIONS TYPES OF OPERATION 5 ...",
+      "a": 2,
+      "choices": [
+        "tillatt",
+        "forbudt",
+        "MINIMUM",
+        "ikke tillatt"
+      ],
+      "page": 273
+    },
+    {
+      "id": 78,
+      "section": "Limitations",
+      "q": "Oppgi riktig verdi/prosedyre: CHARTS DIAGS AW169 - QRH 169F0290X004 Volume AP8.0 28 Lims-Norm-Perf Issue 3 Rev. 1 WAT FOR TAKE-OFF AND LANDING ZERO WIND OR HEADWIND - AEO TOP - EAPS OFF -...",
+      "a": 3,
+      "choices": [
+        "4602 KG",
+        "4599 KG",
+        "4580 KG",
+        "4600 KG"
+      ],
+      "page": 298
+    },
+    {
+      "id": 79,
+      "section": "Performance",
+      "q": "Hva gjelder her: FD/FMS OPER AW169 - QRH 169F0290X004 Volume AP8.0 193 Issue 3 Lims-Norm-Perf FLIGHT MANAGEMENT SYSTEM OPERATION PRE-DEPARTURE OPERATIONS — On EDCU HOME page,...",
+      "a": 1,
+      "choices": [
+        "tillatt",
+        "required",
+        "forbudt",
+        "ikke tillatt"
+      ],
+      "page": 463
+    },
+    {
+      "id": 80,
+      "section": "Performance",
+      "q": "Oppgi riktig verdi/prosedyre: APPR LAND AW169 - QRH 169F0290X004 Volume AP8.0 178 Lims-Norm-Perf Issue 3 1. Pre-landing checks — Complete 2. EDCU, MISC, AURAL INHIBIT — Select NORMAL or L...",
+      "a": 2,
+      "choices": [
+        "69 KIAS",
+        "80 KIAS",
+        "70 KIAS",
+        "55 KIAS"
+      ],
+      "page": 448
+    },
+    {
+      "id": 81,
+      "section": "Performance",
+      "q": "Hva er korrekt ifølge QRH: CAUTION MSGs AW169 - QRH 169F0290X004 Volume AP8.0 72 Emerg-Malfunc Issue 3 Rev. 1 on side of PI and between NG and ITT indications 185 Associated side engin...",
+      "a": 1,
+      "choices": [
+        "tillatt",
+        "min",
+        "forbudt",
+        "ikke tillatt"
+      ],
+      "page": 76
+    },
+    {
+      "id": 82,
+      "section": "Performance",
+      "q": "Hva er korrekt ifølge QRH: AW169 - QRH 169F0290X004 Volume AP8.0 238 Lims-Norm-Perf Issue 3 Rev. 1 CONTR & H/V CHART A - FLYAWAY TRANSFER VALUE – EAPS OFF/ON UP TO 4600 KG 290 CHART B ...",
+      "a": 2,
+      "choices": [
+        "4602 KG",
+        "4590 KG",
+        "4600 KG",
+        "4580 KG"
+      ],
+      "page": 508
+    },
+    {
+      "id": 83,
+      "section": "Performance",
+      "q": "Hva gjelder her: APPR LAND AW169 - QRH 169F0290X004 Volume AP8.0 180 Lims-Norm-Perf Issue 3 5. Initial point — Establish an approach at 20 kts GS and 50 ft higher than LDP he...",
+      "a": 0,
+      "choices": [
+        "20 kts",
+        "18 kts",
+        "0 kts",
+        "70 kts"
+      ],
+      "page": 450
+    },
+    {
+      "id": 84,
+      "section": "Performance",
+      "q": "Oppgi riktig verdi/prosedyre: TAXI T-O CAT A/B AW169 - QRH 169F0290X004 Volume AP8.0 160 Lims-Norm-Perf Issue 3 8. Warnings and Cautions — None/as required. 9. Flight controls — Check cor...",
+      "a": 1,
+      "choices": [
+        "1050 ft",
+        "1000 ft",
+        "999 ft",
+        "998 ft"
+      ],
+      "page": 430
+    },
+    {
+      "id": 85,
+      "section": "Performance",
+      "q": "Hva gjelder her: PFD/MFD MSGs AW169 - QRH 169F0290X004 Volume AP8.0 196 Emerg-Malfunc Issue 3 FMS MESSAGES ON PFD FMS DGR + RNP + MSG FMS DGR is the main alerting message on ...",
+      "a": 1,
+      "choices": [
+        "tillatt",
+        "required",
+        "forbudt",
+        "ikke tillatt"
+      ],
+      "page": 206
+    },
+    {
+      "id": 86,
+      "section": "Performance",
+      "q": "Hva gjelder her: HVR ROC PAC WIND AW169 - QRH 169F0290X004 Volume AP8.0 340 Lims-Norm-Perf Issue 3 Rev. 1 RATE OF CLIMB The climb performance shown is based on flight test re...",
+      "a": 1,
+      "choices": [
+        "3195 kg",
+        "3200 kg",
+        "3150 kg",
+        "3210 kg"
+      ],
+      "page": 610
+    },
+    {
+      "id": 87,
+      "section": "Performance",
+      "q": "Oppgi riktig verdi/prosedyre: TAXI T-O CAT A/B AW169 - QRH 169F0290X004 Volume AP8.0 156 Lims-Norm-Perf Issue 3 1. Pilot Altimeter — Set 0 ft or nearest 1000 ft setting to T-O altitude, w...",
+      "a": 0,
+      "choices": [
+        "1000 ft",
+        "990 ft",
+        "1025 ft",
+        "998 ft"
+      ],
+      "page": 426
+    },
+    {
+      "id": 88,
+      "section": "Performance",
+      "q": "Hva er korrekt ifølge QRH: TAXI T-O CAT A/B AW169 - QRH 169F0290X004 Volume AP8.0 158 Lims-Norm-Perf Issue 3 4. Power checks — Carry out as required in accordance with ENGINE POWER CHE...",
+      "a": 0,
+      "choices": [
+        "1000 ft",
+        "975 ft",
+        "1001 ft",
+        "950 ft"
+      ],
+      "page": 428
+    },
+    {
+      "id": 89,
+      "section": "Performance",
+      "q": "Hva gjelder her: APPR LAND AW169 - QRH 169F0290X004 Volume AP8.0 176 Lims-Norm-Perf Issue 3 3. Landing lights — For night operations set as follows: Flying pilot side set poi...",
+      "a": 1,
+      "choices": [
+        "65 KIAS",
+        "40 KIAS",
+        "25 KIAS",
+        "30 KIAS"
+      ],
+      "page": 446
+    },
+    {
+      "id": 90,
+      "section": "Emergency Procedures",
+      "q": "Hva er korrekt ifølge QRH: ENG APU AW169 - QRH 169F0290X004 Volume AP8.0 120 Emerg-Malfunc Issue 3 ENGINE OIL TEMPERATURE END 1 ENG OIL TEMP Note This caution may illuminate in case of...",
+      "a": 2,
+      "choices": [
+        "tillatt",
+        "forbudt",
+        "min",
+        "ikke tillatt"
+      ],
+      "page": 130
+    },
+    {
+      "id": 91,
+      "section": "Emergency Procedures",
+      "q": "Oppgi riktig verdi/prosedyre: ENG FAIL SHT DWN AW169 - QRH 169F0290X004 Volume AP8.0 27 Issue 3 Emerg-Malfunc END 15. Wheel brakes — Apply as required. Note When on ground consider using ...",
+      "a": 3,
+      "choices": [
+        "tillatt",
+        "forbudt",
+        "ikke tillatt",
+        "required"
+      ],
+      "page": 31
+    },
+    {
+      "id": 92,
+      "section": "Emergency Procedures",
+      "q": "Oppgi riktig verdi/prosedyre: AW169 - QRH 169F0290X004 Volume AP8.0 234 Emerg-Malfunc Issue 3 OEI PROC CAT A 4. Landing gear — Up . 5. At 1000 ft ALS — On failed engine carry out ENGINE S...",
+      "a": 2,
+      "choices": [
+        "950 ft",
+        "1025 ft",
+        "1000 ft",
+        "999 ft"
+      ],
+      "page": 246
+    },
+    {
+      "id": 93,
+      "section": "Emergency Procedures",
+      "q": "Oppgi riktig verdi/prosedyre: ENG FAIL SHT DWN AW169 - QRH 169F0290X004 Volume AP8.0 26 Emerg-Malfunc Issue 3 AUTOROTATIVE LANDING PROCEDURE ON LAND The procedure which follows outlines t...",
+      "a": 3,
+      "choices": [
+        "140 ft",
+        "170 ft",
+        "100 ft",
+        "150 ft"
+      ],
+      "page": 30
+    },
+    {
+      "id": 94,
+      "section": "Emergency Procedures",
+      "q": "Oppgi riktig verdi/prosedyre: AW169 - QRH 169F0290X004 Volume AP8.0 217 Issue 3 Emerg-Malfunc OEI PROC CAT A SINGLE ENGINE PROCEDURE The following procedure intends to indicate the proced...",
+      "a": 3,
+      "choices": [
+        "110 kg",
+        "159 kg",
+        "180 kg",
+        "160 kg"
+      ],
+      "page": 229
+    },
+    {
+      "id": 95,
+      "section": "Emergency Procedures",
+      "q": "Hva gjelder her: AW169 - QRH 169F0290X004 Volume AP8.0 239 Issue 3 Emerg-Malfunc OEI PROC CAT A 1. Collective/Cyclic — Continue rotation to 12° nose down to achieve 15 kts GS...",
+      "a": 0,
+      "choices": [
+        "15 kts",
+        "0 kts",
+        "10 kts",
+        "17 kts"
+      ],
+      "page": 251
+    },
+    {
+      "id": 96,
+      "section": "Emergency Procedures",
+      "q": "Oppgi riktig verdi/prosedyre: ENG FAIL SHT DWN AW169 - QRH 169F0290X004 Volume AP8.0 33 Issue 3 Rev. 1 Emerg-Malfunc SINGLE ENGINE FAILURE IN HOVER END SINGLE ENGINE FAILURE ON TAKE-OFF C...",
+      "a": 0,
+      "choices": [
+        "70 KIAS",
+        "60 KIAS",
+        "65 KIAS",
+        "90 KIAS"
+      ],
+      "page": 37
+    },
+    {
+      "id": 97,
+      "section": "Emergency Procedures",
+      "q": "Hva er korrekt ifølge QRH: FIRE AW169 - QRH 169F0290X004 Volume AP8.0 45 Issue 3 Rev. 1 Emerg-Malfunc ELECTRICAL FIRE/SMOKE PROCEDURE CONTINUED END Battery power is available for maxim...",
+      "a": 2,
+      "choices": [
+        "tillatt",
+        "forbudt",
+        "maximum",
+        "ikke tillatt"
+      ],
+      "page": 49
+    },
+    {
+      "id": 98,
+      "section": "Emergency Procedures",
+      "q": "Hva gjelder her: ENG FAIL SHT DWN AW169 - QRH 169F0290X004 Volume AP8.0 29 Issue 3 Emerg-Malfunc END 12. Landing — Dependent on sea state, prevailing winds and current, appro...",
+      "a": 3,
+      "choices": [
+        "31 kts",
+        "20 kts",
+        "10 kts",
+        "30 kts"
+      ],
+      "page": 33
+    },
+    {
+      "id": 99,
+      "section": "Emergency Procedures",
+      "q": "Hva er faktakravet: FIRE AW169 - QRH 169F0290X004 Volume AP8.0 43 Issue 3 Emerg-Malfunc ENGINE EXHAUST FIRE AFTER SHUTDOWN IF there are visible signs of fire in the engine exhau...",
+      "a": 2,
+      "choices": [
+        "tillatt",
+        "forbudt",
+        "required",
+        "ikke tillatt"
+      ],
+      "page": 47
+    },
+    {
+      "id": 100,
+      "section": "Emergency Procedures",
+      "q": "Hva er faktakravet: AW169 - QRH 169F0290X004 Volume AP8.0 232 Emerg-Malfunc Issue 3 OEI PROC CAT A 4. Landing gear — Select UP, when reaching V Y . 5. At 1000 ft ATS — On failed...",
+      "a": 3,
+      "choices": [
+        "1025 ft",
+        "950 ft",
+        "980 ft",
+        "1000 ft"
+      ],
+      "page": 244
+    },
+    {
+      "id": 101,
+      "section": "Emergency Procedures",
+      "q": "Hva er faktakravet: LDG GR STC PRT AW169 - QRH 169F0290X004 Volume AP8.0 52 Emerg-Malfunc Issue 3 LANDING GEAR EMERGENCY DOWN PROCEDURE END Note When the landing gear has been e...",
+      "a": 3,
+      "choices": [
+        "60 kts",
+        "35 kts",
+        "45 kts",
+        "50 kts"
+      ],
+      "page": 56
+    },
+    {
+      "id": 102,
+      "section": "Emergency Procedures",
+      "q": "Hva er faktakravet: LDG GR STC PRT AW169 - QRH 169F0290X004 Volume AP8.0 51 Issue 3 Emerg-Malfunc LANDING GEAR FAILS TO RAISE END IF , after selecting the landing gear UP one or...",
+      "a": 2,
+      "choices": [
+        "100 KIAS",
+        "79 KIAS",
+        "80 KIAS",
+        "78 KIAS"
+      ],
+      "page": 55
+    },
+    {
+      "id": 103,
+      "section": "Emergency Procedures",
+      "q": "Hva er korrekt ifølge QRH: ENG FAIL SHT DWN AW169 - QRH 169F0290X004 Volume AP8.0 25 Issue 3 Emerg-Malfunc DOUBLE ENGINE FAILURE A sequential or simultaneous failure of both engines wi...",
+      "a": 3,
+      "choices": [
+        "1950 ft",
+        "2020 ft",
+        "1985 ft",
+        "2000 ft"
+      ],
+      "page": 29
+    },
+    {
+      "id": 104,
+      "section": "Emergency Procedures",
+      "q": "Hva gjelder her: ENG FAIL SHT DWN AW169 - QRH 169F0290X004 Volume AP8.0 35 Issue 3 Rev. 1 Emerg-Malfunc ENGINE SHUTDOWN IN EMERGENCY CAUTION Care should be taken in confirmin...",
+      "a": 2,
+      "choices": [
+        "tillatt",
+        "forbudt",
+        "required",
+        "ikke tillatt"
+      ],
+      "page": 39
+    },
+    {
+      "id": 105,
+      "section": "Emergency Procedures",
+      "q": "Hva er faktakravet: AW169 - QRH 169F0290X004 Volume AP8.0 221 Issue 3 Emerg-Malfunc OEI PROC CAT A 1. Collective/Cyclic — Rotate pitch down to -15°. Maintain this attitude until...",
+      "a": 1,
+      "choices": [
+        "250 ft",
+        "200 ft",
+        "190 ft",
+        "195 ft"
+      ],
+      "page": 233
+    },
+    {
+      "id": 106,
+      "section": "Emergency Procedures",
+      "q": "Oppgi riktig verdi/prosedyre: ENG FAIL SHT DWN AW169 - QRH 169F0290X004 Volume AP8.0 34 Emerg-Malfunc Issue 3 END SINGLE ENGINE FAILURE DURING CRUISE END 4. Descent — At 300 ft initiate a...",
+      "a": 3,
+      "choices": [
+        "0 KIAS",
+        "39 KIAS",
+        "60 KIAS",
+        "40 KIAS"
+      ],
+      "page": 38
+    },
+    {
+      "id": 107,
+      "section": "Emergency Procedures",
+      "q": "Hva gjelder her: AW169 - QRH 169F0290X004 Volume AP8.0 229 Issue 3 Emerg-Malfunc OEI PROC CAT A CAT A - GROUND AND EL EVATED HELIPORT / HELIDECK VARIABLE TDP/LDP EMERGENCY PR...",
+      "a": 1,
+      "choices": [
+        "0 kts",
+        "5 kts",
+        "7 kts",
+        "4 kts"
+      ],
+      "page": 241
+    },
+    {
+      "id": 108,
+      "section": "Emergency Procedures",
+      "q": "Oppgi riktig verdi/prosedyre: ENG FAIL SHT DWN AW169 - QRH 169F0290X004 Volume AP8.0 28 Emerg-Malfunc Issue 3 AUTOROTATIVE LANDING PROCEDURE ON WATER The procedure which follows outlines ...",
+      "a": 3,
+      "choices": [
+        "160 ft",
+        "149 ft",
+        "130 ft",
+        "150 ft"
+      ],
+      "page": 32
+    },
+    {
+      "id": 109,
+      "section": "Emergency Procedures",
+      "q": "Hva er korrekt ifølge QRH: AW169 - QRH 169F0290X004 Volume AP8.0 241 Issue 3 Emerg-Malfunc OEI PROC CAT A 1. Collective/Cyclic Control — Apply collective to set OEI 2.5 min power setti...",
+      "a": 0,
+      "choices": [
+        "200 ft",
+        "195 ft",
+        "201 ft",
+        "180 ft"
+      ],
+      "page": 253
+    },
+    {
+      "id": 110,
+      "section": "Emergency Procedures",
+      "q": "Hva er korrekt ifølge QRH: LDG GR STC PRT AW169 - QRH 169F0290X004 Volume AP8.0 49 Issue 3 Emerg-Malfunc LANDING GEAR LANDING GEAR FAIL S TO LOCK DOWN - Press LAMP TEST key and confirm...",
+      "a": 0,
+      "choices": [
+        "80 KIAS",
+        "79 KIAS",
+        "78 KIAS",
+        "85 KIAS"
+      ],
+      "page": 53
+    },
+    {
+      "id": 111,
+      "section": "Emergency Procedures",
+      "q": "Hva er faktakravet: AW169 - QRH 169F0290X004 Volume AP8.0 2 Emerg-Malfunc Issue 3 GENERAL This section contains the procedures th at should be performed in the event of an emerg...",
+      "a": 1,
+      "choices": [
+        "tillatt",
+        "required",
+        "forbudt",
+        "ikke tillatt"
+      ],
+      "page": 2
+    },
+    {
+      "id": 112,
+      "section": "Emergency Procedures",
+      "q": "Hva gjelder her: LDG GR STC PRT AW169 - QRH 169F0290X004 Volume AP8.0 53 Issue 3 Emerg-Malfunc STATIC PORT OBSTRUCTION If erratic readings from the altimeter indicator occur,...",
+      "a": 1,
+      "choices": [
+        "190 ft",
+        "200 ft",
+        "250 ft",
+        "195 ft"
+      ],
+      "page": 57
+    },
+    {
+      "id": 113,
+      "section": "Systems/Avionics",
+      "q": "Hva gjelder her: ENG START AW169 - QRH 169F0290X004 Volume AP8.0 148 Lims-Norm-Perf Issue 3 26. MFD, P-PLANT page — Check all parameters within limits. 27. CAS — Clear or as ...",
+      "a": 2,
+      "choices": [
+        "tillatt",
+        "forbudt",
+        "required",
+        "ikke tillatt"
+      ],
+      "page": 418
+    },
+    {
+      "id": 114,
+      "section": "Systems/Avionics",
+      "q": "Hva gjelder her: ENG APU AW169 - QRH 169F0290X004 Volume AP8.0 131 Issue 3 Rev. 1 Emerg-Malfunc RESTARTING PROCEDURE CAUTION In flight, should an engine re-starting be needed...",
+      "a": 2,
+      "choices": [
+        "110 KIAS",
+        "105 KIAS",
+        "120 KIAS",
+        "140 KIAS"
+      ],
+      "page": 141
+    },
+    {
+      "id": 115,
+      "section": "Systems/Avionics",
+      "q": "Hva er faktakravet: PFD/MFD MSGs AW169 - QRH 169F0290X004 Volume AP8.0 175 Issue 3 Emerg-Malfunc SINGLE RAD ALT FAILURE END RA1 ICN-69-A-153000-G-00003-01176-A-01-1 Radio Altimi...",
+      "a": 3,
+      "choices": [
+        "201 ft",
+        "180 ft",
+        "150 ft",
+        "200 ft"
+      ],
+      "page": 185
+    },
+    {
+      "id": 116,
+      "section": "Systems/Avionics",
+      "q": "Hva er korrekt ifølge QRH: WARNING MSGs AW169 - QRH 169F0290X004 Volume AP8.0 77 Issue 3 Emerg-Malfunc VOICE MESSAGES END 1. “AIRSPEED, AIRSPEED“ Vne speed exceeded. 2. “150 FEET” Airc...",
+      "a": 0,
+      "choices": [
+        "38 KIAS",
+        "37 KIAS",
+        "36 KIAS",
+        "58 KIAS"
+      ],
+      "page": 11
+    },
+    {
+      "id": 117,
+      "section": "Systems/Avionics",
+      "q": "Hva er korrekt ifølge QRH: AFCS AW169 - QRH 169F0290X004 Volume AP8.0 82 Emerg-Malfunc Issue 3 PITCH TRIM FAILURE END P TRIM FAIL MISTRIM - - Continue flight. - - Continue flight. bein...",
+      "a": 3,
+      "choices": [
+        "135 KIAS",
+        "110 KIAS",
+        "100 KIAS",
+        "120 KIAS"
+      ],
+      "page": 86
+    },
+    {
+      "id": 118,
+      "section": "Systems/Avionics",
+      "q": "Hva gjelder her: EXT/INT CHECKS AW169 - QRH 169F0290X004 Volume AP8.0 124 Lims-Norm-Perf Issue 3 When MGB oil is very cold, pressure indica tion is slow to rise but then it m...",
+      "a": 0,
+      "choices": [
+        "10 °C",
+        "5 °C",
+        "9 °C",
+        "12 °C"
+      ],
+      "page": 394
+    },
+    {
+      "id": 119,
+      "section": "Systems/Avionics",
+      "q": "Hva gjelder her: AVIONIC AW169 - QRH 169F0290X004 Volume AP8.0 98 Emerg-Malfunc Issue 3 Rev. 1 AMMC FAILURE END 1 AMMC FAIL - - Continue flight. Associated AMMC failed. See N...",
+      "a": 1,
+      "choices": [
+        "tillatt",
+        "min",
+        "forbudt",
+        "ikke tillatt"
+      ],
+      "page": 102
+    },
+    {
+      "id": 120,
+      "section": "Systems/Avionics",
+      "q": "Hva er korrekt ifølge QRH: AW169 - QRH 169F0290X004 Volume AP8.0 218 Emerg-Malfunc Issue 3 OEI PROC CAT A SINGLE ENGINE DESCENT CHECKS SINGLE ENGINE APPROACH AND LANDING SINGLE ENGINE ...",
+      "a": 1,
+      "choices": [
+        "tillatt",
+        "required",
+        "forbudt",
+        "ikke tillatt"
+      ],
+      "page": 230
+    },
+    {
+      "id": 121,
+      "section": "Systems/Avionics",
+      "q": "Hva er korrekt ifølge QRH: CAUTION MSGs AW169 - QRH 169F0290X004 Volume AP8.0 70 Emerg-Malfunc Issue 3 Rev. 1 210 Associated MGB engine input oil pressure low. 80 Linear actuators not ...",
+      "a": 3,
+      "choices": [
+        "3 ° C",
+        "14 ° C",
+        "0 ° C",
+        "4° C"
+      ],
+      "page": 74
+    },
+    {
+      "id": 122,
+      "section": "Systems/Avionics",
+      "q": "Hva gjelder her: ELEC AW169 - QRH 169F0290X004 Volume AP8.0 13 Issue 3 Emerg-Malfunc ELECTRICAL SYSTEM DOUBLE DC GENERATOR FAILURE END ELEC FAIL ELEC remains: ELEC FAIL 1 DC ...",
+      "a": 1,
+      "choices": [
+        "tillatt",
+        "required",
+        "forbudt",
+        "ikke tillatt"
+      ],
+      "page": 17
+    },
+    {
+      "id": 123,
+      "section": "Systems/Avionics",
+      "q": "Oppgi riktig verdi/prosedyre: PFD/MFD MSGs AW169 - QRH 169F0290X004 Volume AP8.0 202 Emerg-Malfunc Issue 3 Rev. 1 RAIM + RAIM WILL EXCEED LIMIT on EDCU APCH/ RNAV APP or RNP 0.3 All Phase...",
+      "a": 0,
+      "choices": [
+        "required",
+        "tillatt",
+        "forbudt",
+        "ikke tillatt"
+      ],
+      "page": 212
+    },
+    {
+      "id": 124,
+      "section": "Systems/Avionics",
+      "q": "Hva er faktakravet: ENG START AW169 - QRH 169F0290X004 Volume AP8.0 138 Lims-Norm-Perf Issue 3 Rev. 1 CAUTION Should motoring procedure carried out in battery power, it is neces...",
+      "a": 3,
+      "choices": [
+        "tillatt",
+        "forbudt",
+        "ikke tillatt",
+        "required"
+      ],
+      "page": 408
+    },
+    {
+      "id": 125,
+      "section": "Systems/Avionics",
+      "q": "Hva gjelder her: AFCS AW169 - QRH 169F0290X004 Volume AP8.0 84 Emerg-Malfunc Issue 3 YAW TRIM FAILURE END Y TRIM FAIL MISTRIM - - Continue flight. caution illuminates see pag...",
+      "a": 0,
+      "choices": [
+        "120 KIAS",
+        "135 KIAS",
+        "110 KIAS",
+        "70 KIAS"
+      ],
+      "page": 88
+    },
+    {
+      "id": 126,
+      "section": "Systems/Avionics",
+      "q": "Hva gjelder her: AFCS AW169 - QRH 169F0290X004 Volume AP8.0 83 Issue 3 Emerg-Malfunc ROLL TRIM FAILURE END R TRIM FAIL MISTRIM - - Continue flight. - - Continue flight. being...",
+      "a": 1,
+      "choices": [
+        "105 KIAS",
+        "120 KIAS",
+        "130 KIAS",
+        "100 KIAS"
+      ],
+      "page": 87
+    },
+    {
+      "id": 127,
+      "section": "Systems/Avionics",
+      "q": "Hva gjelder her: ROTOR XMSN AW169 - QRH 169F0290X004 Volume AP8.0 59 Issue 3 Emerg-Malfunc TRANSMISSION TRANSMISSION SYSTEM FAILURES OR DEGRADATIONS The most common transmiss...",
+      "a": 1,
+      "choices": [
+        "tillatt",
+        "required",
+        "forbudt",
+        "ikke tillatt"
+      ],
+      "page": 63
+    },
+    {
+      "id": 128,
+      "section": "Systems/Avionics",
+      "q": "Hva er korrekt ifølge QRH: AFCS AW169 - QRH 169F0290X004 Volume AP8.0 81 Issue 3 Emerg-Malfunc TRIM FAILURE END TRIM FAIL MISTRIM - - Continue flight. - - Continue flight. being aware ...",
+      "a": 0,
+      "choices": [
+        "120 KIAS",
+        "70 KIAS",
+        "95 KIAS",
+        "140 KIAS"
+      ],
+      "page": 85
+    },
+    {
+      "id": 129,
+      "section": "Systems/Avionics",
+      "q": "Hva er faktakravet: AFCS AW169 - QRH 169F0290X004 Volume AP8.0 87 Issue 3 Emerg-Malfunc AFCS PANEL FAILURE END AUTOPILOT- AHRS FAILURE END AFCS PNL FAIL Failure of upper modes c...",
+      "a": 3,
+      "choices": [
+        "95 KIAS",
+        "115 KIAS",
+        "170 KIAS",
+        "120 KIAS"
+      ],
+      "page": 91
+    },
+    {
+      "id": 130,
+      "section": "Systems/Avionics",
+      "q": "Hva er faktakravet: AFCS AW169 - QRH 169F0290X004 Volume AP8.0 86 Emerg-Malfunc Issue 3 AUTOPILOT DEGRADED END AUTOPILOT CAS FAILURE END AP DEGR - Reduce speed not to exceed 120...",
+      "a": 0,
+      "choices": [
+        "120 KIAS",
+        "119 KIAS",
+        "170 KIAS",
+        "105 KIAS"
+      ],
+      "page": 90
+    },
+    {
+      "id": 131,
+      "section": "Systems/Avionics",
+      "q": "Hva gjelder her: AW169 - QRH 169F0290X004 Volume AP8.0 159 Issue 3 Emerg-Malfunc LDG GR MISC CABIN DOOR OPEN END BAGGAGE BAY DOOR OPEN END CABIN DOOR CAUTION When opening or ...",
+      "a": 2,
+      "choices": [
+        "40 KIAS",
+        "10 KIAS",
+        "60 KIAS",
+        "61 KIAS"
+      ],
+      "page": 169
+    },
+    {
+      "id": 132,
+      "section": "Systems/Avionics",
+      "q": "Hva er korrekt ifølge QRH: AVIONIC AW169 - QRH 169F0290X004 Volume AP8.0 100 Emerg-Malfunc Issue 3 AVIONIC CONFIG URATION FAILURE END NOSE BAY FAN FAIL END AVIONIC CONF FAIL - Shutdown...",
+      "a": 3,
+      "choices": [
+        "0 °C",
+        "30 °C",
+        "55 °C",
+        "45 °C"
+      ],
+      "page": 104
+    },
+    {
+      "id": 133,
+      "section": "Systems/Avionics",
+      "q": "Hva er faktakravet: AW169 - QRH 169F0290X004 Volume AP8.0 143 Issue 3 Emerg-Malfunc HYD HYDRAULIC SYSTEM HYDRAULIC 1 PRESSURE LOW END 1 HYD OIL PRESS + AND - Reduce speed to 120...",
+      "a": 0,
+      "choices": [
+        "120 KIAS",
+        "105 KIAS",
+        "95 KIAS",
+        "130 KIAS"
+      ],
+      "page": 153
+    },
+    {
+      "id": 134,
+      "section": "Systems/Avionics",
+      "q": "Hva gjelder her: PFD/MFD MSGs AW169 - QRH 169F0290X004 Volume AP8.0 200 Emerg-Malfunc Issue 3 3. Procedure when EPU + XTR > RNP CONTINUATION FROM PREVIOUS PAGE END EPU 300 IC...",
+      "a": 1,
+      "choices": [
+        "tillatt",
+        "required",
+        "forbudt",
+        "ikke tillatt"
+      ],
+      "page": 210
+    },
+    {
+      "id": 135,
+      "section": "Systems/Avionics",
+      "q": "Hva er faktakravet: AW169 - QRH 169F0290X004 Volume AP8.0 158 Emerg-Malfunc Issue 3 LDG GR MISC SENSOR DORMANT FAILURE END COCKPIT DOOR OPEN END SNSR DORMANT FAIL Failure of at ...",
+      "a": 0,
+      "choices": [
+        "80 KIAS",
+        "55 KIAS",
+        "79 KIAS",
+        "82 KIAS"
+      ],
+      "page": 168
+    },
+    {
+      "id": 136,
+      "section": "Systems/Avionics",
+      "q": "Oppgi riktig verdi/prosedyre: AFCS AW169 - QRH 169F0290X004 Volume AP8.0 77 Issue 3 Rev. 1 Emerg-Malfunc AUTOMATIC FLIGHT CONTROL SYSTEM AUTOPILOT FAIL Note If any AP channel is failed, c...",
+      "a": 1,
+      "choices": [
+        "119 KIAS",
+        "120 KIAS",
+        "122 KIAS",
+        "115 KIAS"
+      ],
+      "page": 81
+    },
+    {
+      "id": 137,
+      "section": "Systems/Avionics",
+      "q": "Oppgi riktig verdi/prosedyre: FD/FMS OPER AW169 - QRH 169F0290X004 Volume AP8.0 199 Issue 3 Lims-Norm-Perf The FMS defaults the VFR Approach parame ters any time the Pilot enters the VFR ...",
+      "a": 2,
+      "choices": [
+        "1501 ft",
+        "1475 ft",
+        "1500 ft",
+        "1490 ft"
+      ],
+      "page": 469
+    },
+    {
+      "id": 138,
+      "section": "Systems/Avionics",
+      "q": "Hva er korrekt ifølge QRH: PFD/MFD MSGs AW169 - QRH 169F0290X004 Volume AP8.0 172 Emerg-Malfunc Issue 3 MAG DEGR CAPTION CONTINUED END Loss of heading computation by AHRS on asso- ciat...",
+      "a": 1,
+      "choices": [
+        "82 kts",
+        "80 kts",
+        "70 kts",
+        "60 kts"
+      ],
+      "page": 182
+    },
+    {
+      "id": 139,
+      "section": "Systems/Avionics",
+      "q": "Hva er faktakravet: AFCS AW169 - QRH 169F0290X004 Volume AP8.0 90 Emerg-Malfunc Issue 3 COLLECTIVE FORCE TR IM RELEASE FAILURE END LOSS OF FORCE FEEL ON PEDALS END PEDALS FORCE ...",
+      "a": 3,
+      "choices": [
+        "15 KIAS",
+        "39 KIAS",
+        "42 KIAS",
+        "40 KIAS"
+      ],
+      "page": 94
+    },
+    {
+      "id": 140,
+      "section": "Systems/Avionics",
+      "q": "Oppgi riktig verdi/prosedyre: CAUTION MSGs AW169 - QRH 169F0290X004 Volume AP8.0 66 Emerg-Malfunc Issue 3 91 Associated AP channel PFT failed . 86 AFCS CAS and audio messages not availabl...",
+      "a": 0,
+      "choices": [
+        "required",
+        "tillatt",
+        "forbudt",
+        "ikke tillatt"
+      ],
+      "page": 70
+    },
+    {
+      "id": 141,
+      "section": "Systems/Avionics",
+      "q": "Hva er korrekt ifølge QRH: AW169 - QRH 169F0290X004 Volume AP8.0 156 Emerg-Malfunc Issue 3 LDG GR MISC MISCELLANEOUS SYSTEM PITOT HEATER OFF END 1 PITOT HEAT OFF - - Select PITOT 1 HTR...",
+      "a": 1,
+      "choices": [
+        "2 °C",
+        "4 °C",
+        "9 °C",
+        "0 °C"
+      ],
+      "page": 166
+    },
+    {
+      "id": 142,
+      "section": "Systems/Avionics",
+      "q": "Hva er korrekt ifølge QRH: ENG START AW169 - QRH 169F0290X004 Volume AP8.0 140 Lims-Norm-Perf Issue 3 22. Flight Controls — Carry out cyclic, collective and yaw pedals full and free ch...",
+      "a": 0,
+      "choices": [
+        "required",
+        "tillatt",
+        "forbudt",
+        "ikke tillatt"
+      ],
+      "page": 410
+    },
+    {
+      "id": 143,
+      "section": "Systems/Avionics",
+      "q": "Oppgi riktig verdi/prosedyre: AFCS AW169 - QRH 169F0290X004 Volume AP8.0 89 Issue 3 Rev. 1 Emerg-Malfunc LOSS OF FORCE FEEL ON CYCLIC END CYCLIC FORCE TRIM RELEASE FAILURE END LOSS OF FOR...",
+      "a": 3,
+      "choices": [
+        "121 KIAS",
+        "118 KIAS",
+        "100 KIAS",
+        "120 KIAS"
+      ],
+      "page": 93
+    },
+    {
+      "id": 144,
+      "section": "Systems/Avionics",
+      "q": "Hva er korrekt ifølge QRH: AFCS AW169 - QRH 169F0290X004 Volume AP8.0 88 Emerg-Malfunc Issue 3 Rev. 1 AFCS OSCILLAT ORY MALFUNCTION END - - Engage AP 2 and disengage AP 1. - - Maintain...",
+      "a": 3,
+      "choices": [
+        "118 KIAS",
+        "95 KIAS",
+        "130 KIAS",
+        "120 KIAS"
+      ],
+      "page": 92
+    },
+    {
+      "id": 145,
+      "section": "Systems/Avionics",
+      "q": "Hva er faktakravet: AW169 - QRH 169F0290X004 Volume AP8.0 161 Issue 3 Emerg-Malfunc LDG GR MISC COCKPIT AND CABIN VENT FAN FAILURE END ECS FAIL END VENT FAIL - Increase cockpit ...",
+      "a": 0,
+      "choices": [
+        "required",
+        "tillatt",
+        "forbudt",
+        "ikke tillatt"
+      ],
+      "page": 171
+    },
+    {
+      "id": 146,
+      "section": "Systems/Avionics",
+      "q": "Hva gjelder her: POST LD SHT DN AW169 - QRH 169F0290X004 Volume AP8.0 190 Lims-Norm-Perf Issue 3 POST-SHUTDOWN CHECKS Before leaving the aircraft: — Chock wheels if the helic...",
+      "a": 1,
+      "choices": [
+        "19 °C",
+        "20 °C",
+        "0 °C",
+        "30 °C"
+      ],
+      "page": 460
+    },
+    {
+      "id": 147,
+      "section": "Systems/Avionics",
+      "q": "Hva gjelder her: POST LD SHT DN AW169 - QRH 169F0290X004 Volume AP8.0 187 Issue 3 Lims-Norm-Perf POST LANDING AND SHUTDOWN PROCEDURES POST LANDING CHECKS PRE-SHUTDOWN CHECKS ...",
+      "a": 3,
+      "choices": [
+        "tillatt",
+        "forbudt",
+        "ikke tillatt",
+        "required"
+      ],
+      "page": 457
+    },
+    {
+      "id": 148,
+      "section": "Systems/Avionics",
+      "q": "Hva gjelder her: AFCS AW169 - QRH 169F0290X004 Volume AP8.0 85 Issue 3 Emerg-Malfunc COLLECTIVE TRIM FAILURE END C TRIM FAIL - - Continue flight. being aware that AFCS collec...",
+      "a": 1,
+      "choices": [
+        "118 KIAS",
+        "120 KIAS",
+        "95 KIAS",
+        "140 KIAS"
+      ],
+      "page": 89
+    },
+    {
+      "id": 149,
+      "section": "Systems/Avionics",
+      "q": "Oppgi riktig verdi/prosedyre: AW169 - QRH 169F0290X004 Volume AP8.0 153 Issue 3 Rev. 1 Emerg-Malfunc LDG GR MISC LANDING GEAR LANDING GEAR RETRACTED END NOSE WHEEL UNLOCKED Note Landing g...",
+      "a": 0,
+      "choices": [
+        "200 ft",
+        "198 ft",
+        "201 ft",
+        "190 ft"
+      ],
+      "page": 163
+    },
+    {
+      "id": 150,
+      "section": "Systems/Avionics",
+      "q": "Hva er faktakravet: ENG START AW169 - QRH 169F0290X004 Volume AP8.0 139 Issue 3 Lims-Norm-Perf Note The MGB oil pressure is regulated in order to optimize the operative conditio...",
+      "a": 3,
+      "choices": [
+        "tillatt",
+        "forbudt",
+        "ikke tillatt",
+        "Maximum"
+      ],
+      "page": 409
+    },
+    {
+      "id": 151,
+      "section": "Systems/Avionics",
+      "q": "Hva er faktakravet: AFCS AW169 - QRH 169F0290X004 Volume AP8.0 78 Emerg-Malfunc Issue 3 AUTOPILOT OFF END 1 AP OFF On affected AP - Engage channel on AFCS panel. - Maintain spee...",
+      "a": 2,
+      "choices": [
+        "119 KIAS",
+        "105 KIAS",
+        "120 KIAS",
+        "130 KIAS"
+      ],
+      "page": 82
+    },
+    {
+      "id": 152,
+      "section": "Systems/Avionics",
+      "q": "Hva er faktakravet: ENG START AW169 - QRH 169F0290X004 Volume AP8.0 144 Lims-Norm-Perf Issue 3 AFTER ENGINE START CHECKS 1. MFD, P-PLANT page — Check all parameters within limit...",
+      "a": 3,
+      "choices": [
+        "tillatt",
+        "forbudt",
+        "ikke tillatt",
+        "required"
+      ],
+      "page": 414
+    },
+    {
+      "id": 153,
+      "section": "Systems/Avionics",
+      "q": "Hva gjelder her: CAUTION MSGs AW169 - QRH 169F0290X004 Volume AP8.0 69 Issue 3 Rev. 1 Emerg-Malfunc 102B Associated GPS failed. 102E 102F Associated GPS failed. 102 102A Misc...",
+      "a": 1,
+      "choices": [
+        "180 ft",
+        "200 ft",
+        "185 ft",
+        "250 ft"
+      ],
+      "page": 73
+    },
+    {
+      "id": 154,
+      "section": "Systems/Avionics",
+      "q": "Hva er korrekt ifølge QRH: AVIONIC AW169 - QRH 169F0290X004 Volume AP8.0 103 Issue 3 Rev. 1 Emerg-Malfunc FMS/GPS MISCOMPARE END FLIGHT PLAN MISCOMPARE SECTION END Miscompare between t...",
+      "a": 2,
+      "choices": [
+        "tillatt",
+        "forbudt",
+        "prohibited",
+        "ikke tillatt"
+      ],
+      "page": 113
+    },
+    {
+      "id": 155,
+      "section": "Systems/Avionics",
+      "q": "Hva er faktakravet: AFCS AW169 - QRH 169F0290X004 Volume AP8.0 79 Issue 3 Emerg-Malfunc AUTOPILOT MRA FAIL END AUTOPILOT TRA FAIL Note IF illuminates fly feet on pedals. END 1 A...",
+      "a": 3,
+      "choices": [
+        "110 KIAS",
+        "70 KIAS",
+        "121 KIAS",
+        "120 KIAS"
+      ],
+      "page": 83
+    },
+    {
+      "id": 156,
+      "section": "Systems/Avionics",
+      "q": "Hva er korrekt ifølge QRH: AW169 - QRH 169F0290X004 Volume AP8.0 144 Emerg-Malfunc Issue 3 HYD HYDRAULIC 2 PRESSURE LOW END - Reduce speed to 120 KIAS. - Continue flig ht attentive. - ...",
+      "a": 1,
+      "choices": [
+        "115 KIAS",
+        "120 KIAS",
+        "70 KIAS",
+        "145 KIAS"
+      ],
+      "page": 154
+    },
+    {
+      "id": 157,
+      "section": "Systems/Avionics",
+      "q": "Oppgi riktig verdi/prosedyre: FUEL AW169 - QRH 169F0290X004 Volume AP8.0 139 Issue 3 Emerg-Malfunc FUEL PROBE FAILURE SECTION END - Monitor for caution when remainin fuel will be 51 kg. 2...",
+      "a": 3,
+      "choices": [
+        "158 kg",
+        "150 kg",
+        "161 kg",
+        "160 kg"
+      ],
+      "page": 149
+    },
+    {
+      "id": 158,
+      "section": "Systems/Avionics",
+      "q": "Oppgi riktig verdi/prosedyre: ENG APU AW169 - QRH 169F0290X004 Volume AP8.0 133 Issue 3 Emerg-Malfunc APU MAIN INHIBIT Note To disengage the No. 1 engine from the main rotor and enter the...",
+      "a": 2,
+      "choices": [
+        "tillatt",
+        "forbudt",
+        "required",
+        "ikke tillatt"
+      ],
+      "page": 143
+    },
+    {
+      "id": 159,
+      "section": "Systems/Avionics",
+      "q": "Hva er faktakravet: PFD/MFD MSGs AW169 - QRH 169F0290X004 Volume AP8.0 174 Emerg-Malfunc Issue 3 DOUBLE RAD ALT FAILURE CAUTION When both RAD ALTs fails, the 150ft aural warning...",
+      "a": 2,
+      "choices": [
+        "149 ft",
+        "148 ft",
+        "150ft",
+        "155 ft"
+      ],
+      "page": 184
+    },
+    {
+      "id": 160,
+      "section": "Systems/Avionics",
+      "q": "Hva er korrekt ifølge QRH: AVIONIC AW169 - QRH 169F0290X004 Volume AP8.0 95 Issue 3 Emerg-Malfunc AVIONICS AHRS FAILURE END 1 AHRS FAIL Note Fuel quantity indication accuracy degraded....",
+      "a": 2,
+      "choices": [
+        "121 KIAS",
+        "118 KIAS",
+        "120 KIAS",
+        "115 KIAS"
+      ],
+      "page": 99
+    },
+    {
+      "id": 161,
+      "section": "Systems/Avionics",
+      "q": "Hva gjelder her: AFCS AW169 - QRH 169F0290X004 Volume AP8.0 80 Emerg-Malfunc Issue 3 ATTITUDE MODE OFF END MISTRIM END ATT OFF - Engage ATT mode by pushing ATT button on cycl...",
+      "a": 1,
+      "choices": [
+        "70 KIAS",
+        "120 KIAS",
+        "118 KIAS",
+        "130 KIAS"
+      ],
+      "page": 84
+    },
+    {
+      "id": 162,
+      "section": "Systems/Avionics",
+      "q": "Oppgi riktig verdi/prosedyre: TAXI T-O CAT A/B AW169 - QRH 169F0290X004 Volume AP8.0 151 Issue 3 Lims-Norm-Perf TAXIING Note To obtain best braking action the collective should be set to ...",
+      "a": 2,
+      "choices": [
+        "tillatt",
+        "forbudt",
+        "minimum",
+        "ikke tillatt"
+      ],
+      "page": 421
+    },
+    {
+      "id": 163,
+      "section": "Systems/Avionics",
+      "q": "Oppgi riktig verdi/prosedyre: PFD/MFD MSGs AW169 - QRH 169F0290X004 Volume AP8.0 185 Issue 3 Emerg-Malfunc 5 MINUTE MESSAGE FO R AEO CONDITIONS END 5 m 5 m 5 m displayed on side of PI dig...",
+      "a": 3,
+      "choices": [
+        "tillatt",
+        "forbudt",
+        "ikke tillatt",
+        "min"
+      ],
+      "page": 195
+    },
+    {
+      "id": 164,
+      "section": "Systems/Avionics",
+      "q": "Hva er faktakravet: ELEC AW169 - QRH 169F0290X004 Volume AP8.0 113 Issue 3 Rev. 1 Emerg-Malfunc BUS TIE OPEN SECTION END BUS TIE OPEN Note See page 15 for services lost when bus...",
+      "a": 3,
+      "choices": [
+        "tillatt",
+        "forbudt",
+        "ikke tillatt",
+        "required"
+      ],
+      "page": 123
+    },
+    {
+      "id": 165,
+      "section": "Systems/Avionics",
+      "q": "Hva er faktakravet: AVIONIC AW169 - QRH 169F0290X004 Volume AP8.0 101 Issue 3 Emerg-Malfunc FLIGHT DATA RECORDER FAILURE END COCKPIT VOICE RECORDER FAILURE END FDR FAIL Flight D...",
+      "a": 0,
+      "choices": [
+        "minimum",
+        "tillatt",
+        "forbudt",
+        "ikke tillatt"
+      ],
+      "page": 105
+    },
+    {
+      "id": 166,
+      "section": "Systems/Avionics",
+      "q": "Hva er faktakravet: ENG START AW169 - QRH 169F0290X004 Volume AP8.0 147 Issue 3 Lims-Norm-Perf 9. FUEL ENG SOV 1 and 2 — Select OPEN. Note Before first engine start, confirm cau...",
+      "a": 0,
+      "choices": [
+        "required",
+        "tillatt",
+        "forbudt",
+        "ikke tillatt"
+      ],
+      "page": 417
+    },
+    {
+      "id": 167,
+      "section": "Systems/Avionics",
+      "q": "Hva gjelder her: PFD/MFD MSGs AW169 - QRH 169F0290X004 Volume AP8.0 198 Emerg-Malfunc Issue 3 Lateral Deviation Pointer with Winglets on Approach During the approach phase or...",
+      "a": 1,
+      "choices": [
+        "tillatt",
+        "required",
+        "forbudt",
+        "ikke tillatt"
+      ],
+      "page": 208
+    },
+    {
+      "id": 168,
+      "section": "Systems/Avionics",
+      "q": "Hva er faktakravet: AW169 - QRH 169F0290X004 Volume AP8.0 149 Issue 3 Emerg-Malfunc HYD PARK BRAKE MALFUNCTION Note Differential braking may not be available. SECTION END PARK B...",
+      "a": 1,
+      "choices": [
+        "tillatt",
+        "required",
+        "forbudt",
+        "ikke tillatt"
+      ],
+      "page": 159
+    },
+    {
+      "id": 169,
+      "section": "Systems/Avionics",
+      "q": "Hva gjelder her: EXT/INT CHECKS AW169 - QRH 169F0290X004 Volume AP8.0 132 Lims-Norm-Perf Issue 3 COCKPIT SAFETY CHECKS 1. Pedals and seats — Adjust. 2. Seat belt and inertia ...",
+      "a": 0,
+      "choices": [
+        "required",
+        "tillatt",
+        "forbudt",
+        "ikke tillatt"
+      ],
+      "page": 402
+    },
+    {
+      "id": 170,
+      "section": "Systems/Avionics",
+      "q": "Hva er korrekt ifølge QRH: FD/FMS OPER AW169 - QRH 169F0290X004 Volume AP8.0 195 Issue 3 Lims-Norm-Perf Cruise Note The FMS automatically updates the CRUISE ALTITUDE in PERF INIT 2/2 E...",
+      "a": 0,
+      "choices": [
+        "required",
+        "tillatt",
+        "forbudt",
+        "ikke tillatt"
+      ],
+      "page": 465
+    },
+    {
+      "id": 171,
+      "section": "Systems/Avionics",
+      "q": "Oppgi riktig verdi/prosedyre: ROTOR XMSN AW169 - QRH 169F0290X004 Volume AP8.0 208 Emerg-Malfunc Issue 3 TRANSMISSION CHIP DETECTOR CAUTION A maximum of 3 MGB and/or 3 IGB and/or 3 TGB ca...",
+      "a": 2,
+      "choices": [
+        "tillatt",
+        "forbudt",
+        "maximum",
+        "ikke tillatt"
+      ],
+      "page": 220
+    },
+    {
+      "id": 172,
+      "section": "Systems/Avionics",
+      "q": "Hva er faktakravet: AW169 - QRH 169F0290X004 Volume AP8.0 146 Emerg-Malfunc Issue 3 HYD HYDRAULIC FLUID LEVEL LOW Note Loss of hydraulic fluid in system No1 will automatically c...",
+      "a": 1,
+      "choices": [
+        "tillatt",
+        "MIN",
+        "forbudt",
+        "ikke tillatt"
+      ],
+      "page": 156
+    },
+    {
+      "id": 173,
+      "section": "Systems/Avionics",
+      "q": "Hva gjelder her: AW169 - QRH 169F0290X004 Volume AP8.0 160 Emerg-Malfunc Issue 3 LDG GR MISC EXTERNAL POWER SOCKET DOOR OPEN END COCKPIT VENT FAN FAILURE END CABIN VENT FAN F...",
+      "a": 1,
+      "choices": [
+        "102 KIAS",
+        "100 KIAS",
+        "50 KIAS",
+        "90 KIAS"
+      ],
+      "page": 170
+    },
+    {
+      "id": 174,
+      "section": "Systems/Avionics",
+      "q": "Oppgi riktig verdi/prosedyre: ELEC AW169 - QRH 169F0290X004 Volume AP8.0 108 Emerg-Malfunc Issue 3 SINGLE DC GENERATOR FAILURE CONTINUED Note 1 See page 15 for services lost when bus is n...",
+      "a": 3,
+      "choices": [
+        "tillatt",
+        "forbudt",
+        "ikke tillatt",
+        "required"
+      ],
+      "page": 118
+    },
+    {
+      "id": 175,
+      "section": "Normal Procedures",
+      "q": "Oppgi riktig verdi/prosedyre: ENG START AW169 - QRH 169F0290X004 Volume AP8.0 135 Issue 3 Lims-Norm-Perf ENGINE PRE-START CHECKS 1. Master Cut-Off Switch — NORM, guard closed. 2. EXT PWR ...",
+      "a": 0,
+      "choices": [
+        "required",
+        "tillatt",
+        "forbudt",
+        "ikke tillatt"
+      ],
+      "page": 405
+    },
+    {
+      "id": 176,
+      "section": "Normal Procedures",
+      "q": "Hva er faktakravet: TAXI T-O CAT A/B AW169 - QRH 169F0290X004 Volume AP8.0 164 Lims-Norm-Perf Issue 3 11. Landing Lights — For night operations set as follows: Flying pilot side...",
+      "a": 1,
+      "choices": [
+        "20 kts",
+        "15 kts",
+        "13 kts",
+        "5 kts"
+      ],
+      "page": 434
+    },
+    {
+      "id": 177,
+      "section": "Normal Procedures",
+      "q": "Hva er faktakravet: IN FLIGHT AW169 - QRH 169F0290X004 Volume AP8.0 168 Lims-Norm-Perf Issue 3 CRUISE CHECKS 1. Engine and Transmission param- eters, temperatures and pres- sure...",
+      "a": 2,
+      "choices": [
+        "tillatt",
+        "forbudt",
+        "required",
+        "ikke tillatt"
+      ],
+      "page": 438
+    },
+    {
+      "id": 178,
+      "section": "Normal Procedures",
+      "q": "Hva er korrekt ifølge QRH: IN FLIGHT AW169 - QRH 169F0290X004 Volume AP8.0 170 Lims-Norm-Perf Issue 3 FLIGHT HANDLING The rotation of the main rotor is anti-clockwise when viewed from ...",
+      "a": 1,
+      "choices": [
+        "76 KIAS",
+        "75 KIAS",
+        "50 KIAS",
+        "73 KIAS"
+      ],
+      "page": 440
+    },
+    {
+      "id": 179,
+      "section": "Normal Procedures",
+      "q": "Oppgi riktig verdi/prosedyre: APPR LAND AW169 - QRH 169F0290X004 Volume AP8.0 174 Lims-Norm-Perf Issue 3 Rev. 1 7. Initial point — Stabilize the aircraft on final approach course at 70 KI...",
+      "a": 0,
+      "choices": [
+        "70 KIAS",
+        "45 KIAS",
+        "60 KIAS",
+        "90 KIAS"
+      ],
+      "page": 444
+    }
+  ]
+}

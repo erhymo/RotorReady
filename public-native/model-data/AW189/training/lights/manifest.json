@@ -1,0 +1,17 @@
+{
+  "files": [
+    "eng-fire-flight.json",
+    "eng-fire-ground.json",
+    "bag-fire-flight.json",
+    "bag-fire-ground.json",
+    "elec-fail-double-dc-gen.json",
+    "eng-gov-loss.json",
+    "eng-idle.json",
+    "eng-oil-press.json",
+    "eng-out.json",
+    "mgb-oil-press.json",
+    "mgb-oil-temp.json",
+    "rotor-high.json",
+    "rotor-low.json"
+  ]
+}

@@ -1,0 +1,63 @@
+[
+  {
+    "id": "elec-fail",
+    "name": "ELEC FAIL",
+    "severity": "warning",
+    "system": "ELECTRICAL SYSTEM",
+    "description": "Double DC Generator failure.",
+    "procedure": [
+      {
+        "type": "note",
+        "text": "+'WARNING WARNING' voice Warning\nDouble DC Generator failure."
+      },
+      {
+        "type": "action",
+        "text": "1. Pilot utility light — ON (for night operations)."
+      },
+      {
+        "type": "action",
+        "text": "2. GEN 1 & 2 switches — Select RESET and confirm ON."
+      },
+      {
+        "type": "branch",
+        "text": "If warning clears: Both generators back on line. Continue flight."
+      },
+      {
+        "type": "branch",
+        "text": "If 1(2) DC GEN FAIL illuminates: Carry out SINGLE DC GENERATOR FAILURE procedure. See page 107."
+      },
+      {
+        "type": "branch",
+        "text": "If ELEC FAIL remains: Confirm GEN BUS Switch (EDCU ELEC page) AUTO."
+      },
+      {
+        "type": "caution",
+        "text": "Loss of all MAIN BUS and all NON ESS BUS. See Notes 1 and 2."
+      },
+      {
+        "type": "action",
+        "text": "Set AMMC 1 MASTER"
+      },
+      {
+        "type": "action",
+        "text": "Select VHF 1 on right side to ensure continue radio communication."
+      },
+      {
+        "type": "action",
+        "text": "Carry out LANDING GEAR EMERGENCY DOWN PROCEDURE. See page 52."
+      },
+      {
+        "type": "action",
+        "text": "Land as soon as possible."
+      },
+      {
+        "type": "warning",
+        "text": "Battery power is available for maximum 30 minutes."
+      }
+    ],
+    "notes": [
+      "See page 15 for services lost when BUS not available.",
+      "If MAIN BUS 1 required, on EDCU ELEC page, set GEN BUS switch to OVRD to supply battery power to MAIN BUS 1 reducing the battery endurance. If BUS TIE is switched OVRD the battery power is also supplied to MAIN BUS 2, with a further reduction in battery endurance."
+    ]
+  }
+]

@@ -1,0 +1,103 @@
+{
+  "HOME": {
+    "title": "HOME",
+    "image": "/model-data/AW169/training/edcu/screens/home.png",
+    "layout": {
+      "left": { "x": 0, "w": 18, "top": 8, "bottom": 92 },
+      "right": { "x": 82, "w": 18, "top": 8, "bottom": 92 },
+      "bottom": { "y": 92, "h": 8, "left": 10, "right": 90 }
+    },
+    "left": [
+      { "label": "FUEL", "goto": "FUEL" },
+      { "label": "LIGHTS", "goto": "LTS" },
+      { "label": "TRIM", "goto": null },
+      { "label": "ELEC", "goto": null },
+      { "label": "HYD", "goto": null },
+      { "label": "MISC", "goto": null }
+    ],
+    "right": [
+      { "label": "ENG", "goto": null },
+      { "label": "SYS", "goto": null },
+      { "label": "RADIO", "goto": null },
+      { "label": "NAV", "goto": null },
+      { "label": "MAINT", "goto": null },
+      { "label": "—", "goto": null }
+    ],
+    "bottom": [
+      { "label": "MENU", "goto": "HOME" },
+      { "label": "BACK", "goto": null },
+      { "label": "DIM", "goto": null },
+      { "label": "BRIGHT", "goto": null },
+      { "label": "HELP", "goto": null },
+      { "label": "—", "goto": null }
+    ],
+    "notes": "Navigation-only MVP"
+  },
+  "FUEL": {
+    "title": "FUEL",
+    "image": "/model-data/AW169/training/edcu/screens/fuel.png",
+    "layout": {
+      "left": { "x": 0, "w": 18, "top": 8, "bottom": 92 },
+      "right": { "x": 82, "w": 18, "top": 8, "bottom": 92 },
+      "bottom": { "y": 92, "h": 8, "left": 10, "right": 90 }
+    },
+    "left": [
+      { "label": "BACK", "goto": "HOME" },
+      { "label": " ", "goto": null },
+      { "label": " ", "goto": null },
+      { "label": " ", "goto": null },
+      { "label": " ", "goto": null },
+      { "label": " ", "goto": null }
+    ],
+    "right": [
+      { "label": "LIGHTS", "goto": "LTS" },
+      { "label": " ", "goto": null },
+      { "label": " ", "goto": null },
+      { "label": " ", "goto": null },
+      { "label": " ", "goto": null },
+      { "label": " ", "goto": null }
+    ],
+    "bottom": [
+      { "label": "MENU", "goto": "HOME" },
+      { "label": "BACK", "goto": "HOME" },
+      { "label": " ", "goto": null },
+      { "label": " ", "goto": null },
+      { "label": " ", "goto": null },
+      { "label": " ", "goto": null }
+    ]
+  },
+  "LTS": {
+    "title": "LIGHTS",
+    "image": "/model-data/AW169/training/edcu/screens/lts.png",
+    "layout": {
+      "left": { "x": 0, "w": 18, "top": 8, "bottom": 92 },
+      "right": { "x": 82, "w": 18, "top": 8, "bottom": 92 },
+      "bottom": { "y": 92, "h": 8, "left": 10, "right": 90 }
+    },
+    "left": [
+      { "label": "BACK", "goto": "HOME" },
+      { "label": " ", "goto": null },
+      { "label": " ", "goto": null },
+      { "label": " ", "goto": null },
+      { "label": " ", "goto": null },
+      { "label": " ", "goto": null }
+    ],
+    "right": [
+      { "label": "FUEL", "goto": "FUEL" },
+      { "label": " ", "goto": null },
+      { "label": " ", "goto": null },
+      { "label": " ", "goto": null },
+      { "label": " ", "goto": null },
+      { "label": " ", "goto": null }
+    ],
+    "bottom": [
+      { "label": "MENU", "goto": "HOME" },
+      { "label": "BACK", "goto": "HOME" },
+      { "label": " ", "goto": null },
+      { "label": " ", "goto": null },
+      { "label": " ", "goto": null },
+      { "label": " ", "goto": null }
+    ]
+  }
+}
+

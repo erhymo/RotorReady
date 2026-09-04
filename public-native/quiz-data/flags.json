@@ -1,0 +1,75 @@
+{
+  "flags": [
+    {
+      "id": "test:q1:1761921242771",
+      "status": "open",
+      "createdAt": "2025-10-31T14:33:53.999Z",
+      "section": "test",
+      "sectionId": "test",
+      "questionId": "q1",
+      "dataSource": "sections",
+      "dataFile": "test.json",
+      "snapshot": {
+        "question": "Q?",
+        "options": [
+          "A",
+          "B"
+        ],
+        "answer": [
+          1
+        ]
+      },
+      "userId": "guest"
+    },
+    {
+      "id": "limitations:lims-p18-003:1759170295493",
+      "section": "limitations",
+      "sectionId": "limitations",
+      "questionId": "lims-p18-003",
+      "dataSource": "all-questions",
+      "dataFile": "lims-p18.json",
+      "snapshot": {
+        "question": "In coordinated flight, what is the indicated unusable fuel?",
+        "options": [
+          "0 kg (10 litres per tank)",
+          "0 kg indicated (10 litres per tank)",
+          "200 litres",
+          "888 litres"
+        ],
+        "explanation": "In coordinated flight, unusable fuel is 0 kg indicated (10 litres per tank).",
+        "references": "FUEL SYSTEM LIMITATIONS",
+        "answer": [
+          1
+        ]
+      },
+      "reason": "",
+      "userId": "guest",
+      "createdAt": "2025-09-29T18:24:55.493Z",
+      "status": "reviewed-OK"
+    },
+    {
+      "id": "mgny8wkx-6i50go",
+      "status": "open",
+      "createdAt": "2025-10-12T16:59:31.953Z",
+      "section": "test_section",
+      "sectionId": "limitations",
+      "questionId": "QTEST123",
+      "dataSource": "sections",
+      "dataFile": "test.json",
+      "snapshot": {
+        "question": "Test q?",
+        "options": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "explanation": "",
+        "references": [],
+        "answer": [
+          1
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,205 @@
+[
+  {
+    "id": "lims-p8-001",
+    "section": "LIMITATIONS",
+    "question": "What is the maximum airspeed in AEO with torque above 100%?",
+    "options": [
+      "80 KIAS",
+      "90 KIAS",
+      "100 KIAS",
+      "110 KIAS"
+    ],
+    "answer": "90 KIAS",
+    "explanation": "Maximum airspeed in AEO with TQ above 100% is limited to 90 KIAS.",
+    "references": "AIRSPEED LIMITATIONS",
+    "printedPage": 8,
+    "difficulty": "easy",
+    "tags": [
+      "airspeed",
+      "limitations",
+      "torque"
+    ],
+    "source": "QRH p8"
+  },
+  {
+    "id": "lims-p8-002",
+    "section": "LIMITATIONS",
+    "question": "What is the maximum landing gear operation airspeed (Vlo) when either SB169-150 or landing gear P/N 6F3200F00413 (or subsequent) has been installed?",
+    "options": [
+      "80 KIAS",
+      "100 KIAS",
+      "120 KIAS",
+      "130 KIAS"
+    ],
+    "answer": "130 KIAS",
+    "explanation": "With SB169-150 or landing gear P/N 6F3200F00413 installed, maximum landing gear operation airspeed is 130 KIAS.",
+    "references": "AIRSPEED LIMITATIONS",
+    "printedPage": 8,
+    "difficulty": "medium",
+    "tags": [
+      "airspeed",
+      "landing gear",
+      "vlo",
+      "limitations"
+    ],
+    "source": "QRH p8"
+  },
+  {
+    "id": "lims-p8-003",
+    "section": "LIMITATIONS",
+    "question": "What is the maximum landing gear operation airspeed (Vlo) when neither SB169-150 nor landing gear P/N 6F3200F00413 (or subsequent) has been installed?",
+    "options": [
+      "80 KIAS",
+      "90 KIAS",
+      "100 KIAS",
+      "130 KIAS"
+    ],
+    "answer": "80 KIAS",
+    "explanation": "Without SB169-150 or landing gear P/N 6F3200F00413 installed, maximum landing gear operation airspeed is 80 KIAS.",
+    "references": "AIRSPEED LIMITATIONS",
+    "printedPage": 8,
+    "difficulty": "medium",
+    "tags": [
+      "airspeed",
+      "landing gear",
+      "vlo",
+      "limitations"
+    ],
+    "source": "QRH p8"
+  },
+  {
+    "id": "lims-p8-004",
+    "section": "LIMITATIONS",
+    "question": "What is the maximum landing gear extended airspeed (Vle)?",
+    "options": [
+      "Vne - 5 KIAS",
+      "Vne - 8 KIAS",
+      "130 KIAS",
+      "140 KIAS"
+    ],
+    "answer": "Vne - 8 KIAS",
+    "explanation": "Maximum landing gear extended airspeed (Vle) is Vne - 8 KIAS.",
+    "references": "AIRSPEED LIMITATIONS",
+    "printedPage": 8,
+    "difficulty": "medium",
+    "tags": [
+      "airspeed",
+      "landing gear",
+      "vle",
+      "limitations"
+    ],
+    "source": "QRH p8"
+  },
+  {
+    "id": "lims-p8-005",
+    "section": "LIMITATIONS",
+    "question": "What is the minimum airspeed for flight under IFR (Vmini)?",
+    "options": [
+      "40 KIAS",
+      "45 KIAS",
+      "50 KIAS",
+      "60 KIAS"
+    ],
+    "answer": "50 KIAS",
+    "explanation": "Minimum airspeed for flight under IFR (Vmini) is 50 KIAS.",
+    "references": "AIRSPEED LIMITATIONS",
+    "printedPage": 8,
+    "difficulty": "easy",
+    "tags": [
+      "airspeed",
+      "ifr",
+      "vmini",
+      "limitations"
+    ],
+    "source": "QRH p8"
+  },
+  {
+    "id": "lims-p8-006",
+    "section": "LIMITATIONS",
+    "question": "What is the maximum airspeed for IFR approach?",
+    "options": [
+      "120 KIAS up to 3000 ft, then reduce 2 kts per 1000 ft",
+      "130 KIAS up to 5000 ft, then reduce 2 kts per 1000 ft",
+      "140 KIAS up to 4000 ft, then reduce 2 kts per 1000 ft",
+      "150 KIAS up to 6000 ft, then reduce 2 kts per 1000 ft"
+    ],
+    "answer": "130 KIAS up to 5000 ft, then reduce 2 kts per 1000 ft",
+    "explanation": "Maximum airspeed for IFR approach is 130 KIAS up to 5000 ft, then reduce 2 kts every 1000 ft.",
+    "references": "AIRSPEED LIMITATIONS",
+    "printedPage": 8,
+    "difficulty": "hard",
+    "tags": [
+      "airspeed",
+      "ifr",
+      "approach",
+      "limitations"
+    ],
+    "source": "QRH p8"
+  },
+  {
+    "id": "lims-p8-007",
+    "section": "LIMITATIONS",
+    "question": "What is the maximum airspeed with one autopilot failed?",
+    "options": [
+      "100 KIAS",
+      "110 KIAS",
+      "120 KIAS",
+      "130 KIAS"
+    ],
+    "answer": "120 KIAS",
+    "explanation": "Maximum airspeed with one AP failed is 120 KIAS.",
+    "references": "AIRSPEED LIMITATIONS",
+    "printedPage": 8,
+    "difficulty": "easy",
+    "tags": [
+      "airspeed",
+      "autopilot",
+      "limitations"
+    ],
+    "source": "QRH p8"
+  },
+  {
+    "id": "lims-p8-008",
+    "section": "LIMITATIONS",
+    "question": "What is the maximum airspeed for operation of windscreen wipers?",
+    "options": [
+      "120 KIAS",
+      "130 KIAS",
+      "140 KIAS",
+      "150 KIAS"
+    ],
+    "answer": "140 KIAS",
+    "explanation": "Maximum airspeed for operation of windscreen wipers is 140 KIAS.",
+    "references": "AIRSPEED LIMITATIONS",
+    "printedPage": 8,
+    "difficulty": "easy",
+    "tags": [
+      "airspeed",
+      "windscreen wipers",
+      "limitations"
+    ],
+    "source": "QRH p8"
+  },
+  {
+    "id": "lims-p8-009",
+    "section": "LIMITATIONS",
+    "question": "What is the minimum airspeed in autorotation?",
+    "options": [
+      "40 KIAS",
+      "45 KIAS",
+      "50 KIAS",
+      "60 KIAS"
+    ],
+    "answer": "50 KIAS",
+    "explanation": "Minimum airspeed in autorotation is 50 KIAS.",
+    "references": "AIRSPEED LIMITATIONS",
+    "printedPage": 8,
+    "difficulty": "easy",
+    "tags": [
+      "airspeed",
+      "autorotation",
+      "limitations"
+    ],
+    "source": "QRH p8"
+  }
+]

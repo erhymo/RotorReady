@@ -1,0 +1,41 @@
+{
+  "modelId": "H145_D3",
+  "sections": [
+    {
+      "id": "limitations",
+      "title": "Limitations",
+      "file": "sections/limitations.json",
+      "count": 50
+    },
+    {
+      "id": "emergency_procedures",
+      "title": "Emergency Procedures",
+      "file": "sections/emergency_procedures.json",
+      "count": 54
+    },
+    {
+      "id": "normal_procedures",
+      "title": "Normal Procedures",
+      "file": "sections/normal_procedures.json",
+      "count": 34
+    },
+    {
+      "id": "systems_description",
+      "title": "Systems Description",
+      "file": "sections/systems_description.json",
+      "count": 51
+    },
+    {
+      "id": "air_law",
+      "title": "Air Law (EASA)",
+      "file": "sections/air_law.json",
+      "count": 100
+    },
+    {
+      "id": "performance",
+      "title": "Performance",
+      "file": "sections/performance.json",
+      "count": 18
+    }
+  ]
+}

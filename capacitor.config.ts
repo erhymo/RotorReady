@@ -3,14 +3,16 @@ import type { CapacitorConfig } from "@capacitor/cli";
 const config: CapacitorConfig = {
   appId: "com.mayday.rotorready",
   appName: "RotorReady",
-  // The app loads all content live from server.url below and only ever falls back to a
-  // local file for the offline errorPath page — so webDir points at a minimal folder with
-  // just that page, not the full public/ directory (which holds many-hundred-MB of podcast
-  // audio and RFM PDFs never actually read from local assets at runtime).
+  // public-native/ is a static export of the offline-critical route tree (home, quiz,
+  // AW169 training/lights, audio — see scripts/build-native-shell.mjs), bundled straight
+  // into the native binary. There's no server.url here on purpose: the app boots from this
+  // local copy every time, online or offline, instead of depending on a live network
+  // fetch (or a previously-activated service worker) just to start. Genuinely
+  // network-only destinations (weather, airports, admin, login/signup) open in the
+  // in-app browser against the live site instead of being bundled — see
+  // lib/liveOnlyLinks.ts.
   webDir: "public-native",
   server: {
-    url: "https://rotor-ready.com",
-    cleartext: false,
     errorPath: "native-error.html",
   },
   ios: {

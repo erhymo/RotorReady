@@ -1,0 +1,23 @@
+{
+  "files": [
+    "eng-fire-ground.json",
+    "eng-fire-flight.json",
+    "apu-fire-ground.json",
+    "apu-fire-flight.json",
+    "smoke-baggage.json",
+    "intentional-engine-shutdown.json",
+    "ditching-emergency-landing.json",
+    "emergency-evacuation-land.json",
+    "engine-dual-failure.json",
+    "engine-single-failure.json",
+    "engine-restart-in-flight.json",
+    "swashplate-temperature-warning.json",
+    "mgb-oil-pres-warning.json",
+    "mgb-oil-out.json",
+    "dcp-degrade-failure.json",
+    "dcu-mfd-comm-fault.json",
+    "dcu-dual-failure.json",
+    "input-acc-hot.json",
+    "mgb-pump-fail.json"
+  ]
+}

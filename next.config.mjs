@@ -149,6 +149,20 @@ const isNativeExport = process.env.NATIVE_EXPORT === '1';
 const nextConfig = {
   serverExternalPackages: ['firebase-admin'],
   outputFileTracingRoot: __dirname,
+  // lib/build/staticParams.ts reads public/audio, public/model-data etc. with
+  // dynamic fs.readdirSync/readFileSync paths (for generateStaticParams — see
+  // scripts/build-native-shell.mjs) — Next's output tracer can't tell which
+  // files those calls actually touch, so it conservatively bundled the whole
+  // ~400MB public/audio directory into the dynamic-route serverless
+  // functions that import it (any /audio/[id] or /quiz/[section]/... id not
+  // covered by generateStaticParams still gets a server-rendered fallback),
+  // blowing straight past Vercel's 250MB per-function limit and failing the
+  // deploy outright. These large asset directories are never actually read
+  // at request time by those functions (only at build time, and only the
+  // small JSON/index files within them) — exclude them from tracing.
+  outputFileTracingExcludes: {
+    '*': ['./public/audio/**', './public/training/**', './public/**/*.pdf'],
+  },
   webpack(config, { isServer }) {
     if (isServer) {
       const currentExternals = config.externals ?? [];

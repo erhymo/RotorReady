@@ -708,6 +708,12 @@ function LightsTrainerInner() {
 		    setMode("procedure");
 	    setShowMemoryMenu(false);
 	    setMemoryGridSeverity(null);
+	    // Same history push as reveal() below — without it, the mobile back-gesture
+	    // has no extra history entry to consume, so it skips past this overlay
+	    // instead of closing it (the bug: "back button doesn't work" here).
+	    if (isMobile && typeof window !== "undefined") {
+	      try { window.history.pushState({ rr: "procedure" }, "", window.location.href); } catch {}
+	    }
 	  }
 
 	  const renderText = useCallback((text?: string) => {
@@ -860,13 +866,23 @@ function LightsTrainerInner() {
     if (!isMobile) return;
     const onPop = () => {
       if (mode === "procedure") {
-        setMode("light");
+        // A memory item opened via openMemoryItem() is a single-item deck with
+        // nowhere sensible to go but back to the grid it came from — same
+        // special case as next() above, so back-button and Next agree.
+        if (memoryOnly && isAw169 && deck.length === 1 && returnToMemoryGrid) {
+          setShowMemoryMenu(true);
+          setMemoryGridSeverity(returnToMemoryGrid);
+          setReturnToMemoryGrid(null);
+          setMode("idle");
+        } else {
+          setMode("light");
+        }
         try { history.pushState(null, "", location.href); } catch {}
       }
     };
     window.addEventListener("popstate", onPop);
     return () => window.removeEventListener("popstate", onPop);
-  }, [isMobile, mode]);
+  }, [isMobile, mode, memoryOnly, isAw169, deck.length, returnToMemoryGrid, setShowMemoryMenu, setMemoryGridSeverity, setReturnToMemoryGrid]);
 
 
   const canPrev = idx > 0 && (mode === "procedure" || mode === "light");
@@ -1756,7 +1772,23 @@ function LightsTrainerInner() {
 
         {isMobile && mode === "procedure" && current && !compactCWP && (
           <div ref={procOverlayRef} tabIndex={-1} className="fixed left-0 right-0 bottom-0 top-0 z-40 bg-white dark:bg-zinc-900">
-            <div className="h-full w-full overflow-y-auto" onClick={(e) => { try { const t = e.target as HTMLElement; if (t && t.closest('a,button,input,textarea,select,[data-prevent-back]')) return; if (isAw169 && current?.severity === 'warning' && current?.pageImage) { next(); } } catch {} }}>
+            {/* The top AppTopBar back arrow sits underneath this full-screen overlay and
+                isn't tappable — without this, closing relies entirely on a native back
+                gesture/button, which some memory-item flows didn't even register a history
+                entry for (the reported bug). Always give an explicit, visible way out. */}
+            <button
+              type="button"
+              className="fixed right-3 z-50 rounded-lg bg-slate-900/90 px-3 py-2 text-sm font-semibold text-white shadow dark:bg-white/90 dark:text-slate-900"
+              style={{ top: "calc(0.75rem + env(safe-area-inset-top, 0px))" }}
+              onClick={() => { try { window.history.back(); } catch {} }}
+            >
+              Close
+            </button>
+            <div
+              className="h-full w-full overflow-y-auto"
+              style={{ paddingTop: "calc(3.5rem + env(safe-area-inset-top, 0px))" }}
+              onClick={(e) => { try { const t = e.target as HTMLElement; if (t && t.closest('a,button,input,textarea,select,[data-prevent-back]')) return; if (isAw169 && current?.severity === 'warning' && current?.pageImage) { next(); } } catch {} }}
+            >
             {!(isAw169 && memoryOnly && current?.pageImage) && header}
 
               <div className="px-0">

@@ -320,6 +320,17 @@ export const IFR_TOPICS: RuleTopic[] = [
           "Instead of standard alternate fuel, extra fuel is carried to cover a defined additional holding/diversion contingency.",
         ],
       },
+      {
+        heading: "Quick numbers recap",
+        bullets: [
+          "Precision alternate minima: DA/H +200 ft, RVR/VIS +800 m.",
+          "Non-precision/circling alternate minima: MDA/H +400 ft, RVR/VIS +1500 m.",
+          "Forecast window for any alternate: ETA −1 h to ETA +1 h.",
+          "LVTO applies: below 550 m RVR.",
+          "LVTO needs specific approval: below 400 m RVR.",
+          "Two destination alternates needed: forecast doesn't meet margin at ETA, or no met info for the one alternate.",
+        ],
+      },
     ],
     reference: "EASA Air Ops – Part-NCC/SPA/CAT.OP.MPA.181/182 – Alternate aerodrome selection, alternate minima & fuel policy",
   },

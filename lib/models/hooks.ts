@@ -72,7 +72,14 @@ function setActiveVariantGlobal(variantId: string) {
 }
 
 export function useActiveModelVariant(): ActiveModelState {
-  const { variant, source } = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
+  const snapshot = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
+  const { variant, source } = snapshot;
+  // Reference equality with SERVER_SNAPSHOT means hydrate() hasn't run yet on
+  // the client — i.e. this is still the hydration-matching render, and the
+  // real stored variant (from localStorage) hasn't been read. Once hydrate()
+  // runs it always assigns a brand-new object, even if the resolved variant
+  // happens to equal the default — so this stays a reliable one-way flag.
+  const loading = snapshot === SERVER_SNAPSHOT;
 
   const setActiveVariant = useCallback(async (variantId: string) => {
     setActiveVariantGlobal(variantId);
@@ -81,11 +88,11 @@ export function useActiveModelVariant(): ActiveModelState {
   return useMemo(
     () => ({
       variant,
-      loading: false,
+      loading,
       source,
       setActiveVariant,
     }),
-    [variant, source, setActiveVariant],
+    [variant, loading, source, setActiveVariant],
   );
 }
 

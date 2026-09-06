@@ -64,7 +64,11 @@ function Bar(props: { href: string; title: string; description: string; tone?: "
 	export default function HomeClient() {
 	  const [ver, setVer] = useState<any>(null);
 		  const [showNorwayTools, setShowNorwayTools] = useState(false);
-	  const { variant: activeVariant } = useActiveModelVariant();
+	  const { variant: rawActiveVariant, loading: variantLoading } = useActiveModelVariant();
+	  // Suppress model-specific bars until the real stored variant is known —
+	  // otherwise every existing `activeVariant?.id === "..."` check below
+	  // would briefly match the hardcoded default (AW169) on first paint.
+	  const activeVariant = variantLoading ? undefined : rawActiveVariant;
 
 	  useEffect(() => {
 	    fetch("/quiz-data/versions/data-version.json")

@@ -17,6 +17,24 @@
       "title": "Light: ROTOR HIGH",
       "filename": "rotor-high.mp3",
       "durationSeconds": 367
+    },
+    {
+      "lightId": "elec-fail-double-dc-gen",
+      "title": "Light: ELEC FAIL",
+      "filename": "elec-fail-double-dc-gen.mp3",
+      "durationSeconds": 385
+    },
+    {
+      "lightId": "eng-oil-press",
+      "title": "Light: 1(2) ENG OIL PRESS",
+      "filename": "eng-oil-press.mp3",
+      "durationSeconds": 251
+    },
+    {
+      "lightId": "eng-fail-fixed",
+      "title": "Light: 1(2) ENG FAIL FIXED",
+      "filename": "eng-fail-fixed.mp3",
+      "durationSeconds": 369
     }
   ]
 }

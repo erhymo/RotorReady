@@ -4,7 +4,8 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { toggleTheme as toggleThemeLib, setThemeSource as setThemeSourceLib, getEffectiveTheme as getEffectiveThemeLib, onThemeChange as onThemeChangeLib, applyTheme as applyThemeLib } from "@/lib/theme";
 import AppTopBar from "@/components/AppTopBar";
 import { listVariantsByProduct } from "@/lib/models/catalog";
-import { getStoredActiveModelVariantId, storeActiveModelVariantId, modelScopedKey } from "@/lib/models/storage";
+import { getStoredActiveModelVariantId, modelScopedKey } from "@/lib/models/storage";
+import { useActiveModelVariant } from "@/lib/models/hooks";
 import { writeQuizOverrideSession } from "@/lib/quiz/overrideSession";
 import { tryUnlockCode } from "@/lib/unlockCodes";
 
@@ -186,6 +187,7 @@ export default function AccountPage() {
       alert("Could not start practice. Please try again.");
     }
   }
+  const { variant: activeVariant, setActiveVariant } = useActiveModelVariant();
   const [history, setHistory] = useState<Summary[]>([]);
   const [ents, setEnts] = useState<Entitlements>(OPEN_ACCESS_ENTITLEMENTS);
   const [email, setEmail] = useState<string | null>(null);
@@ -505,11 +507,11 @@ export default function AccountPage() {
   const h135t3Variants = listVariantsByProduct("H135_T3");
   const h145d2Variants = listVariantsByProduct("H145_D2");
   const h145d3Variants = listVariantsByProduct("H145_D3");
-  const activeVariantId = getStoredActiveModelVariantId();
+  const activeVariantId = activeVariant.id;
   const selectVariant = (id: string) => {
-    // Store locally immediately for a seamless experience
-    try { storeActiveModelVariantId(id); } catch {}
-    if (typeof window !== "undefined") window.location.reload();
+    // Updates the shared model store in place — every screen reading
+    // useActiveModelVariant() re-renders immediately, no page reload needed.
+    void setActiveVariant(id);
   };
 
   return (

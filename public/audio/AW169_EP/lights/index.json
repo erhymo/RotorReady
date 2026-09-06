@@ -35,6 +35,24 @@
       "title": "Light: 1(2) ENG FAIL FIXED",
       "filename": "eng-fail-fixed.mp3",
       "durationSeconds": 369
+    },
+    {
+      "lightId": "eng-drive-shaft-failure",
+      "title": "Light: ENGINE DRIVE SHAFT FAILURE",
+      "filename": "eng-drive-shaft-failure.mp3",
+      "durationSeconds": 378
+    },
+    {
+      "lightId": "eng-idle",
+      "title": "Light: 1(2) ENG IDLE",
+      "filename": "eng-idle.mp3",
+      "durationSeconds": 328
+    },
+    {
+      "lightId": "eng-eecu-fail",
+      "title": "Light: 1(2) ENG EECU FAIL",
+      "filename": "eng-eecu-fail.mp3",
+      "durationSeconds": 305
     }
   ]
 }

@@ -77,13 +77,27 @@ export default function AudioPlayerClient() {
     });
   }, [item?.id]);
 
+  const savePosition = () => {
+    if (!item || !audioRef.current) return;
+    const t = audioRef.current.currentTime;
+    if (!Number.isFinite(t)) return;
+    window.localStorage.setItem(resumeKey(activeVariant.id, item.id), String(t));
+  };
+
   const handleLoadedMetadata = () => {
     if (!audioRef.current) return;
-    setDuration(audioRef.current.duration || 0);
+    const dur = audioRef.current.duration;
+    if (Number.isFinite(dur)) setDuration(dur);
     if (!item || resumedRef.current) return;
+    // Wait for a real, finite duration before consuming the one-shot resume
+    // attempt — on some platforms the first metadata event briefly reports
+    // 0/NaN, and a later loadedmetadata/durationchange corrects it. Latching
+    // resumedRef too early meant that correction never got a second chance
+    // and playback silently restarted from zero instead of resuming.
+    if (!Number.isFinite(dur) || dur <= 0) return;
     resumedRef.current = true;
     const saved = Number(window.localStorage.getItem(resumeKey(activeVariant.id, item.id)) || 0);
-    if (saved > 0 && saved < audioRef.current.duration - 5) {
+    if (saved > 0 && saved < dur - 5) {
       audioRef.current.currentTime = saved;
       setCurrentTime(saved);
     }
@@ -92,8 +106,24 @@ export default function AudioPlayerClient() {
   const handleTimeUpdate = () => {
     if (!item || !audioRef.current) return;
     setCurrentTime(audioRef.current.currentTime);
-    window.localStorage.setItem(resumeKey(activeVariant.id, item.id), String(audioRef.current.currentTime));
+    savePosition();
   };
+
+  // Belt-and-suspenders: timeupdate alone can leave a gap of up to ~1s
+  // un-persisted, and that's exactly the window where backgrounding the app
+  // (or the OS suspending it) can lose the last write. Save immediately on
+  // pause and on every signal that the page is about to go away or hide.
+  useEffect(() => {
+    const onHide = () => savePosition();
+    document.addEventListener("visibilitychange", onHide);
+    window.addEventListener("pagehide", onHide);
+    window.addEventListener("beforeunload", onHide);
+    return () => {
+      document.removeEventListener("visibilitychange", onHide);
+      window.removeEventListener("pagehide", onHide);
+      window.removeEventListener("beforeunload", onHide);
+    };
+  }, [item?.id, activeVariant.id]);
 
   const applyRate = (next: number) => {
     setRate(next);
@@ -166,7 +196,10 @@ export default function AudioPlayerClient() {
                 onDurationChange={handleLoadedMetadata}
                 onTimeUpdate={handleTimeUpdate}
                 onPlay={() => setIsPlaying(true)}
-                onPause={() => setIsPlaying(false)}
+                onPause={() => {
+                  setIsPlaying(false);
+                  savePosition();
+                }}
                 onEnded={() => setIsPlaying(false)}
                 className="hidden"
               />

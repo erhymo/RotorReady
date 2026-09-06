@@ -183,17 +183,17 @@ const nextConfig = {
         // source still differ in ~90% of files. That's fine for a normal
         // deploy, but it defeats @capgo/capacitor-updater's whole point here:
         // its manifest diff (lib/nativeUpdater.ts) is supposed to let a small
-        // content fix download a handful of files, not the whole shell. A
-        // stable, content-derived build ID keeps genuinely-unchanged pages
-        // byte-identical across rebuilds so the diff actually stays small.
-        generateBuildId: async () => {
-          const { execSync } = await import('node:child_process');
-          try {
-            return execSync('git rev-parse HEAD', { cwd: __dirname }).toString().trim();
-          } catch {
-            return 'native-shell-dev';
-          }
-        },
+        // content fix download a handful of files, not the whole shell.
+        //
+        // A FIXED constant, not the git commit sha — the sha changes on every
+        // commit by definition, which would reintroduce this exact problem on
+        // every single future push regardless of how small the real change
+        // was (caught this the hard way: the git-sha version passed a
+        // same-commit rebuild-twice test, but would have failed on the very
+        // next real commit). Actual content changes still get new filenames
+        // on their own via webpack's normal content hashing — the constant
+        // buildId just stops *unrelated* files from moving too.
+        generateBuildId: async () => 'native-shell',
       }
     : {
         async redirects() {

@@ -269,10 +269,33 @@ export const IFR_TOPICS: RuleTopic[] = [
     title: "Alternate aerodrome requirements",
     groups: [
       {
-        heading: "Destination alternate",
+        heading: "Destination alternate — when one is required",
         bullets: [
           "Required unless destination weather is forecast to remain at or above planning minima around the ETA, the destination has an instrument approach procedure (or is otherwise suitable), and no other operational reason requires one.",
-          "To be used as an alternate, forecast weather at the destination alternate must be at or above the applicable alternate minima at the estimated time of use.",
+          "To be used as an alternate, forecast weather at the destination alternate must be at or above the applicable alternate minima (see below) at the estimated time of use.",
+        ],
+      },
+      {
+        heading: "When TWO destination alternates are required",
+        bullets: [
+          "One alternate is normally enough. A second destination alternate is required when either: the forecast weather cannot be shown to meet the safety margin/planning minima at ETA with confidence, or no meteorological information at all is available for the selected alternate.",
+          "In practice, this means: good, confidently-forecast weather at one solid alternate → one alternate is fine. Marginal, uncertain, or missing weather information → plan two, so there is still a valid option if the first one turns out to be unusable.",
+        ],
+      },
+      {
+        heading: "How alternate minima are calculated (the margin above landing minima)",
+        bullets: [
+          "An alternate must show better weather than a straightforward landing minima — it needs its own, stricter \"alternate minima\", since there's no second attempt if it also turns out unusable.",
+          "Precision approach (e.g. ILS): add 200 ft to the DA/H, and add 800 m to the RVR/visibility, on top of the approach's normal published minima.",
+          "Non-precision approach or circling: add 400 ft to the MDA/H, and add 1500 m to the RVR/visibility, on top of the approach's normal published minima.",
+          "These margins apply whether checking a destination alternate or a take-off alternate — the aerodrome only counts as usable if the forecast clears the raised bar, not just the normal landing minima.",
+        ],
+      },
+      {
+        heading: "The forecast time window: 1 hour before to 1 hour after ETA",
+        bullets: [
+          "An aerodrome may only be selected as an alternate (destination or take-off) when the weather reports/forecasts show conditions at or above the applicable minima throughout a window starting 1 hour before and ending 1 hour after the estimated time of arrival there — not just at the single ETA instant.",
+          "A forecast that only clears minima for part of that 2-hour window does not qualify the aerodrome as usable.",
         ],
       },
       {
@@ -280,6 +303,14 @@ export const IFR_TOPICS: RuleTopic[] = [
         bullets: [
           "Required when weather at the departure aerodrome is below the applicable landing minima, or when it would otherwise not be possible to return there.",
           "For helicopters, normally selected within a limited distance or flight time of the departure point, as defined in the operator's operations manual.",
+          "Judged against the same raised alternate minima (see above), not the normal landing minima.",
+        ],
+      },
+      {
+        heading: "Take-off minima — the RVR floor",
+        bullets: [
+          "Below 550 m RVR, a departure counts as a Low Visibility Take-Off (LVTO) and needs the applicable LVTO procedures.",
+          "Below 400 m RVR specifically, a specific LVTO approval (beyond standard IFR authorization) is required before departure is permitted at all — this is the hard floor without that extra approval.",
         ],
       },
       {
@@ -290,7 +321,7 @@ export const IFR_TOPICS: RuleTopic[] = [
         ],
       },
     ],
-    reference: "EASA Air Ops – Part-NCC/SPA – Alternate aerodrome selection & fuel policy",
+    reference: "EASA Air Ops – Part-NCC/SPA/CAT.OP.MPA.181/182 – Alternate aerodrome selection, alternate minima & fuel policy",
   },
   {
     slug: "fuel-planning",

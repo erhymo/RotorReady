@@ -1,1 +1,3 @@
-Added full iPad support — RotorReady now runs as a native iPad app instead of a scaled-up iPhone window. Also fixed the AW169 EP central warning panel trainer occasionally reverting to AW169 Standard when opening a light's procedure.
+RotorReady now works fully offline, even the very first time you open it — training content, quizzes, procedures and lights training are built into the app itself, so there's no need for a network connection just to get started. Content updates now also reach you faster in the background, without waiting for an app update.
+
+Also fixed: the back button not working correctly when training on memory items in the Emergency & Malfunction trainer.

@@ -70,6 +70,26 @@ platform :android do
     )
   end
 
+  desc "Build and submit a new release directly to production for review, as a draft"
+  desc "Goes through Google Play review like a normal production release, but release_status:"
+  desc "draft means it won't actually go live until the user manually starts the rollout"
+  desc "in Play Console — the same 'reviewed, then you push it through' shape as iOS's"
+  desc "submit_review lane."
+  lane :submit_review do
+    build
+    upload_to_play_store(
+      package_name: required_env("GOOGLE_PLAY_PACKAGE_NAME"),
+      json_key: required_env("GOOGLE_PLAY_JSON_KEY_PATH"),
+      aab: "app/build/outputs/bundle/release/app-release.aab",
+      track: "production",
+      release_status: "draft",
+      skip_upload_metadata: true,
+      skip_upload_changelogs: false,
+      skip_upload_images: true,
+      skip_upload_screenshots: true
+    )
+  end
+
   desc "Promote the current internal testing release to production — no new build/upload"
   lane :promote_to_production do
     upload_to_play_store(

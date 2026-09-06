@@ -1,0 +1,1 @@
+RotorReady now works fully offline, even the first time you open it. Also fixed the back button not working correctly in the Emergency & Malfunction memory-items trainer.

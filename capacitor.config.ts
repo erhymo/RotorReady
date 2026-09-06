@@ -35,6 +35,13 @@ const config: CapacitorConfig = {
       // talks to Capgo's proprietary updateUrl protocol, which we're not using
       // (self-hosted, no Capgo account).
       autoUpdate: "off",
+      // Found during Android testing: the plugin sends usage/health telemetry
+      // to Capgo's own statsUrl by default, independent of autoUpdate — not
+      // something to send anywhere given we have no Capgo account, and while
+      // offline it retries roughly once a second with no backoff (a real
+      // battery/CPU cost for an app meant to be used offline for hours).
+      // Empty string disables stats reporting entirely, per the plugin's docs.
+      statsUrl: "",
     },
   },
 };

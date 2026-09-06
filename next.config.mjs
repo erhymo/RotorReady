@@ -177,6 +177,23 @@ const nextConfig = {
         output: 'export',
         distDir: '.next-native',
         images: { unoptimized: true },
+        // Next randomizes the build ID on every `next build` by default, which
+        // gets embedded into nearly every exported HTML file (as a leading
+        // comment) and into JS chunk filenames — so two builds of *identical*
+        // source still differ in ~90% of files. That's fine for a normal
+        // deploy, but it defeats @capgo/capacitor-updater's whole point here:
+        // its manifest diff (lib/nativeUpdater.ts) is supposed to let a small
+        // content fix download a handful of files, not the whole shell. A
+        // stable, content-derived build ID keeps genuinely-unchanged pages
+        // byte-identical across rebuilds so the diff actually stays small.
+        generateBuildId: async () => {
+          const { execSync } = await import('node:child_process');
+          try {
+            return execSync('git rev-parse HEAD', { cwd: __dirname }).toString().trim();
+          } catch {
+            return 'native-shell-dev';
+          }
+        },
       }
     : {
         async redirects() {

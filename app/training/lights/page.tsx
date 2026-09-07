@@ -1171,6 +1171,25 @@ function LightsTrainerInner() {
     "eng-eecu-fail", "bag-fire-flight", "bag-fire-ground", "mgb-oil-press", "mgb-oil-temp",
   ]);
 
+  // A handful of the AW169 red-light QRH pages are very short procedures on an
+  // otherwise full-page scan, leaving 55-60% blank white space below the "END"
+  // line before the page footer -- a real mobile-readability problem (lots of
+  // empty scrolling/pinch-zoom for little content). Fixed per-light, not
+  // uniformly: each value below is that light's own measured content height,
+  // in the source SVG's own coordinate units (all 15 share viewBox width
+  // 415.508), plus a small safety margin, verified against real screenshots
+  // through the actual app before shipping. This crops non-destructively via
+  // CSS (aspect-ratio + overflow:hidden on a wrapper) rather than editing the
+  // SVG source files themselves -- editing the SVGs directly was tried and
+  // reverted earlier: it silently corrupted unrelated content on other pages.
+  // Lights not listed here render at full, uncropped height as before.
+  const AW169_CROP_HEIGHT: Record<string, number> = {
+    "eng-out": 276,
+    "eng-drive-shaft-failure": 303,
+    "eng-eecu-fail": 272,
+  };
+  const AW169_SVG_WIDTH = 415.508;
+
   function ProcedureLikePDF({ item, flat = false, memoryOnly: memoryMode = false, hideReferences = false }: { item: LightItem; flat?: boolean; memoryOnly?: boolean; hideReferences?: boolean }) {
     const [showOriginalPage, setShowOriginalPage] = useState(false);
     const useTextRendering =
@@ -1390,6 +1409,21 @@ function LightsTrainerInner() {
       */
 
       const fullBleed = isAw169 && item.severity === "warning" && !!item.pageImage;
+      const cropHeight = isAw169 ? AW169_CROP_HEIGHT[item.id] : undefined;
+
+      const pageContent = (
+        <div className="relative">
+          <Image
+            src={item.pageImage}
+            alt={item.name}
+            width={1200}
+            height={1600}
+            className={`w-full h-auto transition ${item.severity === "warning" ? "dark:brightness-110 dark:contrast-125 dark:saturate-150" : "dark:brightness-110 dark:contrast-120 dark:saturate-140"}`}
+            priority
+          />
+          <LinkHotspots item={item} />
+        </div>
+      );
 
       return (
         <figure className={fullBleed ? "bg-white dark:bg-zinc-900 p-0" : (flat ? "bg-white dark:bg-zinc-900 p-0" : `rounded-2xl border bg-white shadow ${ (isH125) ? "dark:bg-zinc-900/80 dark:border-zinc-600" : "dark:bg-zinc-900/80 dark:border-zinc-600" } p-4`)}>
@@ -1400,17 +1434,13 @@ function LightsTrainerInner() {
                 : "rounded-xl"
             }
           >
-            <div className="relative">
-              <Image
-                src={item.pageImage}
-                alt={item.name}
-                width={1200}
-                height={1600}
-                className={`w-full h-auto transition ${item.severity === "warning" ? "dark:brightness-110 dark:contrast-125 dark:saturate-150" : "dark:brightness-110 dark:contrast-120 dark:saturate-140"}`}
-                priority
-              />
-              <LinkHotspots item={item} />
-            </div>
+            {cropHeight ? (
+              <div style={{ aspectRatio: `${AW169_SVG_WIDTH} / ${cropHeight}`, overflow: "hidden" }}>
+                {pageContent}
+              </div>
+            ) : (
+              pageContent
+            )}
           </ZoomableImage>
           {item.references?.length && !hideReferences ? (
             <figcaption className="mt-3 text-xs text-slate-500 dark:text-zinc-400">

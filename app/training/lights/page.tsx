@@ -1265,7 +1265,13 @@ function LightsTrainerInner() {
 
       return (
         <figure className={fullBleed ? "bg-white dark:bg-zinc-900 p-0" : (flat ? "bg-white dark:bg-zinc-900 p-0" : `rounded-2xl border bg-white shadow ${ (isH125) ? "dark:bg-zinc-900/80 dark:border-zinc-600" : "dark:bg-zinc-900/80 dark:border-zinc-600" } p-4`)}>
-          <ZoomableImage className={fullBleed ? "" : "rounded-xl"}>
+          <ZoomableImage
+            className={
+              fullBleed
+                ? "rounded-lg border border-slate-200 shadow-sm dark:border-zinc-700 dark:shadow-black/40"
+                : "rounded-xl"
+            }
+          >
             <div className="relative">
               <Image
                 src={item.pageImage}

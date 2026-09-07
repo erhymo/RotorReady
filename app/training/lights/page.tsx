@@ -932,6 +932,87 @@ function LightsTrainerInner() {
     }
   }
 
+  // Renders a procedure's steps as text, in their TRUE source order — unlike
+  // splitProcedure()-based rendering (used elsewhere in this file), which
+  // buckets every "note" to the very top and every "action" into one table
+  // regardless of where they actually sit in the sequence. That bucketing is
+  // harmless when a light only has one note (already first) but silently
+  // reorders content for lights where a note or caution genuinely belongs
+  // in the middle of the procedure (confirmed on real AW169 QRH pages during
+  // a mobile-readability review — e.g. 1(2) ENG FAIL FIXED's mid-procedure
+  // note about TQ split explains what happens as a *result* of the two
+  // numbered actions, and must not be hoisted above them).
+  // Consecutive "action" items still group into one connected numbered
+  // table, and a consecutive pair of "branch" items still renders as the
+  // side-by-side flowchart fork — both purely visual groupings that don't
+  // change the underlying order.
+  function renderProcedureSequence(steps: ProcedureStep[], keyPrefix: string) {
+    const elements: ReactNode[] = [];
+    let i = 0;
+    while (i < steps.length) {
+      const step = steps[i];
+      if (step.type === "action") {
+        const group: typeof steps = [];
+        while (i < steps.length && steps[i].type === "action") {
+          group.push(steps[i]);
+          i++;
+        }
+        elements.push(
+          <section
+            key={`${keyPrefix}-act-${i}`}
+            className="rounded-xl border-2 border-black dark:border-zinc-600 dark:bg-zinc-900/80 p-0 overflow-hidden"
+          >
+            <table className="w-full text-[15px]">
+              <tbody>
+                {group.map((a, gi) => (
+                  <tr key={gi} className="border-b last:border-b-0 dark:border-zinc-700">
+                    <td className="w-12 align-top px-4 py-3 font-bold dark:text-zinc-100">{gi + 1}.</td>
+                    <td className="align-top px-4 py-3 dark:text-zinc-100">{renderText((a as any).text)}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </section>
+        );
+        continue;
+      }
+      if (step.type === "branch" && steps[i + 1]?.type === "branch") {
+        const left = step as Extract<ProcedureStep, { type: "branch" }>;
+        const right = steps[i + 1] as Extract<ProcedureStep, { type: "branch" }>;
+        elements.push(
+          <section key={`${keyPrefix}-branch-${i}`} className="relative">
+            <div className="absolute left-1/6 right-1/6 top-3 h-px bg-black dark:bg-zinc-100 mx-auto" />
+            <div className="grid grid-cols-2 gap-6">
+              <div className="relative">
+                <div className="flex justify-center">
+                  <div className="h-6 w-px bg-black dark:bg-zinc-100" />
+                </div>
+                <div className="mt-3 rounded-xl border p-4 bg-white dark:bg-blue-900/40 dark:text-white dark:border-blue-400">
+                  {left.heading && <div className="font-semibold mb-1">{left.heading}</div>}
+                  <div className="whitespace-pre-wrap">{renderText(left.text)}</div>
+                </div>
+              </div>
+              <div className="relative">
+                <div className="flex justify-center">
+                  <div className="h-6 w-px bg-black dark:bg-zinc-100" />
+                </div>
+                <div className="mt-3 rounded-xl border p-4 bg-white dark:bg-blue-900/40 dark:text-white dark:border-blue-400">
+                  {right.heading && <div className="font-semibold mb-1">{right.heading}</div>}
+                  <div className="whitespace-pre-wrap">{renderText(right.text)}</div>
+                </div>
+              </div>
+            </div>
+          </section>
+        );
+        i += 2;
+        continue;
+      }
+      elements.push(<StepCard key={`${keyPrefix}-s-${i}`} step={step} />);
+      i++;
+    }
+    return elements;
+  }
+
   // AW169 QRH-style renderer for 1(2) ENG FIRE (FLIGHT)
   function AW169EngFireFlightQRH({ item, renderText, memoryOnly }: { item: LightItem; renderText: (txt?: string) => any; memoryOnly: boolean }) {
     const { notes, actions, rest } = splitProcedure(item.procedure || []);
@@ -1076,7 +1157,54 @@ function LightsTrainerInner() {
 
 
 
+  // AW169 red-warning lights this renderer is verified safe to show as real
+  // text instead of the scanned QRH page image: checked word-for-word against
+  // the source page for every light below, confirming the procedure array
+  // captures every step, note, caution, and branch with nothing missing and
+  // nothing misattributed to the wrong branch. ELEC FAIL is deliberately
+  // excluded — its source page has an explanatory notes box (battery
+  // endurance implications of a GEN BUS OVRD override) that isn't captured
+  // in the data at all, so it keeps showing the real page until that's added.
+  const AW169_TEXT_SAFE_LIGHT_IDS = new Set([
+    "eng-fire-flight", "eng-fire-ground", "eng-out", "rotor-high", "rotor-low",
+    "eng-oil-press", "eng-fail-fixed", "eng-drive-shaft-failure", "eng-idle",
+    "eng-eecu-fail", "bag-fire-flight", "bag-fire-ground", "mgb-oil-press", "mgb-oil-temp",
+  ]);
+
   function ProcedureLikePDF({ item, flat = false, memoryOnly: memoryMode = false, hideReferences = false }: { item: LightItem; flat?: boolean; memoryOnly?: boolean; hideReferences?: boolean }) {
+    const [showOriginalPage, setShowOriginalPage] = useState(false);
+    const useTextRendering =
+      !memoryMode &&
+      isAw169 &&
+      item.severity === "warning" &&
+      !!item.pageImage &&
+      !!item.procedure?.length &&
+      AW169_TEXT_SAFE_LIGHT_IDS.has(item.id) &&
+      !showOriginalPage;
+
+    if (useTextRendering) {
+      return (
+        <div className="space-y-6">
+          <div className="flex items-start justify-between gap-4">
+            <div>
+              <div className="text-lg font-semibold text-slate-900 dark:text-zinc-100">{item.name}</div>
+              {item.system && <div className="text-xs uppercase tracking-wide opacity-60 dark:text-zinc-400">{item.system}</div>}
+            </div>
+          </div>
+          {renderProcedureSequence(item.procedure || [], item.id)}
+          <div className="flex justify-center pt-2">
+            <button
+              type="button"
+              onClick={() => setShowOriginalPage(true)}
+              className="text-sm font-medium text-blue-600 underline underline-offset-2 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
+            >
+              View original QRH page
+            </button>
+          </div>
+        </div>
+      );
+    }
+
     if (item.pageImage) {
     // Memory-only: override default image rendering for specific variants
     if (memoryMode) {

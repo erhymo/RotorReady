@@ -1950,7 +1950,15 @@ function LightsTrainerInner() {
             </button>
             <div
               className="h-full w-full overflow-y-auto"
-              style={{ paddingTop: "calc(3.5rem + env(safe-area-inset-top, 0px))" }}
+              style={{
+                paddingTop: "calc(3.5rem + env(safe-area-inset-top, 0px))",
+                // Reserve space for the fixed Prev/Flag/Next bar below, which sits on
+                // top of this scroll container -- without this, the last lines of a
+                // procedure that end near the bottom of the page are hidden behind
+                // that bar and never scrollable into view. Estimated from the bar's
+                // own padding + button height (~1rem + ~2.75rem + ~1rem), rounded up.
+                paddingBottom: "calc(6rem + env(safe-area-inset-bottom, 0px))",
+              }}
               onClick={(e) => { try { const t = e.target as HTMLElement; if (t && t.closest('a,button,input,textarea,select,[data-prevent-back]')) return; if (isAw169 && current?.severity === 'warning' && current?.pageImage) { next(); } } catch {} }}
             >
             {!(isAw169 && memoryOnly && current?.pageImage) && header}

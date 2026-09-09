@@ -1,0 +1,39 @@
+{
+  "items": [
+    {
+      "id": "rotor-system-low-g-and-mast-bumping",
+      "title": "Rotor System: Low-G and Mast Bumping",
+      "description": "The two-blade teetering main rotor's low inertia built up layer by layer, then a real turbulence encounter to show exactly how to recognize and recover from a low-G condition.",
+      "filename": "rotor-system-low-g-and-mast-bumping.mp3",
+      "durationSeconds": 823
+    },
+    {
+      "id": "governor-throttle-correlator-and-rpm-management",
+      "title": "Governor: Throttle Correlator and RPM Management",
+      "description": "How the throttle correlator and RPM governor work together to hold rotor speed, followed through a real governor malfunction to show manual throttle takeover.",
+      "filename": "governor-throttle-correlator-and-rpm-management.mp3",
+      "durationSeconds": 997
+    },
+    {
+      "id": "autorotation-power-failure-procedures",
+      "title": "Autorotation: Power-Failure Procedures",
+      "description": "The full power-failure procedure across every altitude band, walked through a real engine failure from recognition to touchdown.",
+      "filename": "autorotation-power-failure-procedures.mp3",
+      "durationSeconds": 955
+    },
+    {
+      "id": "drive-system-clutch-and-belt-mechanics",
+      "title": "Drive System: Clutch and Belt Mechanics",
+      "description": "How the belt drive and overrunning clutch actually make autorotation possible, followed through a real in-flight clutch-light event.",
+      "filename": "drive-system-clutch-and-belt-mechanics.mp3",
+      "durationSeconds": 1157
+    },
+    {
+      "id": "limitations-operating-limits",
+      "title": "Limitations: Operating Limits",
+      "description": "The full R44 II numbers sheet — airspeed, rotor RPM, engine limits, and weight and CG — as a rapid-fire recap.",
+      "filename": "limitations-operating-limits.mp3",
+      "durationSeconds": 1269
+    }
+  ]
+}

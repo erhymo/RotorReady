@@ -136,23 +136,14 @@ const withPWA = withPWAInit({
   ],
 });
 
-// NATIVE_EXPORT=1 builds a separate static bundle of just the offline-critical route
-// tree (home, quiz, AW169 training/lights, audio) to embed directly in the native app —
-// see scripts/build-native-shell.mjs. It needs `output: 'export'` (which disallows
-// redirects()/headers()/rewrites() and requires next/image without its default server
-// loader) and a separate distDir so it never collides with the normal Vercel build.
-// The service worker has no purpose inside a bundle that's already local, so it's
-// skipped entirely for this mode.
-const isNativeExport = process.env.NATIVE_EXPORT === '1';
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   serverExternalPackages: ['firebase-admin'],
   outputFileTracingRoot: __dirname,
   // lib/build/staticParams.ts reads public/audio, public/model-data etc. with
-  // dynamic fs.readdirSync/readFileSync paths (for generateStaticParams — see
-  // scripts/build-native-shell.mjs) — Next's output tracer can't tell which
-  // files those calls actually touch, so it conservatively bundled the whole
+  // dynamic fs.readdirSync/readFileSync paths (for generateStaticParams) —
+  // Next's output tracer can't tell which files those calls actually touch,
+  // so it conservatively bundled the whole
   // ~400MB public/audio directory into the dynamic-route serverless
   // functions that import it (any /audio/[id] or /quiz/[section]/... id not
   // covered by generateStaticParams still gets a server-rendered fallback),
@@ -172,38 +163,13 @@ const nextConfig = {
     }
     return config;
   },
-  ...(isNativeExport
-    ? {
-        output: 'export',
-        distDir: '.next-native',
-        images: { unoptimized: true },
-        // Next randomizes the build ID on every `next build` by default, which
-        // gets embedded into nearly every exported HTML file (as a leading
-        // comment) and into JS chunk filenames — so two builds of *identical*
-        // source still differ in ~90% of files. That's fine for a normal
-        // deploy, but it defeats @capgo/capacitor-updater's whole point here:
-        // its manifest diff (lib/nativeUpdater.ts) is supposed to let a small
-        // content fix download a handful of files, not the whole shell.
-        //
-        // A FIXED constant, not the git commit sha — the sha changes on every
-        // commit by definition, which would reintroduce this exact problem on
-        // every single future push regardless of how small the real change
-        // was (caught this the hard way: the git-sha version passed a
-        // same-commit rebuild-twice test, but would have failed on the very
-        // next real commit). Actual content changes still get new filenames
-        // on their own via webpack's normal content hashing — the constant
-        // buildId just stops *unrelated* files from moving too.
-        generateBuildId: async () => 'native-shell',
-      }
-    : {
-        async redirects() {
-          return [
-            { source: "/auth/signin", destination: "/login", permanent: true },
-            { source: "/auth/signup", destination: "/signup", permanent: true },
-          ];
-        },
-      }),
+  async redirects() {
+    return [
+      { source: "/auth/signin", destination: "/login", permanent: true },
+      { source: "/auth/signup", destination: "/signup", permanent: true },
+    ];
+  },
 };
 
-export default isNativeExport ? nextConfig : withPWA(nextConfig);
+export default withPWA(nextConfig);
 

@@ -1,7 +1,7 @@
 // Build-time helpers for generateStaticParams(). Used only by page.tsx server
 // wrappers around dynamic-segment routes that need to enumerate every value
-// the route could take so `output: 'export'` (the native-shell static build,
-// see scripts/build-native-shell.mjs) can pre-render a page for each one.
+// the route could take, so Next can pre-render a static page for each one at
+// build time instead of falling back to a server-rendered page per request.
 // Reads the exact same JSON under public/ that the client-side pages already
 // fetch at runtime, so the enumerated set matches what's actually offered.
 import { readFileSync, readdirSync } from "node:fs";

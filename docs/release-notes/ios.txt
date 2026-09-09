@@ -1,3 +1,1 @@
-RotorReady now works fully offline, even the very first time you open it — training content, quizzes, procedures and lights training are built into the app itself, so there's no need for a network connection just to get started. Content updates now also reach you faster in the background, without waiting for an app update.
-
-Also fixed: the back button not working correctly when training on memory items in the Emergency & Malfunction trainer.
+Fixed the app getting stuck showing outdated content after an update. Weather planning and Airports work again, and the back button works correctly when training on memory items in the Emergency & Malfunction trainer.

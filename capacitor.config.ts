@@ -3,18 +3,34 @@ import type { CapacitorConfig } from "@capacitor/cli";
 const config: CapacitorConfig = {
   appId: "com.mayday.rotorready",
   appName: "RotorReady",
-  // public/native-shell/ is a static export of the offline-critical route tree (home,
-  // quiz, AW169 training/lights, audio — see scripts/build-native-shell.mjs), bundled
-  // straight into the native binary. There's no server.url here on purpose: the app boots
-  // from this local copy every time, online or offline, instead of depending on a live
-  // network fetch (or a previously-activated service worker) just to start. Genuinely
-  // network-only destinations (weather, airports, admin, login/signup) open in the
-  // in-app browser against the live site instead of being bundled — see
-  // lib/liveOnlyLinks.ts. Being a plain subdirectory of public/, it's also served live by
-  // Vercel (no route, no function), which is what lib/nativeUpdater.ts polls for content
-  // updates without needing a new store build.
-  webDir: "public/native-shell",
+  // The app loads all content live from server.url below and only ever falls back to a
+  // local file for the offline errorPath page — so webDir points at a minimal folder with
+  // just that page, not a full bundled copy of the site.
+  //
+  // This is a deliberate reversion (2026-09-09) from the "local-first shell" architecture
+  // (bundled offline export + @capgo/capacitor-updater background content updates,
+  // shipped as versionCode 7/1.5 and iOS 1.0.8). That system's delta-update mechanism
+  // never worked end-to-end on a real device: a genuine content push after install (going
+  // from 3 to 8 AW169 EP light-audio episodes, plus several other fixes) still hadn't
+  // reached an installed app after 7 full relaunches. The code and the plugin's own
+  // comparison logic both checked out correct on inspection, so the bug is somewhere in
+  // real-world plugin behavior that was never actually exercised before shipping (per
+  // project_native_local_first_shell memory: "a real delta-download+rollback cycle is
+  // still unexercised" — this was that first real exercise, and it failed silently with
+  // no diagnostics reaching us). Rather than debug an unproven mechanism further, this
+  // reverts to the simple, previously-reliable server.url approach and keeps only the
+  // two genuinely independent wins from that work: the Android hardware back-button fix
+  // (@capacitor/app, see components/NativeBackButton.tsx) and the Android 15 edge-to-edge
+  // margin fix below. True first-ever-offline-launch support is given up for now — what's
+  // kept instead: downloaded podcast episodes (lib/audioOffline.ts, plain Cache API, was
+  // never part of the local-first-shell system and is completely unaffected by this
+  // revert) and any page already visited once while online (the existing next-pwa service
+  // worker in next.config.mjs, unchanged throughout — NetworkFirst-caches quiz/lights
+  // pages and falls back to cache offline; was simply unused while server.url was absent).
+  webDir: "public-native",
   server: {
+    url: "https://rotor-ready.com",
+    cleartext: false,
     errorPath: "native-error.html",
   },
   ios: {
@@ -27,22 +43,6 @@ const config: CapacitorConfig = {
     // bar. "force" applies native margins matching the system bar insets on every Android
     // version, not just 15+.
     adjustMarginsForEdgeToEdge: "force",
-  },
-  plugins: {
-    CapacitorUpdater: {
-      // lib/nativeUpdater.ts drives update checks explicitly against our own
-      // public/native-shell/version.json — the plugin's own autoUpdate polling
-      // talks to Capgo's proprietary updateUrl protocol, which we're not using
-      // (self-hosted, no Capgo account).
-      autoUpdate: "off",
-      // Found during Android testing: the plugin sends usage/health telemetry
-      // to Capgo's own statsUrl by default, independent of autoUpdate — not
-      // something to send anywhere given we have no Capgo account, and while
-      // offline it retries roughly once a second with no backoff (a real
-      // battery/CPU cost for an app meant to be used offline for hours).
-      // Empty string disables stats reporting entirely, per the plugin's docs.
-      statsUrl: "",
-    },
   },
 };
 

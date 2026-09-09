@@ -7,7 +7,6 @@ import ProtectedRoutes from "@/components/ProtectedRoutes";
 import ThemeInitializer from "@/components/ThemeInitializer";
 import AnalyticsProvider from "@/components/AnalyticsProvider";
 import PWARegister from "@/components/PWARegister";
-import NativeUpdater from "@/components/NativeUpdater";
 import NativeBackButton from "@/components/NativeBackButton";
 import { Analytics } from "@vercel/analytics/next";
 
@@ -81,7 +80,6 @@ export default function RootLayout({
         <ThemeInitializer />
         <AnalyticsProvider />
 	        <PWARegister />
-        <NativeUpdater />
         <NativeBackButton />
         <div className="sticky top-0 z-30">
           <Header />

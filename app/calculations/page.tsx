@@ -24,6 +24,7 @@ const CALCULATIONS_ROUTE_SLUG: Record<ProductId, string> = {
   AW189: "aw189",
   AW139: "aw139",
   H125: "h125",
+  R22: "r22",
   R44_II: "r44-ii",
   S92: "s92",
   H135_T3: "h135-t3",
@@ -32,6 +33,7 @@ const CALCULATIONS_ROUTE_SLUG: Record<ProductId, string> = {
 };
 
 const FUEL_LABEL: Partial<Record<ProductId, string>> = {
+  R22: "Avgas 100LL",
   R44_II: "Avgas 100LL",
 };
 

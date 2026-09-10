@@ -1,4 +1,4 @@
-export type ProductId = "AW169" | "AW189" | "AW139" | "H125" | "R44_II" | "S92" | "H135_T3" | "H145_D2" | "H145_D3";
+export type ProductId = "AW169" | "AW189" | "AW139" | "H125" | "R22" | "R44_II" | "S92" | "H135_T3" | "H145_D2" | "H145_D3";
 
 export type ModelStatus = "available" | "coming_soon";
 
@@ -52,6 +52,13 @@ export const MODEL_VARIANTS: ModelVariantDefinition[] = [
     label: "H125 / AS350 B3e",
     description: "Airbus H125 (B3e).",
     productId: "H125",
+    status: "available",
+  },
+  {
+    id: "R22",
+    label: "R22",
+    description: "Robinson R22 – POH-based training content.",
+    productId: "R22",
     status: "available",
   },
   {
@@ -116,6 +123,7 @@ export function isProductId(value: unknown): value is ProductId {
     value === "AW189" ||
     value === "AW139" ||
     value === "H125" ||
+    value === "R22" ||
     value === "R44_II" ||
     value === "S92" ||
     value === "H135_T3" ||

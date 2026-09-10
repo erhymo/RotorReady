@@ -290,6 +290,15 @@ function Bar(props: { href: string; title: string; description: string; tone?: "
 		            icon={<BookIcon className="h-4 w-4" />}
 		          />
 		        )}
+		        {activeVariant?.id === "R22" && (
+		          <Bar
+		            href="/r22/system-notes"
+		            title="System Notes"
+		            description="Written deep-dives on R22 systems — how they work, and the numbers to know."
+		            tone="slate"
+		            icon={<BookIcon className="h-4 w-4" />}
+		          />
+		        )}
 		        {activeVariant?.id === "R44_II" && (
 		          <Bar
 		            href="/r44-ii/quick-reference"

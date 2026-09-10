@@ -618,6 +618,19 @@ export default function AccountPage() {
 
               <button
                 type="button"
+                key="R22"
+                onClick={() => selectVariant("R22")}
+                className={`px-3 py-1 rounded-lg border text-sm transition ${
+                  activeVariantId === "R22"
+                    ? "border-emerald-400 bg-emerald-50 text-emerald-700"
+                    : "bg-white dark:bg-zinc-900 dark:text-zinc-100 hover:border-slate-300 dark:hover:border-zinc-600"
+                }`}
+              >
+                R22
+              </button>
+
+              <button
+                type="button"
                 key="R44_II"
                 onClick={() => selectVariant("R44_II")}
                 className={`px-3 py-1 rounded-lg border text-sm transition ${

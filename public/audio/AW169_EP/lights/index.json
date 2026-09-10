@@ -47,6 +47,12 @@
       "title": "Light: 1(2) ENG EECU FAIL",
       "filename": "eng-eecu-fail.mp3",
       "durationSeconds": 305
+    },
+    {
+      "lightId": "bag-fire-ground",
+      "title": "Light: BAG FIRE (on ground)",
+      "filename": "bag-fire-ground.mp3",
+      "durationSeconds": 371
     }
   ]
 }

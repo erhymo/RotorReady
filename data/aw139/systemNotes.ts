@@ -1084,4 +1084,369 @@ const NVG_OPERATIONS: SystemNote = {
   ],
 };
 
-export const AW139_SYSTEM_NOTES: SystemNote[] = [WEATHER_RADAR_HONEYWELL, WEATHER_RADAR_TELEPHONICS, TAS_KTA970, WEATHER_RADAR_GABBIANO, TCAS_II, EGPWS, OPLS, RNP_OPERATIONS, DIGITAL_MAP, FD_SAR_MODES, DITCHING, CPI_ELT, IPS, EXTERNAL_HOIST, EAPS, SECOND_RAD_ALT, NVG_OPERATIONS];
+const INTEGRATED_AVIONICS: SystemNote = {
+  slug: "integrated-avionics-primus-epic",
+  title: "Integrated Avionics System (Primus Epic)",
+  subtitle: "Two Modular Avionics Units, the ASCB-D backbone, four flat-panel displays with integrated engine and crew-alerting data, and the reconfiguration logic behind every other system's caution.",
+  rfmReference:
+    "AW139 RFM Section 7 (System Description — Integrated Avionics System / Primus Epic System: General, Indicating and Recording System, Navigation).",
+  sections: [
+    {
+      heading: "What it is",
+      paragraphs: [
+        "The Honeywell Primus Epic integrated avionics system is the core the rest of the aircraft plugs into. Two Modular Avionics Units (MAU) do the processing for auto-flight, indicating, navigation and system monitoring, tied together with the display units, radios and sensors over the Avionic Standard Communication Bus (ASCB-D). Almost every system note that mentions a caption, a CAS message, a synoptic page or the Vehicle Monitoring System is describing data that reaches the crew through this system.",
+      ],
+    },
+    {
+      heading: "The displays",
+      paragraphs: [
+        "Four identical active-matrix LCD panels: two Primary Flight Displays (PFD) with integrated engine instruments and crew-alerting information, and two Multi-Function Displays (MFD) for navigation, weather radar and secondary engine instruments. Supporting them are two PFD controllers, two cursor control devices, two remote instrument controllers, a Reconfiguration Control Panel, and a Dimming Control Panel. A standby ADI carries independent attitude, airspeed and altitude, and each crew station has its own Master Caution and Master Warning lights.",
+        "The Central Display System presents pilot and co-pilot primary flight data, navigation data and engine data. Malfunctions from the electrical, hydraulic, fuel, transmission, fire and other systems are shown in the CAS message window and the Vehicle Monitoring System (VMS) window on the MFD; some maintenance-level indications are stored electronically and only shown on the ground.",
+      ],
+    },
+    {
+      heading: "Navigation building blocks",
+      paragraphs: [
+        "The navigation function is built from a primary and secondary Air Data System (airspeed, OAT, altitude, pitot/static), two Attitude Heading Reference Systems (magnetic and inertial), the radio altimeter, the VOR/ILS/Data Link (VIDL) receiver, DME, the Mode-S transponder(s), ADF, and optional GPS, all feeding the displays and the Flight Management System over the ASCB-D. The weather radar and Lightning Sensor System provide independent position information, shown together on the PFDs and MFDs.",
+      ],
+    },
+  ],
+};
+
+const AFCS_BASE: SystemNote = {
+  slug: "afcs",
+  title: "Automatic Flight Control System",
+  subtitle: "Two MAUs driving six limited-authority linear actuators and three full-authority rotary trim actuators — the ATT and SAS basic modes, Two-Cue and Three-Cue coupling, and what auto-trim does in each.",
+  rfmReference:
+    "AW139 RFM Section 7 (System Description — Integrated Avionics System / Auto-Flight: basic modes, autopilot controller, guidance controller, linear-actuators, rotary trim actuators, air data modules, attitude and reference systems). The SAR-specific coupled modes are covered in the separate FD SAR modes note.",
+  sections: [
+    {
+      heading: "What it is",
+      paragraphs: [
+        "The AFCS runs in the two Modular Avionics Units of the Primus Epic system, connected to the autopilot controller, the guidance controller, the linear and rotary trim actuators, the air data modules and the attitude/heading reference systems. Six high-frequency 'smart' linear actuators give limited-authority control of pitch, roll and yaw (28 VDC direct from the aircraft bus); three low-frequency rotary trim actuators give full-authority control of pitch, roll, yaw and the collective axis.",
+        "The collective axis drives the aircraft collective controls through a parallel actuator and a force-feel assembly, giving the pilot both motive power and artificial feel. Auto-trim keeps the linear actuators centred in their travel; pitch and roll auto-trim work whenever one or both autopilots are engaged in any mode except SAS.",
+      ],
+    },
+    {
+      heading: "The two basic modes",
+      table: {
+        columns: ["Mode", "What it does"],
+        rows: [
+          ["ATT (Attitude Retention)", "Long-term stabilisation for hands-off flying — holds the reference attitude and returns to it after a disturbance. Small changes via the cyclic beep switch; larger changes by holding Force Trim Correct and flying manually. Can be coupled to the Flight Director."],
+          ["SAS (Stability Augmentation System)", "Short-term damping for hands-on flying — yaw-rate damping, low-speed heading hold, automatic turn coordination. For extensive manoeuvring with the pilot hands-on and no attitude retention. Cyclic beep sets Flight Director references only, not attitude; can run with force trim ON or OFF."],
+        ],
+      },
+      note: "Yaw control engages automatically whenever an autopilot is selected and stays active in both ATT and SAS; dual yaw control is provided with both autopilots engaged. The pilot can override ATT at any time simply by flying through it.",
+    },
+    {
+      heading: "Coupling to the Flight Director",
+      paragraphs: [
+        "With both autopilots engaged in ATT and Flight Director modes selected, the autopilot couples to the FD. Two-Cue operation lets the FD control the lateral (roll) and vertical (pitch) axes. Three-Cue operation adds the collective (power) axis, so the FD also controls power. The FD mode set beyond that — the SAR-specific coupled modes such as hover, transition-down and target-hover — is covered in the FD SAR modes note.",
+      ],
+    },
+  ],
+};
+
+const POWER_PLANT_139: SystemNote = {
+  slug: "power-plant",
+  title: "Power Plant",
+  subtitle: "Two PT6C-67C free-turbine turboshafts, each with an Electronic Engine Control and a push-pull-cable manual back-up, an accessory gearbox driving the starter-generator, alternator, fuel module and oil pumps, and an output shaft straight into the MGB.",
+  rfmReference:
+    "AW139 RFM Section 7 (System Description — Power Plant: engine, lubrication system, indicating system, fuel and control systems, ignition system, accessory gearbox).",
+  sections: [
+    {
+      heading: "The engines",
+      paragraphs: [
+        "Two Pratt & Whitney Canada PT6C-67C turboshafts, in separate fireproof compartments above the cabin roof, attached to the airframe and the Main Gearbox. Each is a free-turbine engine with a four-stage axial compressor and a single-stage centrifugal compressor, both driven by a single-stage compressor turbine. The power turbine turns an output shaft at the front of the engine that drives the MGB input gears.",
+        "Lubrication is a self-contained oil tank plus pressure, scavenge and breather systems delivering regulated, filtered oil. Sensors and probes on the engine feed the cockpit either directly or through the Electronic Engine Control.",
+      ],
+    },
+    {
+      heading: "Engine control",
+      paragraphs: [
+        "The Electronic Engine Control (EEC) system meters fuel accurately, controls engine speed and protects against overspeed. Behind it is a manual back-up engine control operated by push-pull cables — the mechanical reversion if the EEC is lost. Fuel reaches the engines from the fuel system through the selector manifold; each engine has its own air inlet, and exhaust gas leaves through an exhaust duct.",
+        "The ignition system is a high-voltage unit and two spark igniters, run off the aircraft 28 VDC supply, giving quick light-ups across a wide temperature range.",
+      ],
+    },
+    {
+      heading: "The accessory gearbox",
+      paragraphs: [
+        "An accessory gearbox on each engine drives that engine's starter-generator, the alternator, the fuel management module and the oil pumps. It is the reason a running engine keeps its own generator and fuel module alive independent of the other engine.",
+      ],
+    },
+  ],
+};
+
+const FUEL_SYSTEM_139: SystemNote = {
+  slug: "fuel-system",
+  title: "Fuel System",
+  subtitle: "Interconnected crash-resistant bladder cells that deliberately keep a reserve below the interconnect, two independent booster-pump/shut-off/cross-feed systems, and engines that will run on suction alone if the boost pumps quit.",
+  rfmReference:
+    "AW139 RFM Section 7 (System Description — Fuel System: fuel storage, fuel gauging, fuel distribution, fuel venting and drainage).",
+  sections: [
+    {
+      heading: "Storage",
+      paragraphs: [
+        "Flexible bladder-type fuel cells sit behind the passenger cabin. The cells are interconnected, but each retains a capacity of fuel below the interconnection — so a rupture of one cell cannot drain all the fuel from the helicopter. The cells and their sealed supporting tank structure are demonstrated crash-resistant, with inspection features and water/fuel drain provisions. Refuelling is by gravity, or by an optional Closed Circuit Refuelling Receiver.",
+      ],
+    },
+    {
+      heading: "Gauging",
+      paragraphs: [
+        "A Fuel Control Unit and four capacitance probes — two main probes and two secondary (lower) probes. The probe responses are reported to the pilot's PFD through the FCU. The secondary lower probe also provides for an independent low-level sensor.",
+      ],
+    },
+    {
+      heading: "Distribution",
+      paragraphs: [
+        "The Fuel Control Panel operates each cell's booster pump and its shut-off and cross-feed valve functions. Either of the two systems can run independently, or cross-feed through the manifold. The booster pumps provide the primary motive flow to the engines, but the engine-mounted high-pressure pumps can maintain an adequate supply in pure suction mode if the boost pumps fail. Pressure transducers and switches monitor system performance.",
+        "On the engine side, an accessory-gearbox-mounted pump feeds a fuel management unit, a fuel heater and the nozzle manifold, with a high-pressure pump, filter (with impending-bypass indication) and a fuel return line.",
+      ],
+    },
+    {
+      heading: "Venting and drainage",
+      paragraphs: [
+        "The cells vent to atmosphere through independent lines fitted with flame arrestors and lightning-protection features, and drainage provisions prevent vapour build-up and spillage.",
+      ],
+    },
+  ],
+};
+
+const FIRE_PROTECTION_139: SystemNote = {
+  slug: "fire-detection-and-protection",
+  title: "Fire Detection and Protection",
+  subtitle: "A continuous-wire heat detector in each engine bay and a smoke sensor in the baggage bay, two extinguisher bottles per engine bay with directional flow valves, and a control panel where the first push fires bottle one and the second push fires bottle two.",
+  rfmReference:
+    "AW139 RFM Section 7 (System Description — Fire Detection and Protection System: fire detection system, fire extinguisher system).",
+  sections: [
+    {
+      heading: "Detection",
+      paragraphs: [
+        "A heat detector in each engine compartment and a smoke sensor in the baggage compartment. The heat detectors are continuous wires routed around the critical areas of each engine. On a fire or smoke indication the sensors signal the FIRE DETECT/EXTING control panel on the instrument panel; a warning alarm sounds and the panel shows the system status and the location of the fire. Malfunctions of the system appear in the CAS message window on the MFD. A separate Test Control Panel lamp-tests all the control panels in the system.",
+      ],
+    },
+    {
+      heading: "Extinguishing",
+      paragraphs: [
+        "Each engine compartment has two fire extinguisher bottles and directional flow valves, operated manually by the pilot from the FIRE DETECT/EXTING control panel. When the pilot operates the system, the directional flow valves ensure only one bottle discharges. Operating the system a second time discharges the second bottle. There is no fixed extinguishing system for the baggage compartment — the smoke sensor is detection only.",
+      ],
+    },
+  ],
+};
+
+const TRANSMISSION_139: SystemNote = {
+  slug: "transmission-and-rotor-drive",
+  title: "Transmission and Rotor Drive",
+  subtitle: "Two input modules with centrifugal freewheel units, a three-stage MGB stepping 21,000 rpm down to 296, and a tail-rotor drive train with shaft dampers and an anti-flail assembly on the shaft most likely to matter.",
+  rfmReference:
+    "AW139 RFM Section 7 (System Description — Transmission: main-rotor drive system, tail-rotor drive system).",
+  sections: [
+    {
+      heading: "Engine to main gearbox",
+      paragraphs: [
+        "An engine shaft runs from each engine to the MGB, with a gimbal assembly giving forward mounting support to the engines. The shaft connects to the gearbox through two input modules, which change the rotational axis and provide a first reduction ahead of the MGB proper. Each input module contains a centrifugal freewheeling unit that lets the drive disengage from its engine — necessary on an engine failure or shutdown.",
+      ],
+    },
+    {
+      heading: "The main gearbox",
+      paragraphs: [
+        "The MGB is a three-stage reduction gearbox that turns the horizontal engine drive into a vertical drive to the output mast and main-rotor hub, stepping the 21,000 rpm engine input down to 296 rpm at the rotor. It also drives the tail rotor and the accessories: the oil cooler fan, two lubrication pumps, three hydraulic pumps, and the ECS compressor if fitted. It carries the three main-rotor actuators and the optional rotor brake.",
+        "The MGB has a self-contained lubrication system with an oil-air heat exchanger and cooling fan. The MFD monitors and annunciates MGB oil pressure and temperature, ferrous particles in the oil, an impending filter block, and high input-bearing temperature.",
+      ],
+    },
+    {
+      heading: "Tail-rotor drive train",
+      table: {
+        caption: "Tail-rotor drive gearbox speeds",
+        columns: ["Gearbox", "Input", "Output"],
+        rows: [
+          ["Intermediate Gearbox (IGB) — bevel, at the base of the tail fin", "4,532 rpm", "3,458 rpm"],
+          ["Tail Gearbox (TGB) — at the top of the tail fin, turns the drive to lateral", "3,458 rpm", "1,435 rpm"],
+        ],
+      },
+      note: "Three drive shafts connect the MGB tail take-off to the IGB and then the TGB. Shafts No. 1 and No. 2 have damper assemblies to control shaft flexing at critical speeds, and an anti-flail assembly is fitted for the unlikely failure or disconnection of shaft No. 2. The IGB and TGB are splash-lubricated with condition monitoring; the MFD annunciates low oil level, high oil temperature and ferrous debris for each.",
+    },
+  ],
+};
+
+const ROTOR_SYSTEM_139: SystemNote = {
+  slug: "rotor-system",
+  title: "Rotor System",
+  subtitle: "A fully articulated five-blade main rotor on elastomeric bearings with hydraulic lead-lag dampers that double as the cushioned stops, and a four-blade fully articulated tail rotor with flap limits of −10° to +12°.",
+  rfmReference:
+    "AW139 RFM Section 7 (System Description — Rotor System: main rotor, blades, hub assembly, rotating controls; tail rotor system).",
+  sections: [
+    {
+      heading: "Main rotor",
+      paragraphs: [
+        "A fully articulated five-blade rotor with elastomeric bearings for the flap, lead-lag and pitch-change articulations. The lead-lag motion is reacted by hydraulic dampers — one per blade — which also provide the lead-lag stops (cushioned areas). Flapping has a separate stop system: an upper stop with a support for the flight position and a limiter for the ground position, and a lower stop with a sliding ring used in both flight and ground conditions.",
+        "The blades are composite, with steel (central) and nickel (tip) leading-edge erosion shields, aluminium trim tabs, a D-section fibreglass spar and honeycomb-cored graphite skins. The hub is a hybrid titanium-and-composite structure; graphite tension links carry the blade attachments, and the elastomeric bearings (aluminium inner, titanium outer, rubber and metal discs) allow blade motion while reacting centrifugal force. Drive from the mast reaches the swashplate through scissor drive links, and pitch change goes out through pitch links to the blade control levers.",
+      ],
+    },
+    {
+      heading: "Tail rotor",
+      paragraphs: [
+        "A four-blade fully articulated rotor with elastomeric spherical bearings allowing flap, lead-lag and feathering, and elastomeric dampers between the blades and hub to damp the lag motion. Upper and lower limiters on the hub and blades restrict flapping to −10° / +12°. The composite blades use a D-shaped unidirectional-fibreglass spar wrapped in cross-ply layers, a Rohacell filler, a nickel leading-edge shield, and honeycomb-cored skins, with balance-weight pockets at the tip and root. The four-arm titanium-reinforced hub is splined to the TGB mast; a sliding tube and rotating scissors carry the pitch-change input from the tail-rotor actuator to the blades.",
+      ],
+    },
+  ],
+};
+
+const ROTOR_FLIGHT_CONTROLS_139: SystemNote = {
+  slug: "rotor-flight-controls",
+  title: "Rotor Flight Controls",
+  subtitle: "Mechanical linkages from the crew controls through a mixing unit to three hydraulic main-rotor actuators and a dual-channel tail-rotor actuator — with series and trim actuators for the AFCS, and a per-actuator pressure switch behind every 1/2 SERVO caution.",
+  rfmReference:
+    "AW139 RFM Section 7 (System Description — Rotor Flight Controls: main-rotor controls system, tail-rotor controls system, rotor flight-controls indicating system).",
+  sections: [
+    {
+      heading: "Main-rotor controls",
+      paragraphs: [
+        "The pilot and co-pilot collective sticks are linked together to give a common input to the mixing unit. The mixing unit combines collective and cyclic inputs and drives three hydraulic actuators, which power the main-rotor pitch-change mechanism. An electrical actuator on the crew controls lets the AFCS add a collective command.",
+        "The cyclic system is a mechanical dual-linkage controlled by the crew cyclic sticks, giving pitch and roll commands to the pitch-change mechanism. The linkage also connects to two electrical trim actuators (crew or AFCS pitch/roll commands) and, on the upper linkage, two electrical actuators that provide the high-frequency auto-stabilisation function. Both cyclic inputs pass through the mixing unit to the three main-rotor actuators.",
+      ],
+    },
+    {
+      heading: "Tail-rotor controls",
+      paragraphs: [
+        "Mechanical linkages from each crew member's dual pedals (which also operate the main wheel brakes) drive a dual-channel hydraulic actuator that sets tail-rotor pitch for yaw control. Electrical actuators on the linkage provide manual and automatic trim.",
+      ],
+    },
+    {
+      heading: "Indicating",
+      paragraphs: [
+        "A pressure switch on each actuator control valve watches for a jammed or abnormally moving control spool. If one occurs, the indicating system raises a caution and a '1 SERVO' or '2 SERVO' message depending on which hydraulic channel is affected.",
+      ],
+    },
+  ],
+};
+
+const ELECTRICAL_139: SystemNote = {
+  slug: "electrical-power",
+  title: "Electrical Power",
+  subtitle: "A 28 V DC primary system on two 300 A engine-driven starter-generators and two batteries, with an optional dual 115/26 VAC inverter system, and a load-distribution scheme built to never drop the essential loads.",
+  rfmReference:
+    "AW139 RFM Section 7 (System Description — Electrical Power: DC system, AC system (optional), external DC power, DC electrical load distribution, controls and indications).",
+  sections: [
+    {
+      heading: "DC system",
+      paragraphs: [
+        "Primary 28 V DC power comes from two 30 V 300 A starter-generators, each driven through a gearbox by one main engine, plus two batteries. The No. 1 generator feeds Main Bus No. 1 and the No. 2 generator feeds Main Bus No. 2. The two batteries supply the starter-generators to start the engines, and supply essential power on a total loss of generated power.",
+        "Power Distribution panels No. 1 and No. 2 route power from the main and auxiliary batteries, the starter-generators or external power to the user loads. An overhead-panel circuit breaker connects the aircraft loads to the distribution system. The load-distribution system is designed so that the supply of DC power to the essential loads is never interrupted.",
+      ],
+    },
+    {
+      heading: "External DC power",
+      paragraphs: [
+        "An external DC power supply can be connected to power equipment normally fed by the DC system, and can also be used to start the engines.",
+      ],
+    },
+    {
+      heading: "AC system (optional)",
+      paragraphs: [
+        "When fitted, the AC system is a dual 115 VAC and 26 VAC, 400 Hz single-phase system supplied by two inverters that can cover all the aircraft's AC requirements. On the ground with the rotor stopped, the AC networks can also be powered from the DC external power unit or a nickel-cadmium battery.",
+      ],
+    },
+    {
+      heading: "Controls and indications",
+      paragraphs: [
+        "The DC generation, distribution and external-power controls are on the overhead switch panel. Malfunctions and operational status show in the Vehicle Monitoring System window and the CAS message window on the MFD.",
+      ],
+    },
+  ],
+};
+
+const HYDRAULIC_139: SystemNote = {
+  slug: "hydraulic-power",
+  title: "Hydraulic Power System",
+  subtitle: "Two independent 3,000 psi circuits — No. 1 with an emergency landing-gear function, No. 2 with the utility circuit and a tail-rotor shut-off valve — plus the interlock that will not let both circuits be excluded at once.",
+  rfmReference:
+    "AW139 RFM Section 7 (System Description — Hydraulic Power System: system No. 1, system No. 2, indicating system).",
+  sections: [
+    {
+      heading: "What it is",
+      paragraphs: [
+        "Two independent circuits supply hydraulic fluid at a nominal 3,000 psi (207 bar) to operate the flight-control servo-actuators and the landing gear. Each circuit powers one channel of the three main-rotor actuators and the one tail-rotor actuator — the Flight Control Circuit. Status is shown on the Cockpit Control Panel and, as the primary indication, as a caution on the cockpit display.",
+      ],
+    },
+    {
+      heading: "System No. 1",
+      paragraphs: [
+        "System 1 powers one channel of the flight-control actuators and provides back-up power for landing-gear extension (the emergency circuit). Its Power Control Module (PCM1) distributes and controls the flow. The primary supply is HPS 1, a MGB-driven mechanical pump holding constant pressure at variable flow. A secondary, limited supply comes from a battery-powered electrical pump — intended only for pre-flight flight-control checks, on a 2-minute timer relay to save the battery, delivering a nominal 1,523 psi (105 bar).",
+      ],
+    },
+    {
+      heading: "System No. 2",
+      paragraphs: [
+        "System 2 powers the other channel of the flight-control actuators and the utility circuit — normal landing-gear extension and retraction. Its Power Control Module (PCM2) distributes and controls the flow, supplied by two mechanical pumps, HPS 2 and HPS 4, driven separately off the MGB so one drive fault cannot lose both. A Tail Rotor Shut-Off Valve (TRSOV) on the tail-rotor actuator supply line closes automatically if the system 2 fluid level falls below minimum.",
+      ],
+    },
+    {
+      heading: "Interlock and automatic protection",
+      paragraphs: [
+        "The two circuits are interlocked so that both can never be excluded at once, and an excluded circuit is automatically re-activated if the other circuit loses pressure. PCM reservoir level switches drive the automatic protection: in system 1, reaching the minimum level (0.7 litres) closes the emergency-circuit SOV to stop further pressure loss, and a low level in the PCM 2 reservoir (0.9 litres) prevents the system 1 flight-controls SOV from closing so the tail rotor cannot lose power completely. In system 2, a low utility-circuit level closes the utility SOV to contain a utility leak; a further drop closes the TRSOV and re-opens the utility SOV; reaching the minimum level closes the utility SOV again.",
+      ],
+      note: "Manual control is from the Cockpit Control Panel — an ELEC PUMP switch and guarded Flight Control Shut-Off Valve switches used to isolate single circuits for ground checks or abnormal conditions in flight. The HYD 1 and HYD 2 lamps show abnormal pressure and temperature.",
+    },
+  ],
+};
+
+const LANDING_GEAR_139: SystemNote = {
+  slug: "landing-gear",
+  title: "Landing Gear",
+  subtitle: "A fore-and-aft retractable tricycle gear — normal extension on hydraulic system 2, emergency extension on system 1 — with a two-stage main-gear retraction, a nose-wheel centre-lock, and a parking brake that needs a specific pull-turn-pump sequence.",
+  rfmReference:
+    "AW139 RFM Section 7 (System Description — Landing Gear: control panel, extension and retraction, nose-wheel automatic centering and center-lock system, parking brake, indicating system).",
+  sections: [
+    {
+      heading: "What it is",
+      paragraphs: [
+        "A fore-and-aft retractable tricycle gear: two single main wheels and a twin nose wheel, with shock absorption and rebound control and an emergency lowering system. The main gear has differential braking and a parking brake; the nose wheel has automatic centering, a centre-lock, and pilot-controlled steering. The Landing Gear Control Panel on the centre console handles normal and emergency operation, nose-wheel locking, the parking brake, and the maintenance safety-lock position.",
+      ],
+    },
+    {
+      heading: "Extension and retraction",
+      paragraphs: [
+        "The gear lever has UP and DOWN positions and is protected against an UP selection on the ground. Three hydraulic retract actuators move the gear and apply a mechanical lock when extended — the main-gear locks brace the gear laterally, the nose-gear actuator acts as a drag brace against folding. Normal extension and retraction is powered by hydraulic system 2; emergency extension takes hydraulic power from system 1, commanded by a guarded push-button on the control panel that operates the control valve's emergency solenoid.",
+        "The nose gear moves in one stage. The main gear needs two stages because of bay space — during retraction the leg is shortened before it swings laterally into the bay, and the sequence is reversed on extension before it locks down.",
+      ],
+    },
+    {
+      heading: "Nose-wheel centering and centre-lock",
+      paragraphs: [
+        "After take-off, centering mechanisms align the nose wheels fore-and-aft for retraction. For high-speed ground rolling the nose wheels must be held aligned: pressing the centre-lock switch on the control panel once engages the lock, pressing it a second time releases it for ground manoeuvring.",
+      ],
+    },
+    {
+      heading: "Parking brake",
+      paragraphs: [
+        "To apply: pull the park-brake handle and turn it 90° to the locked position, then work both toe-brake pedals until the CAUTION PARK BRAKE PRESSURE message on the MFD goes out — confirming the system is pressurised correctly. To release: turn the handle 90° while applying pressure to the left brake pedal, which releases the detent and lets the cable return to the unlocked position.",
+      ],
+      note: "The Landing Gear page on the MFD shows normal gear operation, nose-wheel locking, the emergency system, hydraulic supply, parking brake and weight-on-wheels; a gear problem raises a caution with a LANDING GEAR message.",
+    },
+  ],
+};
+
+const ECS_139: SystemNote = {
+  slug: "environmental-control-system",
+  title: "Environmental Control System",
+  subtitle: "Separate pilot and co-pilot cockpit ventilation with electric flapper valves and fans, a single cabin ventilation system, and heating that runs on engine bleed air through a temperature control valve and heating control box.",
+  rfmReference:
+    "AW139 RFM Section 7 (System Description — Environmental Control System: ventilation, heating).",
+  sections: [
+    {
+      heading: "Ventilation",
+      paragraphs: [
+        "The cockpit ventilation system has two separate sub-systems, one for the pilot and one for the co-pilot, and also supplies windshield de-fogging. Fresh air comes in through air intakes with electrically controlled flapper valves, and the flow is set by crew-controlled electric fans. The cabin has a single independent ventilation system with its own crew-controlled electric fans supplying fresh air to the passengers.",
+      ],
+    },
+    {
+      heading: "Heating",
+      paragraphs: [
+        "Heating and demisting for the cockpit and cabin use bleed air from the discharge port of each engine, routed through a Temperature Control Valve and a Heating Control Box into the ventilation ducts. The ventilation and heating controls are on the VENT/HTR panel; system status and operational indications appear in the CAS message window on the MFD.",
+      ],
+    },
+  ],
+};
+
+export const AW139_SYSTEM_NOTES: SystemNote[] = [INTEGRATED_AVIONICS, AFCS_BASE, POWER_PLANT_139, FUEL_SYSTEM_139, FIRE_PROTECTION_139, TRANSMISSION_139, ROTOR_SYSTEM_139, ROTOR_FLIGHT_CONTROLS_139, ELECTRICAL_139, HYDRAULIC_139, LANDING_GEAR_139, ECS_139, WEATHER_RADAR_HONEYWELL, WEATHER_RADAR_TELEPHONICS, TAS_KTA970, WEATHER_RADAR_GABBIANO, TCAS_II, EGPWS, OPLS, RNP_OPERATIONS, DIGITAL_MAP, FD_SAR_MODES, DITCHING, CPI_ELT, IPS, EXTERNAL_HOIST, EAPS, SECOND_RAD_ALT, NVG_OPERATIONS];

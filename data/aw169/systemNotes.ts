@@ -1127,5 +1127,155 @@ const ELECTRICAL_SYSTEM_SHARED: SystemNote = {
   ],
 };
 
-export const AW169_EP_SYSTEM_NOTES: SystemNote[] = [AFCS_EP, PLUS_MODE_EP, AUTOROTATION_PROTECTION_EP, ELECTRICAL_SYSTEM_SHARED, WEATHER_RADAR_SHARED, WEATHER_RADAR_RDR1600_SHARED, TCAS_II_SHARED, HTAWS_EP, SVS_SHARED, DIGITAL_MAP_SHARED, OPLS_SHARED, EVS_CAMERA_SHARED, EHPS_SHARED, ADI_STBY_BATTERY_SHARED, AUTOMATIC_SEARCH_MODES_EP, EXTERNAL_HOIST_SHARED, CARGO_HOOK_SHARED, DITCHING_SHARED, ADELT_SHARED, EAPS_EP, FUEL_TRANSFER_PUMP_SHARED, RNP_APCH_LPV_SHARED];
-export const AW169_STANDARD_SYSTEM_NOTES: SystemNote[] = [ELECTRICAL_SYSTEM_SHARED, WEATHER_RADAR_SHARED, WEATHER_RADAR_RDR1600_SHARED, TCAS_II_SHARED, HTAWS_STANDARD, SVS_SHARED, DIGITAL_MAP_SHARED, OPLS_SHARED, EVS_CAMERA_SHARED, EHPS_SHARED, ADI_STBY_BATTERY_SHARED, EXTERNAL_HOIST_SHARED, CARGO_HOOK_SHARED, DITCHING_SHARED, ADELT_SHARED, EAPS_STANDARD, FUEL_TRANSFER_PUMP_SHARED, RNP_APCH_LPV_SHARED];
+const FIRE_PROTECTION_SHARED: SystemNote = {
+  slug: "fire-protection",
+  title: "Fire Protection",
+  subtitle: "Two cross-connected HALON 1301 bottles for the engine bays, a smoke detector but no extinguisher for the baggage bay, and handhelds for everything else.",
+  rfmReference:
+    "AW169 EP RFM Section 7 (System Description — Fire Protection, Chap 26; Equipments/Furnishings, Chap 25 — Portable Fire Extinguisher Installation), AW169 RFM Section 3 (Emergency and Malfunction Procedures — Engine Bay Fire (Flight), Engine Bay Fire (Ground), Baggage Bay Fire (Flight/Ground), Cockpit/Cabin Fire (Flight/Ground), Engine Fire Detector System, Fire Bottle Low Pressure). Common to AW169 Standard and AW169 EP.",
+  sections: [
+    {
+      heading: "What it is",
+      paragraphs: [
+        "Detection is by continuous element. A fire wire runs around each engine bay: a sealed tube of inert helium with an internal core of active gas and a pressure transducer. When any short length of the wire gets hot, the core dumps active gas into the tube, pressure rises, and the transducer trips — so it detects a hot spot anywhere along its length, not just at a point.",
+        "The baggage compartment has a photoelectric smoke detector on the roof (it works on light scattering — smoke in the beam scatters light onto a sensor). There is no fixed extinguishing system for the baggage bay — detection only.",
+        "Engine extinguishing is two identical, interchangeable stainless-steel bottles charged with HALON 1301 and nitrogen, mounted between the engine ejectors under the rear fairing. They are cross-connected: either bottle can be fired into either engine bay. Each bottle has a temperature-compensated pressure sensor that drives a low-pressure caption.",
+      ],
+    },
+    {
+      heading: "What an engine fire looks like",
+      paragraphs: [
+        "An ENG 1(2) FIRE gives, together: the CAS warning message, the \"ENG 1(2) FIRE\" audio tone with the master warning flashing, a red FIRE light on the fire control panel, a red warning light on that engine's control panel, and the engine silhouette turning red on the MFD PWR PLANT format.",
+      ],
+    },
+    {
+      heading: "The two controls",
+      paragraphs: [
+        "ENG 1(2) FIRE/ARM push-button (guarded) — pressing it shuts that engine down by closing its fuel shut-off valve, and also closes the heating-system bleed shut-off valve. It arms the extinguishing circuit for that bay.",
+        "FIRE EXTING switch — position 1 discharges bottle 1, position 2 discharges bottle 2. After a bottle discharges, its 1(2) FIRE BTL LOW P caption confirms it emptied.",
+      ],
+    },
+    {
+      heading: "Engine bay fire in flight",
+      paragraphs: [
+        "Confirm the fire light on the engine control panel, establish a safe OEI flight condition, then take the affected ENG MODE knob to IDLE, confirm the fire, and take it to OFF. Lift the guard and press that engine's FIRE ARM push-button, then set FIRE EXTING to BTL 1 and wait for the 1 FIRE BTL LOW P caption.",
+        "If the warning clears, close that engine's fuel SOV on the EDCU FUEL page, deselect the FIRE ARM push-button, and run the SINGLE ENGINE PROCEDURE (skipping its shutdown step — the engine is already shut down). Land as soon as possible.",
+        "If the warning does not clear, fire BTL 2. If it still does not clear after the second bottle: LAND IMMEDIATELY and carry out the EMERGENCY GROUND EGRESS procedure — there is nothing left to fight it with.",
+        "The one trap: if a fire then breaks out in the other engine bay, the first FIRE ARM push-button must be deselected before the other one will operate.",
+      ],
+    },
+    {
+      heading: "Engine bay fire on the ground",
+      paragraphs: [
+        "Both ENG 1 & 2 MODE knobs to OFF, lift the guard and press the affected FIRE ARM push-button, FIRE EXTING to BTL 1, then BTL 2 if it does not clear — then EMERGENCY GROUND EGRESS. Same push-button trap applies.",
+      ],
+    },
+    {
+      heading: "Baggage bay fire",
+      paragraphs: [
+        "BAG FIRE comes with the \"WARNING WARNING\" aural. Because there is no extinguishing system back there, the procedure is short: in flight, land as soon as possible and carry out EMERGENCY GROUND EGRESS; on the ground, carry out EMERGENCY GROUND EGRESS directly.",
+      ],
+    },
+    {
+      heading: "Cockpit or cabin fire",
+      paragraphs: [
+        "No fixed system and no single checklist — the priority is to get on the ground and get out. In flight: ECS to BACKUP, cockpit/cabin fan OFF; if the source is found, fight it with a handheld; if the source is not found and it persists, LAND IMMEDIATELY. Once the fire is out, the fans go back ON to clear smoke and fumes before egress.",
+      ],
+    },
+    {
+      heading: "Portable extinguishers",
+      paragraphs: [
+        "One in the cockpit (right side, below the seat) and one or more in the cabin — Halon 1211 or halon-free. About a 10-second discharge, effective on small carbonaceous, flammable-liquid, and electrical fires. Any extinguisher that has been used must be replaced at the first opportunity, even if it still has agent in it.",
+      ],
+    },
+    {
+      heading: "Related captions",
+      paragraphs: [
+        "1(2) FIRE BTL LOW P — that bottle is below its safety pressure (expected after a discharge; unexpected otherwise). 1(2) FIRE SYS DET — that engine's fire detection system has failed. Engine 1 fire detection and extinguisher are on EMERGENCY BUS 1; engine 2's are on EMERGENCY BUS 2 — so an EMER BUS failure takes that engine's fire protection with it.",
+      ],
+    },
+  ],
+};
+
+const ENGINE_FADEC_SHARED: SystemNote = {
+  slug: "engine-and-fadec",
+  title: "Engine and FADEC",
+  subtitle: "Two PW210 turboshafts that differ only in software, a dual-channel FADEC that flies the power, and the ENG MODE knob logic behind ENG EECU FAIL, ENG FAIL FIXED and ENG IDLE.",
+  rfmReference:
+    "AW169 EP RFM Section 7 (System Description — Power Plant, Chap 71; Engine Controls System, Chap 76), AW169 RFM Section 1 (Limitations — Power Plant, Autorotation, OEI Engine Operation, Starter Duty Cycle), AW169 RFM Section 3 (Emergency and Malfunction Procedures — Engine EECU Fail, Engine Control Failure Fixed, Engine Idle, Engine Drive Shaft Failure). The engine installation and control architecture are common to AW169 Standard and AW169 EP; the power ratings differ (see the AEO limiter table below and the separate EAPS notes).",
+  sections: [
+    {
+      heading: "What it is",
+      paragraphs: [
+        "Two Pratt & Whitney Canada turboshafts above the cabin roof, aft of the transmission, in two isolated bays separated by a titanium central firewall — each bay with its own fire warning and its own fuel shut-off valve outside the bay. A single-stage compressor turbine drives the two-stage compressor; a two-stage free power turbine drives the reduction gearbox, which feeds the main gearbox through a shaft.",
+        "AW169 Standard has the PW210A; AW169 EP has the PW210A1. The two engines are physically identical — the only difference is FADEC software, which raises the available power (AEO and OEI) and changes the limits. There is no hardware change between them.",
+      ],
+    },
+    {
+      heading: "The FADEC",
+      paragraphs: [
+        "Power is managed by a dual-channel Full Authority Digital Electronic Control system: a Fuel Control Unit, an Inlet Guide Vane Actuator, and the Engine Electronic Control Unit (EECU). Dual-channel means a single channel fault does not take the engine down — control simply continues on the other channel.",
+        "A collective-lever position transducer (RVDT) feeds the EECU so it can anticipate load changes — winding fuel in or out ahead of a fast collective input to hold rotor speed and minimise droop or overshoot.",
+      ],
+    },
+    {
+      heading: "The ENG MODE knob",
+      paragraphs: [
+        "One rotary switch per engine on the Engine Control Panel, with detented fixed positions — OFF, IDLE, FLT — so it holds position without being watched. Getting to OFF takes two deliberate actions (push down, then rotate) to prevent an accidental shutdown. Engine 1's knob is labelled IDLE/APU, because engine 1 can be run in APU mode to provide power on the ground without the main rotor turning at flight speed.",
+        "During autorotation the ENG MODE switches must not be moved from FLIGHT to IDLE except in an actual emergency. Selecting either switch to IDLE or OFF for OEI training is prohibited — that is what the guarded TNG (training) push-button is for: it enables a simulated One Engine Inoperative training mode without shutting an engine down.",
+      ],
+    },
+    {
+      heading: "Load sharing and the AEO torque limiter",
+      paragraphs: [
+        "An ITT/TQ LOAD SHARE switch selects whether the two engines are matched by torque or by ITT. An AEO Limit Select button on the collective toggles the all-engines torque limiter between Low and High — it powers up in AEO High every time.",
+      ],
+      table: {
+        caption: "AEO Limit Select — torque limiter settings",
+        columns: ["Engine / setting", "AEO", "AEO transient", "OEI", "OEI transient"],
+        rows: [
+          ["PW210A (Standard) — Low", "111% TQ", "125% TQ", "174.6% TQ", "192.1% TQ"],
+          ["PW210A (Standard) — High", "174.6% TQ", "174.6% TQ (no transient)", "192.1% TQ", "192.1% TQ (no transient)"],
+          ["PW210A1 (EP) — Low", "122% TQ", "132% TQ", "185% TQ", "195% TQ"],
+          ["PW210A1 (EP) — High", "185% TQ", "185% TQ (no transient)", "195% TQ", "195% TQ (no transient)"],
+        ],
+      },
+    },
+    {
+      heading: "Starting",
+      paragraphs: [
+        "The brushless starter-generator turns the engine for the start (see the Electrical Power System note). A CRANK switch per engine drives a dry motoring cycle. Duty-cycle limits: after the first start attempt wait 30 seconds, after the second another 30 seconds, after the third wait 30 minutes. Motoring is one of 45 s on / 10 min off, 30 s on / 5 min off, or 15 s on / 2 min off — repeatable three times, then a 30-minute rest.",
+        "Automatic engine power check is prohibited.",
+      ],
+    },
+    {
+      heading: "1(2) ENG EECU FAIL",
+      paragraphs: [
+        "\"WARNING WARNING\" aural. The EECU has failed and has run its engine down to IDLE — so one engine is effectively out, but it is still running at idle. Establish a safe OEI flight condition, put the affected ENG MODE knob to IDLE to match, and leave it at IDLE — that keeps the associated DC generator on line. Land as soon as practicable. Do not shut the engine down for the sake of it; the idling engine is still carrying its generator.",
+      ],
+    },
+    {
+      heading: "1(2) ENG FAIL FIXED",
+      paragraphs: [
+        "\"WARNING WARNING\" aural — engine control failure, fixed. The engine is stuck at whatever power it was at; the FADEC can no longer modulate it. First disengage the AFCS upper modes, then achieve a safe OEI condition.",
+        "The problem is a torque split: with one engine's power frozen and the other following the rotor, the two torques diverge. A split over 30% brings up the 1(2) ENG DEGR caution on the higher-torque engine. Below that, monitor and land as soon as practicable. During descent, do not let the good engine's torque fall below 10%.",
+        "How the affected engine is shut down depends on where its torque froze: at or below 50%, it can be left running to touchdown (then lower collective smoothly to MPOG, watching NR — shut it down first if NR rises above limit); above 50%, and especially above Maximum Continuous Power, it has to be shut down — within 5 minutes if above MCP — before the approach, expecting NR droop and a large torque split as it spools down.",
+      ],
+    },
+    {
+      heading: "1(2) ENG IDLE",
+      paragraphs: [
+        "Audio tone and voice, ground only. It means power was demanded with an engine not ready to give it: a take-off begun with an engine still at IDLE, or an ENG MODE knob at IDLE with the collective not fully down, or engine 1 still in APU mode. Reduce collective to minimum pitch on ground, then bring the affected knob back to FLT. If engine 1 was in APU mode, set its knob to IDLE and its DRIVE switch to MAIN first, wait for the accessory-drive transition to complete on the MFD, then select FLT.",
+      ],
+    },
+    {
+      heading: "Related",
+      paragraphs: [
+        "ENGINE DRIVE SHAFT FAILURE shows as a rapid drop of that engine's torque to zero with its power turbine speed (NF) above rotor speed (NR) — the drive between engine and gearbox has failed. The engine should be shut down automatically by the overspeed protection system; establish safe OEI, run ENGINE SHUTDOWN IN EMERGENCY, and land as soon as practicable.",
+      ],
+    },
+  ],
+};
+
+export const AW169_EP_SYSTEM_NOTES: SystemNote[] = [AFCS_EP, PLUS_MODE_EP, AUTOROTATION_PROTECTION_EP, ENGINE_FADEC_SHARED, ELECTRICAL_SYSTEM_SHARED, FIRE_PROTECTION_SHARED, WEATHER_RADAR_SHARED, WEATHER_RADAR_RDR1600_SHARED, TCAS_II_SHARED, HTAWS_EP, SVS_SHARED, DIGITAL_MAP_SHARED, OPLS_SHARED, EVS_CAMERA_SHARED, EHPS_SHARED, ADI_STBY_BATTERY_SHARED, AUTOMATIC_SEARCH_MODES_EP, EXTERNAL_HOIST_SHARED, CARGO_HOOK_SHARED, DITCHING_SHARED, ADELT_SHARED, EAPS_EP, FUEL_TRANSFER_PUMP_SHARED, RNP_APCH_LPV_SHARED];
+export const AW169_STANDARD_SYSTEM_NOTES: SystemNote[] = [ENGINE_FADEC_SHARED, ELECTRICAL_SYSTEM_SHARED, FIRE_PROTECTION_SHARED, WEATHER_RADAR_SHARED, WEATHER_RADAR_RDR1600_SHARED, TCAS_II_SHARED, HTAWS_STANDARD, SVS_SHARED, DIGITAL_MAP_SHARED, OPLS_SHARED, EVS_CAMERA_SHARED, EHPS_SHARED, ADI_STBY_BATTERY_SHARED, EXTERNAL_HOIST_SHARED, CARGO_HOOK_SHARED, DITCHING_SHARED, ADELT_SHARED, EAPS_STANDARD, FUEL_TRANSFER_PUMP_SHARED, RNP_APCH_LPV_SHARED];

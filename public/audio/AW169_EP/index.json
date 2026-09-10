@@ -2,10 +2,59 @@
   "items": [
     {
       "id": "afcs-flight-control-stack",
-      "title": "AFCS: The Flight Control Stack",
+      "title": "AFCS · Full walkthrough (earlier, single-narrator)",
       "description": "How the AW169 EP's Automatic Flight Control System is built up layer by layer, followed through a real departure and approach to show how the modes actually work together in flight.",
       "filename": "afcs.mp3",
-      "durationSeconds": 2345
+      "durationSeconds": 2345,
+      "group": "AFCS"
+    },
+    {
+      "id": "afcs-1-the-control-stack",
+      "title": "AFCS · 1 — The control stack",
+      "description": "The AFCS as a stack of layers: which one is holding the aircraft, what it does, what it ignores. SAS, command augmentation, ATT, Wing-Level, and the always-on basic functions.",
+      "filename": "afcs-1.mp3",
+      "group": "AFCS",
+      "durationSeconds": 254
+    },
+    {
+      "id": "afcs-2-upper-modes-and-collective-safety-function",
+      "title": "AFCS · 2 — Upper modes & the Collective Safety Function",
+      "description": "Armed vs active modes, and the three protections that come with any collective upper mode: power limiting (119/97/145), autorotation protection below 15% torque, and the low-height floors.",
+      "filename": "afcs-2.mp3",
+      "group": "AFCS",
+      "durationSeconds": 292
+    },
+    {
+      "id": "afcs-3-engagement-envelopes-and-minimum-use-heights",
+      "title": "AFCS · 3 — Engagement envelopes & minimum use heights",
+      "description": "Every mode's engagement band and its minimum use height, grouped vertical / transition / longitudinal / hover / lateral / approach, with the absolute rules.",
+      "filename": "afcs-3.mp3",
+      "group": "AFCS",
+      "durationSeconds": 330
+    },
+    {
+      "id": "afcs-4-coupled-approaches",
+      "title": "AFCS · 4 — Coupled approaches",
+      "description": "The four approach-limitation numbers (900/800 fpm, 130 kt profile), the mandatory IAS-mode rule below 50 kt uncoupled, the 7° Cat I ILS certification, and how FMS coupling shows on the PFD.",
+      "filename": "afcs-4.mp3",
+      "group": "AFCS",
+      "durationSeconds": 196
+    },
+    {
+      "id": "afcs-5-failure-logic",
+      "title": "AFCS · 5 — Failure logic",
+      "description": "What forces every upper mode off, the four modes built to survive it on purpose, the near-identical AP-malfunction drills, and what comes back to your hands when the layers peel away.",
+      "filename": "afcs-5.mp3",
+      "group": "AFCS",
+      "durationSeconds": 279
+    },
+    {
+      "id": "afcs-6-cold-recap",
+      "title": "AFCS · 6 — Cold recap (numbers only)",
+      "description": "Every AFCS number and the fault/survivor sets, no explanation. For the night before a check.",
+      "filename": "afcs-6.mp3",
+      "group": "AFCS",
+      "durationSeconds": 275
     },
     {
       "id": "automatic-ejection-of-emergency-beacons",

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import AppTopBar from "@/components/AppTopBar";
-import R44_ABBREVIATIONS from "@/data/r44/abbreviations";
+import R44_ABBREVIATIONS from "@/data/r44-ii/abbreviations";
 
 const data = {
   airspeed: {

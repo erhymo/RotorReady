@@ -1,5 +1,5 @@
 import SystemNoteDetailPage from "@/app/components/SystemNoteDetailPage";
-import { R44_SYSTEM_NOTES } from "@/data/r44/systemNotes";
+import { R44_SYSTEM_NOTES } from "@/data/r44-ii/systemNotes";
 
 export function generateStaticParams() {
   return R44_SYSTEM_NOTES.map((n) => ({ slug: n.slug }));

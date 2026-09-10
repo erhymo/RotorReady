@@ -1,7 +1,7 @@
 "use client";
 
 import SystemNotesPage from "@/app/components/SystemNotesPage";
-import { R44_SYSTEM_NOTES } from "@/data/r44/systemNotes";
+import { R44_SYSTEM_NOTES } from "@/data/r44-ii/systemNotes";
 
 export default function R44IISystemNotes() {
   return (

@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { R44_PROCEDURES, findR44Procedure } from "@/lib/procedures/r44/data";
+import { R44_PROCEDURES, findR44Procedure } from "@/lib/procedures/r44-ii/data";
 import ProcedureDetail from "@/app/r44-ii/procedures/ProcedureDetail";
 
 export function generateStaticParams() {

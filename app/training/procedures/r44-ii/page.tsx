@@ -3,7 +3,7 @@
 import Link from "next/link";
 import AppTopBar from "@/components/AppTopBar";
 import AbbreviationsLinkCard from "@/app/components/AbbreviationsLinkCard";
-import { R44_PROCEDURES } from "@/lib/procedures/r44/data";
+import { R44_PROCEDURES } from "@/lib/procedures/r44-ii/data";
 
 const GROUPS: { heading: string; slugs: string[] }[] = [
   {

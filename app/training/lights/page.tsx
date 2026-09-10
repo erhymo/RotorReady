@@ -218,8 +218,8 @@ function LightsBar(props: {
 
 // Per-model CWP-trainer destinations shown on the idle "Emergency & Malfunction" menu.
 const CWP_TRAINER_LINKS: Record<string, { label: string; href: string }> = {
-  H125_AS350_B3_2B1: { label: "AS350 B3 2B1", href: "/training/lights/cwp/b3-2b1" },
-  H125_AS350_B3E: { label: "AS350 B3e", href: "/training/lights/cwp/b3e" },
+  H125_AS350_B3_2B1: { label: "AS350 B3 2B1", href: "/training/lights/cwp/h125-as350-b3-2b1" },
+  H125_AS350_B3E: { label: "AS350 B3e", href: "/training/lights/cwp/h125-as350-b3e" },
   AW189: { label: "AW189", href: "/training/lights/cwp/aw189" },
   S92: { label: "S-92", href: "/training/lights/cwp/s92" },
   H135_T3: { label: "H135 T3", href: "/training/lights/cwp/h135-t3" },
@@ -815,7 +815,7 @@ function LightsTrainerInner() {
           if (window.location.pathname + window.location.search === before) {
             const v = activeVariant?.id;
             if (isAw169) router.push('/training/lights/cwp/aw169');
-            else if (v === 'H125_AS350_B3_2B1') router.push('/training/lights/cwp/b3-2b1');
+            else if (v === 'H125_AS350_B3_2B1') router.push('/training/lights/cwp/h125-as350-b3-2b1');
             else router.push('/training/lights');
           }
         } catch {}

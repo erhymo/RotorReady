@@ -1,7 +1,7 @@
 "use client";
 
 import SystemNotesPage from "@/app/components/SystemNotesPage";
-import { H125B3E_SYSTEM_NOTES } from "@/data/h125b3e/systemNotes";
+import { H125B3E_SYSTEM_NOTES } from "@/data/h125-as350-b3e/systemNotes";
 
 export default function H125B3ESystemNotes() {
   return (

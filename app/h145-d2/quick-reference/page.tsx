@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import AppTopBar from "@/components/AppTopBar";
-import H145D2_ABBREVIATIONS from "@/data/h145d2/abbreviations";
+import H145D2_ABBREVIATIONS from "@/data/h145-d2/abbreviations";
 
 const data = {
   general: {

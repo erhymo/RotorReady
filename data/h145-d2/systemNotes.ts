@@ -1,4 +1,4 @@
-import type { SystemNote } from "../h145d3/systemNotes";
+import type { SystemNote } from "../h145-d3/systemNotes";
 import {
   FLIGHT_CONTROLS_AFCS,
   DUAL_HYDRAULIC,
@@ -10,7 +10,7 @@ import {
   HEATING_VENTILATION,
   AIR_DATA,
   HELIONIX,
-} from "../h145d3/systemNotes";
+} from "../h145-d3/systemNotes";
 
 // The BK117 D-2 shares its Section 7 systems with the D-3 — same Helionix
 // SW V10, same Arriel 2E engines and FADEC, same hydraulics, fuel, electrical,

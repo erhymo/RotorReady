@@ -1,7 +1,7 @@
 "use client";
 
 import AppTopBar from "@/components/AppTopBar";
-import type { ProcedureDefinition } from "@/lib/procedures/h135t3/data";
+import type { ProcedureDefinition } from "@/lib/procedures/h135-t3/data";
 
 export default function ProcedureDetail({ procedure }: { procedure: ProcedureDefinition }) {
   return (

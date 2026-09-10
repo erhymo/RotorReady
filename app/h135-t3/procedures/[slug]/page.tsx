@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { H135T3_PROCEDURES, findH135T3Procedure } from "@/lib/procedures/h135t3/data";
+import { H135T3_PROCEDURES, findH135T3Procedure } from "@/lib/procedures/h135-t3/data";
 import ProcedureDetail from "@/app/h135-t3/procedures/ProcedureDetail";
 
 export function generateStaticParams() {

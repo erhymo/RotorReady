@@ -1,5 +1,5 @@
 import SystemNoteDetailPage from "@/app/components/SystemNoteDetailPage";
-import { H135T3_SYSTEM_NOTES } from "@/data/h135t3/systemNotes";
+import { H135T3_SYSTEM_NOTES } from "@/data/h135-t3/systemNotes";
 
 export function generateStaticParams() {
   return H135T3_SYSTEM_NOTES.map((n) => ({ slug: n.slug }));

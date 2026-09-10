@@ -1,4 +1,4 @@
-import type { SystemNote } from "../h125b32b1/systemNotes";
+import type { SystemNote } from "../h125-as350-b3-2b1/systemNotes";
 import {
   VEMD,
   CENTRAL_WARNING_PANEL,
@@ -12,7 +12,7 @@ import {
   EXTERNAL_LOAD,
   BAMBI_BUCKET,
   SAND_FILTER,
-} from "../h125b32b1/systemNotes";
+} from "../h125-as350-b3-2b1/systemNotes";
 
 // The AS350 B3e shares its airframe, transmission, hydraulics, electrical
 // system, VEMD, warning panel, AFCS and mission-kit installations with the

@@ -1,5 +1,5 @@
 import SystemNoteDetailPage from "@/app/components/SystemNoteDetailPage";
-import { H125B32B1_SYSTEM_NOTES } from "@/data/h125b32b1/systemNotes";
+import { H125B32B1_SYSTEM_NOTES } from "@/data/h125-as350-b3-2b1/systemNotes";
 
 export function generateStaticParams() {
   return H125B32B1_SYSTEM_NOTES.map((n) => ({ slug: n.slug }));

@@ -1,0 +1,56 @@
+[
+  {
+    "id": "eng-fire-flight",
+    "name": "ENG FIRE (FLIGHT)",
+    "severity": "warning",
+    "description": "",
+    "pageImage": "/training/lights/pages/s92-eng-fire-flight.png",
+    "imageWidth": 1159,
+    "imageHeight": 2450,
+    "procedure": [
+      { "type": "action", "text": "Steady cockpit fire warning — Confirm" },
+      { "type": "action", "text": "Safe OEI flight — Attain" }
+    ],
+    "links": [
+      {
+        "destPage": 216,
+        "rect": [
+          562,
+          1921,
+          1011,
+          1946
+        ]
+      },
+      {
+        "destPage": 33,
+        "rect": [
+          178,
+          2156,
+          741,
+          2181
+        ]
+      },
+      {
+        "destPage": 33,
+        "rect": [
+          719,
+          2363,
+          1157,
+          2388
+        ]
+      },
+      {
+        "destPage": 33,
+        "rect": [
+          52,
+          2393,
+          169,
+          2418
+        ]
+      }
+    ],
+    "modelIds": [
+      "S92"
+    ]
+  }
+]

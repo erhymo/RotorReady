@@ -1,0 +1,28 @@
+<!-- ======================= Fixed SVG 2: FUEL P (no overlap with line) ======================= -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 360">
+  <rect x="1" y="1" width="818" height="358" fill="white" stroke="black" stroke-width="2"/>
+
+  <!-- Left column -->
+  <rect x="30" y="40" width="100" height="60" fill="black"/>
+  <text x="80" y="65" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="yellow" text-anchor="middle">FUEL</text>
+  <text x="80" y="90" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="yellow" text-anchor="middle">P</text>
+
+  <!-- Adjusted text so it stays fully left of line -->
+  <text x="30" y="150" font-family="Arial, sans-serif" font-size="18">Low fuel</text>
+  <text x="30" y="175" font-family="Arial, sans-serif" font-size="18">pressure</text>
+
+  <!-- Separator line -->
+  <line x1="160" y1="20" x2="160" y2="340" stroke="black" stroke-width="1.5"/>
+
+  <!-- Right column -->
+  <text x="180" y="60" font-family="Arial, sans-serif" font-size="18">- IN FLIGHT:</text>
+  <text x="200" y="85" font-family="Arial, sans-serif" font-size="18" font-weight="bold">1. Collective .................................... REDUCE POWER</text>
+  <text x="200" y="110" font-family="Arial, sans-serif" font-size="18" font-weight="bold">2. [FUEL P] or [FUEL PUMP] .......... ON</text>
+
+  <text x="200" y="150" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="orange">LAND AS SOON AS POSSIBLE</text>
+  <text x="200" y="180" font-family="Arial, sans-serif" font-size="18">Low power approach and landing</text>
+
+  <text x="200" y="215" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="red">WARNING</text>
+  <text x="200" y="240" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="red">BE PREPARED IN CASE OF AN ENGINE FLAME-OUT.</text>
+</svg>
+

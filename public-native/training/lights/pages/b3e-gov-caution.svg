@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="540" viewBox="0 0 820 540" role="img" aria-label="GOV – AS350 B3e minor FADEC failure">
+  <rect width="100%" height="100%" fill="white" />
+  <style>
+    .frame { fill: none; stroke: #111; stroke-width: 1.5; }
+    .text { font-family: Arial, Helvetica, sans-serif; fill: #111; }
+    .heading { font-weight: 700; font-size: 18px; }
+    .body { font-size: 15px; }
+    .tile { fill: #000; stroke: #111; stroke-width: 1; }
+    .tileText { font-family: Arial, Helvetica, sans-serif; font-size: 22px; font-weight: 700; fill: #ffcc00; text-anchor: middle; }
+  </style>
+
+  <rect x="10" y="10" width="800" height="520" class="frame" />
+  <line x1="190" y1="10" x2="190" y2="530" stroke="#111" stroke-width="1.5" />
+
+  <!-- Left column -->
+  <rect x="55" y="60" width="100" height="70" rx="4" class="tile" />
+  <text x="105" y="100" class="tileText">GOV</text>
+
+  <text x="30" y="170" class="text body">Minor FADEC failure.</text>
+
+  <!-- Right column -->
+  <text x="210" y="60" class="text heading">GOV – Minor FADEC failure</text>
+
+  <text x="210" y="100" class="text heading">Continuously on:</text>
+  <text x="220" y="125" class="text body">- Governing function degraded.</text>
+  <text x="220" y="150" class="text body">1. Collective ....................... AVOID abrupt</text>
+  <text x="238" y="173" class="text body">power changes.</text>
+  <text x="220" y="198" class="text body">2. IAS .................................. MAINTAIN below</text>
+  <text x="238" y="221" class="text body">power off never exceed speed.</text>
+  <text x="220" y="246" class="text body">3. LAND AS SOON AS PRACTICABLE.</text>
+  <text x="220" y="271" class="text body">4. On ground: Do not start engine.</text>
+
+  <text x="210" y="315" class="text heading">Flashing at idle or during starting or shutdown:</text>
+  <text x="220" y="340" class="text body">- Governor redundancy failure, no impact on</text>
+  <text x="238" y="363" class="text body">governing function.</text>
+  <text x="220" y="388" class="text body">- Start up procedure: Abort, refer to</text>
+  <text x="238" y="411" class="text body">maintenance manual.</text>
+  <text x="220" y="436" class="text body">- Autorotation training: Cancel training,</text>
+  <text x="238" y="459" class="text body">return to base.</text>
+
+  <text x="30" y="505" class="text body" font-size="12">RFM H125 AS350 B3e – Section 3.6 – GOV (minor failure)</text>
+</svg>

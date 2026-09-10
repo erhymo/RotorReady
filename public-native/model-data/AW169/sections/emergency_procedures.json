@@ -1,0 +1,1419 @@
+{
+  "items": [
+    {
+      "id": "AW169-EP-001",
+      "question": "ENGINE FIRE IN FLIGHT — What is the first action?",
+      "options": [
+        "Establish safe OEI flight",
+        "Discharge fire extinguisher",
+        "Set ECS OFF",
+        "Land as soon as possible"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Stabilize the helicopter in safe OEI condition before further actions.",
+      "section": "EMERGENCY PROCEDURES",
+      "references": [
+        "AW169 RFM Section 3 — Emergency Procedures"
+      ],
+      "difficulty": "easy",
+      "tags": [],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 RFM/QRH"
+    },
+    {
+      "id": "AW169-EP-002",
+      "question": "ENGINE FIRE ON GROUND — Which initial action sequence is correct?",
+      "options": [
+        "Shutdown affected engine; discharge extinguisher; stop rotor",
+        "Start APU; brief passengers; land later",
+        "Raise collective; increase speed; set ECS OFF",
+        "Discharge extinguisher; keep engine running; hold 100% NR"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "On ground: stop the engine, discharge extinguisher, then stop rotor.",
+      "section": "EMERGENCY PROCEDURES",
+      "references": [
+        "AW169 RFM Section 3 — Emergency Procedures"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "FIRE"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 RFM/QRH"
+    },
+    {
+      "id": "AW169-EP-003",
+      "question": "ENG DRIVE SHAFT FAILURE — Typical initial indication?",
+      "options": [
+        "Rapid drop of affected engine TQ to ~0 with NF above NR",
+        "Gradual increase in TQ with NF droop",
+        "Simultaneous dual engine flameout",
+        "No cockpit indications"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "A drive shaft failure unloads the engine showing ~0% TQ while NF overspeeds above NR.",
+      "section": "EMERGENCY PROCEDURES",
+      "references": [
+        "AW169 RFM Section 3"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "ENGINE"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 RFM/QRH"
+    },
+    {
+      "id": "AW169-EP-004",
+      "question": "ENG OIL PRESS LOW — Recommended action?",
+      "options": [
+        "Affected engine — Shutdown in emergency; establish safe OEI; land as soon as practicable",
+        "Continue flight and monitor only",
+        "Increase power on affected engine to restore pressure",
+        "Pull FIRE T‑handle on unaffected engine"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Low oil pressure may quickly lead to failure — secure the engine and fly OEI.",
+      "section": "EMERGENCY PROCEDURES",
+      "references": [
+        "AW169 RFM Section 3"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "ENGINE"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 RFM/QRH"
+    },
+    {
+      "id": "AW169-EP-005",
+      "question": "MGB OIL PRESS LOW — What is the landing recommendation?",
+      "options": [
+        "Land immediately",
+        "Land as soon as practicable",
+        "Continue to destination",
+        "Hover 5 minutes then continue"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Main gearbox lubrication loss is critical — immediate landing is required.",
+      "section": "EMERGENCY PROCEDURES",
+      "references": [
+        "AW169 RFM Section 3"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "MGB",
+        "XMSN"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 RFM/QRH"
+    },
+    {
+      "id": "AW169-EP-006",
+      "question": "MGB OIL TEMP HIGH with normal pressure — Action?",
+      "options": [
+        "Reduce power/airspeed as required; monitor; land as soon as practicable",
+        "Land immediately",
+        "Increase power to improve cooling",
+        "No action required"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Reduce loads and monitor. If persists or worsens, land promptly.",
+      "section": "EMERGENCY PROCEDURES",
+      "references": [
+        "AW169 RFM Section 3"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "MGB",
+        "XMSN"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 RFM/QRH"
+    },
+    {
+      "id": "AW169-EP-007",
+      "question": "ROTOR LOW NR — Immediate action?",
+      "options": [
+        "Lower collective to recover NR",
+        "Raise collective to reduce NR",
+        "Turn off both generators",
+        "Pull FIRE T‑handle"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Lowering collective unloads the rotor and restores NR.",
+      "section": "EMERGENCY PROCEDURES",
+      "references": [
+        "AW169 RFM Section 3"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "NR"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 RFM/QRH"
+    },
+    {
+      "id": "AW169-EP-008",
+      "question": "ROTOR HIGH NR — Immediate action?",
+      "options": [
+        "Raise collective to reduce NR within limits",
+        "Lower collective to increase NR",
+        "Select manual governor",
+        "Shut down both engines"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Raising collective increases rotor load and reduces NR back within limits.",
+      "section": "EMERGENCY PROCEDURES",
+      "references": [
+        "AW169 RFM Section 3"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "NR"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 RFM/QRH"
+    },
+    {
+      "id": "AW169-EP-009",
+      "question": "DOUBLE DC GENERATOR FAILURE — Correct immediate action?",
+      "options": [
+        "Shed non‑essential loads; land when practicable",
+        "Select APU — START and continue flight",
+        "Cycle GEN switches repeatedly until both online",
+        "No crew action; system auto‑recovers"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Shed load to essentials and plan a precautionary landing.",
+      "section": "EMERGENCY PROCEDURES",
+      "references": [
+        "AW169 RFM Section 3"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "ELECTRICAL"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 RFM/QRH"
+    },
+    {
+      "id": "AW169-EP-010",
+      "question": "ENGINE FAILURE IN FLIGHT (ENG OUT) — Initial crew actions?",
+      "options": [
+        "Establish safe OEI; hold NR; identify engine",
+        "Lower collective to idle power and descend to 40 KIAS",
+        "Pull FIRE T‑handle on both engines",
+        "APU — START; ECS — OFF; continue normal flight"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Stabilize, maintain NR, identify/confirm the failed engine and proceed OEI.",
+      "section": "EMERGENCY PROCEDURES",
+      "references": [
+        "AW169 RFM Section 3"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "ENGINE"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 RFM/QRH"
+    },
+    {
+      "id": "AW169-EP-011",
+      "question": "SINGLE ENGINE LANDING — What is generally recommended?",
+      "options": [
+        "Plan OEI approach; land when practicable",
+        "Continue flight to destination",
+        "Enter autorotation at high altitude",
+        "Maintain 100% power on operative engine until touchdown"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "A controlled OEI landing mitigates risk of secondary failures.",
+      "section": "EMERGENCY PROCEDURES",
+      "references": [
+        "AW169 RFM Section 3"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "OEI"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 RFM/QRH"
+    },
+    {
+      "id": "AW169-EP-012",
+      "question": "DUAL ENGINE FAILURE — Immediate action?",
+      "options": [
+        "Enter autorotation; adjust collective to maintain NR",
+        "Raise collective to arrest descent",
+        "Attempt immediate restart on both engines before rotor actions",
+        "Turn off all electrical power"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Preserving NR is paramount — enter autorotation and manage energy.",
+      "section": "EMERGENCY PROCEDURES",
+      "references": [
+        "AW169 RFM Section 3"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "AUTOROTATION"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 RFM/QRH"
+    },
+    {
+      "id": "AW169-EP-013",
+      "question": "ENGINE RELIGHT IN FLIGHT — When should it be attempted?",
+      "options": [
+        "Only if time/altitude permit and relight conditions are met; otherwise land promptly",
+        "Always immediately after flameout regardless of conditions",
+        "Never in flight",
+        "Only after both engines have failed"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Follow in‑flight relight conditions/procedure; prioritize aircraft control.",
+      "section": "EMERGENCY PROCEDURES",
+      "references": [
+        "AW169 RFM Section 3"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "ENGINE",
+        "RELIGHT"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 RFM/QRH"
+    },
+    {
+      "id": "AW169-EP-014",
+      "question": "ENGINE CHIP — Recommended action?",
+      "options": [
+        "Monitor parameters; consider shutting down affected engine if abnormal; land as soon as practicable",
+        "Continue flight to destination with no change",
+        "Increase power to burn contamination",
+        "Pull FIRE T‑handle immediately"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Chip detection warrants close monitoring and precautionary landing.",
+      "section": "EMERGENCY PROCEDURES",
+      "references": [
+        "AW169 RFM Section 3"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "ENGINE",
+        "CHIP"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 RFM/QRH"
+    },
+    {
+      "id": "AW169-EP-015",
+      "question": "MGB CHIP — Recommended action?",
+      "options": [
+        "Monitor indications; avoid high power; land as soon as practicable",
+        "Continue normal operation",
+        "Immediate shutdown of both engines in flight",
+        "Climb to reduce load then continue"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "A chip in the main gearbox requires caution and a prompt landing.",
+      "section": "EMERGENCY PROCEDURES",
+      "references": [
+        "AW169 RFM Section 3"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "MGB",
+        "CHIP"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 RFM/QRH"
+    },
+    {
+      "id": "AW169-EP-016",
+      "question": "TRGB OIL PRESS LOW — Landing recommendation?",
+      "options": [
+        "Land as soon as possible",
+        "Land immediately",
+        "Continue flight and monitor",
+        "Climb to reduce tail rotor load"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Tail rotor gearbox pressure loss can rapidly degrade yaw control.",
+      "section": "EMERGENCY PROCEDURES",
+      "references": [
+        "AW169 RFM Section 3"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "TRGB"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 RFM/QRH"
+    },
+    {
+      "id": "AW169-EP-017",
+      "question": "TRGB CHIP — What is advised?",
+      "options": [
+        "Monitor; avoid high yaw demand; land as soon as practicable",
+        "Immediate descent and continue to destination",
+        "No action required",
+        "Shut down both engines"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Chip in TRGB: reduce loads and land to inspect.",
+      "section": "EMERGENCY PROCEDURES",
+      "references": [
+        "AW169 RFM Section 3"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "TRGB",
+        "CHIP"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 RFM/QRH"
+    },
+    {
+      "id": "AW169-EP-018",
+      "question": "HYD SYS 1 FAIL — General action?",
+      "options": [
+        "Maintain control; AFCS as required; land as soon as practicable",
+        "Continue flight without restrictions",
+        "Pull both HYD pumps CBs immediately",
+        "Increase speed above Vne"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Single hydraulic system failure: control is retained but land prudently.",
+      "section": "EMERGENCY PROCEDURES",
+      "references": [
+        "AW169 RFM Section 3"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "HYD"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 RFM/QRH"
+    },
+    {
+      "id": "AW169-EP-019",
+      "question": "HYD SYS 2 FAIL — General action?",
+      "options": [
+        "Maintain control; AFCS as required; land as soon as practicable",
+        "Immediate landing is mandatory in all cases",
+        "Turn off both systems to balance",
+        "Increase collective to relieve loads"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "As for single system fail: maintain control and land.",
+      "section": "EMERGENCY PROCEDURES",
+      "references": [
+        "AW169 RFM Section 3"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "HYD"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 RFM/QRH"
+    },
+    {
+      "id": "AW169-EP-020",
+      "question": "DUAL HYDRAULIC FAILURE — What is correct?",
+      "options": [
+        "Reduce speed; avoid abrupt control inputs; land immediately",
+        "Maintain cruise speed; continue to destination",
+        "AFCS will fully compensate",
+        "Climb to 5000 ft and troubleshoot"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Without hydraulics, control forces rise significantly; land without delay.",
+      "section": "EMERGENCY PROCEDURES",
+      "references": [
+        "AW169 RFM Section 3"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "HYD"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 RFM/QRH"
+    },
+    {
+      "id": "AW169-EP-021",
+      "question": "AFCS/SAS FAILURE — Immediate consideration?",
+      "options": [
+        "Hand fly; trim as required; land as soon as practicable",
+        "Pull both GEN to OFF",
+        "DESCEND immediately to 200 ft",
+        "Turn AFCS back on repeatedly until it resets"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Revert to manual control and land.",
+      "section": "EMERGENCY PROCEDURES",
+      "references": [
+        "AW169 RFM Section 3"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "AFCS"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 RFM/QRH"
+    },
+    {
+      "id": "AW169-EP-22",
+      "question": "FADEC/EEC ABNORMAL (single engine) — Best action?",
+      "options": [
+        "Match torque; avoid exceedance; land as soon as practicable",
+        "Shut down both engines in flight",
+        "Continue high‑power operation to test limits",
+        "Pull unrelated circuit breakers"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Maintain safe power on both sides without exceedance and land.",
+      "section": "EMERGENCY PROCEDURES",
+      "references": [
+        "AW169 RFM Section 3"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "ENGINE",
+        "FADEC"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 RFM/QRH"
+    },
+    {
+      "id": "AW169-EP-023",
+      "question": "XMSN OIL PRESS LOW CAS — What is required?",
+      "options": [
+        "Land immediately",
+        "Land as soon as practicable",
+        "Continue flight",
+        "Climb to reduce power"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Transmission oil pressure low demands immediate landing.",
+      "section": "EMERGENCY PROCEDURES",
+      "references": [
+        "AW169 RFM Section 3"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "XMSN"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 RFM/QRH"
+    },
+    {
+      "id": "AW169-EP-024",
+      "question": "XMSN OIL TEMP HIGH with normal pressure — Action?",
+      "options": [
+        "Reduce power/airspeed; monitor; land as soon as practicable",
+        "Land immediately",
+        "Increase power to drive airflow",
+        "No action required"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Reduce loads, monitor, land if persists or associated with other warnings.",
+      "section": "EMERGENCY PROCEDURES",
+      "references": [
+        "AW169 RFM Section 3"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "XMSN"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 RFM/QRH"
+    },
+    {
+      "id": "AW169-EP-025",
+      "question": "FUEL LOW — Recommended action?",
+      "options": [
+        "Plan landing as soon as practicable",
+        "Continue flight; caution only",
+        "Descend and increase speed to burn evenly",
+        "Open crossfeed and continue"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Low fuel caution calls for a precautionary landing.",
+      "section": "EMERGENCY PROCEDURES",
+      "references": [
+        "AW169 RFM Section 3"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "FUEL"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 RFM/QRH"
+    },
+    {
+      "id": "AW169-EP-026",
+      "question": "SUSPECTED FUEL LEAK — Best course?",
+      "options": [
+        "Isolate suspected side if indicated; minimize risk; land as soon as possible",
+        "Maintain high power to accelerate consumption",
+        "Continue flight and monitor only",
+        "Open all crossfeeds and continue"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Leak management is time‑critical; isolate and land.",
+      "section": "EMERGENCY PROCEDURES",
+      "references": [
+        "AW169 RFM Section 3"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "FUEL"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 RFM/QRH"
+    },
+    {
+      "id": "AW169-EP-027",
+      "question": "FUEL FILTER BYPASS — What is advised?",
+      "options": [
+        "Monitor; avoid contamination sources; land as soon as practicable",
+        "Continue to destination",
+        "Shut down both engines",
+        "Climb above 5000 ft"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Bypass suggests contamination; plan a landing.",
+      "section": "EMERGENCY PROCEDURES",
+      "references": [
+        "AW169 RFM Section 3"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "FUEL"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 RFM/QRH"
+    },
+    {
+      "id": "AW169-EP-028",
+      "question": "ELECTRICAL FIRE/SMOKE IN FLIGHT — First actions?",
+      "options": [
+        "Non‑essential OFF; isolate source; land ASAP",
+        "Open doors and increase speed above Vne",
+        "GEN 1+2 — OFF then continue normal flight",
+        "No crew action required"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Isolate, shed load, and land to address the fire source.",
+      "section": "EMERGENCY PROCEDURES",
+      "references": [
+        "AW169 RFM Section 3"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "ELECTRICAL",
+        "SMOKE"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 RFM/QRH"
+    },
+    {
+      "id": "AW169-EP-029",
+      "question": "SMOKE/FUMES IN CABIN — What should be done?",
+      "options": [
+        "Execute Smoke and Fumes Elimination; land as soon as possible",
+        "Ignore if light",
+        "Descend below 500 ft AGL and continue",
+        "Shut down both engines in flight"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Evacuate smoke/fumes and land promptly.",
+      "section": "EMERGENCY PROCEDURES",
+      "references": [
+        "AW169 RFM Section 3"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "SMOKE"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 RFM/QRH"
+    },
+    {
+      "id": "AW169-EP-030",
+      "question": "CABIN FIRE — Immediate action?",
+      "options": [
+        "Use extinguisher as appropriate; land as soon as possible",
+        "Continue flight and ventilate only",
+        "Increase power and speed",
+        "Turn off AFCS only"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Extinguish and land; underlying cause must be addressed on ground.",
+      "section": "EMERGENCY PROCEDURES",
+      "references": [
+        "AW169 RFM Section 3"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "FIRE"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 RFM/QRH"
+    },
+    {
+      "id": "AW169-EP-031",
+      "question": "SEVERE MAIN ROTOR VIBRATION — What is correct?",
+      "options": [
+        "Reduce speed; land as soon as possible",
+        "Increase speed to pass through resonance",
+        "Continue flight and monitor",
+        "Descend rapidly"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Reducing speed lowers loads; land to investigate the source.",
+      "section": "EMERGENCY PROCEDURES",
+      "references": [
+        "AW169 RFM Section 3"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "VIBRATION"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 RFM/QRH"
+    },
+    {
+      "id": "AW169-EP-032",
+      "question": "UNCOMMANDED YAW — Initial actions?",
+      "options": [
+        "Check pedal response; reduce power as required; land as soon as practicable",
+        "Climb aggressively",
+        "AFCS OFF then ON repeatedly",
+        "Open doors"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Manage yaw with pedals and power; land for troubleshooting.",
+      "section": "EMERGENCY PROCEDURES",
+      "references": [
+        "AW169 RFM Section 3"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "YAW",
+        "TR"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 RFM/QRH"
+    },
+    {
+      "id": "AW169-EP-033",
+      "question": "TAIL ROTOR DRIVE FAILURE — In hover/low speed, what is appropriate?",
+      "options": [
+        "Lower collective and cushion touchdown",
+        "Increase collective and continue hover",
+        "Accelerate forward to 100 kt",
+        "Shut down both engines at altitude"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Loss of tail rotor thrust at low speed: land immediately by lowering collective.",
+      "section": "EMERGENCY PROCEDURES",
+      "references": [
+        "AW169 RFM Section 3"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "TR"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 RFM/QRH"
+    },
+    {
+      "id": "AW169-EP-034",
+      "question": "TAIL ROTOR DRIVE FAILURE — In forward flight, recommended?",
+      "options": [
+        "Enter autorotation if yaw cannot be controlled; perform power‑off landing",
+        "Continue with high power to maintain heading",
+        "Open crossfeed and continue",
+        "Climb to high altitude and troubleshoot"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "If yaw is uncontrollable, reduce torque by entering autorotation and land.",
+      "section": "EMERGENCY PROCEDURES",
+      "references": [
+        "AW169 RFM Section 3"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "TR"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 RFM/QRH"
+    },
+    {
+      "id": "AW169-EP-035",
+      "question": "AUTOROTATION — To correct low NR, the pilot should:",
+      "options": [
+        "Lower collective immediately",
+        "Raise collective immediately",
+        "Increase airspeed first",
+        "Turn off AFCS"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Priority is preserving rotor RPM by unloading the rotor.",
+      "section": "EMERGENCY PROCEDURES",
+      "references": [
+        "AW169 RFM Section 3"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "AUTOROTATION",
+        "NR"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 RFM/QRH"
+    },
+    {
+      "id": "AW169-EP-036",
+      "question": "AUTOROTATION — Flare and landing sequence:",
+      "options": [
+        "Flare to reduce rate/speed; level; raise collective to cushion",
+        "Raise collective early at high speed",
+        "Keep nose down throughout; touchdown fast",
+        "Reduce speed first, then steep climb"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Standard energy management for autorotative landing.",
+      "section": "EMERGENCY PROCEDURES",
+      "references": [
+        "AW169 RFM Section 3"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "AUTOROTATION"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 RFM/QRH"
+    },
+    {
+      "id": "AW169-EP-037",
+      "question": "ENGINE OVERTORQUE — What is correct?",
+      "options": [
+        "Reduce collective to within limits; land as soon as practicable; record exceedance",
+        "Increase collective to balance torque",
+        "Continue flight with no action",
+        "Shut down both engines"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Avoid further exceedance and land for maintenance action.",
+      "section": "EMERGENCY PROCEDURES",
+      "references": [
+        "AW169 RFM Section 3"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "ENGINE",
+        "LIMITS"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 RFM/QRH"
+    },
+    {
+      "id": "AW169-EP-038",
+      "question": "ENGINE OVERTEMP/OVERLIMIT — Recommended?",
+      "options": [
+        "Reduce power; monitor; land as soon as practicable",
+        "Continue high power to normalize",
+        "Shut down both engines immediately",
+        "Ignore if transient"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Power reduction and precautionary landing mitigate damage risk.",
+      "section": "EMERGENCY PROCEDURES",
+      "references": [
+        "AW169 RFM Section 3"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "ENGINE",
+        "LIMITS"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 RFM/QRH"
+    },
+    {
+      "id": "AW169-EP-039",
+      "question": "ICING SEVERE (encountered) — General action?",
+      "options": [
+        "Exit icing conditions; use anti‑ice as available; land as soon as practicable",
+        "Climb into colder air to continue",
+        "Disable anti‑ice to save power",
+        "Maintain current route"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Leave severe icing promptly; systems may not ensure safety in severe icing.",
+      "section": "EMERGENCY PROCEDURES",
+      "references": [
+        "AW169 RFM Section 3/5"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "ICING"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 RFM/QRH"
+    },
+    {
+      "id": "AW169-EP-040",
+      "question": "SMOKE SOURCE UNKNOWN — Which is correct?",
+      "options": [
+        "Non‑essential OFF; isolate buses; ventilate; land ASAP",
+        "Increase cabin heat to burn off moisture",
+        "Continue flight and monitor",
+        "Cycle battery switches repeatedly"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Treat as potential electrical fire until identified; land.",
+      "section": "EMERGENCY PROCEDURES",
+      "references": [
+        "AW169 RFM Section 3"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "SMOKE",
+        "ELECTRICAL"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 RFM/QRH"
+    },
+    {
+      "id": "AW169-EP-041",
+      "question": "GENERATOR OVERLOAD — Crew action?",
+      "options": [
+        "Shed non‑essential loads; monitor; land as soon as practicable",
+        "Turn off all equipment immediately and continue flight",
+        "Ignore unless a warning comes on",
+        "Increase bus load to balance"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Protect electrical system margin and plan landing.",
+      "section": "EMERGENCY PROCEDURES",
+      "references": [
+        "AW169 RFM Section 3"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "ELECTRICAL"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 RFM/QRH"
+    },
+    {
+      "id": "AW169-EP-042",
+      "question": "BATTERY OVERHEAT/SMOKE — What should be done?",
+      "options": [
+        "Isolate battery per checklist; land as soon as practicable",
+        "Continue flight; battery is secondary",
+        "Open crossfeed",
+        "Climb and cool by airflow"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Thermal events require isolation and landing.",
+      "section": "EMERGENCY PROCEDURES",
+      "references": [
+        "AW169 RFM Section 3"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "ELECTRICAL"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 RFM/QRH"
+    },
+    {
+      "id": "AW169-EP-043",
+      "question": "DOOR OPEN/UNLATCHED IN FLIGHT — Appropriate response?",
+      "options": [
+        "Reduce speed; avoid abrupt maneuvers; land when practicable",
+        "Continue normal operations",
+        "Accelerate beyond Vne",
+        "Open all doors for symmetry"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Aerodynamic effects increase with speed; land to secure door.",
+      "section": "EMERGENCY PROCEDURES",
+      "references": [
+        "AW169 RFM Section 3/4"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "AIRFRAME"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 RFM/QRH"
+    },
+    {
+      "id": "AW169-EP-044",
+      "question": "PRESSURIZED SYSTEM LEAK (hydraulic) — Indications and action?",
+      "options": [
+        "Fluid smell/visible leak; monitor quantities; land as soon as practicable",
+        "No crew action required",
+        "Increase system pressure by power increase",
+        "Turn off unrelated avionics"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Loss indications warrant a precautionary landing.",
+      "section": "EMERGENCY PROCEDURES",
+      "references": [
+        "AW169 RFM Section 3"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "HYD"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 RFM/QRH"
+    },
+    {
+      "id": "AW169-EP-045",
+      "question": "LANDING WITH TAILWIND REQUIRED (abnormal) — Safer choice during emergency?",
+      "options": [
+        "Prefer landing into wind; if not possible, minimize tailwind and rate of descent",
+        "Land downwind at high speed",
+        "Hover taxi long distance",
+        "Climb and wait for wind shift"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Wind management reduces loads and yaw risk during emergency landing.",
+      "section": "EMERGENCY PROCEDURES",
+      "references": [
+        "AW169 RFM Section 3 (General)"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "AIRMANSHP"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 RFM/QRH"
+    },
+    {
+      "id": "AW169-EP-046",
+      "question": "ENGINE FAILURE DURING HOVER — Immediate action?",
+      "options": [
+        "Lower collective to cushion touchdown; maintain attitude",
+        "Raise collective and climb",
+        "Accelerate to 45 kt before lowering collective",
+        "Turn off AFCS first"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Lower collective to preserve NR and cushion landing.",
+      "section": "EMERGENCY PROCEDURES",
+      "references": [
+        "AW169 RFM Section 3"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "ENGINE",
+        "HOVER"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 RFM/QRH"
+    },
+    {
+      "id": "AW169-EP-047",
+      "question": "ENGINE INDICATIONS MISMATCH (torque split) — Best response?",
+      "options": [
+        "Adjust collective smoothly to avoid exceedances; monitor; land as soon as practicable",
+        "Increase power to the lower‑reading engine",
+        "Ignore if helicopter flies",
+        "Shut down both engines"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Maintain safe power sharing and plan a landing for troubleshooting.",
+      "section": "EMERGENCY PROCEDURES",
+      "references": [
+        "AW169 RFM Section 3/Systems"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "ENGINE"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 RFM/QRH"
+    },
+    {
+      "id": "AW169-EP-048",
+      "question": "ECS SMOKE/ODOR — What is correct?",
+      "options": [
+        "ECS — OFF; ventilate; land as soon as practicable",
+        "Turn ECS to MAX HEAT",
+        "Continue flight",
+        "Climb to colder air"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Switch off the suspected source and land.",
+      "section": "EMERGENCY PROCEDURES",
+      "references": [
+        "AW169 RFM Section 3"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "SMOKE",
+        "ECS"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 RFM/QRH"
+    },
+    {
+      "id": "AW169-EP-049",
+      "question": "INADVERTENT IMC DURING EMERGENCY — Priority?",
+      "options": [
+        "Attitude, Heading, Power; stabilize first, then navigate and communicate",
+        "Turn to nearest terrain regardless",
+        "Descend visually regardless",
+        "Focus on checklist only"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Aviate‑Navigate‑Communicate discipline is critical.",
+      "section": "EMERGENCY PROCEDURES",
+      "references": [
+        "AW169 RFM Section 3 (General)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "IFR",
+        "AIRMANSHP"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 RFM/QRH"
+    },
+    {
+      "id": "AW169-EP-050",
+      "question": "POST‑FIRE/SMOKE LANDING — After landing, what is correct?",
+      "options": [
+        "Emergency shutdown; evacuate; do not approach until safe",
+        "Keep rotors turning to ventilate",
+        "Restart to taxi clear",
+        "Continue normal shutdown only"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Secure and evacuate; treat as hazardous until inspected.",
+      "section": "EMERGENCY PROCEDURES",
+      "references": [
+        "AW169 RFM Section 3"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "FIRE",
+        "SMOKE"
+      ],
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": [
+        "AW169"
+      ],
+      "source": "AW169 RFM/QRH"
+    }
+  ]
+}

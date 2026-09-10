@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 1000" width="820" height="1000" role="img" aria-label="FUEL FILT – AS350 B3e fuel filter pre-clogging">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L9,3 L0,6 Z" fill="black"/>
+    </marker>
+  </defs>
+
+  <!-- Outer frame -->
+  <rect x="1" y="1" width="818" height="998" fill="white" stroke="black" stroke-width="2"/>
+
+  <!-- Left column -->
+  <rect x="40" y="60" width="110" height="70" fill="black"/>
+  <text x="95" y="90" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="yellow" text-anchor="middle">FUEL</text>
+  <text x="95" y="114" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="yellow" text-anchor="middle">FILT</text>
+
+  <text x="30" y="180" font-family="Arial, sans-serif" font-size="18">Fuel filter pre-clogged</text>
+
+  <!-- Separator line -->
+  <line x1="185" y1="20" x2="185" y2="980" stroke="black" stroke-width="1.5"/>
+
+  <!-- Right column header -->
+  <text x="220" y="85" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="red">WARNING</text>
+
+  <text x="220" y="120" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="red">FUEL FILTER BY-PASS OPENING LEADS TO CONTAMINATION</text>
+  <text x="220" y="145" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="red">OF THE FUEL LINES AND THE GOVERNOR, WHICH MAY</text>
+  <text x="220" y="170" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="red">INDUCE N1 OSCILLATIONS, LIMITED POWER OR</text>
+  <text x="220" y="195" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="red">POSSIBLY FLAME-OUT.</text>
+
+  <!-- Level 2: continuously on -->
+  <text x="220" y="235" font-family="Arial, sans-serif" font-size="18" font-weight="bold">Continuously on (pre-clogging level 2 reached):</text>
+  <text x="220" y="265" font-family="Arial, sans-serif" font-size="18">LAND AS SOON AS PRACTICABLE.</text>
+
+  <text x="220" y="295" font-family="Arial, sans-serif" font-size="18">VEMD ........................................ MONITOR N1.</text>
+  <text x="220" y="325" font-family="Arial, sans-serif" font-size="18">If N1 oscillations occur:</text>
+  <line x1="500" y1="330" x2="500" y2="365" stroke="black" stroke-width="1.2" marker-end="url(#arrow)"/>
+  <text x="430" y="395" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="red">LAND IMMEDIATELY.</text>
+
+  <line x1="500" y1="400" x2="500" y2="450" stroke="black" stroke-width="1.2" marker-end="url(#arrow)"/>
+  <text x="320" y="480" font-family="Arial, sans-serif" font-size="20">Autorotation procedure ............ APPLY.</text>
+
+  <!-- Level 1: flashing at idle / start / shutdown -->
+  <text x="220" y="540" font-family="Arial, sans-serif" font-size="18" font-weight="bold">Flashing at idle or during starting or shutdown</text>
+  <text x="220" y="565" font-family="Arial, sans-serif" font-size="18" font-weight="bold">(pre-clogging level 1):</text>
+  <text x="220" y="595" font-family="Arial, sans-serif" font-size="18">One flight of 3 hours maximum flight time can be</text>
+  <text x="220" y="620" font-family="Arial, sans-serif" font-size="18">performed before maintenance action.</text>
+
+  <text x="40" y="960" font-family="Arial, sans-serif" font-size="14">RFM H125 AS350 B3e – Section 3.6 – FUEL FILT (24-05)</text>
+</svg>

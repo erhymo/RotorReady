@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="460" viewBox="0 0 820 460" role="img" aria-label="DOOR – AS350 B3e cargo door unlocked">
+  <rect width="100%" height="100%" fill="white" />
+  <style>
+    .frame { fill: none; stroke: #111; stroke-width: 1.5; }
+    .text { font-family: Arial, Helvetica, sans-serif; fill: #111; }
+    .heading { font-weight: 700; font-size: 18px; }
+    .body { font-size: 15px; }
+    .tile { fill: #000; stroke: #111; stroke-width: 1; }
+    .tileText { font-family: Arial, Helvetica, sans-serif; font-size: 22px; font-weight: 700; fill: #ffcc00; text-anchor: middle; }
+  </style>
+
+  <rect x="10" y="10" width="800" height="440" class="frame" />
+  <line x1="190" y1="10" x2="190" y2="450" stroke="#111" stroke-width="1.5" />
+
+  <!-- Left column -->
+  <rect x="55" y="60" width="100" height="70" rx="4" class="tile" />
+  <text x="105" y="100" class="tileText">DOOR</text>
+
+  <text x="30" y="170" class="text body">One or both cargo doors unlocked.</text>
+
+  <!-- Right column -->
+  <text x="210" y="60" class="text heading">DOOR – Cargo door unlocked</text>
+
+  <text x="210" y="100" class="text body">1. Airspeed ............................ REDUCE to seventy knots</text>
+  <text x="228" y="123" class="text body">(about one hundred and thirty kilometres per hour).</text>
+  <text x="210" y="150" class="text body">2. LAND AS SOON AS PRACTICABLE.</text>
+  <text x="210" y="175" class="text body">3. Descent and approach at a low rate of descent.</text>
+
+  <text x="30" y="425" class="text body" font-size="12">RFM H125 AS350 B3e – Section 3.6 – DOOR</text>
+</svg>

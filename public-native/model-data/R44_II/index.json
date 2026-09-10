@@ -1,0 +1,59 @@
+{
+  "modelId": "R44_II",
+  "sections": [
+    {
+      "id": "limitations",
+      "title": "Limitations",
+      "file": "sections/limitations.json",
+      "count": 50
+    },
+    {
+      "id": "emergency_procedures",
+      "title": "Emergency Procedures",
+      "file": "sections/emergency_procedures.json",
+      "count": 50
+    },
+    {
+      "id": "normal_procedures",
+      "title": "Normal Procedures",
+      "file": "sections/normal_procedures.json",
+      "count": 45
+    },
+    {
+      "id": "performance",
+      "title": "Performance",
+      "file": "sections/performance.json",
+      "count": 12
+    },
+    {
+      "id": "weight_and_balance",
+      "title": "Weight and Balance",
+      "file": "sections/weight_and_balance.json",
+      "count": 13
+    },
+    {
+      "id": "systems_description",
+      "title": "Systems Description",
+      "file": "sections/systems_description.json",
+      "count": 75
+    },
+    {
+      "id": "supplements",
+      "title": "Supplements",
+      "file": "sections/supplements.json",
+      "count": 30
+    },
+    {
+      "id": "handling_and_maintenance",
+      "title": "Handling and Maintenance",
+      "file": "sections/handling_and_maintenance.json",
+      "count": 20
+    },
+    {
+      "id": "safety_tips",
+      "title": "Safety Tips",
+      "file": "sections/safety_tips.json",
+      "count": 32
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 260">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L9,3 L0,6 Z" fill="black"/>
+    </marker>
+  </defs>
+
+  <rect x="1" y="1" width="778" height="258" fill="white" stroke="black" stroke-width="2"/>
+
+  <!-- Left column -->
+  <rect x="30" y="40" width="90" height="50" fill="black"/>
+  <text x="75" y="72" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="yellow" text-anchor="middle">PITOT</text>
+  <text x="25" y="120" font-family="Arial, sans-serif" font-size="18">Pitot heating not</text>
+  <text x="25" y="145" font-family="Arial, sans-serif" font-size="18">operative</text>
+
+  <!-- Separator -->
+  <line x1="160" y1="15" x2="160" y2="245" stroke="black" stroke-width="1.5"/>
+
+  <!-- Right column -->
+  <text x="190" y="55" font-family="Arial, sans-serif" font-size="18">[PITOT] ............................ <tspan font-weight="bold">CHECK ON</tspan></text>
+
+  <!-- Split from apex (arrows end BEFORE YES/NO labels) -->
+  <polyline points="420,70 305,102" fill="none" stroke="black" stroke-width="1.2" marker-end="url(#arrow)"/>
+  <polyline points="420,70 560,102" fill="none" stroke="black" stroke-width="1.2" marker-end="url(#arrow)"/>
+
+  <!-- YES branch: label placed BELOW arrow tip -->
+  <text x="270" y="125" font-family="Arial, sans-serif" font-size="16" font-weight="bold">YES</text>
+  <line x1="285" y1="132" x2="285" y2="150" stroke="black" stroke-width="1.2" marker-end="url(#arrow)"/>
+  <text x="190" y="175" font-family="Arial, sans-serif" font-size="18">Monitor airspeed indicator</text>
+
+  <!-- NO branch -->
+  <text x="575" y="125" font-family="Arial, sans-serif" font-size="16" font-weight="bold">NO</text>
+  <line x1="585" y1="132" x2="585" y2="150" stroke="black" stroke-width="1.2" marker-end="url(#arrow)"/>
+  <text x="520" y="175" font-family="Arial, sans-serif" font-size="18">[PITOT] ................. ON</text>
+
+  <text x="290" y="210" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="green">CONTINUE FLIGHT</text>
+</svg>
+

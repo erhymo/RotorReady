@@ -1,0 +1,15 @@
+[
+  {
+    "id": "emergency-evacuation-land",
+    "name": "EMERGENCY EVACUATION ON LAND",
+    "severity": "caution",
+    "description": "",
+    "pageImage": "/training/lights/pages/s92-emergency-evacuation-land.png",
+    "imageWidth": 1159,
+    "imageHeight": 853,
+    "links": [],
+    "modelIds": [
+      "S92"
+    ]
+  }
+]

@@ -1,0 +1,25 @@
+[
+  {
+    "id": "intentional-engine-shutdown",
+    "name": "INTENTIONAL ENGINE SHUTDOWN IN FLIGHT",
+    "severity": "caution",
+    "description": "",
+    "pageImage": "/training/lights/pages/s92-intentional-engine-shutdown.png",
+    "imageWidth": 1159,
+    "imageHeight": 1675,
+    "links": [
+      {
+        "destPage": 8,
+        "rect": [
+          100,
+          1618,
+          449,
+          1643
+        ]
+      }
+    ],
+    "modelIds": [
+      "S92"
+    ]
+  }
+]

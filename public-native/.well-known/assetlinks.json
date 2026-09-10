@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.mayday.rotorready",
+      "sha256_cert_fingerprints": [
+        "E3:94:48:64:B6:9B:1F:37:7C:D5:8D:BF:F0:C7:72:D3:4E:6E:33:4E:16:6D:EF:59:40:4B:1F:07:A7:C4:03:4A"
+      ]
+    }
+  }
+]

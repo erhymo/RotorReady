@@ -1,0 +1,155 @@
+[
+  {
+    "id": "lims-p17-001",
+    "section": "LIMITATIONS - ENG SYST",
+    "question": "After the first engine start attempt, how long must you wait?",
+    "options": [
+      "15 sec",
+      "30 sec",
+      "1 min",
+      "5 min"
+    ],
+    "answer": "30 sec",
+    "explanation": "After the first start attempt, wait 30 seconds.",
+    "references": "STARTER DUTY CYCLE",
+    "printedPage": 17,
+    "difficulty": "easy",
+    "tags": [
+      "engine",
+      "start",
+      "limitations"
+    ],
+    "source": "QRH p17"
+  },
+  {
+    "id": "lims-p17-002",
+    "section": "LIMITATIONS - ENG SYST",
+    "question": "After the third engine start attempt, how long must you wait?",
+    "options": [
+      "5 min",
+      "10 min",
+      "15 min",
+      "30 min"
+    ],
+    "answer": "30 min",
+    "explanation": "After the third start attempt, wait 30 minutes.",
+    "references": "STARTER DUTY CYCLE",
+    "printedPage": 17,
+    "difficulty": "easy",
+    "tags": [
+      "engine",
+      "start",
+      "limitations"
+    ],
+    "source": "QRH p17"
+  },
+  {
+    "id": "lims-p17-003",
+    "section": "LIMITATIONS - ENG SYST",
+    "question": "How many rapid turnaround rotor brake applications are permitted in one hour?",
+    "options": [
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "answer": "4",
+    "explanation": "Maximum of 4 rotor brake applications in one hour with minimum 15 minutes between.",
+    "references": "ROTOR BRAKE LIMITATIONS",
+    "printedPage": 17,
+    "difficulty": "medium",
+    "tags": [
+      "rotor brake",
+      "limitations"
+    ],
+    "source": "QRH p17"
+  },
+  {
+    "id": "lims-p17-004",
+    "section": "LIMITATIONS - ENG SYST",
+    "question": "What is the maximum rotor brake temperature on ground?",
+    "options": [
+      "399 \u00b0C",
+      "419 \u00b0C",
+      "449 \u00b0C",
+      "469 \u00b0C"
+    ],
+    "answer": "449 \u00b0C",
+    "explanation": "Maximum rotor brake temperature on ground is 449 \u00b0C.",
+    "references": "ROTOR BRAKE TEMPERATURES",
+    "printedPage": 17,
+    "difficulty": "easy",
+    "tags": [
+      "rotor brake",
+      "temperature",
+      "limitations"
+    ],
+    "source": "QRH p17"
+  },
+  {
+    "id": "lims-p17-005",
+    "section": "LIMITATIONS - ENG SYST",
+    "question": "What is the maximum rotor brake temperature in flight?",
+    "options": [
+      "150 \u00b0C",
+      "175 \u00b0C",
+      "199 \u00b0C",
+      "225 \u00b0C"
+    ],
+    "answer": "199 \u00b0C",
+    "explanation": "Maximum rotor brake temperature in flight is 199 \u00b0C.",
+    "references": "ROTOR BRAKE TEMPERATURES",
+    "printedPage": 17,
+    "difficulty": "easy",
+    "tags": [
+      "rotor brake",
+      "temperature",
+      "limitations"
+    ],
+    "source": "QRH p17"
+  },
+  {
+    "id": "lims-p17-006",
+    "section": "LIMITATIONS - ENG SYST",
+    "question": "What is the maximum running speed for wheel brake application?",
+    "options": [
+      "30 knots",
+      "35 knots",
+      "40 knots",
+      "45 knots"
+    ],
+    "answer": "40 knots",
+    "explanation": "Maximum speed for wheel brake application is 40 knots.",
+    "references": "WHEEL BRAKE LIMITATIONS",
+    "printedPage": 17,
+    "difficulty": "easy",
+    "tags": [
+      "wheel brake",
+      "speed",
+      "limitations"
+    ],
+    "source": "QRH p17"
+  },
+  {
+    "id": "lims-p17-007",
+    "section": "LIMITATIONS - ENG SYST",
+    "question": "For how long is parking on dry and paved slopes up to 12\u00b0 permitted?",
+    "options": [
+      "10 hours",
+      "15 hours",
+      "20 hours",
+      "24 hours"
+    ],
+    "answer": "20 hours",
+    "explanation": "Parking on dry and paved slopes up to 12\u00b0 is permitted for a maximum of 20 hours.",
+    "references": "WHEEL BRAKE LIMITATIONS",
+    "printedPage": 17,
+    "difficulty": "easy",
+    "tags": [
+      "wheel brake",
+      "parking",
+      "limitations"
+    ],
+    "source": "QRH p17"
+  }
+]

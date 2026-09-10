@@ -1,0 +1,25 @@
+[
+  {
+    "id": "apu-fire-flight",
+    "name": "APU FIRE (FLIGHT)",
+    "severity": "warning",
+    "description": "",
+    "pageImage": "/training/lights/pages/s92-apu-fire-flight.png",
+    "imageWidth": 1159,
+    "imageHeight": 2818,
+    "links": [
+      {
+        "destPage": 216,
+        "rect": [
+          570,
+          2010,
+          1018,
+          2035
+        ]
+      }
+    ],
+    "modelIds": [
+      "S92"
+    ]
+  }
+]

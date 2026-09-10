@@ -1,0 +1,34 @@
+[
+  {
+    "id": "bat-ovht",
+    "name": "BAT OVHT",
+    "severity": "warning",
+    "system": "ELECTRICS",
+    "description": "Battery overtemperature (above 70°C). BAT on Warning Unit and audio tone, BAT OVERHEAT on Master List, voice message \"BATTERY OVERHEAT\".",
+    "procedure": [
+      {
+        "type": "branch",
+        "heading": "On ground:",
+        "text": "1. BAT MSTR sw — OFF (BAT DISCONN will appear)\n2. Engines — Shut down"
+      },
+      {
+        "type": "branch",
+        "heading": "In flight:",
+        "text": "1. BAT MSTR sw — OFF (BAT DISCONN will appear)\n2. LAND AS SOON AS POSSIBLE\nAfter landing:\n3. Engines — Leave running in IDLE\nIf EPU available: 4. EPU — Connect, 5. BAT MSTR sw — ON, 6. Engine shutdown — Perform\nIf EPU not available: 4. Engine shutdown — Perform"
+      },
+      {
+        "type": "caution",
+        "text": "Battery must be inspected or replaced prior to next flight."
+      }
+    ],
+    "references": [
+      "FLM BK117 D-3 Sect. 3.7.5"
+    ],
+    "modelIds": [
+      "H145_D3"
+    ],
+    "pageImage": "/training/lights/pages/h145d3-bat-ovht.png",
+    "imageWidth": 1310,
+    "imageHeight": 1536
+  }
+]

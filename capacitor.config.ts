@@ -3,34 +3,33 @@ import type { CapacitorConfig } from "@capacitor/cli";
 const config: CapacitorConfig = {
   appId: "com.mayday.rotorready",
   appName: "RotorReady",
-  // The app loads all content live from server.url below and only ever falls back to a
-  // local file for the offline errorPath page — so webDir points at a minimal folder with
-  // just that page, not a full bundled copy of the site.
+  // public-native/ is a static export of the offline-critical route tree (home, quiz,
+  // AW169 training/lights, audio — see scripts/build-native-shell.mjs), bundled straight
+  // into the native binary. There's no server.url here on purpose: the app boots from
+  // this local copy every time, online or offline, instead of depending on a live network
+  // fetch just to start.
   //
-  // This is a deliberate reversion (2026-09-09) from the "local-first shell" architecture
-  // (bundled offline export + @capgo/capacitor-updater background content updates,
-  // shipped as versionCode 7/1.5 and iOS 1.0.8). That system's delta-update mechanism
-  // never worked end-to-end on a real device: a genuine content push after install (going
-  // from 3 to 8 AW169 EP light-audio episodes, plus several other fixes) still hadn't
-  // reached an installed app after 7 full relaunches. The code and the plugin's own
-  // comparison logic both checked out correct on inspection, so the bug is somewhere in
-  // real-world plugin behavior that was never actually exercised before shipping (per
-  // project_native_local_first_shell memory: "a real delta-download+rollback cycle is
-  // still unexercised" — this was that first real exercise, and it failed silently with
-  // no diagnostics reaching us). Rather than debug an unproven mechanism further, this
-  // reverts to the simple, previously-reliable server.url approach and keeps only the
-  // two genuinely independent wins from that work: the Android hardware back-button fix
-  // (@capacitor/app, see components/NativeBackButton.tsx) and the Android 15 edge-to-edge
-  // margin fix below. True first-ever-offline-launch support is given up for now — what's
-  // kept instead: downloaded podcast episodes (lib/audioOffline.ts, plain Cache API, was
-  // never part of the local-first-shell system and is completely unaffected by this
-  // revert) and any page already visited once while online (the existing next-pwa service
-  // worker in next.config.mjs, unchanged throughout — NetworkFirst-caches quiz/lights
-  // pages and falls back to cache offline; was simply unused while server.url was absent).
+  // History (so the next person doesn't re-litigate this): shipped 2026-09-04 as the
+  // "local-first shell", extended 2026-09-06 with @capgo/capacitor-updater for background
+  // content updates (so a fix wouldn't need a full store release), reverted 2026-09-09
+  // back to plain server.url when that background-update mechanism turned out to never
+  // actually apply a real content push on a real device (7 full relaunches, no change).
+  // The server.url revert then broke the actual reason this shell existed in the first
+  // place: a cold app launch (fully killed, then reopened) while offline — e.g. a phone
+  // in airplane mode on a flight — tries to load the live site over network and hits a
+  // dead-end error page, with no path to the downloaded podcast episodes already sitting
+  // safely on the device (lib/audioOffline.ts, unaffected by any of this). Restored
+  // 2026-09-10 for that reason, this time *without* the background updater: content
+  // updates now only reach users via a new native build/store release, not silently in
+  // the background. Simpler and predictable, at the cost of needing a real app-store
+  // release for a content-only fix.
+  //
+  // Genuinely network-only destinations (weather, airports, admin, login/signup) are
+  // just normal in-app links again (not bundled, not specially handled) — visiting them
+  // requires a live connection, same as any other page that needs a server, and that's
+  // an honest, obvious failure mode rather than a special case to maintain.
   webDir: "public-native",
   server: {
-    url: "https://rotor-ready.com",
-    cleartext: false,
     errorPath: "native-error.html",
   },
   ios: {

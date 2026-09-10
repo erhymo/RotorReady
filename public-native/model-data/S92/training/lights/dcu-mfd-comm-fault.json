@@ -1,0 +1,15 @@
+[
+  {
+    "id": "dcu-mfd-comm-fault",
+    "name": "DCU - MFD COMMUNICATION FAULT",
+    "severity": "warning",
+    "description": "",
+    "pageImage": "/training/lights/pages/s92-dcu-mfd-comm-fault.png",
+    "imageWidth": 1159,
+    "imageHeight": 1623,
+    "links": [],
+    "modelIds": [
+      "S92"
+    ]
+  }
+]

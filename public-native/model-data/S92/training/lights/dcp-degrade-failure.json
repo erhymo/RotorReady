@@ -1,0 +1,15 @@
+[
+  {
+    "id": "dcp-degrade-failure",
+    "name": "DCP DEGRADE OR FAILURE",
+    "severity": "warning",
+    "description": "",
+    "pageImage": "/training/lights/pages/s92-dcp-degrade-failure.png",
+    "imageWidth": 1159,
+    "imageHeight": 1258,
+    "links": [],
+    "modelIds": [
+      "S92"
+    ]
+  }
+]

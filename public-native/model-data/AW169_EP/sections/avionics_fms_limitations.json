@@ -1,0 +1,704 @@
+{
+  "items": [
+    {
+      "id": "avfms-001",
+      "section": "Avionics & FMS Limitations",
+      "type": "single",
+      "question": "Is intentional P/R - C/Y trim de-clutching (in EDCU TRIM page) flight allowed?",
+      "options": [
+        "Yes, always",
+        "Yes, but only in HOV mode",
+        "No, it is prohibited",
+        "Only if both APs are engaged"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Intentional P/R–C/Y trim de-clutching (EDCU TRIM page) in flight is prohibited.",
+      "references": [
+        "QRH Avionics Limitations p.1"
+      ],
+      "sectionId": "avionics_fms_limitations",
+      "modelIds": [
+        "AW169_EP"
+      ],
+      "source": "AW169 QRH",
+      "tags": []
+    },
+    {
+      "id": "avfms-002",
+      "section": "Avionics & FMS Limitations",
+      "type": "single",
+      "question": "AFCS upper modes must be disengaged, except HOV, TDH, TU, and coupled approach modes, if which of the following occurs?",
+      "options": [
+        "Loss of radio communication",
+        "Failure of one autopilot (AP)",
+        "Low hydraulic pressure",
+        "Both AHRS units operating normally"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "AFCS upper modes (except HOV, TDH, TU, and coupled approach modes) must be disengaged after failure of one AP, one AHRS, or ADI-STDBY, after an actuator failure, loss of CAS messages, or an AFCS oscillatory malfunction.",
+      "references": [
+        "QRH Avionics Limitations p.1"
+      ],
+      "sectionId": "avionics_fms_limitations",
+      "modelIds": [
+        "AW169_EP"
+      ],
+      "source": "AW169 QRH",
+      "tags": []
+    },
+    {
+      "id": "avfms-003",
+      "section": "Avionics & FMS Limitations",
+      "type": "single",
+      "question": "Which failure requires disengagement of AFCS upper modes?",
+      "options": [
+        "One AHRS has failed",
+        "Both GPS units available",
+        "Normal ADI-standby operation",
+        "CAS messages displayed correctly"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "AFCS upper modes must be disengaged if one AHRS has failed (\"AP AHRS 1(2) FAIL\" or \"1(2) AHRS FAIL\" displayed).",
+      "references": [
+        "QRH Avionics Limitations p.1"
+      ],
+      "sectionId": "avionics_fms_limitations",
+      "modelIds": [
+        "AW169_EP"
+      ],
+      "source": "AW169 QRH",
+      "tags": []
+    },
+    {
+      "id": "avfms-008",
+      "section": "Avionics & FMS Limitations",
+      "type": "single",
+      "question": "What should the pilot do when the PWR LIM caption is displayed?",
+      "options": [
+        "Ignore it if power margin is high",
+        "Fly attentive and adjust power to maintain margin",
+        "Immediately disengage AFCS",
+        "Switch to manual trim de-clutching"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "When PWR LIM is displayed, fly attentive or reduce/increase power accordingly to keep the power margin.",
+      "references": [
+        "QRH Avionics Limitations p.1"
+      ],
+      "sectionId": "avionics_fms_limitations",
+      "modelIds": [
+        "AW169_EP"
+      ],
+      "source": "AW169 QRH",
+      "tags": []
+    },
+    {
+      "id": "avfms-009",
+      "section": "Avionics & FMS Limitations",
+      "type": "single",
+      "question": "Which AFCS modes may only be engaged over flat surfaces clear of obstructions?",
+      "options": [
+        "LOC/GS",
+        "RHT, TU, TDH",
+        "VAPP, NAPP",
+        "MOT, WTR"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "RHT, TU, and TDH modes may only be engaged over flat surfaces clear of obstructions.",
+      "references": [
+        "QRH AFCS Mode Limitations p.1"
+      ],
+      "sectionId": "avionics_fms_limitations",
+      "modelIds": [
+        "AW169_EP"
+      ],
+      "source": "AW169 QRH",
+      "tags": []
+    },
+    {
+      "id": "avfms-010",
+      "section": "Avionics & FMS Limitations",
+      "type": "single",
+      "question": "Which AFCS control panel functions are inoperative and display 'FUNCTION UNAVL' if operated?",
+      "options": [
+        "VNAV, MOT, WTR",
+        "LOC, NGS, VAPP",
+        "AHRS, ADI-standby, CAS",
+        "HOV, TDH, TU"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "VNAV, MOT, and WTR are inoperative on the AFCS control panel; \"FUNCTION UNAVL\" is displayed on the PFD if selected.",
+      "references": [
+        "QRH AFCS Mode Limitations p.1"
+      ],
+      "sectionId": "avionics_fms_limitations",
+      "modelIds": [
+        "AW169_EP"
+      ],
+      "source": "AW169 QRH",
+      "tags": []
+    },
+    {
+      "id": "avfms-011",
+      "section": "Avionics & FMS Limitations",
+      "type": "single",
+      "question": "What is the minimum use height (MUH) for ALT mode in cruise?",
+      "options": [
+        "50 ft AGL",
+        "150 ft AGL",
+        "200 ft AGL",
+        "30 ft AGL"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "ALT mode MUH is 200 ft AGL in cruise.",
+      "references": [
+        "QRH AFCS Modes MUH p.1"
+      ],
+      "sectionId": "avionics_fms_limitations",
+      "modelIds": [
+        "AW169_EP"
+      ],
+      "source": "AW169 QRH",
+      "tags": []
+    },
+    {
+      "id": "avfms-012",
+      "section": "Avionics & FMS Limitations",
+      "type": "single",
+      "question": "What is the MUH for ALT mode in hover/low speed?",
+      "options": [
+        "200 ft AGL",
+        "50 ft AGL",
+        "150 ft AGL",
+        "30 ft AGL"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "ALT mode MUH is 50 ft AGL in hover/low speed.",
+      "references": [
+        "QRH AFCS Modes MUH p.1"
+      ],
+      "sectionId": "avionics_fms_limitations",
+      "modelIds": [
+        "AW169_EP"
+      ],
+      "source": "AW169 QRH",
+      "tags": []
+    },
+    {
+      "id": "avfms-013",
+      "section": "Avionics & FMS Limitations",
+      "type": "single",
+      "question": "What is the MUH for ALTA mode?",
+      "options": [
+        "200 ft AGL",
+        "150 ft AGL",
+        "100 ft AGL",
+        "30 ft AGL"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "ALTA mode MUH is 200 ft AGL.",
+      "references": [
+        "QRH AFCS Modes MUH p.1"
+      ],
+      "sectionId": "avionics_fms_limitations",
+      "modelIds": [
+        "AW169_EP"
+      ],
+      "source": "AW169 QRH",
+      "tags": []
+    },
+    {
+      "id": "avfms-014",
+      "section": "Avionics & FMS Limitations",
+      "type": "single",
+      "question": "What is the MUH for VS mode (in descent)?",
+      "options": [
+        "30 ft AGL",
+        "150 ft AGL",
+        "200 ft AGL",
+        "50 ft AGL"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "VS mode (in descent) MUH is 200 ft AGL.",
+      "references": [
+        "QRH AFCS Modes MUH p.1"
+      ],
+      "sectionId": "avionics_fms_limitations",
+      "modelIds": [
+        "AW169_EP"
+      ],
+      "source": "AW169 QRH",
+      "tags": []
+    },
+    {
+      "id": "avfms-015",
+      "section": "Avionics & FMS Limitations",
+      "type": "single",
+      "question": "What is the MUH for RHT mode in cruise?",
+      "options": [
+        "200 ft AGL",
+        "50 ft AGL",
+        "150 ft AGL",
+        "30 ft AGL"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "RHT mode MUH is 150 ft AGL in cruise.",
+      "references": [
+        "QRH AFCS Modes MUH p.1"
+      ],
+      "sectionId": "avionics_fms_limitations",
+      "modelIds": [
+        "AW169_EP"
+      ],
+      "source": "AW169 QRH",
+      "tags": []
+    },
+    {
+      "id": "avfms-016",
+      "section": "Avionics & FMS Limitations",
+      "type": "single",
+      "question": "What is the MUH for RHT mode in hover/low speed?",
+      "options": [
+        "200 ft AGL",
+        "50 ft AGL",
+        "150 ft AGL",
+        "30 ft AGL"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "RHT mode MUH is 30 ft AGL in hover/low speed.",
+      "references": [
+        "QRH AFCS Modes MUH p.1"
+      ],
+      "sectionId": "avionics_fms_limitations",
+      "modelIds": [
+        "AW169_EP"
+      ],
+      "source": "AW169 QRH",
+      "tags": []
+    },
+    {
+      "id": "avfms-017",
+      "section": "Avionics & FMS Limitations",
+      "type": "single",
+      "question": "What is the MUH for GA mode during approach?",
+      "options": [
+        "30 ft AGL",
+        "50 ft AGL",
+        "150 ft AGL",
+        "160 ft AGL"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "GA mode MUH is 160 ft AGL during approach (150 ft AGL in cruise up to 5000 ft, then reducing 2 kts every 1000 ft).",
+      "references": [
+        "QRH AFCS Modes MUH p.1"
+      ],
+      "sectionId": "avionics_fms_limitations",
+      "modelIds": [
+        "AW169_EP"
+      ],
+      "source": "AW169 QRH",
+      "tags": []
+    },
+    {
+      "id": "avfms-018",
+      "section": "Avionics & FMS Limitations",
+      "type": "single",
+      "question": "What is the MUH for TDH and TU modes?",
+      "options": [
+        "200 ft AGL",
+        "150 ft AGL",
+        "30 ft AGL",
+        "50 ft AGL"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "TDH and TU modes MUH is 30 ft AGL.",
+      "references": [
+        "QRH AFCS Modes MUH p.1"
+      ],
+      "sectionId": "avionics_fms_limitations",
+      "modelIds": [
+        "AW169_EP"
+      ],
+      "source": "AW169 QRH",
+      "tags": []
+    },
+    {
+      "id": "avfms-019",
+      "section": "Avionics & FMS Limitations",
+      "type": "single",
+      "question": "What is the MUH for IAS mode in cruise?",
+      "options": [
+        "150 ft AGL",
+        "200 ft AGL",
+        "230 ft AGL",
+        "30 ft AGL"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "IAS mode MUH is 150 ft AGL in cruise.",
+      "references": [
+        "QRH AFCS Modes MUH p.2"
+      ],
+      "sectionId": "avionics_fms_limitations",
+      "modelIds": [
+        "AW169_EP"
+      ],
+      "source": "AW169 QRH",
+      "tags": []
+    },
+    {
+      "id": "avfms-020",
+      "section": "Avionics & FMS Limitations",
+      "type": "single",
+      "question": "What is the MUH for IAS mode during approach?",
+      "options": [
+        "150 ft AGL",
+        "160 ft AGL",
+        "200 ft AGL",
+        "50 ft AGL"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "IAS mode MUH is 160 ft AGL during approach.",
+      "references": [
+        "QRH AFCS Modes MUH p.2"
+      ],
+      "sectionId": "avionics_fms_limitations",
+      "modelIds": [
+        "AW169_EP"
+      ],
+      "source": "AW169 QRH",
+      "tags": []
+    },
+    {
+      "id": "avfms-021",
+      "section": "Avionics & FMS Limitations",
+      "type": "single",
+      "question": "What is the MUH for GSPD mode in cruise?",
+      "options": [
+        "150 ft AGL",
+        "160 ft AGL",
+        "200 ft AGL",
+        "230 ft AGL"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "GSPD mode MUH is 150 ft AGL in cruise.",
+      "references": [
+        "QRH AFCS Modes MUH p.2"
+      ],
+      "sectionId": "avionics_fms_limitations",
+      "modelIds": [
+        "AW169_EP"
+      ],
+      "source": "AW169 QRH",
+      "tags": []
+    },
+    {
+      "id": "avfms-022",
+      "section": "Avionics & FMS Limitations",
+      "type": "single",
+      "question": "What is the MUH for GSPD mode during approach?",
+      "options": [
+        "150 ft AGL",
+        "160 ft AGL",
+        "200 ft AGL",
+        "50 ft AGL"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "GSPD mode MUH is 160 ft AGL during approach.",
+      "references": [
+        "QRH AFCS Modes MUH p.2"
+      ],
+      "sectionId": "avionics_fms_limitations",
+      "modelIds": [
+        "AW169_EP"
+      ],
+      "source": "AW169 QRH",
+      "tags": []
+    },
+    {
+      "id": "avfms-023",
+      "section": "Avionics & FMS Limitations",
+      "type": "single",
+      "question": "What is the MUH for DCL mode?",
+      "options": [
+        "150 ft AGL",
+        "160 ft AGL",
+        "200 ft AGL",
+        "230 ft AGL"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "DCL mode MUH is 230 ft AGL.",
+      "references": [
+        "QRH AFCS Modes MUH p.2"
+      ],
+      "sectionId": "avionics_fms_limitations",
+      "modelIds": [
+        "AW169_EP"
+      ],
+      "source": "AW169 QRH",
+      "tags": []
+    },
+    {
+      "id": "avfms-024",
+      "section": "Avionics & FMS Limitations",
+      "type": "single",
+      "question": "What is the MUH for HOV mode?",
+      "options": [
+        "150 ft AGL",
+        "200 ft AGL",
+        "30 ft AGL",
+        "50 ft AGL"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "HOV mode MUH is 30 ft AGL.",
+      "references": [
+        "QRH AFCS Modes MUH p.2"
+      ],
+      "sectionId": "avionics_fms_limitations",
+      "modelIds": [
+        "AW169_EP"
+      ],
+      "source": "AW169 QRH",
+      "tags": []
+    },
+    {
+      "id": "avfms-025",
+      "section": "Avionics & FMS Limitations",
+      "type": "single",
+      "question": "What is the MUH for APP (approach) modes such as VAPP, LOC, BC, GS, NLOC, NGS, NAPP, NDCL?",
+      "options": [
+        "150 ft AGL",
+        "160 ft AGL",
+        "200 ft AGL",
+        "230 ft AGL"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "APP modes (VAPP, LOC, BC, GS, NLOC, NGS, NAPP, NDCL) MUH is 160 ft AGL.",
+      "references": [
+        "QRH AFCS Modes MUH p.2"
+      ],
+      "sectionId": "avionics_fms_limitations",
+      "modelIds": [
+        "AW169_EP"
+      ],
+      "source": "AW169 QRH",
+      "tags": []
+    },
+    {
+      "id": "avfms-026",
+      "section": "Avionics & FMS Limitations",
+      "type": "single",
+      "question": "What is the maximum rate of descent (ROD) for AFCS coupled approach?",
+      "options": [
+        "600 fpm",
+        "800 fpm",
+        "900 fpm",
+        "1000 fpm"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Maximum ROD for AFCS coupled approach is 900 fpm.",
+      "references": [
+        "QRH AFCS Approach Modes Limitations p.3"
+      ],
+      "sectionId": "avionics_fms_limitations",
+      "modelIds": [
+        "AW169_EP"
+      ],
+      "source": "AW169 QRH",
+      "tags": []
+    },
+    {
+      "id": "avfms-027",
+      "section": "Avionics & FMS Limitations",
+      "type": "single",
+      "question": "What is the maximum airspeed for AFCS coupled approach up to 5000 ft?",
+      "options": [
+        "120 KIAS",
+        "130 KIAS",
+        "140 KIAS",
+        "150 KIAS"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Maximum airspeed for AFCS coupled approach is 130 KIAS up to 5000 ft, then reducing 2 kts every 1000 ft.",
+      "references": [
+        "QRH AFCS Approach Modes Limitations p.3"
+      ],
+      "sectionId": "avionics_fms_limitations",
+      "modelIds": [
+        "AW169_EP"
+      ],
+      "source": "AW169 QRH",
+      "tags": []
+    },
+    {
+      "id": "avfms-028",
+      "section": "Avionics & FMS Limitations",
+      "type": "single",
+      "question": "The helicopter is certified to carry out CAT I ILS approaches up to how many degrees glideslope?",
+      "options": [
+        "3°",
+        "5°",
+        "7°",
+        "9°"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "The helicopter is certified for CAT I ILS approaches up to 7° glideslope.",
+      "references": [
+        "QRH AFCS Approach Modes Limitations p.3"
+      ],
+      "sectionId": "avionics_fms_limitations",
+      "modelIds": [
+        "AW169_EP"
+      ],
+      "source": "AW169 QRH",
+      "tags": []
+    },
+    {
+      "id": "avfms-030",
+      "section": "Avionics & FMS Limitations",
+      "type": "single",
+      "question": "What must the pilot verify regarding the FMS Navigation Data Base (NAV DB)?",
+      "options": [
+        "That it is encrypted",
+        "That it is current and coherent with the procedure to be flown",
+        "That it covers all ICAO states",
+        "That it is backed up to USB"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "The pilot must verify that the FMS Navigation Data Base (NAV DB) is current and coherent with the procedure to be flown.",
+      "references": [
+        "QRH FMS Limitations p.3"
+      ],
+      "sectionId": "avionics_fms_limitations",
+      "modelIds": [
+        "AW169_EP"
+      ],
+      "source": "AW169 QRH",
+      "tags": []
+    },
+    {
+      "id": "avfms-031",
+      "section": "Avionics & FMS Limitations",
+      "type": "single",
+      "question": "Is manual FMS reversion to DME/DME or VOR/DME as navigation sensor source allowed?",
+      "options": [
+        "Yes, always",
+        "Only during SBAS outage",
+        "No, it is prohibited",
+        "Only if GNSS is operational"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Manual FMS reversion to DME/DME or VOR/DME as navigation sensor source is prohibited; the FMS is not Multi-Sensor Approved for navigation.",
+      "references": [
+        "QRH FMS Limitations p.3"
+      ],
+      "sectionId": "avionics_fms_limitations",
+      "modelIds": [
+        "AW169_EP"
+      ],
+      "source": "AW169 QRH",
+      "tags": []
+    },
+    {
+      "id": "avfms-032",
+      "section": "Avionics & FMS Limitations",
+      "type": "single",
+      "question": "What is the maximum ROD during coupled FMS Approaches?",
+      "options": [
+        "600 fpm",
+        "700 fpm",
+        "800 fpm",
+        "900 fpm"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Maximum ROD during coupled FMS approaches is 800 fpm.",
+      "references": [
+        "QRH FMS Limitations p.3"
+      ],
+      "sectionId": "avionics_fms_limitations",
+      "modelIds": [
+        "AW169_EP"
+      ],
+      "source": "AW169 QRH",
+      "tags": []
+    },
+    {
+      "id": "avfms-033",
+      "section": "Avionics & FMS Limitations",
+      "type": "single",
+      "question": "What requirement applies to headset/helmet type used in the aircraft?",
+      "options": [
+        "It must be of the same electrical characteristics and authorised by the manufacturer",
+        "Any aviation headset is allowed",
+        "Only noise-cancelling headsets are approved",
+        "Must be EASA TSO-certified"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Headset/helmet used in the aircraft must be of the same electrical characteristics and authorised by the aircraft manufacturer.",
+      "references": [
+        "QRH Headset/Helmet Limitations p.3"
+      ],
+      "sectionId": "avionics_fms_limitations",
+      "modelIds": [
+        "AW169_EP"
+      ],
+      "source": "AW169 QRH",
+      "tags": []
+    }
+  ]
+}

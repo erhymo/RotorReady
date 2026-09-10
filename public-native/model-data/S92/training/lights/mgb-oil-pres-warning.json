@@ -1,0 +1,52 @@
+[
+  {
+    "id": "mgb-oil-pres-warning",
+    "name": "MGB OIL PRES - WARNING",
+    "severity": "warning",
+    "description": "",
+    "pageImage": "/training/lights/pages/s92-mgb-oil-pres-warning.png",
+    "imageWidth": 1159,
+    "imageHeight": 2678,
+    "links": [
+      {
+        "destPage": 83,
+        "rect": [
+          24,
+          422,
+          259,
+          447
+        ]
+      },
+      {
+        "destPage": 81,
+        "rect": [
+          24,
+          510,
+          264,
+          535
+        ]
+      },
+      {
+        "destPage": 216,
+        "rect": [
+          569,
+          1445,
+          1018,
+          1470
+        ]
+      },
+      {
+        "destPage": 8,
+        "rect": [
+          100,
+          2620,
+          449,
+          2645
+        ]
+      }
+    ],
+    "modelIds": [
+      "S92"
+    ]
+  }
+]

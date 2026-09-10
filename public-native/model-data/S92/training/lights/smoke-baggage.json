@@ -1,0 +1,25 @@
+[
+  {
+    "id": "smoke-baggage",
+    "name": "SMOKE IN BAGGAGE",
+    "severity": "warning",
+    "description": "",
+    "pageImage": "/training/lights/pages/s92-smoke-baggage.png",
+    "imageWidth": 1159,
+    "imageHeight": 1148,
+    "links": [
+      {
+        "destPage": 216,
+        "rect": [
+          577,
+          846,
+          1025,
+          871
+        ]
+      }
+    ],
+    "modelIds": [
+      "S92"
+    ]
+  }
+]

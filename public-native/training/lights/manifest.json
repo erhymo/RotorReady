@@ -1,0 +1,19 @@
+{
+  "files": [
+    "/training/lights/elec-fail-double-dc-gen.json",
+    "/training/lights/eng-oil-press.json",
+    "/training/lights/eng-fail-fixed.json",
+  "/training/lights/eng-out.json",
+  "/training/lights/eng-drive-shaft-failure.json",
+  "/training/lights/eng-idle.json",
+  "/training/lights/eng-eecu-fail.json",
+  "/training/lights/eng-fire-flight.json",
+  "/training/lights/eng-fire-ground.json",
+  "/training/lights/bag-fire-flight.json",
+  "/training/lights/bag-fire-ground.json",
+  "/training/lights/rotor-low.json",
+  "/training/lights/rotor-high.json",
+  "/training/lights/mgb-oil-press.json",
+  "/training/lights/mgb-oil-temp.json"
+  ]
+}

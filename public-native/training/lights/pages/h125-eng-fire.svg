@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1120" width="800" height="1120" role="img" aria-label="RFM H125 Section 3.6 - ENG FIRE warning page">
+  <rect width="100%" height="100%" fill="white"/>
+  <style>
+    :root{
+      --paper:#ffffff; --ink:#111; --muted:#333; --rule:#111;
+      --panel-bg:#000; --panel-text:#ff2d2d; --red:#c40000;
+      --note-bg:#fff7cc; --note-text:#111; --hilite-bg:#ffee58; --hilite-text:#111;
+    }
+
+    .paper{fill:var(--paper)}
+    .frame{fill:none;stroke:var(--rule);stroke-width:2}
+    .rule{stroke:var(--rule);stroke-width:2}
+    .h1{font:700 26px/1.2 Arial,Helvetica,sans-serif;fill:var(--ink)}
+    .h2{font:700 20px/1.2 Arial,Helvetica,sans-serif;fill:var(--ink)}
+    .h3{font:700 18px/1.2 Arial,Helvetica,sans-serif;fill:var(--ink)}
+    .body{font:16px/1.35 Arial,Helvetica,sans-serif;fill:var(--ink)}
+    .small{font:14px/1.3 Arial,Helvetica,sans-serif;fill:var(--ink)}
+    .muted{fill:var(--muted)}
+    .panel{fill:var(--panel-bg);stroke:var(--rule);stroke-width:1.5}
+    .panelText{font:700 24px/1 Arial,Helvetica,sans-serif;fill:var(--panel-text);letter-spacing:1px}
+    .red{fill:var(--red);font-weight:700}
+    .noteBox{fill:var(--note-bg);stroke:var(--rule);stroke-width:1}
+  </style>
+
+  <rect class="paper" x="0" y="0" width="800" height="1120"/>
+
+  <text class="h1" x="400" y="70" text-anchor="middle">SECTION 3.6</text>
+  <text class="h2" x="400" y="105" text-anchor="middle">CAUTION AND WARNING PANEL</text>
+  <text class="h3" x="60" y="155">1 ENGINE ALARMS</text>
+
+  <rect class="frame" x="60" y="175" width="680" height="760"/>
+  <line class="rule" x1="220" y1="175" x2="220" y2="935"/>
+
+  <text class="h3" x="80" y="205">WARNING</text>
+  <text class="h3" x="80" y="230">PANEL</text>
+  <text class="h3" x="250" y="205">CORRECTIVE ACTIONS</text>
+
+  <rect class="panel" x="95" y="255" width="90" height="90" rx="4"/>
+  <text class="panelText" x="140" y="288" text-anchor="middle">ENG</text>
+  <text class="panelText" x="140" y="316" text-anchor="middle">FIRE</text>
+  <text class="body muted" x="80" y="370">Fire in engine bay</text>
+
+  <text class="h3" x="240" y="250">-  At Start-up:</text>
+  <text class="body" x="240" y="280"><tspan font-weight="700">1. Engine starting selector</tspan> ...................... <tspan font-weight="700">OFF</tspan> position</text>
+  <text class="body" x="240" y="305"><tspan font-weight="700">2. Emergency fuel shut-off handle</tspan> ............. <tspan font-weight="700">AFT</tspan></text>
+  <text class="body" x="240" y="330"><tspan font-weight="700">3. [FUEL P] or [FUEL PUMP]</tspan> .................... <tspan font-weight="700">OFF</tspan></text>
+  <text class="body" x="240" y="355"><tspan font-weight="700">4. [CRANK]</tspan> .................................................. <tspan font-weight="700">PRESS (10 sec.)</tspan></text>
+  <text class="body" x="240" y="380"><tspan font-weight="700">5. Rotor brake</tspan> ............................................. <tspan font-weight="700">APPLY (≤ 170 rpm)</tspan></text>
+  <text class="body" x="240" y="405"><tspan font-weight="700">6. [MASTER SW] or [EMER SW]</tspan> ............. <tspan font-weight="700">OFF</tspan></text>
+  <text class="body" x="240" y="430"><tspan font-weight="700">7.</tspan> Evacuate aircraft and fight fire from outside</text>
+
+  <text class="h3" x="240" y="470">-  Hover, Takeoff, Final:</text>
+  <text class="h2 red" x="240" y="500">LAND IMMEDIATELY</text>
+  <text class="body" x="240" y="525">Carry out a no hover powered landing. Once on ground, apply same</text>
+  <text class="body" x="240" y="545">procedure as above.</text>
+
+  <text class="h3" x="240" y="585">-  In Flight:</text>
+  <text class="h2 red" x="240" y="615">LAND IMMEDIATELY</text>
+  <text class="body" x="240" y="645"><tspan font-weight="700">1. Collective</tspan> ........................................... <tspan font-weight="700">LOWER</tspan></text>
+  <text class="body" x="240" y="670"><tspan font-weight="700">2. IAS</tspan> .......................................................... <tspan font-weight="700">Vy</tspan></text>
+  <text class="body" x="240" y="695"><tspan font-weight="700">3. Autorotation procedure</tspan> .................... <tspan font-weight="700">APPLY</tspan></text>
+  <text class="body" x="240" y="720"><tspan font-weight="700">4. Emergency fuel shut-off handle</tspan> ...... <tspan font-weight="700">AFT</tspan></text>
+  <text class="body" x="240" y="745"><tspan font-weight="700">5. [FUEL P] or [FUEL PUMP]</tspan> ................. <tspan font-weight="700">CHECK OFF</tspan></text>
+  <text class="body" x="240" y="770"><tspan font-weight="700">6. Engine starting selector</tspan> .................... <tspan font-weight="700">OFF</tspan> position</text>
+
+  <text class="h3" x="240" y="815">-  After Landing:</text>
+  <text class="body" x="240" y="845"><tspan font-weight="700">7. Rotor brake</tspan> ........................................... <tspan font-weight="700">APPLY (≤ 170 rpm)</tspan></text>
+  <text class="body" x="240" y="870"><tspan font-weight="700">8. [MASTER SW] or [EMER SW]</tspan> ............ <tspan font-weight="700">OFF</tspan></text>
+  <text class="body" x="240" y="895"><tspan font-weight="700">9.</tspan> Evacuate aircraft and fight fire from outside</text>
+
+  <text class="small muted" x="60" y="1000">APPROVED</text>
+  <text class="small muted" x="370" y="1000">350 B3  2B1</text>
+  <text class="h3" x="740" y="1000" text-anchor="end">3.6</text>
+  <text class="small muted" x="740" y="1022" text-anchor="end">Page 1</text>
+</svg>

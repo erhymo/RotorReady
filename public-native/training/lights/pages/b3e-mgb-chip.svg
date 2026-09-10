@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="420" viewBox="0 0 820 420" role="img" aria-label="MGB CHIP – AS350 B3e main gearbox chip detector">
+  <rect width="100%" height="100%" fill="white" />
+  <style>
+    .frame { fill: none; stroke: #111; stroke-width: 1.5; }
+    .text { font-family: Arial, Helvetica, sans-serif; fill: #111; }
+    .heading { font-weight: 700; font-size: 18px; }
+    .body { font-size: 15px; }
+    .tile { fill: #000; stroke: #111; stroke-width: 1; }
+    .tileText { font-family: Arial, Helvetica, sans-serif; font-size: 22px; font-weight: 700; fill: #ff2d2d; text-anchor: middle; }
+  </style>
+
+  <rect x="10" y="10" width="800" height="400" class="frame" />
+  <line x1="190" y1="10" x2="190" y2="410" stroke="#111" stroke-width="1.5" />
+
+  <!-- Left column -->
+  <rect x="40" y="60" width="120" height="70" rx="4" class="tile" />
+  <text x="100" y="95" class="tileText">MGB</text>
+  <text x="100" y="120" class="tileText">CHIP</text>
+
+  <text x="30" y="170" class="text body">Metal particles in MGB oil circuit.</text>
+
+  <!-- Right column -->
+  <text x="210" y="60" class="text heading">MGB CHIP – Main gearbox chip detector</text>
+
+  <text x="210" y="100" class="text body">1. Collective ................................ REDUCE power</text>
+  <text x="228" y="123" class="text body">and MONITOR.</text>
+  <text x="210" y="150" class="text body">2. LAND AS SOON AS POSSIBLE.</text>
+
+  <text x="30" y="380" class="text body" font-size="12">RFM H125 AS350 B3e – Section 3.6 – MGB CHIP</text>
+</svg>

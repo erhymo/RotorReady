@@ -1,0 +1,346 @@
+{
+  "items": [
+    {
+      "id": "h145d3-perf-001",
+      "section": "PERFORMANCE DATA",
+      "question": "Per Sect. 5.1.1, what assumption about engine power is built into all performance charts in this section?",
+      "options": [
+        "The engine delivers the minimum specified performance",
+        "The engine delivers the average fleet performance",
+        "The engine delivers full rated power with no margin considered",
+        "Performance charts assume a brand-new, unworn engine"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 5.1.1 Standard performance conditions: all performance data is based on the engine delivering the minimum specified performance - a conservative assumption, so an individual engine in good condition may outperform the charts.",
+      "references": ["FLM BK117 D-3 Sect. 5.1.1"],
+      "tags": ["performance"],
+      "source": "H145 D3 Flight Manual",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["H145_D3"]
+    },
+    {
+      "id": "h145d3-perf-002",
+      "section": "PERFORMANCE DATA",
+      "question": "Per Sect. 5.1.2, is interpolation or extrapolation permitted when reading the performance charts?",
+      "options": [
+        "Interpolation between given data is permissible; none of the curves should be extrapolated",
+        "Both interpolation and extrapolation are permitted, provided the margin is noted",
+        "Neither interpolation nor extrapolation is permitted; only exact chart values may be used",
+        "Extrapolation is permitted but interpolation is not"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 5.1.2 NOTE: none of the curves presented should be extrapolated, but interpolation between given data is permissible.",
+      "references": ["FLM BK117 D-3 Sect. 5.1.2"],
+      "tags": ["performance"],
+      "source": "H145 D3 Flight Manual",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["H145_D3"]
+    },
+    {
+      "id": "h145d3-perf-003",
+      "section": "PERFORMANCE DATA",
+      "question": "Per Sect. 5.1.2, unless otherwise authorized by operating regulations, how much of a reported headwind component may the pilot credit for performance planning?",
+      "options": [
+        "No more than 50% of the reported headwind component",
+        "The full reported headwind component",
+        "No more than 25% of the reported headwind component",
+        "Headwind may never be credited for performance planning"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 5.1.2 NOTE: unless otherwise authorized by operating regulations, the pilot is not authorized to credit more than the performance increase resulting from 50% of the reported headwind component.",
+      "references": ["FLM BK117 D-3 Sect. 5.1.2"],
+      "tags": ["performance"],
+      "source": "H145 D3 Flight Manual",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["H145_D3"]
+    },
+    {
+      "id": "h145d3-perf-004",
+      "section": "PERFORMANCE DATA",
+      "question": "Per Sect. 5.1.4, which maximum gross weights does the VMS Performance data field calculate and display?",
+      "options": [
+        "AEO HIGE, AEO HOGE, Cat A CLEAR, Cat A REARW, OEI 30s HOGE, and OEI 2min HOGE",
+        "Only the current all-engines-operating maximum gross weight, with no OEI or Cat A figures",
+        "Only the Cat A takeoff and landing weights",
+        "Only OEI 30 second and OEI continuous weights"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 5.1.4: the VMS Performance data field shows the maximum gross weight for AEO HIGE, AEO HOGE, Cat A CLEAR, Cat A REARW, OEI 30s HOGE, and OEI 2min HOGE, calculated from current altitude, OAT, and heating condition.",
+      "references": ["FLM BK117 D-3 Sect. 5.1.4"],
+      "tags": ["performance"],
+      "source": "H145 D3 Flight Manual",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["H145_D3"]
+    },
+    {
+      "id": "h145d3-perf-005",
+      "section": "PERFORMANCE DATA",
+      "question": "Per Sect. 5.1.5.1, when should the manual power check be used instead of an automatic power check?",
+      "options": [
+        "Only in case an automatic power check is not available",
+        "Whenever the aircraft is heavier than 3200 kg",
+        "It should always be used in preference to the automatic checks, which are only a backup",
+        "Only during the first flight of the day"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 5.1.5.1: three power check procedures are provided - automatic ground, automatic in-flight, and manual ground. The manual power check shall be used only in case the automatic power check is not available.",
+      "references": ["FLM BK117 D-3 Sect. 5.1.5.1"],
+      "tags": ["performance"],
+      "source": "H145 D3 Flight Manual",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["H145_D3"]
+    },
+    {
+      "id": "h145d3-perf-006",
+      "section": "PERFORMANCE DATA",
+      "question": "Per Sect. 5.1.5.2, at what interval must a ground or in-flight power check be accomplished for Category B operation, besides whenever abnormal engine function is suspected?",
+      "options": [
+        "At intervals not exceeding 25 flight hours",
+        "At intervals not exceeding 50 flight hours",
+        "At intervals not exceeding 100 flight hours",
+        "Only once, at aircraft delivery"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 5.1.5.2: a power check shall be accomplished at intervals not exceeding 25 flight hours for Category B operation, or whenever abnormal engine function is suspected (national operating rules may require a different interval).",
+      "references": ["FLM BK117 D-3 Sect. 5.1.5.2"],
+      "tags": ["performance"],
+      "source": "H145 D3 Flight Manual",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["H145_D3"]
+    },
+    {
+      "id": "h145d3-perf-007",
+      "section": "PERFORMANCE DATA",
+      "question": "Per Sect. 5.1.5.3, what are the wind and OAT preconditions for a valid automatic ground power check?",
+      "options": [
+        "Helicopter heading into wind with a maximum wind speed of 10 kt, and OAT above -14\u00b0C",
+        "No wind limit, but OAT must be above 0\u00b0C",
+        "Maximum wind speed 20 kt from any direction, OAT above -30\u00b0C",
+        "The check is only valid with zero wind and OAT above 15\u00b0C"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 5.1.5.3: preconditions for the automatic ground power check include the helicopter heading into wind with a maximum wind speed of 10 kt, bleed air heating OFF, and OAT above -14\u00b0C.",
+      "references": ["FLM BK117 D-3 Sect. 5.1.5.3"],
+      "tags": ["performance"],
+      "source": "H145 D3 Flight Manual",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["H145_D3"]
+    },
+    {
+      "id": "h145d3-perf-008",
+      "section": "PERFORMANCE DATA",
+      "question": "Per the CAUTION in Sect. 5.1.5.3, why should ground power checks with a very light aircraft be avoided?",
+      "options": [
+        "The aircraft may become light on skids during the check, and the pilot must remain vigilant for this",
+        "A light aircraft cannot generate enough torque to complete the check",
+        "Light aircraft configurations trigger a nuisance MASTER CAUTION during the check",
+        "The check is only valid above maximum gross weight"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 5.1.5.3 CAUTION: during the power check, the pilot shall remain vigilant as the aircraft may become light on skids during the check; for this reason, ground power checks with a very light aircraft shall be avoided.",
+      "references": ["FLM BK117 D-3 Sect. 5.1.5.3"],
+      "tags": ["performance", "caution"],
+      "source": "H145 D3 Flight Manual",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["H145_D3"]
+    },
+    {
+      "id": "h145d3-perf-009",
+      "section": "PERFORMANCE DATA",
+      "question": "Per the NOTE in Sect. 5.1.5.3, why is it recommended to switch off the AFCS during a ground power check?",
+      "options": [
+        "Mast moment limits could be infringed as the AFCS tries to maintain helicopter attitude while the collective is increased and the helicopter gets light on skids",
+        "The AFCS interferes with the EPC computation and produces an invalid result",
+        "The AFCS automatically reduces collective during the check, invalidating the torque reading",
+        "AFCS operation is not permitted on the ground under any circumstances"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 5.1.5.3 NOTE: it is recommended to switch off the AFCS during the power check, since mast moment limits could be infringed as the AFCS tries to maintain the helicopter attitude when increasing the collective and the helicopter gets light on skids.",
+      "references": ["FLM BK117 D-3 Sect. 5.1.5.3"],
+      "tags": ["performance", "afcs"],
+      "source": "H145 D3 Flight Manual",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["H145_D3"]
+    },
+    {
+      "id": "h145d3-perf-010",
+      "section": "PERFORMANCE DATA",
+      "question": "Per Sect. 5.1.5.4, what flight condition and duration are required for a valid automatic in-flight power check?",
+      "options": [
+        "Steady level flight above Vy, under AEO conditions, maintained without heading/altitude changes for two minutes",
+        "A climb at best rate of climb speed, maintained for one minute",
+        "Any flight condition, as the check only takes a few seconds",
+        "A descent below 500 ft AGL under OEI conditions"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 5.1.5.4: the automatic in-flight power check is carried out in level flight above Vy under AEO conditions. As the procedure takes two minutes to complete, a flight segment with no heading or altitude changes for two minutes must be selected.",
+      "references": ["FLM BK117 D-3 Sect. 5.1.5.4"],
+      "tags": ["performance"],
+      "source": "H145 D3 Flight Manual",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["H145_D3"]
+    },
+    {
+      "id": "h145d3-perf-011",
+      "section": "PERFORMANCE DATA",
+      "question": "Per the NOTE in Sect. 5.1.5.4, what happens to the AFCS if it was in 4-axis mode before an automatic in-flight power check is started?",
+      "options": [
+        "The AFCS automatically reverts to 3-axis mode when the power check is started (RUN is pressed)",
+        "The AFCS disengages completely for the duration of the check",
+        "Nothing changes; the AFCS stays in 4-axis mode throughout",
+        "The AFCS switches to back-up SAS mode only"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 5.1.5.4 NOTE: if the autopilot was in 4-axis mode before the power check, the AFCS will automatically revert to 3-axis mode when the power check is started (RUN is pressed).",
+      "references": ["FLM BK117 D-3 Sect. 5.1.5.4"],
+      "tags": ["performance", "afcs"],
+      "source": "H145 D3 Flight Manual",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["H145_D3"]
+    },
+    {
+      "id": "h145d3-perf-012",
+      "section": "PERFORMANCE DATA",
+      "question": "Per Sect. 5.1.5.3/5.1.5.4, how are the automatic power check results interpreted based on the TOT and N1 torque margins shown?",
+      "options": [
+        "If both margins are zero or positive (green), engine power is assured; if one or both are negative (amber), the test is failed and maintenance is required",
+        "The margins are purely informational and do not determine pass/fail",
+        "Only the N1 margin matters; the TOT margin is for trend monitoring only",
+        "A negative margin only fails the test if it exceeds -10%"
+      ],
+      "answer": [0],
+      "explanation": "Interpreting the automatic power check results: the margins are given in torque at ISO-TOT and ISO-N1. If both margins are zero or positive (green), the engine power is assured and manual-flight-performance is achievable. If one or both margins are negative (amber), the test is failed and maintenance is required.",
+      "references": ["FLM BK117 D-3 Sect. 5.1.5.3/5.1.5.4"],
+      "tags": ["performance"],
+      "source": "H145 D3 Flight Manual",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["H145_D3"]
+    },
+    {
+      "id": "h145d3-perf-013",
+      "section": "PERFORMANCE DATA",
+      "question": "Per Sect. 5.1.5.5, how is a manual ground power check's TOT result evaluated against the chart?",
+      "options": [
+        "If the recorded TOT is equal to or less than the TOT read from the chart, engine power is assured; if higher, the check has failed and maintenance is required",
+        "The manual check has no pass/fail criteria; it only records data for trend monitoring",
+        "The recorded TOT must exactly match the chart TOT to within 1\u00b0C",
+        "A recorded TOT above the chart value is acceptable as long as N1 is within limits"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 5.1.5.5: using the TOT power check chart for the recorded ambient conditions, if the TOT recorded during the check is equal to or less than the chart TOT, engine power is assured; if the recorded TOT is higher than the chart TOT, the check has failed and maintenance is required.",
+      "references": ["FLM BK117 D-3 Sect. 5.1.5.5"],
+      "tags": ["performance"],
+      "source": "H145 D3 Flight Manual",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["H145_D3"]
+    },
+    {
+      "id": "h145d3-perf-014",
+      "section": "PERFORMANCE DATA",
+      "question": "Per Sect. 5.1.5.6, what TRQ margin drop on the power trend chart indicates an unacceptable power check?",
+      "options": [
+        "A drop of more than 5%",
+        "A drop of more than 2%",
+        "A drop of more than 10%",
+        "Any negative trend at all, regardless of magnitude"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 5.1.5.6 Power trend monitoring: the plotting example shows that a TRQ margin drop down of more than 5% from the average trend indicates the power check is unacceptable.",
+      "references": ["FLM BK117 D-3 Sect. 5.1.5.6"],
+      "tags": ["performance"],
+      "source": "H145 D3 Flight Manual",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["H145_D3"]
+    },
+    {
+      "id": "h145d3-perf-015",
+      "section": "PERFORMANCE DATA",
+      "question": "Per Sect. 5.1.5.6, why is it recommended to consistently use either always-ground or always-in-flight power checks for trend monitoring, rather than mixing the two?",
+      "options": [
+        "Mixing ground and in-flight results would make the trend unreliable, since the check preconditions and procedure must be followed accurately for valid trending",
+        "In-flight checks cannot be plotted on the same chart as ground checks by regulation",
+        "Ground checks are always more accurate than in-flight checks, so in-flight results should be discarded",
+        "There is no reason; either can be freely mixed without affecting trend validity"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 5.1.5.6: although results from both ground and in-flight power checks can be used to establish a power trend chart, it is recommended to perform either always ground or always in-flight checks - the power check preconditions and procedure have to be followed very accurately, otherwise the trend monitoring will not be reliable.",
+      "references": ["FLM BK117 D-3 Sect. 5.1.5.6"],
+      "tags": ["performance"],
+      "source": "H145 D3 Flight Manual",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["H145_D3"]
+    },
+    {
+      "id": "h145d3-perf-016",
+      "section": "PERFORMANCE DATA",
+      "question": "Per Sect. 5.1.6, how does high density altitude affect the main rotor and engine?",
+      "options": [
+        "Less lift is developed by the rotor blades for a given power setting, and engine power output is reduced below the standard-conditions output",
+        "Only engine power output is reduced; rotor lift is unaffected by density altitude",
+        "Only rotor lift is reduced; engine power output is unaffected by density altitude",
+        "Both rotor lift and engine power increase at high density altitude"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 5.1.6: a high density altitude affects the performance of both the main rotor and the engine - less lift is developed by the rotor blades for any given power setting than at standard conditions, and the engine's power output is reduced below the output for standard conditions.",
+      "references": ["FLM BK117 D-3 Sect. 5.1.6"],
+      "tags": ["performance"],
+      "source": "H145 D3 Flight Manual",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["H145_D3"]
+    },
+    {
+      "id": "h145d3-perf-017",
+      "section": "PERFORMANCE DATA",
+      "question": "Per Sect. 5.1.9, up to 16000 ft density altitude, what is the maximum demonstrated relative wind speed in the front sector (within \u00b130\u00b0, excluding headwind within \u00b115\u00b0) versus from any other direction?",
+      "options": [
+        "50 kt in the front sector (excluding headwind), versus 30 kt from any other direction",
+        "30 kt in the front sector, versus 50 kt from any other direction",
+        "50 kt from any direction, with no distinction for the front sector",
+        "20 kt in the front sector, versus 40 kt from any other direction"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 5.1.9 Demonstrated wind envelope: up to 16000 ft density altitude, the maximum demonstrated relative wind speed in the front sector (\u00b130\u00b0, excluding headwind within \u00b115\u00b0) is 50 kt, versus 30 kt from any other direction.",
+      "references": ["FLM BK117 D-3 Sect. 5.1.9"],
+      "tags": ["performance"],
+      "source": "H145 D3 Flight Manual",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["H145_D3"]
+    },
+    {
+      "id": "h145d3-perf-018",
+      "section": "PERFORMANCE DATA",
+      "question": "Per the NOTE in Sect. 5.1.10, what is the lowest reference point achievable in the height-velocity diagram, and what does this mean for data above 13000 ft density altitude?",
+      "options": [
+        "The lowest reference point (the \"high hover\" point) achievable is 100 ft, and the H-V data above 13000 ft density altitude was established by theoretical analysis only",
+        "The lowest reference point is 50 ft, and all H-V data (regardless of altitude) is flight-test verified",
+        "The lowest reference point is 0 ft, meaning the H-V diagram guarantees safe landing from any height",
+        "There is no defined lowest reference point; the H-V diagram starts at 500 ft in all cases"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 5.1.10 NOTE: the lowest reference point P (\"high hover\" point) achievable in the chart is 100 ft. The data presented in the height-velocity diagram for density altitudes above 13000 ft have been established by theoretical analysis only.",
+      "references": ["FLM BK117 D-3 Sect. 5.1.10"],
+      "tags": ["performance"],
+      "source": "H145 D3 Flight Manual",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["H145_D3"]
+    }
+  ]
+}

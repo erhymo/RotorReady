@@ -1,0 +1,134 @@
+[
+  {
+    "id": "lims-p18-001",
+    "section": "LIMITATIONS - ENG SYST",
+    "question": "What is the total fuel capacity (1\u00b0 pitch/roll)?",
+    "options": [
+      "1110 litres",
+      "1130 litres",
+      "1150 litres",
+      "1200 litres"
+    ],
+    "answer": "1130 litres",
+    "explanation": "Total fuel capacity (1\u00b0 pitch/roll) is 1130 litres.",
+    "references": "FUEL SYSTEM LIMITATIONS",
+    "printedPage": 18,
+    "difficulty": "easy",
+    "tags": [
+      "fuel",
+      "capacity",
+      "limitations"
+    ],
+    "source": "QRH p18"
+  },
+  {
+    "id": "lims-p18-002",
+    "section": "LIMITATIONS - ENG SYST",
+    "question": "What is the usable fuel capacity (1\u00b0 pitch/roll)?",
+    "options": [
+      "1110 litres",
+      "1130 litres",
+      "1150 litres",
+      "1200 litres"
+    ],
+    "answer": "1110 litres",
+    "explanation": "Usable fuel capacity (1\u00b0 pitch/roll) is 1110 litres.",
+    "references": "FUEL SYSTEM LIMITATIONS",
+    "printedPage": 18,
+    "difficulty": "easy",
+    "tags": [
+      "fuel",
+      "capacity",
+      "limitations"
+    ],
+    "source": "QRH p18"
+  },
+  {
+    "id": "lims-p18-003",
+    "section": "LIMITATIONS - ENG SYST",
+    "question": "In coordinated flight, what is the indicated unusable fuel?",
+    "options": [
+      "0 kg (10 litres per tank)",
+      "0 kg indicated (10 litres per tank)",
+      "200 litres",
+      "888 litres"
+    ],
+    "answer": "0 kg indicated (10 litres per tank)",
+    "explanation": "In coordinated flight, unusable fuel is 0 kg indicated (10 litres per tank).",
+    "references": "FUEL SYSTEM LIMITATIONS",
+    "printedPage": 18,
+    "difficulty": "easy",
+    "tags": [
+      "fuel",
+      "unusable",
+      "limitations"
+    ],
+    "source": "QRH p18"
+  },
+  {
+    "id": "lims-p18-004",
+    "section": "LIMITATIONS - ENG SYST",
+    "question": "What is the unusable fuel level per tank when FUEL LOW caution is illuminated?",
+    "options": [
+      "5 litres",
+      "10 litres",
+      "20 litres",
+      "50 litres"
+    ],
+    "answer": "10 litres",
+    "explanation": "With FUEL LOW caution illuminated, unusable fuel is 10 litres per tank.",
+    "references": "FUEL SYSTEM LIMITATIONS",
+    "printedPage": 18,
+    "difficulty": "easy",
+    "tags": [
+      "fuel",
+      "low caution",
+      "limitations"
+    ],
+    "source": "QRH p18"
+  },
+  {
+    "id": "lims-p18-005",
+    "section": "LIMITATIONS - ENG SYST",
+    "question": "What is the unusable fuel per engine in OEI when fuel level is below?",
+    "options": [
+      "100 litres",
+      "160 litres",
+      "200 litres",
+      "250 litres"
+    ],
+    "answer": "200 litres (160 kg indicated)",
+    "explanation": "Unusable OEI fuel is 200 litres (160 kg indicated).",
+    "references": "FUEL SYSTEM LIMITATIONS",
+    "printedPage": 18,
+    "difficulty": "medium",
+    "tags": [
+      "fuel",
+      "oei",
+      "limitations"
+    ],
+    "source": "QRH p18"
+  },
+  {
+    "id": "lims-p18-006",
+    "section": "LIMITATIONS - ENG SYST",
+    "question": "Should engine fuel flow indication be used for fuel planning?",
+    "options": [
+      "Yes, always",
+      "Yes, if calibrated",
+      "No, indication is only estimated",
+      "Only for cross-check"
+    ],
+    "answer": "No, indication is only estimated",
+    "explanation": "Engine fuel flow indication is only estimated and shall not be used for planning.",
+    "references": "FUEL SYSTEM LIMITATIONS",
+    "printedPage": 18,
+    "difficulty": "easy",
+    "tags": [
+      "fuel",
+      "planning",
+      "limitations"
+    ],
+    "source": "QRH p18"
+  }
+]

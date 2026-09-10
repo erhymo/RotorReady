@@ -1,0 +1,13 @@
+[
+  {
+    "id": "mgb-oil-press",
+    "name": "MGB OIL PRESS",
+    "severity": "warning",
+    "system": "MGB",
+    "description": "",
+    "pageImage": "/training/lights/pages/aw189-mgb-oil-press.svg",
+    "modelIds": [
+      "AW189"
+    ]
+  }
+]

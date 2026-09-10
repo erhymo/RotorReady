@@ -1,0 +1,936 @@
+{
+  "items": [
+    {
+      "id": "lims-p15-001",
+      "section": "LIMITATIONS - ENG SYST",
+      "question": "What is the minimum continuous NR%?",
+      "options": [
+        "85",
+        "90",
+        "94",
+        "110"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Minimum continuous NR% is 90.",
+      "references": [
+        "AW169 QRH EP Issue 1 Rev. 3, Lims-Norm-Perf p.15"
+      ],
+      "printedPage": 15,
+      "difficulty": "easy",
+      "tags": [
+        "engine",
+        "nr",
+        "limitations"
+      ],
+      "source": "QRH p15",
+      "sectionId": "engine-systems",
+      "type": "single",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "lims-p15-002",
+      "section": "LIMITATIONS - ENG SYST",
+      "question": "What is the maximum continuous NR%?",
+      "options": [
+        "105",
+        "110",
+        "115",
+        "120"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Maximum continuous NR% is 110.",
+      "references": [
+        "AW169 QRH EP Issue 1 Rev. 3, Lims-Norm-Perf p.15"
+      ],
+      "printedPage": 15,
+      "difficulty": "easy",
+      "tags": [
+        "engine",
+        "nr",
+        "limitations"
+      ],
+      "source": "QRH p15",
+      "sectionId": "engine-systems",
+      "type": "single",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "lims-p15-003",
+      "section": "LIMITATIONS - ENG SYST",
+      "question": "What is the maximum transient NR%?",
+      "options": [
+        "110",
+        "115",
+        "117",
+        "120"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Maximum transient NR% is 115.",
+      "references": [
+        "AW169 QRH EP Issue 1 Rev. 3, Lims-Norm-Perf p.15"
+      ],
+      "printedPage": 15,
+      "difficulty": "easy",
+      "tags": [
+        "engine",
+        "nr",
+        "limitations"
+      ],
+      "source": "QRH p15",
+      "sectionId": "engine-systems",
+      "type": "single",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "lims-p15-004",
+      "section": "LIMITATIONS - ENG SYST",
+      "question": "What is the maximum ITT °C for engine start?",
+      "options": [
+        "725 °C",
+        "750 °C",
+        "800 °C",
+        "825 °C"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Maximum ITT for engine start is 750 °C.",
+      "references": [
+        "AW169 QRH EP Issue 1 Rev. 3, Lims-Norm-Perf p.15"
+      ],
+      "printedPage": 15,
+      "difficulty": "easy",
+      "tags": [
+        "engine",
+        "itt",
+        "limitations"
+      ],
+      "source": "QRH p15",
+      "sectionId": "engine-systems",
+      "type": "single",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "lims-p15-005",
+      "section": "LIMITATIONS - ENG SYST",
+      "question": "What is the transient ITT limit during engine start?",
+      "options": [
+        "800 °C",
+        "815 °C",
+        "825 °C (2 sec)",
+        "830 °C (5 sec)"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Transient ITT during engine start is 825 °C for 2 seconds.",
+      "references": [
+        "AW169 QRH EP Issue 1 Rev. 3, Lims-Norm-Perf p.15"
+      ],
+      "printedPage": 15,
+      "difficulty": "medium",
+      "tags": [
+        "engine",
+        "itt",
+        "limitations"
+      ],
+      "source": "QRH p15",
+      "sectionId": "engine-systems",
+      "type": "single",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "lims-p15-006",
+      "section": "LIMITATIONS - ENG SYST",
+      "question": "What is the maximum torque continuous limit (all engines operating)?",
+      "options": [
+        "100 %",
+        "105 %",
+        "110 %",
+        "115 %"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Maximum continuous torque limit for all engines operating is 100%.",
+      "references": [
+        "AW169 QRH EP Issue 1 Rev. 3, Lims-Norm-Perf p.15"
+      ],
+      "printedPage": 15,
+      "difficulty": "easy",
+      "tags": [
+        "engine",
+        "torque",
+        "limitations"
+      ],
+      "source": "QRH p15",
+      "sectionId": "engine-systems",
+      "type": "single",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "lims-p15-007",
+      "section": "LIMITATIONS - ENG SYST",
+      "question": "What is the maximum Take-Off torque (30 min, all engines operating)?",
+      "options": [
+        "100 %",
+        "111 %",
+        "122 %",
+        "132 %"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "For AW169 Enhanced Performance, maximum Take-Off PI/TQ is 122% (30 min, or 5 min with EAPS kit) at or below 90 KIAS.",
+      "references": [
+        "AW169 QRH EP Issue 1 Rev. 3, Lims-Norm-Perf p.15"
+      ],
+      "printedPage": 15,
+      "difficulty": "medium",
+      "tags": [
+        "engine",
+        "torque",
+        "takeoff",
+        "limitations"
+      ],
+      "source": "AW169 QRH EP",
+      "sectionId": "engine-systems",
+      "type": "single",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "lims-p15-008",
+      "section": "LIMITATIONS - ENG SYST",
+      "question": "What is the maximum transient torque (all engines operating)?",
+      "options": [
+        "115 %",
+        "122 %",
+        "125 %",
+        "132 % (10 sec)"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "For AW169 Enhanced Performance, maximum AEO transient PI/TQ is 132% for 10 seconds.",
+      "references": [
+        "AW169 QRH EP Issue 1 Rev. 3, Lims-Norm-Perf p.15"
+      ],
+      "printedPage": 15,
+      "difficulty": "medium",
+      "tags": [
+        "engine",
+        "torque",
+        "transient",
+        "limitations"
+      ],
+      "source": "AW169 QRH EP",
+      "sectionId": "engine-systems",
+      "type": "single",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "lims-p15-009",
+      "section": "LIMITATIONS - ENG SYST",
+      "question": "What is the maximum 2.5 min OEI torque?",
+      "options": [
+        "148 %",
+        "174 %",
+        "185 %",
+        "195 %"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "For AW169 Enhanced Performance, maximum 2.5 min OEI PI/TQ is 185%.",
+      "references": [
+        "AW169 QRH EP Issue 1 Rev. 3, Lims-Norm-Perf p.15"
+      ],
+      "printedPage": 15,
+      "difficulty": "medium",
+      "tags": [
+        "engine",
+        "oei",
+        "torque",
+        "limitations"
+      ],
+      "source": "AW169 QRH EP",
+      "sectionId": "engine-systems",
+      "type": "single",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "lims-p15-010",
+      "section": "LIMITATIONS - ENG SYST",
+      "question": "What is the maximum transient OEI torque?",
+      "options": [
+        "180 %",
+        "185 %",
+        "190 %",
+        "195 % (10 sec)"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "For AW169 Enhanced Performance, maximum transient OEI PI/TQ is 195% for 10 seconds.",
+      "references": [
+        "AW169 QRH EP Issue 1 Rev. 3, Lims-Norm-Perf p.15"
+      ],
+      "printedPage": 15,
+      "difficulty": "medium",
+      "tags": [
+        "engine",
+        "oei",
+        "torque",
+        "limitations"
+      ],
+      "source": "AW169 QRH EP",
+      "sectionId": "engine-systems",
+      "type": "single",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "lims-p16-001",
+      "section": "LIMITATIONS - ENG SYST",
+      "question": "What is the normal main gearbox oil pressure range?",
+      "options": [
+        "2.3 to 3.0 bar",
+        "3.1 to 6.0 bar",
+        "3.1 to 6.6 bar",
+        "6.1 to 10.0 bar"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Normal main gearbox oil pressure range is 3.1 to 6.0 bar.",
+      "references": [
+        "QRH p16"
+      ],
+      "printedPage": 16,
+      "difficulty": "medium",
+      "tags": [
+        "gearbox",
+        "oil pressure",
+        "limitations"
+      ],
+      "source": "QRH p16",
+      "sectionId": "engine-systems",
+      "type": "single",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "lims-p16-002",
+      "section": "LIMITATIONS - ENG SYST",
+      "question": "What is the maximum main gearbox oil pressure transient?",
+      "options": [
+        "15 bar",
+        "18 bar",
+        "18.1 bar (20 sec)",
+        "19 bar"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Maximum main gearbox oil pressure transient is 18.1 bar for 20 sec.",
+      "references": [
+        "QRH p16"
+      ],
+      "printedPage": 16,
+      "difficulty": "medium",
+      "tags": [
+        "gearbox",
+        "oil pressure",
+        "transient",
+        "limitations"
+      ],
+      "source": "QRH p16",
+      "sectionId": "engine-systems",
+      "type": "single",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "lims-p16-003",
+      "section": "LIMITATIONS - ENG SYST",
+      "question": "What is the maximum EOT (engine oil temperature)?",
+      "options": [
+        "125 °C",
+        "130 °C",
+        "131 °C",
+        "135 °C"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "Maximum engine oil temperature (EOT) is 135 °C.",
+      "references": [
+        "QRH p16"
+      ],
+      "printedPage": 16,
+      "difficulty": "easy",
+      "tags": [
+        "engine",
+        "oil temperature",
+        "limitations"
+      ],
+      "source": "QRH p16",
+      "sectionId": "engine-systems",
+      "type": "single",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "lims-p16-004",
+      "section": "LIMITATIONS - ENG SYST",
+      "question": "What is the EMER BUS voltage normal range?",
+      "options": [
+        "20 to 28 V",
+        "22 to 30 V",
+        "24 to 32 V",
+        "26 to 28 V"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Normal EMER BUS voltage range is 22 to 30 V.",
+      "references": [
+        "QRH p16"
+      ],
+      "printedPage": 16,
+      "difficulty": "easy",
+      "tags": [
+        "electrical",
+        "voltage",
+        "limitations"
+      ],
+      "source": "QRH p16",
+      "sectionId": "engine-systems",
+      "type": "single",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "lims-p16-005",
+      "section": "LIMITATIONS - ENG SYST",
+      "question": "What is the maximum DC GEN load transient?",
+      "options": [
+        "100 %",
+        "125 %",
+        "150 %",
+        "175 %"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Maximum transient DC GEN load is 150%.",
+      "references": [
+        "QRH p16"
+      ],
+      "printedPage": 16,
+      "difficulty": "easy",
+      "tags": [
+        "electrical",
+        "dc gen",
+        "limitations"
+      ],
+      "source": "QRH p16",
+      "sectionId": "engine-systems",
+      "type": "single",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "lims-p16-006",
+      "section": "LIMITATIONS - ENG SYST",
+      "question": "What is the minimum battery load?",
+      "options": [
+        "-100 A",
+        "-150 A",
+        "-200 A",
+        "-250 A"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Minimum battery load is -200 A.",
+      "references": [
+        "QRH p16"
+      ],
+      "printedPage": 16,
+      "difficulty": "easy",
+      "tags": [
+        "battery",
+        "load",
+        "limitations"
+      ],
+      "source": "QRH p16",
+      "sectionId": "engine-systems",
+      "type": "single",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "lims-p16-007",
+      "section": "LIMITATIONS - ENG SYST",
+      "question": "What is the maximum battery charge?",
+      "options": [
+        "150 A",
+        "180 A",
+        "200 A",
+        "220 A"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Maximum battery charge is 200 A.",
+      "references": [
+        "QRH p16"
+      ],
+      "printedPage": 16,
+      "difficulty": "easy",
+      "tags": [
+        "battery",
+        "charge",
+        "limitations"
+      ],
+      "source": "QRH p16",
+      "sectionId": "engine-systems",
+      "type": "single",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "lims-p17-001",
+      "section": "LIMITATIONS - ENG SYST",
+      "question": "After the first engine start attempt, how long must you wait?",
+      "options": [
+        "15 sec",
+        "30 sec",
+        "1 min",
+        "5 min"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "After the first start attempt, wait 30 seconds.",
+      "references": [
+        "QRH p17"
+      ],
+      "printedPage": 17,
+      "difficulty": "easy",
+      "tags": [
+        "engine",
+        "start",
+        "limitations"
+      ],
+      "source": "QRH p17",
+      "sectionId": "engine-systems",
+      "type": "single",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "lims-p17-002",
+      "section": "LIMITATIONS - ENG SYST",
+      "question": "After the third engine start attempt, how long must you wait?",
+      "options": [
+        "5 min",
+        "10 min",
+        "15 min",
+        "30 min"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "After the third start attempt, wait 30 minutes.",
+      "references": [
+        "QRH p17"
+      ],
+      "printedPage": 17,
+      "difficulty": "easy",
+      "tags": [
+        "engine",
+        "start",
+        "limitations"
+      ],
+      "source": "QRH p17",
+      "sectionId": "engine-systems",
+      "type": "single",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "lims-p17-003",
+      "section": "LIMITATIONS - ENG SYST",
+      "question": "How many rapid turnaround rotor brake applications are permitted in one hour?",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Maximum of 4 rotor brake applications in one hour with minimum 15 minutes between.",
+      "references": [
+        "QRH p17"
+      ],
+      "printedPage": 17,
+      "difficulty": "medium",
+      "tags": [
+        "rotor brake",
+        "limitations"
+      ],
+      "source": "QRH p17",
+      "sectionId": "engine-systems",
+      "type": "single",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "lims-p17-004",
+      "section": "LIMITATIONS - ENG SYST",
+      "question": "What is the maximum rotor brake temperature on ground?",
+      "options": [
+        "399 °C",
+        "419 °C",
+        "449 °C",
+        "469 °C"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Maximum rotor brake temperature on ground is 449 °C.",
+      "references": [
+        "QRH p17"
+      ],
+      "printedPage": 17,
+      "difficulty": "easy",
+      "tags": [
+        "rotor brake",
+        "temperature",
+        "limitations"
+      ],
+      "source": "QRH p17",
+      "sectionId": "engine-systems",
+      "type": "single",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "lims-p17-005",
+      "section": "LIMITATIONS - ENG SYST",
+      "question": "What is the maximum rotor brake temperature in flight?",
+      "options": [
+        "150 °C",
+        "175 °C",
+        "199 °C",
+        "225 °C"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Maximum rotor brake temperature in flight is 199 °C.",
+      "references": [
+        "QRH p17"
+      ],
+      "printedPage": 17,
+      "difficulty": "easy",
+      "tags": [
+        "rotor brake",
+        "temperature",
+        "limitations"
+      ],
+      "source": "QRH p17",
+      "sectionId": "engine-systems",
+      "type": "single",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "lims-p17-006",
+      "section": "LIMITATIONS - ENG SYST",
+      "question": "What is the maximum running speed for wheel brake application?",
+      "options": [
+        "30 knots",
+        "35 knots",
+        "40 knots",
+        "45 knots"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Maximum speed for wheel brake application is 40 knots.",
+      "references": [
+        "QRH p17"
+      ],
+      "printedPage": 17,
+      "difficulty": "easy",
+      "tags": [
+        "wheel brake",
+        "speed",
+        "limitations"
+      ],
+      "source": "QRH p17",
+      "sectionId": "engine-systems",
+      "type": "single",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "lims-p17-007",
+      "section": "LIMITATIONS - ENG SYST",
+      "question": "For how long is parking on dry and paved slopes up to 12° permitted?",
+      "options": [
+        "10 hours",
+        "15 hours",
+        "20 hours",
+        "24 hours"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Parking on dry and paved slopes up to 12° is permitted for a maximum of 20 hours.",
+      "references": [
+        "QRH p17"
+      ],
+      "printedPage": 17,
+      "difficulty": "easy",
+      "tags": [
+        "wheel brake",
+        "parking",
+        "limitations"
+      ],
+      "source": "QRH p17",
+      "sectionId": "engine-systems",
+      "type": "single",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "lims-p18-001",
+      "section": "LIMITATIONS - ENG SYST",
+      "question": "What is the total fuel capacity (1° pitch/roll)?",
+      "options": [
+        "1110 litres",
+        "1130 litres",
+        "1150 litres",
+        "1200 litres"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Total fuel capacity (1° pitch/roll) is 1130 litres.",
+      "references": [
+        "QRH p18"
+      ],
+      "printedPage": 18,
+      "difficulty": "easy",
+      "tags": [
+        "fuel",
+        "capacity",
+        "limitations"
+      ],
+      "source": "QRH p18",
+      "sectionId": "engine-systems",
+      "type": "single",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "lims-p18-002",
+      "section": "LIMITATIONS - ENG SYST",
+      "question": "What is the usable fuel capacity (1° pitch/roll)?",
+      "options": [
+        "1110 litres",
+        "1130 litres",
+        "1150 litres",
+        "1200 litres"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Usable fuel capacity (1° pitch/roll) is 1110 litres.",
+      "references": [
+        "QRH p18"
+      ],
+      "printedPage": 18,
+      "difficulty": "easy",
+      "tags": [
+        "fuel",
+        "capacity",
+        "limitations"
+      ],
+      "source": "QRH p18",
+      "sectionId": "engine-systems",
+      "type": "single",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "lims-p18-003",
+      "section": "LIMITATIONS - ENG SYST",
+      "question": "In coordinated flight, what is the indicated unusable fuel?",
+      "options": [
+        "0 kg (10 litres per tank)",
+        "0 kg indicated (10 litres per tank)",
+        "200 litres",
+        "888 litres"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "In coordinated flight, unusable fuel is 0 kg indicated (10 litres per tank).",
+      "references": [
+        "QRH p18"
+      ],
+      "printedPage": 18,
+      "difficulty": "easy",
+      "tags": [
+        "fuel",
+        "unusable",
+        "limitations"
+      ],
+      "source": "QRH p18",
+      "sectionId": "engine-systems",
+      "type": "single",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "lims-p18-004",
+      "section": "LIMITATIONS - ENG SYST",
+      "question": "What is the unusable fuel level per tank when FUEL LOW caution is illuminated?",
+      "options": [
+        "5 litres",
+        "10 litres",
+        "20 litres",
+        "50 litres"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "With FUEL LOW caution illuminated, unusable fuel is 10 litres per tank.",
+      "references": [
+        "QRH p18"
+      ],
+      "printedPage": 18,
+      "difficulty": "easy",
+      "tags": [
+        "fuel",
+        "low caution",
+        "limitations"
+      ],
+      "source": "QRH p18",
+      "sectionId": "engine-systems",
+      "type": "single",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "lims-p18-005",
+      "section": "LIMITATIONS - ENG SYST",
+      "question": "What is the unusable fuel per engine in OEI when fuel level is below?",
+      "options": [
+        "100 litres",
+        "160 litres",
+        "200 litres",
+        "250 litres"
+      ],
+      "answer": [],
+      "explanation": "Unusable OEI fuel is 200 litres (160 kg indicated).",
+      "references": [
+        "QRH p18"
+      ],
+      "printedPage": 18,
+      "difficulty": "medium",
+      "tags": [
+        "fuel",
+        "oei",
+        "limitations"
+      ],
+      "source": "QRH p18",
+      "sectionId": "engine-systems",
+      "type": "single",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    },
+    {
+      "id": "lims-p18-006",
+      "section": "LIMITATIONS - ENG SYST",
+      "question": "Should engine fuel flow indication be used for fuel planning?",
+      "options": [
+        "Yes, always",
+        "Yes, if calibrated",
+        "No, indication is only estimated",
+        "Only for cross-check"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Engine fuel flow indication is only estimated and shall not be used for planning.",
+      "references": [
+        "QRH p18"
+      ],
+      "printedPage": 18,
+      "difficulty": "easy",
+      "tags": [
+        "fuel",
+        "planning",
+        "limitations"
+      ],
+      "source": "QRH p18",
+      "sectionId": "engine-systems",
+      "type": "single",
+      "modelIds": [
+        "AW169_EP"
+      ]
+    }
+  ]
+}

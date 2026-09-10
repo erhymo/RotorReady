@@ -1,0 +1,33 @@
+{
+  "items": [
+    {
+      "id": "afcs-primus-epic-hardware-stack",
+      "title": "AFCS: The Primus Epic Hardware Stack",
+      "description": "How the AW139's Automatic Flight Control System is built up layer by layer on the Primus Epic avionics suite, followed through a real flight to show how the modes actually work together.",
+      "filename": "afcs.mp3",
+      "durationSeconds": 2439
+    },
+    {
+      "id": "electrical-double-generator-failure-survival-logic",
+      "title": "Electrical: Double Generator Failure Survival Logic",
+      "description": "How the electrical system generates, converts, and distributes power, followed through a real dual DC generator failure to show exactly how the system protects itself and what the pilot does.",
+      "filename": "electrical.mp3",
+      "durationSeconds": 2556
+    },
+    {
+      "id": "fire-suppression-and-isolation-logic",
+      "title": "Fire: Suppression and Isolation Logic",
+      "description": "How the fire detection and extinguishing system is built, followed through a real engine fire from first indication to a safe outcome.",
+      "filename": "fire.mp3",
+      "durationSeconds": 2350
+    },
+    {
+      "id": "opc-26-icing-and-offshore-command-authority",
+      "title": "OPC 26",
+      "description": "Icing management and offshore command authority for the AW139, built around two real OPC practice scenarios — a day icing ferry flight and a night offshore passenger flight to a helideck under DP limits.",
+      "filename": "opc26.mp3",
+      "durationSeconds": 1495,
+      "unlockFlag": "rr_unlock_opc26"
+    }
+  ]
+}

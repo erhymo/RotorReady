@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 1000">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L9,3 L0,6 Z" fill="black"/>
+    </marker>
+  </defs>
+
+  <!-- Outer frame -->
+  <rect x="1" y="1" width="818" height="998" fill="white" stroke="black" stroke-width="2"/>
+
+  <!-- Left column -->
+  <rect x="40" y="60" width="110" height="70" fill="black"/>
+  <text x="95" y="90" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="yellow" text-anchor="middle">FUEL</text>
+  <text x="95" y="114" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="yellow" text-anchor="middle">FILT</text>
+
+  <text x="30" y="180" font-family="Arial, sans-serif" font-size="18">Fuel filter</text>
+  <text x="30" y="205" font-family="Arial, sans-serif" font-size="18">clogged</text>
+
+  <!-- Separator line -->
+  <line x1="185" y1="20" x2="185" y2="980" stroke="black" stroke-width="1.5"/>
+
+  <!-- Right column header -->
+  <text x="220" y="85" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="red">WARNING</text>
+
+  <text x="220" y="120" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="red">FUEL FILTER BY-PASS OPENING DRIVES POLLUTION INTO</text>
+  <text x="220" y="145" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="red">THE FUEL LINES, AND THE GOVERNOR, WHICH MAY</text>
+  <text x="220" y="170" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="red">INDUCE OSCILLATIONS, LIMITED POWER OR EVENTUALLY</text>
+  <text x="220" y="195" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="red">FLAME-OUT.</text>
+
+  <text x="220" y="235" font-family="Arial, sans-serif" font-size="20" font-weight="bold">Collective........................................ Reduce POWER</text>
+
+  <!-- Split arrows from collective line -->
+  <line x1="460" y1="238" x2="350" y2="290" stroke="black" stroke-width="1.2" marker-end="url(#arrow)"/>
+  <line x1="500" y1="238" x2="610" y2="290" stroke="black" stroke-width="1.2" marker-end="url(#arrow)"/>
+
+  <!-- Two FUEL FILT boxes -->
+  <rect x="330" y="310" width="100" height="60" fill="black"/>
+  <text x="380" y="345" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white" text-anchor="middle">FUEL</text>
+  <text x="380" y="368" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white" text-anchor="middle">FILT</text>
+
+  <rect x="590" y="310" width="100" height="60" fill="black"/>
+  <text x="640" y="345" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="yellow" text-anchor="middle">FUEL</text>
+  <text x="640" y="368" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="yellow" text-anchor="middle">FILT</text>
+
+  <!-- Down arrows from boxes -->
+  <line x1="380" y1="370" x2="380" y2="430" stroke="black" stroke-width="1.2" marker-end="url(#arrow)"/>
+  <line x1="640" y1="370" x2="640" y2="510" stroke="black" stroke-width="1.2" marker-end="url(#arrow)"/>
+
+  <!-- Left branch text -->
+  <text x="230" y="455" font-family="Arial, sans-serif" font-size="18">Establish flight at reduced power.</text>
+  <line x1="380" y1="460" x2="380" y2="520" stroke="black" stroke-width="1.2" marker-end="url(#arrow)"/>
+
+  <text x="260" y="560" font-family="Arial, sans-serif" font-size="24" font-weight="bold">LAND AS SOON AS</text>
+  <text x="270" y="585" font-family="Arial, sans-serif" font-size="24" font-weight="bold">PRACTICABLE</text>
+
+  <!-- Right branch decision -->
+  <text x="560" y="555" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="orange">LAND AS SOON AS</text>
+  <text x="565" y="580" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="orange">POSSIBLE</text>
+
+  <!-- Converging to VEMD monitor -->
+  <line x1="380" y1="590" x2="460" y2="635" stroke="black" stroke-width="1.2" marker-end="url(#arrow)"/>
+  <line x1="640" y1="590" x2="560" y2="635" stroke="black" stroke-width="1.2" marker-end="url(#arrow)"/>
+
+  <text x="420" y="660" font-family="Arial, sans-serif" font-size="18">VEMD .................... MONITOR Ng</text>
+  <text x="440" y="685" font-family="Arial, sans-serif" font-size="18">If Ng oscillations occur:</text>
+  <line x1="520" y1="690" x2="520" y2="720" stroke="black" stroke-width="1.2" marker-end="url(#arrow)"/>
+
+  <text x="455" y="750" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="red">LAND IMMEDIATELY</text>
+
+  <line x1="520" y1="755" x2="520" y2="815" stroke="black" stroke-width="1.2" marker-end="url(#arrow)"/>
+  <text x="380" y="845" font-family="Arial, sans-serif" font-size="20">Autorotation procedure ............ APPLY</text>
+</svg>
+

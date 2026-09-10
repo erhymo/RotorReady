@@ -1,0 +1,34 @@
+[
+  {
+    "id": "ditching-emergency-landing",
+    "name": "DITCHING / EMERGENCY LANDING",
+    "severity": "caution",
+    "description": "",
+    "pageImage": "/training/lights/pages/s92-ditching-emergency-landing.png",
+    "imageWidth": 1159,
+    "imageHeight": 2168,
+    "links": [
+      {
+        "destPage": 218,
+        "rect": [
+          45,
+          1991,
+          529,
+          2016
+        ]
+      },
+      {
+        "destPage": 219,
+        "rect": [
+          45,
+          2108,
+          509,
+          2133
+        ]
+      }
+    ],
+    "modelIds": [
+      "S92"
+    ]
+  }
+]

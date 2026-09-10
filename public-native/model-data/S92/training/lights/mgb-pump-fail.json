@@ -1,0 +1,34 @@
+[
+  {
+    "id": "mgb-pump-fail",
+    "name": "MGB PUMP FAIL",
+    "severity": "caution",
+    "description": "",
+    "pageImage": "/training/lights/pages/s92-mgb-pump-fail.png",
+    "imageWidth": 1159,
+    "imageHeight": 3095,
+    "links": [
+      {
+        "destPage": 216,
+        "rect": [
+          569,
+          2872,
+          1018,
+          2897
+        ]
+      },
+      {
+        "destPage": 8,
+        "rect": [
+          100,
+          3037,
+          449,
+          3062
+        ]
+      }
+    ],
+    "modelIds": [
+      "S92"
+    ]
+  }
+]

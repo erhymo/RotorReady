@@ -1,0 +1,32 @@
+{
+  "items": [
+    {
+      "id": "afcs-architecture-and-failure-logic",
+      "title": "AFCS Architecture and Failure Logic",
+      "description": "How the S-92's Automatic Flight Control System is built up layer by layer, followed through a real flight to show how the modes actually work together — plus every AFCS failure mode.",
+      "filename": "afcs.mp3",
+      "durationSeconds": 2625
+    },
+    {
+      "id": "fire-protection-logic-and-procedures",
+      "title": "Fire: Protection Logic and Procedures",
+      "description": "How the fire detection and extinguishing system is built, followed through a real engine fire from first indication to a safe outcome.",
+      "filename": "fire.mp3",
+      "durationSeconds": 1863
+    },
+    {
+      "id": "hydraulic-triple-redundant-systems",
+      "title": "Hydraulic: Triple-Redundant Systems",
+      "description": "How the S-92's multiply-redundant hydraulic system is built and protects itself, followed through a real hydraulic failure from first caution to a safe outcome.",
+      "filename": "hydraulic.mp3",
+      "durationSeconds": 2228
+    },
+    {
+      "id": "electrical-architecture-and-failure-logic",
+      "title": "Electrical: Architecture and Failure Logic",
+      "description": "How the S-92's electrical system generates, converts, and distributes power, followed through a real dual generator failure to show exactly how the system protects itself and what the pilot does.",
+      "filename": "electrical.mp3",
+      "durationSeconds": 2287
+    }
+  ]
+}

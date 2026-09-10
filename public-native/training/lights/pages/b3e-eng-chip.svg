@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="480" viewBox="0 0 820 480" role="img" aria-label="ENG CHIP – AS350 B3e engine chip detector">
+  <rect width="100%" height="100%" fill="white" />
+  <style>
+    .frame { fill: none; stroke: #111; stroke-width: 1.5; }
+    .text { font-family: Arial, Helvetica, sans-serif; fill: #111; }
+    .heading { font-weight: 700; font-size: 18px; }
+    .body { font-size: 15px; }
+    .tile { fill: #000; stroke: #111; stroke-width: 1; }
+    .tileText { font-family: Arial, Helvetica, sans-serif; font-size: 22px; font-weight: 700; fill: #ff2d2d; text-anchor: middle; }
+  </style>
+
+  <rect x="10" y="10" width="800" height="460" class="frame" />
+  <line x1="190" y1="10" x2="190" y2="470" stroke="#111" stroke-width="1.5" />
+
+  <!-- Left column -->
+  <rect x="40" y="60" width="120" height="70" rx="4" class="tile" />
+  <text x="100" y="95" class="tileText">ENG</text>
+  <text x="100" y="120" class="tileText">CHIP</text>
+
+  <text x="30" y="170" class="text body">Metal particles in engine oil circuit.</text>
+
+  <!-- Right column -->
+  <text x="210" y="60" class="text heading">ENG CHIP – Engine chip detector</text>
+
+  <text x="210" y="100" class="text body">1. Collective   ............................... REDUCE power.</text>
+  <text x="210" y="125" class="text body">2. LAND AS SOON AS POSSIBLE.</text>
+  <text x="210" y="150" class="text body">3. Perform a low power approach and landing.</text>
+  <text x="210" y="175" class="text body">   Be prepared in case of a loss of engine power.</text>
+
+  <text x="210" y="215" class="text body">NOTE: Takeoff is prohibited until checks specified</text>
+  <text x="228" y="238" class="text body">in the engine manufacturer maintenance manual</text>
+  <text x="228" y="261" class="text body">have been completed.</text>
+
+  <text x="30" y="445" class="text body" font-size="12">RFM H125 AS350 B3e – Section 3.6 – ENG CHIP</text>
+</svg>

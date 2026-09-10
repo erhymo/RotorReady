@@ -136,6 +136,23 @@ const withPWA = withPWAInit({
   ],
 });
 
+// NATIVE_EXPORT=1 builds a separate static bundle of just the offline-critical route
+// tree (home, quiz, AW169 training/lights, audio) to embed directly in the native app —
+// see scripts/build-native-shell.mjs. It needs `output: 'export'` (which disallows
+// redirects()/headers()/rewrites() and requires next/image without its default server
+// loader) and a separate distDir so it never collides with the normal Vercel build.
+// The service worker has no purpose inside a bundle that's already local, so it's
+// skipped entirely for this mode.
+//
+// Deliberately no background OTA content-update mechanism here (that was
+// @capgo/capacitor-updater, reverted 2026-09-10 — its delta-download never
+// completed successfully on a real device after multiple full relaunches, so a
+// genuine content push never reached an installed app). Content updates now
+// only reach users via a new native build/store release, same as before any of
+// this offline work started — simpler and predictable, at the cost of needing
+// a real app-store release for a content-only fix.
+const isNativeExport = process.env.NATIVE_EXPORT === '1';
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   serverExternalPackages: ['firebase-admin'],
@@ -163,13 +180,21 @@ const nextConfig = {
     }
     return config;
   },
-  async redirects() {
-    return [
-      { source: "/auth/signin", destination: "/login", permanent: true },
-      { source: "/auth/signup", destination: "/signup", permanent: true },
-    ];
-  },
+  ...(isNativeExport
+    ? {
+        output: 'export',
+        distDir: '.next-native',
+        images: { unoptimized: true },
+      }
+    : {
+        async redirects() {
+          return [
+            { source: "/auth/signin", destination: "/login", permanent: true },
+            { source: "/auth/signup", destination: "/signup", permanent: true },
+          ];
+        },
+      }),
 };
 
-export default withPWA(nextConfig);
+export default isNativeExport ? nextConfig : withPWA(nextConfig);
 

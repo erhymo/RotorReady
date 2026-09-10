@@ -1,0 +1,13 @@
+[
+  {
+    "id": "eng-gov-loss",
+    "name": "1(2) ENG GOV LOSS",
+    "severity": "warning",
+    "system": "ENG",
+    "description": "",
+    "pageImage": "/training/lights/pages/aw189-eng-gov-loss.svg",
+    "modelIds": [
+      "AW189"
+    ]
+  }
+]

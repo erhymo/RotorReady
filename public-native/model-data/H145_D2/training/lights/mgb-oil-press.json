@@ -1,0 +1,34 @@
+[
+  {
+    "id": "mgb-oil-press",
+    "name": "MGB OIL P",
+    "severity": "warning",
+    "system": "GEARBOX AND DRIVE SYSTEM",
+    "description": "Main gearbox oil pressure is below minimum (transmission oil pressure indication 1 bar or less, SYS 1 and 2). Warning Unit shows MGB OIL P and audio tone, Master List shows MGB LOW PRESS, voice message \"MAIN GEARBOX, LOW PRESSURE\".",
+    "procedure": [
+      {
+        "type": "branch",
+        "heading": "On ground:",
+        "text": "1. Single / double engine shutdown — Perform"
+      },
+      {
+        "type": "branch",
+        "heading": "In flight:",
+        "text": "1. Power — Reduce\n2. Airspeed — Set to VY\n3. LAND IMMEDIATELY (maximum 15 min)"
+      },
+      {
+        "type": "note",
+        "text": "Descend with minimum power. MGB loss-of-oil capability has been demonstrated on a bench test (at VY power setting) for 30 minutes."
+      }
+    ],
+    "references": [
+      "FLM BK117 D-2 Sect. 3.11.2"
+    ],
+    "modelIds": [
+      "H145_D2"
+    ],
+    "pageImage": "/training/lights/pages/h145d2-mgb-oil-press.png",
+    "imageWidth": 1310,
+    "imageHeight": 1150
+  }
+]

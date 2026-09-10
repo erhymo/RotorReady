@@ -1,0 +1,308 @@
+{
+  "items": [
+    {
+      "id": "h135t3-perf-001",
+      "section": "PERFORMANCE DATA",
+      "question": "Per Sect. 5.1.1, is interpolation or extrapolation permitted when reading the H135 T3's performance charts?",
+      "options": [
+        "Interpolation between given data is permissible; none of the curves should be extrapolated",
+        "Both are permitted, provided the margin used is recorded in the aircraft documents",
+        "Neither is permitted; only exact chart values may be used",
+        "Extrapolation is permitted but interpolation is not"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 5.1.1 NOTE: none of the curves presented should be extrapolated, but interpolation between given data is permissible.",
+      "references": ["FLM EC135 T3H Sect. 5.1.1"],
+      "tags": ["performance"],
+      "source": "H135 T3 Flight Manual",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-perf-002",
+      "section": "PERFORMANCE DATA",
+      "question": "Per Sect. 5.1.1, in what circumstance might the performance data in the Flight Manual not be assured, even if all charted conditions are otherwise met?",
+      "options": [
+        "In the event of FOD ingestion into the engine(s), for example sand or hailstone",
+        "Whenever the aircraft has flown more than 25 flight hours since the last power check",
+        "Whenever ambient temperature exceeds ISA+20\u00b0C",
+        "Performance data is always assured regardless of engine condition"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 5.1.1 NOTE: performance data contained in the Flight Manual might not be assured in the event of FOD ingestion into the engine(s), for example sand or hailstone.",
+      "references": ["FLM EC135 T3H Sect. 5.1.1"],
+      "tags": ["performance"],
+      "source": "H135 T3 Flight Manual",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-perf-003",
+      "section": "PERFORMANCE DATA",
+      "question": "Per Sect. 5.1.3, which maximum gross mass values does the Weight & Performance page in the VMS DATA area show?",
+      "options": [
+        "AEO HIGE, AEO HOGE, CAT A CLEAR, CAT A REARW, and OEI 2 mn HOGE",
+        "AEO HIGE, AEO HOGE, OEI 30s HOGE, and OEI 2 mn HOGE only (no Cat A values)",
+        "Only the current all-engines-operating gross mass, with no Cat A or OEI figures",
+        "CAT A CLEAR and CAT A REARW only"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 5.1.3: the Weight & Performance page shows maximum gross mass values for AEO HIGE, AEO HOGE, CAT A CLEAR, CAT A REARW, and OEI 2 mn HOGE, calculated from current pressure altitude, OAT, and heating condition, based on zero wind.",
+      "references": ["FLM EC135 T3H Sect. 5.1.3"],
+      "tags": ["performance"],
+      "source": "H135 T3 Flight Manual",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-perf-004",
+      "section": "PERFORMANCE DATA",
+      "question": "Per the CAUTION in Sect. 5.1.3, why must the CAT A CLEAR PENALTY be checked before each flight?",
+      "options": [
+        "It is used to calculate the CAT A CLEAR and CAT A REARW maximum gross mass values, and must be adapted whenever external optional equipment is installed or removed",
+        "It is a one-time setting fixed at aircraft delivery and never needs rechecking",
+        "It only affects OEI 2 mn HOGE, not the Cat A values",
+        "It is automatically recalculated by Helionix with no pilot action required"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 5.1.3 CAUTION: the CAT A CLEAR PENALTY has to be checked before each flight to ensure correct calculation of the CAT A CLEAR and CAT A REARW maximum gross mass values - it must be adapted every time external optional equipment is installed or removed.",
+      "references": ["FLM EC135 T3H Sect. 5.1.3"],
+      "tags": ["performance", "caution"],
+      "source": "H135 T3 Flight Manual",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-perf-005",
+      "section": "PERFORMANCE DATA",
+      "question": "Per Sect. 5.1.4.1, how many different engine power check procedures does the H135 T3 provide, and which one takes precedence for assuring power requirements?",
+      "options": [
+        "Four procedures (automatic ground, automatic in-flight, manual ground, manual in-flight); the ground power check takes precedence over the in-flight power check",
+        "Three procedures (automatic ground, automatic in-flight, manual ground); the in-flight check takes precedence",
+        "Two procedures (automatic and manual), with no ground/in-flight distinction",
+        "Four procedures, with the in-flight check always taking precedence over the ground check"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 5.1.4.1: four power check procedures are provided - automatic ground, automatic in-flight, manual ground, and manual in-flight. The ground power check takes precedence over the in-flight power check for assuring power requirements.",
+      "references": ["FLM EC135 T3H Sect. 5.1.4.1"],
+      "tags": ["performance"],
+      "source": "H135 T3 Flight Manual",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-perf-006",
+      "section": "PERFORMANCE DATA",
+      "question": "Per Sect. 5.1.4.2, at what interval must a power check be accomplished (unless otherwise required), besides whenever abnormal engine function is suspected?",
+      "options": [
+        "At intervals not exceeding 100 flight hours",
+        "At intervals not exceeding 25 flight hours",
+        "At intervals not exceeding 50 flight hours",
+        "Only once, at aircraft delivery"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 5.1.4.2: power check shall be accomplished at intervals not exceeding 100 flight hours, or whenever abnormal engine function is suspected (national operating rules may require a different interval).",
+      "references": ["FLM EC135 T3H Sect. 5.1.4.2"],
+      "tags": ["performance"],
+      "source": "H135 T3 Flight Manual",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-perf-007",
+      "section": "PERFORMANCE DATA",
+      "question": "Per Sect. 5.1.4.3, before starting engines for a power check, what FADEC parameter check must be performed between the two engines, and what tolerances apply?",
+      "options": [
+        "Compare P0 (allowable difference <20 hPa) and T1 (allowable difference <4\u00b0C) between engine systems 1 and 2",
+        "Compare N1 and N2 between the two engines, with no tolerance specified",
+        "Compare TOT only, with an allowable difference of <10\u00b0C",
+        "No FADEC parameter check is required before a power check"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 5.1.4.3: before starting engines, the FADEC parameter check compares P0 between system 1 and 2 (allowable difference <20 hPa) and T1 between system 1 and 2 (allowable difference <4\u00b0C); if not fulfilled, maintenance action might be required.",
+      "references": ["FLM EC135 T3H Sect. 5.1.4.3"],
+      "tags": ["performance"],
+      "source": "H135 T3 Flight Manual",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-perf-008",
+      "section": "PERFORMANCE DATA",
+      "question": "Per the CAUTION in Sect. 5.1.4.3, which power limitation must not be exceeded during the automatic ground power check?",
+      "options": [
+        "The engine/transmission takeoff power limitations in Section 2",
+        "The engine/transmission continuous power limitations in Section 2",
+        "The OEI 30-second power limitations in Section 2",
+        "There is no power limitation during a ground power check"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 5.1.4.3 CAUTION: engine/transmission takeoff power limitations in Section 2 are not to be exceeded during the automatic ground power check.",
+      "references": ["FLM EC135 T3H Sect. 5.1.4.3"],
+      "tags": ["performance", "caution"],
+      "source": "H135 T3 Flight Manual",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-perf-009",
+      "section": "PERFORMANCE DATA",
+      "question": "Per Sect. 5.1.4.3, what defines \"power assured\" when interpreting the automatic ground power check results (TOT ISO-PWR margin and N1 ISO-PWR margin)?",
+      "options": [
+        "Power is assured if TOTn is greater than or equal to zero AND N1n is greater than or equal to zero, for that engine",
+        "Power is assured if either TOTn or N1n is positive, regardless of the other",
+        "Power is assured only if both margins exceed +10%",
+        "Power is assured automatically unless a MASTER CAUTION is triggered"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 5.1.4.3: power is assured - i.e. the engine is capable of developing the power required for the performance data in this manual - if TOTn is greater than or equal to zero AND N1n is greater than or equal to zero, for that particular engine.",
+      "references": ["FLM EC135 T3H Sect. 5.1.4.3"],
+      "tags": ["performance"],
+      "source": "H135 T3 Flight Manual",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-perf-010",
+      "section": "PERFORMANCE DATA",
+      "question": "Per the CAUTION in Sect. 5.1.4.3, what is the consequence if power is not assured on one or both engines?",
+      "options": [
+        "The total power available is less than the minimum specification, and the performance data contained in the manual cannot be assured",
+        "Only the OEI performance charts are affected; AEO performance remains valid",
+        "The aircraft is grounded until the next scheduled maintenance, with no further flight permitted",
+        "Nothing changes; the power check result is advisory only"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 5.1.4.3 CAUTION: if power is not assured on one or both engines, then the total power available is less than the minimum specification and the performance data contained in this manual cannot be assured.",
+      "references": ["FLM EC135 T3H Sect. 5.1.4.3"],
+      "tags": ["performance", "caution"],
+      "source": "H135 T3 Flight Manual",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-perf-011",
+      "section": "PERFORMANCE DATA",
+      "question": "Per the density altitude example in Sect. 5.1.5, given OAT -14\u00b0C, pressure altitude 5000 ft, and a calibrated airspeed (CAS) of 100 kt, what are the resulting density altitude and true airspeed (TAS)?",
+      "options": [
+        "Density altitude 2700 ft, TAS 104 kt (true airspeed factor 1.04)",
+        "Density altitude 5000 ft, TAS 100 kt (true airspeed factor 1.00)",
+        "Density altitude 7700 ft, TAS 96 kt (true airspeed factor 0.96)",
+        "Density altitude 2700 ft, TAS 100 kt (true airspeed factor unaffected by density altitude)"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 5.1.5 worked example: with OAT -14\u00b0C and pressure altitude 5000 ft, density altitude reads 2700 ft and the true airspeed factor reads 1.04; TAS = CAS x factor = 100 x 1.04 = 104 kt.",
+      "references": ["FLM EC135 T3H Sect. 5.1.5"],
+      "tags": ["performance"],
+      "source": "H135 T3 Flight Manual",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-perf-012",
+      "section": "PERFORMANCE DATA",
+      "question": "Per Sect. 5.1.9, up to 7000 ft density altitude, what is the maximum demonstrated rear wind component, and how does it compare to the demonstrated wind speed in the front sector (\u00b130\u00b0, excluding headwind within \u00b115\u00b0)?",
+      "options": [
+        "Maximum rear wind component is 25 kt, versus 50 kt demonstrated in the front sector",
+        "Maximum rear wind component is 50 kt, versus 25 kt demonstrated in the front sector",
+        "Both the rear wind component and the front sector limit are 30 kt",
+        "There is no distinct rear wind limit; only front-sector and \"any other direction\" limits are defined"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 5.1.9, up to 7000 ft DA: the maximum demonstrated rear wind component is 25 kt, the demonstrated relative wind speed in the front sector (\u00b130\u00b0, excluding headwind within \u00b115\u00b0) is 50 kt, and from any other direction it is 30 kt.",
+      "references": ["FLM EC135 T3H Sect. 5.1.9"],
+      "tags": ["performance"],
+      "source": "H135 T3 Flight Manual",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-perf-013",
+      "section": "PERFORMANCE DATA",
+      "question": "Per Sect. 5.1.9, above 7000 ft density altitude, what demonstrated relative wind speed applies for wind directions between 135\u00b0 and 180\u00b0?",
+      "options": [
+        "17 kt, gradually increasing to 25 kt",
+        "A flat 30 kt regardless of the exact angle within that range",
+        "17 kt with no increase, the same as the 45\u00b0-135\u00b0 band",
+        "50 kt, matching the front-sector limit"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 5.1.9, above 7000 ft DA: the demonstrated relative wind speed for wind direction 135\u00b0-180\u00b0 is 17 kt, gradually increasing to 25 kt - distinct from the 45\u00b0-135\u00b0 band, which is a flat 17 kt.",
+      "references": ["FLM EC135 T3H Sect. 5.1.9"],
+      "tags": ["performance"],
+      "source": "H135 T3 Flight Manual",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-perf-014",
+      "section": "PERFORMANCE DATA",
+      "question": "Per the NOTE in Sect. 5.1.10, up to what density altitude is the height-velocity envelope preserved, and under which requirement?",
+      "options": [
+        "Only up to 7000 ft density altitude, in accordance with JAR 27 requirements",
+        "Up to 13000 ft density altitude, in accordance with CS-27 requirements",
+        "The H-V envelope has no density altitude limit; it applies at all altitudes",
+        "Only up to 4000 ft density altitude, in accordance with EASA CS-27 Amendment 3"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 5.1.10 NOTE: in accordance with JAR 27 requirements, the H-V envelope is preserved only up to 7000 ft density altitude.",
+      "references": ["FLM EC135 T3H Sect. 5.1.10"],
+      "tags": ["performance"],
+      "source": "H135 T3 Flight Manual",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-perf-015",
+      "section": "PERFORMANCE DATA",
+      "question": "Per Sect. 5.1.10, if determining point P on the critical height-velocity boundary curve results in a skid height of 45 ft, what does this mean?",
+      "options": [
+        "No H-V area is present for that combination of OAT, altitude, and gross mass",
+        "The H-V area extends from the ground up to 45 ft only",
+        "A full H-V avoidance area must be plotted starting at 45 ft AGL",
+        "The result is invalid and the chart must be re-entered with corrected values"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 5.1.10: if the combination of OAT, altitude, and gross mass cannot be located in the gross mass sub-chart, no H-V area is present; likewise, if determining point P results in a skid height of 45 ft, no H-V area is present.",
+      "references": ["FLM EC135 T3H Sect. 5.1.10"],
+      "tags": ["performance"],
+      "source": "H135 T3 Flight Manual",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-perf-016",
+      "section": "PERFORMANCE DATA",
+      "question": "Per Sect. 5.1.1, if a negative pressure altitude is not shown on a given performance chart, which line should be used instead?",
+      "options": [
+        "The line for 0 ft",
+        "The line for -1000 ft, extrapolated from the nearest positive value",
+        "The chart cannot be used at all for negative pressure altitudes",
+        "The line for the nearest positive pressure altitude shown"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 5.1.1 NOTE: for negative pressure altitudes, if not shown in the respective chart, the line for 0 ft shall be used.",
+      "references": ["FLM EC135 T3H Sect. 5.1.1"],
+      "tags": ["performance"],
+      "source": "H135 T3 Flight Manual",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["H135_T3"]
+    }
+  ]
+}

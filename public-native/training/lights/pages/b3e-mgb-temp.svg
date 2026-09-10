@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="520" viewBox="0 0 820 520" role="img" aria-label="MGB TEMP – AS350 B3e main gearbox oil temperature high">
+  <rect width="100%" height="100%" fill="white" />
+  <style>
+    .frame { fill: none; stroke: #111; stroke-width: 1.5; }
+    .text { font-family: Arial, Helvetica, sans-serif; fill: #111; }
+    .heading { font-weight: 700; font-size: 18px; }
+    .body { font-size: 15px; }
+    .tile { fill: #000; stroke: #111; stroke-width: 1; }
+    .tileText { font-family: Arial, Helvetica, sans-serif; font-size: 22px; font-weight: 700; fill: #ff2d2d; text-anchor: middle; }
+  </style>
+
+  <rect x="10" y="10" width="800" height="500" class="frame" />
+  <line x1="190" y1="10" x2="190" y2="510" stroke="#111" stroke-width="1.5" />
+
+  <!-- Left column -->
+  <rect x="40" y="60" width="120" height="70" rx="4" class="tile" />
+  <text x="100" y="95" class="tileText">MGB</text>
+  <text x="100" y="120" class="tileText">TEMP</text>
+
+  <text x="30" y="170" class="text body">Main gearbox oil overheating.</text>
+
+  <!-- Right column -->
+  <text x="210" y="60" class="text heading">MGB TEMP – Main gearbox oil temperature high</text>
+
+  <text x="210" y="100" class="text body">1. IAS ...................................... SET TO Vy.</text>
+  <text x="210" y="125" class="text body">2. CWP ................................... MONITOR.</text>
+  <text x="210" y="150" class="text body">3. LAND AS SOON AS PRACTICABLE.</text>
+  <text x="210" y="175" class="text body">4. If temperature continues to rise or other</text>
+  <text x="228" y="198" class="text body">indications of malfunction appear,</text>
+  <text x="228" y="221" class="text body">LAND AS SOON AS POSSIBLE.</text>
+
+  <text x="30" y="490" class="text body" font-size="12">RFM H125 AS350 B3e – Section 3.6 – MGB TEMP</text>
+</svg>

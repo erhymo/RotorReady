@@ -1,0 +1,634 @@
+{
+  "items": [
+    {
+      "id": "h135t3-np-001",
+      "section": "NORMAL PROCEDURES",
+      "type": "single",
+      "question": "How often must the fire protection test (TEST FIRE 1/2 sw) be performed, per Sect. 4.4.1.1?",
+      "options": [
+        "At least once a day",
+        "Before every single flight",
+        "Once a week",
+        "Only after maintenance actions"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 4.4.1.1 notes the fire protection test must be performed at least once a day, testing both engine fire systems (TEST FIRE 1 sw and TEST FIRE 2 sw) in sequence.",
+      "references": ["FLM EC135 T3H Sect. 4.4.1.1 (Helionix Step 3.5)"],
+      "tags": ["normal-procedures", "fire-test"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-np-002",
+      "section": "NORMAL PROCEDURES",
+      "type": "single",
+      "question": "When must the rotor brake indication check be performed, per Sect. 4.4.1.1?",
+      "options": [
+        "Before flight, after more than 7 days without starting the engines",
+        "Before every single flight regardless of elapsed time",
+        "Only after maintenance on the rotor brake system",
+        "Once per month regardless of flight activity"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 4.4.1.1 states the rotor brake indication check is to be performed before flight after more than 7 days without starting the engines, requiring one person to turn the rotor by hand while a second checks the ROTOR BRAKE indication in the cockpit.",
+      "references": ["FLM EC135 T3H Sect. 4.4.1.1 (Helionix Step 3.5)"],
+      "tags": ["normal-procedures", "rotor-brake"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-np-003",
+      "section": "NORMAL PROCEDURES",
+      "type": "single",
+      "question": "If T1 (engine temperature) differs by more than a certain amount between the two engines before starting, what should the pilot do, per Sect. 4.4.1.2?",
+      "options": [
+        "If the T1 difference is greater than 20°C, start the engine with the highest T1 first",
+        "Always start engine 1 first regardless of T1",
+        "Wait until both T1 readings are identical before starting either engine",
+        "T1 has no bearing on start sequence"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 4.4.1.2 notes that if the T1 difference between engines is greater than 20°C, the engine with the highest T1 should be started first.",
+      "references": ["FLM EC135 T3H Sect. 4.4.1.2 (Helionix Step 3.5)"],
+      "tags": ["normal-procedures", "engine-start"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-np-004",
+      "section": "NORMAL PROCEDURES",
+      "type": "single",
+      "question": "How long must the fuel prime pumps be ON before starting the engines, per Sect. 4.4.1.2?",
+      "options": [
+        "At least 10 seconds, to ensure sufficient fuel supply",
+        "At least 60 seconds",
+        "At least 2 minutes",
+        "No minimum time is specified"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 4.4.1.2 notes that to ensure the engines are supplied sufficiently with fuel, the prime pumps must be on for at least 10 seconds before starting engines.",
+      "references": ["FLM EC135 T3H Sect. 4.4.1.2 (Helionix Step 3.5)"],
+      "tags": ["normal-procedures", "engine-start", "fuel-prime"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-np-005",
+      "section": "NORMAL PROCEDURES",
+      "type": "single",
+      "question": "During engine start, what minimum TOT increase should be checked/monitored, per Sect. 4.4.1.2?",
+      "options": [
+        "TOT should increase and be checked against a minimum of approximately 720°C",
+        "TOT should remain below 400°C throughout the start",
+        "TOT is not monitored during the start sequence",
+        "TOT should decrease steadily during start"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 4.4.1.2 requires the pilot to monitor TOT during engine start and check that it increases to at least approximately 720°C, as part of verifying a normal start sequence.",
+      "references": ["FLM EC135 T3H Sect. 4.4.1.2 (Helionix Step 3.5)"],
+      "tags": ["normal-procedures", "engine-start", "tot"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-np-006",
+      "section": "NORMAL PROCEDURES",
+      "type": "single",
+      "question": "During the hydraulic check (TEST HYD sw — SYS 1), what caution applies regarding when this check must NOT be performed?",
+      "options": [
+        "The TEST HYD switch must not be operated during flight",
+        "The check may only be performed with the rotor stopped",
+        "The check must not be performed during cold weather operations",
+        "There is no restriction on when the test may be performed"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 4.4.1.2 CAUTION states the TEST HYD sw must not be operated during flight, and mast moment limits must be observed during the hydraulic check, which must be performed at least once before the first flight of the day.",
+      "references": ["FLM EC135 T3H Sect. 4.4.1.2 (Helionix Step 3.5)"],
+      "tags": ["normal-procedures", "hydraulic-check"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-np-007",
+      "section": "NORMAL PROCEDURES",
+      "type": "single",
+      "question": "What are the two conditions during engine start that trigger an automatic restart attempt (before FADEC upgrade TU149/TU153/TU172), per Sect. 4.4.1.2?",
+      "options": [
+        "If ignition does not take place upon reaching N1 = 18%, the start is interrupted and automatically restarted when N1 decreases to ≤9%",
+        "If ignition does not take place upon reaching N1 = 50%, the start is interrupted and restarted at N1 = 20%",
+        "There is no automatic restart function; all restarts must be manually initiated",
+        "The engine automatically restarts every time N1 exceeds 10%"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 4.4.1.2 states that (before the FADEC upgrade) if ignition does not take place upon reaching N1 = 18%, the engine automatically interrupts the starting process and performs a restart when N1 has decreased to ≤9%; only one automatic restart will be performed.",
+      "references": ["FLM EC135 T3H Sect. 4.4.1.2 (Helionix Step 3.5)"],
+      "tags": ["normal-procedures", "engine-start", "auto-restart"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-np-008",
+      "section": "NORMAL PROCEDURES",
+      "type": "single",
+      "question": "What TOT value, rising abnormally rapidly and approaching 910°C, requires the start to be immediately aborted, per the Abort Start Procedure (Sect. 4.4.1.2)?",
+      "options": [
+        "Above 819°C",
+        "Above 700°C",
+        "Above 900°C only",
+        "Above 600°C"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 4.4.1.2 CAUTION lists, among the abort-start triggers, TOT rising abnormally rapidly above 819°C and quickly approaching 910°C.",
+      "references": ["FLM EC135 T3H Sect. 4.4.1.2 (Helionix Step 3.5)"],
+      "tags": ["normal-procedures", "abort-start", "tot"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-np-009",
+      "section": "NORMAL PROCEDURES",
+      "type": "single",
+      "question": "If the start sequence is interrupted with no automatic restart or shutdown occurring, how long must the pilot wait after the last starter engagement before this is considered an abort condition, per Sect. 4.4.1.2?",
+      "options": [
+        "15 seconds",
+        "5 seconds",
+        "60 seconds",
+        "2 minutes"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 4.4.1.2 CAUTION states that if the start sequence is interrupted and an automatic restart or automatic shutdown does not take place at the latest 15 seconds after the last starter engagement, the start must be immediately aborted.",
+      "references": ["FLM EC135 T3H Sect. 4.4.1.2 (Helionix Step 3.5)"],
+      "tags": ["normal-procedures", "abort-start"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-np-010",
+      "section": "NORMAL PROCEDURES",
+      "type": "single",
+      "question": "During starting of the second engine, at what N2 IDLE speed (within what time) should START-UP TST OK appear, per Sect. 4.4.1.2?",
+      "options": [
+        "N2 ≥76%, within approximately 45 seconds",
+        "N2 ≥50%, within approximately 10 seconds",
+        "N2 ≥100%, within approximately 60 seconds",
+        "N2 ≥90%, within approximately 30 seconds"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 4.4.1.2 states that when starting the second engine, upon reaching IDLE speed of N2 ≥76% (within approximately 45 seconds), the FND ML should show START-UP TST OK.",
+      "references": ["FLM EC135 T3H Sect. 4.4.1.2 (Helionix Step 3.5)"],
+      "tags": ["normal-procedures", "engine-start"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-np-011",
+      "section": "NORMAL PROCEDURES",
+      "type": "single",
+      "question": "What ambient temperature condition requires maximum ventilation to be set, per Sect. 4.4.1.3?",
+      "options": [
+        "OAT ≥+30°C",
+        "OAT ≥+20°C",
+        "OAT ≥+40°C",
+        "Maximum ventilation is only needed below 0°C"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 4.4.1.3 System Checks notes that maximum ventilation is required if OAT ≥+30°C.",
+      "references": ["FLM EC135 T3H Sect. 4.4.1.3 (Helionix Step 3.5)"],
+      "tags": ["normal-procedures", "ventilation"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-np-012",
+      "section": "NORMAL PROCEDURES",
+      "type": "single",
+      "question": "Before takeoff, why should the heater be operated in defogging mode until no moisture indications remain on the windows, per the WARNING in Sect. 4.4.1.3?",
+      "options": [
+        "Moisture accumulated in the heater ducting can cause the windshields to fog upon initial heater activation",
+        "It is required only for regulatory compliance, with no operational safety reason",
+        "It prevents excessive fuel consumption during climb",
+        "It is only relevant for night flights"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 4.4.1.3 WARNING states that moisture which may have accumulated in the heater system ducting can cause the windshields to fog upon initial activation of the heater; before takeoff this moisture must be eliminated by operating the heater in defogging mode.",
+      "references": ["FLM EC135 T3H Sect. 4.4.1.3 (Helionix Step 3.5)"],
+      "tags": ["normal-procedures", "heating", "defogging"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-np-013",
+      "section": "NORMAL PROCEDURES",
+      "type": "single",
+      "question": "How must the collective lever be unlatched before performing the AFCS/Avionics Pre-flight Test, per Sect. 4.4.1.3?",
+      "options": [
+        "Unlatch to full down, without physically pushing down on the collective lever to unlatch it",
+        "Physically push down on the collective lever to release the latch",
+        "The collective must remain latched throughout the test",
+        "The collective should be raised to maximum before the test"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 4.4.1.3 instructs: Collective lever — Unlatch, full down, with a NOTE specifically warning not to unlatch the collective lever by physically pushing down on it.",
+      "references": ["FLM EC135 T3H Sect. 4.4.1.3 (Helionix Step 3.5)"],
+      "tags": ["normal-procedures", "afcs-test"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-np-014",
+      "section": "NORMAL PROCEDURES",
+      "type": "single",
+      "question": "According to Sect. 4.2.3, what is prohibited regarding mission databases (HTAWS, DMAP, SVS)?",
+      "options": [
+        "Loading or swapping the mission database in flight, since this could lead to loss of the SVS image",
+        "Using more than one database type simultaneously",
+        "Checking database expiry before flight",
+        "There is no restriction on database loading"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 4.2.3 CAUTION states that loading or swapping the mission database in flight could lead to loss of the SVS image, and the database must never be loaded or swapped in flight.",
+      "references": ["FLM EC135 T3H Sect. 4.2.3 (Helionix Step 3.5)"],
+      "tags": ["normal-procedures", "mission-database"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-np-015",
+      "section": "NORMAL PROCEDURES",
+      "type": "single",
+      "question": "What items must be checked before dispatching a flight, marked with an asterisk versus not, per Sect. 4.3.1?",
+      "options": [
+        "Asterisked items must be checked before every flight; non-asterisked items only need checking before the first flight of the day (or within a 24-hour cycle for alert/on-call aircraft)",
+        "Asterisked items are only checked annually",
+        "There is no distinction; all items are checked before every flight",
+        "Non-asterisked items are optional and may be skipped entirely"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 4.3.1 states the preflight check shall be completed before each flight, but items not marked with an asterisk need only be checked before the first flight of the day, or within a 24-hour cycle for aircraft on alert/on-call status.",
+      "references": ["FLM EC135 T3H Sect. 4.3.1 (Helionix Step 3.5)"],
+      "tags": ["normal-procedures", "preflight-check"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-np-016",
+      "section": "NORMAL PROCEDURES",
+      "type": "single",
+      "question": "During the exterior check, what precaution is noted about ground operations and the helicopter battery, per Sect. 4.3.2?",
+      "options": [
+        "To avoid excessive drain on the battery, particularly in cold weather, ground operations should be conducted using an external power unit (EPU), and battery must be connected before EPU connection",
+        "The battery should always be disconnected during ground operations",
+        "Ground operations have no bearing on battery condition",
+        "The EPU should never be used during ground operations"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 4.3.2 notes that to avoid excessive drain on the helicopter battery, particularly during cold weather, all ground operations should be conducted using an external power unit (EPU), and prior to EPU connection the battery must be connected.",
+      "references": ["FLM EC135 T3H Sect. 4.3.2 (Helionix Step 3.5)"],
+      "tags": ["normal-procedures", "exterior-check", "epu"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-np-017",
+      "section": "NORMAL PROCEDURES",
+      "type": "single",
+      "question": "During the Pre-Takeoff Check, what action is required if gross mass exceeds 2850 kg, per Sect. 4.6?",
+      "options": [
+        "Push the HI NR pb and check \"ON\" illuminates, with N2/NR checked normal at 100-105% depending on density altitude",
+        "Reduce gross mass below 2850 kg before any further checks",
+        "No special action is required regardless of gross mass",
+        "Switch AFCS to backup SAS mode"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 4.6 states that if gross mass exceeds 2850 kg, the HI NR pb must be pushed (check \"ON\" illuminates), with the VMS/FND showing the NRHI label on and N2/NR normal at 100-105% depending on density altitude.",
+      "references": ["FLM EC135 T3H Sect. 4.6 (Helionix Step 3.5)"],
+      "tags": ["normal-procedures", "pre-takeoff", "high-nr"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-np-018",
+      "section": "NORMAL PROCEDURES",
+      "type": "single",
+      "question": "During a normal takeoff, what airspeed should be maintained until reaching 50 ft AGL, per Sect. 4.8?",
+      "options": [
+        "50 KIAS, then accelerate to VY and climb through 100 ft AGL",
+        "40 KIAS throughout the climb to 500 ft AGL",
+        "VNE minus 25 kt until reaching cruise altitude",
+        "Vy from ground level, with no intermediate airspeed target"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 4.8 states that on takeoff, 50 KIAS should be maintained until reaching 50 ft AGL, then the pilot accelerates to VY and climbs through 100 ft AGL.",
+      "references": ["FLM EC135 T3H Sect. 4.8 (Helionix Step 3.5)"],
+      "tags": ["normal-procedures", "takeoff"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-np-019",
+      "section": "NORMAL PROCEDURES",
+      "type": "single",
+      "question": "During a recommended slope takeoff, what collective torque limit should be used initially, per Sect. 4.8?",
+      "options": [
+        "Increase collective gently to approximately 30% TQ",
+        "Increase collective immediately to maximum continuous torque",
+        "Do not adjust collective until A.TRIM is re-engaged",
+        "Increase collective to 69% TQ before any mast moment consideration"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 4.8 gives the recommended slope takeoff procedure: press A.TRIM sw to switch it off (DSAS indicated), then increase collective gently to approximately 30% TQ while monitoring mast moment increase in the direction of slope, staying within normal MM range.",
+      "references": ["FLM EC135 T3H Sect. 4.8 (Helionix Step 3.5)"],
+      "tags": ["normal-procedures", "slope-takeoff"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-np-020",
+      "section": "NORMAL PROCEDURES",
+      "type": "single",
+      "question": "During a normal landing approach, what is the recommended descent profile after reaching 50 ft AGL, per Sect. 4.10?",
+      "options": [
+        "Descend at 300 ft/min ≤ R/D < 500 ft/min at 40 KIAS",
+        "Descend at a constant 1000 ft/min regardless of airspeed",
+        "Descend at 40 ft/min at 100 KIAS",
+        "No specific descent rate is recommended"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 4.10 gives the recommended landing procedure: after reaching 50 ft AGL, descend with 300 ft/min ≤ R/D < 500 ft/min at 40 KIAS, then establish flare attitude before touchdown and raise collective to cushion landing.",
+      "references": ["FLM EC135 T3H Sect. 4.10 (Helionix Step 3.5)"],
+      "tags": ["normal-procedures", "landing"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-np-021",
+      "section": "NORMAL PROCEDURES",
+      "type": "single",
+      "question": "How long must the engines cool down at IDLE before selecting ENG MAIN sw's OFF, per Sect. 4.11?",
+      "options": [
+        "30 seconds",
+        "5 seconds",
+        "5 minutes",
+        "No cooldown period is required"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 4.11 states that after selecting ENG1/2 MAIN sw's to IDLE, the pilot must wait 30 seconds for the engines to cool down before switching them OFF.",
+      "references": ["FLM EC135 T3H Sect. 4.11 (Helionix Step 3.5)"],
+      "tags": ["normal-procedures", "engine-shutdown"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-np-022",
+      "section": "NORMAL PROCEDURES",
+      "type": "single",
+      "question": "If smoke is observed exiting the exhaust pipe after engine shutdown (indicating a fire in the engine compartment due to undrained/residual fuel), what CAUTION applies, per Sect. 4.11?",
+      "options": [
+        "An engine ventilation (dry crank) shall be performed, and maintenance action is required",
+        "No action is required; this is a normal occurrence after shutdown",
+        "The battery master switch should immediately be turned back on to restart the engine",
+        "The rotor brake should be applied immediately regardless of NR"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 4.11 CAUTION states that if smoke is observed exiting the exhaust pipe after shutdown (indicating a fire from undrained/residual fuel), an engine ventilation (dry crank) shall be performed, and maintenance action is required (refer to EMM).",
+      "references": ["FLM EC135 T3H Sect. 4.11 (Helionix Step 3.5)"],
+      "tags": ["normal-procedures", "engine-shutdown", "fire-caution"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-np-023",
+      "section": "NORMAL PROCEDURES",
+      "type": "single",
+      "question": "Below what NR percentage may the rotor brake be applied after shutdown, per Sect. 4.11?",
+      "options": [
+        "Below 50% NR",
+        "Below 80% NR",
+        "Below 20% NR",
+        "The rotor brake may be applied at any NR value"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 4.11 states the rotor brake (if required and installed) may be applied below 50% NR, with a CAUTION to activate it carefully when parked on ice or snow covered surfaces.",
+      "references": ["FLM EC135 T3H Sect. 4.11 (Helionix Step 3.5)"],
+      "tags": ["normal-procedures", "engine-shutdown", "rotor-brake"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-np-024",
+      "section": "NORMAL PROCEDURES",
+      "type": "single",
+      "question": "Per Sect. 4.12.1, in a 2 MFD cockpit configuration, when is use of MANUAL mode for training purposes prohibited?",
+      "options": [
+        "In case of single MFD operations",
+        "It is always prohibited regardless of configuration",
+        "Only during night operations",
+        "Only above 2850 kg gross mass"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 4.12.1 CAUTION states that use of MANUAL mode for training purposes is prohibited in case of single MFD operations (2 MFD cockpit configuration).",
+      "references": ["FLM EC135 T3H Sect. 4.12.1 (Helionix Step 3.5)"],
+      "tags": ["normal-procedures", "engine-manual-mode"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-np-025",
+      "section": "NORMAL PROCEDURES",
+      "type": "single",
+      "question": "What is the recommended maximum rate-of-descent during HOGE or low speed flight (up to 20 KIAS), per Sect. 4.13.2?",
+      "options": [
+        "Less than 500 ft/min",
+        "Less than 1000 ft/min",
+        "Less than 200 ft/min",
+        "There is no recommended maximum"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 4.13.2 recommends that any descent during hover or low speed flight (up to 20 KIAS) should be performed with a descent rate of less than 500 ft/min.",
+      "references": ["FLM EC135 T3H Sect. 4.13.2 (Helionix Step 3.5)"],
+      "tags": ["normal-procedures", "flight-characteristics"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-np-026",
+      "section": "NORMAL PROCEDURES",
+      "type": "single",
+      "question": "During ground operations with rotor turning, what flight control positions must be maintained, per Sect. 4.13.1?",
+      "options": [
+        "Cyclic stick in neutral position and collective pitch lever in full down position, with only minimal control movements (less than 3 cm) allowed for functional tests",
+        "Cyclic stick fully forward and collective at mid-range",
+        "There is no restriction on flight control position during ground operation",
+        "Cyclic and collective may be freely moved as long as the rotor brake is engaged"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 4.13.1 CAUTION requires the cyclic stick to remain in the neutral position and the collective pitch lever in the full down position during ground operations with rotor turning; minimum control movements (less than 3 cm from neutral) are allowed only for functional test purposes.",
+      "references": ["FLM EC135 T3H Sect. 4.13.1 (Helionix Step 3.5)"],
+      "tags": ["normal-procedures", "flight-characteristics", "ground-operations"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-np-027",
+      "section": "NORMAL PROCEDURES",
+      "type": "single",
+      "question": "When using altitude constrained legs in IFR navigation, what CAUTION applies to the baro setting, per Sect. 4.14?",
+      "options": [
+        "The baro setting must be identical on MFD1 and MFD2, and synchronized whenever changed",
+        "Only MFD1's baro setting matters; MFD2 is not relevant",
+        "Baro settings are automatically synchronized and require no crew action",
+        "Altitude constrained legs do not require any baro setting"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 4.14 CAUTION states that when using altitude constrained legs, the baro setting must be identical on MFD1 and MFD2, and the crew must remember to synchronize it whenever it is changed.",
+      "references": ["FLM EC135 T3H Sect. 4.14 (Helionix Step 3.5)"],
+      "tags": ["normal-procedures", "ifr", "baro-setting"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-np-028",
+      "section": "NORMAL PROCEDURES",
+      "type": "single",
+      "question": "For an ILS approach, what is the minimum localizer (LOC) interception distance, and at what deviation will LOC/GS capture occur automatically, per Sect. 4.14.4.2?",
+      "options": [
+        "Minimum 4 NM interception distance; automatic capture within 2 dots (LOC) and 0.5 dots (GS)",
+        "Minimum 10 NM interception distance; automatic capture within 1 dot (LOC) and 1 dot (GS)",
+        "Minimum 2 NM interception distance; no automatic capture, always manual",
+        "There is no minimum interception distance specified"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 4.14.4.2 gives a minimum LOC interception distance of 4 NM, with automatic capturing of LOC and GS occurring when the aircraft is within 2 dots (LOC) and 0.5 dots (GS).",
+      "references": ["FLM EC135 T3H Sect. 4.14.4.2 (Helionix Step 3.5)"],
+      "tags": ["normal-procedures", "ifr", "ils-approach"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-np-029",
+      "section": "NORMAL PROCEDURES",
+      "type": "single",
+      "question": "When activating a GPS missed approach via the GTN, what happens to the AFCS after 10 seconds, per Sect. 4.14.4.5?",
+      "options": [
+        "The AFCS will decouple; recoupling via the MFD CPL switch is required",
+        "The AFCS remains coupled indefinitely with no pilot action needed",
+        "The AFCS automatically switches to backup SAS mode",
+        "The aircraft automatically enters a hover"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 4.14.4.5 notes that when activating the GPS missed approach via the GTN sk, the AFCS will decouple after 10 seconds, and recoupling via the MFD CPL switch is required. Using the GA pb on the collective instead keeps the autopilot NAV mode coupled with automatic waypoint sequencing.",
+      "references": ["FLM EC135 T3H Sect. 4.14.4.5 (Helionix Step 3.5)"],
+      "tags": ["normal-procedures", "ifr", "missed-approach"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-np-030",
+      "section": "NORMAL PROCEDURES",
+      "type": "single",
+      "question": "How long does the HTAWS pre-flight self-test take after power-on, per Sect. 4.15.1?",
+      "options": [
+        "About 2 minutes, indicated by \"HTAWS TEST\" on the FND",
+        "About 10 seconds",
+        "About 30 minutes",
+        "The HTAWS does not perform a self-test"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 4.15.1 states that after power on, HTAWS performs a self-test for about 2 minutes, indicated by \"HTAWS TEST\" on the FND.",
+      "references": ["FLM EC135 T3H Sect. 4.15.1 (Helionix Step 3.5)"],
+      "tags": ["normal-procedures", "htaws"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-np-031",
+      "section": "NORMAL PROCEDURES",
+      "type": "single",
+      "question": "When HTAWS audio is inhibited (MUTE), how long before it is automatically re-activated, per Sect. 4.15.2?",
+      "options": [
+        "After 5 minutes",
+        "After 30 seconds",
+        "After 1 hour",
+        "It remains inhibited until manually re-activated, never automatically"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 4.15.2 states that after selecting HTAWS MUTE (hold for 2 seconds), audio warnings are automatically re-activated after 5 minutes, with HTAWS MUTE disappearing from the ML.",
+      "references": ["FLM EC135 T3H Sect. 4.15.2 (Helionix Step 3.5)"],
+      "tags": ["normal-procedures", "htaws", "audio-inhibit"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-np-032",
+      "section": "NORMAL PROCEDURES",
+      "type": "single",
+      "question": "When using the AHRS free steering mode (DG) near an area with a perturbed magnetic field, within what time must HDG1 and HDG2 be set to the same value, per Sect. 4.16.1?",
+      "options": [
+        "Within one minute",
+        "Within 5 minutes",
+        "Within 30 seconds",
+        "There is no time limit"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 4.16.1 CAUTION states that to avoid discrepancy indications and automatic de-selection of heading sources, HDG1 and HDG2 must be set to the same value within one minute of entering DG mode.",
+      "references": ["FLM EC135 T3H Sect. 4.16.1 (Helionix Step 3.5)"],
+      "tags": ["normal-procedures", "ahrs", "dg-mode"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-np-033",
+      "section": "NORMAL PROCEDURES",
+      "type": "single",
+      "question": "Why should prolonged operation (>10 minutes) of one or both AHRS in DG mode be avoided, per Sect. 4.16.1?",
+      "options": [
+        "It could lead to heading discrepancy and automatic disengagement of AFCS HDG/TRK upper modes",
+        "It causes excessive battery drain",
+        "It permanently damages the AHRS sensor",
+        "There is no specific reason given; it is a general precaution only"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 4.16.1 CAUTION states that prolonged operation (>10 minutes) of one or both AHRS in DG mode should be avoided, since it could lead to heading discrepancy and automatic disengagement of AFCS HDG/TRK upper modes.",
+      "references": ["FLM EC135 T3H Sect. 4.16.1 (Helionix Step 3.5)"],
+      "tags": ["normal-procedures", "ahrs", "dg-mode"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-np-034",
+      "section": "NORMAL PROCEDURES",
+      "type": "single",
+      "question": "When operating in TRUE heading mode, how often must aircraft heading be checked and adjusted, per Sect. 4.16.2?",
+      "options": [
+        "Every 30 minutes",
+        "Every 5 minutes",
+        "Every 2 hours",
+        "Only once at the start of the flight"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 4.16.2 states that in TRUE heading operation, aircraft heading should be checked and HDG1/HDG2 adjusted if required every 30 minutes, noting the approximate maximum drift in DG mode is 10 deg/h.",
+      "references": ["FLM EC135 T3H Sect. 4.16.2 (Helionix Step 3.5)"],
+      "tags": ["normal-procedures", "ahrs", "true-heading"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-np-035",
+      "section": "NORMAL PROCEDURES",
+      "type": "single",
+      "question": "What is the approximate maximum heading drift per hour when operating in DG (free steering) mode, per the NOTE in Sect. 4.16.2?",
+      "options": [
+        "10 degrees per hour",
+        "1 degree per hour",
+        "30 degrees per hour",
+        "There is no measurable drift in DG mode"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 4.16.2 notes that when operating in DG mode, the approximate maximum drift is 10 deg/h.",
+      "references": ["FLM EC135 T3H Sect. 4.16.2 (Helionix Step 3.5)"],
+      "tags": ["normal-procedures", "ahrs", "dg-mode"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    }
+  ]
+}

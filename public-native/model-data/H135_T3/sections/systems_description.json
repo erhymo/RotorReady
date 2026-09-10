@@ -1,0 +1,346 @@
+{
+  "items": [
+    {
+      "id": "h135t3-sd-001",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "How many seats does the H135 T3 have in the basic version, and what is the maximum optional seating arrangement, per Sect. 7.1.1?",
+      "options": [
+        "Five seats basic version, optional arrangements for up to eight persons",
+        "Four seats basic version, optional arrangements for up to six persons",
+        "Six seats basic version, no optional arrangements",
+        "Eight seats basic version, optional arrangements for up to ten persons"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 7.1.1 describes the EC135/H135 T3H as a light twin-engined multi-purpose helicopter with five seats in the basic version and optional seat arrangements for up to eight persons; the pilot's seat is on the RH side.",
+      "references": ["FLM EC135 T3H Sect. 7.1.1 (Helionix Step 3.5)"],
+      "tags": ["systems", "general-description"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-sd-002",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "What engine control system enhances the reliability of the H135 T3's two Turbomeca ARRIUS 2B2 engines, per Sect. 7.1.1?",
+      "options": [
+        "Digital engine control (FADEC) system",
+        "Manual mixture control only",
+        "Analog fuel governor without digital control",
+        "A single shared engine control unit for both engines"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 7.1.1 states the EC135/H135 T3H is powered by two Turbomeca ARRIUS 2B2 engines with digital engine control (FADEC) system, with reliability further enhanced by a fully-separated fuel system, dual hydraulic system, dual electrical system, and redundant main transmission lubrication.",
+      "references": ["FLM EC135 T3H Sect. 7.1.1 (Helionix Step 3.5)"],
+      "tags": ["systems", "general-description", "engine"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-sd-003",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "What type of main rotor is the H135 T3 equipped with, per Sect. 7.1.1?",
+      "options": [
+        "A four-bladed bearingless main rotor (BMR), with blade pitch controlled through integrated glass/carbon fibre control cuffs",
+        "A two-bladed teetering rotor system",
+        "A five-bladed fully articulated rotor system",
+        "A three-bladed semi-rigid rotor system"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 7.1.1 states the helicopter is equipped with a four-bladed bearingless main rotor (BMR); the inboard flexbeam enables blade movement in all axes, with blade pitch angles controlled through integrated glass/carbon fibre control cuffs.",
+      "references": ["FLM EC135 T3H Sect. 7.1.1 (Helionix Step 3.5)"],
+      "tags": ["systems", "general-description", "main-rotor"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-sd-004",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "What type of antitorque system does the H135 T3 use, and how many tail rotor blades does it have, per Sect. 7.1.1?",
+      "options": [
+        "A \"Fenestron-type\" antitorque system with a 10-bladed tail rotor",
+        "A conventional exposed two-bladed tail rotor",
+        "A NOTAR (no tail rotor) system",
+        "A Fenestron system with 4 blades"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 7.1.1 states the helicopter is equipped with a \"Fenestron-type\" antitorque system, having a tail rotor with 10 blades, controlled via a \"Flexball\" type cable routed from the pedals to the Fenestron's input control lever.",
+      "references": ["FLM EC135 T3H Sect. 7.1.1 (Helionix Step 3.5)"],
+      "tags": ["systems", "general-description", "antitorque"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-sd-005",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "What redundancy design does the main rotor hydraulic control system have, per Sect. 7.1.1?",
+      "options": [
+        "A duplex system with tandem piston (both systems active); if one system fails, the remaining system has sufficient power for safe flight and landing",
+        "A single hydraulic system with a mechanical backup only",
+        "No hydraulic assistance is used for main rotor controls",
+        "Triple-redundant hydraulic systems, all three active simultaneously"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 7.1.1 states the hydraulic system for the main rotor controls is designed as a duplex system with tandem piston, with both systems active; in case of a failure of one system, the remaining system has sufficient power to ensure safe flight operation and a safe landing.",
+      "references": ["FLM EC135 T3H Sect. 7.1.1 (Helionix Step 3.5)"],
+      "tags": ["systems", "general-description", "hydraulics"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-sd-006",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "How many doors provide access to the cabin, and what types, per Sect. 7.1.1?",
+      "options": [
+        "Six doors: two hinged doors for front occupants, two sliding doors for rear passengers, two aft clamshell doors for the rear compartment",
+        "Four doors: two hinged front doors and two sliding rear doors only",
+        "Two doors total, one hinged and one sliding",
+        "Eight doors including two emergency exits"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 7.1.1 states the cabin is accessible through six doors: two hinged doors for the front occupants, two sliding doors for the rear passengers, and two aft clamshell doors for the rear compartment.",
+      "references": ["FLM EC135 T3H Sect. 7.1.1 (Helionix Step 3.5)"],
+      "tags": ["systems", "general-description", "fuselage"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-sd-007",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "How long can the two supply fuel tanks sustain flight in OEI condition, per Sect. 7.1.1?",
+      "options": [
+        "Approximately 20 minutes, depending on level speed, pressure altitude, OAT, gross mass, torque, and installed optional equipment",
+        "Approximately 5 minutes fixed, regardless of conditions",
+        "Approximately 60 minutes fixed, regardless of conditions",
+        "The supply tanks provide no separate OEI endurance"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 7.1.1 states the supply tanks provide sufficient separated fuel quantity for approximately 20 minutes of flight in OEI condition, depending on level speed, pressure altitude, OAT, gross mass, torque, and installed optional equipment.",
+      "references": ["FLM EC135 T3H Sect. 7.1.1 (Helionix Step 3.5)"],
+      "tags": ["systems", "general-description", "fuel"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-sd-008",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "What voltage does the electrical system supply when operated by the generators, versus when operated by the main battery, per Sect. 7.9.1?",
+      "options": [
+        "About 28V DC via generators; about 24V DC via battery",
+        "About 24V DC via generators; about 28V DC via battery",
+        "115V AC via generators; 24V DC via battery",
+        "12V DC in both cases"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 7.9.1 states that when operated by the generators, the electrical system supplies about 28V DC to the airborne electrical system, and about 24V DC when operated by the battery; the standby battery supplies about 24V DC to emergency equipment.",
+      "references": ["FLM EC135 T3H Sect. 7.9.1 (Helionix Step 3.5)"],
+      "tags": ["systems", "electrical"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-sd-009",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "Which busbar connects consumers of secondary importance that are shed in case of a double generator failure, per Sect. 7.9.1?",
+      "options": [
+        "SHED BUS 1 and 2",
+        "ESS BUS 1 and 2",
+        "HIGH LOAD BUS 1 and 2",
+        "EMER BUS"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 7.9.1 describes the SHED BUSes 1 and 2 as connecting consumers of secondary importance that are shed in case of a double generator failure, each supplied by its PRIMARY BUS.",
+      "references": ["FLM EC135 T3H Sect. 7.9.1 (Helionix Step 3.5)"],
+      "tags": ["systems", "electrical", "bus-architecture"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-sd-010",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "Which busbar supplies the standby air data and attitude indicator (IESI) and the emergency exit lights, per Sect. 7.9.1?",
+      "options": [
+        "EMER BUS, supplied by ESS BUS 2 with an alternate supply from the standby battery",
+        "HIGH LOAD BUS 1, supplied only when both generators are running",
+        "PRIMARY BUS 1 only, with no alternate supply",
+        "BATTERY BUS directly, with no other bus involvement"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 7.9.1 states the EMER BUS connects the standby air data and attitude indicator (IESI) and the emergency exit lights, supplied by ESS BUS 2 with an alternate power supply from the standby battery.",
+      "references": ["FLM EC135 T3H Sect. 7.9.1 (Helionix Step 3.5)"],
+      "tags": ["systems", "electrical", "bus-architecture"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-sd-011",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "Which busbars connect all non-essential high load consumers, supplied only when both generators are running or an EPU is connected, per Sect. 7.9.1?",
+      "options": [
+        "HIGH LOAD BUS 1 and 2",
+        "SHED BUS 1 and 2",
+        "EMER BUS",
+        "ESS BUS 1 and 2"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 7.9.1 describes HIGH LOAD BUS 1 and 2 as connecting all non-essential high load consumers, which are supplied only when both generators are in operation or an EPU is connected.",
+      "references": ["FLM EC135 T3H Sect. 7.9.1 (Helionix Step 3.5)"],
+      "tags": ["systems", "electrical", "bus-architecture"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-sd-012",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "How is a generator reset performed after it has been disconnected, per Sect. 7.9.2.1?",
+      "options": [
+        "The GEN switch is momentarily set to the spring-loaded RES position, released to return to OFF, then set to NORM to reconnect",
+        "The generator resets automatically without pilot action",
+        "The battery master switch must be cycled OFF and ON",
+        "The GEN switch is held in RES position continuously for 30 seconds"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 7.9.2.1 describes the generator reset procedure: momentarily set the GEN switch to the spring-loaded RES position, release it to return to OFF, then set the switch to NORM to reconnect the generator.",
+      "references": ["FLM EC135 T3H Sect. 7.9.2.1 (Helionix Step 3.5)"],
+      "tags": ["systems", "electrical", "generator-switch"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-sd-013",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "What does the BAT MSTR switch control, per Sect. 7.9.2.2?",
+      "options": [
+        "The battery system, the EPU system, and the essential contactors connecting the BAT BUS with ESS BUS 1 and ESS BUS 2",
+        "Only the standby battery, with no effect on the main battery or EPU",
+        "Only the generators, not the battery",
+        "The bleed air heating system exclusively"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 7.9.2.2 states the BAT MSTR switch controls the battery system, the EPU system, and the essential contactors connecting the BAT BUS with ESS BUS 1 and ESS BUS 2; when an EPU is connected, the BAT BUS is automatically disconnected from the PRIMARY BUSes.",
+      "references": ["FLM EC135 T3H Sect. 7.9.2.2 (Helionix Step 3.5)"],
+      "tags": ["systems", "electrical", "battery-master-switch"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-sd-014",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "Per Sect. 7.9.3, what color represents a disconnected or degraded generator (while its engine is running) on the electrical system display?",
+      "options": [
+        "Amber",
+        "Green",
+        "Red",
+        "Light gray"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 7.9.3 gives the generator state symbol color logic: green = connected, amber = disconnected or degraded while its engine is running, light gray = off in normal conditions.",
+      "references": ["FLM EC135 T3H Sect. 7.9.3 (Helionix Step 3.5)"],
+      "tags": ["systems", "electrical", "indications"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-sd-015",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "What color indicates battery overheat on the electrical system display, per Sect. 7.9.3?",
+      "options": [
+        "Red",
+        "Amber",
+        "Green",
+        "Light gray"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 7.9.3 gives the battery state symbol color logic: green = connected, amber = disconnected or degraded, red = battery overheat, light gray = off with power provided by EPU.",
+      "references": ["FLM EC135 T3H Sect. 7.9.3 (Helionix Step 3.5)"],
+      "tags": ["systems", "electrical", "indications"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-sd-016",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "On the electrical indication display, how is battery charging distinguished from battery discharging, per Sect. 7.9.3?",
+      "options": [
+        "Charging is shown as negative current, discharging as positive current",
+        "Charging is shown as positive current, discharging as negative current",
+        "Both are shown identically; only the color differs",
+        "Charging and discharging cannot be distinguished on this display"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 7.9.3 states that battery charging is indicated as negative current, and discharging as positive current, on the digital indication.",
+      "references": ["FLM EC135 T3H Sect. 7.9.3 (Helionix Step 3.5)"],
+      "tags": ["systems", "electrical", "indications"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-sd-017",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "Under what condition is the bleed air heating system automatically switched off, per Sect. 7.10.1?",
+      "options": [
+        "Automatically by the FADEC or warning unit in case of OEI (N1 < 50%)",
+        "Automatically whenever the landing gear is extended",
+        "It is never automatically switched off; only manual control is provided",
+        "Automatically above 10,000 ft pressure altitude regardless of engine status"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 7.10.1 states the bleed air heating system is automatically switched off by the FADEC or the warning unit in case of OEI (N1 < 50%); depending on the power margin of the normal engine, it may be re-engaged via the BLD HTG EMER switch.",
+      "references": ["FLM EC135 T3H Sect. 7.10.1 (Helionix Step 3.5)"],
+      "tags": ["systems", "heating-ventilation"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-sd-018",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "What triggers the HEATING OVERTEMP caution, per Sect. 7.10.1?",
+      "options": [
+        "A malfunction of the heating mixing valve causing an air temperature increase above a specific threshold, detected by overtemperature switches in the cabin air duct",
+        "Any activation of the bleed air heating system regardless of temperature",
+        "Only a failure of the cockpit fan motor",
+        "Exceeding the maximum operating altitude"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 7.10.1 states that if a malfunction of the heating mixing valve causes an air temperature increase above a specific threshold value, one of the overtemperature switches (located in the cabin air duct) will cause the heating mixing valve to close and trigger the HEATING OVERTEMP caution.",
+      "references": ["FLM EC135 T3H Sect. 7.10.1 (Helionix Step 3.5)"],
+      "tags": ["systems", "heating-ventilation"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-sd-019",
+      "section": "SYSTEMS DESCRIPTION",
+      "type": "single",
+      "question": "When both engines return to N1 > 50%, what happens to the bleed air heating system, per Sect. 7.10.1?",
+      "options": [
+        "It automatically returns to its normal function, switching on depending on the rheostat setting",
+        "It remains disabled until manually reset by maintenance",
+        "It must be manually re-armed via a circuit breaker before it will operate",
+        "It permanently stays in EMER mode until the next flight"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 7.10.1 states that when both engines are running (N1 > 50%), the bleed air heating will automatically return to its normal function, switching on depending on the rheostat setting.",
+      "references": ["FLM EC135 T3H Sect. 7.10.1 (Helionix Step 3.5)"],
+      "tags": ["systems", "heating-ventilation"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    }
+  ]
+}

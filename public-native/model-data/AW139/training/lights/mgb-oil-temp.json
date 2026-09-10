@@ -1,0 +1,12 @@
+[
+  {
+    "id": "mgb-oil-temp",
+    "name": "MGB OIL TEMP",
+    "severity": "warning",
+    "description": "",
+    "pageImage": "/training/lights/pages/aw139-mgb-oil-temp.svg",
+    "modelIds": [
+      "AW139"
+    ]
+  }
+]

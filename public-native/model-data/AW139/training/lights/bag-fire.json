@@ -1,0 +1,12 @@
+[
+  {
+    "id": "bag-fire",
+    "name": "BAG FIRE",
+    "severity": "warning",
+    "description": "",
+    "pageImage": "/training/lights/pages/aw139-bag-fire.svg",
+    "modelIds": [
+      "AW139"
+    ]
+  }
+]

@@ -1,0 +1,868 @@
+{
+  "items": [
+    {
+      "id": "h135t3-lim-001",
+      "section": "LIMITATIONS",
+      "type": "single",
+      "question": "What is the minimum flight crew and maximum number of occupants for the H135 T3, per Sect. 2.4?",
+      "options": [
+        "One pilot from the right seat; max 8 persons including flight crew",
+        "One pilot from either seat; max 6 persons including flight crew",
+        "Two pilots required; max 8 persons including flight crew",
+        "One pilot from the left seat; max 9 persons including flight crew"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 2.4 states the minimum flight crew consists of one pilot operating the helicopter from the right crew seat, and the maximum number of occupants comprises up to 8 persons including flight crew.",
+      "references": ["FLM EC135 T3H Sect. 2.4 (Helionix Step 3.5)"],
+      "tags": ["limitations", "crew"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-lim-002",
+      "section": "LIMITATIONS",
+      "type": "single",
+      "question": "Which of the following is explicitly listed as a prohibited flight maneuver in Sect. 2.5.1?",
+      "options": [
+        "Intentional full autorotation landings for training",
+        "Practice run-on landings",
+        "Steep approaches above 6°",
+        "Hover turns at maximum gross mass"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 2.5.1 prohibits aerobatic maneuvers, intentional full autorotation landings for training, and flight into known icing conditions.",
+      "references": ["FLM EC135 T3H Sect. 2.5.1 (Helionix Step 3.5)"],
+      "tags": ["limitations", "prohibited-maneuvers"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-lim-003",
+      "section": "LIMITATIONS",
+      "type": "single",
+      "question": "What is the maximum windspeed authorized for rotor starting and stopping, and what is the maximum rear wind component?",
+      "options": [
+        "Max 50 kt from all directions, max 25 kt rear wind component",
+        "Max 40 kt from all directions, max 20 kt rear wind component",
+        "Max 60 kt from all directions, max 30 kt rear wind component",
+        "Max 50 kt only from forward directions, no rear wind permitted"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 2.5.2 authorizes rotor starting and stopping for windspeed up to max. 50 kt from all horizontal directions with a maximum rear wind component of 25 kt.",
+      "references": ["FLM EC135 T3H Sect. 2.5.2 (Helionix Step 3.5)"],
+      "tags": ["limitations", "wind", "rotor-start-stop"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-lim-004",
+      "section": "LIMITATIONS",
+      "type": "single",
+      "question": "During slope operations (T/O and landing) greater than 3°, what must be done with the A.TRIM mode?",
+      "options": [
+        "It must be switched off",
+        "It must be switched on",
+        "It has no effect on slope operations",
+        "It must be set to backup SAS mode"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 2.5.4 requires that during slope operations greater than 3°, the A.TRIM mode must be switched off, and cautions not to exceed the allowable mast moment limits.",
+      "references": ["FLM EC135 T3H Sect. 2.5.4 (Helionix Step 3.5)"],
+      "tags": ["limitations", "slope-operations"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-lim-005",
+      "section": "LIMITATIONS",
+      "type": "single",
+      "question": "What are the maximum slope angles for ground sloping down to the left/right and nose up, per Sect. 2.5.4?",
+      "options": [
+        "14° left/right, 12° nose up",
+        "10° left/right, 10° nose up",
+        "20° left/right, 15° nose up",
+        "14° left/right, 8° nose up"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 2.5.4 gives max. 14° for ground sloping down to the left or right, max. 12° nose up, and max. 8° nose down (if tail clearance allows).",
+      "references": ["FLM EC135 T3H Sect. 2.5.4 (Helionix Step 3.5)"],
+      "tags": ["limitations", "slope-operations"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-lim-006",
+      "section": "LIMITATIONS",
+      "type": "single",
+      "question": "In case of mast moment indication failure, what is the maximum permitted slope angle?",
+      "options": [
+        "6°",
+        "3°",
+        "8°",
+        "12°"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 2.5.4 states that in case of mast moment indication failure, maximum slope is 6°, referring to the procedure in Sect. 3, Para. 3.3.6.4.",
+      "references": ["FLM EC135 T3H Sect. 2.5.4 (Helionix Step 3.5)"],
+      "tags": ["limitations", "slope-operations", "mast-moment"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-lim-007",
+      "section": "LIMITATIONS",
+      "type": "single",
+      "question": "What is the maximum hover turn rate at gross mass up to 2850 kg, versus above 2850 kg or with HIGH NR mode activated?",
+      "options": [
+        "Max 60°/s up to 2850 kg; max 30°/s above 2850 kg or HIGH NR active, aggressive pedal turns forbidden",
+        "Max 30°/s up to 2850 kg; max 60°/s above 2850 kg",
+        "Max 45°/s regardless of gross mass",
+        "Max 60°/s regardless of gross mass, no restriction above 2850 kg"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 2.5.5 gives max. 60°/s (6 s for a 360° turn) up to 2850 kg, and max. 30°/s (12 s for a 360° turn) above 2850 kg or with HIGH NR mode activated, where aggressive pedal turns are forbidden.",
+      "references": ["FLM EC135 T3H Sect. 2.5.5 (Helionix Step 3.5)"],
+      "tags": ["limitations", "hover-turns"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-lim-008",
+      "section": "LIMITATIONS",
+      "type": "single",
+      "question": "What must be selected during any flight with gross mass at or above 2850 kg?",
+      "options": [
+        "HIGH NR mode",
+        "DSAS mode",
+        "Backup SAS mode",
+        "TAC mode"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 2.5.6 requires that during any flight with GM ≥ 2850 kg, the HIGH NR mode must be selected.",
+      "references": ["FLM EC135 T3H Sect. 2.5.6 (Helionix Step 3.5)"],
+      "tags": ["limitations", "high-nr"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-lim-009",
+      "section": "LIMITATIONS",
+      "type": "single",
+      "question": "What is the correct definition of \"attentive hands-off\" per Sect. 2.6.1?",
+      "options": [
+        "The pilot shall remain attentive to the flight path, but may take hands and feet off the flight controls, and remain ready to take control if required",
+        "The pilot must actively control the aircraft with hands and feet on the controls at all times",
+        "The pilot shall guard the flight controls without interfering with the AFCS",
+        "The pilot may monitor the flight path without any readiness requirement"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 2.6.1 defines \"attentive hands-off\" as: the pilot shall remain attentive to the flight path, but may take hands and feet off the flight controls, and remain ready to take control if required.",
+      "references": ["FLM EC135 T3H Sect. 2.6.1 (Helionix Step 3.5)"],
+      "tags": ["limitations", "afcs", "definitions"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-lim-010",
+      "section": "LIMITATIONS",
+      "type": "single",
+      "question": "According to the level of attentiveness limitations (Sect. 2.6.2.1), how must the aircraft be flown below 10 ft AGL?",
+      "options": [
+        "Manually",
+        "Attentive hands-on or manually",
+        "Attentive hands-off",
+        "Hands-off is permitted if AP1 and AP2 are both engaged"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 2.6.2.1 states: above 500 ft AGL hands-off is permitted; below 500 ft attentive hands-off/on or manual; below 100 ft attentive hands-on or manual; below 10 ft AGL the aircraft shall be flown manually.",
+      "references": ["FLM EC135 T3H Sect. 2.6.2.1 (Helionix Step 3.5)"],
+      "tags": ["limitations", "afcs", "level-of-attentiveness"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-lim-011",
+      "section": "LIMITATIONS",
+      "type": "single",
+      "question": "Below what height AGL is activation of the GA (go-around) mode prohibited?",
+      "options": [
+        "4 ft AGL",
+        "10 ft AGL",
+        "50 ft AGL",
+        "100 ft AGL"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 2.6.2.2 prohibits activation of the GA mode below 4 ft AGL.",
+      "references": ["FLM EC135 T3H Sect. 2.6.2.2 (Helionix Step 3.5)"],
+      "tags": ["limitations", "afcs", "ga-mode"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-lim-012",
+      "section": "LIMITATIONS",
+      "type": "single",
+      "question": "What is the maximum forward airspeed for HOVER and SPEED HOLD mode, per Sect. 2.6.2.4?",
+      "options": [
+        "50 kt",
+        "30 kt",
+        "70 kt",
+        "100 kt"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 2.6.2.4 limits GTC, HOVER, or SPEED HOLD mode to the demonstrated wind conditions, with a max. forward airspeed of 50 kt for HOVER and SPEED HOLD mode, and requires visual flight only.",
+      "references": ["FLM EC135 T3H Sect. 2.6.2.4 (Helionix Step 3.5)"],
+      "tags": ["limitations", "afcs", "hover-mode"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-lim-013",
+      "section": "LIMITATIONS",
+      "type": "single",
+      "question": "What is the minimum airspeed in instrument flight conditions (Vmini) with 4-axis AFCS on (3 upper modes engaged), versus otherwise?",
+      "options": [
+        "30 KIAS with 4-axis AFCS on; 60 KIAS otherwise",
+        "40 KIAS with 4-axis AFCS on; 60 KIAS otherwise",
+        "30 KIAS with 4-axis AFCS on; 50 KIAS otherwise",
+        "60 KIAS with 4-axis AFCS on; 30 KIAS otherwise"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 2.6.3.1 gives Vmini as 30 KIAS with 4-axis AFCS on (3 upper modes engaged), and 60 KIAS otherwise.",
+      "references": ["FLM EC135 T3H Sect. 2.6.3.1 (Helionix Step 3.5)"],
+      "tags": ["limitations", "afcs", "vmini"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-lim-014",
+      "section": "LIMITATIONS",
+      "type": "single",
+      "question": "What is the maximum glideslope angle for an ILS approach versus an LPV/LNAV-VNAV approach, per Sect. 2.6.3.2?",
+      "options": [
+        "6.7° for ILS; 10.0° for LPV and LNAV/VNAV",
+        "10.0° for ILS; 6.7° for LPV and LNAV/VNAV",
+        "6.7° for both",
+        "3.0° for ILS; 6.7° for LPV and LNAV/VNAV"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 2.6.3.2 gives a maximum glideslope angle of 6.7° for ILS approach, and 10.0° for LPV and LNAV/VNAV approach.",
+      "references": ["FLM EC135 T3H Sect. 2.6.3.2 (Helionix Step 3.5)"],
+      "tags": ["limitations", "instrument-approach"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-lim-015",
+      "section": "LIMITATIONS",
+      "type": "single",
+      "question": "What is the maximum sustained rate of descent for an ILS/LOC/NDB/VOR/LPV/LNAV-VNAV approach, versus enroute?",
+      "options": [
+        "1000 ft/min for approach; 1500 ft/min enroute",
+        "1500 ft/min for approach; 1000 ft/min enroute",
+        "800 ft/min for approach; 1200 ft/min enroute",
+        "1000 ft/min for both"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 2.6.3.2 gives a maximum sustained rate of descent of 1000 ft/min for ILS, LOC, NDB, VOR, LPV or LNAV/VNAV approach, and 1500 ft/min enroute.",
+      "references": ["FLM EC135 T3H Sect. 2.6.3.2 (Helionix Step 3.5)"],
+      "tags": ["limitations", "instrument-approach", "descent-rate"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-lim-016",
+      "section": "LIMITATIONS",
+      "type": "single",
+      "question": "What is the maximum tailwind component permitted during steep approaches (>6°)?",
+      "options": [
+        "15 kt",
+        "10 kt",
+        "25 kt",
+        "5 kt"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 2.6.3.2 limits the maximum tailwind during steep approaches (>6°) to 15 kt.",
+      "references": ["FLM EC135 T3H Sect. 2.6.3.2 (Helionix Step 3.5)"],
+      "tags": ["limitations", "instrument-approach", "tailwind"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-lim-017",
+      "section": "LIMITATIONS",
+      "type": "single",
+      "question": "In backup SAS mode or AFCS OFF, what is the maximum bank angle permitted?",
+      "options": [
+        "45° in backup SAS mode; 30° with AFCS OFF",
+        "30° in backup SAS mode; 45° with AFCS OFF",
+        "60° in backup SAS mode; 30° with AFCS OFF",
+        "There is no bank angle restriction in either mode"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 2.6.4.2 gives a maximum bank angle of 45° in backup SAS mode, and 30° with AFCS OFF (AP1, AP2 and BKUP all OFF). Maximum airspeed in either mode is 120 KIAS or Vne, whichever is less, and the aircraft must be flown manually.",
+      "references": ["FLM EC135 T3H Sect. 2.6.4.2 (Helionix Step 3.5)"],
+      "tags": ["limitations", "afcs", "degraded-modes"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-lim-018",
+      "section": "LIMITATIONS",
+      "type": "single",
+      "question": "Per Sect. 2.6.4.1, use of the DSAS mode (A.TRIM switched OFF) is limited to which situations, outside of the emergencies in Sect. 3?",
+      "options": [
+        "Slope landings and training (with two pilots minimum for IMC training)",
+        "Any phase of flight without restriction",
+        "Only ground operations",
+        "Only VMC training with a single pilot"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 2.6.4.1 limits DSAS mode use (outside of emergencies or MEL/MMEL provisions) to slope landings i.a.w. Sect. 4.10 and training; training in instrument flight conditions requires a minimum crew of two pilots, and the aircraft shall be flown manually in DSAS mode.",
+      "references": ["FLM EC135 T3H Sect. 2.6.4.1 (Helionix Step 3.5)"],
+      "tags": ["limitations", "afcs", "dsas"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-lim-019",
+      "section": "LIMITATIONS",
+      "type": "single",
+      "question": "What restriction applies to sunglasses in the cockpit, per Sect. 2.7.1.6?",
+      "options": [
+        "Sun glasses with polarized lenses shall not be used, as they could jeopardize readability of the GTN display",
+        "Only mirrored sunglasses are prohibited",
+        "Sunglasses are prohibited entirely during IFR flight",
+        "There is no restriction on sunglasses"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 2.7.1.6 states sun glasses with polarized lenses shall not be used, because this could jeopardize the readability of the GTN display.",
+      "references": ["FLM EC135 T3H Sect. 2.7.1.6 (Helionix Step 3.5)"],
+      "tags": ["limitations", "avionics", "sunglasses"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-lim-020",
+      "section": "LIMITATIONS",
+      "type": "single",
+      "question": "What is the maximum approved gross mass, and the maximum approved ramp and taxi weight?",
+      "options": [
+        "Max gross mass 2980 kg; max ramp/taxi weight 3000 kg",
+        "Max gross mass 3000 kg; max ramp/taxi weight 2980 kg",
+        "Max gross mass 2850 kg; max ramp/taxi weight 2980 kg",
+        "Max gross mass 2980 kg for both ramp/taxi and flight"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 2.8.1 gives the maximum approved ramp and taxi weight as 3000 kg, and the maximum approved gross mass as 2980 kg.",
+      "references": ["FLM EC135 T3H Sect. 2.8.1 (Helionix Step 3.5)"],
+      "tags": ["limitations", "mass"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-lim-021",
+      "section": "LIMITATIONS",
+      "type": "single",
+      "question": "What is the minimum approved gross mass for flight?",
+      "options": [
+        "1700 kg",
+        "1600 kg",
+        "1850 kg",
+        "2000 kg"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 2.8.2 gives the minimum approved gross mass for flight as 1700 kg.",
+      "references": ["FLM EC135 T3H Sect. 2.8.2 (Helionix Step 3.5)"],
+      "tags": ["limitations", "mass"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-lim-022",
+      "section": "LIMITATIONS",
+      "type": "single",
+      "question": "What is the maximum allowable load per tie-down ring, and per safety harness fitting (optional)?",
+      "options": [
+        "100 kg per tie-down ring; 230 kg per safety harness fitting",
+        "230 kg per tie-down ring; 100 kg per safety harness fitting",
+        "150 kg per tie-down ring; 150 kg per safety harness fitting",
+        "50 kg per tie-down ring; 100 kg per safety harness fitting"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 2.8.4 gives a maximum allowable load of 100 kg per tie-down ring, and Sect. 2.8.5 gives 230 kg per safety harness fitting.",
+      "references": ["FLM EC135 T3H Sect. 2.8.4-2.8.5 (Helionix Step 3.5)"],
+      "tags": ["limitations", "loading"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-lim-023",
+      "section": "LIMITATIONS",
+      "type": "single",
+      "question": "If the VNE indication on the FND is not available, what airspeed shall be used for OEI operation under all conditions?",
+      "options": [
+        "110 kt, or as shown in the VNE tables, whichever is less",
+        "90 kt, or as shown in the VNE tables, whichever is less",
+        "150 kt fixed, as shown on the IESI",
+        "120 kt regardless of the VNE tables"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 2.10.1 states that if the VNE indication on the FND is unavailable, VNE for OEI operation under all conditions is 110 kt, or as shown in the VNE tables (Table 2-1 to 2-3), whichever is less. For steady autorotation it is 90 kt.",
+      "references": ["FLM EC135 T3H Sect. 2.10.1 (Helionix Step 3.5)"],
+      "tags": ["limitations", "airspeed", "vne"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-lim-024",
+      "section": "LIMITATIONS",
+      "type": "single",
+      "question": "What fixed VNE does the IESI (standby instrument) display, regardless of actual conditions?",
+      "options": [
+        "150 kt",
+        "110 kt",
+        "130 kt",
+        "170 kt"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 2.10.1 notes that the IESI instrument shows a fixed VNE of 150 kt; if the IESI has to be used as the reference instrument, the backup tables (Table 2-1 to 2-3) must be used to compute VNE.",
+      "references": ["FLM EC135 T3H Sect. 2.10.1 (Helionix Step 3.5)"],
+      "tags": ["limitations", "airspeed", "iesi"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-lim-025",
+      "section": "LIMITATIONS",
+      "type": "single",
+      "question": "What is the maximum operating altitude, and the maximum altitude for hover in ground effect, takeoff and landing?",
+      "options": [
+        "Max operating altitude 20,000 ft; max HIGE/T.O/landing altitude 16,000 ft DA or PA, whichever is less",
+        "Max operating altitude 16,000 ft; max HIGE/T.O/landing altitude 20,000 ft",
+        "Max operating altitude 20,000 ft; max HIGE/T.O/landing altitude 20,000 ft",
+        "Max operating altitude 14,000 ft; max HIGE/T.O/landing altitude 12,000 ft"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 2.11.1 gives the maximum operating altitude as 20,000 ft, and the maximum altitude for hover in ground effect, takeoff and landing as 16,000 ft DA or PA, whichever is less.",
+      "references": ["FLM EC135 T3H Sect. 2.11.1 (Helionix Step 3.5)"],
+      "tags": ["limitations", "altitude"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-lim-026",
+      "section": "LIMITATIONS",
+      "type": "single",
+      "question": "What is the maximum and minimum ambient air temperature, per Sect. 2.11.2?",
+      "options": [
+        "Max ISA+39°C (max +50°C absolute); min -35°C",
+        "Max ISA+35°C; min -40°C",
+        "Max +50°C; min -30°C",
+        "Max ISA+39°C; min -20°C"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 2.11.2 gives maximum air temperature as ISA+39°C (max. +50°C), and minimum air temperature as -35°C. If OAT ≥40°C, maximum ground operating time is limited to 30 minutes.",
+      "references": ["FLM EC135 T3H Sect. 2.11.2 (Helionix Step 3.5)"],
+      "tags": ["limitations", "temperature"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-lim-027",
+      "section": "LIMITATIONS",
+      "type": "single",
+      "question": "If OAT is 40°C or above, what is the maximum permitted operating time on the ground?",
+      "options": [
+        "30 minutes",
+        "15 minutes",
+        "60 minutes",
+        "There is no ground-time restriction"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 2.11.2 states that if OAT ≥40°C, the maximum operating time on ground is limited to 30 minutes.",
+      "references": ["FLM EC135 T3H Sect. 2.11.2 (Helionix Step 3.5)"],
+      "tags": ["limitations", "temperature", "ground-operations"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-lim-028",
+      "section": "LIMITATIONS",
+      "type": "single",
+      "question": "What is the minimum battery temperature if the aircraft battery is used for engine starting?",
+      "options": [
+        "-20°C (preheat required if colder)",
+        "-35°C",
+        "0°C",
+        "-10°C"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 2.11.4 states the minimum battery temperature (if battery is used for engine starting) is -20°C; for start-up at OAT below -20°C using the aircraft battery, the battery shall be preheated to at least -20°C.",
+      "references": ["FLM EC135 T3H Sect. 2.11.4 (Helionix Step 3.5)"],
+      "tags": ["limitations", "battery", "temperature"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-lim-029",
+      "section": "LIMITATIONS",
+      "type": "single",
+      "question": "Main rotor lead-lag resonance may occur in which rotor RPM range, and what action does the WARNING require?",
+      "options": [
+        "60-68% rotor RPM — maintain cyclic neutral and collective full down",
+        "80-90% rotor RPM — maintain cyclic neutral and collective full down",
+        "50-60% rotor RPM — apply full collective immediately",
+        "97-105% rotor RPM — no specific action required"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 2.12 WARNING states main rotor lead-lag resonance may occur in the 60-68% rotor RPM range; any stimulation of lead-lag oscillation in this range may severely damage the main rotor blades, so the cyclic stick must be kept neutral and the collective full down.",
+      "references": ["FLM EC135 T3H Sect. 2.12 (Helionix Step 3.5)"],
+      "tags": ["limitations", "rotor-speed", "resonance"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-lim-030",
+      "section": "LIMITATIONS",
+      "type": "single",
+      "question": "The takeoff power (TOP) rating on the FLI is limited to how long, per Sect. 2.13.1?",
+      "options": [
+        "Maximum 5 minutes",
+        "Maximum 2.5 minutes",
+        "Maximum 10 minutes",
+        "Maximum 30 seconds"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 2.13.1 states the amber rectangle on the FLI (takeoff power rating) use is limited to maximum 5 minutes, with a white countdown displayed 90 seconds before expiry and an audio tone 15 seconds before expiry.",
+      "references": ["FLM EC135 T3H Sect. 2.13.1 (Helionix Step 3.5)"],
+      "tags": ["limitations", "fli", "power"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-lim-031",
+      "section": "LIMITATIONS",
+      "type": "single",
+      "question": "What is the OEI 30 second power torque limit, and how must its use be recorded?",
+      "options": [
+        "128% (1 engine); use and duration must be recorded in the aircraft logbook",
+        "125% (1 engine); no logbook entry required",
+        "89.5% (1 engine); use must be reported to maintenance only if exceeded",
+        "78% (2 engines); no logging required"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 2.13.2 gives the OEI 30 sec power torque limit as 128% (single engine), and requires use and duration of the OEI 30 sec rating to be recorded in the aircraft logbook.",
+      "references": ["FLM EC135 T3H Sect. 2.13.2 (Helionix Step 3.5)"],
+      "tags": ["limitations", "torque", "oei"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-lim-032",
+      "section": "LIMITATIONS",
+      "type": "single",
+      "question": "What is the AEO max continuous torque limit, per Sect. 2.13.2?",
+      "options": [
+        "2 x 69%",
+        "2 x 78%",
+        "1 x 89.5%",
+        "2 x 82%"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 2.13.2 gives AEO max continuous torque as 2 x 69% (both engines), takeoff power (5 min) as 2 x 78% below Vy+5kt, and transient (unintended, max 10 sec) as 2 x 82% below Vy+5kt.",
+      "references": ["FLM EC135 T3H Sect. 2.13.2 (Helionix Step 3.5)"],
+      "tags": ["limitations", "torque", "aeo"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-lim-033",
+      "section": "LIMITATIONS",
+      "type": "single",
+      "question": "What is the OEI 30 second power TOT limit, per Sect. 2.13.3?",
+      "options": [
+        "1024°C",
+        "994°C",
+        "942°C",
+        "897°C"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 2.13.3 gives OEI TOT limits: max continuous 942°C, 2 min power 994°C, 30 sec power 1024°C.",
+      "references": ["FLM EC135 T3H Sect. 2.13.3 (Helionix Step 3.5)"],
+      "tags": ["limitations", "tot", "oei"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-lim-034",
+      "section": "LIMITATIONS",
+      "type": "single",
+      "question": "What is the starting transient TOT limit (max. 5 sec), per Sect. 2.13.3?",
+      "options": [
+        "910°C",
+        "819°C",
+        "879°C",
+        "680°C"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 2.13.3 gives continuous starting TOT limit as 819°C, and starting transient (max. 5 sec) as 910°C.",
+      "references": ["FLM EC135 T3H Sect. 2.13.3 (Helionix Step 3.5)"],
+      "tags": ["limitations", "tot", "starting"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-lim-035",
+      "section": "LIMITATIONS",
+      "type": "single",
+      "question": "What is the engine oil pressure range for continuous operation, and the maximum for engine starting (max. 2 min.)?",
+      "options": [
+        "1.3-5 bar continuous; 10-15 bar for starting (max 2 min)",
+        "5-10 bar continuous; 1.3-5 bar for starting",
+        "1.3-10 bar continuous; 15 bar fixed for starting",
+        "0.5-7.8 bar continuous; 10-15 bar for starting"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 2.14.1 gives continuous operation engine oil pressure as 1.3-5 bar, caution range 5-10 bar, maximum 10 bar, and for engine starting (max. 2 min.) 10-15 bar.",
+      "references": ["FLM EC135 T3H Sect. 2.14.1 (Helionix Step 3.5)"],
+      "tags": ["limitations", "engine-oil", "pressure"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-lim-036",
+      "section": "LIMITATIONS",
+      "type": "single",
+      "question": "What is the starter energize duty cycle if a 25 Ah, 26 Ah, or 27 Ah battery is installed?",
+      "options": [
+        "30 s ON, 60 s OFF — 30 s ON, 60 s OFF — 30 s ON, 30 min OFF",
+        "15 s ON, 30 s OFF — 15 s ON, 30 s OFF — 15 s ON, 30 min OFF",
+        "45 s ON, 15 s OFF, repeated indefinitely",
+        "60 s ON, 30 s OFF, no cooldown required"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 2.14.3 gives, for 25/26/27 Ah battery installations: 30 s ON, 60 s OFF, repeated, then 30 s ON followed by a 30 minute cooling period. The 15 s ON/30 s OFF cycle applies instead when a 40 Ah or 44 Ah battery is installed or a ground power unit is used.",
+      "references": ["FLM EC135 T3H Sect. 2.14.3 (Helionix Step 3.5)"],
+      "tags": ["limitations", "starter", "duty-cycle"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-lim-037",
+      "section": "LIMITATIONS",
+      "type": "single",
+      "question": "What is the maximum continuous generator load per generator below 15,000 ft PA, versus above?",
+      "options": [
+        "200 A below 15,000 ft; 180 A above 15,000 ft",
+        "180 A below 15,000 ft; 200 A above 15,000 ft",
+        "250 A below 15,000 ft; 200 A above 15,000 ft",
+        "200 A regardless of altitude"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 2.14.3.1 gives maximum continuous generator load as 200 A for PA below 15,000 ft, and 180 A for PA above 15,000 ft.",
+      "references": ["FLM EC135 T3H Sect. 2.14.3.1 (Helionix Step 3.5)"],
+      "tags": ["limitations", "generator"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-lim-038",
+      "section": "LIMITATIONS",
+      "type": "single",
+      "question": "What is the maximum current flow permitted when using a 28V DC ground power unit for starting?",
+      "options": [
+        "700 A",
+        "500 A",
+        "900 A",
+        "400 A"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 2.14.4 limits current flow to 700 A maximum when using 28V DC ground power units for starting, and cautions that the EPU must only be connected if the battery is connected.",
+      "references": ["FLM EC135 T3H Sect. 2.14.4 (Helionix Step 3.5)"],
+      "tags": ["limitations", "ground-power"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-lim-039",
+      "section": "LIMITATIONS",
+      "type": "single",
+      "question": "What is the main transmission oil temperature range for continuous operation, and the absolute maximum?",
+      "options": [
+        "0°C to 105°C continuous; maximum 120°C",
+        "-45°C to 0°C continuous; maximum 105°C",
+        "10°C to 110°C continuous; maximum 110°C",
+        "0°C to 120°C continuous; maximum 130°C"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 2.14.6 gives main transmission oil temperature: caution range -45°C to 0°C, continuous operation 0°C to 105°C, caution range 105°C to 120°C, maximum 120°C.",
+      "references": ["FLM EC135 T3H Sect. 2.14.6 (Helionix Step 3.5)"],
+      "tags": ["limitations", "transmission", "temperature"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-lim-040",
+      "section": "LIMITATIONS",
+      "type": "single",
+      "question": "On the mast moment indicator, what percentage range is amber, and at what percentage does red begin?",
+      "options": [
+        "Amber 50% to 66%; red above 66%",
+        "Amber 66% to 100%; red above 100%",
+        "Amber 40% to 50%; red above 50%",
+        "Amber 0% to 49.9%; red above 66%"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 2.14.7.1 gives the mast moment ranges: normal 0% to 49.9%, amber 50% to 66%, red above 66%, with white marking the end of scale at 100%. A voice message \"MAST MOMENT\" triggers when the red limit is exceeded.",
+      "references": ["FLM EC135 T3H Sect. 2.14.7.1 (Helionix Step 3.5)"],
+      "tags": ["limitations", "mast-moment"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-lim-041",
+      "section": "LIMITATIONS",
+      "type": "single",
+      "question": "What is the maximum fuel viscosity permitted, per Sect. 2.15.1?",
+      "options": [
+        "12 cSt",
+        "8 cSt",
+        "20 cSt",
+        "5 cSt"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 2.15.1 gives the maximum fuel viscosity as 12 cSt.",
+      "references": ["FLM EC135 T3H Sect. 2.15.1 (Helionix Step 3.5)"],
+      "tags": ["limitations", "fuel"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-lim-042",
+      "section": "LIMITATIONS",
+      "type": "single",
+      "question": "Which Chinese fuel additives are explicitly noted as NOT approved for use, per Sect. 2.15.5?",
+      "options": [
+        "T1502, T1601 and T1602",
+        "EGME and DiEGME",
+        "S-748 and S-1745",
+        "AL-31 and AL-41"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 2.15.5 explicitly notes that Chinese additives T1502, T1601 and T1602 are not approved for use, while EGME and DiEGME type anti-icing additives are the approved types.",
+      "references": ["FLM EC135 T3H Sect. 2.15.5 (Helionix Step 3.5)"],
+      "tags": ["limitations", "fuel-additives"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-lim-043",
+      "section": "LIMITATIONS",
+      "type": "single",
+      "question": "What is the required concentration by volume for anti-icing fuel additives, per Sect. 2.15.5.1?",
+      "options": [
+        "Max 0.15%, min 0.10%",
+        "Max 0.5%, min 0.2%",
+        "Max 1.0%, min 0.5%",
+        "Max 0.05%, min 0.01%"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 2.15.5.1 requires anti-icing additive concentration by volume of max 0.15%, min 0.10%.",
+      "references": ["FLM EC135 T3H Sect. 2.15.5.1 (Helionix Step 3.5)"],
+      "tags": ["limitations", "fuel-additives", "anti-icing"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-lim-044",
+      "section": "LIMITATIONS",
+      "type": "single",
+      "question": "What is the total usable fuel quantity for the H135 T3 (main + supply tanks combined)?",
+      "options": [
+        "700.55 litres / 560.40 kg",
+        "710.0 litres / 568.00 kg",
+        "588.85 litres / 471.10 kg",
+        "9.45 litres / 7.6 kg"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 2.15.6 gives total usable fuel (main + 2x supply tanks) as 700.55 litres / 560.40 kg, out of a total fuel capacity of 710.0 litres / 568.00 kg (unusable fuel: 9.45 litres / 7.6 kg).",
+      "references": ["FLM EC135 T3H Sect. 2.15.6 (Helionix Step 3.5)"],
+      "tags": ["limitations", "fuel-quantity"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-lim-045",
+      "section": "LIMITATIONS",
+      "type": "single",
+      "question": "What is the primary source for fuel quantity information, per the CAUTION in Sect. 2.15.6?",
+      "options": [
+        "The displayed digital value; the pictorial indication must be confirmed by the digital value",
+        "The pictorial (analog) indication only",
+        "Either indication may be used interchangeably",
+        "The fuel flow totalizer"
+      ],
+      "answer": [0],
+      "explanation": "The CAUTION in Sect. 2.15.6 states the primary source for fuel quantity information is the displayed digital value; the pictorial indication has to be confirmed by the digital value.",
+      "references": ["FLM EC135 T3H Sect. 2.15.6 (Helionix Step 3.5)"],
+      "tags": ["limitations", "fuel-quantity", "indication"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-lim-046",
+      "section": "LIMITATIONS",
+      "type": "single",
+      "question": "What is the main transmission oil quantity range, per Sect. 2.16.2?",
+      "options": [
+        "10.0 - 12.0 litres",
+        "4.85 litres",
+        "0.5 litres",
+        "1.0 - 1.2 litres"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 2.16.2 gives oil quantities: engines 4.85 litres each, main transmission 10.0-12.0 litres, fenestron gearbox 0.5 litres.",
+      "references": ["FLM EC135 T3H Sect. 2.16.2 (Helionix Step 3.5)"],
+      "tags": ["limitations", "oil-quantity"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-lim-047",
+      "section": "LIMITATIONS",
+      "type": "single",
+      "question": "What are the hydraulic system fluid quantities for hydraulic system 1 and system 2?",
+      "options": [
+        "System 1: 1.0 litres; System 2: 1.2 litres",
+        "System 1: 1.2 litres; System 2: 1.0 litres",
+        "System 1 and 2: 2.0 litres each",
+        "System 1: 0.5 litres; System 2: 0.5 litres"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 2.17.2 gives hydraulic system quantities: system 1 = 1.0 litres, system 2 = 1.2 litres, using MIL-PRF-5606 fluid.",
+      "references": ["FLM EC135 T3H Sect. 2.17.2 (Helionix Step 3.5)"],
+      "tags": ["limitations", "hydraulics"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    },
+    {
+      "id": "h135t3-lim-048",
+      "section": "LIMITATIONS",
+      "type": "single",
+      "question": "According to the mass and gross mass placard referenced in Sect. 2.18, what maximum permissible gross mass is shown?",
+      "options": [
+        "2980 kg",
+        "3000 kg",
+        "2850 kg",
+        "1700 kg"
+      ],
+      "answer": [0],
+      "explanation": "Sect. 2.18 describes the placard below the forward RH cabin door reading \"MAX. PERMISS. GROSS MASS 2980 kg\", matching the maximum approved gross mass given in Sect. 2.8.1.",
+      "references": ["FLM EC135 T3H Sect. 2.18 (Helionix Step 3.5)"],
+      "tags": ["limitations", "placards"],
+      "source": "H135 T3 Flight Manual",
+      "modelIds": ["H135_T3"]
+    }
+  ]
+}

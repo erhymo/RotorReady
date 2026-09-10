@@ -1,0 +1,580 @@
+{
+  "items": [
+    {
+      "id": "r44ii-st-001",
+      "section": "SAFETY TIPS",
+      "type": "single",
+      "question": "What does Safety Tip #1 say about descending or terminating a pull-up in the R44 II?",
+      "options": [
+        "Never push the cyclic forward to descend; always use the collective to initiate a descent",
+        "Push the cyclic forward gently, as in an airplane",
+        "Use only the pedals to control descent rate",
+        "Reduce throttle sharply to initiate a descent"
+      ],
+      "answer": [0],
+      "explanation": "Safety Tip #1 warns never to push the cyclic forward to descend or terminate a pull-up, as this may produce a low-G condition that can result in a main rotor blade striking the cabin; always use the collective to initiate a descent.",
+      "references": ["R44 II POH Sec 10: SAFETY TIPS #1 (p.10-1)"],
+      "tags": ["safety-tips", "low-g"],
+      "source": "R44 II POH",
+      "modelIds": ["R44_II"]
+    },
+    {
+      "id": "r44ii-st-002",
+      "section": "SAFETY TIPS",
+      "type": "single",
+      "question": "According to Safety Tip #2, what should a pilot never intentionally allow in flight?",
+      "options": [
+        "The oil temperature to enter the green arc",
+        "The fuel quantity to become so low that the low fuel warning light comes on",
+        "The carburetor heat to be applied above 3000 ft",
+        "The rotor RPM to remain in the green arc"
+      ],
+      "answer": [1],
+      "explanation": "Safety Tip #2 states a pilot should never intentionally allow the fuel quantity to become so low in flight that the low fuel warning light comes on.",
+      "references": ["R44 II POH Sec 10: SAFETY TIPS #2 (p.10-1)"],
+      "tags": ["safety-tips", "fuel"],
+      "source": "R44 II POH",
+      "modelIds": ["R44_II"]
+    },
+    {
+      "id": "r44ii-st-003",
+      "section": "SAFETY TIPS",
+      "type": "single",
+      "question": "Why does Safety Tip #4 recommend turning the strobe light on before starting the engine and leaving it on until the rotors stop?",
+      "options": [
+        "It improves engine cooling",
+        "It provides a warning to ground personnel, since the light is located near the tail rotor",
+        "It is required for night VFR only",
+        "It reduces electrical load on the battery"
+      ],
+      "answer": [1],
+      "explanation": "Safety Tip #4 explains the strobe light is located near the tail rotor and provides a warning to ground personnel while the rotors are turning; in-flight use of external lights during daylight is also recommended for collision avoidance.",
+      "references": ["R44 II POH Sec 10: SAFETY TIPS #4 (p.10-1)"],
+      "tags": ["safety-tips", "strobe-light"],
+      "source": "R44 II POH",
+      "modelIds": ["R44_II"]
+    },
+    {
+      "id": "r44ii-st-004",
+      "section": "SAFETY TIPS",
+      "type": "single",
+      "question": "What does Safety Tip #9 warn can become dangerously low, and what is the consequence?",
+      "options": [
+        "Fuel pressure — engine flameout",
+        "Rotor RPM — most hard landings are survivable if the rotor is not allowed to stall",
+        "Oil pressure — gearbox seizure",
+        "Manifold pressure — loss of climb performance"
+      ],
+      "answer": [1],
+      "explanation": "Safety Tip #9 states rotor RPM must never be allowed to become dangerously low; most hard landings will be survivable as long as the rotor is not allowed to stall.",
+      "references": ["R44 II POH Sec 10: SAFETY TIPS #9 (p.10-2)"],
+      "tags": ["safety-tips", "rotor-rpm"],
+      "source": "R44 II POH",
+      "modelIds": ["R44_II"]
+    },
+    {
+      "id": "r44ii-st-005",
+      "section": "SAFETY TIPS",
+      "type": "single",
+      "question": "Why does Safety Tip #10 warn against downwind takeoffs or landings, especially at high altitude?",
+      "options": [
+        "Downwind operations increase engine wear",
+        "The resulting loss of translational lift can cause the aircraft to settle into the ground or obstacles",
+        "Downwind operations exceed the crosswind limitation",
+        "It causes excessive tail rotor vibration"
+      ],
+      "answer": [1],
+      "explanation": "Safety Tip #10 warns that takeoffs or landings downwind, especially at high altitude, can cause a loss of translational lift resulting in the aircraft settling into the ground or obstacles.",
+      "references": ["R44 II POH Sec 10: SAFETY TIPS #10 (p.10-2)"],
+      "tags": ["safety-tips", "downwind"],
+      "source": "R44 II POH",
+      "modelIds": ["R44_II"]
+    },
+    {
+      "id": "r44ii-st-006",
+      "section": "SAFETY TIPS",
+      "type": "single",
+      "question": "How can vortex ring state (VRS) best be avoided, per Safety Tip #11?",
+      "options": [
+        "Reduce rate of descent before reducing airspeed",
+        "Reduce airspeed before reducing rate of descent",
+        "Increase collective immediately upon suspecting VRS",
+        "Maintain a steep, vertical descent profile at all times"
+      ],
+      "answer": [0],
+      "explanation": "Safety Tip #11 states vortex ring state can be avoided by always reducing rate of descent before reducing airspeed, since even maximum engine power may not stop the descent once VRS develops.",
+      "references": ["R44 II POH Sec 10: SAFETY TIPS #11 (p.10-2)"],
+      "tags": ["safety-tips", "vortex-ring-state"],
+      "source": "R44 II POH",
+      "modelIds": ["R44_II"]
+    },
+    {
+      "id": "r44ii-st-007",
+      "section": "SAFETY TIPS",
+      "type": "single",
+      "question": "According to Safety Tip #12, when is the helicopter stable on its landing gear?",
+      "options": [
+        "Only when parked with the rotor brake engaged",
+        "As long as ground contact is made vertically or with the aircraft moving forward",
+        "Only at gross weights below 2000 lb",
+        "In any direction of ground contact"
+      ],
+      "answer": [1],
+      "explanation": "Safety Tip #12 states the helicopter is stable on its landing gear as long as ground contact is vertical or with the aircraft moving forward; contact while moving rearward or sideward can cause damage or rollover.",
+      "references": ["R44 II POH Sec 10: SAFETY TIPS #12 (p.10-2)"],
+      "tags": ["safety-tips", "landing"],
+      "source": "R44 II POH",
+      "modelIds": ["R44_II"]
+    },
+    {
+      "id": "r44ii-st-008",
+      "section": "SAFETY TIPS",
+      "type": "single",
+      "question": "What does Safety Tip #14 warn against using to slow the rotor during shutdown?",
+      "options": [
+        "The rotor brake",
+        "Collective pitch, which can disengage the droop stop friction and allow blades to strike the tailcone",
+        "Cyclic control inputs",
+        "The governor override switch"
+      ],
+      "answer": [1],
+      "explanation": "Safety Tip #14 warns not to use collective pitch to slow the rotor during shutdown, since it produces lift on the blades that can disengage droop stop friction and allow blades to strike the tailcone.",
+      "references": ["R44 II POH Sec 10: SAFETY TIPS #14 (p.10-3)"],
+      "tags": ["safety-tips", "shutdown"],
+      "source": "R44 II POH",
+      "modelIds": ["R44_II"]
+    },
+    {
+      "id": "r44ii-st-009",
+      "section": "SAFETY TIPS",
+      "type": "single",
+      "question": "Why does Safety Tip #15 warn against landing in tall dry grass?",
+      "options": [
+        "It reduces main rotor efficiency near the ground",
+        "The exhaust is low to the ground and very hot; a grass fire may be ignited",
+        "It increases the risk of dynamic rollover",
+        "It causes carburetor ice"
+      ],
+      "answer": [1],
+      "explanation": "Safety Tip #15 warns that the exhaust is low to the ground and very hot, and a grass fire may be ignited if the helicopter lands in tall dry grass.",
+      "references": ["R44 II POH Sec 10: SAFETY TIPS #15 (p.10-3)"],
+      "tags": ["safety-tips", "landing", "fire"],
+      "source": "R44 II POH",
+      "modelIds": ["R44_II"]
+    },
+    {
+      "id": "r44ii-st-010",
+      "section": "SAFETY TIPS",
+      "type": "single",
+      "question": "What does Safety Tip #17, on hydraulic-controlled aircraft, caution about abrupt control inputs?",
+      "options": [
+        "They are not a concern because hydraulic boost absorbs the load",
+        "No feedback is felt in the flight controls, so the pilot may be unaware of high fatigue loads generated by abrupt inputs",
+        "They only matter above 100 KIAS",
+        "They primarily affect fuel consumption"
+      ],
+      "answer": [1],
+      "explanation": "Safety Tip #17 warns that with hydraulic controls, no feedback is felt, so the pilot may be unaware of the high fatigue loads generated by abrupt control inputs or accelerated maneuvers, which could cause premature, catastrophic component failure.",
+      "references": ["R44 II POH Sec 10: SAFETY TIPS #17 (p.10-3)"],
+      "tags": ["safety-tips", "hydraulics", "fatigue"],
+      "source": "R44 II POH",
+      "modelIds": ["R44_II"]
+    },
+    {
+      "id": "r44ii-st-011",
+      "section": "SAFETY TIPS",
+      "type": "single",
+      "question": "What does Safety Tip #18 say about performing a magneto check in flight?",
+      "options": [
+        "It should be done at least once per flight to verify magneto health",
+        "Never attempt a magneto check in flight; if a malfunction is suspected, leave the key in BOTH and land as soon as practical",
+        "It is only recommended above 3000 ft",
+        "It should be done immediately after any rough-running indication"
+      ],
+      "answer": [1],
+      "explanation": "Safety Tip #18 warns never to attempt a magneto check in flight, because grounding a malfunctioning magneto's opposite mag could stop the engine completely; if a malfunction is suspected, leave the key in BOTH and land as soon as practical.",
+      "references": ["R44 II POH Sec 10: SAFETY TIPS #18 (p.10-3)"],
+      "tags": ["safety-tips", "magneto"],
+      "source": "R44 II POH",
+      "modelIds": ["R44_II"]
+    },
+    {
+      "id": "r44ii-st-012",
+      "section": "SAFETY TIPS",
+      "type": "single",
+      "question": "What does Safety Tip #19 warn about operating near the forward CG limit?",
+      "options": [
+        "A fore-aft oscillation may develop during steep turns or autorotations as fuel burns and CG shifts forward",
+        "The helicopter becomes tail-heavy and prone to ground resonance",
+        "Autorotation entry becomes impossible",
+        "It only affects lateral, not longitudinal, handling"
+      ],
+      "answer": [0],
+      "explanation": "Safety Tip #19 warns that near the forward CG limit, a fore-aft oscillation may develop during steep turns or autorotations, since CG shifts forward as fuel is burned; returning to straight and level powered flight stops the oscillation.",
+      "references": ["R44 II POH Sec 10: SAFETY TIPS #19 (p.10-3)"],
+      "tags": ["safety-tips", "cg", "oscillation"],
+      "source": "R44 II POH",
+      "modelIds": ["R44_II"]
+    },
+    {
+      "id": "r44ii-st-013",
+      "section": "SAFETY TIPS",
+      "type": "single",
+      "question": "At higher altitudes (above 3000-4000 ft), how must RPM typically be controlled, per Safety Tip #13?",
+      "options": [
+        "With the collective, since the throttle is frequently wide open and throttle/collective correlation is not effective",
+        "With the throttle only, since the collective has no correlation effect",
+        "RPM control becomes fully automatic via the governor",
+        "By reducing airspeed below Vy"
+      ],
+      "answer": [0],
+      "explanation": "Safety Tip #13 explains that at higher altitudes the throttle is frequently wide open and RPM must be controlled with the collective, since throttle/collective correlation is not effective and governor response is fairly slow under these conditions.",
+      "references": ["R44 II POH Sec 10: SAFETY TIPS #13 (p.10-3)"],
+      "tags": ["safety-tips", "high-altitude", "rpm"],
+      "source": "R44 II POH",
+      "modelIds": ["R44_II"]
+    },
+    {
+      "id": "r44ii-st-014",
+      "section": "SAFETY TIPS",
+      "type": "single",
+      "question": "Under 14 CFR §61.56 and §61.57 recurrency requirements, what does the PILOT KNOWLEDGE AND PROFICIENCY section of Section 10 recommend?",
+      "options": [
+        "Periodic study and recurrent training beyond minimum regulatory requirements to maintain proficiency",
+        "Recurrent training is only necessary for commercial operators",
+        "Only limitations need periodic review, not procedures",
+        "Proficiency review is optional if total flight hours exceed 500"
+      ],
+      "answer": [0],
+      "explanation": "PILOT KNOWLEDGE AND PROFICIENCY states that in addition to complying with 14 CFR §61.56 and §61.57 recurrency requirements, all pilots should keep their knowledge current through periodic study and recurrent training, with emphasis on listed review topics.",
+      "references": ["R44 II POH Sec 10: PILOT KNOWLEDGE AND PROFICIENCY (p.10-4)"],
+      "tags": ["safety-tips", "proficiency"],
+      "source": "R44 II POH",
+      "modelIds": ["R44_II"]
+    },
+    {
+      "id": "r44ii-st-015",
+      "section": "SAFETY TIPS",
+      "type": "single",
+      "question": "According to PILOT KNOWLEDGE AND PROFICIENCY, low-G training should be conducted how?",
+      "options": [
+        "Practiced in flight under instructor supervision only",
+        "Knowledge based only — never practiced or demonstrated in flight",
+        "Practiced solo after 100 hours of experience",
+        "Only demonstrated in a full-motion simulator, never discussed"
+      ],
+      "answer": [1],
+      "explanation": "The recommended review topics note that low-G should never be practiced or demonstrated in flight; low-G training should be knowledge based only.",
+      "references": ["R44 II POH Sec 10: PILOT KNOWLEDGE AND PROFICIENCY (p.10-5)"],
+      "tags": ["safety-tips", "low-g", "training"],
+      "source": "R44 II POH",
+      "modelIds": ["R44_II"]
+    },
+    {
+      "id": "r44ii-st-016",
+      "section": "SAFETY TIPS",
+      "type": "single",
+      "question": "Per Safety Notice SN-9, what is the most effective way to stop a dynamic rollover once it has started?",
+      "options": [
+        "Applying full opposite cyclic",
+        "Quickly applying down collective",
+        "Increasing throttle to regain rotor authority",
+        "Applying opposite pedal"
+      ],
+      "answer": [1],
+      "explanation": "SN-9 explains that once a dynamic rollover starts, opposite cyclic alone cannot stop it because the thrust vector follows the aircraft as it rolls; quickly applying down collective is the most effective way to stop a dynamic rollover.",
+      "references": ["R44 II POH Sec 10: Safety Notice SN-9"],
+      "tags": ["safety-tips", "safety-notice", "dynamic-rollover"],
+      "source": "R44 II POH",
+      "modelIds": ["R44_II"]
+    },
+    {
+      "id": "r44ii-st-017",
+      "section": "SAFETY TIPS",
+      "type": "single",
+      "question": "Per Safety Notice SN-9, what liftoff technique helps avoid dynamic rollover?",
+      "options": [
+        "A rapid, single-motion liftoff to clear the ground quickly",
+        "A two-step liftoff: pull in just enough collective to be light on the skids and feel for equilibrium, then gently lift off",
+        "Applying full collective immediately from a hover check",
+        "Lifting off with cyclic displaced away from any nearby obstacle"
+      ],
+      "answer": [1],
+      "explanation": "SN-9 recommends always using a two-step liftoff: first pull in just enough collective to be light on the skids and feel for equilibrium, then gently lift the helicopter into the air, to avoid a skid catching on an obstacle and causing dynamic rollover.",
+      "references": ["R44 II POH Sec 10: Safety Notice SN-9"],
+      "tags": ["safety-tips", "safety-notice", "dynamic-rollover"],
+      "source": "R44 II POH",
+      "modelIds": ["R44_II"]
+    },
+    {
+      "id": "r44ii-st-018",
+      "section": "SAFETY TIPS",
+      "type": "single",
+      "question": "Per Safety Notice SN-10, what must a pilot do first when rotor RPM decays, regardless of the cause?",
+      "options": [
+        "Investigate the cause before taking any control action",
+        "Roll on throttle and lower the collective simultaneously to recover RPM, as a conditioned reflex",
+        "Raise the collective to arrest the rate of descent",
+        "Enter a steep bank to reduce airspeed"
+      ],
+      "answer": [1],
+      "explanation": "SN-10 states that no matter what causes low rotor RPM, the pilot must first roll on throttle and lower the collective simultaneously to recover RPM before investigating the problem — it must be a conditioned reflex.",
+      "references": ["R44 II POH Sec 10: Safety Notice SN-10"],
+      "tags": ["safety-tips", "safety-notice", "low-rpm"],
+      "source": "R44 II POH",
+      "modelIds": ["R44_II"]
+    },
+    {
+      "id": "r44ii-st-019",
+      "section": "SAFETY TIPS",
+      "type": "single",
+      "question": "Per Safety Notice SN-11, how should the rotor be reloaded to stop a roll during a low-G condition?",
+      "options": [
+        "Immediately apply a gentle aft cyclic movement, avoiding large cyclic inputs",
+        "Apply full lateral cyclic opposite the roll direction",
+        "Lower the collective sharply",
+        "Apply forward cyclic to regain airspeed first"
+      ],
+      "answer": [0],
+      "explanation": "SN-11 states the rotor must be reloaded before lateral cyclic can stop any roll; to reload the rotor, immediately apply a gentle aft cyclic movement, but avoid any large cyclic inputs. Low-G pushovers should never be intentionally demonstrated.",
+      "references": ["R44 II POH Sec 10: Safety Notice SN-11"],
+      "tags": ["safety-tips", "safety-notice", "low-g"],
+      "source": "R44 II POH",
+      "modelIds": ["R44_II"]
+    },
+    {
+      "id": "r44ii-st-020",
+      "section": "SAFETY TIPS",
+      "type": "single",
+      "question": "Per Safety Notice SN-15, when should a pilot always land to refuel, to avoid fuel exhaustion?",
+      "options": [
+        "Before the main tank fuel gage reads less than 1/4 full",
+        "Only once the low fuel warning light illuminates",
+        "Whenever the hourmeter shows more than 2 hours since last fill",
+        "There is no specific recommended threshold"
+      ],
+      "answer": [0],
+      "explanation": "SN-15 recommends always landing to refuel before the main tank fuel gage reads less than 1/4 full, and never allowing fuel quantity to become so low that the low fuel warning light comes on.",
+      "references": ["R44 II POH Sec 10: Safety Notice SN-15"],
+      "tags": ["safety-tips", "safety-notice", "fuel"],
+      "source": "R44 II POH",
+      "modelIds": ["R44_II"]
+    },
+    {
+      "id": "r44ii-st-021",
+      "section": "SAFETY TIPS",
+      "type": "single",
+      "question": "Per Safety Notice SN-16, what is the recommended technique for crossing power lines?",
+      "options": [
+        "Fly directly over the towers, since the wires themselves may be invisible until too close",
+        "Fly under the wires where they are easiest to see",
+        "Fly parallel to the line at a safe lateral distance",
+        "Descend low enough to identify the exact wire height first"
+      ],
+      "answer": [0],
+      "explanation": "SN-16 recommends flying directly over the towers when crossing power lines, watching for towers since the wires (especially smaller grounding wires) will often not be seen in time, and always maintaining at least 500 ft AGL except during takeoff and landing.",
+      "references": ["R44 II POH Sec 10: Safety Notice SN-16"],
+      "tags": ["safety-tips", "safety-notice", "wires"],
+      "source": "R44 II POH",
+      "modelIds": ["R44_II"]
+    },
+    {
+      "id": "r44ii-st-022",
+      "section": "SAFETY TIPS",
+      "type": "single",
+      "question": "Per Safety Notice SN-19, what minimum altitude does Robinson recommend to avoid the hazards of flying low over water?",
+      "options": [
+        "Maintain 500 ft AGL whenever possible, and avoid maneuvers over water below 200 ft AGL",
+        "Maintain 1000 ft AGL at all times over water",
+        "There is no altitude guidance for flight over water",
+        "Maintain 100 ft AGL to preserve depth perception"
+      ],
+      "answer": [0],
+      "explanation": "SN-19 recommends maintaining 500 ft AGL whenever possible and avoiding maneuvers over water below 200 ft AGL, since calm or choppy water surfaces interfere with normal depth perception.",
+      "references": ["R44 II POH Sec 10: Safety Notice SN-19"],
+      "tags": ["safety-tips", "safety-notice", "water"],
+      "source": "R44 II POH",
+      "modelIds": ["R44_II"]
+    },
+    {
+      "id": "r44ii-st-023",
+      "section": "SAFETY TIPS",
+      "type": "single",
+      "question": "Per Safety Notice SN-22, what rule of thumb helps avoid vortex ring state (VRS)?",
+      "options": [
+        "Never allow airspeed to be less than 30 knots until rate of descent is less than 300 feet per minute",
+        "Keep airspeed above 60 knots at all times during descent",
+        "Maintain a constant rate of descent regardless of airspeed",
+        "Increase collective as soon as vibration is felt"
+      ],
+      "answer": [0],
+      "explanation": "SN-22 gives the rule: never allow your airspeed to be less than 30 knots until your rate of descent is less than 300 feet per minute, to avoid vortex ring state.",
+      "references": ["R44 II POH Sec 10: Safety Notice SN-22"],
+      "tags": ["safety-tips", "safety-notice", "vortex-ring-state"],
+      "source": "R44 II POH",
+      "modelIds": ["R44_II"]
+    },
+    {
+      "id": "r44ii-st-024",
+      "section": "SAFETY TIPS",
+      "type": "single",
+      "question": "Per Safety Notice SN-28, what does it mean if the clutch light flickers or does not go out within 10 seconds?",
+      "options": [
+        "It is normal drive belt re-tensioning and can be ignored",
+        "It can indicate a belt or bearing failure, requiring the clutch circuit breaker to be pulled and power reduced",
+        "It only indicates a low battery charge",
+        "It means the governor has disengaged"
+      ],
+      "answer": [1],
+      "explanation": "SN-28 states that while a brief clutch light illumination (3-6 seconds) for belt re-tensioning is normal, a flickering light or one that does not go out within 10 seconds can indicate a belt or bearing failure; the pilot should pull the clutch circuit breaker, reduce power, and make a precautionary landing.",
+      "references": ["R44 II POH Sec 10: Safety Notice SN-28"],
+      "tags": ["safety-tips", "safety-notice", "clutch"],
+      "source": "R44 II POH",
+      "modelIds": ["R44_II"]
+    },
+    {
+      "id": "r44ii-st-025",
+      "section": "SAFETY TIPS",
+      "type": "single",
+      "question": "Per Safety Notice SN-32, what airspeed range is recommended when flying in moderate or greater turbulence?",
+      "options": [
+        "A slower-than-normal cruise speed of 60-70 knots",
+        "Maximum cruise speed to minimize time in turbulence",
+        "Vne minus 10 knots",
+        "Autorotation minimum speed of 40 knots"
+      ],
+      "answer": [0],
+      "explanation": "SN-32 recommends reducing power and using a slower-than-normal cruise speed of 60-70 knots in turbulence, since low-G mast bumping is significantly less likely at lower airspeeds.",
+      "references": ["R44 II POH Sec 10: Safety Notice SN-32"],
+      "tags": ["safety-tips", "safety-notice", "turbulence"],
+      "source": "R44 II POH",
+      "modelIds": ["R44_II"]
+    },
+    {
+      "id": "r44ii-st-026",
+      "section": "SAFETY TIPS",
+      "type": "single",
+      "question": "Per Safety Notice SN-33, what is the maximum allowable inboard deflection of the drive belts, checked with the clutch disengaged?",
+      "options": [
+        "0.5 inches (1.3 cm)",
+        "1.5 inches (4 cm)",
+        "3.0 inches (7.6 cm)",
+        "There is no specified maximum"
+      ],
+      "answer": [1],
+      "explanation": "SN-33 states that with the clutch disengaged, deflecting the belts inboard just above the fan scroll should show a maximum of 1.5 inches (4 cm) deflection; if belts deflect further, the belt tension actuator must be adjusted before flight.",
+      "references": ["R44 II POH Sec 10: Safety Notice SN-33"],
+      "tags": ["safety-tips", "safety-notice", "drive-belts"],
+      "source": "R44 II POH",
+      "modelIds": ["R44_II"]
+    },
+    {
+      "id": "r44ii-st-027",
+      "section": "SAFETY TIPS",
+      "type": "single",
+      "question": "Per Safety Notice SN-36, what should a pilot always confirm before increasing RPM above 80% during liftoff?",
+      "options": [
+        "That the carb heat is fully off",
+        "That the governor is on",
+        "That the fuel valve is on",
+        "That the mixture guard is removed"
+      ],
+      "answer": [1],
+      "explanation": "SN-36 recommends always confirming the governor is on before increasing RPM above 80%, verifying the governor stabilizes RPM near the top of the green arc, and maintaining a relaxed grip on the throttle to avoid overriding the governor and causing an overspeed.",
+      "references": ["R44 II POH Sec 10: Safety Notice SN-36"],
+      "tags": ["safety-tips", "safety-notice", "overspeed"],
+      "source": "R44 II POH",
+      "modelIds": ["R44_II"]
+    },
+    {
+      "id": "r44ii-st-028",
+      "section": "SAFETY TIPS",
+      "type": "single",
+      "question": "Per Safety Notice SN-38, what is the maximum recommended number of consecutive practice autorotations, to limit training accidents?",
+      "options": [
+        "No more than 3 or 4 consecutive autorotations",
+        "No more than 10 consecutive autorotations",
+        "There is no recommended limit as long as fuel allows",
+        "Only 1 per training flight"
+      ],
+      "answer": [0],
+      "explanation": "SN-38 recommends limiting practice to no more than 3 or 4 consecutive autorotations to maintain instructor focus and minimize student fatigue, since a high percentage of training accidents occur after many consecutive autorotations.",
+      "references": ["R44 II POH Sec 10: Safety Notice SN-38"],
+      "tags": ["safety-tips", "safety-notice", "autorotation", "training"],
+      "source": "R44 II POH",
+      "modelIds": ["R44_II"]
+    },
+    {
+      "id": "r44ii-st-029",
+      "section": "SAFETY TIPS",
+      "type": "single",
+      "question": "Per Safety Notice SN-38, what four parameters make up the instructor's \"100 Foot Decision Check\" before continuing a practice autorotation below 100 feet AGL?",
+      "options": [
+        "Rotor RPM ~100%, airspeed 60-70 KIAS stabilized, descent rate usually below 1500 ft/min, turns completed",
+        "Rotor RPM ~90%, airspeed 40-50 KIAS, descent rate below 500 ft/min, engine at idle",
+        "Airspeed only, checked at 200 feet AGL",
+        "Manifold pressure, carb heat setting, mixture position, and fuel flow"
+      ],
+      "answer": [0],
+      "explanation": "SN-38's 100 Foot Decision Check requires: rotor RPM approximately 100%, stabilized airspeed between 60 and 70 KIAS, stabilized rate of descent usually less than 1500 ft/min, and turns (if any) completed, before descending below 100 feet AGL (200 feet or higher above 4000 ft density altitude).",
+      "references": ["R44 II POH Sec 10: Safety Notice SN-38"],
+      "tags": ["safety-tips", "safety-notice", "autorotation", "training"],
+      "source": "R44 II POH",
+      "modelIds": ["R44_II"]
+    },
+    {
+      "id": "r44ii-st-030",
+      "section": "SAFETY TIPS",
+      "type": "single",
+      "question": "Per Safety Notice SN-42, what is the correct understanding of \"unanticipated yaw\" on Robinson helicopters?",
+      "options": [
+        "It is always caused by loss of tail rotor effectiveness (LTE), meaning the tail rotor stalled",
+        "It is usually caused by a pilot's failure to apply proper pedal inputs in gusty or crosswind conditions, not true LTE, since Robinson tail rotors have more authority and are unlikely to experience LTE",
+        "It only occurs above 40 KIAS",
+        "It cannot occur if the governor is functioning normally"
+      ],
+      "answer": [1],
+      "explanation": "SN-42 clarifies that unanticipated yaw is usually a pilot's failure to apply proper pedal inputs in response to strong or gusty winds, not true loss of tail rotor effectiveness — Robinson tail rotors are designed with more authority than many other helicopters and are unlikely to experience LTE.",
+      "references": ["R44 II POH Sec 10: Safety Notice SN-42"],
+      "tags": ["safety-tips", "safety-notice", "yaw"],
+      "source": "R44 II POH",
+      "modelIds": ["R44_II"]
+    },
+    {
+      "id": "r44ii-st-031",
+      "section": "SAFETY TIPS",
+      "type": "single",
+      "question": "Per Safety Notice SN-44, how many total helicopter hours (including hours in type) should a newly-rated pilot accumulate before carrying passengers?",
+      "options": [
+        "50 total hours, no in-type requirement",
+        "100 total hours helicopter experience, including 20 hours pilot-in-command in type",
+        "10 total hours in any helicopter",
+        "There is no recommended minimum"
+      ],
+      "answer": [1],
+      "explanation": "SN-44 recommends newly-rated helicopter pilots not carry passengers until accumulating 100 total hours of helicopter experience, including 20 hours pilot-in-command in type after receiving their helicopter rating.",
+      "references": ["R44 II POH Sec 10: Safety Notice SN-44"],
+      "tags": ["safety-tips", "safety-notice", "passengers"],
+      "source": "R44 II POH",
+      "modelIds": ["R44_II"]
+    },
+    {
+      "id": "r44ii-st-032",
+      "section": "SAFETY TIPS",
+      "type": "single",
+      "question": "Per Safety Notice SN-30, which cabin door configuration is specifically prohibited to prevent loose objects from being sucked out toward the tail rotor?",
+      "options": [
+        "Flying with the left door removed (only the right door should be removed for ventilation)",
+        "Flying with both front doors installed",
+        "Flying with the aft doors removed",
+        "There is no door configuration restriction"
+      ],
+      "answer": [0],
+      "explanation": "SN-30 states a pilot should never fly with a left door removed, and should remove only the right door for ventilation, as part of preventing loose objects from being sucked out and striking the tail rotor.",
+      "references": ["R44 II POH Sec 10: Safety Notice SN-30"],
+      "tags": ["safety-tips", "safety-notice", "doors"],
+      "source": "R44 II POH",
+      "modelIds": ["R44_II"]
+    }
+  ]
+}

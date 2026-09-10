@@ -1,0 +1,13 @@
+[
+  {
+    "id": "rotor-high",
+    "name": "ROTOR HIGH",
+    "severity": "warning",
+    "system": "ROTOR",
+    "description": "",
+    "pageImage": "/training/lights/pages/aw189-rotor-high.svg",
+    "modelIds": [
+      "AW189"
+    ]
+  }
+]

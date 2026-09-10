@@ -1,0 +1,384 @@
+{
+  "items": [
+    {
+      "id": "s92-ep-001",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "Following a single engine failure, what power level is automatically available to the operating engine without further pilot switch action?",
+      "options": [
+        "30 second power",
+        "2 minute power",
+        "Maximum continuous power",
+        "OEI continuous power"
+      ],
+      "answer": [0],
+      "explanation": "After a single engine failure, the operative engine automatically has 30 second power available. The pilot can then select 2 minute power by moving the collective OEI SEL switch aft, and maximum continuous power by first selecting 2 minute power and then pushing in on the OEI SEL switch.",
+      "references": ["S-92 RFM Part 1 Sec III: 1.4 SINGLE ENGINE FAILURE (p.3-5)"],
+      "tags": ["engine-failure", "oei-power"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-002",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "Which indication distinguishes an actual single engine failure from an ENGINE FIXED POWER (FADEC) malfunction?",
+      "options": [
+        "An actual engine failure shows a red X over the engine pod on EICAS together with an ENGINE FAILURE aural alert, which a FADEC fixed-power malfunction does not produce",
+        "Both conditions produce an identical red X and aural alert",
+        "A FADEC malfunction always shows Ng below 50%, identical to an engine failure",
+        "An actual engine failure never triggers an aural alert"
+      ],
+      "answer": [0],
+      "explanation": "An engine failure is always accompanied by a #1/#2 ENG OUT warning light, an ENGINE FAILURE aural alert, and a red X over the failed engine pod on EICAS. An engine with a FADEC-caused fixed power malfunction shows none of these and retains Ng above 50% airborne (above 63% on the ground).",
+      "references": ["S-92 RFM Part 1 Sec III: 1.4 SINGLE ENGINE FAILURE / 3.4 ENGINE FIXED POWER (p.3-5, p.3-14A)"],
+      "tags": ["engine-failure", "fadec", "recognition"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-003",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "How does the pilot select two-minute OEI power after a single engine failure?",
+      "options": [
+        "Move the collective OEI SEL switch aft",
+        "Push in on the OEI SEL switch",
+        "Push forward on the OEI SEL switch",
+        "Cycle the affected throttle from FLY to IDLE and back"
+      ],
+      "answer": [0],
+      "explanation": "Moving the collective OEI SEL switch aft selects 2 minute power. Pushing in on the switch (after 2 minute power is already selected) gives maximum continuous power, and pushing forward re-arms 30 second power.",
+      "references": ["S-92 RFM Part 1 Sec III: 1.4 SINGLE ENGINE FAILURE (p.3-5)"],
+      "tags": ["oei-power", "engine-failure"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-004",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "What is the immediate, critical pilot action upon a dual engine failure?",
+      "options": [
+        "Immediately reduce collective and enter autorotation",
+        "Attempt an air restart of both engines before touching the collective",
+        "Increase collective to cushion the aircraft",
+        "Apply the rotor brake"
+      ],
+      "answer": [0],
+      "explanation": "Nr will decay rapidly to an unrecoverable state with resultant loss of aircraft control unless autorotation is entered immediately after a dual engine failure; immediate collective reduction is required to maintain Nr within safe limits.",
+      "references": ["S-92 RFM Part 1 Sec III: 2.0 DUAL-ENGINE FAILURE (p.3-10B)"],
+      "tags": ["dual-engine-failure", "autorotation"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-005",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "A FADEC Channel A failure specifically causes loss of which indications on the affected engine?",
+      "options": [
+        "Engine oil temperature and TGT indications, with ENG POWER LIM illuminated",
+        "Engine oil pressure and TGT indications, with ENG POWER LIM illuminated",
+        "Complete loss of both engines",
+        "Loss of collective authority on both engines"
+      ],
+      "answer": [0],
+      "explanation": "A Channel A failure causes loss of the affected engine's oil temperature and TGT indications, and disables ENG OIL HOT, FUEL BYPASS and ENG OIL PRES cautions, with ENG POWER LIM illuminated. A Channel B failure instead causes loss of oil pressure and TGT indications.",
+      "references": ["S-92 RFM Part 1 Sec III: 3.2 FADEC CHANNEL FAILURE (p.3-13)"],
+      "tags": ["fadec", "channel-failure"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-006",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "What indicates an ENGINE FIXED POWER (\"fail fixed\") condition?",
+      "options": [
+        "A torque split, with the affected engine not responding to collective movements",
+        "A complete loss of torque on the affected engine",
+        "Ng above 108.5% on the affected engine",
+        "Illumination of the FIRE/ARMED pushbutton"
+      ],
+      "answer": [0],
+      "explanation": "ENG 1/2 FIXED PWR is indicated by a torque split where the affected engine does not respond to collective movements, because loss of both Np signals and the Nr signal to a FADEC freezes that engine's power at the setting it had when the sensors failed.",
+      "references": ["S-92 RFM Part 1 Sec III: 3.4 ENGINE FIXED POWER (p.3-14/3-14A)"],
+      "tags": ["fadec", "fixed-power"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-007",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "What Np or Ng values define an engine overspeed condition that causes the FADEC to shut off fuel to the affected engine?",
+      "options": [
+        "Np above 120% or Ng above 108.5%",
+        "Np above 106% or Ng above 100%",
+        "Np above 100% or Ng above 95%",
+        "Np above 141% or Ng above 120%"
+      ],
+      "answer": [0],
+      "explanation": "Np above 120% or Ng above 108.5% are overspeed conditions that cause the FADEC to shut off fuel to the affected engine; the FADEC automatically restarts the engine once Ng and Np return within limits.",
+      "references": ["S-92 RFM Part 1 Sec III: 3.8 ENGINE OVERSPEED (p.3-17)"],
+      "tags": ["engine-limits", "overspeed", "fadec"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-008",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "What action is required immediately after an ENG CHIP caution illuminates?",
+      "options": [
+        "No action is required until a safe single engine airspeed is attained; then reduce the affected engine to idle and land as soon as practical",
+        "Perform an immediate emergency engine shutdown",
+        "Continue the flight with no change to engine handling",
+        "Shut down the unaffected engine to preserve the affected one"
+      ],
+      "answer": [0],
+      "explanation": "An ENG CHIP caution indicates metal particles in the affected oil system; no action is required until a safe single engine airspeed is obtained, after which the affected throttle is reduced to idle and the flight is landed as soon as practical.",
+      "references": ["S-92 RFM Part 1 Sec III: 4.3 ENGINE CHIP INDICATION (p.3-22)"],
+      "tags": ["engine-chip", "oil-system"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-009",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "What main fuel quantity confirms a FUEL LOW caution?",
+      "options": [
+        "Less than 215 ± 45 pounds",
+        "Less than 500 pounds",
+        "Less than 100 pounds",
+        "Less than 1,000 pounds"
+      ],
+      "answer": [0],
+      "explanation": "A FUEL LOW caution is confirmed by main fuel quantity less than 215 ± 45 pounds, along with the fuel level turning yellow on the EICAS page.",
+      "references": ["S-92 RFM Part 1 Sec III: 5.1 FUEL LOW (p.3-25)"],
+      "tags": ["fuel", "low-fuel"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-010",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "During a crossfeed-position start of the second engine, why might PRIME PUMP FAIL illuminate without an actual pump failure?",
+      "options": [
+        "The already-running engine's mechanical fuel pump overpowers the prime pump, causing a low pressure reading at the prime pump sensor",
+        "The prime pump always fails during the second engine start",
+        "The crossfeed valve is mechanically stuck closed",
+        "The FADEC intentionally disables the prime pump during crossfeed starts"
+      ],
+      "answer": [0],
+      "explanation": "When starting the second engine with fuel valves in crossfeed, the operating engine's mechanical fuel pump can overpower the prime pump, causing a low pressure reading at the prime pump sensor — this is not an actual prime pump failure, which is instead confirmed if the caution remains illuminated after the starter cuts out.",
+      "references": ["S-92 RFM Part 1 Sec III: 5.2 PRIME PUMP FAIL (p.3-25/3-26)"],
+      "tags": ["fuel", "prime-pump"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-011",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "After an automatic APU shutdown (APU FAIL caution), what must the pilot NOT do?",
+      "options": [
+        "Attempt to restart the APU",
+        "Set AIR SRCE HEAT/START to ENG",
+        "Continue the flight",
+        "Monitor TGT on the pilot inboard EICAS display"
+      ],
+      "answer": [0],
+      "explanation": "After an automatic APU shutdown, the pilot must not attempt to restart the APU. The APU generator will not be available for emergency power or engine shutdown, so TGT should be monitored and external power connected if available.",
+      "references": ["S-92 RFM Part 1 Sec III: 6.1 APU FAILURE (p.3-27)"],
+      "tags": ["apu", "apu-failure"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-012",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "What does the APU OVERLOAD caution indicate, and what is the first action?",
+      "options": [
+        "APU generator load is in excess of normal limits; decrease APU electrical load by turning off nonessential systems",
+        "APU oil pressure is low; shut down the APU immediately",
+        "The APU EGT thermocouple has failed; land immediately",
+        "The APU generator has completely failed; switch to battery power only"
+      ],
+      "answer": [0],
+      "explanation": "APU OVERLOAD indicates the APU generator load exceeds normal limits. The first action is to decrease APU electrical load by turning off nonessential systems; if the caution remains, attain VMC and land as soon as practical.",
+      "references": ["S-92 RFM Part 1 Sec III: 6.5 APU OVERLOAD (p.3-29)"],
+      "tags": ["apu", "electrical"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-013",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "At what MGB oil pressure does the RFM require the pilot to Land Immediately?",
+      "options": [
+        "Below 5 psi",
+        "Below 35 psi",
+        "Below 45 psi",
+        "Below 24 psi"
+      ],
+      "answer": [0],
+      "explanation": "A total loss of MGB oil pressure below 5 psi may result in MGB failure in less than 10 minutes, requiring the pilot to Land Immediately. The MGB OIL PRES caution/warning thresholds (45 psi / 35 psi at the manifold) trigger the initial caution/warning but not the Land Immediately requirement by themselves.",
+      "references": ["S-92 RFM Part 1 Sec III: 7.1 MAIN GEARBOX OIL PRESSURE WARNING (p.3-31/3-32)"],
+      "tags": ["gearbox", "mgb", "oil-pressure"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-014",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "Within how many seconds must MGB OIL BYP be selected after the MGB OIL PRES warning illuminates?",
+      "options": [
+        "5 seconds",
+        "30 seconds",
+        "60 seconds",
+        "10 minutes"
+      ],
+      "answer": [0],
+      "explanation": "BYP must be selected within 5 seconds after the MGB OIL PRES warning illuminates, to ensure an adequate quantity of oil remains in the gearbox.",
+      "references": ["S-92 RFM Part 1 Sec III: 7.1 MAIN GEARBOX OIL PRESSURE WARNING (p.3-32)"],
+      "tags": ["gearbox", "mgb", "bypass"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-015",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "What is the result of a dual AC generator failure (AC GEN 1 FAIL and AC GEN 2 FAIL)?",
+      "options": [
+        "Loss of all electrical systems except those powered by the battery buses, including loss of copilot displays",
+        "No operational impact provided the APU generator is already running",
+        "Immediate loss of hydraulic boost pressure only",
+        "Automatic shutdown of both engines"
+      ],
+      "answer": [0],
+      "explanation": "A dual AC generator failure results in loss of all electrical systems except those powered by the battery buses, including loss of copilot displays, until the APU generator or the AC generators are recovered.",
+      "references": ["S-92 RFM Part 1 Sec III: 8.2 DUAL AC GENERATOR FAILURE (p.3-35)"],
+      "tags": ["electrical", "ac-generator"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-016",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "After a dual DC converter and backup converter failure with the converters not recovered, why must the landing gear be lowered before battery power is depleted?",
+      "options": [
+        "Normal and emergency extension of the landing gear is not possible without electrical power",
+        "The landing gear free-falls automatically once battery power is exhausted",
+        "Electrical power has no relationship to landing gear operation",
+        "The emergency blow-down system requires AC generator power specifically"
+      ],
+      "answer": [0],
+      "explanation": "Normal and emergency extension of the landing gear is not possible without electrical power, so when operating on battery power only, the landing gear should be lowered before battery power is depleted.",
+      "references": ["S-92 RFM Part 1 Sec III: 8.6 DUAL DC CONVERTER and BACKUP CONVERTER FAILURE (p.3-39)"],
+      "tags": ["electrical", "dc-converter", "landing-gear"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-017",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "With both primary hydraulic pumps failed (HYD 1 PUMP FAIL and HYD 2 PUMP FAIL), what maintains control of the aircraft?",
+      "options": [
+        "The #3 hydraulic system pressurizes the primary servos",
+        "The AFCS SAS system fully replaces hydraulic assistance",
+        "Manual reversion of the flight controls with no hydraulic assistance",
+        "The APU hydraulic pump automatically engages"
+      ],
+      "answer": [0],
+      "explanation": "With loss of both primary hydraulic systems, the #3 hydraulic system pressurizes the primary servos, allowing continued control of the aircraft while control inputs are restricted to moderate rates.",
+      "references": ["S-92 RFM Part 1 Sec III: 9.1 DUAL HYDRAULIC PUMP FAILURE (p.3-42)"],
+      "tags": ["hydraulics", "dual-failure"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-018",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "What is the maximum airspeed for activating the landing gear emergency blow down (EMER DN) system?",
+      "options": [
+        "90 KIAS",
+        "120 KIAS",
+        "60 KIAS",
+        "150 KIAS"
+      ],
+      "answer": [0],
+      "explanation": "Maximum airspeed for activation of the landing gear emergency blow down switch is 90 KIAS, consistent with the airspeed limit stated in the Operating Limitations section.",
+      "references": ["S-92 RFM Part 1 Sec III: 10.1 LANDING GEAR WILL NOT EXTEND (p.3-48/3-49)"],
+      "tags": ["landing-gear", "emergency-blowdown"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-019",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "What is the correct response to a loss of tail rotor thrust in forward flight (sharp, uncommanded right yaw unresponsive to pedal inputs)?",
+      "options": [
+        "Enter autorotation immediately and maintain 80 to 100 KIAS",
+        "Increase collective to arrest the yaw and maintain level flight",
+        "Reduce airspeed to a hover and land vertically without entering autorotation",
+        "Apply full left pedal and continue powered flight"
+      ],
+      "answer": [0],
+      "explanation": "Loss of tail rotor thrust in forward flight is a loss-of-drive failure that makes level flight impossible; the pilot must enter autorotation immediately and maintain 80 to 100 KIAS to touchdown.",
+      "references": ["S-92 RFM Part 1 Sec III: 11.1 LOSS OF TAIL ROTOR THRUST IN FORWARD FLIGHT (p.3-51)"],
+      "tags": ["tail-rotor", "autorotation"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-020",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "In flight, after confirming an engine fire, what is the correct order of the initial actions?",
+      "options": [
+        "Adjust collective to single engine power, stop the affected throttle, then push in FIRE/ARMED and deploy the fire extinguisher",
+        "Push in FIRE/ARMED immediately without first adjusting collective or the throttle",
+        "Land immediately without first securing the affected engine",
+        "Shut down both engines simultaneously"
+      ],
+      "answer": [0],
+      "explanation": "After confirming an in-flight engine fire, the pilot adjusts collective to single engine power, stops the affected throttle, pushes in the FIRE/ARMED pushbutton, and deploys MAIN/RESERVE fire extinguisher as required, before accomplishing the SINGLE ENGINE FAILURE procedure and landing.",
+      "references": ["S-92 RFM Part 1 Sec III: 13.1 ENGINE FIRES (p.3-60)"],
+      "tags": ["fire", "engine-fire"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+[
+  {
+    "id": "lims-p12-001",
+    "section": "LIMITATIONS",
+    "question": "If the Baggage Compartment Extension (P/N 6F2580F01111) is installed, is load allowed on the baggage cabin extension floor?",
+    "options": [
+      "Yes, up to 50 kg",
+      "Yes, up to 100 kg",
+      "No load is allowed",
+      "Only long objects"
+    ],
+    "answer": "No load is allowed",
+    "explanation": "If the baggage compartment extension is installed, no load is allowed on the baggage cabin extension floor.",
+    "references": "BAGGAGE COMPARTMENT LIMITATIONS",
+    "printedPage": 12,
+    "difficulty": "easy",
+    "tags": [
+      "baggage",
+      "extension",
+      "limitations"
+    ],
+    "source": "QRH p12"
+  },
+  {
+    "id": "lims-p12-002",
+    "section": "LIMITATIONS",
+    "question": "What is the maximum total weight of long objects protruding in the baggage extension area?",
+    "options": [
+      "25 kg (55 lbs)",
+      "50 kg (110 lbs)",
+      "75 kg (165 lbs)",
+      "100 kg (220 lbs)"
+    ],
+    "answer": "50 kg (110 lbs)",
+    "explanation": "The total weight of long objects protruding in the baggage extension area must not exceed 50 kg (110 lbs).",
+    "references": "BAGGAGE COMPARTMENT LIMITATIONS",
+    "printedPage": 12,
+    "difficulty": "easy",
+    "tags": [
+      "baggage",
+      "extension",
+      "weight",
+      "limitations"
+    ],
+    "source": "QRH p12"
+  },
+  {
+    "id": "lims-p12-003",
+    "section": "LIMITATIONS",
+    "question": "Where must long objects be secured when placed in the baggage extension area?",
+    "options": [
+      "To the ceiling panel",
+      "To the main baggage floor",
+      "To the sidewalls",
+      "To the seat rails"
+    ],
+    "answer": "To the main baggage floor",
+    "explanation": "Long objects must be secured to the main baggage floor.",
+    "references": "BAGGAGE COMPARTMENT LIMITATIONS",
+    "printedPage": 12,
+    "difficulty": "easy",
+    "tags": [
+      "baggage",
+      "extension",
+      "cargo securing",
+      "limitations"
+    ],
+    "source": "QRH p12"
+  },
+  {
+    "id": "lims-p12-004",
+    "section": "LIMITATIONS",
+    "question": "Is cargo transport in the cabin permitted?",
+    "options": [
+      "Yes, always",
+      "Yes, only for small cargo",
+      "Only if an approved cabin configuration for cargo transport is installed",
+      "No, prohibited"
+    ],
+    "answer": "Only if an approved cabin configuration for cargo transport is installed",
+    "explanation": "Cargo transport in the cabin is prohibited unless an approved cabin configuration is installed.",
+    "references": "CABIN COMPARTMENT LIMITATIONS",
+    "printedPage": 12,
+    "difficulty": "medium",
+    "tags": [
+      "cabin",
+      "cargo",
+      "limitations"
+    ],
+    "source": "QRH p12"
+  }
+]

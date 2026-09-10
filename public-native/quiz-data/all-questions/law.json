@@ -1,0 +1,291 @@
+[
+  {
+    "id": "LAW-001",
+    "question": "Under which conditions is an alternate airport not required in an IFR flight plan?",
+    "options": [
+      "VMC at the destination ±1h from ETA, or ceiling ≥400 ft above DA/MDA and vis ≥3000 m with 2 independent approaches, or isolated heliport with PNR calculated",
+      "VMC at cruise ±30 min, ceiling ≥200 ft above MDA, vis ≥1500 m with 1 approach, or isolated heliport with PNR and live WX updates",
+      "Two independent approaches, ceiling ≥600 ft above DA, vis ≥5000 m at ETA ±1h, or isolated heliport with PNR and live WX updates",
+      "Destination weather always ≥1000 ft ceiling and ≥5 km visibility, regardless of approaches"
+    ],
+    "answer": [0],
+    "explanation": "No alternate required if destination VMC ±1h ETA, or ceiling/visibility above minima with 2 independent approaches, or isolated heliport with PNR.",
+    "section": "law",
+    "modelIds": ["AW169"],
+    "manual": "LAW Training",
+    "references": ["EASA OPS"],
+    "difficulty": "medium",
+    "tags": []
+  },
+  {
+    "id": "LAW-002",
+    "question": "What are the planning minima for an alternate destination?",
+    "options": [
+      "MDA/MDH +600 ft and RVR +200 m ±2h ETA",
+      "MDA/MDH +200 ft and RVR +200 m ±1h ETA",
+      "MDA/MDH +200 ft and RVR +400 m ±1h ETA",
+      "MDA/MDH +500 ft and RVR +1000 m ±1h ETA"
+    ],
+    "answer": [1],
+    "explanation": "Planning minima for alternate: MDA/MDH +200 ft and RVR +200 m within ±1h ETA.",
+    "section": "law",
+    "modelIds": ["AW169"],
+    "manual": "LAW Training",
+    "references": ["EASA OPS"],
+    "difficulty": "medium",
+    "tags": []
+  },
+  {
+    "id": "LAW-003",
+    "question": "When do you need two alternate aerodromes?",
+    "options": [
+      "Destination weather below minima ±2h ETA or no weather info available",
+      "Destination weather below minima ±1h ETA or no weather info ±1h ETA",
+      "Destination weather below minima ±1h ETA or no weather info available",
+      "When only one usable approach exists at destination"
+    ],
+    "answer": [0],
+    "explanation": "Two alternates required if destination weather is below minima ±2h ETA or no weather info.",
+    "section": "law",
+    "modelIds": ["AW169"],
+    "manual": "LAW Training",
+    "references": ["EASA OPS"],
+    "difficulty": "medium",
+    "tags": []
+  },
+  {
+    "id": "LAW-004",
+    "question": "What are the minimum en-route levels over mountainous areas?",
+    "options": [
+      "2000 ft above highest obstacle within 8 NM",
+      "2000 ft above highest obstacle within 8 km",
+      "1000 ft above highest obstacle within 8 km",
+      "1500 ft above highest obstacle within 5 NM"
+    ],
+    "answer": [0],
+    "explanation": "Minimum enroute level over mountainous areas: 2000 ft above highest obstacle within 8 NM.",
+    "section": "law",
+    "modelIds": ["AW169"],
+    "manual": "LAW Training",
+    "references": ["EASA OPS"],
+    "difficulty": "easy",
+    "tags": []
+  },
+  {
+    "id": "LAW-005",
+    "question": "What are the requirements for a take-off alternate, and when is it needed?",
+    "options": [
+      "If departure aerodrome below approach minima, alternate within 1h, weather ≥ landing minima ±1h",
+      "If departure aerodrome below approach minima, alternate within 2h, weather ≥ landing minima ±2h",
+      "If departure aerodrome below approach minima, alternate within 1h, weather ≥ landing minima ±1h, and 2 independent approaches available",
+      "If departure aerodrome below take-off minima, alternate within 30 min, weather ≥ landing minima ±30 min"
+    ],
+    "answer": [0],
+    "explanation": "Take-off alternate required if departure aerodrome below landing minima, must be within 1h, weather ≥ landing minima ±1h.",
+    "section": "law",
+    "modelIds": ["AW169"],
+    "manual": "LAW Training",
+    "references": ["EASA OPS"],
+    "difficulty": "medium",
+    "tags": []
+  },
+  {
+    "id": "LAW-006",
+    "question": "What are the VFR minima offshore day/night?",
+    "options": [
+      "Day: ceiling 800 ft, vis 2000 m; Night: ceiling 1000 ft, vis 3000 m; NVIS: 5000 m",
+      "Day: ceiling 600 ft, vis 1500 m; Night: ceiling 1200 ft, vis 5000 m; NVIS: 3000 m",
+      "Day: ceiling 700 ft, vis 1500 m; Night: ceiling 1500 ft, vis 3000 m; NVIS: 3000 m",
+      "Day: ceiling 1000 ft, vis 5000 m; Night: ceiling 1500 ft, vis 5000 m; NVIS: 4000 m"
+    ],
+    "answer": [0],
+    "explanation": "Offshore VFR minima: Day 800/2000, Night 1000/3000, NVIS 5000 m.",
+    "section": "law",
+    "modelIds": ["AW169"],
+    "manual": "LAW Training",
+    "references": ["EASA OPS"],
+    "difficulty": "medium",
+    "tags": []
+  },
+  {
+    "id": "LAW-007",
+    "question": "On an ILS approach, passed 1000 ft AAL when RVR drops below minima:",
+    "options": [
+      "Continue approach",
+      "Go around",
+      "Continue to 500 ft AAL, then GA if still below minima",
+      "Hold at FAF and wait for improvement"
+    ],
+    "answer": [0],
+    "explanation": "If below minima after 1000 ft AAL, continue approach.",
+    "section": "law",
+    "modelIds": ["AW169"],
+    "manual": "LAW Training",
+    "references": ["EASA OPS"],
+    "difficulty": "easy",
+    "tags": []
+  },
+  {
+    "id": "LAW-008",
+    "question": "On an ILS approach, before passing 1000 ft AAL when RVR drops below minima:",
+    "options": [
+      "Go around",
+      "Start the approach",
+      "Start approach but not below 1000 ft AAL",
+      "Continue descent to DA regardless"
+    ],
+    "answer": [0],
+    "explanation": "If below minima before 1000 ft AAL, go around.",
+    "section": "law",
+    "modelIds": ["AW169"],
+    "manual": "LAW Training",
+    "references": ["EASA OPS"],
+    "difficulty": "easy",
+    "tags": []
+  },
+  {
+    "id": "LAW-009",
+    "question": "On an LPV approach, vertical guidance lost before FAF:",
+    "options": [
+      "Rebrief and convert to LNAV, continue",
+      "Go around",
+      "Go around and use ILS or other published non-GPS approach",
+      "Continue visually to MDA"
+    ],
+    "answer": [0],
+    "explanation": "If LPV guidance lost before FAF, rebrief and convert to LNAV.",
+    "section": "law",
+    "modelIds": ["AW169"],
+    "manual": "LAW Training",
+    "references": ["EASA OPS"],
+    "difficulty": "medium",
+    "tags": []
+  },
+  {
+    "id": "LAW-010",
+    "question": "What is minima for ARA (day)?",
+    "options": [
+      "200 ft or deck height +50 ft (whichever higher), vis 800 m",
+      "300 ft or deck height +75 ft, vis 600 m",
+      "200 ft or deck height +50 ft, vis 1000 m",
+      "400 ft or deck height +100 ft, vis 1500 m"
+    ],
+    "answer": [0],
+    "explanation": "ARA minima day: 200 ft or deck height +50 ft, whichever higher, vis 800 m.",
+    "section": "law",
+    "modelIds": ["AW169"],
+    "manual": "LAW Training",
+    "references": ["EASA OPS"],
+    "difficulty": "medium",
+    "tags": []
+  },
+  {
+    "id": "LAW-011",
+    "question": "What is minima for ARA (night)?",
+    "options": [
+      "500 ft or deck height +75 ft, vis 3000 m",
+      "300 ft or deck height +50 ft, vis 1200 m",
+      "600 ft or deck height +50 ft, vis 1200 m",
+      "400 ft or deck height +100 ft, vis 2000 m"
+    ],
+    "answer": [0],
+    "explanation": "ARA minima night: 500 ft or deck height +75 ft, vis 3000 m.",
+    "section": "law",
+    "modelIds": ["AW169"],
+    "manual": "LAW Training",
+    "references": ["EASA OPS"],
+    "difficulty": "medium",
+    "tags": []
+  },
+  {
+    "id": "LAW-012",
+    "question": "What is a cloud breaker procedure?",
+    "options": [
+      "En-route descent below MSA in IMC over water, to continue VFR in controlled airspace",
+      "En-route descent below MSA in IMC over water, to continue VFR in uncontrolled airspace",
+      "En-route ascent from below MSA in VMC over water, to continue VFR above cloud in controlled airspace",
+      "En-route climb to MSA in IMC, to join IFR route"
+    ],
+    "answer": [0],
+    "explanation": "Cloud breaker procedure: descent below MSA in IMC over water to continue VFR in controlled airspace.",
+    "section": "law",
+    "modelIds": ["AW169"],
+    "manual": "LAW Training",
+    "references": ["EASA OPS"],
+    "difficulty": "hard",
+    "tags": []
+  },
+  {
+    "id": "LAW-013",
+    "question": "What is correct regarding RNP?",
+    "options": [
+      "SID/STAR: 1 NM, Enroute: 5 NM, Approach: 0.3 NM",
+      "SID/STAR: 0.3 NM, Enroute: 1 NM, Approach: 5 NM",
+      "SID/STAR: 2 NM, Enroute: 3 NM, Approach: 0.3 NM",
+      "SID/STAR: 1 NM, Enroute: 2 NM, Approach: 0.5 NM"
+    ],
+    "answer": [0],
+    "explanation": "RNP requirements: SID/STAR 1 NM, Enroute 5 NM, Approach 0.3 NM.",
+    "section": "law",
+    "modelIds": ["AW169"],
+    "manual": "LAW Training",
+    "references": ["EASA OPS"],
+    "difficulty": "easy",
+    "tags": []
+  },
+  {
+    "id": "LAW-014",
+    "question": "What fuel requirements are there for an IFR flight?",
+    "options": [
+      "Taxi, Trip, Go Around, Alternate, Final Reserve, Commander’s Discretion",
+      "Taxi, Trip, Holding, Alternate, Final Reserve, Commander’s Discretion",
+      "Taxi, Trip, Contingency, Final Reserve, Commander’s Discretion",
+      "Taxi, Trip, Contingency, Alternate, Final Reserve, Commander’s Discretion"
+    ],
+    "answer": [2],
+    "explanation": "IFR fuel: Taxi, Trip, Contingency, Final Reserve, Commander’s Discretion.",
+    "section": "law",
+    "modelIds": ["AW169"],
+    "manual": "LAW Training",
+    "references": ["EASA OPS"],
+    "difficulty": "medium",
+    "tags": []
+  },
+  {
+    "id": "LAW-015",
+    "question": "What is the correct definition of performance class 1?",
+    "options": [
+      "If critical engine fails, helicopter may land within rejected take-off distance or continue flight depending on when failure occurs and weight",
+      "If critical engine fails, helicopter can continue flight safely, except early take-off or late landing phases where forced landing may be required",
+      "If critical engine fails, helicopter is able to land within rejected take-off distance or continue flight depending on weight",
+      "If critical engine fails, safe continuation is not assured in any phase"
+    ],
+    "answer": [1],
+    "explanation": "Performance Class 1: safe continuation after engine failure except early/late phases where landing may be required.",
+    "section": "law",
+    "modelIds": ["AW169"],
+    "manual": "LAW Training",
+    "references": ["EASA OPS"],
+    "difficulty": "hard",
+    "tags": []
+  },
+  {
+    "id": "LAW-016",
+    "question": "When must an IFR flight plan be submitted?",
+    "options": [
+      "IFR: ≥1h before EOBT, VFR: ≥30 min before EOBT",
+      "IFR: ≥1.5h before EOBT, VFR: ≥60 min before EOBT",
+      "IFR: ≥1h before EOBT, VFR: ≥15 min before EOBT",
+      "IFR: ≥45 min before EOBT, VFR: ≥20 min before EOBT"
+    ],
+    "answer": [0],
+    "explanation": "IFR FPL must be submitted ≥1h before EOBT, VFR ≥30 min.",
+    "section": "law",
+    "modelIds": ["AW169"],
+    "manual": "LAW Training",
+    "references": ["EASA OPS"],
+    "difficulty": "easy",
+    "tags": []
+  }
+]
+

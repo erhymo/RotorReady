@@ -1,0 +1,113 @@
+[
+  {
+    "id": "lims-p6-001",
+    "section": "LIMITATIONS",
+    "question": "What is the maximum gross weight for towing or taxi?",
+    "options": [
+      "4600 kg",
+      "4650 kg",
+      "4700 kg",
+      "4800 kg"
+    ],
+    "answer": "4650 kg",
+    "explanation": "Maximum gross weight for towing or taxi is 4650 kg.",
+    "references": "WEIGHT AND CENTER OF GRAVITY LIMITATIONS",
+    "printedPage": 6,
+    "difficulty": "easy",
+    "tags": [
+      "weight",
+      "limitations"
+    ],
+    "source": "QRH p6"
+  },
+  {
+    "id": "lims-p6-002",
+    "section": "LIMITATIONS",
+    "question": "What is the maximum gross weight for CAT B Take-Off/Landing?",
+    "options": [
+      "4600 kg",
+      "4650 kg",
+      "4700 kg",
+      "4800 kg"
+    ],
+    "answer": "4600 kg",
+    "explanation": "Maximum gross weight for CAT B Take-Off/Landing is 4600 kg.",
+    "references": "WEIGHT AND CENTER OF GRAVITY LIMITATIONS",
+    "printedPage": 6,
+    "difficulty": "easy",
+    "tags": [
+      "weight",
+      "cat b",
+      "limitations"
+    ],
+    "source": "QRH p6"
+  },
+  {
+    "id": "lims-p6-003",
+    "section": "LIMITATIONS",
+    "question": "What is the minimum flight/rotor running gross weight?",
+    "options": [
+      "3000 kg",
+      "3200 kg",
+      "3300 kg",
+      "3400 kg"
+    ],
+    "answer": "3300 kg",
+    "explanation": "Minimum flight/rotor running gross weight is 3300 kg.",
+    "references": "WEIGHT AND CENTER OF GRAVITY LIMITATIONS",
+    "printedPage": 6,
+    "difficulty": "easy",
+    "tags": [
+      "weight",
+      "minimum",
+      "limitations"
+    ],
+    "source": "QRH p6"
+  },
+  {
+    "id": "lims-p6-004",
+    "section": "LIMITATIONS",
+    "question": "What electrical load does \u201c75%\u201d mean in CAT B WAT charts?",
+    "options": [
+      "75% of total system load",
+      "75% on each DC generator",
+      "75% on essential bus only",
+      "75% on non-essential bus"
+    ],
+    "answer": "75% on each DC generator",
+    "explanation": "In CAT B WAT charts, 75% means an electrical load of 75% on each DC generator has been included.",
+    "references": "CATEGORY B OPERATION LIMITATIONS (Up to 9 passenger seats)",
+    "printedPage": 6,
+    "difficulty": "medium",
+    "tags": [
+      "cat b",
+      "electrical load",
+      "wat",
+      "limitations"
+    ],
+    "source": "QRH p6"
+  },
+  {
+    "id": "lims-p6-005",
+    "section": "LIMITATIONS",
+    "question": "What electrical load does \u201c25%\u201d mean in CAT B WAT charts?",
+    "options": [
+      "25% of total system load",
+      "25% on each DC generator",
+      "25% on essential bus only",
+      "25% on non-essential bus"
+    ],
+    "answer": "25% on each DC generator",
+    "explanation": "In CAT B WAT charts, 25% means an electrical load of 25% on each DC generator has been included.",
+    "references": "CATEGORY B OPERATION LIMITATIONS (Up to 9 passenger seats)",
+    "printedPage": 6,
+    "difficulty": "medium",
+    "tags": [
+      "cat b",
+      "electrical load",
+      "wat",
+      "limitations"
+    ],
+    "source": "QRH p6"
+  }
+]

@@ -1,0 +1,226 @@
+[
+  {
+    "id": "lims-p15-001",
+    "section": "LIMITATIONS - ENG SYST",
+    "question": "What is the minimum continuous NR%?",
+    "options": [
+      "85",
+      "90",
+      "94",
+      "110"
+    ],
+    "answer": "90",
+    "explanation": "Minimum continuous NR% is 90.",
+    "references": "ENGINE AND TRANSMISSION DIGITAL LIMITATIONS",
+    "printedPage": 15,
+    "difficulty": "easy",
+    "tags": [
+      "engine",
+      "nr",
+      "limitations"
+    ],
+    "source": "QRH p15"
+  },
+  {
+    "id": "lims-p15-002",
+    "section": "LIMITATIONS - ENG SYST",
+    "question": "What is the maximum continuous NR%?",
+    "options": [
+      "105",
+      "110",
+      "115",
+      "120"
+    ],
+    "answer": "110",
+    "explanation": "Maximum continuous NR% is 110.",
+    "references": "ENGINE AND TRANSMISSION DIGITAL LIMITATIONS",
+    "printedPage": 15,
+    "difficulty": "easy",
+    "tags": [
+      "engine",
+      "nr",
+      "limitations"
+    ],
+    "source": "QRH p15"
+  },
+  {
+    "id": "lims-p15-003",
+    "section": "LIMITATIONS - ENG SYST",
+    "question": "What is the maximum transient NR%?",
+    "options": [
+      "110",
+      "115",
+      "117",
+      "120"
+    ],
+    "answer": "115",
+    "explanation": "Maximum transient NR% is 115.",
+    "references": "ENGINE AND TRANSMISSION DIGITAL LIMITATIONS",
+    "printedPage": 15,
+    "difficulty": "easy",
+    "tags": [
+      "engine",
+      "nr",
+      "limitations"
+    ],
+    "source": "QRH p15"
+  },
+  {
+    "id": "lims-p15-004",
+    "section": "LIMITATIONS - ENG SYST",
+    "question": "What is the maximum ITT \u00b0C for engine start?",
+    "options": [
+      "725 \u00b0C",
+      "750 \u00b0C",
+      "800 \u00b0C",
+      "825 \u00b0C"
+    ],
+    "answer": "750 \u00b0C",
+    "explanation": "Maximum ITT for engine start is 750 \u00b0C.",
+    "references": "ENGINE AND TRANSMISSION DIGITAL LIMITATIONS",
+    "printedPage": 15,
+    "difficulty": "easy",
+    "tags": [
+      "engine",
+      "itt",
+      "limitations"
+    ],
+    "source": "QRH p15"
+  },
+  {
+    "id": "lims-p15-005",
+    "section": "LIMITATIONS - ENG SYST",
+    "question": "What is the transient ITT limit during engine start?",
+    "options": [
+      "800 \u00b0C",
+      "815 \u00b0C",
+      "825 \u00b0C (2 sec)",
+      "830 \u00b0C (5 sec)"
+    ],
+    "answer": "825 \u00b0C (2 sec)",
+    "explanation": "Transient ITT during engine start is 825 \u00b0C for 2 seconds.",
+    "references": "ENGINE AND TRANSMISSION DIGITAL LIMITATIONS",
+    "printedPage": 15,
+    "difficulty": "medium",
+    "tags": [
+      "engine",
+      "itt",
+      "limitations"
+    ],
+    "source": "QRH p15"
+  },
+  {
+    "id": "lims-p15-006",
+    "section": "LIMITATIONS - ENG SYST",
+    "question": "What is the maximum torque continuous limit (all engines operating)?",
+    "options": [
+      "100 %",
+      "105 %",
+      "110 %",
+      "115 %"
+    ],
+    "answer": "100 %",
+    "explanation": "Maximum continuous torque limit for all engines operating is 100%.",
+    "references": "ENGINE AND TRANSMISSION DIGITAL LIMITATIONS",
+    "printedPage": 15,
+    "difficulty": "easy",
+    "tags": [
+      "engine",
+      "torque",
+      "limitations"
+    ],
+    "source": "QRH p15"
+  },
+  {
+    "id": "lims-p15-007",
+    "section": "LIMITATIONS - ENG SYST",
+    "question": "What is the maximum Take-Off torque (30 min, all engines operating)?",
+    "options": [
+      "100 %",
+      "110 %",
+      "111 %",
+      "115 %"
+    ],
+    "answer": "111 %",
+    "explanation": "Maximum Take-Off torque (30 min) is 111%.",
+    "references": "ENGINE AND TRANSMISSION DIGITAL LIMITATIONS",
+    "printedPage": 15,
+    "difficulty": "medium",
+    "tags": [
+      "engine",
+      "torque",
+      "takeoff",
+      "limitations"
+    ],
+    "source": "QRH p15"
+  },
+  {
+    "id": "lims-p15-008",
+    "section": "LIMITATIONS - ENG SYST",
+    "question": "What is the maximum transient torque (all engines operating)?",
+    "options": [
+      "115 %",
+      "120 %",
+      "125 % (10 sec)",
+      "130 %"
+    ],
+    "answer": "125 % (10 sec)",
+    "explanation": "Maximum transient torque is 125% for 10 seconds.",
+    "references": "ENGINE AND TRANSMISSION DIGITAL LIMITATIONS",
+    "printedPage": 15,
+    "difficulty": "medium",
+    "tags": [
+      "engine",
+      "torque",
+      "transient",
+      "limitations"
+    ],
+    "source": "QRH p15"
+  },
+  {
+    "id": "lims-p15-009",
+    "section": "LIMITATIONS - ENG SYST",
+    "question": "What is the maximum 2.5 min OEI torque?",
+    "options": [
+      "140 %",
+      "150 %",
+      "174 %",
+      "192 %"
+    ],
+    "answer": "174 %",
+    "explanation": "Maximum 2.5 min OEI torque is 174%.",
+    "references": "ENGINE AND TRANSMISSION DIGITAL LIMITATIONS",
+    "printedPage": 15,
+    "difficulty": "medium",
+    "tags": [
+      "engine",
+      "oei",
+      "torque",
+      "limitations"
+    ],
+    "source": "QRH p15"
+  },
+  {
+    "id": "lims-p15-010",
+    "section": "LIMITATIONS - ENG SYST",
+    "question": "What is the maximum transient OEI torque?",
+    "options": [
+      "180 %",
+      "185 %",
+      "190 %",
+      "192 % (10 sec)"
+    ],
+    "answer": "192 % (10 sec)",
+    "explanation": "Maximum transient OEI torque is 192% for 10 seconds.",
+    "references": "ENGINE AND TRANSMISSION DIGITAL LIMITATIONS",
+    "printedPage": 15,
+    "difficulty": "medium",
+    "tags": [
+      "engine",
+      "oei",
+      "torque",
+      "limitations"
+    ],
+    "source": "QRH p15"
+  }
+]

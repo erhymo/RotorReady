@@ -1,0 +1,38 @@
+[
+  {
+    "id": "cargo-smoke",
+    "name": "CARGO SMOKE",
+    "severity": "warning",
+    "system": "FIRE",
+    "description": "Smoke has been detected in the cargo compartment (if cargo compartment separation wall is installed). CARGO SMOKE on Warning Unit and audio tone, CARGO SMOKE on Master List, voice message \"SMOKE, CARGO SMOKE\".",
+    "procedure": [
+      {
+        "type": "branch",
+        "heading": "On ground:",
+        "text": "1. Double engine emergency shutdown — Perform\n2. Passengers — Alert/Evacuate\n3. Fire — Extinguish if possible"
+      },
+      {
+        "type": "branch",
+        "heading": "In flight:",
+        "text": "1. Passengers — Alert\n2. Heating/Air conditioning (if installed) — OFF\n3. Fire — Extinguish if possible\n4. Fumes, smoke, fire extinguishing fumes/gas — Eliminate; open doors, windows and vents (fresh air)\n5. LAND AS SOON AS POSSIBLE"
+      },
+      {
+        "type": "caution",
+        "text": "Avoid inhalation of fumes, smoke, fire extinguishing fumes/gas."
+      },
+      {
+        "type": "note",
+        "text": "The cargo compartment is accessible from the cabin via a small access door (separation wall) or a zip-fastener (quilted mats), allowing use of the hand fire extinguisher."
+      }
+    ],
+    "references": [
+      "FLM BK117 D-2 Sect. 3.9.1"
+    ],
+    "modelIds": [
+      "H145_D2"
+    ],
+    "pageImage": "/training/lights/pages/h145d2-cargo-smoke.png",
+    "imageWidth": 1310,
+    "imageHeight": 1536
+  }
+]

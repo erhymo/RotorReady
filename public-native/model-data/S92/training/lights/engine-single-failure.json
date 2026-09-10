@@ -1,0 +1,46 @@
+[
+  {
+    "id": "engine-single-failure",
+    "name": "ENGINE - SINGLE FAILURE",
+    "severity": "warning",
+    "description": "",
+    "pageImage": "/training/lights/pages/s92-engine-single-failure.png",
+    "imageWidth": 1159,
+    "imageHeight": 1808,
+    "procedure": [
+      { "type": "action", "text": "Safe OEI flight — Attain" }
+    ],
+    "links": [
+      {
+        "destPage": 35,
+        "rect": [
+          416,
+          1566,
+          782,
+          1591
+        ]
+      },
+      {
+        "destPage": 33,
+        "rect": [
+          484,
+          1611,
+          1047,
+          1636
+        ]
+      },
+      {
+        "destPage": 8,
+        "rect": [
+          100,
+          1750,
+          449,
+          1775
+        ]
+      }
+    ],
+    "modelIds": [
+      "S92"
+    ]
+  }
+]

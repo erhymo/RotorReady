@@ -1,0 +1,38 @@
+[
+  {
+    "id": "eng-double-fail",
+    "name": "ENG1 and 2 FAIL",
+    "severity": "warning",
+    "system": "ENGINE",
+    "description": "Both engines have failed. Warning Unit shows ROTOR RPM and warning tone (NR low). Master List shows GEN1 DISCONNECTED GEN2. Yawing motion nose left, NR and both N2 decrease, VMS engine instruments indicate power loss on both engines.",
+    "procedure": [
+      {
+        "type": "branch",
+        "heading": "HIGE (hover in ground effect):",
+        "text": "1. Right pedal — Apply as necessary to stop yaw\n2. Landing attitude — Establish\n3. Collective lever — Raise to cushion landing"
+      },
+      {
+        "type": "branch",
+        "heading": "In flight:",
+        "text": "1. Autorotation — Perform"
+      },
+      {
+        "type": "note",
+        "text": "Autorotation: max range airspeed 90 KIAS, min rate-of-descent airspeed 60 KIAS. Establish flare attitude (~15-20°) at approx. 100 ft AGL; reduce to ~10° at 8-12 ft AGL to cushion landing."
+      },
+      {
+        "type": "note",
+        "text": "The ROTOR RPM warning-unit light appears only in conjunction with the ENG1 and 2 FAIL warning (NR low), not as an independent NR-high warning."
+      }
+    ],
+    "references": [
+      "FLM BK117 D-3 Sect. 3.8.1, 3.8.4.2"
+    ],
+    "modelIds": [
+      "H145_D3"
+    ],
+    "pageImage": "/training/lights/pages/h145d3-eng-double-fail.png",
+    "imageWidth": 1310,
+    "imageHeight": 1259
+  }
+]

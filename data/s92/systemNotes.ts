@@ -489,13 +489,243 @@ const EMERGENCY_FLOTATION: SystemNote = {
   ],
 };
 
+const ELECTRICAL_POWER_SYSTEM: SystemNote = {
+  slug: "electrical-power-system",
+  title: "Electrical Power System",
+  subtitle: "Two 75-kVA main generators, an APU generator that only feeds the buses once both mains are gone, and a DC side that heals its own failed buses without pilot action.",
+  rfmReference:
+    "S-92A RFM Part 2, Section I, Chapter 2 (Electrical System: Introduction, AC Generators, External Power Receptacles, DC Power, Electrical Control Switches, Load Shedding, Circuit Breaker Panels); Part 1, Section III (Emergency Procedures — Electrical System Malfunctions); Part 1, Section II (Normal Procedures — generator transitions).",
+  sections: [
+    {
+      heading: "The AC side",
+      paragraphs: [
+        "Two oil-cooled brushless main generators produce three-phase 115 VAC at 420 Hz, driven off the main transmission accessory modules. They are rated 75 kVA continuous and 90 kVA transient. Each has its own Generator Control Unit in the cabin overhead that regulates output and protects against over- and under-voltage, feeder fault, and under-frequency — the under-frequency protection is inhibited on the ground and only arms weight-off-wheels.",
+        "A GCU that sees bad output disconnects its generator and posts AC GEN 1 FAIL or AC GEN 2 FAIL; a fault found in the GCU's own self-test posts AC GCU 1 FAIL or AC GCU 2 FAIL. The two primary AC buses, No. 1 and No. 2, sit at the top of the distribution tree, each fed by its own generator with the APU generator able to back-feed both.",
+      ],
+    },
+    {
+      heading: "The APU generator",
+      paragraphs: [
+        "Air-cooled, brushless, three-phase 115 VAC at 400 Hz, rated 35 kVA continuous and 45 kVA for five minutes. The governing rule: it does not feed the aircraft buses unless both main generators are offline. With the mains healthy, switching the APU generator on simply leaves it staged and available. When it does pick up the load it cannot carry everything — an automatic load shed follows.",
+      ],
+    },
+    {
+      heading: "The DC side, and how it heals itself",
+      paragraphs: [
+        "Two AC-powered 400-amp DC converters make 28 VDC for the two primary DC buses, the DC essential bus, and the battery, battery hold-up, and battery utility buses. A 125-amp backup converter (switch DC CONV BACKUP, NORM/OFF) supplies power automatically if both main converters are off or failed. A 24 VDC 15-amp nickel-cadmium battery is the secondary and emergency source; it also powers the Electronic Sequencing Unit for APU starting. The battery utility bus is hot at all times regardless of the BATT switch.",
+        "The primary and battery distribution units are physically and electrically separate for fault tolerance. If a DC converter fails, cross-connections inside the DC distribution unit restore power to the affected buses with no pilot action and keep the DC essential bus alive. Losing both main converters stops the battery charging and leaves only the battery utility and battery hold-up buses powered, from the battery alone.",
+      ],
+    },
+    {
+      heading: "Load shedding on APU-only power",
+      paragraphs: [
+        "If both main generators fail, the APU generator supplies reduced AC power and an automatic load-shed process disables the following: pilot and copilot windshield anti-ice, No. 1 engine anti-ice, main and tail rotor blade de-ice (RIPS), the active vibration control system, and the second air-conditioning compressor if installed. Pilot windshield anti-ice can be recovered by selecting OVRD, but only when needed for safe flight.",
+      ],
+    },
+    {
+      heading: "Battery protection and other captions",
+      table: {
+        columns: ["Caption", "Meaning"],
+        rows: [
+          ["BATT HOT", "Battery internal temperature above 158°F (70°C) — the battery is disconnected from charging and vents and drains overboard"],
+          ["BATT CHARGE FAIL", "Charging power is disconnected from the battery"],
+          ["BACKUP CONV OFF", "The backup DC converter is off"],
+          ["BATT OFF", "The battery is switched off"],
+        ],
+      },
+    },
+    {
+      heading: "Why this matters for the landing gear",
+      paragraphs: [
+        "Both normal and emergency gear extension need electrical power. After a dual DC converter and backup converter failure the drill is explicit — LDG GEAR DN, then land as soon as possible — and on battery-only power the gear is lowered before the battery is depleted.",
+        "Cushioning a single-engine landing, Nr can droop below 96% and drop both AC generators offline at touchdown. Unless the APU is on with its generator switch on, only the battery bus is left powering the aircraft and the copilot MFDs blank momentarily. Control is unaffected, and normal supply returns once collective is lowered and Nr recovers above 96%.",
+      ],
+      note: "Smoother generator transitions: from APU-generator to main-generator power, turn AC GEN No. 2 on, wait at least one second, then AC GEN No. 1. From main to APU, turn off one main DC converter, AC GEN No. 1 off, wait at least one second, AC GEN No. 2 off, then the converter back on once both AC generators are off.",
+    },
+  ],
+};
+
+const FUEL_SYSTEM_S92: SystemNote = {
+  slug: "fuel-system",
+  title: "Fuel System",
+  subtitle: "A separate suction system for each engine, the No. 1 tank feeding the APU as well, and a crossfeed that is cruise-only in Category B and emergency-only in Category A.",
+  rfmReference:
+    "S-92A RFM Part 2, Section I, Chapter 7 (Fuel System: Introduction, Fuel Control Switches, Fuel Prime Shutoff Valves, Fuel Indications); Part 1, Section I (Operating Limitations — Fuel Crossfeed Limits, Fuel Capacity, fuel imbalance); Part 1, Section III (Emergency Procedures — Fuel System Malfunctions).",
+  sections: [
+    {
+      heading: "What it is",
+      paragraphs: [
+        "A separate suction fuel system for each engine. Fuel is held in two crash-resistant nylon-reinforced rubber bladder tanks, one in each sponson, roughly 382 US gallons each. The No. 1 tank feeds the No. 1 engine and the APU; the No. 2 tank feeds the No. 2 engine. A single-point pressure refuel/defuel fitting is on the left side, and both tanks can also be gravity refuelled.",
+        "Usable quantity is about 4,830 lb (2,190 kg) of Jet A on a gravity fill and about 5,175 lb (2,345 kg) on a pressure fill; 4.8 gallons total is unusable, 2.4 gallons in each tank.",
+      ],
+    },
+    {
+      heading: "The fuel control switches",
+      paragraphs: [
+        "One switch per tank on the engine control quadrant, marked NO. 1 FUEL and NO. 2 FUEL, with positions OFF, XFD, and DIRECT. OFF closes the fuel control valve and shuts fuel off to that engine — this is also the engine-fire and engine-shutdown selection. DIRECT opens the valve so the engine draws from its own-side tank. XFD feeds that engine from the opposite tank; a check valve in each crossfeed line stops air from a dead engine's line reaching the running engine.",
+      ],
+    },
+    {
+      heading: "Crossfeed limits",
+      table: {
+        columns: ["Category", "Crossfeed permitted"],
+        rows: [
+          ["Category A", "Emergency operation only"],
+          ["Category B", "Cruise flight only"],
+        ],
+      },
+      note: "On extended single-engine flight, crossfeed is used to keep the tank imbalance under 700 lb (317 kg) or to stop the good engine starving — but not if a fuel-system malfunction is suspected as the cause of the failure. An imbalance over 700 lb combined with grossly unbalanced cabin loading can put the aircraft outside lateral CG limits.",
+    },
+    {
+      heading: "Prime pumps",
+      paragraphs: [
+        "Two electric prime pumps in the left cabin sidewall, controlled by the FUEL PRIME switch with AUTO, PUMP 1, and PUMP 2 positions. Only one runs at a time; in AUTO the active pump alternates on successive uses, switching with each MDC power cycle. They deliver pressurised fuel for engine start when the fuel switch is in DIRECT; started in XFD, the prime fuel goes to the opposite engine.",
+        "PRIME PUMP FAIL means the active pump lost pressure. During a second-engine start in crossfeed the caution can flash while the starter is engaged — the running engine's mechanical fuel pump overpowers the prime pump at the pressure sensor — and that is not a real failure. A genuine failure keeps the caution illuminated after the starter cuts out.",
+      ],
+    },
+    {
+      heading: "Prime shutoff valves",
+      paragraphs: [
+        "Each prime shutoff valve is position-monitored, and a mismatch between commanded and actual position posts SOV1 WRNG POSN or SOV2 WRNG POSN. There are two failure modes: stuck open when commanded closed, and stuck closed when commanded open — a valve stuck closed makes that engine start very slowly. In flight the response is to continue and correct before the next flight.",
+      ],
+    },
+    {
+      heading: "Indications",
+      paragraphs: [
+        "Each tank has two quantity probes at front and rear for an attitude-compensated level, a low-level sensor, and two high-level sensors, all feeding a common Fuel Conditioning Unit that sends quantity to the EICAS pages; fuel flow comes from each engine's FADEC. FUEL 1 LOW or FUEL 2 LOW appears at roughly 215 ± 45 lb remaining in that tank and turns the EICAS fuel figure yellow. With a LOW caution lit, steady pitch attitudes over 10° nose-up or below 5° nose-down are avoided to prevent unporting, and the procedure is to land as soon as practical.",
+      ],
+    },
+  ],
+};
+
+const AUXILIARY_POWER_UNIT: SystemNote = {
+  slug: "auxiliary-power-unit",
+  title: "Auxiliary Power Unit",
+  subtitle: "A GTCP36-150 started hydraulically from a nitrogen accumulator rather than electrically, with an ESU that treats a fault differently on the ground than in the air.",
+  rfmReference:
+    "S-92A RFM Part 2, Section I, Chapter 9 (Auxiliary Power Unit: Introduction, APU Controls, APU Malfunctions, APU Fire Control, Accessory Section, Accumulator); Part 1, Section III (Emergency Procedures — APU System Malfunctions); Part 1, Section I (airspeed limit with APU operating).",
+  sections: [
+    {
+      heading: "What it is",
+      paragraphs: [
+        "A Honeywell GTCP36-150 APU, mounted behind and to the right of the No. 1 engine, with its intake on the rear of the main rotor pylon and its exhaust behind and below the No. 1 engine exhaust. It supplies electrical power on the ground with the rotors stopped, emergency electrical power in flight, bleed air for engine starting, and bleed heat for the cockpit and cabin. Its fuel comes from the No. 1 tank. Maximum airspeed with the APU operating is 150 KIAS.",
+      ],
+    },
+    {
+      heading: "Hydraulic start, not electric",
+      paragraphs: [
+        "The APU starter is a hydraulic motor. Its energy is stored in an accumulator in the cabin overhead — a piston separating nitrogen at 2,500 to 4,000 psig from hydraulic fluid. The No. 3 hydraulic system recharges it, and a hand pump in the overhead is the manual backup when No. 3 pressure is unavailable. The gauge reads 4,000 psig fully charged and 2,500 psig discharged, and APU ACCUM LOW illuminates at 3,450 psig. A start can be re-attempted once the ACCUM LOW advisory goes out.",
+      ],
+    },
+    {
+      heading: "The start sequence",
+      paragraphs: [
+        "APU CTRL to ON gives a four-second BIT delay, then the Electronic Sequencing Unit runs the start: prime pump on, APU start valve open to route accumulator pressure through the starter motor, igniter on. At 10% speed the fuel shutoff solenoid and ignition energise; at 50% the start valve closes and the starter is secured; at 94.5% the ignition unit is secured and the hour meter and start counter begin. The APU ON advisory confirms it is running.",
+      ],
+    },
+    {
+      heading: "Ground fault versus air fault",
+      paragraphs: [
+        "The ESU sorts conditions into 'safety' and 'protective'. On the ground, weight-on-wheels, either kind triggers APU FAIL and an automatic shutdown. In flight, weight-off-wheels, only a safety condition — overspeed, loss of overspeed protection, ESU essential dysfunction, or both the FCU solenoid and torque-metering valve faulty — triggers APU FAIL and an automatic shutdown. A protective condition in flight — failure to start, underspeed, EGT exceedance, loss of the EGT signal, low or high oil pressure, oil-temperature sensing fault, no combustion, lack of acceleration — instead posts APU FAULT and leaves the APU running for the crew to decide. The specific fault is read on the MFD STATUS or HLTH page.",
+      ],
+    },
+    {
+      heading: "The captions",
+      table: {
+        columns: ["Caption", "Meaning and response"],
+        rows: [
+          ["APU FAIL", "An automatic shutdown has occurred — APU CTRL OFF, AIR SRCE HEAT/START to ENG; do not attempt a restart after an automatic shutdown"],
+          ["APU FAULT", "A monitored fault that did not force a shutdown — check the HLTH page and shut the APU down manually unless it is required for safety of flight"],
+          ["APU GEN FAIL / APU GCU FAIL", "APU generator or its control unit has dropped — OFF/RESET then ON; if it returns, exit IMC. Afterwards the APU generator is unavailable for emergency power and for engine shutdown"],
+          ["APU OVERLOAD", "APU generator load is above normal limits — shed non-essential electrical load"],
+        ],
+      },
+      note: "After any APU or APU-generator failure, if APU generator power is not available during an engine shutdown, monitor TGT on the pilot inboard EICAS and connect external power if available.",
+    },
+    {
+      heading: "Fire",
+      paragraphs: [
+        "Pushing the FIRE APU/ARM light/pushbutton does four things: it arms the fire extinguisher, commands an ESU shutdown of the APU, turns the prime/APU boost pump off, and closes the APU fuel shutoff valve.",
+      ],
+    },
+  ],
+};
+
+const RIPS: SystemNote = {
+  slug: "rotor-ice-protection-system",
+  title: "Rotor Ice Protection System (RIPS)",
+  subtitle: "Electrothermal blade heating in eight sequenced main-rotor zones, an ice-rate probe on each nacelle driving the AUTO schedule, and four manual modes for when AUTO cannot keep up.",
+  rfmReference:
+    "S-92A RFM Part 2, Section I, Chapter 18 (Options — Rotor Ice Protection System: General Operation, System Description, Component Descriptions, System Operation, Mode Selection Procedures, System Tests); Part 1, Section I (Operating Limitations — icing); Part 1, Section III (Emergency Procedures — Anti-ice/Deice System Malfunctions).",
+  sections: [
+    {
+      heading: "What it is",
+      paragraphs: [
+        "Electrothermal de-icing for the main and tail rotor blades, certified for icing conditions up to 10,000 ft pressure altitude. It must be ON for any flight into icing; flight in freezing drizzle, freezing rain, or supercooled large drops is prohibited regardless. Power-up checks can run on any single AC source — either main generator, the APU generator, or external power — but normal blade heating needs power from at least one main generator, so on APU-only power the blade elements are load-shed.",
+      ],
+    },
+    {
+      heading: "The heating elements",
+      paragraphs: [
+        "Each main rotor blade carries four spanwise electrothermal elements bonded into the leading edge beneath the nickel/titanium abrasion strip. Element pairs on opposite blades form one zone, so the 16 main rotor elements make eight zones, heated sequentially blade-pair by blade-pair so accreted ice sheds symmetrically. The four tail rotor blades have one spanwise element each, energised all together. Each main rotor droop-stop shaft is heated continuously whenever RIPS is on and OAT is below +5°C, until landing or OAT rises back above +5°C.",
+      ],
+    },
+    {
+      heading: "Dual everything",
+      paragraphs: [
+        "Two RIPS controllers in the cabin ceiling, each able to run the system alone: one is master, the other is slave monitoring it, and they swap on a failure or a reset. The main rotor distributor on the head (fed through a slip ring), the junction box, and the slip ring assembly each have two channels. The main rotor slip ring rides on a duplex bearing with its own monitor — a SLIPRING BRNG advisory means the primary bearing has failed and the secondary allows about 10 more hours.",
+        "If an inboard MFD is off or failed, the same-side RIPS controller will not function until that MFD is rebooted; the other controller carries the system in the meantime.",
+      ],
+    },
+    {
+      heading: "How AUTO schedules heat",
+      paragraphs: [
+        "One ice-rate probe on each engine nacelle: optics time how quickly ice builds on a bar, the bar is periodically heated clear to restart the count, and a trickle of engine bleed air keeps the optics clean and improves low-airspeed accuracy. The controllers set element ON time from OAT and element OFF time from the cloud liquid water content the probes compute, and adjust continuously to changing conditions.",
+        "Lose all LWC input and AUTO reverts to an OFF schedule for a default 0.35 g/m³, equivalent to mid-LIGHT icing; lose OAT input and it uses a default −12°C for the ON schedule. An OAT interlock blocks blade heating above +5°C, and a weight-on-wheels interlock blocks it on the ground.",
+      ],
+    },
+    {
+      heading: "The six modes",
+      table: {
+        caption: "RIPS operating modes — preset LWC and the matching ice-rate-meter band",
+        columns: ["Mode", "Preset LWC", "Ice-rate-meter range"],
+        rows: [
+          ["AUTO", "computed from the probes", "preferred — full automatic control across the certified envelope"],
+          ["TRACE", "0.08 g/m³", "0 to 0.1 g/m³"],
+          ["LIGHT", "0.4 g/m³", "0.1 to 0.5 g/m³"],
+          ["MODERATE", "0.9 g/m³", "0.5 to 1.0 g/m³"],
+          ["HEAVY", "1.3 g/m³", "above 1.0 g/m³"],
+        ],
+      },
+      note: "A manual mode sets OFF time from its preset LWC and ON time from sensed OAT, and applies heat to the blades immediately — AUTO instead waits out the computed OFF time first. The wrong manual mode means either too little heat (excess accretion) or too much (run-back ice, where meltwater flows aft and refreezes on unprotected blade). If cyclic power peaks higher than normal in a manual mode, the next mode heavier is selected. In extreme icing, manual HEAVY reduces the size of the torque swings AUTO produces and can give a real performance benefit; RIPS is turned off when clear of ice.",
+    },
+    {
+      heading: "Ground override, tests, and reset",
+      paragraphs: [
+        "Ground override runs a single heating cycle on the ground to clear the rotor before takeoff: select any manual mode, then OVRD. It bypasses the weight-on-wheels lockout for one cycle whose length depends on OAT, and one activation is available each time power is applied to RIPS or after a reset.",
+        "PBIT runs on power-up (everything except the heating elements), CBIT runs continuously, and IBIT is pilot-initiated from the system status page — about 30 to 90 seconds during which RIPS is inoperative and a TEST icon shows below the ice-rate meter; the IBIT is completed before the first icing flight of the day. A reset is holding BLADE DEICE #1 RESET and #2 RESET on the copilot overhead for about 3 seconds until the ICE icon replaces the ice-rate meter; it briefly removes power and swaps the master controller. A reset is the first action for most RIPS cautions — DEICE SYS FAIL, MR DEICE FAULT, MR DEICE FAIL, AUTO DEICE FAIL, TR DEICE FAIL — and the rotor keeps accreting ice through the 30-to-90-second reset.",
+      ],
+    },
+    {
+      heading: "Vibration is the cue",
+      paragraphs: [
+        "In normal operation airframe vibration and power required both cycle as the blades accrete and shed — up to roughly 15% torque change, more at high altitude and gross weight, which shows up as reduced all-engines climb capability. Cyclic swings are expected. Steadily increasing, non-cyclic vibration or power required is the sign a degraded RIPS is not clearing the rotor, and the response is to exit icing and avoid further flight in icing. A DROOP HTR FAIL caution risks a hung droop stop on the next rotor shutdown.",
+      ],
+    },
+  ],
+};
+
 export const S92_SYSTEM_NOTES: SystemNote[] = [
   TCAS,
   WEATHER_RADAR,
   EGPWS,
   AFCS,
+  ELECTRICAL_POWER_SYSTEM,
+  FUEL_SYSTEM_S92,
+  AUXILIARY_POWER_UNIT,
   MGB_SYSTEM,
   HYDRAULIC_SYSTEM,
   ENGINE_BLOWAWAY,
+  RIPS,
   EMERGENCY_FLOTATION,
 ];

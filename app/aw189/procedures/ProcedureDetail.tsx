@@ -1,7 +1,7 @@
 "use client";
 
 import AppTopBar from "@/components/AppTopBar";
-import type { ProcedureDefinition } from "@/lib/aw189Procedures/data";
+import type { ProcedureDefinition } from "@/lib/procedures/aw189/data";
 
 export default function ProcedureDetail({ procedure }: { procedure: ProcedureDefinition }) {
   return (

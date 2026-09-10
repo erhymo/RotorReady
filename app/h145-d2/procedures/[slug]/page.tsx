@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { H145D2_PROCEDURES, findH145D2Procedure } from "@/lib/h145d2Procedures/data";
+import { H145D2_PROCEDURES, findH145D2Procedure } from "@/lib/procedures/h145d2/data";
 import ProcedureDetail from "@/app/h145-d2/procedures/ProcedureDetail";
 
 export function generateStaticParams() {

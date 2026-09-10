@@ -3,7 +3,7 @@
 import Link from "next/link";
 import AppTopBar from "@/components/AppTopBar";
 import AbbreviationsLinkCard from "@/app/components/AbbreviationsLinkCard";
-import { S92_PROCEDURES } from "@/lib/s92Procedures/data";
+import { S92_PROCEDURES } from "@/lib/procedures/s92/data";
 
 const GROUPS: { heading: string; slugs: string[] }[] = [
   {

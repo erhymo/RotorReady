@@ -29,10 +29,7 @@ export async function middleware(req: NextRequest) {
 
   const isDevOnlyRoute =
     pathname.startsWith("/dev") ||
-    pathname.startsWith("/api/dev") ||
-    pathname === "/env-dump" ||
-    pathname === "/env-test" ||
-    pathname === "/firebase-check";
+    pathname.startsWith("/api/dev");
   if (isDevOnlyRoute && process.env.NODE_ENV !== "development") {
     if (pathname.startsWith("/api/")) {
       return new NextResponse(JSON.stringify({ error: "Not found" }), {

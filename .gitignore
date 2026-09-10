@@ -122,9 +122,12 @@ public/aw139/qrh/*.pdf
 *-pcl-pages.txt
 *-debug-pages.txt
 *_index.txt
-*.pages.json
+S92/*.pages.json
 
 # next-pwa generated assets change per build; do not track
 public/sw.js
 public/workbox-*.js
 public/fallback-*.js
+
+# Generated native offline shell (regenerate with `npm run native:shell`)
+/public-native/

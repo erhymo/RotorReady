@@ -1,5 +1,0 @@
-{
-  "lights": [
-    { "id": "hyd1-press", "name": "HYD 1 PRESS", "severity": "caution", "system": "hydraulic" }
-  ]
-}

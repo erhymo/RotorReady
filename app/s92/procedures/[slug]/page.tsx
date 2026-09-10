@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { S92_PROCEDURES, findS92Procedure } from "@/lib/s92Procedures/data";
+import { S92_PROCEDURES, findS92Procedure } from "@/lib/procedures/s92/data";
 import ProcedureDetail from "@/app/s92/procedures/ProcedureDetail";
 
 export function generateStaticParams() {

@@ -1,7 +1,7 @@
 "use client";
 
 import AppTopBar from "@/components/AppTopBar";
-import type { ProcedureDefinition } from "@/lib/r44Procedures/data";
+import type { ProcedureDefinition } from "@/lib/procedures/r44/data";
 
 export default function ProcedureDetail({ procedure }: { procedure: ProcedureDefinition }) {
   return (

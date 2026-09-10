@@ -3,7 +3,7 @@
 import Link from "next/link";
 import AppTopBar from "@/components/AppTopBar";
 import AbbreviationsLinkCard from "@/app/components/AbbreviationsLinkCard";
-import { AW139_PROCEDURES } from "@/lib/aw139Procedures/data";
+import { AW139_PROCEDURES } from "@/lib/procedures/aw139/data";
 
 const GROUPS: { heading: string; slugs: string[]; extraLink?: { href: string; title: string; subtitle?: string } }[] = [
   {

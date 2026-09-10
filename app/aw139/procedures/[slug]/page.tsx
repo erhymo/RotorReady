@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { AW139_PROCEDURES, findAW139Procedure } from "@/lib/aw139Procedures/data";
+import { AW139_PROCEDURES, findAW139Procedure } from "@/lib/procedures/aw139/data";
 import ProcedureDetail from "@/app/aw139/procedures/ProcedureDetail";
 
 export function generateStaticParams() {

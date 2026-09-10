@@ -9,19 +9,20 @@
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
     "test:e2e": "playwright test",
-    "ios:sync": "cap sync ios",
+    "ios:sync": "npm run native:shell && cap sync ios",
     "ios:open": "cap open ios",
     "ios:beta": "cd ios && FASTLANE_OPT_OUT_USAGE=1 FASTLANE_SKIP_UPDATE_CHECK=1 fastlane beta",
     "ios:submit": "cd ios && FASTLANE_OPT_OUT_USAGE=1 FASTLANE_SKIP_UPDATE_CHECK=1 fastlane submit_review",
     "appstore:doctor": "node scripts/appstore-doctor.mjs",
     "appstore:validate": "cd ios && FASTLANE_OPT_OUT_USAGE=1 FASTLANE_SKIP_UPDATE_CHECK=1 fastlane validate_api",
-    "android:sync": "cap sync android",
+    "android:sync": "npm run native:shell && cap sync android",
     "android:open": "cap open android",
     "android:bundle": "cd android && ./gradlew bundleRelease",
     "googleplay:doctor": "node scripts/googleplay-doctor.mjs",
     "googleplay:validate": "cd android && FASTLANE_OPT_OUT_USAGE=1 FASTLANE_SKIP_UPDATE_CHECK=1 fastlane validate_play",
     "googleplay:internal": "cd android && FASTLANE_OPT_OUT_USAGE=1 FASTLANE_SKIP_UPDATE_CHECK=1 fastlane internal",
-    "extract:b3e": "node scripts/extract-b3e-rfm-pdfjs.mjs"
+    "extract:b3e": "node scripts/extract-b3e-rfm-pdfjs.mjs",
+    "native:shell": "NATIVE_EXPORT=1 node scripts/build-native-shell.mjs"
   },
   "dependencies": {
     "@capacitor/android": "^7.6.5",

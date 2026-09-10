@@ -22,7 +22,15 @@ export default function AppTopBar({
   return (
     <div
       className={`sticky z-20 border-b border-slate-200/80 bg-white/90 backdrop-blur dark:border-zinc-800 dark:bg-zinc-950/90 ${className}`}
-      style={{ top: "calc(4rem + env(safe-area-inset-top, 0px))" }}
+      // 4rem = the main site Header's own height (h-16), which this bar sticks
+      // directly below. Deliberately no extra `env(safe-area-inset-top)` here
+      // (removed 2026-09-10) -- the Header itself sticks at a plain `top-0`
+      // with no safe-area compensation of its own, relying entirely on
+      // capacitor.config.ts's adjustMarginsForEdgeToEdge to sit below the
+      // Android status bar. Adding the same inset here on top of that native
+      // margin double-counted it: this bar stuck too far down, leaving a gap
+      // where page content stayed visible above it while scrolling.
+      style={{ top: "4rem" }}
     >
       <div className="mx-auto grid h-12 max-w-5xl grid-cols-[minmax(72px,1fr)_auto_minmax(72px,1fr)] items-center gap-3 px-4 sm:px-6">
         <div className="justify-self-start">

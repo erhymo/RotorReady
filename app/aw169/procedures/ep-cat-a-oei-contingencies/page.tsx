@@ -162,7 +162,7 @@ export default function EpCatAOeiContingenciesPage() {
     <div className="min-h-screen bg-slate-50 dark:bg-zinc-900">
       <div
         className="sticky z-10 border-b bg-white/80 backdrop-blur dark:border-zinc-700 dark:bg-zinc-900/90"
-        style={{ top: "calc(4rem + env(safe-area-inset-top, 0px))" }}
+        style={{ top: "4rem" }}
       >
         <div className="mx-auto max-w-3xl px-6 py-3">
           <BackButton label="Procedures" to="/training/procedures/aw169" />

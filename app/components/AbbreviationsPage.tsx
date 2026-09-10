@@ -11,7 +11,7 @@ export default function AbbreviationsPage({ title, data }: { title: string; data
     <div className="min-h-screen flex flex-col bg-white dark:bg-zinc-900 dark:text-zinc-100">
       <header
         className="sticky z-10 bg-white/90 dark:bg-zinc-900/90 backdrop-blur border-b border-slate-200 dark:border-zinc-700"
-        style={{ top: "calc(4rem + env(safe-area-inset-top, 0px))" }}
+        style={{ top: "4rem" }}
       >
         <div className="max-w-3xl mx-auto px-4 py-3 flex items-center justify-between gap-3">
           <button

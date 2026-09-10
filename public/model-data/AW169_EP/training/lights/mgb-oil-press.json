@@ -42,6 +42,9 @@
         "type": "note",
         "text": "55/55% TQ may be shortly exceeded for the final part of the landing manoeuvre."
       }
+    ],
+    "modelIds": [
+      "AW169_EP"
     ]
   }
 ]

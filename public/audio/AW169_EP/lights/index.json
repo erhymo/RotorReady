@@ -28,7 +28,7 @@
       "lightId": "eng-fail-fixed",
       "title": "Light: 1(2) ENG FAIL FIXED",
       "filename": "eng-fail-fixed.mp3",
-      "durationSeconds": 369
+      "durationSeconds": 240
     },
     {
       "lightId": "eng-drive-shaft-failure",
@@ -58,13 +58,13 @@
       "lightId": "mgb-oil-press",
       "title": "Light: MGB OIL PRESS",
       "filename": "mgb-oil-press.mp3",
-      "durationSeconds": 302
+      "durationSeconds": 277
     },
     {
       "lightId": "mgb-oil-temp",
       "title": "Light: MGB OIL TEMP",
       "filename": "mgb-oil-temp.mp3",
-      "durationSeconds": 175
+      "durationSeconds": 161
     }
   ]
 }

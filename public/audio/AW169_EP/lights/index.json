@@ -53,6 +53,18 @@
       "title": "Light: BAG FIRE (on ground)",
       "filename": "bag-fire-ground.mp3",
       "durationSeconds": 371
+    },
+    {
+      "lightId": "mgb-oil-press",
+      "title": "Light: MGB OIL PRESS",
+      "filename": "mgb-oil-press.mp3",
+      "durationSeconds": 302
+    },
+    {
+      "lightId": "mgb-oil-temp",
+      "title": "Light: MGB OIL TEMP",
+      "filename": "mgb-oil-temp.mp3",
+      "durationSeconds": 175
     }
   ]
 }

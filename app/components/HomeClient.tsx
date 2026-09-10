@@ -5,21 +5,8 @@ import Link from "next/link";
 import { BoltIcon, BookIcon, DownloadIcon, HeadphonesIcon, MessageIcon } from "@/components/Icons";
 import { shouldShowNorwayTools } from "@/lib/geo/norwayToolsVisibility";
 import { useActiveModelVariant } from "@/lib/models/hooks";
+import { modelRoutes } from "@/lib/models/catalog";
 import { openLiveOnlyLink } from "@/lib/liveOnlyLinks";
-
-const AUDIO_ENABLED_VARIANT_IDS = new Set([
-  "AW169",
-  "AW169_EP",
-  "AW189",
-  "AW139",
-  "H125_AS350_B3_2B1",
-  "H125_AS350_B3E",
-  "R44_II",
-  "S92",
-  "H135_T3",
-  "H145_D2",
-  "H145_D3",
-]);
 
 function Bar(props: { href: string; title: string; description: string; tone?: "blue"|"amber"|"slate"|"emerald"; icon?: React.ReactNode; liveOnly?: boolean }) {
   const tones: Record<string, string> = {
@@ -69,6 +56,8 @@ function Bar(props: { href: string; title: string; description: string; tone?: "
 	  // otherwise every existing `activeVariant?.id === "..."` check below
 	  // would briefly match the hardcoded default (AW169) on first paint.
 	  const activeVariant = variantLoading ? undefined : rawActiveVariant;
+	  const features = activeVariant?.features;
+	  const routes = activeVariant ? modelRoutes(activeVariant) : null;
 
 	  useEffect(() => {
 	    fetch("/quiz-data/versions/data-version.json")
@@ -123,7 +112,7 @@ function Bar(props: { href: string; title: string; description: string; tone?: "
 		          tone="blue"
 		          icon={<BookIcon className="h-4 w-4" />}
 		        />
-		        {AUDIO_ENABLED_VARIANT_IDS.has(activeVariant?.id || "") && (
+		        {features?.audio && (
           <Bar
             href="/audio"
             title="Audio"
@@ -132,96 +121,15 @@ function Bar(props: { href: string; title: string; description: string; tone?: "
             icon={<HeadphonesIcon className="h-4 w-4" />}
           />
         )}
-        {activeVariant?.productId === "AW169" && (
+        {activeVariant && features?.procedures && routes && (
 	          <Bar
-	            href="/training/procedures/aw169"
+	            href={routes.trainingProcedures}
 	            title="Procedures"
-	            description="Browse AW169 procedures and training checklists."
+	            description={activeVariant.proceduresDescription ?? `Browse ${activeVariant.shortLabel} procedures and training checklists.`}
 	            tone="emerald"
 	            icon={<BookIcon className="h-4 w-4" />}
 	          />
 	        )}
-	        {activeVariant?.id === "H125_AS350_B3_2B1" && (
-	          <Bar
-	            href="/training/procedures/h125-as350-b3-2b1"
-	            title="Procedures"
-	            description="Browse H125 / AS350 B3 (2B1) procedures and training checklists."
-	            tone="emerald"
-	            icon={<BookIcon className="h-4 w-4" />}
-	          />
-	        )}
-		        {activeVariant?.id === "H125_AS350_B3E" && (
-		            <Bar
-		              href="/training/procedures/h125-as350-b3e"
-		              title="Procedures"
-		              description="Browse H125 / AS350 B3e procedures and training checklists."
-		              tone="emerald"
-		              icon={<BookIcon className="h-4 w-4" />}
-		            />
-		        )}
-		        {activeVariant?.id === "R44_II" && (
-		            <Bar
-		              href="/training/procedures/r44-ii"
-		              title="Procedures"
-		              description="Browse R44 II normal and emergency procedures."
-		              tone="emerald"
-		              icon={<BookIcon className="h-4 w-4" />}
-		            />
-		        )}
-	        {activeVariant?.id === "S92" && (
-	            <Bar
-	              href="/training/procedures/s92"
-	              title="Procedures"
-	              description="Browse S-92 Category A/B, offshore helideck and engine-failure procedures."
-	              tone="emerald"
-	              icon={<BookIcon className="h-4 w-4" />}
-	            />
-	        )}
-	        {activeVariant?.id === "H135_T3" && (
-	            <Bar
-	              href="/training/procedures/h135-t3"
-	              title="Procedures"
-	              description="Browse H135 T3 normal, engine emergency, fire, drive-system and fuel procedures."
-	              tone="emerald"
-	              icon={<BookIcon className="h-4 w-4" />}
-	            />
-	        )}
-	        {activeVariant?.id === "H145_D2" && (
-	            <Bar
-	              href="/training/procedures/h145-d2"
-	              title="Procedures"
-	              description="Browse H145 D2 normal, engine emergency, fire, drive-system and fuel procedures."
-	              tone="emerald"
-	              icon={<BookIcon className="h-4 w-4" />}
-	            />
-	        )}
-	        {activeVariant?.id === "H145_D3" && (
-	            <Bar
-	              href="/training/procedures/h145-d3"
-	              title="Procedures"
-	              description="Browse H145 D3 normal, engine emergency, fire, drive-system and fuel procedures."
-	              tone="emerald"
-	              icon={<BookIcon className="h-4 w-4" />}
-	            />
-	        )}
-	        {activeVariant?.id === "AW139" && (
-	            <Bar
-	              href="/training/procedures/aw139"
-	              title="Procedures"
-	              description="Browse AW139 normal, engine-failure, fire and emergency procedures."
-	              tone="emerald"
-	              icon={<BookIcon className="h-4 w-4" />}
-	            />
-	        )}
-		        {activeVariant?.id === "AW189" && (
-		            <Bar
-		              href="/training/procedures/aw189"
-		              title="Procedures"
-		              description="Browse AW189 normal, engine-failure, fire and emergency procedures."
-		              tone="emerald"
-		              icon={<BookIcon className="h-4 w-4" />}
-		            />
-		        )}
 		      </section>
 
 		      <section className="space-y-3">
@@ -233,20 +141,20 @@ function Bar(props: { href: string; title: string; description: string; tone?: "
 		          tone="slate"
 		          icon={<BookIcon className="h-4 w-4" />}
 		        />
-		        {activeVariant?.productId === "AW169" && (
+	        {activeVariant && features?.quickReference && routes && (
 	          <Bar
-	            href="/aw169/quick-reference"
+	            href={routes.quickReference}
 	            title="Quick Reference"
-	            description="Key AW169 RFM limitations and numbers."
+	            description={activeVariant.quickReferenceDescription ?? `Key ${activeVariant.shortLabel}${activeVariant.docLabel ? " " + activeVariant.docLabel : ""} limitations and numbers.`}
 	            tone="slate"
 	            icon={<BookIcon className="h-4 w-4" />}
 	          />
 	        )}
-		        {activeVariant?.productId === "AW169" && (
+	        {activeVariant && features?.systemNotes && routes && (
 	          <Bar
-	            href="/aw169/system-notes"
+	            href={routes.systemNotes}
 	            title="System Notes"
-	            description="Written deep-dives on AW169 systems — how they work, and the numbers to know."
+	            description={`Written deep-dives on ${activeVariant.shortLabel} systems — how they work, and the numbers to know.`}
 	            tone="slate"
 	            icon={<BookIcon className="h-4 w-4" />}
 	          />
@@ -254,177 +162,6 @@ function Bar(props: { href: string; title: string; description: string; tone?: "
 	        {/* Exterior Map: work in progress, deliberately not linked from Home yet.
 	            Route/component/data stay in the repo — reachable directly at
 	            /aw169/exterior-map for local iteration — until it's ready to re-link. */}
-	        {activeVariant?.id === "H125_AS350_B3_2B1" && (
-	          <Bar
-	            href="/h125-as350-b3-2b1/quick-reference"
-	            title="Quick Reference"
-	            description="Selected H125 / AS350 B3 (2B1) RFM limitations and numbers."
-	            tone="slate"
-	            icon={<BookIcon className="h-4 w-4" />}
-	          />
-	        )}
-	        {activeVariant?.id === "H125_AS350_B3_2B1" && (
-		          <Bar
-		            href="/h125-as350-b3-2b1/system-notes"
-		            title="System Notes"
-		            description="Written deep-dives on H125 / AS350 B3 (2B1) systems — how they work, and the numbers to know."
-		            tone="slate"
-		            icon={<BookIcon className="h-4 w-4" />}
-		          />
-		        )}
-		        {activeVariant?.id === "H125_AS350_B3E" && (
-		          <Bar
-		            href="/h125-as350-b3e/quick-reference"
-		            title="Quick Reference"
-		            description="Selected H125 / AS350 B3e RFM limitations and numbers."
-		            tone="slate"
-		            icon={<BookIcon className="h-4 w-4" />}
-		          />
-		        )}
-		        {activeVariant?.id === "H125_AS350_B3E" && (
-		          <Bar
-		            href="/h125-as350-b3e/system-notes"
-		            title="System Notes"
-		            description="Written deep-dives on H125 / AS350 B3e systems — how they work, and the numbers to know."
-		            tone="slate"
-		            icon={<BookIcon className="h-4 w-4" />}
-		          />
-		        )}
-		        {activeVariant?.id === "R22" && (
-		          <Bar
-		            href="/r22/system-notes"
-		            title="System Notes"
-		            description="Written deep-dives on R22 systems — how they work, and the numbers to know."
-		            tone="slate"
-		            icon={<BookIcon className="h-4 w-4" />}
-		          />
-		        )}
-		        {activeVariant?.id === "R44_II" && (
-		          <Bar
-		            href="/r44-ii/quick-reference"
-		            title="Quick Reference"
-		            description="Selected R44 II POH limitations and numbers."
-		            tone="slate"
-		            icon={<BookIcon className="h-4 w-4" />}
-		          />
-		        )}
-		        {activeVariant?.id === "R44_II" && (
-		          <Bar
-		            href="/r44-ii/system-notes"
-		            title="System Notes"
-		            description="Written deep-dives on R44 II systems — how they work, and the numbers to know."
-		            tone="slate"
-		            icon={<BookIcon className="h-4 w-4" />}
-		          />
-		        )}
-		        {activeVariant?.id === "S92" && (
-		          <Bar
-		            href="/s92/quick-reference"
-		            title="Quick Reference"
-		            description="Key S-92 RFM limitations and numbers."
-		            tone="slate"
-		            icon={<BookIcon className="h-4 w-4" />}
-		          />
-		        )}
-	        {activeVariant?.id === "S92" && (
-		          <Bar
-		            href="/s92/system-notes"
-		            title="System Notes"
-		            description="Written deep-dives on S-92 systems — how they work, and the numbers to know."
-		            tone="slate"
-		            icon={<BookIcon className="h-4 w-4" />}
-		          />
-		        )}
-		        {activeVariant?.id === "H135_T3" && (
-		          <Bar
-		            href="/h135-t3/quick-reference"
-		            title="Quick Reference"
-		            description="Key H135 T3 Flight Manual limitations and numbers."
-		            tone="slate"
-		            icon={<BookIcon className="h-4 w-4" />}
-		          />
-		        )}
-		        {activeVariant?.id === "H135_T3" && (
-		          <Bar
-		            href="/h135-t3/system-notes"
-		            title="System Notes"
-		            description="Written deep-dives on H135 T3 systems — how they work, and the numbers to know."
-		            tone="slate"
-		            icon={<BookIcon className="h-4 w-4" />}
-		          />
-		        )}
-		        {activeVariant?.id === "H145_D2" && (
-		          <Bar
-		            href="/h145-d2/quick-reference"
-		            title="Quick Reference"
-		            description="Key H145 D2 Flight Manual limitations and numbers."
-		            tone="slate"
-		            icon={<BookIcon className="h-4 w-4" />}
-		          />
-		        )}
-		        {activeVariant?.id === "H145_D2" && (
-		          <Bar
-		            href="/h145-d2/system-notes"
-		            title="System Notes"
-		            description="Written deep-dives on H145 D2 systems — how they work, and the numbers to know."
-		            tone="slate"
-		            icon={<BookIcon className="h-4 w-4" />}
-		          />
-		        )}
-		        {activeVariant?.id === "H145_D3" && (
-		          <Bar
-		            href="/h145-d3/quick-reference"
-		            title="Quick Reference"
-		            description="Key H145 D3 Flight Manual limitations and numbers."
-		            tone="slate"
-		            icon={<BookIcon className="h-4 w-4" />}
-		          />
-		        )}
-		        {activeVariant?.id === "H145_D3" && (
-		          <Bar
-		            href="/h145-d3/system-notes"
-		            title="System Notes"
-		            description="Written deep-dives on H145 D3 systems — how they work, and the numbers to know."
-		            tone="slate"
-		            icon={<BookIcon className="h-4 w-4" />}
-		          />
-		        )}
-		        {activeVariant?.id === "AW139" && (
-		          <Bar
-		            href="/aw139/quick-reference"
-		            title="Quick Reference"
-		            description="Key AW139 RFM limitations and numbers."
-		            tone="slate"
-		            icon={<BookIcon className="h-4 w-4" />}
-		          />
-		        )}
-	        {activeVariant?.id === "AW139" && (
-		          <Bar
-		            href="/aw139/system-notes"
-		            title="System Notes"
-		            description="Written deep-dives on AW139 systems — how they work, and the numbers to know."
-		            tone="slate"
-		            icon={<BookIcon className="h-4 w-4" />}
-		          />
-		        )}
-		        {activeVariant?.id === "AW189" && (
-		          <Bar
-		            href="/aw189/quick-reference"
-		            title="Quick Reference"
-		            description="Key AW189 QRH/RFM limitations and numbers."
-		            tone="slate"
-		            icon={<BookIcon className="h-4 w-4" />}
-		          />
-		        )}
-		        {activeVariant?.id === "AW189" && (
-		          <Bar
-		            href="/aw189/system-notes"
-		            title="System Notes"
-		            description="Written deep-dives on AW189 systems — how they work, and the numbers to know."
-		            tone="slate"
-		            icon={<BookIcon className="h-4 w-4" />}
-		          />
-		        )}
 		      </section>
 
 		      {showPlanningTools && (

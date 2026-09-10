@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { toggleTheme as toggleThemeLib, setThemeSource as setThemeSourceLib, getEffectiveTheme as getEffectiveThemeLib, onThemeChange as onThemeChangeLib, applyTheme as applyThemeLib } from "@/lib/theme";
 import AppTopBar from "@/components/AppTopBar";
-import { listVariantsByProduct } from "@/lib/models/catalog";
+import { listVariantsByProduct, listModelVariants } from "@/lib/models/catalog";
 import { getStoredActiveModelVariantId, modelScopedKey } from "@/lib/models/storage";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 import { writeQuizOverrideSession } from "@/lib/quiz/overrideSession";
@@ -504,9 +504,6 @@ export default function AccountPage() {
 
   const aw169Variants = listVariantsByProduct("AW169");
   const h125Variants = listVariantsByProduct("H125");
-  const h135t3Variants = listVariantsByProduct("H135_T3");
-  const h145d2Variants = listVariantsByProduct("H145_D2");
-  const h145d3Variants = listVariantsByProduct("H145_D3");
   const activeVariantId = activeVariant.id;
   const selectVariant = (id: string) => {
     // Updates the shared model store in place — every screen reading
@@ -589,71 +586,32 @@ export default function AccountPage() {
                 );
               })()}
 
-
-              <button
-                type="button"
-                key="AW139"
-                onClick={() => selectVariant("AW139")}
-                className={`px-3 py-1 rounded-lg border text-sm transition ${
-                  activeVariantId === "AW139"
-                    ? "border-emerald-400 bg-emerald-50 text-emerald-700"
-                    : "bg-white dark:bg-zinc-900 dark:text-zinc-100 hover:border-slate-300 dark:hover:border-zinc-600"
-                }`}
-              >
-                AW139
-              </button>
-
-              <button
-                type="button"
-                key="AW189"
-                onClick={() => selectVariant("AW189")}
-                className={`px-3 py-1 rounded-lg border text-sm transition ${
-                  activeVariantId === "AW189"
-                    ? "border-emerald-400 bg-emerald-50 text-emerald-700"
-                    : "bg-white dark:bg-zinc-900 dark:text-zinc-100 hover:border-slate-300 dark:hover:border-zinc-600"
-                }`}
-              >
-                AW189
-              </button>
-
-              <button
-                type="button"
-                key="R22"
-                onClick={() => selectVariant("R22")}
-                className={`px-3 py-1 rounded-lg border text-sm transition ${
-                  activeVariantId === "R22"
-                    ? "border-emerald-400 bg-emerald-50 text-emerald-700"
-                    : "bg-white dark:bg-zinc-900 dark:text-zinc-100 hover:border-slate-300 dark:hover:border-zinc-600"
-                }`}
-              >
-                R22
-              </button>
-
-              <button
-                type="button"
-                key="R44_II"
-                onClick={() => selectVariant("R44_II")}
-                className={`px-3 py-1 rounded-lg border text-sm transition ${
-                  activeVariantId === "R44_II"
-                    ? "border-emerald-400 bg-emerald-50 text-emerald-700"
-                    : "bg-white dark:bg-zinc-900 dark:text-zinc-100 hover:border-slate-300 dark:hover:border-zinc-600"
-                }`}
-              >
-                R44 II Raven
-              </button>
-
-              <button
-                type="button"
-                key="S92"
-                onClick={() => selectVariant("S92")}
-                className={`px-3 py-1 rounded-lg border text-sm transition ${
-                  activeVariantId === "S92"
-                    ? "border-emerald-400 bg-emerald-50 text-emerald-700"
-                    : "bg-white dark:bg-zinc-900 dark:text-zinc-100 hover:border-slate-300 dark:hover:border-zinc-600"
-                }`}
-              >
-                S-92
-              </button>
+              {listModelVariants()
+                .filter((v) => v.productId !== "AW169" && v.productId !== "H125")
+                .map((v) => {
+                  const coming = v.status === "coming_soon";
+                  const isActive = activeVariantId === v.id;
+                  return (
+                    <button
+                      type="button"
+                      key={v.id}
+                      disabled={coming}
+                      onClick={() => !coming && selectVariant(v.id)}
+                      className={`px-3 py-1 rounded-lg border text-sm transition ${
+                        isActive
+                          ? "border-emerald-400 bg-emerald-50 text-emerald-700"
+                          : "bg-white dark:bg-zinc-900 dark:text-zinc-100 hover:border-slate-300 dark:hover:border-zinc-600"
+                      } ${coming ? "opacity-60 cursor-not-allowed" : "cursor-pointer"}`}
+                    >
+                      {v.pickerLabel ?? v.label}
+                      {coming && (
+                        <span className="ml-2 inline-flex items-center rounded-full border border-amber-400/70 bg-amber-50 px-1.5 py-0.5 text-[10px] font-semibold text-amber-700 dark:border-amber-500/40 dark:bg-amber-900/30 dark:text-amber-200">
+                          Coming soon
+                        </span>
+                      )}
+                    </button>
+                  );
+                })}
 
               {h125Variants.map((v) => {
                 const coming = v.status === "coming_soon";
@@ -672,81 +630,6 @@ export default function AccountPage() {
                     } ${coming ? "opacity-60 cursor-not-allowed" : "cursor-pointer"}`}
                   >
                     {label}
-                    {coming && (
-                      <span className="ml-2 inline-flex items-center rounded-full border border-amber-400/70 bg-amber-50 px-1.5 py-0.5 text-[10px] font-semibold text-amber-700 dark:border-amber-500/40 dark:bg-amber-900/30 dark:text-amber-200">
-                        Coming soon
-                      </span>
-                    )}
-                  </button>
-                );
-              })}
-
-              {h135t3Variants.map((v) => {
-                const coming = v.status === "coming_soon";
-                const isActive = activeVariantId === v.id;
-                return (
-                  <button
-                    type="button"
-                    key={v.id}
-                    disabled={coming}
-                    onClick={() => !coming && selectVariant(v.id)}
-                    className={`px-3 py-1 rounded-lg border text-sm transition ${
-                      isActive
-                        ? "border-emerald-400 bg-emerald-50 text-emerald-700"
-                        : "bg-white dark:bg-zinc-900 dark:text-zinc-100 hover:border-slate-300 dark:hover:border-zinc-600"
-                    } ${coming ? "opacity-60 cursor-not-allowed" : "cursor-pointer"}`}
-                  >
-                    {v.label}
-                    {coming && (
-                      <span className="ml-2 inline-flex items-center rounded-full border border-amber-400/70 bg-amber-50 px-1.5 py-0.5 text-[10px] font-semibold text-amber-700 dark:border-amber-500/40 dark:bg-amber-900/30 dark:text-amber-200">
-                        Coming soon
-                      </span>
-                    )}
-                  </button>
-                );
-              })}
-
-              {h145d2Variants.map((v) => {
-                const coming = v.status === "coming_soon";
-                const isActive = activeVariantId === v.id;
-                return (
-                  <button
-                    type="button"
-                    key={v.id}
-                    disabled={coming}
-                    onClick={() => !coming && selectVariant(v.id)}
-                    className={`px-3 py-1 rounded-lg border text-sm transition ${
-                      isActive
-                        ? "border-emerald-400 bg-emerald-50 text-emerald-700"
-                        : "bg-white dark:bg-zinc-900 dark:text-zinc-100 hover:border-slate-300 dark:hover:border-zinc-600"
-                    } ${coming ? "opacity-60 cursor-not-allowed" : "cursor-pointer"}`}
-                  >
-                    {v.label}
-                    {coming && (
-                      <span className="ml-2 inline-flex items-center rounded-full border border-amber-400/70 bg-amber-50 px-1.5 py-0.5 text-[10px] font-semibold text-amber-700 dark:border-amber-500/40 dark:bg-amber-900/30 dark:text-amber-200">
-                        Coming soon
-                      </span>
-                    )}
-                  </button>
-                );
-              })}
-
-              {h145d3Variants.map((v) => {
-                const coming = v.status === "coming_soon";
-                const isActive = activeVariantId === v.id;
-                return (
-                  <button
-                    type="button"
-                    key={v.id}
-                    disabled={coming}
-                    onClick={() => !coming && selectVariant(v.id)}
-                    className={`px-3 py-1 rounded-lg border text-sm transition ${
-                      isActive
-                        ? "border-emerald-400 bg-emerald-50 text-emerald-700"
-                        : "bg-white dark:bg-zinc-900 dark:text-zinc-100 hover:border-slate-300 dark:hover:border-zinc-600"
-                    } ${coming ? "opacity-60 cursor-not-allowed" : "cursor-pointer"}`}
-                  >
-                    {v.label}
                     {coming && (
                       <span className="ml-2 inline-flex items-center rounded-full border border-amber-400/70 bg-amber-50 px-1.5 py-0.5 text-[10px] font-semibold text-amber-700 dark:border-amber-500/40 dark:bg-amber-900/30 dark:text-amber-200">
                         Coming soon

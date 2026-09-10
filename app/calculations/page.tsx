@@ -3,7 +3,7 @@
 import Link from "next/link";
 import AppTopBar from "@/components/AppTopBar";
 import { useActiveModelVariant } from "@/lib/models/hooks";
-import type { ProductId } from "@/lib/models/catalog";
+import { modelRoutes } from "@/lib/models/catalog";
 
 function Bar(props: { href: string; title: string; description: string }) {
   return (
@@ -19,28 +19,10 @@ function Bar(props: { href: string; title: string; description: string }) {
   );
 }
 
-const CALCULATIONS_ROUTE_SLUG: Record<ProductId, string> = {
-  AW169: "aw169",
-  AW189: "aw189",
-  AW139: "aw139",
-  H125: "h125",
-  R22: "r22",
-  R44_II: "r44-ii",
-  S92: "s92",
-  H135_T3: "h135-t3",
-  H145_D2: "h145-d2",
-  H145_D3: "h145-d3",
-};
-
-const FUEL_LABEL: Partial<Record<ProductId, string>> = {
-  R22: "Avgas 100LL",
-  R44_II: "Avgas 100LL",
-};
-
 export default function CalculationsHub() {
   const { variant } = useActiveModelVariant();
-  const slug = CALCULATIONS_ROUTE_SLUG[variant.productId];
-  const fuelLabel = FUEL_LABEL[variant.productId] ?? "Jet A-1";
+  const calcBase = modelRoutes(variant).calculations;
+  const fuelLabel = variant.fuelType === "avgas100LL" ? "Avgas 100LL" : "Jet A-1";
 
   return (
     <>
@@ -53,12 +35,12 @@ export default function CalculationsHub() {
 
       <section className="space-y-3">
         <Bar
-          href={`/calculations/${slug}/unit-conversions`}
+          href={`${calcBase}/unit-conversions`}
           title="Conversions"
           description={`Convert speed, distance, altitude, weight and ${fuelLabel} fuel for quick planning.`}
         />
         <Bar
-          href={`/calculations/${slug}/true-airspeed`}
+          href={`${calcBase}/true-airspeed`}
           title="True Airspeed"
           description="Compute TAS from IAS, pressure altitude and outside air temperature."
         />

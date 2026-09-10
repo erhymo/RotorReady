@@ -11,6 +11,8 @@ export type ModelFeatures = {
   exteriorMap?: boolean;
   calculations?: boolean;
   audio?: boolean;
+  /** Has a caution/warning-panel (CWP) lights trainer — the turbine models only, not the Robinson pistons. */
+  lights?: boolean;
 };
 
 export type ModelVariantDefinition = {
@@ -60,7 +62,7 @@ export const MODEL_VARIANTS: ModelVariantDefinition[] = [
     docLabel: "RFM",
     proceduresDescription: "Browse AW169 procedures and training checklists.",
     fuelType: "jetA1",
-    features: { quickReference: true, systemNotes: true, procedures: true, abbreviations: true, exteriorMap: true, calculations: true, audio: true },
+    features: { quickReference: true, systemNotes: true, procedures: true, abbreviations: true, exteriorMap: true, calculations: true, audio: true, lights: true },
   },
   {
     id: "AW169_EP",
@@ -73,7 +75,7 @@ export const MODEL_VARIANTS: ModelVariantDefinition[] = [
     docLabel: "RFM",
     proceduresDescription: "Browse AW169 procedures and training checklists.",
     fuelType: "jetA1",
-    features: { quickReference: true, systemNotes: true, procedures: true, abbreviations: true, exteriorMap: true, calculations: true, audio: true },
+    features: { quickReference: true, systemNotes: true, procedures: true, abbreviations: true, exteriorMap: true, calculations: true, audio: true, lights: true },
   },
   {
     id: "AW189",
@@ -86,7 +88,7 @@ export const MODEL_VARIANTS: ModelVariantDefinition[] = [
     docLabel: "QRH/RFM",
     proceduresDescription: "Browse AW189 normal, engine-failure, fire and emergency procedures.",
     fuelType: "jetA1",
-    features: { quickReference: true, systemNotes: true, procedures: true, abbreviations: true, calculations: true, audio: true },
+    features: { quickReference: true, systemNotes: true, procedures: true, abbreviations: true, calculations: true, audio: true, lights: true },
   },
   {
     id: "AW139",
@@ -99,7 +101,7 @@ export const MODEL_VARIANTS: ModelVariantDefinition[] = [
     docLabel: "RFM",
     proceduresDescription: "Browse AW139 normal, engine-failure, fire and emergency procedures.",
     fuelType: "jetA1",
-    features: { quickReference: true, systemNotes: true, procedures: true, abbreviations: true, calculations: true, audio: true },
+    features: { quickReference: true, systemNotes: true, procedures: true, abbreviations: true, calculations: true, audio: true, lights: true },
   },
   {
     id: "H125_AS350_B3_2B1",
@@ -114,7 +116,7 @@ export const MODEL_VARIANTS: ModelVariantDefinition[] = [
     proceduresDescription: "Browse H125 / AS350 B3 (2B1) procedures and training checklists.",
     quickReferenceDescription: "Selected H125 / AS350 B3 (2B1) RFM limitations and numbers.",
     fuelType: "jetA1",
-    features: { quickReference: true, systemNotes: true, procedures: true, abbreviations: true, calculations: true, audio: true },
+    features: { quickReference: true, systemNotes: true, procedures: true, abbreviations: true, calculations: true, audio: true, lights: true },
   },
   {
     id: "H125_AS350_B3E",
@@ -129,7 +131,7 @@ export const MODEL_VARIANTS: ModelVariantDefinition[] = [
     proceduresDescription: "Browse H125 / AS350 B3e procedures and training checklists.",
     quickReferenceDescription: "Selected H125 / AS350 B3e RFM limitations and numbers.",
     fuelType: "jetA1",
-    features: { quickReference: true, systemNotes: true, procedures: true, abbreviations: true, calculations: true, audio: true },
+    features: { quickReference: true, systemNotes: true, procedures: true, abbreviations: true, calculations: true, audio: true, lights: true },
   },
   {
     id: "R22",
@@ -140,8 +142,10 @@ export const MODEL_VARIANTS: ModelVariantDefinition[] = [
     status: "available",
     routeSlug: "r22",
     docLabel: "POH",
+    proceduresDescription: "Browse R22 normal and emergency procedures.",
+    quickReferenceDescription: "Selected R22 POH limitations and numbers.",
     fuelType: "avgas100LL",
-    features: { systemNotes: true, calculations: true },
+    features: { quickReference: true, systemNotes: true, procedures: true, abbreviations: true, calculations: true },
   },
   {
     id: "R44_II",
@@ -170,7 +174,7 @@ export const MODEL_VARIANTS: ModelVariantDefinition[] = [
     docLabel: "RFM",
     proceduresDescription: "Browse S-92 Category A/B, offshore helideck and engine-failure procedures.",
     fuelType: "jetA1",
-    features: { quickReference: true, systemNotes: true, procedures: true, abbreviations: true, calculations: true, audio: true },
+    features: { quickReference: true, systemNotes: true, procedures: true, abbreviations: true, calculations: true, audio: true, lights: true },
   },
   {
     id: "H135_T3",
@@ -183,7 +187,7 @@ export const MODEL_VARIANTS: ModelVariantDefinition[] = [
     docLabel: "Flight Manual",
     proceduresDescription: "Browse H135 T3 normal, engine emergency, fire, drive-system and fuel procedures.",
     fuelType: "jetA1",
-    features: { quickReference: true, systemNotes: true, procedures: true, abbreviations: true, calculations: true, audio: true },
+    features: { quickReference: true, systemNotes: true, procedures: true, abbreviations: true, calculations: true, audio: true, lights: true },
   },
   {
     id: "H145_D2",
@@ -196,7 +200,7 @@ export const MODEL_VARIANTS: ModelVariantDefinition[] = [
     docLabel: "Flight Manual",
     proceduresDescription: "Browse H145 D2 normal, engine emergency, fire, drive-system and fuel procedures.",
     fuelType: "jetA1",
-    features: { quickReference: true, systemNotes: true, procedures: true, abbreviations: true, calculations: true, audio: true },
+    features: { quickReference: true, systemNotes: true, procedures: true, abbreviations: true, calculations: true, audio: true, lights: true },
   },
   {
     id: "H145_D3",
@@ -209,7 +213,7 @@ export const MODEL_VARIANTS: ModelVariantDefinition[] = [
     docLabel: "Flight Manual",
     proceduresDescription: "Browse H145 D3 normal, engine emergency, fire, drive-system and fuel procedures.",
     fuelType: "jetA1",
-    features: { quickReference: true, systemNotes: true, procedures: true, abbreviations: true, calculations: true, audio: true },
+    features: { quickReference: true, systemNotes: true, procedures: true, abbreviations: true, calculations: true, audio: true, lights: true },
   },
 ];
 

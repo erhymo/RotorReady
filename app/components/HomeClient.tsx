@@ -98,6 +98,7 @@ function Bar(props: { href: string; title: string; description: string; tone?: "
 
 		      <section className="space-y-3">
 		        <h2 className="text-sm font-semibold uppercase tracking-wide text-slate-700 dark:text-zinc-200">Training</h2>
+		        {(!activeVariant || features?.lights) && (
 		        <Bar
 		          href="/training/lights"
 		          title="Emergency & Malfunction"
@@ -105,6 +106,7 @@ function Bar(props: { href: string; title: string; description: string; tone?: "
 		          tone="amber"
 		          icon={<BoltIcon className="h-4 w-4" />}
 		        />
+		        )}
 		        <Bar
 		          href="/quiz"
 		          title="Quiz"

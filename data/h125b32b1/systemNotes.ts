@@ -17,7 +17,7 @@ export type SystemNote = {
   sections: SystemNoteSection[];
 };
 
-const VEMD: SystemNote = {
+export const VEMD: SystemNote = {
   slug: "vemd",
   title: "VEMD: Vehicle and Engine Management Display",
   subtitle: "One duplex indicator, three modes, and the page flow behind ENGINE, VEHICLE, FLI, Flight Report, Engine Power Check, and Performance.",
@@ -68,7 +68,7 @@ const VEMD: SystemNote = {
   ],
 };
 
-const CENTRAL_WARNING_PANEL: SystemNote = {
+export const CENTRAL_WARNING_PANEL: SystemNote = {
   slug: "central-warning-panel",
   title: "Central Warning Panel and Ancillary Systems",
   subtitle: "Three ASU cards behind the caution/warning lights — including the one that runs the engine fuel back-up system, not just the annunciators.",
@@ -98,7 +98,7 @@ const CENTRAL_WARNING_PANEL: SystemNote = {
   ],
 };
 
-const AFCS: SystemNote = {
+export const AFCS: SystemNote = {
   slug: "afcs",
   title: "AFCS: SFIM 85 T 31 (3-Axis)",
   subtitle: "Pitch, roll, and yaw channel damping and attitude hold, plus every automatic-disengagement failure mode and exactly what stays alive when one channel drops.",
@@ -155,7 +155,7 @@ const AFCS: SystemNote = {
   ],
 };
 
-const HYDRAULIC_SYSTEM: SystemNote = {
+export const HYDRAULIC_SYSTEM: SystemNote = {
   slug: "hydraulic-system",
   title: "Hydraulic System — Single and Dual",
   subtitle: "One servo circuit or two independent ones — the safety-unit accumulators that buy time after a pressure loss, the SAMM-vs-Dunlop servo quirk, and the exact caution logic for each configuration.",
@@ -220,7 +220,7 @@ const HYDRAULIC_SYSTEM: SystemNote = {
   ],
 };
 
-const ELECTRICAL_SYSTEM: SystemNote = {
+export const ELECTRICAL_SYSTEM: SystemNote = {
   slug: "electrical-power-systems",
   title: "Electrical Power Systems",
   subtitle: "Battery, generator, and EPU coupling logic — what stays powered on the direct battery bus-bar when everything else goes dark.",
@@ -260,7 +260,7 @@ const ELECTRICAL_SYSTEM: SystemNote = {
   ],
 };
 
-const POWER_TRANSMISSION: SystemNote = {
+export const POWER_TRANSMISSION: SystemNote = {
   slug: "power-transmission-and-rotors",
   title: "Power Transmission System and Rotors",
   subtitle: "The engine-to-MGB coupling, the three-module gearbox, and why the STARFLEX rotor head needs no bearings or lubrication at all.",
@@ -288,7 +288,7 @@ const POWER_TRANSMISSION: SystemNote = {
   ],
 };
 
-const EMERGENCY_FLOATATION: SystemNote = {
+export const EMERGENCY_FLOATATION: SystemNote = {
   slug: "emergency-floatation-gear",
   title: "Emergency Floatation Gear",
   subtitle: "Emergency-only, not ditching-rated — the arm/fire sequence, the autorotation-onto-water profile, and the weight-dependent minimum for cold-weather NR margin.",
@@ -335,7 +335,7 @@ const EMERGENCY_FLOATATION: SystemNote = {
   ],
 };
 
-const HOIST: SystemNote = {
+export const HOIST: SystemNote = {
   slug: "hoist-installation",
   title: "Hoist Installation",
   subtitle: "Two load classes, two motor types — the operating-limit numbers that actually differ between the Breeze and Air Equipment hoists, and the escape-direction rule after an engine failure in the hover.",
@@ -392,7 +392,7 @@ const HOIST: SystemNote = {
   ],
 };
 
-const EXTERNAL_LOAD: SystemNote = {
+export const EXTERNAL_LOAD: SystemNote = {
   slug: "external-load",
   title: "External Load: Cargo Sling and Cargo Swing",
   subtitle: "750 kg on a fixed hook or 1,400 kg on a pyramid frame with three release-unit options — the CG-vs-weight limit, the 80 kt cap, and what the load indicator's LD ON light is actually telling you.",
@@ -439,7 +439,7 @@ const EXTERNAL_LOAD: SystemNote = {
   ],
 };
 
-const BAMBI_BUCKET: SystemNote = {
+export const BAMBI_BUCKET: SystemNote = {
   slug: "bambi-bucket",
   title: "Bambi Bucket",
   subtitle: "A 1,225-liter firefighting bucket on the Cargo Swing hardware — the two different release controls, and why a right turn helps if you have to jettison it.",
@@ -478,7 +478,7 @@ const BAMBI_BUCKET: SystemNote = {
   ],
 };
 
-const SAND_FILTER: SystemNote = {
+export const SAND_FILTER: SystemNote = {
   slug: "sand-filter",
   title: "Sand Filter",
   subtitle: "Engine protection for hover-in-sand and falling-snow operations — the P2 valve logic, and the ~10°C T4 rise that comes with running it.",
@@ -517,13 +517,126 @@ const SAND_FILTER: SystemNote = {
   ],
 };
 
+const POWER_PLANT: SystemNote = {
+  slug: "power-plant",
+  title: "Power Plant and Engine Control",
+  subtitle: "The Arriel 2B1 as five free-wheel modules, the dual-channel FADEC that governs Nf, and the EBCAU back-up governor that takes over — holding Nf 388–400 rpm — the instant the FADEC fails completely.",
+  rfmReference:
+    "AS350 B3 2B1 Flight Manual Section 7.7 (Power Plant — General, Engine Oil System) and Section 7.8 §5 (Fuel Flow Control — FADEC functions, FADEC power supplies, FADEC failures, Fuel governor back-up system); Section 2.1 (General Limitations) and Section 2.4 (Vehicle Limitations) for the twist-grip and rating limits.",
+  sections: [
+    {
+      heading: "The engine",
+      paragraphs: [
+        "A single Turbomeca (Safran) Arriel 2B1, a 650 kW (870 hp) class turboshaft, in its own fireproof compartment aft of the MGB and above the rear cargo hold, connected to the MGB by a shaft between two flexible couplings. It is a modular free-wheel engine built from five independent modules: the axial compressor module (single stage, with a bleed valve), the gas generator module (centrifugal compressor, annular combustion chamber, single-stage gas generator turbine), the free turbine module, the reduction gear module (steps the free turbine down from 39,158 rpm to 6,000 rpm), and the output shaft module (drives the MGB and the accessory couplings).",
+        "The oil system is in two parts: an external system in the engine and MGB compartments with one tank and one cooler (fireproof hoses in the engine bay), and an internal system inside the engine with one pressure pump, three scavenge pumps, a filter with a by-pass valve, and one electrical magnetic chip detector.",
+      ],
+    },
+    {
+      heading: "The FADEC",
+      paragraphs: [
+        "Fuel flow is managed by a FADEC built around a dual-channel Electronic Engine Control Unit (EECU) in the rear cargo bay. Its principle is to hold the power turbine speed Nf constant regardless of the power drawn from the engine, by adjusting gas generator speed Ng. The EECU meters fuel through a stepper motor driving a metering valve in the engine's hydro-mechanical unit. A control-channel device passes control to whichever channel has no major failure, or to channel A — the preferred channel — when both are healthy.",
+        "The EECU also handles automatic starting with T4 overlimit prevention, proportional Nf control with a rotor-noise-reduction feature, surge and flame-out protection during transients, bleed-valve monitoring, Ng and torque overlimit protection, failure detection and indication, the Engine Power Check, and Ng/Nf cycle counting. Post-MOD 07-20060/07-20061 it adds automatic engine shutdown on an Nf overspeed above 120% (NR 463 rpm), closing the main metering valve; restart capability is unaffected.",
+      ],
+    },
+    {
+      heading: "FADEC power — and why it survives an electrical failure",
+      paragraphs: [
+        "Once gas generator speed is established (Ng > 60%), normal engine running is independent of the helicopter electrical system: the FADEC is then fed by an alternator with two independent channels driven by the gas generator. Helicopter 28 VDC is still needed for the starting sequence and the monitoring system, and as a back-up source for the EECU's fuel control section.",
+        "After a total loss of helicopter DC supply, even once DC is restored the GOV caption stays on and IDLE is unavailable — the FADEC is forced to FLIGHT regime — until a full FADEC reset on the ground (engine off, battery off then on).",
+      ],
+    },
+    {
+      heading: "FADEC failure levels",
+      table: {
+        columns: ["Level", "Indication", "Effect"],
+        rows: [
+          ["1", "GOV flashing (at idle, starting, or engine stopped)", "No effect on engine control — loss of redundancy only. Reset the FADEC before start (battery OFF/ON); refer to Section 3"],
+          ["2", "GOV steady", "Degraded but protected engine control, or the back-up governing system out of its neutral position — loss of accuracy, loss of power check; refer to Section 3"],
+          ["3", "GOV (total FADEC failure)", "The FADEC main metering valve is frozen at its last computed value, the back-up system activates automatically, automatic start is impossible; refer to Section 3"],
+        ],
+      },
+    },
+    {
+      heading: "The EBCAU back-up governor",
+      paragraphs: [
+        "The fuel governor back-up system is an electronic computer — the Engine Back-up Control Ancillary Unit (EBCAU), ASU card No. 3 — completely independent of the FADEC. On detection of a total FADEC failure it takes over engine fuel governing immediately, holding Nf between 388 and 400 rpm. It also runs on the ground for a maintenance test, after which the back-up valve returns to neutral.",
+        "The EBCAU drives a DC actuator on a back-up metering valve whose slots sit partly in series and partly in parallel with the engine hydro-mechanical unit's main metering valve, opening or closing to add or subtract fuel flow relative to the fixed flow the frozen FADEC valve is still passing. Whenever the FADEC is working, the back-up valve is held in neutral as a safety device, and the EBCAU returns it to neutral automatically when the test switch goes back to OFF.",
+      ],
+      note: "In-flight engine power reduction using the twist grip is prohibited except for engine failure training and the emergency procedures that call for it. The twist grip normally sits in the FLIGHT detent; IDLE is used on the ground. Heating and demisting must not be used above the engine maximum continuous rating (Ng or T4).",
+    },
+  ],
+};
+
+export const FUEL_SYSTEM: SystemNote = {
+  slug: "fuel-system",
+  title: "Fuel System",
+  subtitle: "A single spin-moulded (or crash-resistant) tank of roughly 425 kg usable, a booster pump only for priming the start, and an engine side that heats the fuel enough to run at −20°C with no anti-ice additive.",
+  rfmReference:
+    "AS350 B3 2B1 Flight Manual Section 7.8 (Fuel System — General, Helicopter Supply System, Engine Fuel Supply System, Controls and Monitoring); Section 7.1 §2.4 (fuel capacity); Section 2.5 §1 (approved fuels).",
+  sections: [
+    {
+      heading: "What it is",
+      paragraphs: [
+        "The fuel system has a helicopter part and an engine part. The helicopter part is a spin-moulded tank (or a crash-resistant tank on modified aircraft), a supply system, a gravity refuelling filler, and a monitoring system. The engine part — an LP pump, a fuel filter, an HP pump, and the fuel-control hydro-mechanical unit — is integral with the engine, and the hydro-mechanical unit is driven by the FADEC and its back-up system.",
+        "Total capacity is 540 litres (427 kg). Usable fuel is 538.7 litres / 425.6 kg (938 lb) with the standard tank, or 538 litres / 425 kg (937 lb) with the crash-resistant tank.",
+      ],
+    },
+    {
+      heading: "Helicopter supply side",
+      paragraphs: [
+        "The tank sits in the body structure beneath the transmission deck, with a fuel level transmitter, a starting priming pump, and a decanting sump with a water drain valve. A vent is on the right side, the filler on the left. Fuel reaches the engine through a fire fuel shut-off valve. The tank booster pump only primes the fuel line during the starting sequence — it is not a continuous boost pump — and the engine draws its fuel by suction in normal running.",
+      ],
+    },
+    {
+      heading: "Engine supply side",
+      paragraphs: [
+        "The engine LP pump draws fuel up through the filter to the HP pump, helped at the circuit entry by an ejector fed from the HP pump that primes the LP pump. The filter carries an electrical pre-clogging indicator, a by-pass valve with a visual indicator, and a low-pressure detector. The fuel is warmed by the combined engine fuel/oil filter assembly — enough to allow operation down to −20°C with no anti-ice additive in the fuel — then delivered to the FADEC hydro-mechanical unit.",
+        "From the hydro-mechanical unit the fuel passes a shut-off solenoid valve (the means of shutting the engine down) and a pressurizing valve before reaching the main injector and injection wheel. A three-way electrovalve feeds two starting injectors during the start; once the start sequence ends they are fed with P3 air to prevent carbonisation. On shutdown a purge valve drains the fuel left in the main injection system.",
+      ],
+    },
+    {
+      heading: "Controls and monitoring",
+      paragraphs: [
+        "The FUEL PUMP (or FUEL P) indicator light shows the priming/booster pump state — it is selected ON for start and purge and OFF once the engine is running. An engine fuel control back-up system (see the Power Plant note) can meter fuel through a back-up valve if the FADEC fails completely.",
+      ],
+      note: "Approved normal fuels include F34/JP-8, F35/Jet A-1, Jet A, F43/F44 (JP-5), and Chinese Jet Fuel No. 3. If the fuel contains no freezing inhibitor and OAT is below −20°C, an anti-icing additive is mandatory. Fuels not listed in Section 2.5 must not be used.",
+    },
+  ],
+};
+
+export const HEATING_VENTILATION: SystemNote = {
+  slug: "ventilation-heating-demisting",
+  title: "Ventilation, Heating and Demisting",
+  subtitle: "Two independent ventilation circuits, and heating/demisting that works by bleeding hot P2 air off the engine and mixing it with outside air — forbidden above maximum continuous power.",
+  rfmReference:
+    "AS350 B3 2B1 Flight Manual Section 7.13 (Ventilation, Heating and Demisting — Cabin Ventilation, Heating and Demisting System); Section 2.4 §2 (First Limitation Instrument).",
+  sections: [
+    {
+      heading: "Ventilation",
+      paragraphs: [
+        "Two separate circuits ventilate the cabin. Front ventilation takes air from the front cabin area through two ducts to the crew, opened and adjusted by a pull-knob on the instrument panel. Overhead ventilation takes air from the upper cabin area through a ram-air scoop and distributes it through the structure posts to outlets that each open and swivel to aim the flow.",
+      ],
+    },
+    {
+      heading: "Heating and demisting",
+      paragraphs: [
+        "Heating and demisting work by mixing hot P2 air bled from the engine with outside air drawn from under the cabin floor. The mixture runs through two separate ducts — to heating outlets under the front seats, and to the demisting manifolds along the bottom of the front windscreen. Two manually operated valves on the P2 lines, on the cabin floor, open and regulate the warm-air distribution.",
+      ],
+      note: "Use of heating and demisting is forbidden above the engine maximum continuous rating (Ng or T4) — the P2 bleed is a power cost the engine cannot carry at max continuous power. The sand filter note applies the same rule: heating and demisting must be off whenever the sand filter is active.",
+    },
+  ],
+};
+
 export const H125B32B1_SYSTEM_NOTES: SystemNote[] = [
   VEMD,
   CENTRAL_WARNING_PANEL,
   AFCS,
+  POWER_PLANT,
+  FUEL_SYSTEM,
   HYDRAULIC_SYSTEM,
   ELECTRICAL_SYSTEM,
   POWER_TRANSMISSION,
+  HEATING_VENTILATION,
   EMERGENCY_FLOATATION,
   HOIST,
   EXTERNAL_LOAD,

@@ -5,7 +5,7 @@
 import fs from "fs";
 import mupdf from "mupdf";
 
-const ECL_PDF = "S92/CHC_HS_ECL_S92.pdf";
+const ECL_PDF = "_source/manuals/S92/CHC_HS_ECL_S92.pdf";
 const doc = mupdf.Document.openDocument(ECL_PDF);
 const scale = 2;
 

@@ -10,7 +10,7 @@ export async function GET() {
     return new Response("Not enabled", { status: 404 });
   }
   try {
-    const pdfPath = path.join(process.cwd(), "RFM AW169", "RFM Issue 3. Rev.1.pdf");
+    const pdfPath = path.join(process.cwd(), "_source/rfm/RFM AW169", "RFM Issue 3. Rev.1.pdf");
     const data = await fs.readFile(pdfPath);
     return new Response(new Uint8Array(data), {
       headers: {

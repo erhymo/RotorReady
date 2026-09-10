@@ -3,8 +3,8 @@ import fs from 'fs';
 import path from 'path';
 import * as pdfjs from 'pdfjs-dist/legacy/build/pdf.mjs';
 
-const PDF_PATH = path.resolve('H145-D2(Fire blad)/FLM BK117-D2 SW10 Rev. 0.pdf');
-const OUT_PATH = path.resolve('h145d2-flm-pages.txt');
+const PDF_PATH = path.resolve('_source/manuals/H145-D2(Fire blad)/FLM BK117-D2 SW10 Rev. 0.pdf');
+const OUT_PATH = path.resolve('_source/qrh/h145d2-flm-pages.txt');
 
 async function extractPageLines(doc, pageNo) {
   const page = await doc.getPage(pageNo);

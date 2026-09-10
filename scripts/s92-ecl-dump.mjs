@@ -48,8 +48,8 @@ async function main() {
     pageIndex.push({ docPage: p, firstLine: lines[0] || "" });
   }
 
-  fs.writeFileSync("s92-ecl-pages.txt", outLines.join("\n"), "utf8");
-  fs.writeFileSync("S92/2_index.pages.json", JSON.stringify(pageIndex, null, 2), "utf8");
+  fs.writeFileSync("_source/qrh/s92-ecl-pages.txt", outLines.join("\n"), "utf8");
+  fs.writeFileSync("_source/manuals/S92/2_index.pages.json", JSON.stringify(pageIndex, null, 2), "utf8");
   console.log(`Wrote s92-ecl-pages.txt (${maxPage} pages) and S92/2_index.pages.json`);
 }
 

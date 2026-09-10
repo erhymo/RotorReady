@@ -3,8 +3,8 @@ import fs from 'fs';
 import path from 'path';
 import * as pdfjs from 'pdfjs-dist/legacy/build/pdf.mjs';
 
-const PDF_PATH = path.resolve('AW189/AW189 QRH_Rev 14_Phase 8_[E].pdf');
-const OUT_PATH = path.resolve('aw189-qrh-pages.txt');
+const PDF_PATH = path.resolve('_source/manuals/AW189/AW189 QRH_Rev 14_Phase 8_[E].pdf');
+const OUT_PATH = path.resolve('_source/qrh/aw189-qrh-pages.txt');
 
 async function extractPageLines(doc, pageNo) {
   const page = await doc.getPage(pageNo);

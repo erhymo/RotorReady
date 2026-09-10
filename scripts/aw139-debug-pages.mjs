@@ -53,7 +53,7 @@ async function main() {
     outLines.push("");
   }
 
-  fs.writeFileSync("aw139-debug-pages.txt", outLines.join("\n"), "utf8");
+  fs.writeFileSync("_source/qrh/aw139-debug-pages.txt", outLines.join("\n"), "utf8");
   console.log("Wrote aw139-debug-pages.txt");
 }
 

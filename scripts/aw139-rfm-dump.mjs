@@ -46,7 +46,7 @@ async function main() {
     outLines.push("");
   }
 
-  fs.writeFileSync("aw139-rfm-pages.txt", outLines.join("\n"), "utf8");
+  fs.writeFileSync("_source/rfm/aw139-rfm-pages.txt", outLines.join("\n"), "utf8");
   console.log("Wrote aw139-rfm-pages.txt");
 }
 

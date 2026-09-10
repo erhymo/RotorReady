@@ -3,8 +3,8 @@ import fs from 'fs';
 import path from 'path';
 import * as pdfjs from 'pdfjs-dist/legacy/build/pdf.mjs';
 
-const PDF_PATH = path.resolve('H135-T3/PCL EC135T3H Rev. 21.pdf');
-const OUT_PATH = path.resolve('h135t3-pcl-pages.txt');
+const PDF_PATH = path.resolve('_source/manuals/H135-T3/PCL EC135T3H Rev. 21.pdf');
+const OUT_PATH = path.resolve('_source/qrh/h135t3-pcl-pages.txt');
 
 async function extractPageLines(doc, pageNo) {
   const page = await doc.getPage(pageNo);

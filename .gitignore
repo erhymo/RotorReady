@@ -90,29 +90,19 @@ tmp/
 temp/
 
 
-# Large local source PDFs/exports (do not commit)
-# Manufacturer flight manuals/QRHs/checklists are copyrighted third-party
-# material. We author our own quiz questions/explanations from them, but the
-# source PDFs and full-text extractions must not be published to this public
-# repo. Only committed derivative content (quiz JSON, our own prose) belongs
-# in git.
-RFM AW169/
-AS350 B3 E/
-AS350 B3 2B1/
+# Local source material (do not commit): manufacturer flight manuals /
+# QRHs / checklists are copyrighted third-party PDFs, plus their full-text
+# extractions and the raw podcast audio staging area. We author our own quiz
+# questions / prose from them; only that committed derivative content belongs
+# in git. Everything lives under one ignored umbrella folder:
+/_source/
+
+# Copyrighted source PDFs that live under public/ (kept out of git; the
+# derived model-data JSON alongside them is committed)
 public/aw169/QRH EP AW169/
 public/aw139/qrh/*.pdf
 
-# Local source PDFs (root)
-/AW189/
-/AW139/
-/R44 2 POH/
-/aw189/
-/H135-T3/
-/H145-D2(Fire blad)/
-/H145-D3(Fem blad)/
-/S92/*.pdf
-
-# Full-text extractions of manufacturer manuals (any model)
+# Full-text extraction dumps, wherever a script drops them
 *-rfm-pages.txt
 *-qrh-pages.txt
 *-ecl-pages.txt
@@ -122,7 +112,6 @@ public/aw139/qrh/*.pdf
 *-pcl-pages.txt
 *-debug-pages.txt
 *_index.txt
-S92/*.pages.json
 
 # next-pwa generated assets change per build; do not track
 public/sw.js

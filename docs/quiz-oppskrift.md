@@ -12,7 +12,7 @@ Standard arbeidsflyt for å hente ut og lage quiz‑spørsmål fra POH/RFM/QRH f
 
 ## 2. Forberede kildedata
 
-1. Legg POH/RFM/QRH‑PDF i egen mappe på rot (f.eks. `R44 2 POH`, `AW139`, `AW189`).
+1. Legg POH/RFM/QRH‑PDF i en modellmappe under `_source/manuals/` (f.eks. `_source/manuals/R44 2 POH`, `_source/manuals/AW139`). Hele `_source/` er git‑ignorert.
 2. Sørg for at det finnes, per dokument:
    - en ren tekstfil (`*.txt`), og gjerne
    - en sideindeks (`*.pages.json`) for side‑referanser.

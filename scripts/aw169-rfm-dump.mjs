@@ -3,7 +3,7 @@ import fs from "fs";
 import path from "path";
 import * as pdfjs from "pdfjs-dist/legacy/build/pdf.mjs";
 
-const RFM_PDF = path.resolve("RFM AW169", "RFM Issue 3. Rev.1.pdf");
+const RFM_PDF = path.resolve("_source/rfm/RFM AW169", "RFM Issue 3. Rev.1.pdf");
 
 async function extractPageLines(doc, pageNo) {
   const page = await doc.getPage(pageNo);
@@ -46,7 +46,7 @@ async function main() {
     outLines.push("");
   }
 
-  fs.writeFileSync("aw169-rfm-pages.txt", outLines.join("\n"), "utf8");
+  fs.writeFileSync("_source/rfm/aw169-rfm-pages.txt", outLines.join("\n"), "utf8");
   console.log("Wrote aw169-rfm-pages.txt");
 }
 

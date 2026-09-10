@@ -3,8 +3,8 @@ import fs from 'fs';
 import path from 'path';
 import * as pdfjsLib from 'pdfjs-dist/legacy/build/pdf.mjs';
 
-const pdfPath = process.argv[2] || path.join(process.cwd(), 'AS350 B3 E', '1_index-2.pdf');
-const outTxt = process.argv[3] || path.join(process.cwd(), 'AS350 B3 E', '1_index-2.txt');
+const pdfPath = process.argv[2] || path.join(process.cwd(), '_source/manuals/AS350 B3 E', '1_index-2.pdf');
+const outTxt = process.argv[3] || path.join(process.cwd(), '_source/manuals/AS350 B3 E', '1_index-2.txt');
 const outPages = path.join(path.dirname(outTxt), '1_index-2.pages.json');
 
 async function extract() {

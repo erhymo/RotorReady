@@ -3,8 +3,8 @@ import fs from 'fs';
 import path from 'path';
 import * as pdfjs from 'pdfjs-dist/legacy/build/pdf.mjs';
 
-const PDF_PATH = path.resolve('AW189/AW189 RFM Issue 2_Rev_14_[E] - CHSC.pdf');
-const OUT_PATH = path.resolve('aw189-rfm-pages.txt');
+const PDF_PATH = path.resolve('_source/manuals/AW189/AW189 RFM Issue 2_Rev_14_[E] - CHSC.pdf');
+const OUT_PATH = path.resolve('_source/rfm/aw189-rfm-pages.txt');
 
 async function extractPageLines(doc, pageNo) {
   const page = await doc.getPage(pageNo);

@@ -51,7 +51,8 @@ export default function QuizTypeSelectPage() {
       activeVariant.productId === "H135_T3" ||
       activeVariant.productId === "H145_D2" ||
       activeVariant.productId === "H145_D3" ||
-      activeVariant.id === "R44_II");
+      activeVariant.id === "R44_II" ||
+      activeVariant.id === "R22");
 
   const currentLoadedSections = loadedSections?.modelId === activeVariant.id ? loadedSections : null;
   const sections = currentLoadedSections?.sections ?? [];

@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import AppTopBar from "@/components/AppTopBar";
+import AbbreviationsLinkCard from "@/app/components/AbbreviationsLinkCard";
 
 export default function H125AS350B3eProceduresListPage() {
   const procedures = [
@@ -80,6 +81,7 @@ export default function H125AS350B3eProceduresListPage() {
         <p className="text-sm text-slate-600 dark:text-zinc-300">
           Browse normal and emergency training procedures. Each procedure opens as a focused reference view with a clear return path.
         </p>
+        <AbbreviationsLinkCard href="/h125-as350-b3e/abbreviations" />
         <section className="rounded-xl border bg-white p-4 shadow-sm dark:bg-zinc-900 dark:border-zinc-700">
           <div className="space-y-3">
             {procedures.map((p) => (

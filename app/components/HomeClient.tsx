@@ -371,6 +371,15 @@ function Bar(props: { href: string; title: string; description: string; tone?: "
 		            icon={<BookIcon className="h-4 w-4" />}
 		          />
 		        )}
+		        {activeVariant?.id === "AW189" && (
+		          <Bar
+		            href="/aw189/system-notes"
+		            title="System Notes"
+		            description="Written deep-dives on AW189 systems — how they work, and the numbers to know."
+		            tone="slate"
+		            icon={<BookIcon className="h-4 w-4" />}
+		          />
+		        )}
 		      </section>
 
 		      {showPlanningTools && (

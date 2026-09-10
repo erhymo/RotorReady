@@ -1047,5 +1047,85 @@ const RNP_APCH_LPV_SHARED: SystemNote = {
   ],
 };
 
-export const AW169_EP_SYSTEM_NOTES: SystemNote[] = [AFCS_EP, PLUS_MODE_EP, AUTOROTATION_PROTECTION_EP, WEATHER_RADAR_SHARED, WEATHER_RADAR_RDR1600_SHARED, TCAS_II_SHARED, HTAWS_EP, SVS_SHARED, DIGITAL_MAP_SHARED, OPLS_SHARED, EVS_CAMERA_SHARED, EHPS_SHARED, ADI_STBY_BATTERY_SHARED, AUTOMATIC_SEARCH_MODES_EP, EXTERNAL_HOIST_SHARED, CARGO_HOOK_SHARED, DITCHING_SHARED, ADELT_SHARED, EAPS_EP, FUEL_TRANSFER_PUMP_SHARED, RNP_APCH_LPV_SHARED];
-export const AW169_STANDARD_SYSTEM_NOTES: SystemNote[] = [WEATHER_RADAR_SHARED, WEATHER_RADAR_RDR1600_SHARED, TCAS_II_SHARED, HTAWS_STANDARD, SVS_SHARED, DIGITAL_MAP_SHARED, OPLS_SHARED, EVS_CAMERA_SHARED, EHPS_SHARED, ADI_STBY_BATTERY_SHARED, EXTERNAL_HOIST_SHARED, CARGO_HOOK_SHARED, DITCHING_SHARED, ADELT_SHARED, EAPS_STANDARD, FUEL_TRANSFER_PUMP_SHARED, RNP_APCH_LPV_SHARED];
+const ELECTRICAL_SYSTEM_SHARED: SystemNote = {
+  slug: "electrical-system",
+  title: "Electrical Power System (EPGDS)",
+  subtitle: "Two brushless starter-generators, two NiCd batteries, and a 30-minute clock the moment both generators drop — plus what every OVRD switch on the EDCU ELEC page actually restores.",
+  rfmReference:
+    "AW169 RFM Section 1 (Limitations — Electrical System Limitations), Section 3 (Emergency and Malfunction Procedures — Electrical System: Double DC Generator Failure, Single DC Generator Failure, DC Generator Overheat, DC Generator Overload, Emergency Bus 1/2 Failure, BCU Overheating; and the Services Available / Services Lost bus tables on pages 3-52 to 3-55), AW169 EP RFM Section 7 (System Description — Electrical Power, Chap 24). The generation and distribution architecture is common to AW169 Standard and AW169 EP.",
+  sections: [
+    {
+      heading: "What it is",
+      paragraphs: [
+        "The Electrical Power Generation and Distribution System (EPGDS) generates AC power, converts it to 28 VDC, and distributes it. There is no usable AC bus — AC exists only internally between the generators and their control units; every load on the aircraft is 28 VDC.",
+        "Generation is two brushless starter-generators, one per engine. During start they run as motors, turning the engine; once the engine is running they generate. Each is managed by its own Brushless Control Unit (BCU) in the rear fuselage under the cargo compartment — the BCU does the AC-to-28VDC conversion in generation mode and the reverse in start mode.",
+        "Two Nickel-Cadmium batteries in the rear avionic bay: a 33 Ah main battery (MAIN BATT) and a 13 Ah auxiliary battery (AUX BATT). Optional kits substitute higher-capacity units (44 Ah main; 28 Ah or 33 Ah auxiliary). The batteries start the engines when no ground power is connected, and are the sole power source after a double generator failure. On the ground the system can instead be fed by a DC Ground Power Unit — recommended for engine starts after a cold soak.",
+        "Distribution is solid-state (SSEPM): instead of a wall of mechanical circuit breakers and relays, power is routed through Remote Electrical Power Units (REPUs) — two in the nose compartment, one in the rear fuselage — fed from two DC Power Distribution Units (DC PDU 1 and DC PDU 2) in the rear avionic bay. The DC PDUs do the contactor switching, bus voltage and current monitoring, and over/under-voltage and overcurrent protection. A conventional Circuit Breaker Panel on the overhead console still feeds the emergency buses directly.",
+      ],
+    },
+    {
+      heading: "Controls",
+      paragraphs: [
+        "The electrical control panel in the interseat console carries: GEN 1, GEN 2, MAIN BATT, BATT AUX, EXT PWR, and the MASTER CUT OFF SWITCH (MCOS). GEN switches have an ON, a RESET, and an OFF position — RESET is how a tripped generator is brought back on line.",
+        "Everything finer-grained is on the EDCU ELEC page (the EDCU is the crew's main interface for electrical control and remote circuit-breaker management). The MFD also has an electrical synoptic page and the lower half of the PWR PLANT page for status.",
+      ],
+    },
+    {
+      heading: "The bus structure",
+      paragraphs: [
+        "GEN 1 normally feeds MAIN BUS 1 and MAIN BUS 3; GEN 2 feeds MAIN BUS 2 and MAIN BUS 4. Below the main buses sit six NON ESSENTIAL buses (comfort and mission loads — cabin lighting, sockets, wipers, EFB power, external camera, OPLS, and so on).",
+        "The Emergency Subsystem is the part that survives a total generation loss: EMERGENCY BUS 1 and 2 (fed from the Circuit Breaker Panel) and ESSENTIAL BUS 1 and 2 (REPU 1 and 2, Channel B). These carry the irreducible minimum — engine controls and ignition, FADEC channel B, both fire detection and extinguisher circuits, landing-gear control, fuel shut-off valves, standby ADI, one AFCS flight control computer per side, one ADAHRS, VHF 1, and the pilot's PFD/MFD. A number of items on these buses are marked as available on the ground only, i.e. lost in flight after a double generator failure.",
+      ],
+    },
+    {
+      heading: "Limits",
+      table: {
+        caption: "Electrical system limitations (RFM Section 1)",
+        columns: ["Parameter", "Range", "Note"],
+        rows: [
+          ["DC generator load", "0–75%", "Normal operation"],
+          ["DC generator load", "76–100%", "Cautionary — 10 minutes maximum"],
+          ["DC generator load", "101–150%", "Transient"],
+          ["DC generator load", "150%", "Maximum transient"],
+          ["Battery load", "−200 to 0 A", "Discharge"],
+          ["Battery load", "0 to 200 A", "Charge"],
+          ["Emergency bus voltage", "22–30 V", "Normal operation (22 V min, 30 V max)"],
+        ],
+      },
+    },
+    {
+      heading: "The OVRD switches on the EDCU ELEC page",
+      paragraphs: [
+        "BUS TIE — OVRD ties the two generators' distribution together so they share the total electrical load. It is the response to a DC GENERATOR OVERLOAD (1(2) DC GEN OVLD — set by more than 100% for over 45 seconds, or more than 75% for over 10 minutes). In a double generator failure it has a second use: with the generators gone, BUS TIE OVRD extends battery power to MAIN BUS 2, at the cost of shorter battery endurance.",
+        "NON ESS L and NON ESS R — after a single generator failure the non-essential buses drop. NON ESS L to OVRD restores NON ESS BUS 1 and 3; NON ESS R to OVRD restores NON ESS BUS 2 and 4 — used only if a load on one of them is actually needed, since it adds to the surviving generator.",
+        "GEN BUS — in a double generator failure, OVRD connects battery power to MAIN BUS 1 (again trading battery endurance for the loads on that bus).",
+      ],
+    },
+    {
+      heading: "Losing one generator",
+      paragraphs: [
+        "1(2) DC GEN FAIL — reset the affected generator; if it stays failed, switch it off and let the other one carry everything. The affected side's main buses (1 and 3, or 2 and 4) are lost and all non-essential buses are lost; non-essential buses can be brought back selectively with the NON ESS L/R OVRD switches. Watch the surviving generator's load on the MFD and shed load if it goes over limit.",
+        "1(2) DC GEN HOT (overheat) — switch the affected generator off immediately. Same result: one generator carries the aircraft, all non-essential buses lost.",
+        "In both cases the aircraft is fully flyable on one generator — the point is that there is no margin left for a second failure, and the non-essential comfort/mission loads are gone unless deliberately restored.",
+      ],
+    },
+    {
+      heading: "Losing both generators — ELEC FAIL",
+      paragraphs: [
+        "A double DC generator failure triggers the \"WARNING WARNING\" aural and the ELEC FAIL warning. First action is to try to get a generator back (GEN 1 & 2 to RESET, confirm ON). If that fails, the aircraft is running on the main battery alone: all main buses and all non-essential buses are gone, and only the emergency and essential buses remain.",
+        "Battery power lasts a maximum of 30 minutes — that is the number that drives everything else. Land as soon as possible.",
+        "If a load on MAIN BUS 1 is genuinely required, GEN BUS to OVRD feeds it from the battery — and BUS TIE to OVRD additionally feeds MAIN BUS 2 — but each override shortens the 30 minutes. The landing gear control is on a bus that is lost in flight in this state, so the gear has to be put down with the LANDING GEAR EMERGENCY DOWN procedure; VHF 1 is selected on the right side to keep radio contact. A subsequent MAIN BATT OFF caution means land as soon as possible, without qualification.",
+      ],
+    },
+    {
+      heading: "Related failures",
+      paragraphs: [
+        "1(2) EMER BUS FAIL — a single emergency bus is lost while generation is otherwise normal. The losses are specific and worth knowing: EMER BUS 1 takes VHF 1, the standby instrument (ESIS), engine 1 fire detection and extinguisher, and AFCS force-trim release; EMER BUS 2 takes the pilot's EDCU, PFD, master warning/caution lights, landing light, RAD ALT 2, engine 2 fire detection and extinguisher, NAV 2, GPS 2, and the transponder. Reduce speed and continue attentive.",
+        "BCU OVERHEATING — the brushless control unit itself overheating has its own procedure; the generator it manages is affected.",
+      ],
+    },
+  ],
+};
+
+export const AW169_EP_SYSTEM_NOTES: SystemNote[] = [AFCS_EP, PLUS_MODE_EP, AUTOROTATION_PROTECTION_EP, ELECTRICAL_SYSTEM_SHARED, WEATHER_RADAR_SHARED, WEATHER_RADAR_RDR1600_SHARED, TCAS_II_SHARED, HTAWS_EP, SVS_SHARED, DIGITAL_MAP_SHARED, OPLS_SHARED, EVS_CAMERA_SHARED, EHPS_SHARED, ADI_STBY_BATTERY_SHARED, AUTOMATIC_SEARCH_MODES_EP, EXTERNAL_HOIST_SHARED, CARGO_HOOK_SHARED, DITCHING_SHARED, ADELT_SHARED, EAPS_EP, FUEL_TRANSFER_PUMP_SHARED, RNP_APCH_LPV_SHARED];
+export const AW169_STANDARD_SYSTEM_NOTES: SystemNote[] = [ELECTRICAL_SYSTEM_SHARED, WEATHER_RADAR_SHARED, WEATHER_RADAR_RDR1600_SHARED, TCAS_II_SHARED, HTAWS_STANDARD, SVS_SHARED, DIGITAL_MAP_SHARED, OPLS_SHARED, EVS_CAMERA_SHARED, EHPS_SHARED, ADI_STBY_BATTERY_SHARED, EXTERNAL_HOIST_SHARED, CARGO_HOOK_SHARED, DITCHING_SHARED, ADELT_SHARED, EAPS_STANDARD, FUEL_TRANSFER_PUMP_SHARED, RNP_APCH_LPV_SHARED];

@@ -554,30 +554,40 @@ export default function AccountPage() {
             <div className="text-sm text-slate-700 dark:text-zinc-300 mt-0.5">
               RotorReady is free and open. No login is required for training, quizzes, procedures or offline packages.
             </div>
-            <div className="mt-2 flex items-start gap-2 flex-wrap">
-              <div className="inline-flex flex-col gap-1">
-                <span className="pl-1 text-[10px] font-semibold uppercase tracking-wider text-slate-400 dark:text-zinc-500">AW169 — pick variant</span>
-                <div className="inline-flex items-center gap-1 rounded-xl border border-slate-200 bg-slate-50/70 p-1 dark:border-zinc-700 dark:bg-zinc-950/40">
-                  {aw169Variants.map((v) => {
-                    const isActive = activeVariantId === v.id;
-                    const label = v.id === "AW169_EP" ? "EP" : "Standard";
-                    return (
-                      <button
-                        type="button"
-                        key={v.id}
-                        onClick={() => selectVariant(v.id)}
-                        className={`rounded-lg px-3 py-1 text-sm transition ${
-                          isActive
-                            ? "bg-white text-emerald-700 shadow-sm ring-1 ring-emerald-300 dark:bg-zinc-800 dark:text-emerald-200 dark:ring-emerald-700/70"
-                            : "text-slate-600 hover:bg-white/80 dark:text-zinc-300 dark:hover:bg-zinc-800/80"
-                        }`}
-                      >
-                        {label}
-                      </button>
-                    );
-                  })}
-                </div>
-              </div>
+            <div className="mt-2 flex items-center gap-2 flex-wrap">
+              {(() => {
+                const aw169Active = aw169Variants.some((v) => activeVariantId === v.id);
+                return (
+                  <div
+                    className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-lg border text-sm transition ${
+                      aw169Active
+                        ? "border-emerald-400 bg-emerald-50 text-emerald-700 dark:border-emerald-500 dark:bg-emerald-900/30 dark:text-emerald-200"
+                        : "bg-white dark:bg-zinc-900 dark:text-zinc-100"
+                    }`}
+                  >
+                    <span className="font-medium">AW169</span>
+                    <span className="opacity-40">·</span>
+                    {aw169Variants.map((v) => {
+                      const isActive = activeVariantId === v.id;
+                      const label = v.id === "AW169_EP" ? "EP" : "Standard";
+                      return (
+                        <button
+                          type="button"
+                          key={v.id}
+                          onClick={() => selectVariant(v.id)}
+                          className={`rounded px-2 py-0.5 text-xs font-medium transition ${
+                            isActive
+                              ? "bg-emerald-600 text-white"
+                              : "text-slate-600 hover:bg-slate-100 dark:text-zinc-300 dark:hover:bg-zinc-800"
+                          }`}
+                        >
+                          {label}
+                        </button>
+                      );
+                    })}
+                  </div>
+                );
+              })()}
 
 
               <button

@@ -1,0 +1,358 @@
+export type SystemNoteSection = {
+  heading?: string;
+  paragraphs?: string[];
+  table?: {
+    caption?: string;
+    columns: string[];
+    rows: (string | number)[][];
+  };
+  note?: string;
+};
+
+export type SystemNote = {
+  slug: string;
+  title: string;
+  subtitle?: string;
+  rfmReference: string;
+  sections: SystemNoteSection[];
+};
+
+// Sourced from the H145 (BK117 D-2 / D-3) Flight Manual, Section 7 (Description
+// of Systems). Section 7 is common in structure and, for the systems below,
+// in content between the D-2 and D-3 — the exception is the main rotor, so the
+// ROTOR_SYSTEMS note here is the five-bladed bearingless (D-3) version and the
+// D-2 file overrides it with the four-bladed hingeless version.
+
+export const FLIGHT_CONTROLS_AFCS: SystemNote = {
+  slug: "flight-controls-and-afcs",
+  title: "Flight Control System and AFCS",
+  subtitle: "Flexball cable runs to a mixing lever and the boosted actuators, and a 4-axis dual-duplex AFCS in the two Aircraft Management Computers — SEMAs in series with the controls, trim actuators for auto-trim and force feel, and a back-up SAS living in the standby instrument.",
+  rfmReference:
+    "H145 (BK117 D-2 / D-3) Flight Manual Section 7.3 (Flight Control System and AFCS — main rotor controls, tail rotor control, cyclic, collective, AFCS: APCP, SEMAs, trim actuators, general functions, indications, architecture, coupling, modes).",
+  sections: [
+    {
+      heading: "The mechanical controls",
+      paragraphs: [
+        "Cyclic and collective inputs run through three ball-bearing control cables (flexballs) forward through the nose and up to the main rotor actuators on the roof, where the flexball centre blade drives the actuator input levers. The boosted outputs go through control rods to the mixing lever, which combines them into a swashplate tilt (cyclic) or a sliding-sleeve movement that changes all blade pitch angles together (collective). Pedal inputs run through a flexball to the tail rotor actuator, which boosts them to the tail rotor blades through the linkage inside the tail gearbox. The AFCS adds its own inputs through the trim actuators and the SEMAs.",
+        "The co-pilot cyclic, collective and pedals are removable via quick-release connections for single-pilot operation, and a dual-control cover kit blanks the stumps.",
+      ],
+    },
+    {
+      heading: "AFCS architecture",
+      paragraphs: [
+        "A 4-axis AFCS on the 28 V DC system: the Autopilot Control Panel, cyclic and collective switches, Smart Electro-Mechanic Actuators (SEMA) for pitch, roll, collective and yaw, and trim actuators for the same four axes. Flight management and control run in the two Aircraft Management Computers — each hosts two dual AFCS partitions that acquire helicopter parameters, compute the actuator commands and give crew feedback. One AFCS processing unit is master and drives all actuators; the other is on standby and takes over if the master disengages. Sensors feeding it: three AHRS (fibre-optic gyros and magnetometers), the IESI, the pitot/static system and air data units, OAT, the FMS and nav sensors, and the radio altimeter.",
+        "The SEMAs sit in series with the pilot's controls and move the actuators without moving the cyclic, collective or pedals, with limited authority: roll ±19%, pitch ±11%, collective ±7%, yaw ±21.5% of total control travel. The back-up SAS uses only SEMA set No. 1 in pitch, roll and yaw. The trim actuators (under the cabin floor) provide automatic trim on pitch/roll/yaw, automatic power setting on collective, and an artificial control force so the pilot feels the AFCS inputs; TRIM REL declutches them.",
+      ],
+    },
+    {
+      heading: "Modes",
+      paragraphs: [
+        "Basic stabilisation: ATT (long-term attitude hold, engaged by default), DSAS (digital SAS), and TAC (tactical). Basic upper modes: ALT, HDG, IAS, VS, ALT.A, GA, CRHT. Navigation and approach upper modes: LOC, GS, VOR, NAV, APP, V.APP. GPS-based: FPA, TRK, GTC (ground trajectory control), HEIGHT/HOVER, and Takeoff mode. Back-up SAS provides pitch/roll/yaw stability augmentation from within the IESI if both autopilots are lost.",
+      ],
+    },
+    {
+      heading: "Envelope protections and coupling",
+      paragraphs: [
+        "With vertical modes engaged on the pitch axis, airspeed is protected between 30 kt and VNE; below 60 kt the fourth (collective) axis engages automatically. Commanded pitch attitude is limited to −12° / +14° and roll to ±30°. If IAS, VS, FPA, GS, V.APP or ALT.A is engaged and the aircraft approaches the ground, the mode changes automatically to ALT, which uses radio height to level off at 150 ft (65 ft on GS or V.APP) to avoid controlled flight into terrain. The recovery function — a double forward press of AP/BKUP ON on the cyclic — engages IAS, HDG/TRK and ALT together from any AFCS state and recovers wings-level; from hover it accelerates automatically to 40 kt.",
+        "The autopilot is coupled to a navigation source on an MFD; the coupled source shows green inverse video. If the coupled source stops being displayed on any master-side MFD, the AP mode on the AFCS strip flashes and deactivates after 10 seconds unless the source is brought back. The AFCS strip has two rows (engaged over armed) and three columns (collective / yaw-roll / pitch) with a defined colour code — red for hands-on required, amber for degradation, green for engaged, cyan for armed.",
+      ],
+    },
+  ],
+};
+
+export const DUAL_HYDRAULIC: SystemNote = {
+  slug: "dual-hydraulic-boost-system",
+  title: "Dual Hydraulic Boost System",
+  subtitle: "Two similar but independent pressure-supply systems on a module plate in front of the main transmission, MGB-driven pumps, half booster force on one system, and an emergency shut-off valve that keeps a system-1 leak from starving the tail rotor.",
+  rfmReference:
+    "H145 (BK117 D-2 / D-3) Flight Manual Section 7.4 (Dual Hydraulic Boost System — hydraulic power system, degraded operation, indication and testing, auxiliary hydraulic pump).",
+  sections: [
+    {
+      heading: "What it is",
+      paragraphs: [
+        "The hydraulic system boosts pilot inputs and transmits them to the flight-control actuators. For redundancy it is two similar but independent pressure-supply systems; both, plus the main rotor actuators, sit on a module plate on the roof in front of the main transmission, and the tail rotor actuator is on the tail gearbox. Both pump sets are driven by accessory drives of the main transmission and feed the three main rotor actuators and the tail rotor actuator.",
+      ],
+    },
+    {
+      heading: "Degraded operation",
+      paragraphs: [
+        "If one pressure-supply system fails, the other keeps supplying the main and tail rotor actuators — the hydraulic actuator output forces are then held at 50% of the normal value, which is enough for all normal manoeuvres.",
+        "If fluid is lost from system 1, a mechanically actuated emergency shut-off valve (ESOV) in the valve block automatically cuts the supply to the tail rotor actuator, so the tail rotor controls are then boosted by system 2 only. If fluid is lost from both systems, the tail rotor controls are no longer boosted, but system 1 continues to boost the main rotor controls.",
+      ],
+    },
+  ],
+};
+
+export const POWER_PLANT: SystemNote = {
+  slug: "power-plant",
+  title: "Power Plant",
+  subtitle: "Two Arriel 2E turboshafts on a dual-channel FADEC — a metering valve with two stepper motors, N2 governed on a density-altitude schedule, an independent overspeed circuit at 120%, and the FADEC EMER ultimate back-up mode.",
+  rfmReference:
+    "H145 (BK117 D-2 / D-3) Flight Manual Section 7.5 (Power Plant and Related Systems — engines, engine operation and control, N2 control, rotor speed governing, load sharing, overspeed protection, ultimate backup mode, oil system, fuel system, engine indications, FLI).",
+  sections: [
+    {
+      heading: "The engines",
+      paragraphs: [
+        "Two Safran (Turbomeca) Arriel 2E turboshafts in a fireproof compartment aft of the main transmission, above the passenger/cargo compartment, each driving the transmission through an independent drive shaft. The Arriel 2E is five modules: transmission shaft; axial compressor with accessory drive gearbox; centrifugal compressor with combustion chamber and single-stage compressor turbine; single-stage free power turbine; reduction gearbox.",
+      ],
+    },
+    {
+      heading: "FADEC and starting",
+      paragraphs: [
+        "Each engine is controlled by a two-channel EECU whose channels talk to each other, to the other EECU and to the avionics. The EECU calculates fuel demand and drives a metering valve with two independent stepper motors, one per channel, but only the channel in control actuates it. N1, N2 and T45 are read by redundant sensors per channel; torque, oil pressure and temperature are common to both channels. Each engine also has an Engine Data Recorder.",
+        "Starting is fully automatic — set the ENG MAIN switch from OFF to IDLE or FLIGHT and the EECU runs the sequence, monitoring T45 and N1 and aborting on over-temperature. A failed first ignition triggers an automatic second attempt; a failed second attempt must be interrupted by hand (ENG MAIN to OFF). Both engines cannot start at the same time — even with both switches to FLIGHT they start one after the other — and the first engine will not start with the rotor brake engaged. ENG MAIN to OFF closes the stop electrovalve; below an N1 threshold the metering valve also closes, and if the engine does not decelerate the metering needle closes to force fuel flow to zero.",
+      ],
+    },
+    {
+      heading: "Governing, load sharing and overspeed",
+      paragraphs: [
+        "In IDLE the engine is governed to a fixed N2 datum of 78% (higher on an idling engine when the other is in FLIGHT, to hold N1 at least 62%). In FLIGHT the N2 datum is calculated automatically by the avionics as a function of density altitude, ramping NR up with airspeed between 73 and 120 KTAS; under OEI (including OEI training) the IAS-below-55-kt law is used at all speeds. If the two channels or two EECUs disagree on the N2 datum, a back-up value of 104% is used.",
+        "Load sharing matches the engines not just on torque but on the minimum margin to their first limit (N1, T4 or TQ) — this FLI-matching can leave a visible torque split around AEO MCP/TOP, for example with one old and one new engine. Each engine has an independent overspeed circuit in the EECU using separate N2 sensors: an N2 above 120% shuts that engine down through the overspeed fuel shut-off valve, and in that case (or on an overspeed-system failure) the other engine's overspeed protection is disabled to prevent an untimely dual shutdown.",
+      ],
+    },
+    {
+      heading: "FADEC EMER and oil",
+      paragraphs: [
+        "On a FADEC FAIL the affected engine's metering valve is blocked and it stops responding to collective. In some FADEC FAIL cases control can be regained with the ultimate back-up mode: setting that engine's FADEC EMER switch to ON matches its TOT to the healthy engine's TOT. It may also be used for a governing problem such as oscillating torque.",
+        "Each engine has its own oil system. There is no mechanical filter-blockage indicator — the EECU computes the Δp across the filter from pressure sensors and posts a master-list alert on impending blockage. There is one electrical magnetic plug downstream of the scavenge pump and a mechanical chip detector on the front and rear bearing.",
+      ],
+    },
+    {
+      heading: "The First Limit Indicator",
+      paragraphs: [
+        "The FLI on each FND shows the collective pitch position on a 0-to-10 scale, with the positions at which each power limit (MCP, TOP, transient) would be reached marked on that scale — the FADEC continuously picks the smallest margin. A blue line shows the OEI 30-second power margin: above the reference the collective can be held for at least 30 s after a single engine failure, below it the collective must be lowered to roughly the blue-line position to hold NR. A white dashed 'desynchronisation line' marks the collective position below which NR and N2 desynchronise and the aircraft can enter autorotation. An AEO counter appears with under 90 s of take-off power remaining and flashes under 15 s.",
+        "OEI detection is automatic: the FADEC declares OEI on a power split of torque difference greater than 53% or N1 difference greater than 6%, triggering the power-split audio and the OEI indication. The N2/NR indicator merges the matched N2 needles into a trident for an at-a-glance normal AEO check; the rotor-brake range appears in white when NR is below 50%.",
+      ],
+    },
+  ],
+};
+
+export const ENGINE_FIRE: SystemNote = {
+  slug: "engine-fire-detection-and-extinguishing",
+  title: "Engine Fire Detection and Extinguishing",
+  subtitle: "Three temperature detectors per engine, two HALON 1301 bottles on the aft deck with a semi-automatic extinguishing logic in the warning unit, and a discharge held back until N1 is below 45%.",
+  rfmReference:
+    "H145 (BK117 D-2 / D-3) Flight Manual Section 7.5.6 (Engine fire detection and extinguishing system — fire detection system, fire extinguishing system, fire indication and operation of the extinguishers).",
+  sections: [
+    {
+      heading: "Detection",
+      paragraphs: [
+        "Each engine has three temperature-sensing fire detectors — one on the engine, two on the aft firewall — powered from ESS BUS 1/2. A detected fire (excessive temperature) gives a voice message, an ENG FIRE 1/2 message on the master list, and a FIRE caption on the EMER OFF SW 1/2 button on the warning unit.",
+      ],
+    },
+    {
+      heading: "Extinguishing",
+      paragraphs: [
+        "Two HALON 1301 bottles (nitrogen propellant) on the right side of the aft deck, each with two outlet ports guarded by explosive cartridges and routed to the two engine compartments, with a mechanical discharge indicator (red disc) and a pressure gauge visible through the cowling for the preflight check. The extinguishing logic is semi-automatic, in the warning unit.",
+        "Push the illuminated FIRE switch: the fuel shut-off valve closes (FUEL VALVE CLSD caution), the green ACTIVE light comes on, and the amber BOT 1 label appears. Push the bottle select switch: the green EXT light comes on and the selected bottle discharges as soon as N1 is below 45% (confirmed by FIRE BOT1 USED). If the fire is not out, the second bottle becomes available automatically after 15 seconds, and should be discharged if the fire is not out one minute after the first bottle.",
+      ],
+    },
+  ],
+};
+
+export const FUEL_SYSTEM: SystemNote = {
+  slug: "fuel-system",
+  title: "Fuel System",
+  subtitle: "Underfloor crash-resistant bladder cells — a main tank and a split left/right supply tank — redundant transfer pumps that can run dry for 30 minutes, and three layers of low-fuel indication ending in a hard low-level sensor at 26 kg.",
+  rfmReference:
+    "H145 (BK117 D-2 / D-3) Flight Manual Section 7.6 (Fuel System — storage, supply, monitoring, refueling and grounding, fuel indications).",
+  sections: [
+    {
+      heading: "Storage and supply",
+      paragraphs: [
+        "Fuel sits in underfloor crash-resistant bladder cells — a main tank (forward and aft parts) and a supply tank split into a left and a right chamber — interconnected by flexible overflow and transfer channels, with five drain valves. Usable capacity is 903.8 litres. The left supply tank feeds the left engine, the right the right engine.",
+        "Two electrically driven fully redundant centrifugal transfer pumps in the forward main tank move fuel to each supply tank; a jet pump driven by both transfer pumps moves fuel from the aft main tank to the forward main tank; surplus in the supply tanks returns via overflow channels. The FUEL XFER PUMP F/A switches on the overhead panel run the pumps, which stay ON for the whole flight — they are certified to run dry for up to 30 minutes, so they can keep running once the main tank is empty. A prime pump in each supply tank purges air and feeds the engine during start (FUEL 1/2 PRIME PUMP ON caution) and is switched off for normal flight. Engine-driven pumps in the fuel control unit draw from each supply tank, and an electric fuel shut-off valve on each side, operated from the warning unit, cuts fuel to its engine.",
+      ],
+    },
+    {
+      heading: "Monitoring",
+      table: {
+        caption: "Low-fuel indications",
+        columns: ["Indication", "Trigger"],
+        rows: [
+          ["MAIN FUEL LOW (advisory)", "A transfer pump running dry (typically main tank below ~50 kg), or indicated main quantity below 40 kg"],
+          ["FUEL RESERVE (caution)", "Below 42 kg in the left supply tank, or below 47 kg in the right"],
+          ["LOW FUEL 1/2 (warning + voice)", "An independent low-level sensor in a supply tank detecting below 26 kg — roughly 10 minutes of flight remaining, regardless of the indicated quantity"],
+        ],
+      },
+      note: "Five quantity sensors feed the AMCs (two in the forward main tank, one aft, one per supply chamber). Endurance is calculated on the entire fuel quantity with no reserve; when LOW FUEL is indicated the endurance shows as invalid (***). The right supply tank is slightly larger, so in total fuel starvation the left engine normally fails first. Gravity refuelling to full takes about 11 minutes.",
+    },
+  ],
+};
+
+export const GEARBOX_DRIVE: SystemNote = {
+  slug: "gearbox-and-drive-system",
+  title: "Gearbox and Drive System",
+  subtitle: "A two-stage flat main transmission with a freewheeling unit at each input, mast-moment monitoring, and a single-stage Fenestron tail gearbox that steps the drive up by 1.30 and turns it through 90°.",
+  rfmReference:
+    "H145 (BK117 D-2 / D-3) Flight Manual Section 7.7 (Gearbox and Drive System — main transmission, main transmission oil system, tail rotor drive shaft and tail gearbox, indications).",
+  sections: [
+    {
+      heading: "Main transmission",
+      paragraphs: [
+        "A two-stage flat-design gearbox. The first (input bevel gear) stage has the engine drive shafts, free-wheel clutches and bevel gears that deflect the power flow; the second (collector gear) stage has the collector gear and bevel gears. It drives the main rotor, the tail rotor, the hydraulic pumps and the oil cooling fans. A freewheeling unit at each input lets either or both engines be disengaged — during autorotation, for single-engine operation, or any time engine drive-shaft RPM falls below the driven-shaft RPM. A mast-moment monitoring system on the main rotor mast watches the bending moment on the mast.",
+        "The oil system has two pumps that draw from the integrated sump through a screen and feed a fine-mesh filter (with a bypass to keep oil circulating if it clogs), a sight gauge, and one chip detector per side. Oil temperature and pressure are monitored continuously on the VMD; any exceedance or unusual trend raises MGB OVERLIMIT or MGB TREND on the master list.",
+      ],
+    },
+    {
+      heading: "Tail rotor drive",
+      paragraphs: [
+        "The tail rotor drive shaft runs along the top centre of the tail boom to the tail gearbox, which is mounted on the stator hub in the ducted opening of the Fenestron. The tail gearbox is a single-stage design: a bevel gear stage turns the power flow through 90° and steps the input speed up by a gear ratio of 1.30. It uses wet-sump splash lubrication and has an oil filler neck, a sight glass and a chip detector (chip detection raises a caution).",
+      ],
+    },
+  ],
+};
+
+export const ROTOR_SYSTEMS: SystemNote = {
+  slug: "rotor-systems",
+  title: "Rotor Systems",
+  subtitle: "A five-bladed bearingless main rotor on a one-piece forged mast and hub — the flex-control-unit does lead-lag, flap and pitch with no mechanical hinges — and a shrouded ten-blade Fenestron.",
+  rfmReference:
+    "H145 (BK117 D-3) Flight Manual Section 7.8 (Rotor Systems — main rotor system, main rotor mast and control elements, main rotor blades assembly, tail rotor system, rotor systems indications).",
+  sections: [
+    {
+      heading: "Main rotor",
+      paragraphs: [
+        "A five-bladed bearingless main rotor. The main rotor mast and hub are a one-piece steel-alloy forging, the hub being an integral part of the mast, with flanges for the five blade assemblies (two hub attachment bolts each). Control inputs reach the head through the swashplate and rotating control rods; moving the rods up or down changes blade pitch.",
+        "Each main rotor blade assembly is a flex-control-unit plus a blade. The flex-control-unit is a composite flexbeam and control cuff: the flexbeam flexes vertically (flap), horizontally (lead-lag) and twists about the feathering axis (pitch), so all three motions happen without mechanical hinges. The control cuff carries the elastomeric lead-lag damper and turns the pitch-link movement into a blade-angle change. A hub cap tops the head for aerodynamic reasons.",
+      ],
+    },
+    {
+      heading: "Tail rotor",
+      paragraphs: [
+        "A Fenestron-type shrouded tail rotor, rotating counter-clockwise seen from the right, with the head on the tail gearbox output shaft. Its ten blades are held by integrated tension-torsion straps that take the centrifugal load, and yaw control is by collective pitch change of all ten blades, driven by the pilot or AFCS through the tail rotor actuator.",
+        "NR is picked up by a sensor in the main transmission and a back-up sensor in the tail rotor transmission, and shown on the FND and VMD.",
+      ],
+    },
+  ],
+};
+
+export const ELECTRICAL_SYSTEM: SystemNote = {
+  slug: "electrical-system",
+  title: "Electrical System",
+  subtitle: "A DC-only system on two engine-driven starter-generators and a main battery, an emergency battery feeding the standby instrument and exit lights, and a bus structure — ESS, SHED, NON ESS, EMER — tied together by a BUS TIE control system.",
+  rfmReference:
+    "H145 (BK117 D-2 / D-3) Flight Manual Section 7.9 (Electrical System — DC power system, DC power system control, indications, MASTER MISSION switch, ground power switch, utility receptacle). Two effectivity versions: early aircraft with a Generator Control Unit, later aircraft with Electrical Master Boxes.",
+  sections: [
+    {
+      heading: "Sources and buses",
+      paragraphs: [
+        "The DC power system is supplied by two engine-driven starter-generators and a main battery, with an emergency (standby) battery that feeds the standby air-data and attitude indicator (IESI) and the emergency exit/lighting on the EMER BUS if both generators and the main battery are lost. An external power unit can be connected for ground operation. Generators give about 28 V DC, the battery about 24 V.",
+        "The consumer buses: MAIN BUS 1 and 2; ESS BUS 1 and 2 (flight-essential loads, each fed from its MAIN BUS through diode boxes/power modules with alternative paths from the battery and the opposite MAIN BUS, energised as soon as any source is on); SHED BUS 1 and 2 (secondary loads, shed on a double generator failure); NON ESS BUS 1 and 2 (high-load non-essential, powered only with both generators or an EPU); the BAT BUS; and the EMER BUS. A BUS TIE control system connects MAIN BUS 1 to MAIN BUS 2 and to the BAT BUS, and opens to separate a MAIN BUS on an abnormal electrical condition.",
+      ],
+    },
+    {
+      heading: "Two hardware versions",
+      paragraphs: [
+        "Early aircraft use a Generator Control Unit with relay-based distribution (generator, bus-tie, starter and battery relays). Later aircraft (S/N 20070, S/N 21016 and subsequent) use Electrical Master Boxes with contactors — battery contactor (BATC), bus-tie contactors (BTC), generator line contactors (GLC), essential-bus contactors (ESSC), etc. — and on this version the BAT MSTR switch controls the essential-bus contactors and connecting an EPU disconnects the BAT BUS from the MAIN buses.",
+      ],
+    },
+    {
+      heading: "Controls",
+      table: {
+        columns: ["Switch", "Function"],
+        rows: [
+          ["GEN 1 / GEN 2", "NORM (auto-connect with the engine running) / OFF; momentary RES to reset and reconnect"],
+          ["BAT MSTR", "OFF / ON; momentary ENGAGE (or RES) to activate the BUS TIE / connecting system"],
+          ["STBY BAT (emergency battery)", "OFF — battery charged from ESS BUS 2. ON — battery feeds the EMER BUS if ESS BUS 2 is not energised"],
+          ["BUS TIE 1 / 2 (guarded NORM)", "NORM — MAIN 1 and 2 tied to each other and the BAT BUS. OFF — that MAIN BUS isolated; momentary RES to reconnect"],
+          ["EMER SHD BUS (guarded NORM)", "ON re-energises SHED BUS 1 and 2 from battery power after a double generator failure"],
+        ],
+      },
+      note: "The VMD electrical area shows generator/battery/EPU state symbols by colour, plus digital bus voltage and generator/battery current (shown automatically on an overlimit, or on demand with NUM). Battery charging reads as negative current, discharging as positive. Optional: a MASTER MISSION switch, a GND PWR switch/push-button (auto-limited to 10 / 20 / 45 minutes and a real drain on the battery), and a switchable 20 A utility receptacle via DC RECEPT.",
+    },
+  ],
+};
+
+export const HEATING_VENTILATION: SystemNote = {
+  slug: "heating-and-ventilation",
+  title: "Heating and Ventilation",
+  subtitle: "Bleed-air heating that a computer modulates against cabin temperature and the FADEC cuts above OEI continuous power, an optional electrical heater tied to demist selection, and separate cockpit, avionics and passenger ventilation.",
+  rfmReference:
+    "H145 (BK117 D-2 / D-3) Flight Manual Section 7.10 (Heating/Ventilation System — bleed air heating system, electrical heater, ventilation system).",
+  sections: [
+    {
+      heading: "Bleed air heating",
+      paragraphs: [
+        "A venturi-type mixing valve blends engine bleed air with cabin air; a temperature control computer constantly adjusts the valve from ceiling and duct temperature sensors and the BLD HTG rheostat setting, with overtemperature switches in the supply duct. The heating symbol shows in the FLI when heating is on. A HEATING FAIL caution comes up if the shut-off valves stay open after the system is switched off, or stay closed after it is switched on; a HEATING OVERTEMP caution and a valve closure follow a mixing-valve malfunction. The FADEC automatically switches bleed-air heating off as soon as engine power exceeds OEI maximum continuous (the OEI 2-min or 30-sec ratings), and restores it once power drops below OEI continuous.",
+      ],
+    },
+    {
+      heading: "Electrical heater and ventilation",
+      paragraphs: [
+        "The optional electrical heater accelerates defogging/defrosting and only runs with the bleed-air heating on and demisting selected (PUSH FOR DEFOG lever fully pushed); switching it on also brings the ventilation to a minimum level, and it draws about 40 A total (20 A per generator).",
+        "The ventilation system is in three parts: cockpit (windshield nozzles, a PUSH FOR AIR lever selecting outside NACA-inlet air or recirculated cockpit air, a PUSH FOR DEFOG lever routing air to the windshield or to the pilot/co-pilot outlets, and a VENTILATION CKPT rheostat for blower speed); avionics cooling (a thermoswitch runs the blower on instrument-panel temperature); and passenger ventilation (nine adjustable nozzles, a PAX BLW switch). Cockpit heating and windshield defog work by mixing hot bleed-air-heating air into the ventilation flow, so the ventilation rheostat setting affects heating performance.",
+      ],
+    },
+  ],
+};
+
+export const AIR_DATA: SystemNote = {
+  slug: "air-data-system",
+  title: "Air Data System",
+  subtitle: "Two independent barometric systems — a heated pitot and two interconnected heated static ports each — and a mechanical alternate static source that takes cabin pressure if the external ports block.",
+  rfmReference:
+    "H145 (BK117 D-2 / D-3) Flight Manual Section 7.12 (Air Data System — static ports, pitot tube, pitot/static heating, alternate static source selector).",
+  sections: [
+    {
+      heading: "What it is",
+      paragraphs: [
+        "Two similar but independent barometric systems feed the air data computers and the standby instrument (IESI): system 1 on the left (co-pilot), system 2 on the right (pilot). Each has one heated pitot tube at the front of the aircraft and two external static ports (one per side, interconnected, flush-mounted above the clam-shell doors, with an upward-oriented connector to keep out moisture). Heating is controlled separately for each system by the PT/STATIC HTG PILOT and PT/STATIC HTG COPILOT switches — system 1 from SHED BUS I, system 2 from ESS BUS II.",
+      ],
+    },
+    {
+      heading: "Alternate static source",
+      paragraphs: [
+        "The alternate static source selector, in system 2 on the right of the instrument panel, supplies cockpit (cabin) pressure as an alternate static source if the external ports block. It is a purely mechanical device — selecting one source blocks the other, and both cannot be blocked at once. When the alternate source is selected, Helionix must be configured to use it (see Section 3), and the indicated altitude and airspeed must be corrected per the table in Section 5. It must only be used in accordance with the associated emergency procedure.",
+      ],
+    },
+  ],
+};
+
+export const HELIONIX: SystemNote = {
+  slug: "helionix",
+  title: "Helionix",
+  subtitle: "Two duplex Aircraft Management Computers and three interchangeable Multifunction Displays — FND, VMS, NAVD, DMAP, MISC — with an alerting system whose warning unit keeps working through a total Helionix failure, and automatic sensor reconfiguration behind every flight parameter.",
+  rfmReference:
+    "H145 (BK117 D-2 / D-3) Flight Manual Section 7.13 (Helionix — general, AMC, MFD, system architecture, MFD formats, alerting system, flight data monitoring and automatic sensor reconfiguration, vehicle management).",
+  sections: [
+    {
+      heading: "What it is",
+      paragraphs: [
+        "The integrated modular avionics system. Its core is two duplex Aircraft Management Computers (AMC) in the lower avionics compartment — each has two physically separated acquisition and processing modules plus an aural alert generator, two hardware channels for internal integrity monitoring, and software partitions for the different applications (vehicle and engine management runs in the VMS partition, the autopilot in the AFCS partition). It also interacts with the Data Transfer Device, the Cockpit Control Panel, the IESI, the AHRS, the air data computers, magnetometers and a memory module. It provides the flight and navigation instruments, vehicle management, the alerting system, flight and usage monitoring, the AFCS, air-data/attitude/heading computation, flight data recording, and HTAWS/SVS/digital map.",
+      ],
+    },
+    {
+      heading: "The displays",
+      paragraphs: [
+        "Three interchangeable, optionally NVG-compatible LCD Multifunction Displays: MFD1 in front of the co-pilot, MFD2 in front of the pilot (permanently the FND, no format-select labels), MFD4 in the centre. Formats: FND (flight and navigation display — all primary flight information: attitude, the NR/N2 trident indicator, the FLI, the AFCS strip, the master list), VMS (vehicle management — engines, rotor, main gearbox, fuel, hydraulics, electrical, plus the weight-and-performance page and the SYST and RCNF sub-formats), NAVD, DMAP and MISC. MFD1's available formats depend on the MFD COPILOT knob on the Cockpit Control Panel. On a display failure the remaining MFDs reconfigure automatically with the FND at highest priority; a USE FND label prompts the pilot back to it, and an event needing immediate attention forces the MFD back to FND.",
+      ],
+    },
+    {
+      heading: "Alerting",
+      paragraphs: [
+        "Alerts are Warning (red — immediate awareness and response), Caution (amber — immediate awareness, subsequent response), Advisory (white — awareness, possibly maintenance before further flight) and Information (green). They show on the warning unit, on the master list on the FND, as labels on the FND/NAVD, and as audio tones and voice messages. The warning unit, centrally on the instrument panel, is mostly independent of Helionix and keeps working through a complete Helionix failure — and the engine shut-off valves and the fire extinguishing system are operated through it. The master list shows at most seven messages, sorted Warning → Caution → Advisory → Information then by priority; messages may be concatenated (the same alert for both systems combined) or suppressed (a low-oil-pressure alert hidden when ENG FAIL is present). New alerts are acknowledged with RESET on the cyclic or ACK on the FND.",
+      ],
+    },
+    {
+      heading: "Flight data monitoring and reconfiguration",
+      paragraphs: [
+        "Flight data come from two ADUs, three AHRS, two magnetometers, the IESI, the radio altimeter and two FMS, all processed and cross-monitored in the AMCs. A parameter found to have failed (a localised failure) is de-selected automatically and cannot be manually re-selected; the indication is replaced by a redundant source and a master-list alert is raised — if the parameter recovers it is re-used automatically. When Helionix sees a disagreement but cannot tell which source is wrong (a non-localised failure, typical with only two sources), it shows a discrepancy triangle by the instrument and the pilot must decide which is correct and de-select the bad source on the VMS RCNF page. If all sources of a parameter fail, it is shown in amber on the FND. The RCNF page shows which sensor each MFD is using and lets the pilot de-select and re-select sources.",
+      ],
+    },
+  ],
+};
+
+export const H145D3_SYSTEM_NOTES: SystemNote[] = [
+  FLIGHT_CONTROLS_AFCS,
+  DUAL_HYDRAULIC,
+  POWER_PLANT,
+  ENGINE_FIRE,
+  FUEL_SYSTEM,
+  GEARBOX_DRIVE,
+  ROTOR_SYSTEMS,
+  ELECTRICAL_SYSTEM,
+  HEATING_VENTILATION,
+  AIR_DATA,
+  HELIONIX,
+];

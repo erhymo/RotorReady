@@ -1,7 +1,7 @@
 {
   "version": "2025-09-14T00:00:00Z",
-  "qrhVersion": "QRH v3.0 (example)",
-  "rfmVersion": "RFM v2.2 (example)",
+  "qrhVersion": "v3.0",
+  "rfmVersion": "v2.2",
   "changelog": [
     "Initial normalized datasets",
     "Added LIMITATIONS section",

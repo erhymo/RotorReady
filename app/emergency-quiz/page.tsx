@@ -190,7 +190,7 @@ export default function EmergencyStart() {
       (legacyKey ? localStorage.getItem(legacyKey) : null);
 
     if (!raw) {
-      alert("Ingen feilsett tilgjengelig. Fullfør en quiz først.");
+      alert("No wrong-answer set yet. Finish a quiz first.");
       return;
     }
 
@@ -205,7 +205,7 @@ export default function EmergencyStart() {
       sessionStorage.setItem(SESSION_KEY, JSON.stringify(session));
       router.push("/emergency-quiz/1");
     } catch {
-      alert("Kunne ikke laste lagret feilsett. Slett og prøv igjen.");
+      alert("Could not load the saved wrong-answer set. Clearing it — please try again.");
       localStorage.removeItem(key);
       localStorage.removeItem(fallbackKey);
       if (legacyKey) localStorage.removeItem(legacyKey);

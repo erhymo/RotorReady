@@ -1,7 +1,9 @@
 "use client";
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { buildInitialQuizResumeSession } from "@/lib/quiz/resumeSnapshot";
+import { shuffleOptionsForItem } from "@/lib/quiz/shuffleOptions";
 import { saveResult } from "@/lib/sync/results";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 import { modelScopedKey } from "@/lib/models/storage";
@@ -39,7 +41,9 @@ function loadSession(): Session | null {
 
 export default function EmergencyResultPage() {
   const [session, setSession] = useState<Session | null>(null);
+  const [showReview, setShowReview] = useState(false);
   const { variant: activeVariant } = useActiveModelVariant();
+  const router = useRouter();
 
   useEffect(() => {
     setSession(loadSession());
@@ -107,6 +111,18 @@ export default function EmergencyResultPage() {
   if (!session) return <div className="max-w-xl mx-auto p-4">No active session.</div>;
 
   const percent = total ? Math.round((correct / total) * 100) : 0;
+  const wrongItems = wrongIdx.map((idx) => session.items[idx]);
+
+  function practiceWrong() {
+    if (!session || !wrongItems.length) return;
+    const randomized = wrongItems.map(shuffleOptionsForItem);
+    const next = {
+      section: session.section || SECTION_ID,
+      ...buildInitialQuizResumeSession(randomized),
+    };
+    sessionStorage.setItem(SESSION_KEY, JSON.stringify(next));
+    router.push("/emergency-quiz/1");
+  }
 
   return (
     <div className="max-w-2xl mx-auto p-4 space-y-4">
@@ -120,15 +136,57 @@ export default function EmergencyResultPage() {
         <div>Percent: <b>{percent}%</b></div>
       </div>
 
-      <div className="grid gap-2 sm:flex">
+      <div className="grid gap-2 sm:flex sm:flex-wrap">
+        {wrongItems.length > 0 && (
+          <button onClick={practiceWrong} className="inline-flex min-h-11 items-center justify-center rounded-lg bg-emerald-600 px-4 py-2 font-semibold text-white">
+            Practice wrong answers ({wrongItems.length})
+          </button>
+        )}
         <Link href="/emergency-quiz" className="inline-flex min-h-11 items-center justify-center rounded-lg bg-[#2E6EA1] px-4 py-2 font-semibold text-white">Try again</Link>
         <Link href="/" className="inline-flex min-h-11 items-center justify-center rounded-lg border border-slate-300 bg-white px-4 py-2 font-semibold text-slate-800 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100">Home</Link>
       </div>
 
+      {wrongItems.length > 0 && (
+        <div className="rounded-xl border border-slate-200 bg-white dark:border-zinc-700 dark:bg-zinc-900">
+          <button
+            onClick={() => setShowReview((v) => !v)}
+            className="flex w-full items-center justify-between px-4 py-3 text-left text-sm font-semibold text-slate-900 dark:text-zinc-100"
+          >
+            Review the {wrongItems.length} you missed
+            <span aria-hidden>{showReview ? "▲" : "▼"}</span>
+          </button>
+          {showReview && (
+            <ul className="divide-y divide-slate-200 dark:divide-zinc-700">
+              {wrongItems.map((item, i) => {
+                const origIdx = wrongIdx[i];
+                const picked = session.answers[origIdx];
+                return (
+                  <li key={item.id ?? i} className="px-4 py-3 text-sm text-slate-700 dark:text-zinc-200">
+                    <div className="font-medium text-slate-900 dark:text-zinc-100">{item.question}</div>
+                    {picked != null && item.options[picked] != null && (
+                      <div className="mt-1 text-red-700 dark:text-red-300">Your answer: {item.options[picked]}</div>
+                    )}
+                    <div className="mt-0.5 text-emerald-700 dark:text-emerald-300">
+                      Correct: {item.answer.map((a) => item.options[a]).filter(Boolean).join(" / ")}
+                    </div>
+                    {item.explanation && <div className="mt-1 opacity-80">{item.explanation}</div>}
+                    {item.references?.length ? (
+                      <div className="mt-1 text-xs opacity-60">Refs: {item.references.join(", ")}</div>
+                    ) : null}
+                  </li>
+                );
+              })}
+            </ul>
+          )}
+        </div>
+      )}
+
       <div className="rounded-xl border-l-4 border-emerald-600 bg-emerald-50/40 p-4 dark:border-emerald-400 dark:bg-zinc-900 dark:text-white">
         <div className="font-semibold mb-2">Next steps</div>
         <ul className="list-disc ml-5 text-sm text-slate-700 dark:text-emerald-100">
-          <li>Press <b>“Practice wrong answers”</b> to repeat the questions you missed.</li>
+          {wrongItems.length > 0
+            ? <li>Use <b>Practice wrong answers</b> above to repeat only the ones you missed.</li>
+            : <li>Full marks — try a larger set or another section.</li>}
           <li>See your progress under <b>Settings</b> for an overview of your training.</li>
         </ul>
       </div>

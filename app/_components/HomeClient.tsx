@@ -415,7 +415,7 @@ function Bar(props: { href: string; title: string; description: string; tone?: "
 		      {ver && (
 		        <footer className="pt-2 text-xs text-slate-500 dark:text-zinc-400">
 		          <div>
-		            Data: {ver.version} — QRH: {ver.qrhVersion} — RFM: {ver.rfmVersion}
+		            Data: {String(ver.version).slice(0, 10)} — QRH: {ver.qrhVersion} — RFM: {ver.rfmVersion}
 		          </div>
 		        </footer>
 		      )}

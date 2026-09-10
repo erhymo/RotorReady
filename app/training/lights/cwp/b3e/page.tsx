@@ -81,13 +81,7 @@ export default function Page() {
       <main className="mx-auto max-w-5xl p-4 sm:p-6 space-y-4 sm:space-y-6">
 
         <section className="p-0 border-0 bg-transparent shadow-none rounded-none sm:p-6 sm:border sm:bg-white sm:shadow-sm sm:rounded-xl sm:overflow-hidden dark:sm:bg-zinc-900 dark:sm:border-zinc-700">
-          <div className="flex items-center justify-between flex-wrap gap-3 mb-4 px-4 pt-4 sm:px-0 sm:pt-0">
-            <div className="flex items-center gap-2">
-              <span className="inline-block h-2.5 w-2.5 rounded-full bg-neutral-700" aria-hidden />
-              <h1 className="text-lg sm:text-xl font-semibold text-slate-900 dark:text-zinc-100">CWP-trainer · AS350 B3e</h1>
-            </div>
-	            <div className="text-xs font-medium uppercase tracking-wide text-slate-500 dark:text-zinc-400">Tap a light to train</div>
-          </div>
+          <div className="mb-4 px-4 pt-4 sm:px-0 sm:pt-0 text-xs font-medium uppercase tracking-wide text-slate-500 dark:text-zinc-400">Tap a light to train</div>
 
           {/* Panel container: responsive, fills most of screen incl. landscape */}
           <div className="-mx-4 sm:mx-0" style={{ maxHeight: "calc(100dvh - 160px)" }}>

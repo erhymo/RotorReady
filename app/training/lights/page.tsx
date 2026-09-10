@@ -716,6 +716,13 @@ function LightsTrainerInner() {
 	    }
 	  }
 
+	  // The structured procedure data stores numbered actions with the number
+	  // baked into the text ("1. AFCS UPPER modes — Disengage."). Every place
+	  // that renders an action inside an auto-numbered table also prints its own
+	  // "{i + 1}." cell, so the raw text would show the number twice. Strip a
+	  // leading "N." / "N)" before rendering it in those numbered contexts.
+	  const stripStepNum = (text?: string) => (text || "").replace(/^\s*\d+[.)]\s+/, "");
+
 	  const renderText = useCallback((text?: string) => {
     if (!text) return null as any;
     if (!isAw169) return text as any;
@@ -949,11 +956,19 @@ function LightsTrainerInner() {
   function renderProcedureSequence(steps: ProcedureStep[], keyPrefix: string) {
     const elements: ReactNode[] = [];
     let i = 0;
+    // Some lights tag their numbered steps as "action", others as "step" — and
+    // a few mix both within one procedure (e.g. ENG EECU FAIL: step 1 is
+    // "action", steps 2-4 are "step"). Treat any "step" whose text opens with
+    // a number as part of the same numbered sequence so they render as one
+    // clean table rather than one boxed step followed by loose paragraphs.
+    const isNumbered = (s: ProcedureStep) =>
+      s.type === "action" ||
+      (s.type === "step" && /^\s*\d+[.)]\s/.test((s as any).text || ""));
     while (i < steps.length) {
       const step = steps[i];
-      if (step.type === "action") {
+      if (isNumbered(step)) {
         const group: typeof steps = [];
-        while (i < steps.length && steps[i].type === "action") {
+        while (i < steps.length && isNumbered(steps[i])) {
           group.push(steps[i]);
           i++;
         }
@@ -967,7 +982,7 @@ function LightsTrainerInner() {
                 {group.map((a, gi) => (
                   <tr key={gi} className="border-b last:border-b-0 dark:border-zinc-700">
                     <td className="w-12 align-top px-4 py-3 font-bold dark:text-zinc-100">{gi + 1}.</td>
-                    <td className="align-top px-4 py-3 dark:text-zinc-100">{renderText((a as any).text)}</td>
+                    <td className="align-top px-4 py-3 dark:text-zinc-100">{renderText(stripStepNum((a as any).text))}</td>
                   </tr>
                 ))}
               </tbody>
@@ -1060,12 +1075,17 @@ function LightsTrainerInner() {
     if (useTextRendering) {
       return (
         <div className="space-y-6">
-          <div className="flex items-start justify-between gap-4">
-            <div>
-              <div className="text-lg font-semibold text-slate-900 dark:text-zinc-100">{item.name}</div>
-              {item.system && <div className="text-xs uppercase tracking-wide opacity-60 dark:text-zinc-400">{item.system}</div>}
+          {/* The main trainer flows render a sticky `header` bar with the light
+              name + system just above this; only the CWP-panel overlay (which
+              has no such bar) needs its own title here. */}
+          {compactCWP && (
+            <div className="flex items-start justify-between gap-4">
+              <div>
+                <div className="text-lg font-semibold text-slate-900 dark:text-zinc-100">{item.name}</div>
+                {item.system && <div className="text-xs uppercase tracking-wide opacity-60 dark:text-zinc-400">{item.system}</div>}
+              </div>
             </div>
-          </div>
+          )}
           {renderProcedureSequence(item.procedure || [], item.id)}
           <div className="flex justify-center pt-2">
             <button
@@ -1100,7 +1120,7 @@ function LightsTrainerInner() {
                           {i + 1}.
                         </td>
                         <td className="align-top px-4 py-3 text-slate-900 dark:text-zinc-100">
-                          {renderText((a as any).text)}
+                          {renderText(stripStepNum((a as any).text))}
                         </td>
                       </tr>
                     ))
@@ -1144,7 +1164,7 @@ function LightsTrainerInner() {
                     actions.map((a, i) => (
                       <tr key={`${item.id}-mem-${i}`} className="border-b last:border-b-0 dark:border-zinc-700">
                         <td className="w-12 align-top px-4 py-3 font-bold dark:text-zinc-100">{i + 1}.</td>
-                        <td className="align-top px-4 py-3 dark:text-zinc-100">{renderText((a as any).text)}</td>
+                        <td className="align-top px-4 py-3 dark:text-zinc-100">{renderText(stripStepNum((a as any).text))}</td>
                       </tr>
                     ))
                   ) : (
@@ -1170,7 +1190,7 @@ function LightsTrainerInner() {
                   {actions.map((a, i) => (
                     <tr key={`${item.id}-mem-${i}`} className="border-b last:border-b-0 dark:border-zinc-700">
                       <td className="w-12 align-top px-4 py-3 font-bold dark:text-zinc-100">{i + 1}.</td>
-                      <td className="align-top px-4 py-3 dark:text-zinc-100">{renderText((a as any).text)}</td>
+                      <td className="align-top px-4 py-3 dark:text-zinc-100">{renderText(stripStepNum((a as any).text))}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -1234,7 +1254,7 @@ function LightsTrainerInner() {
                         {i + 1}.
                       </td>
                       <td className="align-top px-4 py-3 text-slate-900 dark:text-zinc-100">
-                        {renderText((a as any).text)}
+                        {renderText(stripStepNum((a as any).text))}
                       </td>
                     </tr>
                   ))
@@ -1327,7 +1347,7 @@ function LightsTrainerInner() {
                   {actions.map((a, i) => (
                     <tr key={`${item.id}-mem-${i}`} className="border-b last:border-b-0 dark:border-zinc-700">
                       <td className="w-12 align-top px-4 py-3 font-bold dark:text-zinc-100">{i + 1}.</td>
-                      <td className="align-top px-4 py-3 dark:text-zinc-100">{renderText((a as any).text)}</td>
+                      <td className="align-top px-4 py-3 dark:text-zinc-100">{renderText(stripStepNum((a as any).text))}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -1352,7 +1372,7 @@ function LightsTrainerInner() {
                 {actions.map((a, i) => (
                   <tr key={`${item.id}-act-${i}`} className="border-b last:border-b-0 dark:border-zinc-700">
                     <td className="w-12 align-top px-4 py-3 font-bold dark:text-zinc-100">{i + 1}.</td>
-                    <td className="align-top px-4 py-3 dark:text-zinc-100">{renderText((a as any).text)}</td>
+                    <td className="align-top px-4 py-3 dark:text-zinc-100">{renderText(stripStepNum((a as any).text))}</td>
                   </tr>
                 ))}
               </tbody>
@@ -1476,7 +1496,7 @@ function LightsTrainerInner() {
               <LightsBar
                 tone="slate"
                 icon={<CwpPanelIcon />}
-                title="CWP-trainer"
+                title="CWP Trainer"
                 description={`${CWP_TRAINER_LINKS[activeVariant.id].label} warning panel — tap to train by pressing lights.`}
                 href={CWP_TRAINER_LINKS[activeVariant.id].href}
               />
@@ -1485,7 +1505,7 @@ function LightsTrainerInner() {
             {activeVariant.id === "AW189" && (
               <LightsBar
                 tone="slate"
-                title={`Memory items – Trainer (${activeVariant.id})`}
+                title="Memory Items Trainer"
                 description="Train only on memory items from the QRH for red lights."
                 actionLabel={loading ? "Loading…" : `Start (${memoryCount})`}
                 onClick={startMemoryOnly}
@@ -1496,7 +1516,7 @@ function LightsTrainerInner() {
             {(isS92 || hasImageMemory) && (
               <LightsBar
                 tone="slate"
-                title={`Memory items – Trainer (${activeVariant.id})`}
+                title="Memory Items Trainer"
                 description="Train only on the immediate-action memory items — the boxed/shaded steps from the source manual."
                 actionLabel={loading ? "Loading…" : `Start (${memoryCount})`}
                 onClick={startMemoryOnly}
@@ -1523,7 +1543,7 @@ function LightsTrainerInner() {
 			            <LightsBar
 			              tone="slate"
 			              icon={<CwpPanelIcon />}
-			              title="CWP-trainer"
+			              title="CWP Trainer"
 			              description="AW139 warning panel  tap to train by pressing lights."
 			              href="/training/lights/cwp/aw139"
 			            />
@@ -1547,7 +1567,7 @@ function LightsTrainerInner() {
 	            <LightsBar
 	              tone="slate"
 	              icon={<CwpPanelIcon />}
-	              title="CWP-trainer"
+	              title="CWP Trainer"
 	              description="AW169 warning panel  tap to train by pressing lights."
 	              href="/training/lights/cwp/aw169"
 	            />
@@ -1565,7 +1585,7 @@ function LightsTrainerInner() {
 		            <>
 		              <LightsBar
 		                tone="slate"
-		                title="Memory items – Trainer (AW169)"
+		                title="Memory Items Trainer"
 		                description="Train only on QRH memory items. Tap to choose red or amber items."
 		                onClick={() => setShowMemoryMenu((prev) => !prev)}
 		              />
@@ -1749,7 +1769,9 @@ function LightsTrainerInner() {
               <button onClick={prev} disabled={!canPrev} className="inline-flex items-center gap-1 rounded-full px-4 py-2 text-sm font-medium bg-white dark:bg-zinc-800 text-slate-700 dark:text-zinc-200 shadow-sm hover:bg-slate-50 dark:hover:bg-zinc-700 disabled:opacity-40 disabled:shadow-none disabled:hover:bg-white dark:disabled:hover:bg-zinc-800">
                 <span aria-hidden>‹</span> Previous
               </button>
-              <div className="text-xs opacity-50 dark:text-zinc-400">Enter/Space to reveal</div>
+              {/* The card already says "TAP TO SHOW PROCEDURE" — the keyboard
+                  hint only helps on desktop, where clicking isn't as obvious. */}
+              {!isMobile && <div className="text-xs opacity-50 dark:text-zinc-400">Enter/Space to reveal</div>}
               <button disabled className="inline-flex items-center gap-1 rounded-full px-4 py-2 text-sm font-medium bg-white dark:bg-zinc-800 text-slate-400 dark:text-zinc-500 shadow-sm opacity-40">
                 Next <span aria-hidden>›</span>
               </button>

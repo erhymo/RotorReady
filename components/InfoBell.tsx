@@ -30,15 +30,6 @@ export default function InfoBell() {
 
 		  return (
 		    <div className="inline-flex items-center gap-2">
-		      <span
-		        className="inline-flex items-center rounded-full border border-emerald-600/40 bg-emerald-100 px-2 py-1 text-[11px] font-semibold text-emerald-800 dark:bg-emerald-900/50 dark:text-emerald-200 select-none sm:hidden"
-		        title="In production"
-		      >
-		        Prod
-		      </span>
-		      <span className="hidden items-center gap-1 rounded-full border border-emerald-600/40 bg-emerald-100 px-2.5 py-1 text-xs font-medium text-emerald-800 dark:bg-emerald-900/50 dark:text-emerald-200 select-none sm:inline-flex">
-		        In production
-		      </span>
 	      <Link
 	        href="/info"
 	        prefetch={false}

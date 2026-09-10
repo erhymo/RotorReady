@@ -121,13 +121,7 @@ export default function Page() {
 	      <AppTopBar title="CWP Trainer · S-92" backHref="/training/lights" backLabel="Lights" />
       <main className="mx-auto max-w-5xl p-4 sm:p-6 space-y-4 sm:space-y-6">
         <section className="rounded-xl border bg-white p-4 sm:p-6 shadow-sm dark:bg-zinc-900 dark:border-zinc-700">
-          <div className="flex items-center justify-between flex-wrap gap-3 mb-4">
-            <div className="flex items-center gap-2">
-              <span className="inline-block h-2.5 w-2.5 rounded-full bg-neutral-700" aria-hidden />
-              <h1 className="text-xl font-semibold text-slate-900 dark:text-zinc-100">CWP-trainer · S-92</h1>
-            </div>
-	            <div className="text-xs font-medium uppercase tracking-wide text-slate-500 dark:text-zinc-400">Tap a light to train</div>
-          </div>
+          <div className="mb-4 text-xs font-medium uppercase tracking-wide text-slate-500 dark:text-zinc-400">Tap a light to train</div>
 
           <div className="mx-auto w-full" style={{ maxHeight: "calc(100dvh - 160px)" }}>
             <div

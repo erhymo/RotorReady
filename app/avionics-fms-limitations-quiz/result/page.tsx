@@ -1,8 +1,10 @@
 "use client";
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 import { buildInitialQuizResumeSession } from "@/lib/quiz/resumeSnapshot";
+import { shuffleOptionsForItem } from "@/lib/quiz/shuffleOptions";
 import { saveResult } from "@/lib/sync/results";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 import { modelScopedKey } from "@/lib/models/storage";
@@ -41,6 +43,7 @@ function loadSession(): Session | null {
 export default function AvionicsResultPage() {
   const [session, setSession] = useState<Session | null>(null);
   const { variant: activeVariant } = useActiveModelVariant();
+  const router = useRouter();
 
   useEffect(() => {
     const timeoutId = window.setTimeout(() => {
@@ -111,6 +114,18 @@ export default function AvionicsResultPage() {
   if (!session) return <div className="max-w-xl mx-auto p-4">No active session.</div>;
 
   const percent = total ? Math.round((correct / total) * 100) : 0;
+  const wrongItems = wrongIdx.map((idx) => session.items[idx]);
+
+  function practiceWrong() {
+    if (!session || !wrongItems.length) return;
+    const randomized = wrongItems.map(shuffleOptionsForItem);
+    const next = {
+      section: session.section || WRONG_ONLY_SECTION_KEY,
+      ...buildInitialQuizResumeSession(randomized),
+    };
+    sessionStorage.setItem(SESSION_KEY, JSON.stringify(next));
+    router.push("/avionics-fms-limitations-quiz/1");
+  }
 
   return (
     <div className="max-w-2xl mx-auto p-4 space-y-4">
@@ -124,7 +139,12 @@ export default function AvionicsResultPage() {
         <div>Percent: <b>{percent}%</b></div>
       </div>
 
-	      <div className="grid gap-2 sm:flex">
+	      <div className="grid gap-2 sm:flex sm:flex-wrap">
+	        {wrongItems.length > 0 && (
+	          <button onClick={practiceWrong} className="inline-flex min-h-11 items-center justify-center rounded-lg bg-emerald-600 px-4 py-2 font-semibold text-white">
+	            Practice wrong answers ({wrongItems.length})
+	          </button>
+	        )}
 	        <Link href="/avionics-fms-limitations-quiz" className="inline-flex min-h-11 items-center justify-center rounded-lg bg-[#2E6EA1] px-4 py-2 font-semibold text-white">Try again</Link>
 	        <Link href="/" className="inline-flex min-h-11 items-center justify-center rounded-lg border border-slate-300 bg-white px-4 py-2 font-semibold text-slate-800 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100">Home</Link>
       </div>
@@ -132,7 +152,9 @@ export default function AvionicsResultPage() {
 	      <div className="rounded-xl border-l-4 border-emerald-600 bg-emerald-50/40 p-4 dark:border-emerald-400 dark:bg-zinc-900 dark:text-white">
         <div className="font-semibold mb-2">Next steps</div>
         <ul className="list-disc ml-5 text-sm text-slate-700 dark:text-emerald-100">
-          <li>Click <b>“Practice wrong answers only”</b> on the start page to repeat the difficult questions.</li>
+          {wrongItems.length > 0
+            ? <li>Use <b>Practice wrong answers</b> above to repeat only the ones you missed.</li>
+            : <li>Full marks — try a larger set or another section.</li>}
 	          <li>Follow your progress under <b>Settings</b>.</li>
         </ul>
       </div>

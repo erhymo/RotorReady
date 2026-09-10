@@ -132,8 +132,10 @@ export default function ResultPage() {
 	  <div className="rounded-xl border-l-4 border-emerald-600 bg-emerald-50/40 p-4 dark:border-emerald-400 dark:bg-zinc-900 dark:text-white">
         <div className="font-semibold mb-2">Next steps</div>
         <ul className="list-disc ml-5 text-sm text-slate-700 dark:text-emerald-100">
-	          <li>Go to <b>Limitations</b> and press <b>“Practice wrong answers”</b> for focused training.</li>
-	          <li>Progress overview will be available in a future sync version.</li>
+	          {wrongIdx.length > 0
+	            ? <li>Use <b>Practice wrong answers</b> above to repeat only the ones you missed.</li>
+	            : <li>Full marks — try a larger set or another section.</li>}
+	          <li>See your progress under <b>Settings</b>.</li>
         </ul>
       </div>
     </div>

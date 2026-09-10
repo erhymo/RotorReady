@@ -554,27 +554,29 @@ export default function AccountPage() {
             <div className="text-sm text-slate-700 dark:text-zinc-300 mt-0.5">
               RotorReady is free and open. No login is required for training, quizzes, procedures or offline packages.
             </div>
-            <div className="mt-2 flex gap-2 flex-wrap">
-              <div className="inline-flex items-center gap-1 rounded-xl border border-slate-200 bg-slate-50/70 p-1 dark:border-zinc-700 dark:bg-zinc-950/40">
-                <span className="px-2 text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-zinc-400">AW169</span>
-                {aw169Variants.map((v) => {
-                  const isActive = activeVariantId === v.id;
-                  const label = v.id === "AW169_EP" ? "EP" : "Standard";
-                  return (
-                    <button
-                      type="button"
-                      key={v.id}
-                      onClick={() => selectVariant(v.id)}
-                      className={`rounded-lg px-3 py-1 text-sm transition ${
-                        isActive
-                          ? "bg-white text-emerald-700 shadow-sm ring-1 ring-emerald-300 dark:bg-zinc-800 dark:text-emerald-200 dark:ring-emerald-700/70"
-                          : "text-slate-600 hover:bg-white/80 dark:text-zinc-300 dark:hover:bg-zinc-800/80"
-                      }`}
-                    >
-                      {label}
-                    </button>
-                  );
-                })}
+            <div className="mt-2 flex items-start gap-2 flex-wrap">
+              <div className="inline-flex flex-col gap-1">
+                <span className="pl-1 text-[10px] font-semibold uppercase tracking-wider text-slate-400 dark:text-zinc-500">AW169 — pick variant</span>
+                <div className="inline-flex items-center gap-1 rounded-xl border border-slate-200 bg-slate-50/70 p-1 dark:border-zinc-700 dark:bg-zinc-950/40">
+                  {aw169Variants.map((v) => {
+                    const isActive = activeVariantId === v.id;
+                    const label = v.id === "AW169_EP" ? "EP" : "Standard";
+                    return (
+                      <button
+                        type="button"
+                        key={v.id}
+                        onClick={() => selectVariant(v.id)}
+                        className={`rounded-lg px-3 py-1 text-sm transition ${
+                          isActive
+                            ? "bg-white text-emerald-700 shadow-sm ring-1 ring-emerald-300 dark:bg-zinc-800 dark:text-emerald-200 dark:ring-emerald-700/70"
+                            : "text-slate-600 hover:bg-white/80 dark:text-zinc-300 dark:hover:bg-zinc-800/80"
+                        }`}
+                      >
+                        {label}
+                      </button>
+                    );
+                  })}
+                </div>
               </div>
 
 
@@ -773,13 +775,13 @@ export default function AccountPage() {
             </div>
           )}
         </div>
-        <div className="bg-slate-900 dark:bg-zinc-900 dark:border-zinc-700 border rounded-xl p-4 mt-2">
-          <div className="flex items-center justify-between">
+        <div className="rounded-xl border-l-4 border-emerald-600 bg-emerald-50/40 dark:border-emerald-400 dark:bg-emerald-900/30 px-5 py-4 mt-2">
+          <div className="flex items-center justify-between gap-3">
             <div>
-              <div className="font-semibold text-white dark:text-zinc-100">Practice wrong answers only</div>
-              <div className="text-sm text-gray-300 dark:text-zinc-300">Builds a set of questions you recently got wrong.</div>
+              <div className="font-semibold text-slate-900 dark:text-zinc-100">Practice wrong answers only</div>
+              <div className="text-sm text-slate-600 dark:text-zinc-300">Builds a set of questions you recently got wrong.</div>
             </div>
-            <button onClick={startWrongOnly} className="px-4 py-2 rounded-lg border bg-slate-900 text-white dark:bg-zinc-900 dark:text-zinc-100">Start</button>
+            <button onClick={startWrongOnly} className="shrink-0 px-4 py-2 rounded-lg bg-emerald-600 font-semibold text-white">Start</button>
           </div>
         </div>
       </section>

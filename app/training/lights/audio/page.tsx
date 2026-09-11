@@ -7,6 +7,7 @@ import AppTopBar from "@/components/AppTopBar";
 import DownloadButton from "@/components/DownloadButton";
 import { HeadphonesIcon } from "@/components/Icons";
 import { formatBytes, getDownloadedEpisodesSummary, offlineDownloadsSupported } from "@/lib/audioOffline";
+import { contentUrl, fetchContentJson } from "@/lib/contentUrl";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 
 type LightAudioItem = {
@@ -40,13 +41,11 @@ export default function LightsAudioListPage() {
       setItems(null);
       setLoadFailed(false);
     });
-    // No `cache: "no-store"` — see app/audio/page.tsx for why: it defeats the
-    // service worker's ability to cache this response for offline use.
-    fetch(`/audio/${activeVariant.id}/lights/index.json`)
-      .then((res) => {
-        if (!res.ok) throw new Error("not found");
-        return res.json();
-      })
+    // fetchContentJson (lib/contentUrl.ts): no `cache: "no-store"` (see
+    // app/audio/page.tsx for why that breaks the service worker's offline
+    // cache), and prefers the live origin in the native app so new light
+    // audio shows up there without a new store build.
+    fetchContentJson<{ items?: LightAudioItem[] }>(`/audio/${activeVariant.id}/lights/index.json`)
       .then((data) => {
         if (!cancelled) setItems(Array.isArray(data?.items) ? data.items : []);
       })
@@ -106,7 +105,7 @@ export default function LightsAudioListPage() {
                     </div>
                   </div>
                   <div className="flex items-center gap-1">
-                    <DownloadButton url={`/audio/${activeVariant.id}/lights/${item.filename}`} />
+                    <DownloadButton url={contentUrl(`/audio/${activeVariant.id}/lights/${item.filename}`)} />
                     <div className="text-xl text-slate-400 transition-transform group-hover:translate-x-0.5 dark:text-zinc-400">›</div>
                   </div>
                 </div>

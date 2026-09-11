@@ -7,6 +7,7 @@ import AppTopBar from "@/components/AppTopBar";
 import DownloadButton from "@/components/DownloadButton";
 import { HeadphonesIcon } from "@/components/Icons";
 import { formatBytes, getDownloadedEpisodesSummary, offlineDownloadsSupported } from "@/lib/audioOffline";
+import { contentUrl, fetchContentJson } from "@/lib/contentUrl";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 import { isUnlockFlagSet } from "@/lib/unlockCodes";
 
@@ -76,7 +77,7 @@ function EpisodeLink({ activeVariantId, item, nested }: { activeVariantId: strin
           </div>
         </div>
         <div className="flex items-center gap-1">
-          <DownloadButton url={`/audio/${activeVariantId}/${item.filename}`} />
+          <DownloadButton url={contentUrl(`/audio/${activeVariantId}/${item.filename}`)} />
           <div className="text-xl text-slate-400 transition-transform group-hover:translate-x-0.5 dark:text-zinc-400">›</div>
         </div>
       </div>
@@ -112,11 +113,10 @@ export default function AudioListPage() {
     // copy of the response for the offline fallback — meaning the episode
     // list could never actually work offline, even after a prior online
     // visit and even after episodes were downloaded for offline playback.
-    fetch(`/audio/${activeVariant.id}/index.json`)
-      .then((res) => {
-        if (!res.ok) throw new Error("not found");
-        return res.json();
-      })
+    // fetchContentJson (lib/contentUrl.ts) additionally prefers the live
+    // origin in the native app, so a commit + push shows up there too
+    // without a new store build.
+    fetchContentJson<{ items?: AudioItem[] }>(`/audio/${activeVariant.id}/index.json`)
       .then((data) => {
         if (cancelled) return;
         const allItems: AudioItem[] = Array.isArray(data?.items) ? data.items : [];

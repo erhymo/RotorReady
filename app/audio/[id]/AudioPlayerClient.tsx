@@ -6,6 +6,7 @@ import { useParams } from "next/navigation";
 import AppTopBar from "@/components/AppTopBar";
 import DownloadButton from "@/components/DownloadButton";
 import { PauseIcon, PlayIcon, SkipBackIcon, SkipForwardIcon } from "@/components/Icons";
+import { contentUrl, fetchContentJson } from "@/lib/contentUrl";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 import { isUnlockFlagSet } from "@/lib/unlockCodes";
 import { useOfflineAudioSrc } from "@/lib/useOfflineAudioSrc";
@@ -43,7 +44,7 @@ export default function AudioPlayerClient() {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const resumedRef = useRef(false);
 
-  const networkUrl = item ? `/audio/${activeVariant.id}/${item.filename}` : undefined;
+  const networkUrl = item ? contentUrl(`/audio/${activeVariant.id}/${item.filename}`) : undefined;
   const playbackSrc = useOfflineAudioSrc(networkUrl);
 
   useEffect(() => {
@@ -51,10 +52,11 @@ export default function AudioPlayerClient() {
     queueMicrotask(() => {
       if (!cancelled) setItem(undefined);
     });
-    // No `cache: "no-store"` — see app/audio/page.tsx for why: it defeats the
-    // service worker's ability to cache this response for offline use.
-    fetch(`/audio/${activeVariant.id}/index.json`)
-      .then((res) => (res.ok ? res.json() : { items: [] }))
+    // fetchContentJson (lib/contentUrl.ts): no `cache: "no-store"` (see
+    // app/audio/page.tsx for why that breaks the service worker's offline
+    // cache), and prefers the live origin in the native app so new episodes
+    // show up there without a new store build.
+    fetchContentJson<{ items?: AudioItem[] }>(`/audio/${activeVariant.id}/index.json`)
       .then((data) => {
         if (cancelled) return;
         const items: AudioItem[] = Array.isArray(data?.items) ? data.items : [];

@@ -28,6 +28,20 @@ const config: CapacitorConfig = {
   // just normal in-app links again (not bundled, not specially handled) — visiting them
   // requires a live connection, same as any other page that needs a server, and that's
   // an honest, obvious failure mode rather than a special case to maintain.
+  //
+  // 2026-09-11: the 2026-09-10 "content only via a new build" tradeoff above turned out
+  // to be unacceptable in practice — new podcasts genuinely weren't reaching users
+  // without a store release, and the bundled shell excludes .mp3/.pdf entirely
+  // (COPY_EXCLUDE_EXT in scripts/build-native-shell.mjs), so audio playback in the native
+  // app never worked from a relative URL at all, downloaded-for-offline or not. Fixed
+  // with lib/contentUrl.ts, *not* another swing back to server.url or another attempt at
+  // a binary/JS-bundle updater (both already tried and reverted — see history above):
+  // the app shell/JS still boots from this local bundle every time, but content fetches
+  // (audio/lights index.json + mp3, and — once extended — quiz-data/model-data) now
+  // resolve to the live rotor-ready.com URL first, falling back to the bundled copy only
+  // if that fails (no signal). A commit + push now reaches the native app the moment it
+  // next has signal, no store release needed — but this mechanism change itself still
+  // needs one more native build to reach already-installed apps.
   webDir: "public-native",
   server: {
     errorPath: "native-error.html",

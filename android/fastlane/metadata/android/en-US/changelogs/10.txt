@@ -1,0 +1,1 @@
+Added the Robinson R22 as a full model (quick reference, procedures, abbreviations, calculations, quiz), plus new System Notes across several aircraft types. Fixed podcast episodes, light-warning audio, and offline downloads not loading correctly. Security and stability updates.

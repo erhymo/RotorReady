@@ -1,1 +1,1 @@
-Fixed the app not working when opened while offline (e.g. airplane mode) after being fully closed — downloaded podcasts and training content now work reliably again in that situation.
+Added the Robinson R22 as a full model (quick reference, procedures, abbreviations, calculations, and a 196-question quiz), plus new System Notes articles across several aircraft types. Fixed podcast episodes, light-warning audio, and offline downloads not loading correctly in the app. Security and stability updates.

@@ -40,7 +40,9 @@ export default function LightsAudioListPage() {
       setItems(null);
       setLoadFailed(false);
     });
-    fetch(`/audio/${activeVariant.id}/lights/index.json`, { cache: "no-store" })
+    // No `cache: "no-store"` — see app/audio/page.tsx for why: it defeats the
+    // service worker's ability to cache this response for offline use.
+    fetch(`/audio/${activeVariant.id}/lights/index.json`)
       .then((res) => {
         if (!res.ok) throw new Error("not found");
         return res.json();

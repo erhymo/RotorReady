@@ -51,7 +51,9 @@ export default function AudioPlayerClient() {
     queueMicrotask(() => {
       if (!cancelled) setItem(undefined);
     });
-    fetch(`/audio/${activeVariant.id}/index.json`, { cache: "no-store" })
+    // No `cache: "no-store"` — see app/audio/page.tsx for why: it defeats the
+    // service worker's ability to cache this response for offline use.
+    fetch(`/audio/${activeVariant.id}/index.json`)
       .then((res) => (res.ok ? res.json() : { items: [] }))
       .then((data) => {
         if (cancelled) return;

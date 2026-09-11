@@ -104,7 +104,15 @@ export default function AudioListPage() {
       setLoadFailed(false);
       setOpenGroups(new Set());
     });
-    fetch(`/audio/${activeVariant.id}/index.json`, { cache: "no-store" })
+    // Deliberately no `cache: "no-store"` here: the server already sends
+    // `Cache-Control: max-age=0, must-revalidate` so a plain fetch always
+    // revalidates over the network when online. `no-store` used to be set
+    // explicitly, but it stops the service worker's own NetworkFirst
+    // strategy (see next.config.mjs "audio-json") from ever persisting a
+    // copy of the response for the offline fallback — meaning the episode
+    // list could never actually work offline, even after a prior online
+    // visit and even after episodes were downloaded for offline playback.
+    fetch(`/audio/${activeVariant.id}/index.json`)
       .then((res) => {
         if (!res.ok) throw new Error("not found");
         return res.json();

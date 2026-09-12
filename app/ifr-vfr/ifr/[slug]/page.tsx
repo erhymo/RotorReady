@@ -1,15 +1,10 @@
-import { notFound } from "next/navigation";
-import { IFR_TOPICS, findTopic } from "@/lib/ifrVfr/data";
-import TopicDetail from "@/app/ifr-vfr/TopicDetail";
+import { getIfrTopicSlugs } from "@/lib/build/staticParams";
+import IfrTopicClient from "./IfrTopicClient";
 
 export function generateStaticParams() {
-  return IFR_TOPICS.map((t) => ({ slug: t.slug }));
+  return getIfrTopicSlugs().map((slug) => ({ slug }));
 }
 
-export default async function IfrTopicPage({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params;
-  const topic = findTopic(IFR_TOPICS, slug);
-  if (!topic) notFound();
-
-  return <TopicDetail topic={topic} category="IFR" listHref="/ifr-vfr/ifr" />;
+export default function IfrTopicPage() {
+  return <IfrTopicClient />;
 }

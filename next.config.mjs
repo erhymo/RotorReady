@@ -91,6 +91,16 @@ const withPWA = withPWAInit({
       },
     },
     {
+      // IFR/VFR topic content (public/ifr-vfr/*.json) — moved out of the JS bundle so a
+      // commit + push updates it in the native app too, not just on the next store build.
+      urlPattern: ({ url }) => url.pathname.startsWith('/ifr-vfr/') && url.pathname.endsWith('.json'),
+      handler: 'NetworkFirst',
+      options: {
+        cacheName: 'ifr-vfr-json',
+        expiration: { maxEntries: 20, maxAgeSeconds: 60 * 60 * 24 * 30 },
+      },
+    },
+    {
       // Static assets and icons
       urlPattern: ({ request }) =>
         request.destination === 'image' ||

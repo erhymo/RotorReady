@@ -1,0 +1,227 @@
+{
+  "topics": [
+    {
+      "slug": "vmc-minima",
+      "title": "VMC minima (visibility & cloud clearance)",
+      "groups": [
+        {
+          "heading": "At or above 3000 ft AMSL, or 1000 ft above terrain (whichever is higher)",
+          "bullets": [
+            "Flight visibility: 8 km at/above FL100; 5 km below FL100.",
+            "Distance from cloud: 1500 m horizontally, 300 m (1000 ft) vertically."
+          ]
+        },
+        {
+          "heading": "At or below 3000 ft AMSL, or 1000 ft above terrain (whichever is higher)",
+          "bullets": [
+            "Flight visibility: 5 km.",
+            "Clear of cloud and in sight of the surface.",
+            "Helicopters may be operated in flight visibility down to 800 m (but not less) when flown at a speed that gives adequate opportunity to see other traffic or obstacles in time to avoid a collision."
+          ]
+        }
+      ],
+      "reference": "SERA.5001 – VMC visibility and distance from cloud minima"
+    },
+    {
+      "slug": "special-vfr",
+      "title": "Special VFR in control zones",
+      "groups": [
+        {
+          "bullets": [
+            "May be authorized by ATC for a VFR flight within a control zone when weather is below VMC minima.",
+            "Ground visibility at least 1500 m (800 m for helicopters); clear of cloud and in sight of the surface.",
+            "At night, normally limited to take-off/climb-out or approach/landing only, unless the competent authority permits otherwise.",
+            "Subject to ATC clearance and traffic conditions — it is not a right, only a possibility."
+          ]
+        }
+      ],
+      "reference": "SERA.5010 – Special VFR in control zones"
+    },
+    {
+      "slug": "hems-minima",
+      "title": "HEMS operating minima",
+      "intro": "Helicopter Emergency Medical Service (HEMS) approval lets a crew fly to lower weather minima than normal VFR — but the reduction depends on performance class, crew size, and day/night, not a single number.",
+      "groups": [
+        {
+          "heading": "Performance Class 1/2 — by day",
+          "bullets": [
+            "Two pilots: 500 ft ceiling or above uses normal VFR minima; 400–499 ft needs 1000 m visibility; 300–399 ft (the lowest published band) needs 2000 m visibility.",
+            "Single pilot: 500 ft or above uses normal VFR minima; 400–499 ft needs 2000 m visibility; 300–399 ft needs 3000 m — a single pilot needs more visibility than a two-pilot crew at the same height."
+          ]
+        },
+        {
+          "heading": "Performance Class 1/2 — by night",
+          "bullets": [
+            "Cloud base: 1200 ft minimum.",
+            "Visibility: 2500–3000 m with NVIS; without NVIS the required visibility is higher (up to 5000 m) — check the operator's approved table for the exact figure, since it depends on equipment and approval."
+          ]
+        },
+        {
+          "heading": "Performance Class 3",
+          "bullets": [
+            "Dispatch and en-route: 600 ft ceiling, 1500 m visibility.",
+            "En-route only, for short periods, in sight of land, at a speed allowing obstacles to be seen in time to avoid them: reducible to 1000 ft ceiling, or 800 m visibility."
+          ]
+        },
+        {
+          "heading": "If weather falls below minima en-route",
+          "bullets": [
+            "A VFR-only certified helicopter must abandon the flight or return to base — there is no other option.",
+            "An IMC-equipped helicopter with a suitably qualified crew may instead convert the flight to IFR, in addition to those two options."
+          ]
+        }
+      ],
+      "reference": "EASA Air Ops – SPA.HEMS.120 – HEMS operating minima"
+    },
+    {
+      "slug": "vfr-cruising-levels",
+      "title": "VFR cruising levels (semicircular rule)",
+      "groups": [
+        {
+          "bullets": [
+            "Applies above 3000 ft AMSL (or the applicable transition altitude, if higher) when a cruising level is required.",
+            "Track 000°–179° (magnetic): odd flight level/altitude + 500 ft (e.g. FL035, FL055, 3500 ft, 5500 ft).",
+            "Track 180°–359° (magnetic): even flight level/altitude + 500 ft (e.g. FL045, FL065, 4500 ft, 6500 ft).",
+            "The +500 ft offset from IFR levels is what keeps VFR traffic vertically separated from IFR traffic on the same semicircular scheme.",
+            "Unlike for IFR, compliance with the VFR cruising level table outside controlled airspace is good practice but is not itself mandatory — always follow any ATC instruction or established traffic pattern first."
+          ]
+        }
+      ],
+      "reference": "SERA.5015 / SERA.5025 – Table of cruising levels"
+    },
+    {
+      "slug": "airspace-special-areas",
+      "title": "Aerodrome traffic zones & prohibited/restricted/danger areas",
+      "groups": [
+        {
+          "heading": "Aerodrome Traffic Zone (ATZ)",
+          "bullets": [
+            "Protects traffic near an aerodrome; vertical extent from the surface up to 2000 ft.",
+            "Radius centred on the mid-point of the longest runway: 2 nm if that runway is up to 1850 m long, 2.5 nm if longer (check the AIP for the exact local dimensions).",
+            "Active only during notified hours of watch, and has the same airspace status as the surrounding airspace outside those hours.",
+            "You may not enter an ATZ without permission from the relevant ATS unit — even outside notified hours, there may still be traffic."
+          ]
+        },
+        {
+          "heading": "Prohibited, restricted & danger areas",
+          "bullets": [
+            "Prohibited area: flight is prohibited within specified limits.",
+            "Restricted area: flight is restricted, subject to specified conditions.",
+            "Danger area: hazardous activity may be occurring — flight through is not itself prohibited, but is inadvisable without checking activity status first."
+          ]
+        }
+      ],
+      "reference": "ICAO Annex 11 / national AIP – Airspace and special-use areas"
+    },
+    {
+      "slug": "notam-basics",
+      "title": "NOTAM basics",
+      "groups": [
+        {
+          "bullets": [
+            "A NOTAM (Notice to Airmen) is a warning about anything temporary, or issued too late to be charted, that could affect a flight — e.g. navaid outages, runway/lighting closures, temporary danger areas.",
+            "NOTAMs don't amend the AIP, but they can override or supplement what it says (e.g. a temporary change to a permanent danger area's hours).",
+            "Category letter: N = new NOTAM, R = replacing an earlier one, C = cancelling one.",
+            "Standard fields: A) location/FIR, B) start date/time (UTC), C) end date/time (UTC, \"EST\" = estimated, remains active until cancelled/replaced), E) the free-text NOTAM content in ICAO abbreviations.",
+            "Always check current NOTAMs as part of flight preparation, in addition to charts and the AIP."
+          ]
+        }
+      ],
+      "reference": "ICAO Annex 15 – Aeronautical Information Services"
+    },
+    {
+      "slug": "minimum-heights",
+      "title": "Minimum heights for VFR flight",
+      "groups": [
+        {
+          "bullets": [
+            "Over congested areas of cities, towns or settlements: not below 300 m (1000 ft) above the highest obstacle within 600 m of the aircraft.",
+            "Elsewhere: not below 150 m (500 ft) above the ground or water, except when necessary for take-off or landing.",
+            "Helicopters may be operated at lower heights than the fixed-wing minima above, provided this is done safely and in accordance with the applicable operating rules and any local restrictions."
+          ]
+        }
+      ],
+      "reference": "SERA.5005(f)/(g) – Minimum heights"
+    },
+    {
+      "slug": "right-of-way",
+      "title": "Right-of-way rules",
+      "groups": [
+        {
+          "bullets": [
+            "Converging at approximately the same level: the aircraft that has the other on its right gives way.",
+            "Head-on or approximately so: both aircraft alter course to the right.",
+            "Overtaking: the overtaken aircraft has right of way; the overtaking aircraft alters course to the right and keeps clear until well past and clear.",
+            "An aircraft that must give way shall avoid passing over, under, or crossing ahead of the other aircraft, unless well clear.",
+            "General priority order: airships give way to nothing powered listed below them; power-driven heavier-than-air aircraft give way to airships, gliders and balloons; all give way to aircraft that are towing or being towed.",
+            "An aircraft aware that another is compelled to land has priority and shall give way."
+          ]
+        }
+      ],
+      "reference": "SERA.3201–SERA.3210 – Right of way"
+    },
+    {
+      "slug": "light-signals",
+      "title": "Light signals from the control tower",
+      "groups": [
+        {
+          "heading": "To aircraft in flight",
+          "bullets": [
+            "Steady green: cleared to land.",
+            "Flashing green: return for landing (expect a landing clearance).",
+            "Steady red: give way to other aircraft and continue circling.",
+            "Flashing red: aerodrome unsafe — do not land.",
+            "Flashing white: land at this aerodrome and proceed to the apron.",
+            "Series of red pyrotechnic lights: notwithstanding any previous instructions, do not land for the time being."
+          ]
+        },
+        {
+          "heading": "To aircraft on the ground",
+          "bullets": [
+            "Steady green: cleared for take-off.",
+            "Flashing green: cleared to taxi.",
+            "Steady red: stop.",
+            "Flashing red: taxi clear of the landing area in use.",
+            "Flashing white: return to the starting point on the aerodrome."
+          ]
+        }
+      ],
+      "reference": "SERA Appendix 1 – Signals"
+    },
+    {
+      "slug": "airspace-classes",
+      "title": "Airspace classes (A–G) overview",
+      "groups": [
+        {
+          "bullets": [
+            "Class A: IFR only. ATC clearance required. Separated from all other traffic.",
+            "Class B: IFR & VFR. ATC clearance required. Separated from all other traffic.",
+            "Class C: IFR & VFR. ATC clearance required. IFR separated from IFR and VFR; VFR separated from IFR and given traffic information on other VFR flights.",
+            "Class D: IFR & VFR. ATC clearance required. IFR separated from IFR, traffic information on VFR flights; VFR flights get traffic information only.",
+            "Class E: IFR & VFR. ATC clearance required for IFR only. IFR separated from IFR, traffic information as far as practical; no clearance needed for VFR.",
+            "Class F: IFR & VFR. Air traffic advisory service for IFR, traffic information as far as practical; no clearance required.",
+            "Class G: IFR & VFR. Flight information service only; no clearance and no separation service provided."
+          ]
+        }
+      ],
+      "reference": "ICAO Annex 11 / SERA – Airspace classification"
+    },
+    {
+      "slug": "vfr-flight-plan",
+      "title": "When a VFR flight plan is required",
+      "groups": [
+        {
+          "bullets": [
+            "Before operating across international borders.",
+            "When operating within, into, or along routes/areas designated by the competent authority for flight-plan purposes.",
+            "When search and rescue (SAR) alerting service may need to be triggered for the flight.",
+            "At night, or when operating outside sight of the surface, per local/State requirements.",
+            "When departing from an aerodrome without ATC where local procedures require notifying a flight plan or booking-out.",
+            "Even when not mandatory, filing or notifying a flight plan is good practice for SAR alerting on any flight over remote or offshore terrain."
+          ]
+        }
+      ],
+      "reference": "SERA.4001 – Submission of a flight plan"
+    }
+  ]
+}

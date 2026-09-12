@@ -114,3 +114,19 @@ export function getQuestionIndexParams(paramName: string, count: number): Record
 }
 
 export const QUIZ_AMOUNT_TOKENS = ["10", "20", "30", "40", "all"];
+
+/** Every IFR topic slug in public/ifr-vfr/ifr.json. */
+export function getIfrTopicSlugs(): string[] {
+  const data = readJson(path.join(PUBLIC_DIR, "ifr-vfr", "ifr.json"));
+  return (data?.topics ?? [])
+    .map((t: { slug?: string }) => t.slug)
+    .filter((s: unknown): s is string => typeof s === "string");
+}
+
+/** Every VFR topic slug in public/ifr-vfr/vfr.json. */
+export function getVfrTopicSlugs(): string[] {
+  const data = readJson(path.join(PUBLIC_DIR, "ifr-vfr", "vfr.json"));
+  return (data?.topics ?? [])
+    .map((t: { slug?: string }) => t.slug)
+    .filter((s: unknown): s is string => typeof s === "string");
+}

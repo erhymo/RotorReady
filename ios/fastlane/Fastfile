@@ -81,6 +81,23 @@ platform :ios do
     end
   end
 
+  desc "Release a PENDING_DEVELOPER_RELEASE version to the App Store (manual release step)"
+  desc "submit_review uses automatic_release: false, so an approved version sits waiting"
+  desc "for this explicit trigger before real users can see it — this is that trigger."
+  lane :release_pending do
+    Spaceship::ConnectAPI.token = app_store_connect_token
+    app = Spaceship::ConnectAPI::App.find(required_env("APP_IDENTIFIER"))
+    UI.user_error!("No App Store Connect app found for #{required_env('APP_IDENTIFIER')}") if app.nil?
+
+    versions = app.get_app_store_versions(filter: { platform: "IOS" }, includes: "build")
+    target = versions.find { |v| v.app_store_state == "PENDING_DEVELOPER_RELEASE" }
+    UI.user_error!("No version in PENDING_DEVELOPER_RELEASE state to release.") if target.nil?
+
+    UI.important("Releasing version #{target.version_string} (was PENDING_DEVELOPER_RELEASE)...")
+    target.create_app_store_version_release_request
+    UI.success("Release request sent for #{target.version_string}.")
+  end
+
   desc "Sync Capacitor iOS assets"
   lane :sync do
     sh("cd .. && env -u GEM_PATH -u GEM_HOME npm run ios:sync")

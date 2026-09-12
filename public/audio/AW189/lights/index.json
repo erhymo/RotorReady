@@ -1,0 +1,82 @@
+{
+  "items": [
+    {
+      "lightId": "rotor-low",
+      "title": "Light: ROTOR LOW",
+      "filename": "rotor-low.mp3",
+      "durationSeconds": 110
+    },
+    {
+      "lightId": "rotor-high",
+      "title": "Light: ROTOR HIGH",
+      "filename": "rotor-high.mp3",
+      "durationSeconds": 101
+    },
+    {
+      "lightId": "eng-out",
+      "title": "Light: 1(2) ENG OUT",
+      "filename": "eng-out.mp3",
+      "durationSeconds": 120
+    },
+    {
+      "lightId": "eng-idle",
+      "title": "Light: 1(2) ENG IDLE",
+      "filename": "eng-idle.mp3",
+      "durationSeconds": 102
+    },
+    {
+      "lightId": "eng-gov-loss",
+      "title": "Light: 1(2) ENG GOV LOSS",
+      "filename": "eng-gov-loss.mp3",
+      "durationSeconds": 155
+    },
+    {
+      "lightId": "mgb-oil-press",
+      "title": "Light: MGB OIL PRESS",
+      "filename": "mgb-oil-press.mp3",
+      "durationSeconds": 181
+    },
+    {
+      "lightId": "mgb-oil-temp",
+      "title": "Light: MGB OIL TEMP",
+      "filename": "mgb-oil-temp.mp3",
+      "durationSeconds": 106
+    },
+    {
+      "lightId": "eng-oil-press",
+      "title": "Light: 1(2) ENG OIL P LOW",
+      "filename": "eng-oil-press.mp3",
+      "durationSeconds": 115
+    },
+    {
+      "lightId": "elec-fail-double-dc-gen",
+      "title": "Light: ELEC FAIL",
+      "filename": "elec-fail.mp3",
+      "durationSeconds": 204
+    },
+    {
+      "lightId": "eng-fire-flight",
+      "title": "Light: 1(2) ENG FIRE (in flight)",
+      "filename": "eng-fire-flight.mp3",
+      "durationSeconds": 201
+    },
+    {
+      "lightId": "eng-fire-ground",
+      "title": "Light: 1(2) ENG FIRE (on ground)",
+      "filename": "eng-fire-ground.mp3",
+      "durationSeconds": 148
+    },
+    {
+      "lightId": "bag-fire-flight",
+      "title": "Light: BAG FIRE (in flight)",
+      "filename": "bag-fire-flight.mp3",
+      "durationSeconds": 115
+    },
+    {
+      "lightId": "bag-fire-ground",
+      "title": "Light: BAG FIRE (on ground)",
+      "filename": "bag-fire-ground.mp3",
+      "durationSeconds": 70
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "items": [
+    {
+      "id": "afcs-1-the-control-stack",
+      "title": "AFCS: The Control Stack",
+      "description": "How the AW189's Automatic Flight Control System is layered — basic attitude and control functions, then the upper modes built on top of them, and how the PFD shows you what's armed, captured or changing.",
+      "filename": "afcs-1-the-control-stack.mp3",
+      "durationSeconds": 276,
+      "group": "AFCS"
+    },
+    {
+      "id": "afcs-2-collective-safety-and-envelopes",
+      "title": "AFCS: Collective Safety Function & Engagement Envelopes",
+      "description": "Power Limiting, Autorotation Protection, the full Low Height floor table, Pitch Assist, Airspeed Envelope Protection, and every mode's engagement range and minimum use height.",
+      "filename": "afcs-2-collective-safety-and-envelopes.mp3",
+      "durationSeconds": 330,
+      "group": "AFCS"
+    },
+    {
+      "id": "afcs-3-coupled-approaches",
+      "title": "AFCS: Coupled Approaches",
+      "description": "The four-degree Category I ILS certification, coupled ILS and GSPD approach speed limits, and the VOR approach/navigation switching rule.",
+      "filename": "afcs-3-coupled-approaches.mp3",
+      "durationSeconds": 186,
+      "group": "AFCS"
+    },
+    {
+      "id": "afcs-4-failure-logic",
+      "title": "AFCS: Failure Logic",
+      "description": "The common response pattern behind almost every AFCS malfunction, then how AP FAIL/OFF, trim failures, MISTRIM, AFCS panel failure, oscillatory malfunctions, AHRS failure and AFCS Degraded each build on it.",
+      "filename": "afcs-4-failure-logic.mp3",
+      "durationSeconds": 367,
+      "group": "AFCS"
+    },
+    {
+      "id": "afcs-5-automatic-search-modes",
+      "title": "AFCS: Automatic Search Modes",
+      "description": "The AW189-specific Search Mode package for SAR and offshore work — TD, TDH, TU, WTR, MOT and Hover Point Approach, their minimum use heights, and the maritime wave-height adjustment.",
+      "filename": "afcs-5-automatic-search-modes.mp3",
+      "durationSeconds": 298,
+      "group": "AFCS"
+    },
+    {
+      "id": "afcs-6-cold-recap",
+      "title": "AFCS: Cold Recap",
+      "description": "Every number from this series in one pass, no explanation — for the night before a check.",
+      "filename": "afcs-6-cold-recap.mp3",
+      "durationSeconds": 238,
+      "group": "AFCS"
+    }
+  ]
+}

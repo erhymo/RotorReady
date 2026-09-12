@@ -21,26 +21,22 @@ function EngineRelightInner() {
   const compactList = !!plist && plist !== "0" && plist !== "false";
   const compact = compactCWP || compactList;
 
+  // Deterministic close: this page is only ever opened compact via router.push
+  // from a known origin (the lights trainer, or the procedures list), so the
+  // return destination is fully known from this page's own query params —
+  // no need to gamble on router.back() actually having completed within an
+  // arbitrary setTimeout delay (that race lost on slower devices, leaving
+  // the close button looking like it did nothing, or jumping to the wrong
+  // place).
   const handleClose = () => {
-    try {
-      const before = window.location.pathname + window.location.search;
-      router.back();
-      setTimeout(() => {
-        try {
-          if (window.location.pathname + window.location.search === before) {
-            if (compactList) {
-              router.push('/training/procedures/aw169');
-            } else {
-              const sp2 = new URLSearchParams(window.location.search);
-              const v = sp2.get('v') || '';
-              const light = sp2.get('light') || '';
-              const mem = sp2.get('mem') || '0';
-              router.push(`/training/lights?resume=1&v=${encodeURIComponent(v)}&light=${encodeURIComponent(light)}&mem=${encodeURIComponent(mem)}&cwp=1`);
-            }
-          }
-        } catch {}
-      }, 120);
-    } catch {}
+    if (compactList) {
+      router.push('/training/procedures/aw169');
+      return;
+    }
+    const v = sp.get('v') || '';
+    const light = sp.get('light') || '';
+    const mem = sp.get('mem') || '0';
+    router.push(`/training/lights?resume=1&v=${encodeURIComponent(v)}&light=${encodeURIComponent(light)}&mem=${encodeURIComponent(mem)}&cwp=1`);
   };
 
   function renderContent() {

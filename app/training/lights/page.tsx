@@ -1031,15 +1031,15 @@ function LightsTrainerInner() {
   // AW169 red-warning lights this renderer is verified safe to show as real
   // text instead of the scanned QRH page image: checked word-for-word against
   // the source page for every light below, confirming the procedure array
-  // captures every step, note, caution, and branch with nothing missing and
-  // nothing misattributed to the wrong branch. ELEC FAIL is deliberately
-  // excluded — its source page has an explanatory notes box (battery
-  // endurance implications of a GEN BUS OVRD override) that isn't captured
-  // in the data at all, so it keeps showing the real page until that's added.
+  // (and, for ELEC FAIL, the notes array too — the text-mode renderer now
+  // displays item.notes, matching the same "Notes" block the image-adjacent
+  // layout already had) captures every step, note, caution, and branch with
+  // nothing missing and nothing misattributed to the wrong branch.
   const AW169_TEXT_SAFE_LIGHT_IDS = new Set([
     "eng-fire-flight", "eng-fire-ground", "eng-out", "rotor-high", "rotor-low",
     "eng-oil-press", "eng-fail-fixed", "eng-drive-shaft-failure", "eng-idle",
     "eng-eecu-fail", "bag-fire-flight", "bag-fire-ground", "mgb-oil-press", "mgb-oil-temp",
+    "elec-fail-double-dc-gen",
   ]);
 
   // A handful of the AW169 red-light QRH pages are very short procedures on an
@@ -1087,6 +1087,16 @@ function LightsTrainerInner() {
             </div>
           )}
           {renderProcedureSequence(item.procedure || [], item.id)}
+          {item.notes && item.notes.length > 0 && (
+            <section className="space-y-2">
+              <div className="text-sm font-semibold opacity-80">Notes</div>
+              {item.notes.map((n, i) => (
+                <div key={`${item.id}-textnote-${i}`} className="rounded-xl border bg-neutral-50 dark:bg-blue-900/40 dark:text-zinc-100 dark:border-blue-400 p-4 whitespace-pre-wrap">
+                  {renderText(n)}
+                </div>
+              ))}
+            </section>
+          )}
           <div className="flex justify-center pt-2">
             <button
               type="button"

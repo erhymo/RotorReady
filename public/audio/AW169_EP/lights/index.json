@@ -1,12 +1,6 @@
 {
   "items": [
     {
-      "lightId": "eng-fire-flight",
-      "title": "Light: 1(2) ENG FIRE (in flight)",
-      "filename": "eng-fire-flight.mp3",
-      "durationSeconds": 699
-    },
-    {
       "lightId": "eng-out",
       "title": "Light: 1(2) ENG OUT",
       "filename": "eng-out.mp3",

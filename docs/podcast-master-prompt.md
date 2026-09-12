@@ -107,8 +107,14 @@ needs the numbers and the failure logic cold.
 - **Script file:** `_source/podcast/Podcast/<model>/<area>/<id>-script.txt`
   (use the model's existing podcast folder). Lines are `ASH|<text>` or
   `SAGE|<text>`, one utterance per line, blank lines ignored.
-- **Voices:** `verse` (lead / `ASH`) + `sage` (co-host / `SAGE`) — locked, for
+- **Voices:** `verse` (lead / `ASH`) + `nova` (co-host / `SAGE`) — locked, for
   consistency across every episode and model. TTS model: `gpt-4o-mini-tts`.
+  (Changed 2026-09-13 from `sage`: A/B tested against `nova`/`shimmer`/`coral`
+  with the same line and instructions after repeated feedback that `sage` read
+  flat/low-energy for an engaged co-host role — `nova` was the clear winner.
+  Every AW169 EP episode was regenerated under this voice as the full switch-
+  over; any earlier episode anywhere still using `sage` predates that change
+  and should be treated as due for the same replacement, not a second style.)
 - **Generator:** `scratchpad/gen_tts.sh <script> <out.mp3> [atempo] [voiceA] [voiceB]`
   — per-line call to `POST https://api.openai.com/v1/audio/speech` with a shared
   delivery `instructions` string ("engaged, present instructor, natural varied

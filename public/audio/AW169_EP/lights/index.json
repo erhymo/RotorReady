@@ -1,154 +1,94 @@
 {
   "items": [
     {
-      "lightId": "eng-out",
-      "title": "Light: 1(2) ENG OUT",
-      "filename": "eng-out.mp3",
-      "durationSeconds": 506
+      "lightId": "rotor-low",
+      "title": "Light: ROTOR LOW",
+      "filename": "rotor-low.mp3",
+      "durationSeconds": 126
     },
     {
       "lightId": "rotor-high",
       "title": "Light: ROTOR HIGH",
       "filename": "rotor-high.mp3",
-      "durationSeconds": 367
+      "durationSeconds": 118
     },
     {
-      "lightId": "eng-oil-press",
-      "title": "Light: 1(2) ENG OIL PRESS",
-      "filename": "eng-oil-press.mp3",
-      "durationSeconds": 251
-    },
-    {
-      "lightId": "eng-fail-fixed",
-      "title": "Light: 1(2) ENG FAIL FIXED",
-      "filename": "eng-fail-fixed.mp3",
-      "durationSeconds": 240
-    },
-    {
-      "lightId": "eng-drive-shaft-failure",
-      "title": "Light: ENGINE DRIVE SHAFT FAILURE",
-      "filename": "eng-drive-shaft-failure.mp3",
-      "durationSeconds": 378
+      "lightId": "eng-out",
+      "title": "Light: 1(2) ENG OUT",
+      "filename": "eng-out.mp3",
+      "durationSeconds": 108
     },
     {
       "lightId": "eng-idle",
       "title": "Light: 1(2) ENG IDLE",
       "filename": "eng-idle.mp3",
-      "durationSeconds": 328
+      "durationSeconds": 181
+    },
+    {
+      "lightId": "eng-oil-press",
+      "title": "Light: 1(2) ENG OIL PRESS",
+      "filename": "eng-oil-press.mp3",
+      "durationSeconds": 134
     },
     {
       "lightId": "eng-eecu-fail",
       "title": "Light: 1(2) ENG EECU FAIL",
       "filename": "eng-eecu-fail.mp3",
-      "durationSeconds": 305
+      "durationSeconds": 127
     },
     {
-      "lightId": "bag-fire-ground",
-      "title": "Light: BAG FIRE (on ground)",
-      "filename": "bag-fire-ground.mp3",
-      "durationSeconds": 371
+      "lightId": "eng-drive-shaft-failure",
+      "title": "Light: ENGINE DRIVE SHAFT FAILURE",
+      "filename": "eng-drive-shaft-failure.mp3",
+      "durationSeconds": 136
+    },
+    {
+      "lightId": "eng-fail-fixed",
+      "title": "Light: 1(2) ENG FAIL FIXED",
+      "filename": "eng-fail-fixed.mp3",
+      "durationSeconds": 421
+    },
+    {
+      "lightId": "elec-fail-double-dc-gen",
+      "title": "Light: ELEC FAIL",
+      "filename": "elec-fail-double-dc-gen.mp3",
+      "durationSeconds": 207
     },
     {
       "lightId": "mgb-oil-press",
       "title": "Light: MGB OIL PRESS",
       "filename": "mgb-oil-press.mp3",
-      "durationSeconds": 277
+      "durationSeconds": 256
     },
     {
       "lightId": "mgb-oil-temp",
       "title": "Light: MGB OIL TEMP",
       "filename": "mgb-oil-temp.mp3",
-      "durationSeconds": 161
+      "durationSeconds": 140
     },
     {
-      "lightId": "eng-fire-flight-v2",
-      "title": "Light: 1(2) ENG FIRE (in flight) · v2",
-      "filename": "eng-fire-flight-v2.mp3",
+      "lightId": "eng-fire-flight",
+      "title": "Light: 1(2) ENG FIRE (in flight)",
+      "filename": "eng-fire-flight.mp3",
       "durationSeconds": 227
     },
     {
-      "lightId": "eng-fire-ground-v2",
-      "title": "Light: 1(2) ENG FIRE (on ground) · v2",
-      "filename": "eng-fire-ground-v2.mp3",
-      "durationSeconds": 166
+      "lightId": "eng-fire-ground",
+      "title": "Light: 1(2) ENG FIRE (on ground)",
+      "filename": "eng-fire-ground.mp3",
+      "durationSeconds": 163
     },
     {
-      "lightId": "bag-fire-flight-v2",
-      "title": "Light: BAG FIRE (in flight) · v2",
-      "filename": "bag-fire-flight-v2.mp3",
+      "lightId": "bag-fire-flight",
+      "title": "Light: BAG FIRE (in flight)",
+      "filename": "bag-fire-flight.mp3",
       "durationSeconds": 169
     },
     {
-      "lightId": "bag-fire-ground-v2",
-      "title": "Light: BAG FIRE (on ground) · v2",
-      "filename": "bag-fire-ground-v2.mp3",
+      "lightId": "bag-fire-ground",
+      "title": "Light: BAG FIRE (on ground)",
+      "filename": "bag-fire-ground.mp3",
       "durationSeconds": 138
-    },
-    {
-      "lightId": "eng-out-v2",
-      "title": "Light: 1(2) ENG OUT · v2",
-      "filename": "eng-out-v2.mp3",
-      "durationSeconds": 114
-    },
-    {
-      "lightId": "eng-fail-fixed-v2",
-      "title": "Light: 1(2) ENG FAIL FIXED · v2",
-      "filename": "eng-fail-fixed-v2.mp3",
-      "durationSeconds": 427
-    },
-    {
-      "lightId": "eng-eecu-fail-v2",
-      "title": "Light: 1(2) ENG EECU FAIL · v2",
-      "filename": "eng-eecu-fail-v2.mp3",
-      "durationSeconds": 132
-    },
-    {
-      "lightId": "eng-drive-shaft-failure-v2",
-      "title": "Light: ENGINE DRIVE SHAFT FAILURE · v2",
-      "filename": "eng-drive-shaft-failure-v2.mp3",
-      "durationSeconds": 135
-    },
-    {
-      "lightId": "eng-idle-v2",
-      "title": "Light: 1(2) ENG IDLE · v2",
-      "filename": "eng-idle-v2.mp3",
-      "durationSeconds": 183
-    },
-    {
-      "lightId": "eng-oil-press-v2",
-      "title": "Light: 1(2) ENG OIL PRESS · v2",
-      "filename": "eng-oil-press-v2.mp3",
-      "durationSeconds": 133
-    },
-    {
-      "lightId": "rotor-low-v2",
-      "title": "Light: ROTOR LOW · v2",
-      "filename": "rotor-low-v2.mp3",
-      "durationSeconds": 131
-    },
-    {
-      "lightId": "rotor-high-v2",
-      "title": "Light: ROTOR HIGH · v2",
-      "filename": "rotor-high-v2.mp3",
-      "durationSeconds": 118
-    },
-    {
-      "lightId": "mgb-oil-press-v2",
-      "title": "Light: MGB OIL PRESS · v2",
-      "filename": "mgb-oil-press-v2.mp3",
-      "durationSeconds": 262
-    },
-    {
-      "lightId": "mgb-oil-temp-v2",
-      "title": "Light: MGB OIL TEMP · v2",
-      "filename": "mgb-oil-temp-v2.mp3",
-      "durationSeconds": 145
-    },
-    {
-      "lightId": "elec-fail-double-dc-gen-v2",
-      "title": "Light: ELEC FAIL (double DC gen) · v2",
-      "filename": "elec-fail-double-dc-gen-v2.mp3",
-      "durationSeconds": 213
     }
   ]
 }

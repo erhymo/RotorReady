@@ -160,7 +160,7 @@ export default function AudioListPage() {
           <div className="text-sm text-slate-500 dark:text-zinc-400">Loading…</div>
         )}
 
-        {items !== null && items.length === 0 && !loadFailed && (
+        {items !== null && items.length === 0 && (
           <div className="rounded-xl border border-slate-200 bg-white p-5 text-sm text-slate-600 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-300">
             No audio content yet for {activeVariant.label}. Check back soon.
           </div>

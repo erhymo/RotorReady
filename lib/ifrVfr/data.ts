@@ -50,6 +50,42 @@ export const VFR_TOPICS: RuleTopic[] = [
     reference: "SERA.5010 – Special VFR in control zones",
   },
   {
+    slug: "hems-minima",
+    title: "HEMS operating minima",
+    intro: "Helicopter Emergency Medical Service (HEMS) approval lets a crew fly to lower weather minima than normal VFR — but the reduction depends on performance class, crew size, and day/night, not a single number.",
+    groups: [
+      {
+        heading: "Performance Class 1/2 — by day",
+        bullets: [
+          "Two pilots: 500 ft ceiling or above uses normal VFR minima; 400–499 ft needs 1000 m visibility; 300–399 ft (the lowest published band) needs 2000 m visibility.",
+          "Single pilot: 500 ft or above uses normal VFR minima; 400–499 ft needs 2000 m visibility; 300–399 ft needs 3000 m — a single pilot needs more visibility than a two-pilot crew at the same height.",
+        ],
+      },
+      {
+        heading: "Performance Class 1/2 — by night",
+        bullets: [
+          "Cloud base: 1200 ft minimum.",
+          "Visibility: 2500–3000 m with NVIS; without NVIS the required visibility is higher (up to 5000 m) — check the operator's approved table for the exact figure, since it depends on equipment and approval.",
+        ],
+      },
+      {
+        heading: "Performance Class 3",
+        bullets: [
+          "Dispatch and en-route: 600 ft ceiling, 1500 m visibility.",
+          "En-route only, for short periods, in sight of land, at a speed allowing obstacles to be seen in time to avoid them: reducible to 1000 ft ceiling, or 800 m visibility.",
+        ],
+      },
+      {
+        heading: "If weather falls below minima en-route",
+        bullets: [
+          "A VFR-only certified helicopter must abandon the flight or return to base — there is no other option.",
+          "An IMC-equipped helicopter with a suitably qualified crew may instead convert the flight to IFR, in addition to those two options.",
+        ],
+      },
+    ],
+    reference: "EASA Air Ops – SPA.HEMS.120 – HEMS operating minima",
+  },
+  {
     slug: "vfr-cruising-levels",
     title: "VFR cruising levels (semicircular rule)",
     groups: [
@@ -321,6 +357,16 @@ export const IFR_TOPICS: RuleTopic[] = [
         ],
       },
       {
+        heading: "Coastal aerodrome as an offshore alternate (helicopter-specific)",
+        bullets: [
+          "A coastal aerodrome can only be nominated as a reduced-fuel offshore alternate if it's within 5 NM of the coastline.",
+          "It must also be reachable, within the rules of the air, either 500 ft AGL inbound from the coast or via an agreed route, landing under VFR.",
+          "Day landing forecast floor: cloud base at least 400 ft above DH/MDH and 4 km visibility — or 600 ft/4 km if the descent to visual is planned over the sea.",
+          "Night landing forecast floor: cloud base 1000 ft and visibility 5 km.",
+          "Fuel must be enough that, at any point after crossing the coastline, the helicopter can still return to the coast, descend safely, and complete a VFR approach and landing with VFR reserves intact.",
+        ],
+      },
+      {
         heading: "Quick numbers recap",
         bullets: [
           "Precision alternate minima: DA/H +200 ft, RVR/VIS +800 m.",
@@ -329,10 +375,11 @@ export const IFR_TOPICS: RuleTopic[] = [
           "LVTO applies: below 550 m RVR.",
           "LVTO needs specific approval: below 400 m RVR.",
           "Two destination alternates needed: forecast doesn't meet margin at ETA, or no met info for the one alternate.",
+          "Coastal offshore alternate: within 5 NM of the coastline, day 400 ft/4 km (600 ft/4 km over-sea descent), night 1000 ft/5 km.",
         ],
       },
     ],
-    reference: "EASA Air Ops – Part-NCC/SPA/CAT.OP.MPA.181/182 – Alternate aerodrome selection, alternate minima & fuel policy",
+    reference: "EASA Air Ops – Part-NCC/SPA/CAT.OP.MPA.181/182, SPA.HOFO.100 – Alternate aerodrome selection, alternate minima, fuel policy & coastal aerodrome criteria",
   },
   {
     slug: "fuel-planning",
@@ -369,6 +416,67 @@ export const IFR_TOPICS: RuleTopic[] = [
       },
     ],
     reference: "ICAO Doc 8168 (PANS-OPS) – Holding procedures",
+  },
+  {
+    slug: "sid-departure-design",
+    title: "Standard Instrument Departure (SID) design — and the default climb gradient if none is published",
+    intro: "A SID is a charted departure route built to keep you clear of obstacles from lift-off into the en-route structure, on the assumption you climb at or above the procedure's climb gradient. If no gradient is charted, don't reach for the fixed-wing 3.3% figure — it doesn't apply to helicopters.",
+    groups: [
+      {
+        heading: "Default helicopter departure design values (if nothing is published)",
+        bullets: [
+          "Procedure Design Gradient (PDG): 5.0% minimum for helicopters, vs 3.3% for aeroplanes — the designer uses whichever is higher: 5%, or the gradient actually needed to clear obstacles.",
+          "Obstacle Identification Surface (OIS) gradient: 4.2% for helicopters, vs 2.5% for aeroplanes — obstacles must not penetrate this surface for the procedure to stand without extra restriction.",
+          "Minimum height for a turn above the FATO/departure end: 90 m (295 ft) for helicopters, vs 120 m for aeroplanes.",
+          "Minimum obstacle clearance (MOC) margin while turning: 65 m for helicopters, vs 75 m for aeroplanes.",
+        ],
+      },
+      {
+        heading: "What this means in practice",
+        bullets: [
+          "5% is roughly 300 ft/NM — noticeably steeper than the 3.3% (about 200 ft/NM) most pilots have heard quoted as 'the' PANS-OPS default; that number was never the helicopter one.",
+          "A published gradient steeper than 5% on a helicopter SID means the terrain or obstacles genuinely require it — treat it as a hard performance requirement, not a suggestion.",
+          "If a procedure is shared between aeroplanes and helicopters, check which criteria set built it: the helicopter minimum may already be baked in, or a separate helicopter note may apply a different gradient.",
+        ],
+      },
+    ],
+    reference: "ICAO Doc 8168 (PANS-OPS) – Cat H departure procedure design criteria, compared with Cat A/B/C/D (fixed-wing)",
+  },
+  {
+    slug: "performance-classes",
+    title: "Helicopter Performance Classes (1/2/3) — what the numbers mean for you",
+    groups: [
+      {
+        heading: "Performance Class 1 (PC1)",
+        bullets: [
+          "Guarantees either a safe rejected takeoff or a safe continued takeoff after a critical engine failure at any point — no exposure gap.",
+          "Takeoff Decision Point (TDP) / Landing Decision Point (LDP): the defined height/speed point that splits 'reject' from 'continue' after an engine failure.",
+          "Needs an approved Category A takeoff/landing profile and, normally, a heliport or site meeting the Performance Class 1 obstacle environment.",
+        ],
+      },
+      {
+        heading: "Performance Class 2 (PC2)",
+        bullets: [
+          "Uses Defined Point After Takeoff (DPATO) and Defined Point Before Landing (DPBL) instead of TDP/LDP.",
+          "'Exposure': a brief period, typically low and slow just after lift-off or just before touchdown, where a critical engine failure is not guaranteed to allow either a safe reject or a safe continuation — accepted as a limited, defined risk rather than eliminated.",
+        ],
+      },
+      {
+        heading: "Performance Class 3 (PC3)",
+        bullets: [
+          "Single-engine logic: obstacle clearance is only guaranteed with all engines operating (AEO). An engine failure at any point may require an immediate forced landing.",
+          "Applies to genuinely single-engine helicopters, and to twins operated in PC3 (e.g. some single-pilot VFR operations) where PC1/2 performance isn't being used.",
+        ],
+      },
+      {
+        heading: "The 35 ft number, and what counts as an obstacle",
+        bullets: [
+          "Category A takeoff/landing profiles are built around at least 35 ft (10.7 m) vertical clearance above the takeoff surface (or the highest obstacle in the takeoff distance required) at the profile's reference point.",
+          "An obstacle counts as 'in the path' of the helicopter if it's within 30 m, or 1.5× the helicopter's maximum dimension, of the intended flight track — whichever of those two distances is greater.",
+        ],
+      },
+    ],
+    reference: "EASA Air Ops – CAT.POL.H.305/310/315 – Helicopter performance classes",
   },
   {
     slug: "circling-approach",
@@ -441,6 +549,95 @@ export const IFR_TOPICS: RuleTopic[] = [
     reference: "ICAO Doc 9613 (PBN Manual) / EASA AMC20-27, 28 – RNP APCH approach types",
   },
   {
+    slug: "pins-approach",
+    title: "Helicopter Point-in-Space (PinS) approaches & departures",
+    intro: "PinS is how a helicopter flies an instrument procedure to a site with no runway at all — a heliport, an offshore installation, a hospital pad. The instrument segment ends at a Missed Approach Point (MAPt) that isn't the landing site itself; from there you either land straight-in if visual, or are instructed to 'proceed VFR'/'proceed visually' the rest of the way under a defined, reduced set of VFR minima.",
+    groups: [
+      {
+        heading: "How it's built",
+        bullets: [
+          "Instrument segment flown like any other approach, down to a DA (LPV-style, 3D) or MDA (LNAV-style, 2D) at the MAPt — which can sit away from the landing site, unlike a runway approach.",
+          "Initial approach segment: maximum length 10 NM; the IAF is built within 25 NM of the Procedure Reference Point (PRP). Optimum descent gradient 6.5%, maximum 10%.",
+          "Intermediate approach segment: minimum 2 NM, optimum 3 NM, maximum 10 NM, same 6.5%/10% gradient limits. Maximum turn at the FAF is 60° — some avionics won't arm approach mode automatically above a 30° track change there, so brief it if needed.",
+        ],
+      },
+      {
+        heading: "'Proceed VFR' — reduced minima by day",
+        bullets: [
+          "x is the distance from the MAPt to the heliport/operating site (approach), or from the site to the Initial Departure Fix, IDF (departure).",
+          "x < 1000 m: visibility 1000 m; ceiling MDH or 300 ft, whichever is higher.",
+          "1000 m ≤ x ≤ 3000 m: visibility = x, or 1500 m, whichever is lower; ceiling MDH or 400 ft.",
+          "3000 m < x ≤ 5000 m: visibility 1500 m; ceiling MDH or 600 ft.",
+          "At x ≥ 5000 m, normal SERA VFR minima apply instead — this reduced table only exists for the last 5 km.",
+        ],
+      },
+      {
+        heading: "'Proceed VFR' — reduced minima by night",
+        bullets: [
+          "x < 1000 m: visibility 2000 m; ceiling MDH or 600 ft.",
+          "1000 m ≤ x ≤ 3000 m: visibility = x + 1000 m; ceiling MDH + 200 ft, or 600 ft, whichever is higher.",
+          "3000 m < x ≤ 5000 m: visibility 5000 m; ceiling MDH + 200 ft, or 600 ft, whichever is higher.",
+        ],
+      },
+      {
+        heading: "Crew requirements to use the reduced minima",
+        bullets: [
+          "Commander: at least 1000 hours total helicopter flying time, including 100 hours of instrument time on helicopters.",
+          "Initial and yearly recurrent simulator training must cover a 3D approach to minima, a 2D approach to minima, a go-around on instruments, and at least one PinS approach followed by a transition to VFR and a VFR landing.",
+        ],
+      },
+    ],
+    reference: "EASA Air Ops – AMC1 SPA.PINS-VFR.100 – Helicopter point-in-space approaches and departures with reduced VFR minima",
+  },
+  {
+    slug: "offshore-ara-osap",
+    title: "Offshore approaches (ARA / OSAP)",
+    intro: "An Airborne Radar Approach (ARA), or an OEM-certified Offshore Standard Approach Procedure (OSAP), is how a helicopter flies an instrument approach to a moving or fixed offshore installation with no ground-based navaid at all — built entirely from the aircraft's own radar/GNSS picture of the target.",
+    groups: [
+      {
+        heading: "The final segment",
+        bullets: [
+          "Maximum descent angle: 4°; up to 6° is acceptable only if groundspeed is reduced to 60 kt.",
+          "The segment from the MAPt to the destination must never be flown with a tailwind — the approach course has to be selectable to avoid it.",
+          "Maximum acceptable offset angle between the final inbound course and the installation: 30°.",
+        ],
+      },
+      {
+        heading: "Minimum descent height/altitude (MDH/MDA)",
+        bullets: [
+          "Never lower than 50 ft above the helideck's elevation, whatever else the calculation gives.",
+          "Straight-in approach: not lower than 200 ft by day, 300 ft by night.",
+          "Approach leading to a circling manoeuvre: not lower than 300 ft by day, 500 ft by night.",
+          "Single-pilot ARA: add 100 ft to the calculated MDA/H.",
+          "MDA (rather than MDH) may only be used if the radio altimeter is unserviceable, and must then be at least MDH + 200 ft.",
+        ],
+      },
+      {
+        heading: "Decision range & navigation performance",
+        bullets: [
+          "Decision range: not less than 1 NM — or not less than 0.75 NM specifically if groundspeed at the MAPt is 80 kt or less.",
+          "Lateral guidance: at least RNP 0.3 NM performance monitoring/alerting up to the MAPt, then RNP 1.0 NM to the missed approach holding point.",
+        ],
+      },
+      {
+        heading: "If the radar picture isn't clear",
+        bullets: [
+          "Before the final approach, confirm a clear radar path exists for both the final and missed approach segments.",
+          "If lateral clearance from any obstacle is less than the required navigation performance: either approach a nearby clear structure first and proceed visually to the destination, or fly the approach from a different direction using a circling manoeuvre instead.",
+        ],
+      },
+      {
+        heading: "Coastal aerodrome fuel planning (a related offshore number)",
+        bullets: [
+          "A coastal aerodrome nominated for reduced offshore alternate requirements must be within 5 NM of the coastline.",
+          "Day landing forecast floor: cloud base at least 400 ft above DH/MDH and 4 km visibility — or 600 ft/4 km if the descent to visual is planned over the sea.",
+          "Night landing forecast floor: cloud base 1000 ft and visibility 5 km.",
+        ],
+      },
+    ],
+    reference: "EASA Air Ops – AMC1/AMC2 SPA.HOFO.125 – Airborne radar approach & offshore standard approach procedures",
+  },
+  {
     slug: "approach-ban-rvr",
     title: "Approach ban & RVR/visibility minima",
     groups: [
@@ -455,6 +652,43 @@ export const IFR_TOPICS: RuleTopic[] = [
     reference: "EASA Air Ops – Part-CAT/NCC.OP – Approach ban",
   },
   {
+    slug: "lvto-helicopters",
+    title: "Low-Visibility Takeoff (LVTO) for helicopters",
+    groups: [
+      {
+        heading: "When it applies",
+        bullets: [
+          "A takeoff counts as 'normal' at or above 550 m RVR; below that, it's an LVTO and needs LVTO procedures.",
+          "Below 400 m RVR specifically requires a dedicated LVTO approval beyond standard IFR authorization — the hard floor without it.",
+        ],
+      },
+      {
+        heading: "Onshore RVR floor by facility",
+        bullets: [
+          "No lights, no markings, by day only: 250 m, or the rejected-takeoff distance, whichever is greater.",
+          "No markings, at night: 800 m.",
+          "Runway/FATO edge lights + centreline marking: 200 m.",
+          "Runway/FATO edge lights + centreline marking + RVR reporting available: 150 m.",
+        ],
+      },
+      {
+        heading: "Offshore helideck",
+        bullets: [
+          "Two-pilot operations: 250 m RVR.",
+          "Single-pilot operations: 500 m RVR.",
+          "Both figures only apply when the takeoff flight path is free of obstacles.",
+        ],
+      },
+      {
+        heading: "PinS departure to an Initial Departure Fix (IDF)",
+        bullets: [
+          "Visibility must never be below 800 m, and ceiling never below 250 ft, regardless of the facility-based numbers above.",
+        ],
+      },
+    ],
+    reference: "EASA Air Ops – AMC2 SPA.LVO.100(a) – Low-visibility takeoff operations, helicopters",
+  },
+  {
     slug: "missed-approach",
     title: "Missed approach & obstacle clearance",
     groups: [
@@ -466,8 +700,17 @@ export const IFR_TOPICS: RuleTopic[] = [
           "Fly the published missed approach track and altitude/level precisely, unless ATC issues other instructions.",
         ],
       },
+      {
+        heading: "Cat H (helicopter) design numbers, compared with fixed-wing",
+        bullets: [
+          "Optimum approach/missed-approach segment gradient: 6.5% for helicopters vs 4% for fixed-wing; maximum 10% vs 8%.",
+          "Minimum DME arc radius: 5 NM for helicopters vs 7 NM for fixed-wing.",
+          "Lead distance before a turn greater than 70°: 1 NM for helicopters vs 2 NM for fixed-wing.",
+          "These tighter helicopter numbers are why a procedure shared with aeroplanes sometimes publishes separate helicopter minima, or a steeper missed-approach gradient than the fixed-wing version of the same approach.",
+        ],
+      },
     ],
-    reference: "ICAO Doc 8168 (PANS-OPS) – Missed approach criteria",
+    reference: "ICAO Doc 8168 (PANS-OPS) – Missed approach criteria, incl. Cat H helicopter design values",
   },
   {
     slug: "ils-glideslope",

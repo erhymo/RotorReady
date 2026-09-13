@@ -1,6 +1,13 @@
 {
   "items": [
     {
+      "id": "afcs-full-episode",
+      "title": "AFCS: Full Episode (Parts 1–5)",
+      "description": "The whole AFCS series as one continuous listen — the control stack, the Collective Safety Function and engagement envelopes, coupled approaches, failure logic, and Automatic Search Modes. Prefer to take it a piece at a time? The same five parts are below, plus a numbers-only cold recap.",
+      "filename": "afcs-full-episode.mp3",
+      "durationSeconds": 1460
+    },
+    {
       "id": "afcs-1-the-control-stack",
       "title": "AFCS: The Control Stack",
       "description": "How the AW189's Automatic Flight Control System is layered — basic attitude and control functions, then the upper modes built on top of them, and how the PFD shows you what's armed, captured or changing.",

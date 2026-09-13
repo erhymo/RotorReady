@@ -44,16 +44,12 @@ export default function QuizTypeSelectPage() {
   const { variant: activeVariant, loading: variantLoading } = useActiveModelVariant();
   const [loadedSections, setLoadedSections] = useState<LoadedSectionsState | null>(null);
 
-  const dynamicVariant =
-    !!activeVariant &&
-    (activeVariant.productId === "H125" ||
-      activeVariant.productId === "AW169" ||
-      activeVariant.productId === "S92" ||
-      activeVariant.productId === "H135_T3" ||
-      activeVariant.productId === "H145_D2" ||
-      activeVariant.productId === "H145_D3" ||
-      activeVariant.id === "R44_II" ||
-      activeVariant.id === "R22");
+  // Every model publishes its own sections in model-data/<variant>/index.json, so
+  // the list is read from there rather than from an allowlist of product ids. The
+  // allowlist that used to live here silently excluded AW189 and AW139: both had
+  // real sections of their own, and both were shown the generic fallback list
+  // instead — which is why AW189's emergency procedures never appeared.
+  const dynamicVariant = !!activeVariant;
 
   const currentLoadedSections = loadedSections?.modelId === activeVariant.id ? loadedSections : null;
   const sections = currentLoadedSections?.sections ?? [];
@@ -137,11 +133,30 @@ export default function QuizTypeSelectPage() {
     );
   }
 
+  // A model with no sections of its own still gets the generic quiz types.
   if (!sections.length) {
     return (
-      <div className="max-w-2xl mx-auto p-6">
-        <div className="rounded-xl border border-dashed border-slate-300 dark:border-zinc-700 p-6 text-center text-slate-600 dark:text-zinc-300">
-          No sections available for {activeVariant.label} yet.
+      <div className="max-w-2xl mx-auto p-6 space-y-8 rounded-xl border-l-4 border-blue-600 bg-white dark:border-blue-400 dark:bg-zinc-900">
+        <div className="mb-2"><TopBarBackButton href="/" /></div>
+        <h1 className="text-2xl font-bold mb-4 flex items-center gap-2 text-slate-900 dark:text-white">
+          Choose quiz type
+        </h1>
+        <div className="space-y-4">
+          {STATIC_QUIZ_TYPES.map((quiz) => (
+            <Link
+              key={quiz.href}
+              href={quiz.href}
+              className="block w-full rounded-xl border-l-4 border-blue-600 bg-blue-50/40 hover:bg-blue-600 hover:text-white dark:bg-zinc-900 dark:text-white dark:border-blue-400 dark:hover:bg-blue-600 dark:hover:text-white transition px-5 py-4 font-semibold"
+            >
+              {quiz.title}
+            </Link>
+          ))}
+          <Link
+            href="/quiz/all"
+            className="block w-full rounded-xl border-l-4 border-blue-600 bg-blue-50/40 hover:bg-blue-600 hover:text-white dark:bg-zinc-900 dark:text-white dark:border-blue-400 dark:hover:bg-blue-600 dark:hover:text-white transition px-5 py-4 font-semibold"
+          >
+            All
+          </Link>
         </div>
       </div>
     );

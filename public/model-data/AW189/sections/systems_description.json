@@ -1861,6 +1861,1945 @@
       "modelIds": [
         "AW189"
       ]
+    },
+    {
+      "id": "AW189-SYS-063",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "How many main rotor blades does the AW189 have, and what are the three installations making up the main rotor system?",
+      "options": [
+        "Five blades, in three installations: main rotor blades, main rotor head and rotating controls.",
+        "Four blades, in three installations: blades, hub and swashplate.",
+        "Five blades, in two installations: the rotor head and the rotating controls.",
+        "Six blades, in three installations: blades, head and lag dampers."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The main rotor system transmits flying control inputs to the five main rotor blades, and is comprised of three different installations: main rotor blades, main rotor head and rotating controls.",
+      "references": [
+        "AW189 RFM Section 7 — Main Rotor, Chap 62 (p.7-367)"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "systems",
+        "rotor"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-064",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "What protects the leading edge of an AW189 main rotor blade?",
+      "options": [
+        "A nickel and titanium erosion shield attached to the leading edge.",
+        "A polyurethane tape applied over the composite skin.",
+        "A stainless steel cap bonded over the spar nose.",
+        "An electro-formed copper strip that also serves as the de-icing element."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The blades are made predominantly from composite materials, with a nickel and titanium erosion shield attached to the leading edge of the blade.",
+      "references": [
+        "AW189 RFM Section 7 — Main Rotor, Chap 62 (p.7-367)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "rotor",
+        "blades"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-065",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "Where are the mass-balance weights fitted in an AW189 main rotor blade, and why?",
+      "options": [
+        "In the blade root and in a pocket near the blade tip, to balance the blade statically.",
+        "Only at the tip, to raise the blade's natural frequency clear of rotor speed.",
+        "Along the trailing edge, to allow dynamic tracking adjustment in flight.",
+        "Inside the spar at mid-span, to damp lead-lag oscillation."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Mass-balance weights are installed in the blade root and in a pocket near the blade tip. These weights are used to balance the blade statically.",
+      "references": [
+        "AW189 RFM Section 7 — Main Rotor, Chap 62 (p.7-367)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "rotor",
+        "blades"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-066",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "What is the metallic trim tab on an AW189 main rotor blade for?",
+      "options": [
+        "It is attached to the trailing edge and can be bent and adjusted for rotor tracking.",
+        "It trims out cyclic control forces at high speed.",
+        "It is a fixed reference used only for blade installation alignment.",
+        "It bleeds boundary layer air to delay retreating blade stall."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "A metallic trim tab is attached to the trailing edge of the blade. This trim tab can be bent and adjusted for rotor tracking.",
+      "references": [
+        "AW189 RFM Section 7 — Main Rotor, Chap 62 (p.7-367)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "rotor",
+        "blades"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-067",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "How is the spar of an AW189 main rotor blade built?",
+      "options": [
+        "With a D-shaped cross section, using unidirectional carbon and glass laminate in the side walls and unidirectional carbon and glass fibres in the nose.",
+        "As a hollow titanium extrusion with a bonded composite fairing.",
+        "As a C-shaped aluminium channel with composite skins bonded to it.",
+        "As a solid glass fibre section with a steel root fitting."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The spar has a D-shaped cross section, consisting of unidirectional (UD) carbon and glass laminate in the side walls and UD carbon and glass fibres in the nose.",
+      "references": [
+        "AW189 RFM Section 7 — Main Rotor, Chap 62 (p.7-367)"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "systems",
+        "rotor",
+        "blades"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-068",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "What are the AW189 elastomeric bearings made of, and what do they do?",
+      "options": [
+        "An aluminium inner member, a titanium outer member and several intermediate rubber and metallic disks — they allow blade motion while reacting the centrifugal force.",
+        "Steel races with a rubber damping ring, carrying only lead-lag loads.",
+        "Solid rubber blocks that carry blade weight on the ground but unload in flight.",
+        "Titanium spherical bearings that permit flapping only, with a separate bearing for pitch."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The elastomeric bearings are composed of an aluminium inner member, a titanium outer member and several intermediate rubber and metallic disks. The bearings allow the blade motions while reacting the centrifugal force.",
+      "references": [
+        "AW189 RFM Section 7 — Main Rotor, Chap 62 (p.7-369)"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "systems",
+        "rotor",
+        "head"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-069",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "What type are the AW189 main rotor lag dampers, and what do they connect?",
+      "options": [
+        "Conventional hydraulic dampers, connecting the pitch control lever to the damper attachment lugs on the hub.",
+        "Elastomeric dampers bonded directly between adjacent blade roots.",
+        "Friction dampers connecting the blade cuff to the rotating swashplate.",
+        "Hydraulic dampers connecting the tension link to the mast."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The dampers are of conventional hydraulic type. They connect the pitch control lever to the damper attachment lugs of the hub.",
+      "references": [
+        "AW189 RFM Section 7 — Main Rotor, Chap 62 (p.7-369)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "rotor",
+        "head"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-070",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "How is the AW189 swashplate assembly arranged?",
+      "options": [
+        "Two swashplates — the upper rotating and the lower stationary — connected by a grease-lubricated duplex ball bearing, with the fixed swashplate on a central spherical bearing that lets both tilt.",
+        "A single swashplate that both rotates and tilts, riding on a roller bearing on the mast.",
+        "Two swashplates with the lower one rotating and the upper one fixed to the airframe.",
+        "Two swashplates separated by an oil-lubricated journal bearing fed from the main gearbox."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The swashplate assembly consists of two swashplates: the upper is the rotating swashplate and the lower is the stationary swashplate. They are connected with a duplex ball type bearing between them, grease lubricated, allowing the rotating swashplate to rotate around the non-rotating one. The fixed swashplate is mounted on a central spherical bearing which allows both swashplates to tilt.",
+      "references": [
+        "AW189 RFM Section 7 — Main Rotor, Chap 62 (p.7-371)"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "systems",
+        "rotor",
+        "controls"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-071",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "What does the AW189 spherical pivot permit?",
+      "options": [
+        "The tilt angle of the two swashplates from cyclic input, and their vertical translation from collective input.",
+        "Rotation of the rotating swashplate relative to the fixed one only.",
+        "Flapping of the blades independently of the swashplate position.",
+        "Free play in the pitch change links to absorb lead-lag motion."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The spherical pivot fits onto the top of the main gearbox casing and permits the tilt angle of the two swashplates given by the cyclic pitch input, and allows their vertical translation given by the collective pitch input. It is made from aluminium alloy and translates vertically along its contact surface with four centering plates.",
+      "references": [
+        "AW189 RFM Section 7 — Main Rotor, Chap 62 (p.7-371)"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "systems",
+        "rotor",
+        "controls"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-072",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "What does the AW189 main rotor drive system include?",
+      "options": [
+        "The main gearbox, the engine/gearbox couplings, the lubricating system and the rotor brake system.",
+        "The main gearbox and tail rotor drive shafts only — the rotor brake is part of the rotor system.",
+        "The main gearbox, intermediate gearbox and tail gearbox.",
+        "The engine output shafts, freewheel units and the accessory gearbox."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The main rotor drive system provides mechanical power transfer from the engines to the rotors and accessories at the required speed. It includes the Main Gearbox (MGB), the engine/gearbox couplings, the lubricating system and the rotor brake system.",
+      "references": [
+        "AW189 RFM Section 7 — Main Rotor Drive, Chap 63 (p.7-375)"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "systems",
+        "transmission"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-073",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "At what speed do the AW189 engines drive the main gearbox, and what does the main rotor mast turn at?",
+      "options": [
+        "The engines drive at 21420 rpm and the main rotor mast rotates at 290.45 rpm.",
+        "The engines drive at 6000 rpm and the mast rotates at 265 rpm.",
+        "The engines drive at 21420 rpm and the mast rotates at 4645 rpm.",
+        "The engines drive at 30000 rpm and the mast rotates at 290.45 rpm."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The main gearbox converts drive from the two engines at 21420 rpm into drive to the main rotor, tail rotor drive system and accessories. The main rotor mast rotates at 290.45 rpm.",
+      "references": [
+        "AW189 RFM Section 7 — Main Rotor Drive, Chap 63 (p.7-375, 7-377)"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "systems",
+        "transmission",
+        "speeds"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-074",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "At what speed does the AW189 tail rotor take-off drive the tail rotor drive shafts?",
+      "options": [
+        "4645 rpm.",
+        "290.45 rpm.",
+        "21420 rpm.",
+        "1590 rpm."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The tail rotor take off drives the tail rotor drive shafts (TRDS) at 4645 rpm.",
+      "references": [
+        "AW189 RFM Section 7 — Main Rotor Drive, Chap 63 (p.7-377)"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "systems",
+        "transmission",
+        "speeds"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-075",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "What is the purpose of the sprag type freewheel unit in each AW189 input module?",
+      "options": [
+        "It allows the main gearbox to overspeed an engine and still maintain drive to the accessories.",
+        "It disconnects the accessories whenever an engine is shut down in flight.",
+        "It limits the torque each engine can deliver to the gearbox.",
+        "It allows the rotor brake to stop the rotor without driving the engines backwards."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The input module contains a sprag type freewheel unit in both input modules, which allows the MGB to overspeed an engine and still maintain drive to the accessories.",
+      "references": [
+        "AW189 RFM Section 7 — Main Rotor Drive, Chap 63 (p.7-377)"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "systems",
+        "transmission",
+        "freewheel"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-076",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "How are the three reduction stages in the AW189 main gearbox arranged?",
+      "options": [
+        "First and second stages are spiral bevel gears; the third stage is an epicyclic planetary reduction.",
+        "First stage is planetary, second and third are spiral bevel.",
+        "All three stages are spiral bevel gear arrangements.",
+        "First stage is helical, second spiral bevel, third planetary."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "First stage reduction is carried out in the input stage via a spiral bevel gear arrangement. The second stage reduction is also a spiral bevel gear. The third stage reduction is an epicyclic planetary reduction.",
+      "references": [
+        "AW189 RFM Section 7 — Main Rotor Drive, Chap 63 (p.7-377)"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "systems",
+        "transmission",
+        "gearbox"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-077",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "How many cautions and warnings can the AW189 CAS show for the main rotor drive system?",
+      "options": [
+        "Eleven cautions and two warnings.",
+        "Eleven cautions and no warnings.",
+        "Two cautions and eleven warnings.",
+        "Six cautions and four warnings."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The crew alerting system window in the primary flight display format can show eleven cautions and two warnings for the main rotor drive system.",
+      "references": [
+        "AW189 RFM Section 7 — Main Rotor Drive, Chap 63 (p.7-375)"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "systems",
+        "transmission",
+        "warnings"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-078",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "What does each AW189 engine-to-gearbox coupling consist of?",
+      "options": [
+        "A drive shaft, torque tube, gimbal assembly and an input module — independent but identical for each engine.",
+        "A single flexible diaphragm coupling bolted directly between engine and gearbox.",
+        "A splined quill shaft running inside the engine mount torque tube, with no gimbal.",
+        "A clutch pack that engages once the engine reaches idle."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Each engine has its own independent but identical coupling arrangement to the MGB, comprising the left and right input shaft modules. Each includes a drive shaft, torque tube, gimbal assembly and an input module, allowing power transfer with angular misalignment and the disconnect engine function.",
+      "references": [
+        "AW189 RFM Section 7 — Main Rotor Drive, Chap 63 (p.7-379)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "transmission",
+        "couplings"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-079",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "What is the sea level power output of the AW189's CT7-2E1 engine?",
+      "options": [
+        "In the 2,100 horsepower range.",
+        "In the 1,500 horsepower range.",
+        "In the 3,400 horsepower range.",
+        "In the 900 horsepower range."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The CT7-2E1 engine is a compact, lightweight gas turbine engine with a sea level power output in the 2,100 horsepower range.",
+      "references": [
+        "AW189 RFM Section 7 — Power Plant, Chap 71 (p.7-415)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "powerplant",
+        "engine"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-080",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "How is the CT7-2E1 compressor and turbine section arranged?",
+      "options": [
+        "A five stage axial plus one stage centrifugal compressor, an annular combustor, a two stage air-cooled gas generator turbine and a two stage uncooled power turbine.",
+        "A six stage axial compressor, a can-annular combustor and a single stage power turbine.",
+        "A two stage centrifugal compressor, an annular combustor and a three stage free turbine.",
+        "A five stage axial compressor, a reverse-flow combustor and a two stage cooled power turbine."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The engine incorporates a five stage axial/one stage centrifugal compressor, an annular combustor, a two stage air cooled gas generator turbine and a two stage un-cooled power turbine with a drive shaft extending forward coaxially through the gas generator.",
+      "references": [
+        "AW189 RFM Section 7 — Power Plant, Chap 71 (p.7-415)"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "systems",
+        "powerplant",
+        "engine"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-081",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "What keeps the AW189 CT7-2E1 compressor operating surge free across the range?",
+      "options": [
+        "One stage of variable inlet guide vanes and two stages of variable stator vanes, together with an engine mounted start bleed valve.",
+        "A single variable bleed valve modulated by the engine control unit.",
+        "Two stages of variable inlet guide vanes and a surge bleed duct to the exhaust.",
+        "Fixed geometry with surge margin provided by fuel scheduling alone."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The compressor has one stage of variable inlet guide vanes and two stages of variable stator vanes that, together with an engine mounted start bleed valve, ensure efficient and surge free engine operation through the entire operating range.",
+      "references": [
+        "AW189 RFM Section 7 — Power Plant, Chap 71 (p.7-415)"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "systems",
+        "powerplant",
+        "engine"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-082",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "What protects the AW189 engine from foreign object damage, sand and dust ingestion?",
+      "options": [
+        "An integral inlet particle separator.",
+        "An optional engine air particle separator kit fitted only for desert operations.",
+        "A removable intake screen fitted during ground running.",
+        "The forward composite inlet, which is shaped to centrifuge debris overboard."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "An integral inlet particle separator protects the engine from foreign object damage and the ingestion of sand and dust.",
+      "references": [
+        "AW189 RFM Section 7 — Power Plant, Chap 71 (p.7-415)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "powerplant",
+        "engine"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-083",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "How is each AW189 engine bay fire-protected structurally?",
+      "options": [
+        "A set of titanium firewalls with a metallic cowling that has a titanium inner protective skin; the APU bay firewalls are titanium and the complete installation is fireproof.",
+        "Aluminium firewalls with an intumescent coating on the cowling inner face.",
+        "Stainless steel firewalls forward and aft only, with no division between the two engines.",
+        "Composite firewalls with a ceramic blanket, and titanium used only for the APU bay."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Each engine is in a bay consisting of a set of titanium firewalls and a metallic cowling with a titanium inner protective skin. The APU bay firewalls are made of titanium, and the complete installation including joints, fittings and seals is fireproof.",
+      "references": [
+        "AW189 RFM Section 7 — Power Plant, Chap 71 (p.7-416)"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "systems",
+        "powerplant",
+        "fire"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-084",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "How is each AW189 engine attached to the airframe?",
+      "options": [
+        "By a five attachment point iso-static structure — one at the front and four at the rear.",
+        "By a three point mount, two forward and one aft.",
+        "By four attachment points, two at the front and two at the rear.",
+        "By a single gimbal at the front and a sliding rail at the rear."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Each engine is connected to the helicopter airframe by means of a five attachment point iso-static structure, one at the front and four at the rear. The engine mount installation is designed to allow for relative movement between the engines and the MGB during rotor engagement.",
+      "references": [
+        "AW189 RFM Section 7 — Power Plant, Chap 71 (p.7-416)"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "systems",
+        "powerplant",
+        "mounts"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-085",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "What does the AW189 front engine mount torque tube carry?",
+      "options": [
+        "Horizontal and torsional loads, but very little of the engine's weight.",
+        "The full weight of the engine plus its torque reaction.",
+        "Vertical loads only, with torque taken by the rear link assemblies.",
+        "Thermal expansion loads only, being unloaded in normal running."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The front mounting of each main engine is a torque tube bolted to the output face of the engine, attached at its forward end through a gimbal ring called the cross-head to the input housing of the MGB. The torque tube carries horizontal and torsional loads, but very little of the engine's weight.",
+      "references": [
+        "AW189 RFM Section 7 — Power Plant, Chap 71 (p.7-416)"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "systems",
+        "powerplant",
+        "mounts"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-086",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "What are the AW189 rear engine mount links made of, and why does that matter?",
+      "options": [
+        "Machined from titanium, which makes them fireproof by design, while their arrangement allows axial and radial thermal expansion of the engine.",
+        "Machined from aluminium alloy, chosen to save weight where fire risk is low.",
+        "Fabricated from stainless steel, chosen for corrosion resistance in the salt environment.",
+        "Made from composite, chosen so the mount fails predictably in a crash."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The rear engine mounts provide support through a system of link assemblies interfacing with the engine casing via four dedicated lugs. The link arrangement allows for both axial and radial thermal expansion of the engine, and all the links are machined from titanium and are therefore fireproof by design.",
+      "references": [
+        "AW189 RFM Section 7 — Power Plant, Chap 71 (p.7-416)"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "systems",
+        "powerplant",
+        "mounts",
+        "fire"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-087",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "How are the AW189 engine air inlets built?",
+      "options": [
+        "A forward inlet of two-piece vertically split composite installed forward of the front firewalls and outside the fire zone, and a rear inlet ring of two-piece metallic fireproof construction mounted directly to the engine.",
+        "A single one-piece composite inlet mounted inside the engine bay fire zone.",
+        "A metallic forward inlet and a composite rear ring, both inside the fire zone.",
+        "A two-piece titanium inlet that also forms part of the front firewall."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The forward inlet is a two piece, vertically split composite structure which installs around the engine torque tube assembly, forward of the front firewalls and outside the engine bay fire zone. The rear inlet ring is a vertically split, two piece metallic fireproof ring mounted directly to the engine, interfacing with a fireproof seal on the front firewall.",
+      "references": [
+        "AW189 RFM Section 7 — Power Plant, Chap 71 (p.7-420)"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "systems",
+        "powerplant",
+        "intakes"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-088",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "How do the AW189 engine cowlings open, and what is useful about that?",
+      "options": [
+        "The engine 1 and 2 cowlings are hinged at the bottom and provide working platforms when open.",
+        "They are hinged at the top and held open on gas struts for inspection.",
+        "They are fully removable panels that must be lifted clear before access.",
+        "They slide aft on rails, in the same way as the APU rear fairing."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Each engine bay is covered by a cowling which provides maintenance access. The cowlings for engines 1 and 2 are hinged at the bottom and, when open, provide working platforms. The APU is covered by an upper hinged cowling and a rear fairing which slides aft to give access.",
+      "references": [
+        "AW189 RFM Section 7 — Power Plant, Chap 71 (p.7-416)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "powerplant",
+        "cowlings"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-089",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "What is the configuration and diameter of the AW189 tail rotor?",
+      "options": [
+        "A four blade articulated rotor with a diameter of 2.9 metres.",
+        "A five blade articulated rotor with a diameter of 2.9 metres.",
+        "A four blade rigid rotor with a diameter of 3.4 metres.",
+        "A four blade articulated rotor with a diameter of 2.1 metres."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The tail rotor system is a four blade articulated rotor with a diameter of 2.9 metres, composed of rotor blades, rotor head and rotating controls.",
+      "references": [
+        "AW189 RFM Section 7 — Tail Rotor, Chap 64 (p.7-387)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "tail rotor"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-090",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "What do the AW189 tail rotor elastomeric bearings do?",
+      "options": [
+        "They permit blade lead/lag, flap and pitch change movements, and transmit the blade loads to the hub.",
+        "They permit flapping only, with pitch change taken by a separate spherical bearing.",
+        "They damp lead/lag oscillation but carry no centrifugal load.",
+        "They allow the blade to fold for stowage and lock it in the flight position."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The blades are attached to the head installation via the elastomeric bearings. The blade lead/lag, flap and pitch change movements are permitted by the elastomeric bearing, which also has the function of transmitting the loads of the blade to the hub.",
+      "references": [
+        "AW189 RFM Section 7 — Tail Rotor, Chap 64 (p.7-387)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "tail rotor"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-091",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "How is the AW189 tail rotor blade spar constructed?",
+      "options": [
+        "D shaped, of carbon and glass composition, with a core made from a Rohacell foam moulding.",
+        "C shaped aluminium extrusion with a bonded composite trailing edge.",
+        "D shaped titanium spar with a honeycomb filled trailing edge box.",
+        "Circular tubular carbon spar with foam filling along its whole length."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The tail rotor blade spar is D shaped with a carbon, glass composition. The core of the spar is made from a Rohacell foam moulding.",
+      "references": [
+        "AW189 RFM Section 7 — Tail Rotor, Chap 64 (p.7-387)"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "systems",
+        "tail rotor"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-092",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "How are pitch inputs carried to the AW189 tail rotor blades?",
+      "options": [
+        "A control rod inside the mast drives a spider, which is connected to the blades by four pitch links with elastomeric rod end bearings.",
+        "A rotating swashplate drives four pitch change links attached to the blade cuffs.",
+        "A push-pull cable runs through the tail boom directly to each blade horn.",
+        "A hydraulic actuator on each blade root changes pitch individually."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The rotating controls consist of a control rod internal to the mast, connected on one side to the servo and on the other to the spider. The spider is connected to the blades by four pitch-links fitted with elastomeric rod end bearings, and the pitch control arm is bonded directly to the blade.",
+      "references": [
+        "AW189 RFM Section 7 — Tail Rotor, Chap 64 (p.7-389)"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "systems",
+        "tail rotor",
+        "controls"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-093",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "What makes up the AW189 tail rotor drive system?",
+      "options": [
+        "Four tail rotor drive shafts, an intermediate gearbox and a tail gearbox.",
+        "Two tail rotor drive shafts and a single tail gearbox.",
+        "Three drive shafts, an intermediate gearbox and an accessory gearbox.",
+        "A single continuous drive shaft running to the tail gearbox."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The tail rotor drive system consists of the Tail Rotor Drive Shaft installation — No. 1, No. 2, No. 3 and No. 4 drive shafts — plus the Intermediate Gearbox (IGB) and the Tail Gearbox (TGB).",
+      "references": [
+        "AW189 RFM Section 7 — Tail Rotor Drive, Chap 65 (p.7-393)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "tail rotor",
+        "transmission"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-094",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "What information does the AW189 indicating system give the crew about the IGB and TGB?",
+      "options": [
+        "Oil temperature, from a sensor at the bottom of each gear casing, displayed on the PFD.",
+        "Oil pressure and temperature, both shown on the PWR PLANT format.",
+        "Chip detection only — these gearboxes have no temperature sensing.",
+        "Oil level and temperature, shown on the transmission synoptic page."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The indicating system gives the pilot information about the oil temperature of the IGB and the TGB. Both gearboxes have a sensor installed at the bottom of the gear casing that monitors oil temperature; the sensor is analogue and its output is displayed on the Primary Flight Display.",
+      "references": [
+        "AW189 RFM Section 7 — Tail Rotor Drive, Chap 65 (p.7-393)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "tail rotor",
+        "indicating"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-095",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "How are AW189 rotor flight control inputs transmitted, and how is system status indicated?",
+      "options": [
+        "Through mechanical linkages such as traditional rods and levers, with no separate control panel — status is indicated purely through feedback in the control mechanisms.",
+        "Through fly-by-wire signalling, with status shown on a dedicated flight control panel.",
+        "Through mechanical linkages, with a dedicated control panel on the overhead console.",
+        "Through electro-hydraulic signalling with mechanical backup, status shown on the MFD."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The rotor flight controls transmit control through mechanical linkages such as traditional rods and levers. There is no separate control panel and the system status indication is purely through feedback in the control mechanisms.",
+      "references": [
+        "AW189 RFM Section 7 — Rotors Flight Control, Chap 67 (p.7-401)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "flight controls"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-096",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "What three systems make up the AW189 rotor flight control system?",
+      "options": [
+        "The main rotor control system, the tail rotor control system and the servo control system.",
+        "The cyclic system, the collective system and the trim system.",
+        "The mechanical system, the hydraulic system and the autopilot system.",
+        "The main rotor control system, the mixing unit and the trim actuators."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The rotor flight control system includes the main rotor control system, the tail rotor control system and the servo control system.",
+      "references": [
+        "AW189 RFM Section 7 — Rotors Flight Control, Chap 67 (p.7-401)"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "systems",
+        "flight controls"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-097",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "Where does the AW189 rotor flight control indication come from?",
+      "options": [
+        "A pressure switch installed on each main rotor and tail rotor actuator control valve.",
+        "Position transducers on the cyclic, collective and pedals.",
+        "The AFCS computer, which infers actuator state from control demand.",
+        "Load cells in the pitch change links of each rotor."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The indication system of the rotor flight controls is supplied by a pressure switch installed on each main rotor and tail rotor actuator control valve.",
+      "references": [
+        "AW189 RFM Section 7 — Rotors Flight Control, Chap 67 (p.7-401)"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "systems",
+        "flight controls",
+        "indicating"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-098",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "What causes a 1(2) SERVO indication on the AW189 PFD?",
+      "options": [
+        "A main spool valve of the related servo-actuator locking, so the pressure switch on the defective flow distributor assembly signals the PFD.",
+        "Hydraulic pressure in the related circuit falling below 2000 psi.",
+        "The related servo actuator reaching the end of its travel.",
+        "Loss of electrical supply to the related actuator control valve."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "When a main spool valve of the related servo-actuator locks, the related pressure switch on the defective flow distributor assembly sends a signal to the PFD, producing the 1(2) SERVO indication.",
+      "references": [
+        "AW189 RFM Section 7 — Rotors Flight Control, Chap 67 (p.7-403)"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "systems",
+        "flight controls",
+        "warnings"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-099",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "What are the three parts of the AW189 main rotor control system?",
+      "options": [
+        "The collective control system, the cyclic control system and the mixing control system.",
+        "The collective system, the cyclic system and the trim system.",
+        "The cyclic system, the mixing unit and the servo actuators.",
+        "The collective system, the pedal system and the mixing control system."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The main rotor control system includes the collective control system, the cyclic control system and the mixing control system.",
+      "references": [
+        "AW189 RFM Section 7 — Rotors Flight Control, Chap 67 (p.7-403)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "flight controls"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-100",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "How are the AW189 pilot and co-pilot collective levers connected?",
+      "options": [
+        "To a carbon fibre torsion tube located behind the cockpit seats, supported at each end by a mounting bracket.",
+        "To a common bellcrank under the cockpit floor, linked by push-pull rods.",
+        "To an aluminium torque shaft running under the seats between the two levers.",
+        "Independently to the mixing unit, with no direct mechanical link between them."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The pilot and co-pilot collective control sticks are connected to a torsion tube located behind the cockpit seats. The torsion tube is made of carbon fibre and is supported at each end by a mounting bracket.",
+      "references": [
+        "AW189 RFM Section 7 — Rotors Flight Control, Chap 67 (p.7-403)"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "systems",
+        "flight controls",
+        "collective"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-101",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "What is the AW189 collective fixed friction, and how is it set?",
+      "options": [
+        "A friction clamp at the left end of the torsion tube, factory set to give a consistent feel between control chains and aircraft.",
+        "A pilot-adjustable clamp on the collective lever pivot, set before each flight.",
+        "A hydraulic damper that varies friction with collective position.",
+        "A spring cartridge that centres the collective when released."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "A friction clamp (fixed friction) is installed at the left end of the torsion tube. The fixed friction device is factory set and is designed to give a consistent feel between control chains and aircraft. The adjustable friction is separate.",
+      "references": [
+        "AW189 RFM Section 7 — Rotors Flight Control, Chap 67 (p.7-403)"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "systems",
+        "flight controls",
+        "collective"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-102",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "How is the AW189 landing gear arranged?",
+      "options": [
+        "A retractable nose wheel tricycle design — one wheel on each main gear and two wheels on the nose — held retracted by hydraulics only.",
+        "A retractable tricycle design with two wheels on each main gear and one nose wheel.",
+        "A fixed tricycle gear with one wheel per leg and a steerable nose wheel.",
+        "A retractable tailwheel design with two main wheels and a castoring tailwheel."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The landing gear system is a nose wheel tricycle design comprising two main landing gear subsystems and one nose landing gear subsystem. Main and nose gears are retractable and are held in the retracted position using the hydraulics only. There is one wheel for each main landing gear and two wheels for the nose.",
+      "references": [
+        "AW189 RFM Section 7 — Landing Gear, Chap 32 (p.7-177)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "landing gear"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-103",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "What does the AW189 brake system provide?",
+      "options": [
+        "Progressive, differential and dynamic braking, plus a parking brake function.",
+        "Differential braking only, with a separate mechanical parking lock.",
+        "Anti-skid braking with automatic application on touchdown.",
+        "Progressive braking on the mains and a hydraulic lock on the nose wheel."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The brake system is operated for progressive, differential, dynamic braking and a parking brake function.",
+      "references": [
+        "AW189 RFM Section 7 — Landing Gear, Chap 32 (p.7-177)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "landing gear",
+        "brakes"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-104",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "What do the five AW189 landing gear cautions relate to?",
+      "options": [
+        "Low pressure in the two hydraulic systems, activation of the emergency system, and absence of nose locking.",
+        "Gear disagree, door open, low pressure, overspeed and weight on wheels failure.",
+        "Brake overheat, parking brake on, gear unsafe, hydraulic low and nose lock.",
+        "Gear in transit, gear unlocked, emergency armed, low pressure and brake failure."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The CAS list in the PFD format can display five cautions for the landing gear system. They relate to low pressure in the two hydraulic systems, the emergency system activation and the absence of nose locking.",
+      "references": [
+        "AW189 RFM Section 7 — Landing Gear, Chap 32 (p.7-177)"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "systems",
+        "landing gear",
+        "warnings"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-105",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "What do the AW189 landing gear position lights show?",
+      "options": [
+        "Off when the gear is retracted, amber when in transit, and green when extended.",
+        "Green when retracted, amber in transit, and red when extended.",
+        "Amber when retracted, off in transit, and green when extended.",
+        "Red when unlocked, amber in transit, and green when down and locked."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The LDG position lights are OFF with the landing gear retracted, ON amber with the landing gear in transit, and ON green with the landing gear extended.",
+      "references": [
+        "AW189 RFM Section 7 — Landing Gear, Chap 32 (p.7-180)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "landing gear",
+        "indications"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-106",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "How is the AW189 parking brake operated?",
+      "options": [
+        "The selector is pulled and turned right for parking brake ON; not pulled is parking brake OFF.",
+        "A guarded switch on the overhead panel is selected ON.",
+        "Both pedals are pressed fully and the selector is pushed in.",
+        "The selector is pushed and turned left for ON."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The parking brake selector, pulled and turned right, gives PARKING BRAKE ON. Not pulled gives PARKING BRAKE OFF.",
+      "references": [
+        "AW189 RFM Section 7 — Landing Gear, Chap 32 (p.7-180)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "landing gear",
+        "brakes"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-107",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "How does the AW189 nose landing gear steer?",
+      "options": [
+        "It is free swivelling without an active steering motor, and self-centres after take-off.",
+        "It is hydraulically steered from the pedals up to 40 knots ground speed.",
+        "It is electrically steered by a nose wheel steering handle on the collective.",
+        "It is fixed in the centred position and the aircraft is steered by differential braking alone."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The Nose Landing Gear system, attached to the aircraft via the pintle pins, is free swivelling without an active steering motor. It is self-centering after take-off.",
+      "references": [
+        "AW189 RFM Section 7 — Landing Gear, Chap 32 (p.7-180)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "landing gear",
+        "nose gear"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-108",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "What second function does the AW189 nose landing gear retraction actuator perform?",
+      "options": [
+        "It serves as the drag brace, and contains an internal mechanical locking device.",
+        "It acts as the shock absorber for the nose gear.",
+        "It provides the centring cam action after take-off.",
+        "It drives the nose wheel centre lock assembly."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The retraction actuator is a hydraulically operated line replaceable unit of the extension and retraction subsystem which retracts and extends the nose landing gear. It also serves as the drag brace, comprising an internal mechanical locking device.",
+      "references": [
+        "AW189 RFM Section 7 — Landing Gear, Chap 32 (p.7-180)"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "systems",
+        "landing gear",
+        "nose gear"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-109",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "What type is the AW189 nose landing gear shock absorber?",
+      "options": [
+        "A double stage type with a low pressure and a high pressure chamber, integrated in the shock strut.",
+        "A single stage oleo-pneumatic strut with a separate nitrogen accumulator.",
+        "A rubber-in-compression stack inside the sliding tube.",
+        "A double stage type using two separate struts in series."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The NLG shock absorber is integrated in the shock strut. It is a double stage type with a low and a high pressure chamber.",
+      "references": [
+        "AW189 RFM Section 7 — Landing Gear, Chap 32 (p.7-180)"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "systems",
+        "landing gear",
+        "nose gear"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-110",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "What does the AW189 emergency switch position indicator show?",
+      "options": [
+        "UNLCK amber for unlocked, UNLCK amber and blinking for armed, and LOCK green for locked.",
+        "UNLCK red for unlocked, amber for armed and green for locked.",
+        "OFF for unlocked, amber for armed and green for locked.",
+        "UNLCK amber for armed, blinking amber for unlocked and green for locked."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The emergency switch/position indicator shows UNLCK amber for the unlocked position, UNLCK amber and blinking for the armed position, and LOCK green for the locked position. The nose wheel centerlock indicator uses the same scheme.",
+      "references": [
+        "AW189 RFM Section 7 — Landing Gear, Chap 32 (p.7-180)"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "systems",
+        "landing gear",
+        "indications"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-111",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "What does the AW189 Environmental Control System do, and what does it include?",
+      "options": [
+        "It heats, cools and treats the air used to ventilate and condition the cockpit, cabin and avionic equipment, and includes heating and forced ventilation, distribution, and an optional air purification system.",
+        "It conditions the cabin only — cockpit and avionics are cooled by ram air.",
+        "It provides heating and pressurisation for the cockpit and cabin.",
+        "It provides forced ventilation only; heating comes from a separate combustion heater."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The Environmental Control System gives a means of heating, cooling and treating the air used for ventilation and conditioning of the cockpit, the cabin and the avionic equipment. It includes the heating and forced ventilation system, the distribution system, and the optional air purification system.",
+      "references": [
+        "AW189 RFM Section 7 — Environmental Control, Chap 21 (p.7-15)"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "systems",
+        "ecs"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-112",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "What do the APU and ENG positions of the AW189 AIR COND/HEATER selector do?",
+      "options": [
+        "In both, air conditioning is not operative and heating runs — with the APU as bleed-air source in APU, and the engines as bleed-air source in ENG.",
+        "They select which source drives the air conditioning compressor.",
+        "APU runs heating on the ground and ENG runs it in flight, with air conditioning available in both.",
+        "They select the electrical supply for the ECS fans, not the bleed source."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "In the APU position air conditioning is not operative and the heating is operative with the APU as bleed-air source. In the ENG position air conditioning is not operative and the heating is operative with the engines as bleed-air source.",
+      "references": [
+        "AW189 RFM Section 7 — Environmental Control, Chap 21 (p.7-17)"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "systems",
+        "ecs",
+        "controls"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-113",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "What happens with the AW189 AIR COND/HEATER selector at OFF?",
+      "options": [
+        "The air conditioning system is not operative and the system works in ventilation mode only, according to the VENT switch.",
+        "The whole ECS shuts down, including ventilation.",
+        "Heating continues automatically using engine bleed air.",
+        "The system reverts to automatic temperature control using ram air."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "With the selector OFF the air conditioning system is not operative; the system works in ventilation mode only, according to the VENT switch.",
+      "references": [
+        "AW189 RFM Section 7 — Environmental Control, Chap 21 (p.7-17)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "ecs",
+        "controls"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-114",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "How do the AUTO and MAN positions of the AW189 temperature selector differ?",
+      "options": [
+        "AUTO works for heating and air conditioning and controls supply temperature automatically per selector position; MAN is for heating only and gives the crew direct control.",
+        "AUTO is for air conditioning only and MAN is for both heating and cooling.",
+        "AUTO controls cabin temperature and MAN controls cockpit temperature.",
+        "AUTO is available in flight only; MAN is the ground mode."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "AUTO is for heating and air conditioning modes and automatically controls air supply temperature as required by the selector position between cold and warm. MAN is used for heating only and gives the crew direct control.",
+      "references": [
+        "AW189 RFM Section 7 — Environmental Control, Chap 21 (p.7-17)"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "systems",
+        "ecs",
+        "controls"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-115",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "How many cautions and advisories can the AW189 ECS present on the CAS?",
+      "options": [
+        "Four cautions and four advisories.",
+        "Two cautions and six advisories.",
+        "Four cautions and no advisories.",
+        "Ten cautions and two advisories."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The status of the ECS components is shown in the PWR PLANT format, in the HELO display and in the CAS window, and the CAS window can list four cautions and four advisories.",
+      "references": [
+        "AW189 RFM Section 7 — Environmental Control, Chap 21 (p.7-15)"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "systems",
+        "ecs",
+        "warnings"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-116",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "What does the AW189 indicating/recording system include?",
+      "options": [
+        "Instrument and control panels, the central warning and caution system, independent instruments and recorder systems.",
+        "The primary flight displays, multifunction displays and the standby instrument only.",
+        "The crew alerting system and the health and usage monitoring system only.",
+        "Independent instruments and recorders only — panels are covered under avionics."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The indicating/recording system includes instrument and controls panels, the central warning and caution system, independent instruments, and recorder systems.",
+      "references": [
+        "AW189 RFM Section 7 — Indicating/Recording, Chap 31 (p.7-163)"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "systems",
+        "indicating"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-117",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "Where is the AW189 standby magnetic compass installed?",
+      "options": [
+        "On a support attached at the centre of the glareshield with four screws.",
+        "On the cockpit roof above the interseat console.",
+        "On the left windscreen pillar, clear of the instrument panel.",
+        "In the overhead console beside the circuit breaker panels."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The magnetic compass is installed on a support that is attached at the centre of the glareshield with four screws. It detects and shows the helicopter heading with reference to magnetic north, and consists of a rotating compass card.",
+      "references": [
+        "AW189 RFM Section 7 — Indicating/Recording, Chap 31 (p.7-163)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "indicating",
+        "compass"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-118",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "What modes does the AW189 chronometer provide?",
+      "options": [
+        "Local time in 12 hour format, UTC in 24 hour format, flight time and a stop watch — both timers counting up to 99 hours 59 minutes 59 seconds.",
+        "Local time and UTC only, both in 24 hour format.",
+        "Flight time and stop watch only, each limited to 9 hours 59 minutes.",
+        "Local time, UTC and elapsed time, with elapsed time limited to 60 minutes."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The chronometer provides local time of day in 12 hour format, UTC in 24 hour format, flight time accumulating up to 99 hours 59 minutes 59 seconds, and a stop watch counting up to 99 hours 59 minutes 59 seconds. Both the flight time and the stop watch continue to run when the chronometer is in other modes.",
+      "references": [
+        "AW189 RFM Section 7 — Indicating/Recording, Chap 31 (p.7-163, 7-164)"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "systems",
+        "indicating",
+        "chronometer"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-119",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "What range does the AW189 outside air temperature indication cover, and where is the probe?",
+      "options": [
+        "From -70 to +50 °C, from a stand-alone probe situated outside the top right laminated window.",
+        "From -55 to +70 °C, from a probe in the forward inlet of the number 1 engine.",
+        "From -70 to +50 °C, from a probe under the nose beside the pitot masts.",
+        "From -40 to +60 °C, from a probe in the left sponson leading edge."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The outside air temperature sensor uses a stand alone temperature probe and indicates a temperature from -70 to +50 °C. The temperature probe is situated outside the top right laminated window where it is held in position.",
+      "references": [
+        "AW189 RFM Section 7 — Indicating/Recording, Chap 31 (p.7-164)"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "systems",
+        "indicating",
+        "oat"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-120",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "Which door groups does the AW189 have?",
+      "options": [
+        "Cockpit doors, passenger cabin doors, cargo compartment doors, and service and miscellaneous doors.",
+        "Cockpit doors and passenger cabin doors only, with all other openings classed as panels.",
+        "Cockpit, cabin, baggage and emergency exit doors.",
+        "Crew doors, sliding cabin doors and the rear clamshell doors."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The helicopter has cockpit doors, passenger cabin doors, cargo compartment doors, and service and miscellaneous doors.",
+      "references": [
+        "AW189 RFM Section 7 — Doors, Chap 52 (p.7-359)"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "systems",
+        "doors"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-121",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "How is AW189 door status shown on the MFD?",
+      "options": [
+        "On the PWR PLANT page as a helicopter silhouette with a line at each door position — amber when a microswitch detects the door open, green when closed.",
+        "As a list of door names that turn red when any door is open.",
+        "Only on the CAS — the MFD carries no door indication.",
+        "As a silhouette where an open door is shown by a flashing red line and a closed one by no line at all."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "On the MFD PWR PLANT page the helicopter door status is displayed by a helicopter silhouette with amber or green lines corresponding to the door installation. Whenever a door microswitch detects a door open status it signals the Aircraft and Mission Management Computers to alert the crew with an amber line; door closed status is shown by a green line.",
+      "references": [
+        "AW189 RFM Section 7 — Doors, Chap 52 (p.7-359)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "doors",
+        "indications"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-122",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "What kind of engine control system does the AW189 use?",
+      "options": [
+        "A dual-channel Full Authority Digital Electrical Control system, made up of an Engine Electronic Control Unit and a Fuel Management Unit.",
+        "A single-channel FADEC with a mechanical hydromechanical backup unit.",
+        "A hydromechanical fuel control with electronic supervisory trimming.",
+        "A dual-channel analogue electronic control with manual fuel governing."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The engines are equipped with a dual-channel Full Authority Digital Electrical Control (FADEC) system. The FADEC system is composed of the Engine Electronic Control Unit (EECU) and a Fuel Management Unit (FMU).",
+      "references": [
+        "AW189 RFM Section 7 — Engine Controls, Chap 76 (p.7-423)"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "systems",
+        "fadec",
+        "engine"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-123",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "What authority does the AW189 EECU have over the engine?",
+      "options": [
+        "It contains all computations and control laws and has full authority to vary all control inputs to the engine throughout their full range.",
+        "It trims the hydromechanical unit within a limited authority band of about 10 per cent.",
+        "It has full authority only above flight idle; below that the FMU governs mechanically.",
+        "It has authority over fuel flow only, with variable geometry controlled mechanically."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The EECU contains all computations and control laws and has the full authority to vary all control inputs to the engine throughout their full range.",
+      "references": [
+        "AW189 RFM Section 7 — Engine Controls, Chap 76 (p.7-423)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "fadec",
+        "engine"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-124",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "What does the AW189 engine power control system consist of?",
+      "options": [
+        "Two Electronic Engine Control Units, two Fuel Management Units and the engine control panel.",
+        "One EECU per engine and a shared fuel management unit.",
+        "Two EECUs, two FMUs and the collective LVDTs, with no separate control panel.",
+        "Two FMUs and the engine control panel — the EECUs are part of the AMMS."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The engine power control system includes the two Electronic Engine Control Units (EECU), the two Fuel Management Units (FMU) and the engine control panel. The control panel inputs manual commands while the EECU carries out the commands and normal operation automatically without operator intervention.",
+      "references": [
+        "AW189 RFM Section 7 — Engine Controls, Chap 76 (p.7-423)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "fadec",
+        "engine"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-125",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "What are the two LVDTs at the left end of the AW189 collective torsion tube for?",
+      "options": [
+        "They provide collective lever position to the engines and the AFCS, and are used to give the engines power anticipation.",
+        "They measure collective friction so the AFCS can compensate for it.",
+        "They provide collective position to the flight data recorder only.",
+        "They drive the collective trim actuator to hold the selected position."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Two Linear Variable Differential Transformers are installed at the left end of the collective torsion tube. They provide the position of the collective lever to the engines and the AFCS, and are used to provide power anticipation to the engine.",
+      "references": [
+        "AW189 RFM Section 7 — Engine Controls, Chap 76 (p.7-423)"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "systems",
+        "fadec",
+        "collective"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-126",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "What does each AW189 EECU control, and how?",
+      "options": [
+        "Together with its FMU and a network of sensors, it controls the engine gas generator and power turbine speeds in response to the load demanded by the rotor system.",
+        "It controls fuel flow only, with power turbine speed governed by the rotor brake logic.",
+        "It controls gas generator speed only; power turbine speed is set mechanically by the FMU.",
+        "It controls the variable geometry and start bleed valve, with fuel scheduled by the AMMS."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Each EECU is a dual-channel digital electronic unit that, together with the related FMU and a network of sensors, controls the engine gas generator and power turbine speeds in response to the load demanded by the rotor system.",
+      "references": [
+        "AW189 RFM Section 7 — Engine Controls, Chap 76 (p.7-423)"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "systems",
+        "fadec",
+        "engine"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-127",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "How do the AW189 engine control panel and EECU connect to the rest of the aircraft?",
+      "options": [
+        "Through the Aircraft and Mission Management System, for indicating, control and monitoring purposes.",
+        "Directly to the primary flight displays, bypassing the mission computers.",
+        "Through the electrical power generation and distribution system only.",
+        "They are standalone and exchange no data with aircraft systems."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Both the control panel and the EECU integrate with the aircraft systems by means of the Aircraft and Mission Management System (AMMS) for indicating, control and monitoring purposes.",
+      "references": [
+        "AW189 RFM Section 7 — Engine Controls, Chap 76 (p.7-423)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "fadec",
+        "avionics"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
     }
   ]
 }

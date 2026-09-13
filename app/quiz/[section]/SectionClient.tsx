@@ -1,6 +1,7 @@
 "use client";
 import { useRouter, useParams } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
+import { fetchContentJson } from "@/lib/contentUrl";
 import { loadBlockedQuestionSet } from "@/lib/blockedQuestions";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 import { modelScopedKey } from "@/lib/models/storage";
@@ -35,9 +36,7 @@ async function loadNetworkSectionItems(sectionId: string, activeVariant: ActiveV
     ];
     for (const url of urls) {
       try {
-        const res = await fetch(url, { cache: "no-store" });
-        if (!res.ok) continue;
-        const data = await res.json();
+        const data = await fetchContentJson<{ items?: unknown[] }>(url);
         if (!data || !Array.isArray(data.items)) continue;
         const items = url.startsWith("/quiz-data")
           ? filterItemsForVariant(data.items as any[], activeVariant)
@@ -105,9 +104,7 @@ export default function SectionClient() {
     (async () => {
       for (const url of urls) {
         try {
-          const res = await fetch(url, { cache: "no-store" });
-          if (!res.ok) throw new Error(`HTTP ${res.status}`);
-          const data = await res.json();
+          const data = await fetchContentJson<{ sections?: unknown[] }>(url);
           if (!cancelled) {
             const fromApi = Array.isArray(data.sections) ? (data.sections as Section[]) : [];
             // Ensure the route section is available even if not listed in index.json

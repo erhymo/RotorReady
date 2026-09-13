@@ -50,3 +50,25 @@ export async function fetchContentJson<T>(path: string): Promise<T> {
   if (!res.ok) throw new Error(`fetch failed: ${res.status}`);
   return (await res.json()) as T;
 }
+
+/**
+ * Same live-first, bundled-fallback behaviour as fetchContentJson, for content that
+ * has to be read as text before parsing (the quiz sections, which run the raw body
+ * through a tolerant parser rather than JSON.parse).
+ */
+export async function fetchContentText(path: string): Promise<string> {
+  if (Capacitor.isNativePlatform()) {
+    try {
+      const res = await fetch(`${LIVE_ORIGIN}${path}`);
+      if (!res.ok) throw new Error(`live fetch failed: ${res.status}`);
+      return await res.text();
+    } catch {
+      const res = await fetch(path);
+      if (!res.ok) throw new Error(`bundled fetch failed: ${res.status}`);
+      return await res.text();
+    }
+  }
+  const res = await fetch(path);
+  if (!res.ok) throw new Error(`fetch failed: ${res.status}`);
+  return await res.text();
+}

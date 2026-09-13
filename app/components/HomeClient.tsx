@@ -7,6 +7,7 @@ import { shouldShowNorwayTools } from "@/lib/geo/norwayToolsVisibility";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 import { modelRoutes } from "@/lib/models/catalog";
 import { openLiveOnlyLink } from "@/lib/liveOnlyLinks";
+import { contentUrl } from "@/lib/contentUrl";
 
 function Bar(props: { href: string; title: string; description: string; tone?: "blue"|"amber"|"slate"|"emerald"; icon?: React.ReactNode; liveOnly?: boolean }) {
   const tones: Record<string, string> = {
@@ -60,7 +61,7 @@ function Bar(props: { href: string; title: string; description: string; tone?: "
 	  const routes = activeVariant ? modelRoutes(activeVariant) : null;
 
 	  useEffect(() => {
-	    fetch("/quiz-data/versions/data-version.json")
+	    fetch(contentUrl("/quiz-data/versions/data-version.json"))
 	      .then((r) => r.json())
 	      .then(setVer)
 	      .catch(() => {});

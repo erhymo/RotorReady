@@ -3,6 +3,7 @@
 import { Suspense, useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import AppTopBar from "@/components/AppTopBar";
+import { contentUrl } from "@/lib/contentUrl";
 
 type KeyDef = { label?: string; goto?: string | null; disabled?: boolean };
 type LayoutSide = { x?: number; w?: number; top?: number; bottom?: number; y?: number; h?: number; left?: number; right?: number };
@@ -30,7 +31,7 @@ function EDCUTrainerAW169Inner() {
     let cancelled = false;
     (async () => {
       try {
-        const res = await fetch("/model-data/AW169/training/edcu/pages.json", { cache: "no-store" });
+        const res = await fetch(contentUrl("/model-data/AW169/training/edcu/pages.json"));
         const data = (await res.json()) as PagesMap;
         if (!cancelled) setPages(data);
       } catch {}

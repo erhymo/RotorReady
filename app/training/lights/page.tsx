@@ -2,12 +2,13 @@
 
 import { Suspense, useEffect, useMemo, useState, useCallback, useRef } from "react";
 import type { ReactNode } from "react";
-import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import AppTopBar from "@/components/AppTopBar";
 import { HeadphonesIcon } from "@/components/Icons";
 import ZoomableImage from "@/components/ZoomableImage";
+import ContentImage from "@/components/ContentImage";
+import { fetchContentJson } from "@/lib/contentUrl";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 
 
@@ -297,9 +298,9 @@ function LightsTrainerInner() {
     let cancelled = false;
     (async () => {
       try {
-        const res = await fetch(`/model-data/${activeVariant.id}/training/lights/page-index.json`, { cache: "no-store" });
-        if (!res.ok) { if (!cancelled) setPageIndex({}); return; }
-        const data = await res.json();
+        const data = await fetchContentJson<Record<string, string>>(
+          `/model-data/${activeVariant.id}/training/lights/page-index.json`
+        );
         if (!cancelled) setPageIndex(data && typeof data === "object" ? data : {});
       } catch {
         if (!cancelled) setPageIndex({});
@@ -370,9 +371,7 @@ function LightsTrainerInner() {
         let fallbackFiles: string[] = [];
         for (const url of manifests) {
           try {
-            const res = await fetch(url, { cache: "no-store" });
-            if (!res.ok) continue;
-            const data = await res.json();
+            const data = await fetchContentJson<unknown>(url);
             const isVariant = url.startsWith("/model-data/");
             if (Array.isArray((data as any)?.files)) {
               const list = (data as any).files as string[];
@@ -398,7 +397,7 @@ function LightsTrainerInner() {
         const arrays = await Promise.allSettled(
           files.map((path) => {
             const finalPath = path.startsWith("/") ? path : `/model-data/${activeVariant.id}/training/lights/${path}`;
-            return fetch(finalPath, { cache: "no-store" }).then((res) => (res.ok ? res.json() : []));
+            return fetchContentJson<unknown>(finalPath).catch(() => []);
           })
         );
 
@@ -1299,7 +1298,7 @@ function LightsTrainerInner() {
 
       const pageContent = (
         <div className="relative">
-          <Image
+          <ContentImage
             src={item.pageImage}
             alt={item.name}
             width={1200}
@@ -1759,13 +1758,12 @@ function LightsTrainerInner() {
               ) : (
                 <div className="flex items-center gap-4">
                   {current.icon && (
-                    <Image
+                    <ContentImage
                       src={current.icon}
                       alt={displayName(current)}
                       width={56}
                       height={56}
                       className="h-14 w-14 object-contain rounded-md bg-slate-100 dark:bg-zinc-900/60"
-                      unoptimized
                     />
                   )}
                   <div className="flex-1">

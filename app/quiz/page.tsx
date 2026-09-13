@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { fetchContentJson } from "@/lib/contentUrl";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 import TopBarBackButton from "@/components/TopBarBackButton";
 
@@ -73,9 +74,7 @@ export default function QuizTypeSelectPage() {
     (async () => {
       for (const url of urls) {
         try {
-          const res = await fetch(url, { cache: "no-store" });
-          if (!res.ok) continue;
-          const data: SectionResponse = await res.json();
+          const data = await fetchContentJson<SectionResponse>(url);
           if (!Array.isArray(data.sections)) continue;
           if (!cancelled) {
             setLoadedSections({ modelId, sections: data.sections, error: null });

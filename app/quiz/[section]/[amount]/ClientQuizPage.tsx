@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import ClientQuiz from "./ClientQuiz";
+import { fetchContentText } from "@/lib/contentUrl";
 import { loadBlockedQuestionSet } from "@/lib/blockedQuestions";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 import { loadSectionOffline } from "@/lib/offline";
@@ -83,10 +84,7 @@ async function loadNetworkSectionItems(section: string, activeVariant: ActiveVar
 
     for (const url of urls) {
       try {
-        const res = await fetch(url, { cache: "no-store" });
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-
-        const raw = await res.text();
+        const raw = await fetchContentText(url);
         const data = parseSectionPayload(raw);
         if (!data.items || !Array.isArray(data.items)) throw new Error("Ugyldig dataformat");
 

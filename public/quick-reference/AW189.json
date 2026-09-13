@@ -8,11 +8,12 @@
         {
           "label": "Weight",
           "lines": [
-            "Max gross weight for towing: 8600 kg",
-            "Max gross weight for taxiing: 8650 kg",
-            "Max gross weight for CAT B take-off/landing: 8600 kg",
+            "Max gross weight for towing or taxi: 8350 kg (8600 kg with Weight Extension kit, Suppl. 21)",
+            "Max gross weight for taxiing with Weight Extension kit (Suppl. 21): 8650 kg",
+            "Max gross weight for CAT B take-off/landing: 8300 kg (8600 kg with Weight Extension kit, Suppl. 21)",
             "Min flight/rotor running gross weight: 5400 kg",
-            "Min flight weight for Hd less than -5000 ft: 6000 kg"
+            "Min flight weight for Hd less than -5000 ft: 6000 kg",
+            "Weight Extension kit (Suppl. 21) is what permits weights above 8300 kg — confirm the aircraft's configuration"
           ]
         },
         {

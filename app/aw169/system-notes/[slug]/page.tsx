@@ -1,17 +1,13 @@
-import { AW169_EP_SYSTEM_NOTES, AW169_STANDARD_SYSTEM_NOTES } from "@/data/aw169/systemNotes";
-import AW169SystemNoteDetailClient from "./SystemNoteDetailClient";
+import LegacyRouteRedirect from "@/components/LegacyRouteRedirect";
+import { getSystemNoteSlugs } from "@/lib/build/staticParams";
 
-// The active variant (Standard vs EP) is only known client-side (read from
-// localStorage), so which note set applies can't be resolved at build time —
-// generate params for the union of both sets and let the client pick.
+// Superseded by /aw169/system-notes/note?slug=… — kept for old links.
 export function generateStaticParams() {
-  const slugs = new Set<string>();
-  for (const n of AW169_EP_SYSTEM_NOTES) slugs.add(n.slug);
-  for (const n of AW169_STANDARD_SYSTEM_NOTES) slugs.add(n.slug);
-  return Array.from(slugs).map((slug) => ({ slug }));
+  // Both variants' slugs: which set applies is only known client-side.
+  return getSystemNoteSlugs("AW169_EP", "AW169").map((slug) => ({ slug }));
 }
 
-export default async function AW169SystemNoteDetail({ params }: { params: Promise<{ slug: string }> }) {
+export default async function LegacyAw169SystemNotePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  return <AW169SystemNoteDetailClient slug={slug} />;
+  return <LegacyRouteRedirect to="/aw169/system-notes/note" param="slug" value={slug} />;
 }

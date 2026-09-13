@@ -1,13 +1,12 @@
-import SystemNoteDetailPage from "@/app/components/SystemNoteDetailPage";
-import { H125B32B1_SYSTEM_NOTES } from "@/data/h125-as350-b3-2b1/systemNotes";
+import LegacyRouteRedirect from "@/components/LegacyRouteRedirect";
+import { getSystemNoteSlugs } from "@/lib/build/staticParams";
 
+// Superseded by /h125-as350-b3-2b1/system-notes/note?slug=… — kept for old links.
 export function generateStaticParams() {
-  return H125B32B1_SYSTEM_NOTES.map((n) => ({ slug: n.slug }));
+  return getSystemNoteSlugs("H125_AS350_B3_2B1").map((slug) => ({ slug }));
 }
 
-export default async function H125B32B1SystemNoteDetail({ params }: { params: Promise<{ slug: string }> }) {
+export default async function LegacyH125As350B32b1SystemNotePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const note = H125B32B1_SYSTEM_NOTES.find((n) => n.slug === slug);
-
-  return <SystemNoteDetailPage note={note} />;
+  return <LegacyRouteRedirect to="/h125-as350-b3-2b1/system-notes/note" param="slug" value={slug} />;
 }

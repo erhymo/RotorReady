@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 
-import type { SystemNote } from "@/data/aw169/systemNotes";
+import type { SystemNote } from "@/lib/systemNotes/data";
 
 export default function SystemNoteDetailPage({ note }: { note: SystemNote | undefined }) {
   const router = useRouter();

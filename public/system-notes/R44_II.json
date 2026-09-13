@@ -1,0 +1,249 @@
+{
+  "notes": [
+    {
+      "slug": "rotor-systems",
+      "title": "Rotor Systems",
+      "subtitle": "A two-blade teetering main rotor with coning hinges and droop stops, oil-filled sealed pitch-change bearing housings, and a stainless-steel leading-edge spar the paint must protect at the skin-to-spar bond line.",
+      "rfmReference": "R44 II POH Section 7 (Systems Description — Rotor Systems).",
+      "sections": [
+        {
+          "heading": "Main rotor",
+          "paragraphs": [
+            "Two all-metal blades mounted to the hub by coning hinges, the hub mounted to the shaft by a teeter hinge — both hinges on self-lubricated bearings. Droop stops give the teeter hinge a friction restraint that normally keeps the rotor from teetering while starting or stopping. Each blade's pitch-change bearings are enclosed in a housing at the blade root, filled with oil and sealed with an elastomeric boot.",
+            "Each blade has a thick stainless-steel spar at the leading edge, resistant to corrosion and erosion, with the skins bonded to the spar about one inch aft of the leading edge. Blades must be refinished if the paint erodes to bare metal at the skin-to-spar bond line — the bond can be damaged if that bond line is exposed."
+          ]
+        },
+        {
+          "heading": "Tail rotor",
+          "paragraphs": [
+            "Two all-metal blades on a teetering hub with a fixed coning angle. The pitch-change bearings have self-lubricated liners; the teeter-hinge bearings are elastomeric. The blades are built with aluminium skins and root fittings, and maintaining the paint finish reduces corrosion and erosion."
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "drive-system",
+      "title": "Drive System",
+      "subtitle": "Vee-belts from an engine-shaft sheave to an upper sheave that carries the overrunning clutch, then one shaft forward to the main rotor and aft to the tail rotor, with a splash-lubricated single-stage main gearbox on four rubber mounts.",
+      "rfmReference": "R44 II POH Section 7 (Systems Description — Drive System).",
+      "sections": [
+        {
+          "heading": "Engine to rotors",
+          "paragraphs": [
+            "A vee-belt sheave is bolted directly to the engine output shaft. Vee-belts transmit power to the upper sheave, which has an overrunning (sprag) clutch in its hub; the clutch's inner shaft drives forward to the main rotor and aft to the tail rotor. Flexible couplings sit at the main gearbox input and at each end of the long tail rotor drive shaft.",
+            "The main gearbox is a single-stage spiral-bevel gear set, splash-lubricated, cooled by ducts under the gearbox connected to the top of the engine cooling scroll, and supported by four rubber mounts. The long tail rotor drive shaft has no support bearings but has a lightly-loaded damper bearing; the tail gearbox is a single 90° splash-lubricated spiral-bevel set."
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "powerplant",
+      "title": "Powerplant",
+      "subtitle": "One Lycoming IO-540 — six-cylinder, horizontally opposed, air-cooled, fuel-injected, wet-sump — with a shaft-driven cooling fan and an air box whose spring-loaded door bypasses a blocked filter with engine-compartment air.",
+      "rfmReference": "R44 II POH Section 7 (Systems Description — Powerplant); Sections 1 and 2 for specifications and limitations.",
+      "sections": [
+        {
+          "heading": "The engine",
+          "paragraphs": [
+            "One Lycoming IO-540 six-cylinder, horizontally-opposed, overhead-valve, air-cooled, fuel-injected engine with a wet-sump oil system. It is equipped with a starter, an alternator, shielded ignition, two magnetos, a muffler, two oil coolers, an oil filter, and an induction air filter.",
+            "A direct-drive squirrel-cage fan wheel on the engine output shaft supplies cooling air to the cylinders and oil coolers through a fibreglass and aluminium shroud. Induction air enters through an opening on the right side of the fuselage, passes through the air filter in the air box, then along a flexible duct through the fuel control into the engine. A spring-loaded door in the air box opens automatically to bypass the filter with engine-compartment air if the filter or intake becomes blocked."
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "flight-controls-and-governor",
+      "title": "Flight Controls, Governor and Engine Controls",
+      "subtitle": "Conventional push-pull-tube controls with throttle correlated to the collective, a twist-grip throttle, and an RPM governor that only works above 80% engine RPM and can be flown through — plus the overtravel spring for run-on autorotations.",
+      "rfmReference": "R44 II POH Section 7 (Systems Description — Flight Controls, Removable Flight Controls, Control Friction Adjustment, RPM Governor, Engine Controls).",
+      "sections": [
+        {
+          "heading": "The controls",
+          "paragraphs": [
+            "Dual controls are standard, all actuated through push-pull tubes and bellcranks on sealed ball bearings or self-lubricated liners. The cyclic is centre-mounted, the two grips on a cross tube that pivots on the centre post; on later aircraft a mechanic can adjust the pilot's grip angle fore and aft. The collective is conventional, with the engine throttle correlated to it through a mechanical linkage — raising the collective opens the throttle, lowering it closes it — plus a twist-grip throttle on each collective stick. The right-side tail rotor pedals adjust to three positions; the left pedals do not adjust, though optional short-pilot pedals exist. An elastomeric trim spring provides a left-pedal force to balance flight feedback.",
+            "Cyclic and collective have adjustable friction devices (a collective friction lever near the aft end of the pilot's collective, a cyclic friction knob left of the centre post); the pedals have no friction device. Left-seat cyclic grip, collective and pedals can be removed with quick-release pins — the cyclic removal winds up a balance spring, which must not be over-rotated."
+          ]
+        },
+        {
+          "heading": "The RPM governor",
+          "paragraphs": [
+            "The governor maintains engine RPM by sensing changes and applying corrective throttle inputs through a friction clutch that the pilot can easily override. It is active only above 80% engine RPM and is switched on or off by a toggle on the end of the right-seat collective. It assists under normal conditions but may not prevent over- or under-speed from aggressive manoeuvres, and at high density altitude its response rate may be too slow to prevent an overspeed during gusts, pull-ups or when lowering collective. Above 6,000 ft (1,800 m), throttle-collective correlation and the governor are both less effective and power changes should be slow and smooth."
+          ]
+        },
+        {
+          "heading": "Engine controls",
+          "paragraphs": [
+            "Interconnected twist-grip throttles on both collectives actuate the throttle valve through a mechanical linkage. An overtravel spring in the throttle linkage lets the pilot roll the throttle off beyond the idle stop before a ground-contact (run-on) autorotation landing, so the throttle does not open when the collective is raised — its adjustment can be checked on preflight by rolling the twist grip through the overtravel spring against the idle stop and confirming the fuel-control throttle arm just starts to move as the collective is raised full up. Other engine controls: a mixture control on the console face, push-to-start buttons on the pilot's cyclic and collective, the governor switch, and a key-type ignition switch whose momentary position runs the auxiliary fuel pump for priming."
+          ],
+          "note": "The starter buttons are active whenever the master switch is on, even with the ignition switch off — the rotor brake should be left engaged after shutdown to disable the starter buttons and reduce the chance of an unintentional starter engagement."
+        }
+      ]
+    },
+    {
+      "slug": "hydraulic-system",
+      "title": "Hydraulic System",
+      "subtitle": "A single MGB-driven pump and three irreversible servos that take the feedback out of the cyclic and collective — with a solenoid shut-off valve that needs electrical power to close, and a hand-flying penalty if pressure is lost.",
+      "rfmReference": "R44 II POH Section 7 (Systems Description — Hydraulic System).",
+      "sections": [
+        {
+          "heading": "What it is",
+          "paragraphs": [
+            "Hydraulically-boosted main rotor flight controls eliminate cyclic and collective feedback forces. The system is a pump, three servos, a reservoir and interconnecting lines; the working fluid is MIL-H-5606 and normal pressure is 450 to 500 psi. The pump is mounted on and driven by the main gearbox. One servo is connected to each of the three push-pull tubes that support the main rotor swashplate. The reservoir is on the steel tube frame behind the main gearbox with a filter, a pressure relief valve, a pilot-controlled pressure shut-off valve, a sight gauge and a vented filler cap. There is no tail rotor boost."
+          ]
+        },
+        {
+          "heading": "Control and failure",
+          "paragraphs": [
+            "The pressure shut-off valve is solenoid-actuated and controlled by the hydraulic switch on the pilot's cyclic. The switch is left ON during shutdown and start-up except during the hydraulic system check. Electrical power is required to switch hydraulics OFF — pulling the HYD circuit breaker does not turn the hydraulics off, it only disables the switch.",
+            "Without hydraulic pressure, a large pilot input force is needed to raise the collective, and collective inputs also produce longitudinal cyclic forces that make a steady hover difficult. The servos have an irreversible feature that stops rotor feedback moving the controls, so the pilot can relax pressure in steady cruise — but any cyclic input lowers the collective, so the collective has to be raised again periodically."
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "clutch-actuator",
+      "title": "Clutch Actuator",
+      "subtitle": "The electric actuator that raises the upper drive sheave to tension the vee-belts after start — and the clutch caution light that stays on the whole time it is working.",
+      "rfmReference": "R44 II POH Section 7 (Systems Description — Clutch Actuator).",
+      "sections": [
+        {
+          "heading": "What it does",
+          "paragraphs": [
+            "After the engine starts it is coupled to the rotor drive system through vee-belts tensioned by raising the upper drive sheave. An electric actuator between the sheaves raises the upper sheave when the pilot engages the clutch switch; it senses compressive load (belt tension) and switches off when the belts are properly tensioned. The clutch caution light is on whenever the actuator circuit is energised — engaging, disengaging or retensioning — and stays on until the belts are properly tensioned or completely disengaged.",
+            "Belt slack at engine start should be set so the blades begin turning within five seconds of clutch engagement; excessive slack can throw the belts out of the sheave grooves. A fuse on the test switch panel keeps an actuator motor overload from tripping the clutch circuit breaker — if the fuse blows the motor stops but the caution light stays on. An open circuit breaker removes power from both the motor and the light, so no tensioning occurs and the light cannot indicate an abnormal condition."
+          ],
+          "note": "Never take off while the clutch caution light is on."
+        }
+      ]
+    },
+    {
+      "slug": "fuel-system",
+      "title": "Fuel System",
+      "subtitle": "Main and interconnected auxiliary bladder tanks, an engine-driven pump plus an auxiliary electric pump that also primes and runs for redundancy, and three separate caution lights — fuel filter, aux fuel pump, and low fuel.",
+      "rfmReference": "R44 II POH Section 7 (Systems Description — Fuel System).",
+      "sections": [
+        {
+          "heading": "Tanks and pumps",
+          "paragraphs": [
+            "Main and auxiliary tanks (flexible bladders in aluminium enclosures), a shutoff valve control between the front seats, a gascolator strainer, an engine-driven pump and an auxiliary electric pump, with a fuel return line that sends pump supply above engine demand back to the tanks. The auxiliary pump primes the engine for starting (the ignition switch prime position runs it) and runs in flight for pump redundancy — the engine runs normally on either pump alone. After start the auxiliary pump runs continuously as long as the engine has oil pressure and the clutch switch is engaged.",
+            "The auxiliary tank is interconnected with the main tank and sits slightly higher, so it empties first while fuel still remains in the main tank; the shutoff valve controls flow from both tanks. Plunger-style drain valves serve the gascolator and each tank sump, and fuel is sampled from all three before the first flight of the day and after refuelling."
+          ]
+        },
+        {
+          "heading": "Indications",
+          "table": {
+            "columns": [
+              "Caution light",
+              "Meaning"
+            ],
+            "rows": [
+              [
+                "FUEL FILTER",
+                "A gascolator pressure switch — the strainer is contaminated; continued operation may lead to fuel starvation"
+              ],
+              [
+                "AUX FUEL PUMP",
+                "A pressure switch downstream of the auxiliary pump sees low output pressure — pump failure, or the clutch switch not engaged (the light should be on with the clutch disengaged)"
+              ],
+              [
+                "LOW FUEL",
+                "A separate electric sender on the bottom of the main tank, independent of the fuel quantity gauges"
+              ]
+            ]
+          },
+          "note": "The fuel gauges are electrically operated by float-type transmitters; at E the tanks hold only a small quantity of unusable fuel. Proper mechanical fuel-pump function is confirmed by normal engine running after start before the clutch is engaged, and before shutdown while the clutch is disengaged."
+        }
+      ]
+    },
+    {
+      "slug": "electrical-system",
+      "title": "Electrical System",
+      "subtitle": "A 28-volt DC system on an alternator and a sealed lead-acid battery, a fused bypass that keeps the tachometers and clock alive with the battery switch off, and the alternator-control-unit reset for an ALT light.",
+      "rfmReference": "R44 II POH Section 7 (Systems Description — Electrical System, Dual Tachometer).",
+      "sections": [
+        {
+          "heading": "What it is",
+          "paragraphs": [
+            "A standard 28-volt DC system with an alternator and a sealed lead-acid battery (located in the engine compartment, under the left front seat, or beneath the instrument console, depending on the aircraft). The battery switch controls the battery relay that disconnects the battery from the system; a fuse-protected wire near the battery bypasses that relay so both tachometers and the clock keep receiving battery power with the battery switch off. The circuit breaker panel is on the ledge forward of the left front seat, and inflight reset of circuit breakers is not recommended. Later aircraft add an avionics master switch for the avionics bus."
+          ]
+        },
+        {
+          "heading": "Alternator monitoring",
+          "paragraphs": [
+            "The alternator control unit protects the system from overvoltage. The ammeter shows current to the battery, with '−' indicating discharge. An ALT caution light or an ammeter discharge indication in flight means low voltage and possible alternator failure: turn off non-essential electrical equipment, switch the alternator off then back on after one second to reset the alternator control unit, and if the light stays on or the ammeter still shows discharge, land as soon as practical. Continued flight without a functioning alternator can lose power to the tachometers, which is a hazardous condition. Except for emergency procedures, the alternator should not be operated with the battery switched off — the battery helps protect equipment from voltage spikes."
+          ],
+          "note": "The electronic dual tachometer takes its engine signal from the magneto breaker points and its rotor signal from two magnetic senders at the main gearbox drive yoke, each on its own circuit breaker. With battery and alternator switches off, the tachometers still draw from the battery through the bypass as long as the clutch actuator switch is engaged — so the helicopter must not be stowed with the clutch switch engaged or the battery will discharge."
+        }
+      ]
+    },
+    {
+      "slug": "warning-lights-audio-alerts-and-emu",
+      "title": "Warning Lights, Audio Alerts and the EMU",
+      "subtitle": "The annunciator panel and its test logic, the 97% low-RPM horn and 108% high-RPM warble, and the Engine Monitoring Unit whose flash rate tells the crew whether it has seen an exceedance.",
+      "rfmReference": "R44 II POH Section 7 (Systems Description — Warning and Caution Lights, Audio Alerts, Engine Monitoring Unit).",
+      "sections": [
+        {
+          "heading": "Warning and caution lights",
+          "paragraphs": [
+            "Earlier aircraft have individual lights; later aircraft have an annunciator panel of illuminated segments at the top of the instrument panel. The CHIP lights come from magnetic chip detectors in each gearbox; MR TEMP from a temperature switch on the main gearbox near the input pinion; CLUTCH from the clutch actuator operating; ENGINE FIRE from a temperature switch at the forward end of the horizontal firewall; OIL from a pressure switch independent of the pressure sender; ALT from a possible alternator failure; LOW FUEL from a float switch in the main tank independent of the quantity senders; LOW RPM (with horn) from a sensor at the aft end of the main gearbox at driveline speed below 97% RPM; CARBON MONOXIDE from a sensor above the pilot's heater outlet; GOV OFF, STARTER ON, FUEL FILTER, AUX FUEL PUMP, FULL THROTTLE (a switch in the throttle linkage, engine near full throttle) and BRAKE. Annunciator-panel aircraft also have HYD (hydraulic system switched off) and EMU segments.",
+            "The test button should light every segment plus the FULL THROTTLE and BRAKE lights. The LOW FUEL segment has a roughly two-second delay (to reject sloshing fuel) — immediate illumination on test indicates a fault. The EMU segment lights only while the test button is held, and only after the EMU's roughly ten-second self-test following battery-on."
+          ]
+        },
+        {
+          "heading": "Audio alerts",
+          "paragraphs": [
+            "Every R44 has a low-RPM horn that sounds below 97% rotor RPM and is muted with the collective fully down — through console speakers on earlier aircraft, through the headsets on later aircraft. Later aircraft add a high-RPM warble (high/low tone) through the headsets as rotor RPM approaches 108%, with a panel test button. Optional equipment can add further headset alerts such as terrain, traffic and autopilot-mode callouts."
+          ]
+        },
+        {
+          "heading": "Engine Monitoring Unit",
+          "paragraphs": [
+            "Later aircraft have an Engine Monitoring Unit — a digital recorder inside the RPM governor control box — that continuously logs engine and rotor speed, engine oil temperature, cylinder head temperature, manifold pressure, ambient pressure and OAT. Its status shows on the EMU annunciator segment (only while the test button is held). After the self-test, steady illumination means normal operation; a slow flash (once every two seconds) or no illumination means a fault in its senders or circuitry; a fast flash (four times per second) means it has detected an exceedance. Data downloads to a computer, and a fault or exceedance must be investigated and reset by a mechanic before the next flight. The EMU is a maintenance aid only — reporting observed exceedances remains the pilot's responsibility."
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "cabin-heating-ventilation-and-co-detector",
+      "title": "Cabin Heating, Ventilation and CO Detector",
+      "subtitle": "Muffler-shroud cabin heat with an overboard discharge, door and nose fresh-air vents, and a carbon-monoxide detector above the pilot's heater outlet.",
+      "rfmReference": "R44 II POH Section 7 (Systems Description — Cabin Heating and Ventilation, Carbon Monoxide Detector).",
+      "sections": [
+        {
+          "heading": "Heating and ventilation",
+          "paragraphs": [
+            "Fresh-air vents are in each door and in the nose. Door vents open and close with a knob near the hinge and lock with a rotating knob; for maximum ventilation they open wide in the hover but only an inch or less in cruise. The nose inlet opens with the vent handle on the console face (rotate clockwise to lock) and directs air along the inside of the windshield for defogging as well as ventilation.",
+            "The cabin heater is a muffler heat shroud, a control valve at the firewall, outlets forward of the tail rotor pedals and in the rear footwells, and ducting. A heater control knob left of the cyclic centre post drives the valve, directing heat either into the cabin or out an overboard discharge on the cabin underside. Optional heated seat bottoms and backrests for the front seats operate only with the alternator switch ON, to avoid draining the battery before start."
+          ],
+          "note": "In an in-flight engine fire, cabin heat should be turned off to seal the cabin from the engine compartment."
+        },
+        {
+          "heading": "Carbon monoxide detector",
+          "paragraphs": [
+            "Carbon monoxide is an odourless toxic gas in engine exhaust; cabin levels can rise from an exhaust leak or from exhaust recirculation during prolonged hovering. The system is a sensor above the pilot's heater outlet plus a caution light. A system check (the light flashes twice) runs each time power is switched on; a continuing flash every four seconds indicates a sensor malfunction. If the caution light illuminates, the heater is shut off and the nose and door vents opened as required."
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "landing-gear-and-rotor-brake",
+      "title": "Landing Gear and Rotor Brake",
+      "subtitle": "Skid gear that absorbs most landings elastically but yields the crosstube in an extreme one, and a main-gearbox rotor brake with a 30-second wait, a 20-second minimum stop, and a starter-button interlock.",
+      "rfmReference": "R44 II POH Section 7 (Systems Description — Landing Gear, Rotor Brake).",
+      "sections": [
+        {
+          "heading": "Landing gear",
+          "paragraphs": [
+            "A skid-type landing gear. Most hard landings are absorbed elastically, but in an extremely hard landing the struts hinge up and outward as the crosstube yields (becomes permanently bent) to absorb the impact. Slight crosstube yielding is acceptable; yielding that brings the tail skid within 30 inches of the ground with the helicopter empty on level pavement requires crosstube replacement. The four struts have aerodynamic fairings (approved to fly with or without), and abrasion-resistant wear shoes on the skid bottoms are replaced when the thinnest point in the wear area is less than 0.05 inches (1.3 mm)."
+          ]
+        },
+        {
+          "heading": "Rotor brake",
+          "paragraphs": [
+            "The rotor brake is on the aft end of the main gearbox, actuated by a cable to a pull handle on the cabin ceiling. To stop the rotor: after pulling the mixture off, wait at least 30 seconds, then pull the handle forward and down with moderate force (about 10 lb); once the rotor stops, it can be used as a parking brake by hooking the bead chain in the bracket slot. The brake must be released before starting the engine, and while engaged it disables the starter buttons. Applying the brake without waiting at least 30 seconds after the engine stops, or with a force that stops the rotor in less than 20 seconds, may damage the brake shoes."
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -115,6 +115,18 @@ export function getQuestionIndexParams(paramName: string, count: number): Record
 
 export const QUIZ_AMOUNT_TOKENS = ["10", "20", "30", "40", "all"];
 
+/** Every system-note slug for the given variant(s), from public/system-notes/<variantId>.json. */
+export function getSystemNoteSlugs(...variantIds: string[]): string[] {
+  const slugs = new Set<string>();
+  for (const variantId of variantIds) {
+    const data = readJson(path.join(PUBLIC_DIR, "system-notes", `${variantId}.json`));
+    for (const note of data?.notes ?? []) {
+      if (typeof note?.slug === "string") slugs.add(note.slug);
+    }
+  }
+  return Array.from(slugs);
+}
+
 /** Every IFR topic slug in public/ifr-vfr/ifr.json. */
 export function getIfrTopicSlugs(): string[] {
   const data = readJson(path.join(PUBLIC_DIR, "ifr-vfr", "ifr.json"));

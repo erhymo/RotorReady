@@ -1,13 +1,12 @@
-import SystemNoteDetailPage from "@/app/components/SystemNoteDetailPage";
-import { AW139_SYSTEM_NOTES } from "@/data/aw139/systemNotes";
+import LegacyRouteRedirect from "@/components/LegacyRouteRedirect";
+import { getSystemNoteSlugs } from "@/lib/build/staticParams";
 
+// Superseded by /aw139/system-notes/note?slug=… — kept for old links.
 export function generateStaticParams() {
-  return AW139_SYSTEM_NOTES.map((n) => ({ slug: n.slug }));
+  return getSystemNoteSlugs("AW139").map((slug) => ({ slug }));
 }
 
-export default async function AW139SystemNoteDetail({ params }: { params: Promise<{ slug: string }> }) {
+export default async function LegacyAw139SystemNotePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const note = AW139_SYSTEM_NOTES.find((n) => n.slug === slug);
-
-  return <SystemNoteDetailPage note={note} />;
+  return <LegacyRouteRedirect to="/aw139/system-notes/note" param="slug" value={slug} />;
 }

@@ -1,13 +1,12 @@
-import SystemNoteDetailPage from "@/app/components/SystemNoteDetailPage";
-import { R44_SYSTEM_NOTES } from "@/data/r44-ii/systemNotes";
+import LegacyRouteRedirect from "@/components/LegacyRouteRedirect";
+import { getSystemNoteSlugs } from "@/lib/build/staticParams";
 
+// Superseded by /r44-ii/system-notes/note?slug=… — kept for old links.
 export function generateStaticParams() {
-  return R44_SYSTEM_NOTES.map((n) => ({ slug: n.slug }));
+  return getSystemNoteSlugs("R44_II").map((slug) => ({ slug }));
 }
 
-export default async function R44IISystemNoteDetail({ params }: { params: Promise<{ slug: string }> }) {
+export default async function LegacyR44IiSystemNotePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const note = R44_SYSTEM_NOTES.find((n) => n.slug === slug);
-
-  return <SystemNoteDetailPage note={note} />;
+  return <LegacyRouteRedirect to="/r44-ii/system-notes/note" param="slug" value={slug} />;
 }

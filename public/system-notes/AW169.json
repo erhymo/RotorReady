@@ -1,0 +1,1145 @@
+{
+  "notes": [
+    {
+      "slug": "engine-and-fadec",
+      "title": "Engine and FADEC",
+      "subtitle": "Two PW210 turboshafts that differ only in software, a dual-channel FADEC that flies the power, and the ENG MODE knob logic behind ENG EECU FAIL, ENG FAIL FIXED and ENG IDLE.",
+      "rfmReference": "AW169 EP RFM Section 7 (System Description — Power Plant, Chap 71; Engine Controls System, Chap 76), AW169 RFM Section 1 (Limitations — Power Plant, Autorotation, OEI Engine Operation, Starter Duty Cycle), AW169 RFM Section 3 (Emergency and Malfunction Procedures — Engine EECU Fail, Engine Control Failure Fixed, Engine Idle, Engine Drive Shaft Failure). The engine installation and control architecture are common to AW169 Standard and AW169 EP; the power ratings differ (see the AEO limiter table below and the separate EAPS notes).",
+      "sections": [
+        {
+          "heading": "What it is",
+          "paragraphs": [
+            "Two Pratt & Whitney Canada turboshafts above the cabin roof, aft of the transmission, in two isolated bays separated by a titanium central firewall — each bay with its own fire warning and its own fuel shut-off valve outside the bay. A single-stage compressor turbine drives the two-stage compressor; a two-stage free power turbine drives the reduction gearbox, which feeds the main gearbox through a shaft.",
+            "AW169 Standard has the PW210A; AW169 EP has the PW210A1. The two engines are physically identical — the only difference is FADEC software, which raises the available power (AEO and OEI) and changes the limits. There is no hardware change between them."
+          ]
+        },
+        {
+          "heading": "The FADEC",
+          "paragraphs": [
+            "Power is managed by a dual-channel Full Authority Digital Electronic Control system: a Fuel Control Unit, an Inlet Guide Vane Actuator, and the Engine Electronic Control Unit (EECU). Dual-channel means a single channel fault does not take the engine down — control simply continues on the other channel.",
+            "A collective-lever position transducer (RVDT) feeds the EECU so it can anticipate load changes — winding fuel in or out ahead of a fast collective input to hold rotor speed and minimise droop or overshoot."
+          ]
+        },
+        {
+          "heading": "The ENG MODE knob",
+          "paragraphs": [
+            "One rotary switch per engine on the Engine Control Panel, with detented fixed positions — OFF, IDLE, FLT — so it holds position without being watched. Getting to OFF takes two deliberate actions (push down, then rotate) to prevent an accidental shutdown. Engine 1's knob is labelled IDLE/APU, because engine 1 can be run in APU mode to provide power on the ground without the main rotor turning at flight speed.",
+            "During autorotation the ENG MODE switches must not be moved from FLIGHT to IDLE except in an actual emergency. Selecting either switch to IDLE or OFF for OEI training is prohibited — that is what the guarded TNG (training) push-button is for: it enables a simulated One Engine Inoperative training mode without shutting an engine down."
+          ]
+        },
+        {
+          "heading": "Load sharing and the AEO torque limiter",
+          "paragraphs": [
+            "An ITT/TQ LOAD SHARE switch selects whether the two engines are matched by torque or by ITT. An AEO Limit Select button on the collective toggles the all-engines torque limiter between Low and High — it powers up in AEO High every time."
+          ],
+          "table": {
+            "caption": "AEO Limit Select — torque limiter settings",
+            "columns": [
+              "Engine / setting",
+              "AEO",
+              "AEO transient",
+              "OEI",
+              "OEI transient"
+            ],
+            "rows": [
+              [
+                "PW210A (Standard) — Low",
+                "111% TQ",
+                "125% TQ",
+                "174.6% TQ",
+                "192.1% TQ"
+              ],
+              [
+                "PW210A (Standard) — High",
+                "174.6% TQ",
+                "174.6% TQ (no transient)",
+                "192.1% TQ",
+                "192.1% TQ (no transient)"
+              ],
+              [
+                "PW210A1 (EP) — Low",
+                "122% TQ",
+                "132% TQ",
+                "185% TQ",
+                "195% TQ"
+              ],
+              [
+                "PW210A1 (EP) — High",
+                "185% TQ",
+                "185% TQ (no transient)",
+                "195% TQ",
+                "195% TQ (no transient)"
+              ]
+            ]
+          }
+        },
+        {
+          "heading": "Starting",
+          "paragraphs": [
+            "The brushless starter-generator turns the engine for the start (see the Electrical Power System note). A CRANK switch per engine drives a dry motoring cycle. Duty-cycle limits: after the first start attempt wait 30 seconds, after the second another 30 seconds, after the third wait 30 minutes. Motoring is one of 45 s on / 10 min off, 30 s on / 5 min off, or 15 s on / 2 min off — repeatable three times, then a 30-minute rest.",
+            "Automatic engine power check is prohibited."
+          ]
+        },
+        {
+          "heading": "1(2) ENG EECU FAIL",
+          "paragraphs": [
+            "\"WARNING WARNING\" aural. The EECU has failed and has run its engine down to IDLE — so one engine is effectively out, but it is still running at idle. Establish a safe OEI flight condition, put the affected ENG MODE knob to IDLE to match, and leave it at IDLE — that keeps the associated DC generator on line. Land as soon as practicable. Do not shut the engine down for the sake of it; the idling engine is still carrying its generator."
+          ]
+        },
+        {
+          "heading": "1(2) ENG FAIL FIXED",
+          "paragraphs": [
+            "\"WARNING WARNING\" aural — engine control failure, fixed. The engine is stuck at whatever power it was at; the FADEC can no longer modulate it. First disengage the AFCS upper modes, then achieve a safe OEI condition.",
+            "The problem is a torque split: with one engine's power frozen and the other following the rotor, the two torques diverge. A split over 30% brings up the 1(2) ENG DEGR caution on the higher-torque engine. Below that, monitor and land as soon as practicable. During descent, do not let the good engine's torque fall below 10%.",
+            "How the affected engine is shut down depends on where its torque froze: at or below 50%, it can be left running to touchdown (then lower collective smoothly to MPOG, watching NR — shut it down first if NR rises above limit); above 50%, and especially above Maximum Continuous Power, it has to be shut down — within 5 minutes if above MCP — before the approach, expecting NR droop and a large torque split as it spools down."
+          ]
+        },
+        {
+          "heading": "1(2) ENG IDLE",
+          "paragraphs": [
+            "Audio tone and voice, ground only. It means power was demanded with an engine not ready to give it: a take-off begun with an engine still at IDLE, or an ENG MODE knob at IDLE with the collective not fully down, or engine 1 still in APU mode. Reduce collective to minimum pitch on ground, then bring the affected knob back to FLT. If engine 1 was in APU mode, set its knob to IDLE and its DRIVE switch to MAIN first, wait for the accessory-drive transition to complete on the MFD, then select FLT."
+          ]
+        },
+        {
+          "heading": "Related",
+          "paragraphs": [
+            "ENGINE DRIVE SHAFT FAILURE shows as a rapid drop of that engine's torque to zero with its power turbine speed (NF) above rotor speed (NR) — the drive between engine and gearbox has failed. The engine should be shut down automatically by the overspeed protection system; establish safe OEI, run ENGINE SHUTDOWN IN EMERGENCY, and land as soon as practicable."
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "electrical-system",
+      "title": "Electrical Power System (EPGDS)",
+      "subtitle": "Two brushless starter-generators, two NiCd batteries, and a 30-minute clock the moment both generators drop — plus what every OVRD switch on the EDCU ELEC page actually restores.",
+      "rfmReference": "AW169 RFM Section 1 (Limitations — Electrical System Limitations), Section 3 (Emergency and Malfunction Procedures — Electrical System: Double DC Generator Failure, Single DC Generator Failure, DC Generator Overheat, DC Generator Overload, Emergency Bus 1/2 Failure, BCU Overheating; and the Services Available / Services Lost bus tables on pages 3-52 to 3-55), AW169 EP RFM Section 7 (System Description — Electrical Power, Chap 24). The generation and distribution architecture is common to AW169 Standard and AW169 EP.",
+      "sections": [
+        {
+          "heading": "What it is",
+          "paragraphs": [
+            "The Electrical Power Generation and Distribution System (EPGDS) generates AC power, converts it to 28 VDC, and distributes it. There is no usable AC bus — AC exists only internally between the generators and their control units; every load on the aircraft is 28 VDC.",
+            "Generation is two brushless starter-generators, one per engine. During start they run as motors, turning the engine; once the engine is running they generate. Each is managed by its own Brushless Control Unit (BCU) in the rear fuselage under the cargo compartment — the BCU does the AC-to-28VDC conversion in generation mode and the reverse in start mode.",
+            "Two Nickel-Cadmium batteries in the rear avionic bay: a 33 Ah main battery (MAIN BATT) and a 13 Ah auxiliary battery (AUX BATT). Optional kits substitute higher-capacity units (44 Ah main; 28 Ah or 33 Ah auxiliary). The batteries start the engines when no ground power is connected, and are the sole power source after a double generator failure. On the ground the system can instead be fed by a DC Ground Power Unit — recommended for engine starts after a cold soak.",
+            "Distribution is solid-state (SSEPM): instead of a wall of mechanical circuit breakers and relays, power is routed through Remote Electrical Power Units (REPUs) — two in the nose compartment, one in the rear fuselage — fed from two DC Power Distribution Units (DC PDU 1 and DC PDU 2) in the rear avionic bay. The DC PDUs do the contactor switching, bus voltage and current monitoring, and over/under-voltage and overcurrent protection. A conventional Circuit Breaker Panel on the overhead console still feeds the emergency buses directly."
+          ]
+        },
+        {
+          "heading": "Controls",
+          "paragraphs": [
+            "The electrical control panel in the interseat console carries: GEN 1, GEN 2, MAIN BATT, BATT AUX, EXT PWR, and the MASTER CUT OFF SWITCH (MCOS). GEN switches have an ON, a RESET, and an OFF position — RESET is how a tripped generator is brought back on line.",
+            "Everything finer-grained is on the EDCU ELEC page (the EDCU is the crew's main interface for electrical control and remote circuit-breaker management). The MFD also has an electrical synoptic page and the lower half of the PWR PLANT page for status."
+          ]
+        },
+        {
+          "heading": "The bus structure",
+          "paragraphs": [
+            "GEN 1 normally feeds MAIN BUS 1 and MAIN BUS 3; GEN 2 feeds MAIN BUS 2 and MAIN BUS 4. Below the main buses sit six NON ESSENTIAL buses (comfort and mission loads — cabin lighting, sockets, wipers, EFB power, external camera, OPLS, and so on).",
+            "The Emergency Subsystem is the part that survives a total generation loss: EMERGENCY BUS 1 and 2 (fed from the Circuit Breaker Panel) and ESSENTIAL BUS 1 and 2 (REPU 1 and 2, Channel B). These carry the irreducible minimum — engine controls and ignition, FADEC channel B, both fire detection and extinguisher circuits, landing-gear control, fuel shut-off valves, standby ADI, one AFCS flight control computer per side, one ADAHRS, VHF 1, and the pilot's PFD/MFD. A number of items on these buses are marked as available on the ground only, i.e. lost in flight after a double generator failure."
+          ]
+        },
+        {
+          "heading": "Limits",
+          "table": {
+            "caption": "Electrical system limitations (RFM Section 1)",
+            "columns": [
+              "Parameter",
+              "Range",
+              "Note"
+            ],
+            "rows": [
+              [
+                "DC generator load",
+                "0–75%",
+                "Normal operation"
+              ],
+              [
+                "DC generator load",
+                "76–100%",
+                "Cautionary — 10 minutes maximum"
+              ],
+              [
+                "DC generator load",
+                "101–150%",
+                "Transient"
+              ],
+              [
+                "DC generator load",
+                "150%",
+                "Maximum transient"
+              ],
+              [
+                "Battery load",
+                "−200 to 0 A",
+                "Discharge"
+              ],
+              [
+                "Battery load",
+                "0 to 200 A",
+                "Charge"
+              ],
+              [
+                "Emergency bus voltage",
+                "22–30 V",
+                "Normal operation (22 V min, 30 V max)"
+              ]
+            ]
+          }
+        },
+        {
+          "heading": "The OVRD switches on the EDCU ELEC page",
+          "paragraphs": [
+            "BUS TIE — OVRD ties the two generators' distribution together so they share the total electrical load. It is the response to a DC GENERATOR OVERLOAD (1(2) DC GEN OVLD — set by more than 100% for over 45 seconds, or more than 75% for over 10 minutes). In a double generator failure it has a second use: with the generators gone, BUS TIE OVRD extends battery power to MAIN BUS 2, at the cost of shorter battery endurance.",
+            "NON ESS L and NON ESS R — after a single generator failure the non-essential buses drop. NON ESS L to OVRD restores NON ESS BUS 1 and 3; NON ESS R to OVRD restores NON ESS BUS 2 and 4 — used only if a load on one of them is actually needed, since it adds to the surviving generator.",
+            "GEN BUS — in a double generator failure, OVRD connects battery power to MAIN BUS 1 (again trading battery endurance for the loads on that bus)."
+          ]
+        },
+        {
+          "heading": "Losing one generator",
+          "paragraphs": [
+            "1(2) DC GEN FAIL — reset the affected generator; if it stays failed, switch it off and let the other one carry everything. The affected side's main buses (1 and 3, or 2 and 4) are lost and all non-essential buses are lost; non-essential buses can be brought back selectively with the NON ESS L/R OVRD switches. Watch the surviving generator's load on the MFD and shed load if it goes over limit.",
+            "1(2) DC GEN HOT (overheat) — switch the affected generator off immediately. Same result: one generator carries the aircraft, all non-essential buses lost.",
+            "In both cases the aircraft is fully flyable on one generator — the point is that there is no margin left for a second failure, and the non-essential comfort/mission loads are gone unless deliberately restored."
+          ]
+        },
+        {
+          "heading": "Losing both generators — ELEC FAIL",
+          "paragraphs": [
+            "A double DC generator failure triggers the \"WARNING WARNING\" aural and the ELEC FAIL warning. First action is to try to get a generator back (GEN 1 & 2 to RESET, confirm ON). If that fails, the aircraft is running on the main battery alone: all main buses and all non-essential buses are gone, and only the emergency and essential buses remain.",
+            "Battery power lasts a maximum of 30 minutes — that is the number that drives everything else. Land as soon as possible.",
+            "If a load on MAIN BUS 1 is genuinely required, GEN BUS to OVRD feeds it from the battery — and BUS TIE to OVRD additionally feeds MAIN BUS 2 — but each override shortens the 30 minutes. The landing gear control is on a bus that is lost in flight in this state, so the gear has to be put down with the LANDING GEAR EMERGENCY DOWN procedure; VHF 1 is selected on the right side to keep radio contact. A subsequent MAIN BATT OFF caution means land as soon as possible, without qualification."
+          ]
+        },
+        {
+          "heading": "Related failures",
+          "paragraphs": [
+            "1(2) EMER BUS FAIL — a single emergency bus is lost while generation is otherwise normal. The losses are specific and worth knowing: EMER BUS 1 takes VHF 1, the standby instrument (ESIS), engine 1 fire detection and extinguisher, and AFCS force-trim release; EMER BUS 2 takes the pilot's EDCU, PFD, master warning/caution lights, landing light, RAD ALT 2, engine 2 fire detection and extinguisher, NAV 2, GPS 2, and the transponder. Reduce speed and continue attentive.",
+            "BCU OVERHEATING — the brushless control unit itself overheating has its own procedure; the generator it manages is affected."
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "fire-protection",
+      "title": "Fire Protection",
+      "subtitle": "Two cross-connected HALON 1301 bottles for the engine bays, a smoke detector but no extinguisher for the baggage bay, and handhelds for everything else.",
+      "rfmReference": "AW169 EP RFM Section 7 (System Description — Fire Protection, Chap 26; Equipments/Furnishings, Chap 25 — Portable Fire Extinguisher Installation), AW169 RFM Section 3 (Emergency and Malfunction Procedures — Engine Bay Fire (Flight), Engine Bay Fire (Ground), Baggage Bay Fire (Flight/Ground), Cockpit/Cabin Fire (Flight/Ground), Engine Fire Detector System, Fire Bottle Low Pressure). Common to AW169 Standard and AW169 EP.",
+      "sections": [
+        {
+          "heading": "What it is",
+          "paragraphs": [
+            "Detection is by continuous element. A fire wire runs around each engine bay: a sealed tube of inert helium with an internal core of active gas and a pressure transducer. When any short length of the wire gets hot, the core dumps active gas into the tube, pressure rises, and the transducer trips — so it detects a hot spot anywhere along its length, not just at a point.",
+            "The baggage compartment has a photoelectric smoke detector on the roof (it works on light scattering — smoke in the beam scatters light onto a sensor). There is no fixed extinguishing system for the baggage bay — detection only.",
+            "Engine extinguishing is two identical, interchangeable stainless-steel bottles charged with HALON 1301 and nitrogen, mounted between the engine ejectors under the rear fairing. They are cross-connected: either bottle can be fired into either engine bay. Each bottle has a temperature-compensated pressure sensor that drives a low-pressure caption."
+          ]
+        },
+        {
+          "heading": "What an engine fire looks like",
+          "paragraphs": [
+            "An ENG 1(2) FIRE gives, together: the CAS warning message, the \"ENG 1(2) FIRE\" audio tone with the master warning flashing, a red FIRE light on the fire control panel, a red warning light on that engine's control panel, and the engine silhouette turning red on the MFD PWR PLANT format."
+          ]
+        },
+        {
+          "heading": "The two controls",
+          "paragraphs": [
+            "ENG 1(2) FIRE/ARM push-button (guarded) — pressing it shuts that engine down by closing its fuel shut-off valve, and also closes the heating-system bleed shut-off valve. It arms the extinguishing circuit for that bay.",
+            "FIRE EXTING switch — position 1 discharges bottle 1, position 2 discharges bottle 2. After a bottle discharges, its 1(2) FIRE BTL LOW P caption confirms it emptied."
+          ]
+        },
+        {
+          "heading": "Engine bay fire in flight",
+          "paragraphs": [
+            "Confirm the fire light on the engine control panel, establish a safe OEI flight condition, then take the affected ENG MODE knob to IDLE, confirm the fire, and take it to OFF. Lift the guard and press that engine's FIRE ARM push-button, then set FIRE EXTING to BTL 1 and wait for the 1 FIRE BTL LOW P caption.",
+            "If the warning clears, close that engine's fuel SOV on the EDCU FUEL page, deselect the FIRE ARM push-button, and run the SINGLE ENGINE PROCEDURE (skipping its shutdown step — the engine is already shut down). Land as soon as possible.",
+            "If the warning does not clear, fire BTL 2. If it still does not clear after the second bottle: LAND IMMEDIATELY and carry out the EMERGENCY GROUND EGRESS procedure — there is nothing left to fight it with.",
+            "The one trap: if a fire then breaks out in the other engine bay, the first FIRE ARM push-button must be deselected before the other one will operate."
+          ]
+        },
+        {
+          "heading": "Engine bay fire on the ground",
+          "paragraphs": [
+            "Both ENG 1 & 2 MODE knobs to OFF, lift the guard and press the affected FIRE ARM push-button, FIRE EXTING to BTL 1, then BTL 2 if it does not clear — then EMERGENCY GROUND EGRESS. Same push-button trap applies."
+          ]
+        },
+        {
+          "heading": "Baggage bay fire",
+          "paragraphs": [
+            "BAG FIRE comes with the \"WARNING WARNING\" aural. Because there is no extinguishing system back there, the procedure is short: in flight, land as soon as possible and carry out EMERGENCY GROUND EGRESS; on the ground, carry out EMERGENCY GROUND EGRESS directly."
+          ]
+        },
+        {
+          "heading": "Cockpit or cabin fire",
+          "paragraphs": [
+            "No fixed system and no single checklist — the priority is to get on the ground and get out. In flight: ECS to BACKUP, cockpit/cabin fan OFF; if the source is found, fight it with a handheld; if the source is not found and it persists, LAND IMMEDIATELY. Once the fire is out, the fans go back ON to clear smoke and fumes before egress."
+          ]
+        },
+        {
+          "heading": "Portable extinguishers",
+          "paragraphs": [
+            "One in the cockpit (right side, below the seat) and one or more in the cabin — Halon 1211 or halon-free. About a 10-second discharge, effective on small carbonaceous, flammable-liquid, and electrical fires. Any extinguisher that has been used must be replaced at the first opportunity, even if it still has agent in it."
+          ]
+        },
+        {
+          "heading": "Related captions",
+          "paragraphs": [
+            "1(2) FIRE BTL LOW P — that bottle is below its safety pressure (expected after a discharge; unexpected otherwise). 1(2) FIRE SYS DET — that engine's fire detection system has failed. Engine 1 fire detection and extinguisher are on EMERGENCY BUS 1; engine 2's are on EMERGENCY BUS 2 — so an EMER BUS failure takes that engine's fire protection with it."
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "weather-radar",
+      "title": "Weather Radar RTA-4112",
+      "subtitle": "Modes, ranges, controls, and the one hard limitation on what this radar is allowed to be used for.",
+      "rfmReference": "AW169 / AW169 EP RFM Supplement 12 (Weather Radar RTA-4112 — General Information, Limitations, Normal Procedures, Malfunction Procedures) and Section 7 (System Description, OES — Weather Radar RTA-4112). Verified identical between AW169 and AW169 EP.",
+      "sections": [
+        {
+          "heading": "What it is",
+          "paragraphs": [
+            "A fully automatic radar that displays significant weather data at all available ranges and altitudes, at all times, with a clutter-free display. It also does beacon detection and terrain mapping. Hardware: a 12 in flat-plate antenna in the nose radome, an antenna drive unit (moves the antenna up to 120° in azimuth, 32° in elevation), and a transceiver with separate receivers for weather and beacon signals, feeding the PFDs and MFD.",
+            "Two independent configurations exist side by side: L WXR (co-pilot's side) and R WXR (pilot's side). Controlled through the MFD drop-down menu (TILT and GAIN are also replicated on the MFD FPLN format bottom bezel)."
+          ]
+        },
+        {
+          "heading": "Operating modes",
+          "table": {
+            "columns": [
+              "Mode",
+              "What it does",
+              "Range"
+            ],
+            "rows": [
+              [
+                "Auto",
+                "Scans automatically, controls antenna tilt for optimal detection based on elevation/location, processes multiple scans to minimize ground clutter",
+                "320 NM"
+              ],
+              [
+                "Manual",
+                "Secondary mode / used after an automatic-mode failure — tilt and gain controlled manually",
+                "320 NM"
+              ],
+              [
+                "WX (Weather)",
+                "Weather returns for the selected tilt and gain",
+                "320 NM"
+              ],
+              [
+                "Turb (Turbulence)",
+                "Azimuth/range of hazardous turbulent areas",
+                "40 NM"
+              ],
+              [
+                "WX + T",
+                "Weather out to 320 NM combined with turbulence out to 40 NM — turbulent weather display takes priority over normal weather where they overlap",
+                "320 / 40 NM"
+              ],
+              [
+                "Map",
+                "Disables ground clutter suppression to show ground returns — coastlines, lakes, larger cities",
+                "320 NM"
+              ],
+              [
+                "Self-test",
+                "Checks display colors and system connections only",
+                "—"
+              ],
+              [
+                "Standby",
+                "Antenna holds at bore-sight, transmitter off",
+                "—"
+              ]
+            ]
+          }
+        },
+        {
+          "heading": "The one hard limitation",
+          "paragraphs": [
+            "The radar must not be used for navigation or terrain avoidance. Everything else about the system — the automatic mode, the clutter suppression, the mapping mode — describes what it is good at showing, not a substitute for navigation or terrain awareness systems."
+          ]
+        },
+        {
+          "heading": "Ground transmission",
+          "paragraphs": [
+            "The radar does not transmit while the helicopter is on the ground, unless the operator commands it to. Do not set it to transmit within 17 ft (5 m) of personnel or containers holding flammable or explosive material.",
+            "If the helicopter is on the ground with the radar set to anything other than Standby or Test, and the weight-on-wheels (WOW) microswitches fail, the radar will transmit unexpectedly — the caption WX TRANSMITTING displays. The response is simply to confirm the radar is set back to Standby."
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "weather-radar-rdr-1600",
+      "title": "Weather Radar RDR-1600",
+      "subtitle": "A separate, optional maritime/SAR radar kit — the one with the SR1/SR2/SR3 surface-search modes, beacon detection, and its own tighter ground-transmission distance.",
+      "rfmReference": "AW169 / AW169 EP RFM Supplement 35 (Weather Radar RDR-1600 — General Information, Limitations, Normal Procedures, Malfunction Procedures) and Section 7 (System Description, OES — Kit Weather Radar RDR-1600). Verified identical between AW169 and AW169 EP. This is a different, alternative radar installation from the RTA-4112 covered in the Weather Radar RTA-4112 note — the two are not fitted together.",
+      "sections": [
+        {
+          "heading": "What it is",
+          "paragraphs": [
+            "The Telephonics RDR-1600 is a multi-mode surveillance and weather radar built for maritime missions. Hardware: a 12 in flat-plate antenna and drive unit, a receiver/transmitter unit, an interface unit, and a static inverter. ADAHRS 1/2 data are used for antenna stabilization. Controlled through the MFD drop-down menu and the CCD, displayed on the PFDs and/or MFD.",
+            "It provides three families of modes: air-to-surface search and detection (SR1/SR2/SR3), weather avoidance (WX/WXA), and beacon detection/navigation (BCN)."
+          ]
+        },
+        {
+          "heading": "Operating modes",
+          "table": {
+            "columns": [
+              "Mode",
+              "What it does",
+              "Notes"
+            ],
+            "rows": [
+              [
+                "SR1 (Search 1)",
+                "Sea clutter rejection — short transmitted pulse with clutter-rejection circuitry, for short-range mapping of targets in a sea-clutter environment. Detects surface targets down to 500 ft minimum range.",
+                "Active only at 10 NM range or below; at 20 NM or greater the transmitter switches to a long pulse and clutter rejection disengages (behaves like SR3)"
+              ],
+              [
+                "SR2 (Search 2)",
+                "Short-range precision ground mapping — short transmitted pulse. Detects surface targets down to 500 ft minimum range.",
+                "Active only at 10 NM range or below; at 20 NM or greater it effectively becomes SR3"
+              ],
+              [
+                "SR3 (Search 3)",
+                "Long-range ground mapping / searching for topographical features (bodies of water, islands, high ground, bridges). Returns the greatest amount of ground clutter of the three. Can also be used for oil slick detection in calm to moderate sea states.",
+                "—"
+              ],
+              [
+                "WX (Weather)",
+                "Continuous enroute weather — rain, thunderstorms, icing areas. Red/yellow/green display by rainfall density; a sensitivity timing control keeps echo intensity roughly equal from near-zero range to ~45 NM. Gain is preset, not operator-selectable.",
+                "~45 NM"
+              ],
+              [
+                "WXA (Weather Alert)",
+                "As WX, but red storm-cell areas flash, and the Target Alert function activates: it warns the pilot if a red storm cell is detected within 25 NM beyond the selected range and within ±10° of boresight — including when the pilot isn't looking at the weather display.",
+                "Alert range 25 NM beyond selected range, ±10° boresight"
+              ],
+              [
+                "BCN (Beacon)",
+                "Interrogates and receives pulses from a fixed transponder on a dedicated beacon frequency. Selectable Mode A (0–9) or DO-172 Mode B (0–15) code.",
+                "Up to 160 NM, depending on beacon sensitivity/power"
+              ],
+              [
+                "STBY (Standby)",
+                "No radar data displayed — used during system warm-up and whenever the helicopter is on the ground.",
+                "—"
+              ],
+              [
+                "TEST",
+                "Checks system operability. No transmission occurs.",
+                "—"
+              ]
+            ]
+          },
+          "note": "Weather and search modes cannot run at the same time, but any of them can be paired with Beacon: WX/BCN, WXA/BCN, SR1/BCN, SR2/BCN, or SR3/BCN. The antenna scans 120° in azimuth by default, selectable down to a 60° sector (SCAN 120 / SCAN 60), with ±15° selectable tilt and a combined ±30° pitch/roll/tilt stabilization system (deselectable via STAB OFF)."
+        },
+        {
+          "heading": "The one hard limitation",
+          "paragraphs": [
+            "The radar must not be used for navigation or terrain avoidance — the same restriction as the RTA-4112."
+          ]
+        },
+        {
+          "heading": "Ground transmission",
+          "paragraphs": [
+            "The weather radar does not transmit on the ground due to the weight-on-wheels (WOW) safety interlock, unless commanded to. Do not turn the radar on within 30 ft (9 m) of personnel or containers holding flammable or explosive material — a wider clearance than the RTA-4112's 17 ft (5 m).",
+            "Should the WOW switch fail on the ground, the radar will transmit if it is selected to transmit. The response is to confirm the radar is switched OFF."
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "tcas-ii",
+      "title": "TCAS II: Traffic Advisory System",
+      "subtitle": "How Traffic Advisories and Resolution Advisories actually work, the exact power/airspeed technique for each RA, and every inhibit altitude.",
+      "rfmReference": "AW169 / AW169 EP RFM Supplement 14 (Traffic Advisory System II — General Information, Resolution Advisory Manoeuvres, Limitations, Normal Procedures, Emergency and Malfunction Procedures). Verified identical between AW169 and AW169 EP.",
+      "sections": [
+        {
+          "heading": "What it does",
+          "paragraphs": [
+            "The Rockwell Collins TCAS II monitors a nominal 14 NM radius around the helicopter, interrogating ICAO-compliant transponders on other aircraft. Hardware: a processor in the aft avionic bay and two directional antennas — one on top of the nose radome, one under the rear belly.",
+            "From the replies it computes range, bearing, closure rate, and altitude (if the intruder's transponder reports it) — from which it derives time to Closest Point of Approach (CPA), the main parameter driving alerts. It issues Traffic Advisories (TAs) to help the pilot visually acquire the intruder and prepare for a possible RA, and Resolution Advisories (RAs) that define a vertical maneuver to increase or maintain separation. If the intruder is also TCAS II-equipped, the two systems coordinate their RAs over Mode S data link so the resolution senses are complementary — not both aircraft climbing, for example."
+          ]
+        },
+        {
+          "heading": "Flying a Resolution Advisory",
+          "paragraphs": [
+            "No banking maneuvers on an RA — fly to the indication on the VSI. If AFCS upper modes are engaged, press and hold the cyclic and collective FTR (Force Trim Release) buttons throughout the maneuver — this keeps the IAS and vertical-mode reference bugs synchronized with the aircraft's actual airspeed and altitude as you fly, rather than fighting the AFCS's prior targets."
+          ],
+          "table": {
+            "caption": "RA technique",
+            "columns": [
+              "RA",
+              "Technique"
+            ],
+            "rows": [
+              [
+                "Climb, IAS above 90 KIAS",
+                "Cyclic to reduce airspeed toward (not below) 90 KIAS, collective simultaneously to MCP 100% PI"
+              ],
+              [
+                "Climb, IAS 90 KIAS or below",
+                "Collective to Take-Off Power, let IAS increase toward (not above) 90 KIAS"
+              ],
+              [
+                "Descend",
+                "Collective to decrease torque as required — but not into autorotation; minimum 10% PI"
+              ]
+            ]
+          },
+          "note": "If the required rate cannot be achieved within aircraft limits, hold the maximum achievable rate instead. After Clear of Conflict, return promptly to the previous ATC clearance unless otherwise directed. TCAS II keeps monitoring after the RA — if the intruder's flight path changes, it can issue a revised RA; follow it."
+        },
+        {
+          "heading": "Limitations",
+          "paragraphs": [
+            "Never maneuver on a TA alone — it is for visual acquisition, not a maneuver instruction. Compliance with an RA is mandatory, and the pilot is authorized to deviate temporarily from the current ATC clearance to comply with one — but not authorized to exceed the aircraft's flight envelope limits chasing an RA. TCAS II must be selected to TA ONLY during underslung load operations, and should be selected to TA ONLY with one engine inoperative (OEI) as well — reselect TA/RA once that condition no longer applies."
+          ],
+          "table": {
+            "caption": "Automatic inhibits, by height",
+            "columns": [
+              "Function",
+              "Inhibited below"
+            ],
+            "rows": [
+              [
+                "Increase Descent RA",
+                "1650 ft AGL climbing / 1450 ft AGL descending"
+              ],
+              [
+                "Descend RA",
+                "1200 ft AGL climbing / 1000 ft AGL descending"
+              ],
+              [
+                "TA voice messages",
+                "600 ft AGL climbing / 400 ft AGL descending"
+              ],
+              [
+                "All RAs (reverts to TA only)",
+                "1100 ft AGL climbing / 900 ft AGL descending"
+              ],
+              [
+                "Climb RA",
+                "inhibited above 14,000 ft"
+              ],
+              [
+                "Increase Climb RA",
+                "always inhibited"
+              ]
+            ]
+          },
+          "note": "TCAS II also automatically reverts to TA-only whenever a higher-priority HTAWS or CAS warning is present, and stays in TA-only for 10 seconds after that warning clears — a current RA becomes a TA during that window."
+        },
+        {
+          "heading": "What you see and hear",
+          "paragraphs": [
+            "TA: PFD attitude indicator shows TRAFFIC flashing then steady amber, aural “Traffic, Traffic.” RA: PFD shows TRAFFIC flashing then steady red, plus a specific aural instruction and a climb/descend cue on the VSI — fly to keep the vertical speed needle inside the green arc. TCAS STBY / TCAS TEST / TCAS FAIL show as status-window messages on both PFD and MFD."
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "htaws",
+      "title": "HTAWS: Terrain Awareness and Warning",
+      "subtitle": "FLTA and GPWS, and every alert and what triggers it — the onshore-only baseline version of this system.",
+      "rfmReference": "AW169 RFM Supplement 13 (Helicopter Terrain Awareness and Warning System). This AW169 Standard configuration has no OFFSHORE operating modes and no SAR mode — see the separate AW169 EP note for that configuration.",
+      "sections": [
+        {
+          "heading": "What it does",
+          "paragraphs": [
+            "HTAWS, embedded in the Collins MFD-2810, gives terrain and obstacle awareness through two independent functions: Forward Looking Terrain (and Obstacle) Alerting (FLTA), which looks ahead of the aircraft's flight path, and Ground Proximity Warning System (GPWS), which reacts to the aircraft's actual proximity to terrain. Terrain/obstacle display is selectable on PFD and MFD; an obstacle is defined as any human-made structure higher than 50 ft AGL.",
+            "This configuration provides four operating modes: Mode 1 (excessive rate of descent), Mode 3 (descent after take-off or missed approach), Mode 4 (flight into terrain when not in landing configuration), Mode 5 (excessive downward deviation from an ILS glideslope). There is no OFFSHORE option and no SAR mode on this configuration."
+          ]
+        },
+        {
+          "heading": "Alerts",
+          "table": {
+            "columns": [
+              "Priority",
+              "Aural",
+              "Red caption",
+              "Amber caption"
+            ],
+            "rows": [
+              [
+                "1",
+                "PULL UP",
+                "PULL UP",
+                "—"
+              ],
+              [
+                "2",
+                "WARNING TERRAIN",
+                "TERRAIN",
+                "—"
+              ],
+              [
+                "2",
+                "WARNING OBSTACLE",
+                "OBSTACLE",
+                "—"
+              ],
+              [
+                "3",
+                "CAUTION TERRAIN",
+                "—",
+                "TERRAIN"
+              ],
+              [
+                "3",
+                "CAUTION OBSTACLE",
+                "—",
+                "OBSTACLE"
+              ],
+              [
+                "4",
+                "THREE HUNDRED / active height callouts",
+                "—",
+                "—"
+              ],
+              [
+                "5",
+                "TOO LOW GEAR",
+                "—",
+                "TOO LOW GEAR"
+              ],
+              [
+                "6",
+                "SINKRATE",
+                "—",
+                "SINKRATE"
+              ],
+              [
+                "7",
+                "DON'T SINK",
+                "—",
+                "DON'T SINK"
+              ],
+              [
+                "8",
+                "GLIDESLOPE",
+                "—",
+                "GLIDESLOPE"
+              ]
+            ]
+          },
+          "note": "Height callouts (200/100/50/40/30/20/10 ft) are aural only, no caption. Cautionary alerts annunciate once; warning alerts repeat until the condition clears."
+        },
+        {
+          "heading": "Reduced-sensitivity modes",
+          "paragraphs": [
+            "LOW ALT, TACT ALT and OFF AIRPORT reduce the alert envelope for low-altitude or non-airport operations. None of them may be selected under IMC, except where a specific approved procedure allows it — the RFM names the FMS Oil Rig Approach as an example."
+          ]
+        },
+        {
+          "heading": "Database limitation",
+          "paragraphs": [
+            "The terrain/obstacle database must be the latest update for the region being flown, and it only covers a defined latitude interval, per the HTAWS Pilot's Guide."
+          ]
+        },
+        {
+          "heading": "Inhibiting and status messages",
+          "paragraphs": [
+            "TAWS INHIBIT disables all alerts except altitude callouts (the terrain map image stays up). AUDIO INHIB mutes cautions only — not callouts, not warnings — and clears itself after 5 minutes if not deselected first. OFF APT reduces nuisance alerts when landing somewhere not in the database, without disabling the system. G/S CANCEL suppresses the glideslope-deviation alert when the ILS isn't in the database.",
+            "Failure captions: TAWS FAIL (no valid HTAWS info — both FLTA and GPWS gone), TERRAIN (terrain data unavailable), GPWS INOP, FLTA INOP, OBST INOP (obstacle database missing, or too many obstacles in view — the system only ever displays the 100 nearest above the altitude clearance level)."
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "svs",
+      "title": "Synthetic Vision System (SVS)",
+      "subtitle": "A 3D terrain picture on the PFD — what it's built from, when it turns itself off, and the one rule about attitude.",
+      "rfmReference": "AW169 / AW169 EP RFM Supplement 18 (Synthetic Vision System). Same avionics suite (Collins MFD-2810) on both configurations.",
+      "sections": [
+        {
+          "heading": "What it is",
+          "paragraphs": [
+            "SVS, embedded in the Collins MFD-2810, builds a three-dimensional synthetic view of the terrain around the aircraft from precise navigation sensor inputs plus a high-resolution terrain, obstacle and runway/heliport database. It displays airport runways and helipads, obstacles higher than 50 ft, and a Flight Path Vector (FPV) showing the aircraft's actual trajectory. Selected on the PFD's attitude/navigation area via the PFD menu or the on-side DCP; the FPV and obstacle layers can be switched off independently."
+          ]
+        },
+        {
+          "heading": "The one rule that matters most",
+          "paragraphs": [
+            "Pitch and roll attitude are read from the basic PFD symbology, never from the SVS picture itself. The SVS terrain image is a situational-awareness layer drawn on top of the real attitude display, not a replacement for it."
+          ]
+        },
+        {
+          "heading": "When it turns off on its own",
+          "paragraphs": [
+            "SVS must not be used for navigation, and must not be selected ON during approach and landing. It won't display at all with the central MFD powered off or reverted to PFD format. It is automatically inhibited whenever aircraft attitude exceeds 30° nose up/down or 50° bank left/right, and re-selects itself automatically once attitude comes back within ±10° pitch and ±5° roll."
+          ]
+        },
+        {
+          "heading": "Failures",
+          "paragraphs": [
+            "SVS FAIL: total loss of the function. SVS DEGR: partial loss — obstacles, FPV, or runway/airport/helipad data missing, rather than everything. SVS is not available at all if the PFD itself has failed. GPS POS and GPS HT messages mean the SVS detected a mismatch between the two GPS receivers' position or height solutions — the response in both cases is the same: deactivate the SVS."
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "digital-map",
+      "title": "Digital Map System",
+      "subtitle": "A moving-map underlay for the MFD — small system, but nine distinct failure messages worth being able to tell apart.",
+      "rfmReference": "AW169 / AW169 EP RFM Supplement 17 (Digital Map System). Same avionics suite on both configurations.",
+      "sections": [
+        {
+          "heading": "What it is",
+          "paragraphs": [
+            "A moving-map display selectable to underlay the FPLN page on the MFD (DMAP item on the MFD menu). The system can receive two DMAP video sources, DMAP1 and DMAP2, either selectable from the DMAP menu. Like the weather radar and HTAWS, it must not be used for navigation — it is an awareness tool, and the display/database may not have the accuracy to base routine navigation decisions or route planning on."
+          ]
+        },
+        {
+          "heading": "Failure and mismatch messages",
+          "table": {
+            "columns": [
+              "Message",
+              "Trigger"
+            ],
+            "rows": [
+              [
+                "DMAP FAIL",
+                "Digital map database failure — map data removed"
+              ],
+              [
+                "DMAP1(2) RNG MSCP",
+                "Range scale requested on one display doesn't match the other, while the same DMAP source is overlaid on both MFD and copilot PFD"
+              ],
+              [
+                "DMAP1(2) POS MSCP",
+                "ARC/ROSE format selected on one display while the opposite (ROSE/ARC) is already showing on the other, same dual-overlay condition"
+              ],
+              [
+                "DMAP1(2) HDG MSCP",
+                "PLAN format selected on one display while ARC or ROSE is already showing on the other, same dual-overlay condition"
+              ],
+              [
+                "DMAP HDG FAIL",
+                "Heading data for the map lost"
+              ],
+              [
+                "DMAP POS FAIL",
+                "Helicopter's current position missing"
+              ],
+              [
+                "NO MAP AVAIL",
+                "Operating outside the digital map database's coverage area"
+              ],
+              [
+                "MISSION FAIL",
+                "Mission data becomes invalid while on the DMAP presentation"
+              ]
+            ]
+          },
+          "note": "The three MSCP (miscompare) messages only apply when the same DMAP source is overlaid on both the MFD and the copilot's PFD at once — the system is checking that both displays agree on range, position format, and heading format, and clears the data from one side if they stop matching."
+        }
+      ]
+    },
+    {
+      "slug": "opls",
+      "title": "OPLS: Obstacle Proximity LiDAR System",
+      "subtitle": "Three LiDAR units, a 360° ring of distance awareness in one plane only, and the color/sound logic that goes with it.",
+      "rfmReference": "AW169 / AW169 EP RFM Supplement 38 (Obstacle Proximity LiDAR System).",
+      "sections": [
+        {
+          "heading": "What it is",
+          "paragraphs": [
+            "OPLS gives visual and audio obstacle-distance awareness while hovering or in low-speed flight. Three LiDAR (Laser Imaging Detection and Ranging) units are mounted around the transmission cowling below the rotor head; their three overlapping beams are digitally mixed to produce 360° obstacle coverage — but only in the plane of the sensor units. Nothing above or below that plane is detected.",
+            "Controlled from a dedicated OPLS page on the EDCU (Home → KITS → MIS tab → OPLS tab): POWER, MAINT, MUTE, INFO buttons, plus a status indicator. Displayed on the MFD as a plan-view polar grid of the obstacle profile around the helicopter, selected via the cursor control device (VIDEO → OPLS) or the MFD's T4 top bezel key."
+          ]
+        },
+        {
+          "heading": "Color and sound",
+          "paragraphs": [
+            "The nearest obstacle's distance is shown as a color-coded radial line with the range at the top of the display: green (safe), yellow (caution), red (critical). An audio tone in the intercom rises in frequency as distance decreases. Crossing green into yellow triggers “APPROACHING”; crossing yellow into red triggers “CHECK DISTANCE.”",
+            "MUTE only works from the yellow band — selecting it while in green or red does nothing. Once muted, deselect MUTE (EDCU OPLS page, or CAS RST on the collective) to bring the audio back."
+          ]
+        },
+        {
+          "heading": "Limitations",
+          "paragraphs": [
+            "OPLS is a hover/low-speed obstacle awareness aid only — the primary means of avoiding obstacles remains see-and-avoid technique. It may not detect large glass surfaces, and fog, mist, rain, cloud or snow can generate spurious signals or degrade the distance information. If an HTAWS aural alert and an OPLS aural alert occur together, HTAWS has priority and the OPLS aural can be suppressed."
+          ]
+        },
+        {
+          "heading": "Failure",
+          "paragraphs": [
+            "On a system failure, the obstacle display is replaced by a red cross, the audio deactivates, and the EDCU OPLS page shows FAIL."
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "evs-camera",
+      "title": "EVS Camera",
+      "subtitle": "An infrared nose camera for reduced visibility — what it shows, what it doesn't, and why it fights the SVS for screen time.",
+      "rfmReference": "AW169 / AW169 EP RFM Supplement 22 (EVS Camera).",
+      "sections": [
+        {
+          "heading": "What it is",
+          "paragraphs": [
+            "Two possible installations: the MAX-VIZ EVS-1500, IR image only, or the EVS-2300, which adds a color image alongside the IR one. A Long Wave Infrared camera is mounted facing forward under the right-hand nose compartment, feeding the MFD as a visual aid in reduced visibility. Selected on and off from the EDCU KITS → CAMERA tab; a video test pattern shows for about 5 seconds after power-on, then an OK message, then an IR image after about 20 seconds total.",
+            "The camera automatically recalibrates its IR sensor (NUC) every 4 minutes — a 1-second screen blank with CAL displayed — which can be inhibited from the same EDCU page if needed. It's self-anti-iced with internal heaters whenever powered on, fed from Main Bus 1 (REPU 1 Channel A), a bus not shown on the DC ELEC synoptic page."
+          ]
+        },
+        {
+          "heading": "Display and field of view",
+          "paragraphs": [
+            "Shown full-size on the MFD VIDEO page, or as picture-in-picture on VIDEO or DMAP pages. Brightness/contrast adjust via the VIDEO page bezel buttons — on the EVS-2300, the IR and color channels have independent brightness/contrast controls. Field of view (Narrow/Wide) is selected from the PFD EVS menu or the DCP EVS button, and on the EVS-2300 that selection applies to both the IR and color image together. Zooming is available via PFD controls or the DCP.",
+            "Selecting a field-of-view change removes the SVS from the PFD — the two compete for the same display space. SVS has to be manually reselected afterward (DCP SVS button, or the SVS bezel key on the PFD SVS menu). Since the EVS image itself is not shown on the PFD, the PFD EVS menu's BRT/CNST bezel keys have no effect."
+          ]
+        },
+        {
+          "heading": "Limitations",
+          "paragraphs": [
+            "Do not use the EVS image for takeoff, landing, or navigation. It is an obstacle-awareness aid only — the display may not have the accuracy or fidelity to base takeoff, landing, or navigation decisions on."
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "ehps",
+      "title": "EHPS: Electric Motor-Driven Hydraulic Power Supply",
+      "subtitle": "A ground-only electric hydraulic pump that changes the order you're allowed to do things in — why it lets engine 1 start straight into MAIN mode.",
+      "rfmReference": "AW169 / AW169 EP RFM Supplement 42 (Electric Motor-Driven Hydraulic Power Supply).",
+      "sections": [
+        {
+          "heading": "What it is",
+          "paragraphs": [
+            "A 28 VDC electric motor-driven hydraulic pump installed on hydraulic system 1, ground use only. It provides just enough hydraulic pressure to do the full-and-free flight-controls check on the servo-actuators before either engine — and its mechanically-driven hydraulic power supply — is even running. Controlled from the EDCU HYD page, powered from the helicopter battery, and limited by AMMC logic to 2 minutes of operation maximum. In flight, switching it on is inhibited by design."
+          ]
+        },
+        {
+          "heading": "Why it changes the start sequence",
+          "paragraphs": [
+            "Without EHPS, engine 1 normally has to start in ACC (accessory) mode first, because the flight-controls check needs mechanically-driven hydraulic pressure that only comes from a running engine. EHPS removes that dependency: run the electric pump on the ground, do the flight-controls check off it, then engine 1 can be started directly in MAIN mode, either engine first. The equivalent flight-controls check step later in the normal Engines Start procedure is skipped, since it's already been done.",
+            "Same logic applies in reverse at shutdown — with EHPS installed, engine and rotor shutdown can be done in MAIN mode, since the next flight-controls check will again be available from the electric pump rather than requiring a mechanically-driven source."
+          ]
+        },
+        {
+          "heading": "The check itself",
+          "paragraphs": [
+            "ELEC PUMP switch on, confirm HYD 1 pressure reads 80–120 bar (this is genuinely in the pump's normal red zone on the gauge — don't read that as a fault). Exercise the controls progressively and slowly: collective to about 50% then cyclic to full displacement, cyclic centered then collective to full displacement, then pedals to full displacement. Deselect ELEC PUMP when done — it also disengages on its own after 2 minutes regardless.",
+            "Using EHPS does draw down battery power that would otherwise be available for engine start, so it isn't purely free."
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "adi-stby-battery",
+      "title": "ADI STBY Emergency Battery",
+      "subtitle": "30 minutes of backup power for one instrument, and the three-position switch that controls it.",
+      "rfmReference": "AW169 / AW169 EP RFM Supplement 31 (ADI STBY Emergency Battery).",
+      "sections": [
+        {
+          "heading": "What it is",
+          "paragraphs": [
+            "A dedicated Li-Ion battery, installed in the left side of the nose avionics bay, that automatically feeds the standby attitude indicator for at least 30 minutes after a total failure of the electrical generating system. It connects through the CB panel to EMER BUS 1, protected by a 7.5A ADI STBY circuit breaker — a self-contained backup for exactly one instrument, not the wider emergency bus.",
+            "Controlled by a Control Switch Annunciator on the right side of the interseat console, three positions: ARM (battery powered through EMER BUS 1, ready to supply output), OFF (disconnected from both EMER BUS 1 and the ADI STBY), and TEST (press and hold — checks state of charge is above 80% plus the internal heater and temperature monitoring; TEST illuminates green if it passes). The STBY annunciator itself lights amber whenever the battery is actually delivering power to the ADI."
+          ]
+        },
+        {
+          "heading": "The only procedure that touches it",
+          "paragraphs": [
+            "Engine pre-start checks: press and hold ADI STBY BATT TEST until TEST illuminates, release, then set the switch to ARM. That's the entire normal-procedures footprint of this system — it's a check-and-arm item, nothing more."
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "external-hoist",
+      "title": "External Hoist Operations (Goodrich)",
+      "subtitle": "The rescue hoist system — weight and airspeed limits, the two cable-cutter systems, and how engine failure in the hover changes with a load on the hook.",
+      "rfmReference": "AW169 / AW169 EP RFM Supplement 5 (External Hoist Operations — Goodrich) — a 68-page supplement. This note covers the operational overview: the installation, key limitations, and the malfunction procedures. Full weight/CG envelope charts and hover-ceiling performance data go deeper than covered here.",
+      "sections": [
+        {
+          "heading": "What it is",
+          "paragraphs": [
+            "A Goodrich hoist unit mounted on the right side of the cabin, in either a 290 ft or 165 ft usable-cable version, each with its own pendant. The pilot and copilot can operate the hoist from the collective grip; the Hoist Operator (HO) operates it from the control pendant, which also displays cable payout. Pilot control always overrides the HO's input. Maximum load: 550 lb (249 kg) above 0°C OAT, 500 lb (227 kg) at or below — maximum 2 persons plus equipment either way.",
+            "Two independent ways to cut the cable in an emergency: an electrical cable cutter (PQRS), fired from a guarded HOIST CUT switch on either collective grip or from the HO control panel, and a manual cable cutter (BQRS) the HO must always have available as a backup if the electrical system fails."
+          ]
+        },
+        {
+          "heading": "Key limitations",
+          "paragraphs": [
+            "Minimum crew: one pilot plus one Hoist Operator. Load raising/lowering is permitted in a stationary hover or forward flight up to 45 KIAS (80 KIAS with the extended main footstep kit fitted). Maximum permissible bank angle with the cable extended is 20° — exceeding 15° of lateral pendulum angle relative to the helicopter's vertical axis can cause the overload clutch to slip, and that clutch is unlikely to function correctly if actually overloaded. Takeoff and landing with a suspended load on the hoist is prohibited.",
+            "During hoist operations the pilot must either fly manually, or fly attentively if HOV and RHT (or ALT) modes are engaged — the autopilot is not a substitute for monitoring during a hoist operation. Maximum weight including the hoisted load is 4800 kg (above 4600 kg for takeoff/landing, the Supplement 30 increased-gross-weight configuration is required). The HO must be harnessed throughout, wear protective gloves, and guide the cable by hand."
+          ]
+        },
+        {
+          "heading": "Cable and hoist malfunctions",
+          "paragraphs": [
+            "HOIST CBL FOUL: the cable isn't winding correctly onto the drum, motor stops automatically. Proceed in forward flight with the load suspended (same 45/80 KIAS limits), find a suitable site, hover and slowly descend to lay the load on the ground, then recover the cable manually.",
+            "HOIST OVER-TEMPERATURE: amber TEMP light on the pendant, motor current automatically limited to 80 amps — the hoist keeps working but at reduced performance. Complete the current cycle and wait for the indication to clear before resuming; prolonged operation with TEMP lit risks a hoist failure.",
+            "HOIST CUT ARM: appears when a cut-system guard has been lifted. If it was intentional, continue as required. If it was unintentional, lower the guard, don't lift it again, and stop hoist operations, HOIST PWR to OFF."
+          ]
+        },
+        {
+          "heading": "Engine failure in the hover with a load on the hook",
+          "paragraphs": [
+            "Where OEI hover performance capability is not required: the gross weight and hover height that would normally satisfy the Flyaway or Vertical Reject WAT charts may not actually give a safe flyaway or reject with a cable extended and a load hanging — that's a real, named caveat, not a generic warning. Recover aircraft control per the standard Vertical Reject or Flyaway procedure, then either raise the load back into the cabin, emergency-jettison it, or transition forward (same 45/80 KIAS limit), depending on conditions and load type.",
+            "Where OEI hover performance capability is required — meaning the aircraft is being flown at the weights defined on the hover-OGE 2.5-minute-OEI charts specifically to guarantee no rotor droop or height loss on an engine failure — maintain the collective pitch setting (2.5-minute OEI rating covers the hover) and raise the load into the cabin; raising a full-length load from fully extended takes about 2 minutes."
+          ]
+        },
+        {
+          "heading": "If a double DC generator failure happens with a load on the hook",
+          "paragraphs": [
+            "The hoist reverts to being powered by the main battery. If the battery is used to recover the load, the normal 30-minute battery endurance figure is not guaranteed once the hoist has drawn on it."
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "cargo-hook",
+      "title": "Cargo Hook Operations",
+      "subtitle": "Electrical, mechanical, and explosive-cartridge release — three independent ways to let go of an external load, and when each one applies.",
+      "rfmReference": "AW169 / AW169 EP RFM Supplement 6 (Cargo Hook Operations) — a 76-page supplement. This note covers the operational overview: the installation, key limitations, and the release/malfunction procedures. Full weight/CG envelope charts and hover-ceiling performance data go deeper than covered here.",
+      "sections": [
+        {
+          "heading": "What it is",
+          "paragraphs": [
+            "A cargo-only (Non-Human External Cargo) hook system, approved for Class B rotorcraft-load combinations — the load must be jettisonable and lifted free of land or water — Day VFR only, one pilot minimum, and only personnel actually involved in the cargo operation may be aboard. Powered from Main Bus 3; the emergency release circuit is on its own separate EMERG Bus 1, so it stays live even if the normal cargo hook power is lost.",
+            "Three ways to let go of the load: the normal electrical release, a guarded CARGO REL pushbutton on either cyclic grip; a ground-personnel-only secondary manual release mounted directly on the hook; and an Emergency Cargo Release (REL EMER) guarded switch on the HOOK control panel, which fires an electrical explosive cartridge. An optional two-camera kit can show the hook and load on the MFD, though a mirror, other approved camera, or a crew member's direct observation are all acceptable alternatives."
+          ]
+        },
+        {
+          "heading": "Key limitations",
+          "paragraphs": [
+            "Maximum weight with the external load: 4800 kg. Airspeed: 100 KIAS up to 12,000 ft density/pressure altitude (whichever is lower), 90 KIAS above that — but airspeed is really governed by controllability, since load size, shape, and strop length all affect handling, and airspeed must always be adjusted to keep the load in continuous sight."
+          ]
+        },
+        {
+          "heading": "Jettisoning the load",
+          "paragraphs": [
+            "Confirm HOOK PWR is ON. Rotate the CARGO REL late-arm guard to the operational position — HOOK ARM illuminates, and from this point raising either release guard can release the cargo, so only do this when actually ready to let go. Press CARGO REL — HOOK OPEN illuminates, confirm the load is away, then return the late-arm guard to stowed.",
+            "If that doesn't release the load, lift the CARGO REL EMERG guard on the HOOK control panel instead — confirm HOOK ARM is showing, confirm the load is away, then close the guard again and select HOOK PWR to OFF. Cargo hook operations are considered interrupted after an emergency release."
+          ]
+        },
+        {
+          "heading": "Cautions",
+          "paragraphs": [
+            "HOOK ARM: the release system is armed. If that was intentional, continue. If it wasn't, close the guards, don't rotate the late-arm guard or lift the EMERG guard again until actually ready to release, then complete a load release and select HOOK PWR OFF.",
+            "HOOK OPEN: the hook is physically open. If it stays lit after releasing the CARGO REL pushbutton, cargo hook operations must be interrupted."
+          ]
+        },
+        {
+          "heading": "Engine failure in the hover with a load on the hook",
+          "paragraphs": [
+            "Same caveat as with the hoist: gross weights and hover heights that satisfy the standard Flyaway or Vertical Reject WAT charts may not actually give a safe flyaway or reject with an external load hanging underneath — it's a genuinely different situation from a clean aircraft, not just a heavier one. Recover aircraft control per the standard Vertical Reject or Flyaway procedure, then jettison the load and transition forward (maximum 45 KIAS) depending on conditions."
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "ditching",
+      "title": "Ditching Configurations",
+      "subtitle": "The emergency floatation system and liferafts — arming logic, the full water-contact sequence, and what FLOAT DEGR actually means.",
+      "rfmReference": "AW169 / AW169 EP RFM Supplement 11 (Ditching Configurations), Part A — Aerosekur Emergency Floatation System. Later avionics phases also offer a DART-brand floatation kit (Parts B/C of this supplement, with an integrated-liferaft variant) — not covered in this note.",
+      "sections": [
+        {
+          "heading": "What the system is",
+          "paragraphs": [
+            "Two forward and two aft float installations in dedicated fuselage openings, two gas distribution/inflation systems, and four immersion switches. Demonstrated and approved for ditching up to Sea State 6 (significant wave height 4–6 m) at weights up to 4800 kg — well beyond the Sea State 4 that ditching regulations actually require.",
+            "The Floatation Control Panel, in the interseat console, has a TEST/OFF/ARMED master switch. OFF isolates power from the water sensors and the guarded collective-grip pushbuttons. ARMED makes the discharge valves live — via water sensor immersion or the pilot/copilot's guarded FLOAT pushbutton. TEST checks the electrical activation circuit's continuity as part of preflight, and is automatically disabled in flight by the weight-on-wheels switch.",
+            "Two liferafts are carried, in one of two configurations: Carry-On (stowed on a seat, deployed manually through a Type IV emergency exit, reduces passenger capacity from 8 to 7) or Sponson (mounted in the sponsons themselves, no seating impact, with an external activation handle accessible from outside the aircraft for a water-side deployment)."
+          ]
+        },
+        {
+          "heading": "Hard rules",
+          "paragraphs": [
+            "The floatation system and liferafts exist for ditching only — floatation bags and liferafts must never be inflated in flight. Takeoff after ditching is prohibited. Total occupants, crew included, must not exceed 11 when forecast sea conditions along the route exceed 2.5 m significant wave height. With retractable bear paws fitted, the gear must be retracted before extended overwater flight. Bear paws, snow pads, and snow skis (Supplements 8, 45, 50) are explicitly listed as not compliant with ditching requirements — fit any of those and the ditching approval no longer applies."
+          ]
+        },
+        {
+          "heading": "The ditching sequence",
+          "paragraphs": [
+            "Preliminary: brief crew and passengers, notify ATC, transponder to 7700, seatbelt sign on, secure loose equipment, cabin doors confirmed closed (they stay closed throughout — opening them lets in the water that would otherwise be kept out), mute HTAWS, inhibit the low-height aural, life vests and harnesses on and tightened.",
+            "Approach: set the radar altimeter (height-over-water is notoriously hard to judge by eye, hence the specific caution to use RadAlt cues), wipers fast, pitot heat off, confirm FLOATS EMER armed, assess sea state and wind, establish a ditching heading and a descent profile that targets no more than 30 kt groundspeed at water contact, emergency lights on, alert everyone for impact, transmit final position, brace order over the PA, and — if power allows — establish a hover at a safe height first. Touch down cushioning the impact with the collective, aircraft level or slightly nose-up (5°), avoiding any rearward movement.",
+            "On water contact: both engine mode knobs OFF, lift the guard and press FLOAT on either collective grip (the bags inflate automatically on touchdown regardless, but this is the manual backup), survival equipment on, emergency exits open/eject, release both liferafts, deploy the ELT, initiate evacuation over the PA, and only once the rotor has fully stopped does passenger evacuation actually begin. Master Cut-Off Switch off, then abandon the helicopter.",
+            "At high touchdown speeds the aircraft can roll and yaw left after touchdown from gyroscopic effects — that's a real, anticipated tendency the pilot needs to actively correct for, not a sign something's gone wrong."
+          ]
+        },
+        {
+          "heading": "FLOAT DEGR",
+          "paragraphs": [
+            "Triggered by bottle pressure too high or too low for ambient conditions, a faulty pressure transducer, or a faulty float switch. The floats may not actually work if ditching becomes necessary with this caution showing — the response is simply to continue the flight according to operational requirements, i.e., this is a dispatch/risk-picture item, not something with its own corrective checklist."
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "adelt",
+      "title": "ADELT: Crash Position Indicator with Deployable ELT",
+      "subtitle": "Two frequencies, two purposes — the swept tone that just says \"here\" and the digital message that says \"here, precisely, from GPS.\"",
+      "rfmReference": "AW169 / AW169 EP RFM Supplement 15 (Crash Position Indicator with Deployable ELT) and Section 7 (System Description, OES).",
+      "sections": [
+        {
+          "heading": "What it is",
+          "paragraphs": [
+            "A locator beacon on the left side of the tail cone, containing its own transmitter and antenna, that ejects from the aircraft in a crash — automatically, or manually at the pilot's discretion. Once deployed it transmits on two channels for two different purposes. The standard swept tone on 121.5/243.0 MHz — the classic analog distress tone — runs until battery power is exhausted, typically around 48 hours. Separately, 406.025 MHz carries an encoded digital message of the aircraft's position, sourced from the GPS/FMS via ARINC, and runs for about 24 hours.",
+            "The system comprises the beacon itself, a Beacon Release Unit, a System Interface Unit, a Cockpit Control Panel in the interseat console, a water-activated switch, and an Aircraft Identification Device."
+          ]
+        },
+        {
+          "heading": "Manual control",
+          "paragraphs": [
+            "Two separate manual actions, not one: lifting the guard and operating the TRANSMIT switch starts transmission from the beacon without releasing it — useful for a self-test or if activation is needed without an actual beacon separation. Lifting the guard and operating DEPLOY on the cockpit control panel releases the beacon itself, confirmed by both the TX/TEST and BEACON GONE lights. Transmission alone can be stopped by moving TRANSMIT to off and pressing TEST/RESET."
+          ]
+        },
+        {
+          "heading": "Self-test discipline",
+          "paragraphs": [
+            "The self-test should not be run more often than monthly — running it more frequently shortens the battery's life. Notify the nearest ATC facility before testing, since the 121.5 MHz tone the test actually transmits will be treated as a valid distress signal by anyone monitoring it, test or not."
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "eaps",
+      "title": "EAPS: Engine Air Particle Separator",
+      "subtitle": "How the vortex separator protects the P&WC 210A from sand and dust, and the engine limits table that only applies with this kit installed.",
+      "rfmReference": "AW169 RFM Supplement 3 (Engine Air Particle Separator). This configuration's engine limits differ from AW169 EP — see the separate AW169 EP note.",
+      "sections": [
+        {
+          "heading": "What it is",
+          "paragraphs": [
+            "Two particle separators sit in front of each engine air intake. Incoming air is spun by vortex generators inside the separator; the swirling action throws foreign particles (sand, dust) outward while clean air continues into the engine intake. The separated particles collect in a lower chamber and are discharged overboard through an ejector driven by engine bleed air.",
+            "Each engine has its own EAPS switch on the KITS panel in the interseat console. Switched ON, bleed air actively drives the ejector. Switched OFF, the separator still works but at roughly half the efficiency — and because nothing is actively ejecting particles, the lower chamber fills up; once full, incoming particles pass straight through into the engine intake with no further separation at all."
+          ]
+        },
+        {
+          "heading": "Engine limits with EAPS installed",
+          "paragraphs": [
+            "This kit carries its own limitations table for the P&WC 210A, All Engines Operating, airspeed at or below 90 KIAS — distinct from the aircraft's general Section 1 limits, and lower across the board than the EP configuration's version of this same table."
+          ],
+          "table": {
+            "columns": [
+              "Parameter",
+              "Max continuous",
+              "5-min Take-Off range",
+              "Max 5-min",
+              "Transient"
+            ],
+            "rows": [
+              [
+                "Power Index (PI %)",
+                "100",
+                "101–111",
+                "111",
+                "125 (10 sec)"
+              ],
+              [
+                "Gas Generator Speed (NG %)",
+                "96.5",
+                "96.6–98.2",
+                "98.2",
+                "98.9 (20 sec)"
+              ],
+              [
+                "ITT (°C / %)",
+                "868 (100%)",
+                "869–930 (100.1–107.1%)",
+                "930 (107.1%)",
+                "941 (108.4%, 20 sec)"
+              ],
+              [
+                "Torque (TQ %)",
+                "100",
+                "101–111",
+                "—",
+                "125 (10 sec)"
+              ]
+            ]
+          }
+        },
+        {
+          "heading": "Operating it",
+          "paragraphs": [
+            "Switch EAPS ON for both engines after start, and leave it on for dusty or sandy conditions — expect ITT to rise slightly when it's selected on. Switch it OFF before shutdown, ahead of the engine mode switches going OFF."
+          ]
+        },
+        {
+          "heading": "Malfunction",
+          "paragraphs": [
+            "1(2) EAPS PRESS means the bleed-air shut-off valve for that engine is stuck — closed when it should be open, or open when it should be closed. Continue flight either way, but know what it costs you: with EAPS switched ON and the valve actually closed, separation is degraded because the ejector isn't getting bleed air. With EAPS switched OFF and the valve actually open, aircraft performance may not match the EAPS-OFF performance charts — use the EAPS-ON charts instead in that case.",
+            "A lightning strike's induced current can trip the EAPS circuit breakers even without any other damage — if that happens, they can simply be reset."
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "fuel-transfer-pump",
+      "title": "Fuel Transfer Pump",
+      "subtitle": "Why a failed engine's own fuel becomes usable again, and the one-way rule that keeps a pilot from ever feeding the wrong tank.",
+      "rfmReference": "AW169 / AW169 EP RFM Supplement 39 (Fuel Transfer Pump).",
+      "sections": [
+        {
+          "heading": "What it's for",
+          "paragraphs": [
+            "A single reversible pump, submerged in the LH tank sump, that can move fuel in either direction between the left and right main tanks through a pipeline routed via the existing intercommunication channel — no new tank wall interfaces. It self-primes in either direction within 10 seconds of power, self-stops once it can't pump any more fuel to the other side, and reports its health to the AMMC.",
+            "Two distinct jobs: in OEI, it makes the fuel below the intercommunication channel on the failed engine's side — fuel that would otherwise be stranded and unusable — available to the engine that's still running. In AEO, if the tanks become unbalanced (a leak, uneven consumption, or fuel sloshing during unbalanced flight), it can transfer fuel to restore balance."
+          ]
+        },
+        {
+          "heading": "The one-way rule in OEI",
+          "paragraphs": [
+            "With one engine failed, the pilot can only transfer fuel from the failed engine's tank to the operating engine's tank — never the other direction. The EDCU FUEL page only shows the button for the failed-engine side; the opposite button is inhibited by software, not just by procedure. This is a hard-wired safeguard against ever pulling fuel away from the engine that's actually keeping the aircraft flying.",
+            "Direction and progress show as a green arrow over the FUEL XFER icon on EDCU, PFD and the MFD synoptic page, plus an advisory naming the direction (\"FUEL XFER 1→2\" or \"2→1\"). FUEL XFER COMPLETE displays for about 10 seconds once an OEI transfer finishes and the pump stops itself."
+          ]
+        },
+        {
+          "heading": "Why unusable fuel becomes 0 kg",
+          "paragraphs": [
+            "Without this kit, fuel below the intercommunication channel in the tank tied to a failed engine simply can't reach the system and counts as unusable. With the Fuel Transfer Pump installed and used, that figure becomes 0 kg indicated for OEI — the pump is precisely what closes that gap. Below 160 kg is where this actually starts mattering; above that level the two tanks are already interconnected and balanced on their own."
+          ]
+        },
+        {
+          "heading": "AEO limits and stopping conditions",
+          "paragraphs": [
+            "In AEO, transfer automatically stops the moment 1(2) FUEL LOW activates on the tank being drawn from — FUEL XFER STOPPED displays for about 10 seconds. In the two genuinely abnormal cases — a leak, or one engine burning fuel unevenly — don't use FUEL XFER unless FUEL LOW is already active on the low tank and the other tank's spare fuel is actually needed to finish the flight safely. The routine case is different: after unbalanced flight has returned to balanced, XFER can simply restore the tanks to even without any of that caution attached. On the ground, it can also be used to correct an unbalance created by single-point refueling below the intercommunication channel."
+          ]
+        },
+        {
+          "heading": "Pump failure",
+          "paragraphs": [
+            "FUEL XFER PUMP caution: confirm XFER is actually OFF on the EDCU FUEL page. If the fuel on the failed-engine side is needed to finish the flight safely, try switching it back on. If the caution persists, that fuel has to be treated as unusable — land as soon as practicable or as soon as possible, depending on what's actually left."
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "rnp-apch-lpv",
+      "title": "RNP APCH with LPV/LP Minima",
+      "subtitle": "A satellite-augmented approach down to a 200 ft decision height — the annunciation colors, the 900 fpm/900-to-1000-ft rule for a failure, and when a missed approach becomes mandatory.",
+      "rfmReference": "AW169 / AW169 EP RFM Supplement 43 (RNP APCH with LPV/LP Minima).",
+      "sections": [
+        {
+          "heading": "What it is",
+          "paragraphs": [
+            "Requires its own AMMS option file enabled. RNP approaches flown to LPV or LP minima (charted as RNAV(GPS) or RNAV(GNSS)) use Satellite Based Augmentation (SBAS) to fly an approach with vertical guidance down to a 200 ft decision height, with no airport-specific ground equipment required. LPV gives lateral and vertical angular guidance; LP gives lateral angular guidance paired with Baro-VNAV for the vertical path instead. The GNSS sensors feed the FMS pseudo-localizer (NLOC) and pseudo-glideslope (NGS) deviations that the AFCS actually couples to.",
+            "Approved for day/night VFR and IFR. Maximum glide path angle 9°. Minimum airspeed to engage APP mode for these minima is 45 KIAS, and AFCS IAS mode must be engaged below 50 KIAS. Maximum ROD approaching the missed approach point is 900 fpm. Maximum airspeed at DH is 130 KIAS below 5000 ft, reducing 2 kt per 1000 ft above that — and if PWR LIM illuminates on the way down, airspeed must be reduced enough to clear it before reaching DH."
+          ]
+        },
+        {
+          "heading": "The annunciation colors",
+          "paragraphs": [
+            "White: the LP or LPV approach loaded correctly and the path is computed with no GNSS failure. Green: the pseudo-localizer deviation has been captured. Amber: a single or dual GNSS sensor used for the approach is degraded or has failed. These are worth reading correctly in real time, since the malfunction procedures below hinge on exactly this annunciation."
+          ]
+        },
+        {
+          "heading": "Flying it",
+          "paragraphs": [
+            "Before the FAF: confirm the white LPV or LP advisory, DA(H) set per the approach chart, PERFINIT executed, VNAV phase at CRUISE before the vertical path capture, and TOD correctly computed and shown. Arm NAPP (and NDCL if a deceleration profile is used) on the AFCS panel. If above the FAF altitude, the FMS captures the vertical path in Baro-VNAV down to FAF altitude, then transitions to pseudo-LOC/pseudo-GS guidance inside 2 NM of the FAF.",
+            "During final approach: once APP shows green, confirm the LPV or LP annunciation is also green, with the lateral axis transitioning automatically from NAPP to NLOC, and NGS engaged. A missed approach couples automatically on the lateral axis when GA is pressed — the vertical profile still has to be flown manually per the published missed approach altitudes."
+          ]
+        },
+        {
+          "heading": "What a GNSS problem actually costs you",
+          "paragraphs": [
+            "A single GNSS RAIM integrity failure, or one SBAS precision-approach channel going to standby, just means continue the approach — redundancy is reduced, not lost (SBAS integrity re-checks every 4 seconds and can recover on its own).",
+            "If SBAS precision mode is lost on both GNSS sensors at once, the outcome depends on whether Baro-VNAV minima are available for that approach. If they are, FMS deviations revert automatically to LNAV/VNAV and Baro-VNAV — LPV is replaced by VGP on the PFD — and the approach can continue in coupled mode by pressing APP or DCL again, unless the aircraft is already below 1000 ft AGL, in which case discontinue regardless. If Baro-VNAV minima are not available at all, there's no fallback — discontinue the approach outright."
+          ]
+        }
+      ]
+    }
+  ]
+}

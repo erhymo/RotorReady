@@ -1,13 +1,12 @@
-import SystemNoteDetailPage from "@/app/components/SystemNoteDetailPage";
-import { R22_SYSTEM_NOTES } from "@/data/r22/systemNotes";
+import LegacyRouteRedirect from "@/components/LegacyRouteRedirect";
+import { getSystemNoteSlugs } from "@/lib/build/staticParams";
 
+// Superseded by /r22/system-notes/note?slug=… — kept for old links.
 export function generateStaticParams() {
-  return R22_SYSTEM_NOTES.map((n) => ({ slug: n.slug }));
+  return getSystemNoteSlugs("R22").map((slug) => ({ slug }));
 }
 
-export default async function R22SystemNoteDetail({ params }: { params: Promise<{ slug: string }> }) {
+export default async function LegacyR22SystemNotePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const note = R22_SYSTEM_NOTES.find((n) => n.slug === slug);
-
-  return <SystemNoteDetailPage note={note} />;
+  return <LegacyRouteRedirect to="/r22/system-notes/note" param="slug" value={slug} />;
 }

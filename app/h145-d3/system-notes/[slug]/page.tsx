@@ -1,13 +1,12 @@
-import SystemNoteDetailPage from "@/app/components/SystemNoteDetailPage";
-import { H145D3_SYSTEM_NOTES } from "@/data/h145-d3/systemNotes";
+import LegacyRouteRedirect from "@/components/LegacyRouteRedirect";
+import { getSystemNoteSlugs } from "@/lib/build/staticParams";
 
+// Superseded by /h145-d3/system-notes/note?slug=… — kept for old links.
 export function generateStaticParams() {
-  return H145D3_SYSTEM_NOTES.map((n) => ({ slug: n.slug }));
+  return getSystemNoteSlugs("H145_D3").map((slug) => ({ slug }));
 }
 
-export default async function H145D3SystemNoteDetail({ params }: { params: Promise<{ slug: string }> }) {
+export default async function LegacyH145D3SystemNotePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const note = H145D3_SYSTEM_NOTES.find((n) => n.slug === slug);
-
-  return <SystemNoteDetailPage note={note} />;
+  return <LegacyRouteRedirect to="/h145-d3/system-notes/note" param="slug" value={slug} />;
 }

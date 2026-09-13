@@ -1,20 +1,40 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 
-import type { SystemNote } from "@/data/aw169/systemNotes";
+import { fetchContentJson } from "@/lib/contentUrl";
+import { systemNotesPath, type SystemNote } from "@/lib/systemNotes/data";
 
 export default function SystemNotesPage({
   title,
   basePath,
-  data,
+  variantId,
 }: {
   title: string;
   basePath: string;
-  data: SystemNote[];
+  variantId: string;
 }) {
   const router = useRouter();
+  const [data, setData] = useState<SystemNote[] | null>(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    queueMicrotask(() => {
+      if (!cancelled) setData(null);
+    });
+    fetchContentJson<{ notes?: SystemNote[] }>(systemNotesPath(variantId))
+      .then((json) => {
+        if (!cancelled) setData(Array.isArray(json?.notes) ? json.notes : []);
+      })
+      .catch(() => {
+        if (!cancelled) setData([]);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [variantId]);
 
   return (
     <div className="min-h-screen flex flex-col bg-white dark:bg-zinc-900 dark:text-zinc-100">
@@ -36,15 +56,18 @@ export default function SystemNotesPage({
 
       <main className="flex-1">
         <div className="max-w-3xl mx-auto p-4 space-y-3">
-          {data.length === 0 && (
+          {data === null && (
+            <p className="text-sm text-slate-500 dark:text-zinc-400 px-1 py-6 text-center">Loading…</p>
+          )}
+          {data !== null && data.length === 0 && (
             <p className="text-sm text-slate-500 dark:text-zinc-400 px-1 py-6 text-center">
               No system notes for this variant yet.
             </p>
           )}
-          {data.map((note) => (
+          {(data ?? []).map((note) => (
             <Link
               key={note.slug}
-              href={`${basePath}/${note.slug}`}
+              href={`${basePath}/note?slug=${encodeURIComponent(note.slug)}`}
               prefetch={false}
               className="group block rounded-xl border border-slate-200 bg-white px-4 py-3 transition hover:bg-slate-50 dark:border-zinc-700 dark:bg-zinc-900 dark:hover:bg-zinc-800"
             >

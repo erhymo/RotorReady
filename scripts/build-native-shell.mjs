@@ -20,7 +20,7 @@
 // just to have content to show.
 
 import { execFileSync } from "node:child_process";
-import { existsSync, mkdirSync, readdirSync, rmSync, statSync, cpSync } from "node:fs";
+import { existsSync, mkdirSync, readdirSync, readFileSync, rmSync, statSync, writeFileSync, cpSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -52,7 +52,15 @@ function log(msg) {
 }
 
 function moveOut() {
-  rmSync(HOLDING_DIR, { recursive: true, force: true });
+  // Never clear the holding dir blind: if it still exists, a previous run was
+  // interrupted before it could put those trees back, and this is the only copy
+  // of them left on disk (moveOut deletes the originals). Deleting it here would
+  // destroy app/api, app/admin, middleware.ts and friends for good, taking any
+  // uncommitted work in them with it. Put them back first, then start clean.
+  if (existsSync(HOLDING_DIR)) {
+    log("found an interrupted previous run — restoring its excluded routes first");
+    restore();
+  }
   mkdirSync(HOLDING_DIR, { recursive: true });
   for (const rel of EXCLUDE_FROM_EXPORT) {
     const src = path.join(root, rel);
@@ -97,6 +105,49 @@ function copyFiltered(src, dest) {
   }
 }
 
+// Two of these running at once is destructive, not just wasteful: the second
+// moveOut() races the first one's restore(), and the trees one has stashed can
+// be cleared by the other. Easy to trigger by accident (backgrounding the
+// command, or a second terminal), so refuse rather than corrupt the checkout.
+const LOCK_FILE = path.join(root, ".native-shell-lock");
+if (existsSync(LOCK_FILE)) {
+  const pid = Number(readFileSync(LOCK_FILE, "utf8").trim());
+  let alive = false;
+  try {
+    process.kill(pid, 0);
+    alive = true;
+  } catch {
+    alive = false;
+  }
+  if (alive) {
+    console.error(
+      `[build-native-shell] another build is already running (pid ${pid}). ` +
+        `Wait for it to finish — running two at once can delete app/api, app/admin and middleware.ts.`
+    );
+    process.exit(1);
+  }
+  log(`clearing stale lock from pid ${pid}`);
+  rmSync(LOCK_FILE, { force: true });
+}
+writeFileSync(LOCK_FILE, String(process.pid));
+
+// `finally` does not run when the process is signalled, and being killed
+// mid-build is exactly when the excluded trees are sitting in the holding dir.
+let cleanedUp = false;
+const cleanUp = () => {
+  if (cleanedUp) return;
+  cleanedUp = true;
+  restore();
+  rmSync(LOCK_FILE, { force: true });
+};
+for (const signal of ["SIGINT", "SIGTERM", "SIGHUP"]) {
+  process.on(signal, () => {
+    log(`received ${signal} — putting the excluded routes back before exiting`);
+    cleanUp();
+    process.exit(1);
+  });
+}
+
 let failed = false;
 try {
   moveOut();
@@ -124,7 +175,7 @@ try {
   failed = true;
   console.error(err);
 } finally {
-  restore();
+  cleanUp();
 }
 
 process.exit(failed ? 1 : 0);

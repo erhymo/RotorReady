@@ -120,3 +120,5 @@ public/fallback-*.js
 
 # Generated native offline shell (regenerate with `npm run native:shell`)
 /public-native/
+/.native-shell-lock
+/.native-shell-excluded

@@ -7,7 +7,7 @@ import { shouldShowNorwayTools } from "@/lib/geo/norwayToolsVisibility";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 import { modelRoutes } from "@/lib/models/catalog";
 import { openLiveOnlyLink } from "@/lib/liveOnlyLinks";
-import { contentUrl } from "@/lib/contentUrl";
+import { contentUrl, fetchContentJson } from "@/lib/contentUrl";
 
 function Bar(props: { href: string; title: string; description: string; tone?: "blue"|"amber"|"slate"|"emerald"; icon?: React.ReactNode; liveOnly?: boolean }) {
   const tones: Record<string, string> = {
@@ -59,6 +59,37 @@ function Bar(props: { href: string; title: string; description: string; tone?: "
 	  const activeVariant = variantLoading ? undefined : rawActiveVariant;
 	  const features = activeVariant?.features;
 	  const routes = activeVariant ? modelRoutes(activeVariant) : null;
+
+	  // Whether to offer Audio is decided by whether this model actually has
+	  // episodes, not by a flag in the code: several models carry the feature but
+	  // no recordings yet, and a bar leading to "no audio content" is a promise
+	  // the app does not keep. Reading it from the same index the audio page uses
+	  // also means the bar appears on its own the day episodes are published, with
+	  // no app release involved.
+	  const [hasAudio, setHasAudio] = useState(false);
+
+	  useEffect(() => {
+	    const variantId = activeVariant?.id;
+	    let cancelled = false;
+	    if (!variantId || !features?.audio) {
+	      queueMicrotask(() => {
+	        if (!cancelled) setHasAudio(false);
+	      });
+	      return () => {
+	        cancelled = true;
+	      };
+	    }
+	    fetchContentJson<{ items?: unknown[] }>(`/audio/${variantId}/index.json`)
+	      .then((data) => {
+	        if (!cancelled) setHasAudio(Array.isArray(data?.items) && data.items.length > 0);
+	      })
+	      .catch(() => {
+	        if (!cancelled) setHasAudio(false);
+	      });
+	    return () => {
+	      cancelled = true;
+	    };
+	  }, [activeVariant?.id, features?.audio]);
 
 	  useEffect(() => {
 	    fetch(contentUrl("/quiz-data/versions/data-version.json"))
@@ -115,7 +146,7 @@ function Bar(props: { href: string; title: string; description: string; tone?: "
 		          tone="blue"
 		          icon={<BookIcon className="h-4 w-4" />}
 		        />
-		        {features?.audio && (
+		        {features?.audio && hasAudio && (
           <Bar
             href="/audio"
             title="Audio"

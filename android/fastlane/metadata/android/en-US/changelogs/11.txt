@@ -1,0 +1,5 @@
+New study content now appears as soon as it is published, without waiting for an app update — podcasts, procedures, system notes, quick reference and quiz questions all refresh on their own.
+
+Added the AW189 podcast series and re-recorded the AW169 EP episodes with a clearer voice. Everything still works offline, and the app no longer waits on a slow connection to show content you already have.
+
+Fixes to AW189 weight limits, a missing AW169 diagram and several content corrections.

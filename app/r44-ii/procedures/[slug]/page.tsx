@@ -1,15 +1,12 @@
-import { notFound } from "next/navigation";
-import { R44_PROCEDURES, findR44Procedure } from "@/lib/procedures/r44-ii/data";
-import ProcedureDetail from "@/app/r44-ii/procedures/ProcedureDetail";
+import LegacyRouteRedirect from "@/components/LegacyRouteRedirect";
+import { getProcedureSlugs } from "@/lib/build/staticParams";
 
+// Superseded by /r44-ii/procedures/detail?slug=… — kept for old links.
 export function generateStaticParams() {
-  return R44_PROCEDURES.map((p) => ({ slug: p.slug }));
+  return getProcedureSlugs("R44_II").map((slug) => ({ slug }));
 }
 
-export default async function R44ProcedurePage({ params }: { params: Promise<{ slug: string }> }) {
+export default async function LegacyR44IiProcedurePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const procedure = findR44Procedure(slug);
-  if (!procedure) notFound();
-
-  return <ProcedureDetail procedure={procedure} />;
+  return <LegacyRouteRedirect to="/r44-ii/procedures/detail" param="slug" value={slug} />;
 }

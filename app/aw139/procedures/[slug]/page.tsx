@@ -1,15 +1,12 @@
-import { notFound } from "next/navigation";
-import { AW139_PROCEDURES, findAW139Procedure } from "@/lib/procedures/aw139/data";
-import ProcedureDetail from "@/app/aw139/procedures/ProcedureDetail";
+import LegacyRouteRedirect from "@/components/LegacyRouteRedirect";
+import { getProcedureSlugs } from "@/lib/build/staticParams";
 
+// Superseded by /aw139/procedures/detail?slug=… — kept for old links.
 export function generateStaticParams() {
-  return AW139_PROCEDURES.map((p) => ({ slug: p.slug }));
+  return getProcedureSlugs("AW139").map((slug) => ({ slug }));
 }
 
-export default async function AW139ProcedurePage({ params }: { params: Promise<{ slug: string }> }) {
+export default async function LegacyAw139ProcedurePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const procedure = findAW139Procedure(slug);
-  if (!procedure) notFound();
-
-  return <ProcedureDetail procedure={procedure} />;
+  return <LegacyRouteRedirect to="/aw139/procedures/detail" param="slug" value={slug} />;
 }

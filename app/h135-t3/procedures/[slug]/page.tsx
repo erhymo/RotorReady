@@ -1,15 +1,12 @@
-import { notFound } from "next/navigation";
-import { H135T3_PROCEDURES, findH135T3Procedure } from "@/lib/procedures/h135-t3/data";
-import ProcedureDetail from "@/app/h135-t3/procedures/ProcedureDetail";
+import LegacyRouteRedirect from "@/components/LegacyRouteRedirect";
+import { getProcedureSlugs } from "@/lib/build/staticParams";
 
+// Superseded by /h135-t3/procedures/detail?slug=… — kept for old links.
 export function generateStaticParams() {
-  return H135T3_PROCEDURES.map((p) => ({ slug: p.slug }));
+  return getProcedureSlugs("H135_T3").map((slug) => ({ slug }));
 }
 
-export default async function H135T3ProcedurePage({ params }: { params: Promise<{ slug: string }> }) {
+export default async function LegacyH135T3ProcedurePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const procedure = findH135T3Procedure(slug);
-  if (!procedure) notFound();
-
-  return <ProcedureDetail procedure={procedure} />;
+  return <LegacyRouteRedirect to="/h135-t3/procedures/detail" param="slug" value={slug} />;
 }

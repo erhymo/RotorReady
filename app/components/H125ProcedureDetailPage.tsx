@@ -1,35 +1,72 @@
 "use client";
 
-import { Suspense } from "react";
-import { useRouter, useSearchParams, useParams } from "next/navigation";
+import { useEffect, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 
 import AppTopBar from "@/components/AppTopBar";
+import { fetchContentJson } from "@/lib/contentUrl";
+import { renderInline, type InlineNode } from "@/lib/procedures/inline";
 
-import { PROCEDURES } from "./proceduresData";
+type Step = { left: string; right: InlineNode[] };
+type H125Procedure = {
+  slug: string;
+  title: string;
+  subtitle?: string;
+  rfmReference?: string;
+  steps: Step[];
+};
 
-function H125AS350B3ProcedureInner() {
+/**
+ * H125 / AS350 procedures keep their own layout (numbered steps, "Perform as
+ * follows", the tap-to-close compact overlay used when opened from the list) —
+ * only the content moved out of the bundle into public/procedures/<variantId>.json,
+ * and the procedure is now chosen by `?slug=` so a new one needs no app release.
+ */
+export default function H125ProcedureDetailPage({
+  variantId,
+  backHref,
+  footerNote,
+  notFoundNote,
+}: {
+  variantId: string;
+  backHref: string;
+  footerNote: string;
+  notFoundNote: string;
+}) {
   const router = useRouter();
   const sp = useSearchParams();
-  const params = useParams();
-
-  const rawSlug = (params && (params as any).slug) || "";
-  const slug = Array.isArray(rawSlug) ? rawSlug[0] : String(rawSlug || "");
-  const def = PROCEDURES[slug];
-
+  const slug = sp.get("slug") ?? "";
   const plist = sp.get("plist");
-  const compactList = !!plist && plist !== "0" && plist !== "false";
-  const compact = compactList;
+  const compact = !!plist && plist !== "0" && plist !== "false";
+  const [procedures, setProcedures] = useState<H125Procedure[] | null>(null);
 
-  if (!def) {
+  useEffect(() => {
+    let cancelled = false;
+    queueMicrotask(() => {
+      if (!cancelled) setProcedures(null);
+    });
+    fetchContentJson<{ procedures?: H125Procedure[] }>(`/procedures/${variantId}.json`)
+      .then((json) => {
+        if (!cancelled) setProcedures(Array.isArray(json?.procedures) ? json.procedures : []);
+      })
+      .catch(() => {
+        if (!cancelled) setProcedures([]);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [variantId]);
+
+  const def = procedures?.find((p) => p.slug === slug);
+
+  if (procedures !== null && !def) {
     return (
       <div className="min-h-screen bg-slate-50 dark:bg-zinc-900">
-	        <AppTopBar title="Procedure" backHref="/training/procedures/h125-as350-b3-2b1" backLabel="Procedures" />
+        <AppTopBar title="Procedure" backHref={backHref} backLabel="Procedures" />
         <main className="mx-auto max-w-3xl p-6">
           <div className="rounded-xl border bg-white dark:bg-zinc-900 dark:border-zinc-700 p-4">
             <div className="text-slate-900 dark:text-zinc-100 font-semibold mb-2">Procedure not found</div>
-            <p className="text-sm text-slate-700 dark:text-zinc-300">
-              This H125 / AS350 B3 (2B1) procedure is not defined. Use the RFM directly for reference.
-            </p>
+            <p className="text-sm text-slate-700 dark:text-zinc-300">{notFoundNote}</p>
           </div>
         </main>
       </div>
@@ -37,6 +74,7 @@ function H125AS350B3ProcedureInner() {
   }
 
   function renderContent() {
+    if (!def) return <main className="mx-auto max-w-3xl p-6 text-sm text-slate-500 dark:text-zinc-400">Loading…</main>;
     return (
       <main className="mx-auto max-w-3xl p-6 space-y-6">
         <header className="rounded-xl border bg-white dark:bg-zinc-900 dark:border-zinc-700 p-4">
@@ -63,16 +101,14 @@ function H125AS350B3ProcedureInner() {
                   <span className="font-medium">{s.left}</span>
                 </div>
                 <div className="text-sm text-slate-800 dark:text-zinc-100 sm:mt-0 mt-1">
-                  {"\u00b7"} {s.right}
+                  {"·"} {renderInline(s.right)}
                 </div>
               </div>
             ))}
           </div>
         </section>
 
-        <footer className="pt-2 text-center text-xs text-slate-500 dark:text-zinc-400">
-          H125 / AS350 B3 (2B1) training reference. For training use only. Always cross-check with the latest approved RFM.
-        </footer>
+        <footer className="pt-2 text-center text-xs text-slate-500 dark:text-zinc-400">{footerNote}</footer>
       </main>
     );
   }
@@ -83,39 +119,21 @@ function H125AS350B3ProcedureInner() {
         className="fixed left-0 right-0 bottom-0 top-0 z-40 bg-white dark:bg-zinc-900 cursor-pointer"
         role="button"
         aria-label="Close procedure"
-        onClick={() => {
-          try {
-            const before = window.location.pathname + window.location.search;
-            router.back();
-            setTimeout(() => {
-              try {
-                if (window.location.pathname + window.location.search === before) {
-                  router.push("/training/procedures/h125-as350-b3-2b1");
-                }
-              } catch {}
-            }, 120);
-          } catch {}
-        }}
+        onClick={() => router.push(backHref)}
       >
         <div
           className="h-full w-full overflow-y-auto"
           onClickCapture={(e) => {
             const t = e.target as HTMLElement;
-            if (t && t.closest("a,button,input,textarea,select,[data-prevent-back]")) {
-              e.stopPropagation();
-            }
+            if (t && t.closest("a,button,input,textarea,select,[data-prevent-back]")) e.stopPropagation();
           }}
           onMouseDownCapture={(e) => {
             const t = e.target as HTMLElement;
-            if (t && t.closest("a,button,input,textarea,select,[data-prevent-back]")) {
-              e.stopPropagation();
-            }
+            if (t && t.closest("a,button,input,textarea,select,[data-prevent-back]")) e.stopPropagation();
           }}
           onTouchStartCapture={(e) => {
             const t = e.target as HTMLElement;
-            if (t && t.closest("a,button,input,textarea,select,[data-prevent-back]")) {
-              e.stopPropagation();
-            }
+            if (t && t.closest("a,button,input,textarea,select,[data-prevent-back]")) e.stopPropagation();
           }}
         >
           {renderContent()}
@@ -126,16 +144,8 @@ function H125AS350B3ProcedureInner() {
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-zinc-900">
-	      <AppTopBar title="Procedure" backHref="/training/procedures/h125-as350-b3-2b1" backLabel="Procedures" />
+      <AppTopBar title="Procedure" backHref={backHref} backLabel="Procedures" />
       {renderContent()}
     </div>
-  );
-}
-
-export default function ProcedureClient() {
-  return (
-    <Suspense fallback={<div className="min-h-screen bg-slate-50 dark:bg-zinc-900" />}>
-      <H125AS350B3ProcedureInner />
-    </Suspense>
   );
 }

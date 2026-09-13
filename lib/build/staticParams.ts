@@ -115,6 +115,14 @@ export function getQuestionIndexParams(paramName: string, count: number): Record
 
 export const QUIZ_AMOUNT_TOKENS = ["10", "20", "30", "40", "all"];
 
+/** Every procedure slug for a variant, from public/procedures/<variantId>.json. */
+export function getProcedureSlugs(variantId: string): string[] {
+  const data = readJson(path.join(PUBLIC_DIR, "procedures", `${variantId}.json`));
+  return (data?.procedures ?? [])
+    .map((p: { slug?: string }) => p.slug)
+    .filter((s: unknown): s is string => typeof s === "string");
+}
+
 /** Every system-note slug for the given variant(s), from public/system-notes/<variantId>.json. */
 export function getSystemNoteSlugs(...variantIds: string[]): string[] {
   const slugs = new Set<string>();

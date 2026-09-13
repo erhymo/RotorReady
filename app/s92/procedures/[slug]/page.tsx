@@ -1,15 +1,12 @@
-import { notFound } from "next/navigation";
-import { S92_PROCEDURES, findS92Procedure } from "@/lib/procedures/s92/data";
-import ProcedureDetail from "@/app/s92/procedures/ProcedureDetail";
+import LegacyRouteRedirect from "@/components/LegacyRouteRedirect";
+import { getProcedureSlugs } from "@/lib/build/staticParams";
 
+// Superseded by /s92/procedures/detail?slug=… — kept for old links.
 export function generateStaticParams() {
-  return S92_PROCEDURES.map((p) => ({ slug: p.slug }));
+  return getProcedureSlugs("S92").map((slug) => ({ slug }));
 }
 
-export default async function S92ProcedurePage({ params }: { params: Promise<{ slug: string }> }) {
+export default async function LegacyS92ProcedurePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const procedure = findS92Procedure(slug);
-  if (!procedure) notFound();
-
-  return <ProcedureDetail procedure={procedure} />;
+  return <LegacyRouteRedirect to="/s92/procedures/detail" param="slug" value={slug} />;
 }

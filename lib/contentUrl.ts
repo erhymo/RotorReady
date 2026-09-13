@@ -25,6 +25,23 @@ export function contentUrl(path: string): string {
   return Capacitor.isNativePlatform() ? `${LIVE_ORIGIN}${path}` : path;
 }
 
+// No signal fails fast, so the bundled fallback kicks in straight away. A bad
+// signal is the dangerous case: a captive portal or a hangar with one bar can
+// accept the connection and then never answer, and a plain fetch will sit there
+// for minutes. The content is already on the device, so waiting is never worth
+// more than a few seconds — after this the bundled copy is used instead.
+const LIVE_FETCH_TIMEOUT_MS = 4000;
+
+async function fetchLive(path: string): Promise<Response> {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), LIVE_FETCH_TIMEOUT_MS);
+  try {
+    return await fetch(`${LIVE_ORIGIN}${path}`, { signal: controller.signal });
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
 /**
  * Fetches JSON content, preferring the live origin in the native app (freshest — see
  * contentUrl above) and falling back to the locally bundled copy at the same relative
@@ -37,7 +54,7 @@ export function contentUrl(path: string): string {
 export async function fetchContentJson<T>(path: string): Promise<T> {
   if (Capacitor.isNativePlatform()) {
     try {
-      const res = await fetch(`${LIVE_ORIGIN}${path}`);
+      const res = await fetchLive(path);
       if (!res.ok) throw new Error(`live fetch failed: ${res.status}`);
       return (await res.json()) as T;
     } catch {
@@ -59,7 +76,7 @@ export async function fetchContentJson<T>(path: string): Promise<T> {
 export async function fetchContentText(path: string): Promise<string> {
   if (Capacitor.isNativePlatform()) {
     try {
-      const res = await fetch(`${LIVE_ORIGIN}${path}`);
+      const res = await fetchLive(path);
       if (!res.ok) throw new Error(`live fetch failed: ${res.status}`);
       return await res.text();
     } catch {

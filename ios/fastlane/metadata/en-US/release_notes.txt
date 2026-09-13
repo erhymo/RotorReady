@@ -1,7 +1,0 @@
-New study content now appears in the app as soon as it is published, without waiting for an app update: podcasts, procedures, system notes, quick reference numbers, quiz questions and IFR/VFR topics all refresh on their own.
-
-Added the AW189 podcast series (warning lights and the full AFCS walkthrough) and re-recorded the AW169 EP episodes with a clearer voice. Added six IFR/VFR topics.
-
-Everything still works offline. The app opens straight from the device and no longer waits on a slow connection before showing content you already have.
-
-Fixes: corrected the AW189 weight limits to show which figures require the weight extension kit, removed two podcast episodes that had factual errors, restored a missing AW169 take-off profile diagram, and fixed a quiz question that had no correct answer.

@@ -1,0 +1,180 @@
+{
+  "title": "AW169 EP Quick Reference",
+  "intro": "For training use only. This is an informal quick reference of selected AW169 RFM limitations. Always use the official RFM / QRH as primary reference.",
+  "groups": [
+    {
+      "title": "Transmission Torque / PI (EP)",
+      "items": [
+        {
+          "label": "AEO",
+          "lines": [
+            "Max continuous: 100%",
+            "Max take-off: 122% (30 min; 5 min with EAPS kit)",
+            "Max transient: 132% (10 s)"
+          ]
+        },
+        {
+          "label": "OEI",
+          "lines": [
+            "Max continuous: 148%",
+            "Max 2.5 min: 185%",
+            "Max transient: 195% (10 s)"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Rotor Speed (NR %)",
+      "items": [
+        {
+          "label": "AEO power-on",
+          "lines": [
+            "Variable governing with PLUS-mode",
+            "Transient min: 90%",
+            "Transient max: 107%"
+          ]
+        },
+        {
+          "label": "OEI power-on",
+          "lines": [
+            "Transient min: 85%",
+            "Cautionary (OEI landing/flyaway only): 90–100%",
+            "Min continuous: 101%",
+            "Continuous: 101–105%",
+            "Max continuous: 105%",
+            "Transient max: 107%"
+          ]
+        },
+        {
+          "label": "Power-off",
+          "lines": [
+            "Transient min: 85%",
+            "Min continuous: 90%"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Airspeed Limits (selected)",
+      "items": [
+        {
+          "label": "General",
+          "lines": [
+            "Max airspeed AEO with TQ above 100%: 90 KIAS",
+            "IFR Vmini: 50 KIAS",
+            "Max IFR approach: 130 KIAS at and below 5000 ft, then minus 2 kt / 1000 ft above",
+            "Max with one AP failed: 120 KIAS",
+            "Max wipers: 140 KIAS",
+            "Min autorotation: 50 KIAS"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Ground & Handling Limits",
+      "items": [
+        {
+          "label": "Slope limits (basic configuration)",
+          "lines": [
+            "Sloped take‑off and landing limited to:",
+            "Nose up: 10°",
+            "Nose down: 7°",
+            "Left wing low: 10°",
+            "Right wing low: 10°"
+          ]
+        },
+        {
+          "label": "Wheel brake & parking",
+          "lines": [
+            "Max running speed for wheel brake application: 40 knots GS",
+            "Parking on dry, paved slopes up to 12° permitted for max 20 hours."
+          ]
+        },
+        {
+          "label": "Ground speed (selected)",
+          "lines": [
+            "On paved surfaces (dry, paved): max taxi speed 40 knots GS, rolling take-off / running landing 60 knots GS, max emergency landing speed 60 knots GS",
+            "On prepared grass: max taxi speed 20 knots GS",
+            "Rolling take-off / running landing: 30 knots GS",
+            "Max emergency landing speed: 50 knots GS"
+          ]
+        },
+        {
+          "label": "Wind for engine/rotor start & stop",
+          "lines": [
+            "If forecast wind exceeds 50 knots, park in sheltered area or hangar."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Inlet / Inter Turbine Temperature (ITT °C)",
+      "items": [
+        {
+          "label": "Engine start",
+          "lines": [
+            "Max for start: 750 °C",
+            "Transient 2 s: up to 825 °C"
+          ]
+        },
+        {
+          "label": "AEO",
+          "lines": [
+            "Max continuous: 868 °C (100%)",
+            "30 min: 869–930 °C (100.1–107.1%)",
+            "Max 30 min: 930 °C (107.1%)",
+            "Transient 20 s: 941 °C (108.4%)"
+          ]
+        },
+        {
+          "label": "OEI",
+          "lines": [
+            "Max continuous: 941 °C (108.4%)",
+            "2.5 min: 942–1020 °C (108.5–117.5%)",
+            "Max 2.5 min: 1020 °C (117.5%)"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Engine Oil Limits",
+      "items": [
+        {
+          "label": "Engine oil pressure (bar)",
+          "lines": [
+            "Normal range: 5.1–18.1 bar",
+            "Transient max (20 s): 21.0 bar",
+            "Transient min (20 s): 2.6 bar"
+          ]
+        },
+        {
+          "label": "Engine oil temperature (°C)",
+          "lines": [
+            "Normal range: -40 to 135 °C",
+            "Cautionary range: 135 to 160 °C (1 min)"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Weight Limits (basic configuration)",
+      "items": [
+        {
+          "label": "Basic RFM Section 1",
+          "lines": [
+            "Max gross weight for towing / taxi: 4650 kg",
+            "Max gross weight for CAT B take-off / landing: 4600 kg",
+            "Min flight / rotor-running gross weight: 3300 kg"
+          ]
+        },
+        {
+          "label": "Increased gross weight (Supplement 30)",
+          "lines": [
+            "Max gross weight for towing / taxi: 4850 kg",
+            "Max gross weight for take-off / landing: 4800 kg"
+          ]
+        }
+      ]
+    }
+  ]
+}

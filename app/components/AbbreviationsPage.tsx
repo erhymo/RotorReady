@@ -1,11 +1,33 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+
+import { fetchContentJson } from "@/lib/contentUrl";
 
 type Abbreviation = { abbr: string; meaning: string };
 
-export default function AbbreviationsPage({ title, data }: { title: string; data: Abbreviation[] }) {
+// The list used to be a compiled-in array per model, so a correction only
+// reached an installed native app on the next store release. It now comes from
+// public/abbreviations/<variantId>.json through lib/contentUrl.ts.
+export default function AbbreviationsPage({ title, variantId }: { title: string; variantId: string }) {
   const router = useRouter();
+  const [data, setData] = useState<Abbreviation[]>([]);
+
+  useEffect(() => {
+    let cancelled = false;
+    queueMicrotask(() => {
+      if (!cancelled) setData([]);
+    });
+    fetchContentJson<{ items?: Abbreviation[] }>(`/abbreviations/${variantId}.json`)
+      .then((json) => {
+        if (!cancelled) setData(Array.isArray(json?.items) ? json.items : []);
+      })
+      .catch(() => {});
+    return () => {
+      cancelled = true;
+    };
+  }, [variantId]);
 
   return (
     <div className="min-h-screen flex flex-col bg-white dark:bg-zinc-900 dark:text-zinc-100">

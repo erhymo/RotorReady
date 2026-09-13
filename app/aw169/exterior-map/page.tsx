@@ -1,10 +1,31 @@
 "use client";
 
+import { useEffect, useState } from "react";
+
 import AppTopBar from "@/components/AppTopBar";
-import ExteriorMap from "@/components/ExteriorMap";
-import { AW169_EXTERIOR_HOTSPOTS } from "@/data/aw169/exteriorHotspots";
+import ExteriorMap, { type ExteriorHotspot } from "@/components/ExteriorMap";
+import { fetchContentJson } from "@/lib/contentUrl";
+import { useActiveModelVariant } from "@/lib/models/hooks";
 
 export default function AW169ExteriorMapPage() {
+  const { variant } = useActiveModelVariant();
+  const variantId = variant?.id === "AW169_EP" ? "AW169_EP" : "AW169";
+  // Hotspots used to be a compiled-in array, so a correction needed a store
+  // release to reach an installed native app.
+  const [hotspots, setHotspots] = useState<ExteriorHotspot[]>([]);
+
+  useEffect(() => {
+    let cancelled = false;
+    fetchContentJson<{ hotspots?: ExteriorHotspot[] }>(`/exterior-map/${variantId}.json`)
+      .then((json) => {
+        if (!cancelled) setHotspots(Array.isArray(json?.hotspots) ? json.hotspots : []);
+      })
+      .catch(() => {});
+    return () => {
+      cancelled = true;
+    };
+  }, [variantId]);
+
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-zinc-900">
       <AppTopBar title="Exterior Map" backHref="/" backLabel="Home" />
@@ -19,7 +40,7 @@ export default function AW169ExteriorMapPage() {
         <ExteriorMap
           imageSrc="/aw169/exterior-map/aw169-side-view.png"
           imageAlt="AW169 side profile, from RFM Figure I-1 Helicopter - Three Views"
-          hotspots={AW169_EXTERIOR_HOTSPOTS}
+          hotspots={hotspots}
           width={1270}
           height={690}
         />

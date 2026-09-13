@@ -1,0 +1,177 @@
+{
+  "title": "H125 / AS350 B3 (2B1) Quick Reference",
+  "intro": "For training use only. This is an informal quick reference of selected H125 / AS350 B3 (2B1) RFM limitations and operating numbers. Always use the official RFM / QRH as primary reference.",
+  "groups": [
+    {
+      "title": "Airspeed Limits (selected)",
+      "items": [
+        {
+          "label": "VNE power on / power off (Hp = 0)",
+          "lines": [
+            "VNE power on: 155 kt IAS at Hp = 0.",
+            "VNE power off: 125 kt IAS at Hp = 0."
+          ]
+        },
+        {
+          "label": "Cold weather corrections",
+          "lines": [
+            "OAT < -30 °C: reduce VNE power on by 10 kt.",
+            "OAT < -20 °C: reduce VNE power off by 20 kt (minimum 65 kt)."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Rotor Speed (Nr)",
+      "items": [
+        {
+          "label": "Power-off",
+          "lines": [
+            "Minimum power-off Nr: 320 rpm."
+          ]
+        },
+        {
+          "label": "Normal operating range",
+          "lines": [
+            "Normal Nr range (power-on): 375–405 rpm."
+          ]
+        },
+        {
+          "label": "Aural warnings",
+          "lines": [
+            "Low Nr aural warning: ≤ 360 rpm.",
+            "High Nr aural warning: ≥ 410 rpm."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Engine Torque Limits (TQ %)",
+      "items": [
+        {
+          "label": "Arriel 2B1 (AEO)",
+          "lines": [
+            "Maximum continuous: 92.7 %.",
+            "Takeoff rating: 100 %.",
+            "Transient (5 s): 104 %."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Turbine Outlet Temperature (T4 °C)",
+      "items": [
+        {
+          "label": "Start",
+          "lines": [
+            "Max continuous during start: 750 °C.",
+            "Transient during start (10 s): 865 °C."
+          ]
+        },
+        {
+          "label": "Flight",
+          "lines": [
+            "Max continuous in flight: 849 °C.",
+            "Takeoff rating: 915 °C."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Weight & Loading (selected)",
+      "items": [
+        {
+          "label": "Internal weight limits",
+          "lines": [
+            "Maximum permissible internal weight in flight: 2250 kg (4961 lb).",
+            "Maximum permissible internal weight for IGE take-off and landing: 2250 kg (4961 lb)."
+          ]
+        },
+        {
+          "label": "Cargo compartments",
+          "lines": [
+            "RH cargo compartment: max 100 kg.",
+            "LH cargo compartment: max 120 kg.",
+            "Rear cargo compartment: max 80 kg."
+          ]
+        },
+        {
+          "label": "Cabin floor",
+          "lines": [
+            "Rear cabin floor: max 310 kg.",
+            "Forward left cabin floor: max 150 kg."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Ground & Slope Limits",
+      "items": [
+        {
+          "label": "Landing / rotor stop slopes",
+          "lines": [
+            "Nose up: 10°.",
+            "Nose down: 6°.",
+            "Sideways: 8°."
+          ]
+        },
+        {
+          "label": "Engine start",
+          "lines": [
+            "Prohibited if snow or ice has collected in or around the engine air intake."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Systems (selected limits)",
+      "items": [
+        {
+          "label": "Engine oil",
+          "lines": [
+            "Maximum oil pressure: 9.8 bar (142 psi)."
+          ]
+        },
+        {
+          "label": "Electrical",
+          "lines": [
+            "Maximum voltage: 31.5 V (rated range 26–29 V).",
+            "Maximum continuous current: 150 A."
+          ]
+        },
+        {
+          "label": "Fuel anti-icing",
+          "lines": [
+            "Fuel anti-icing additive mandatory if OAT < -20 °C and the fuel does not contain a freezing inhibitor."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Crew & Operational Use",
+      "items": [
+        {
+          "label": "Approved operations",
+          "lines": [
+            "Approved for day and night VFR.",
+            "Flight in icing conditions is not permitted."
+          ]
+        },
+        {
+          "label": "Crew & occupancy",
+          "lines": [
+            "Minimum crew: 1 pilot in the right seat.",
+            "Maximum persons on board (including crew): 6."
+          ]
+        },
+        {
+          "label": "Prohibited operations (selected)",
+          "lines": [
+            "Aerobatic manoeuvres: prohibited.",
+            "Intentional engine power reduction in flight using the twist grip: prohibited (except where explicitly allowed for training/emergency procedures in the RFM)."
+          ]
+        }
+      ]
+    }
+  ]
+}

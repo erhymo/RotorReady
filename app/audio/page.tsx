@@ -20,6 +20,8 @@ type AudioItem = {
   unlockFlag?: string;
   /** Optional grouping key — consecutive items sharing one collapse under a single expandable row. */
   group?: string;
+  /** A combined/alternate packaging of the other items in its group (e.g. a "full episode" cut) — listed inside the group but excluded from its part count and total duration. */
+  combined?: boolean;
 };
 
 type Row =
@@ -173,7 +175,8 @@ export default function AudioListPage() {
                 return <EpisodeLink key={row.item.id} activeVariantId={activeVariant.id} item={row.item} />;
               }
               const open = openGroups.has(row.name);
-              const total = row.items.reduce((s, it) => s + (it.durationSeconds || 0), 0);
+              const partItems = row.items.filter((it) => !it.combined);
+              const total = partItems.reduce((s, it) => s + (it.durationSeconds || 0), 0);
               return (
                 <div key={`group:${row.name}`} className="rounded-xl border-l-4 border-blue-600 bg-blue-50/40 dark:border-blue-400 dark:bg-blue-900/40">
                   <button
@@ -189,7 +192,7 @@ export default function AudioListPage() {
                       <div>
                         <div className="font-semibold text-slate-900 dark:text-zinc-100">{row.name}</div>
                         <div className="mt-0.5 text-sm text-slate-600 dark:text-zinc-300">
-                          {row.items.length} part{row.items.length === 1 ? "" : "s"} · {formatDuration(total)} total
+                          {partItems.length} part{partItems.length === 1 ? "" : "s"} · {formatDuration(total)} total
                         </div>
                       </div>
                     </div>

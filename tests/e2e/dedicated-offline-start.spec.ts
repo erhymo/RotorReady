@@ -61,7 +61,7 @@ for (const scenario of CASES) {
 
     await expect(async () => {
       await page.getByRole('button', { name: /^start quiz$/i }).first().click();
-      await expect.poll(() => page.evaluate(() => window.location.pathname)).toBe(`${scenario.path}/1`);
+      await expect.poll(() => page.evaluate(() => window.location.pathname)).toBe(`${scenario.path}/q`);
     }).toPass({ timeout: 15000 });
 
     await expect(page.getByText('Question 1 / 1').first()).toBeVisible({ timeout: 15000 });

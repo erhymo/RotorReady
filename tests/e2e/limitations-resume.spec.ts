@@ -35,7 +35,7 @@ test('limitations resume continue rebuilds session and opens the saved question'
 
   await expect(async () => {
     await resumeCard.getByRole('button', { name: /^continue$/i }).click();
-    await expect(page).toHaveURL(/\/limitations-quiz\/2$/, { timeout: 5000 });
+    await expect(page).toHaveURL(/\/limitations-quiz\/q\?n=2$/, { timeout: 5000 });
   }).toPass({ timeout: 15000 });
 
   const session = await page.evaluate(() => JSON.parse(sessionStorage.getItem('limq_session') || 'null'));

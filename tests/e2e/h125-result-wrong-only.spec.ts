@@ -58,7 +58,7 @@ test('h125 result page persists wrong-only set and restarts from missed items', 
 
   await expect(async () => {
     await page.getByRole('button', { name: 'Practice wrong answers only' }).click();
-    await expect(page).toHaveURL(new RegExp(`/quiz/${SECTION}/h125/1$`), { timeout: 5000 });
+    await expect(page).toHaveURL(new RegExp(`/quiz/${SECTION}/h125/q\\?n=1$`), { timeout: 5000 });
   }).toPass({ timeout: 15000 });
 
   await expect(page.getByText('Question 1 / 1').first()).toBeVisible();

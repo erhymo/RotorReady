@@ -99,7 +99,7 @@ test('limitations quiz question can be answered and finished on mobile', async (
     }));
   });
 
-  await page.goto('/limitations-quiz/1');
+  await page.goto('/limitations-quiz/q?n=1');
   await expect(page.getByText('Question 1 / 1').first()).toBeVisible();
 	  await page.getByRole('button', { name: /^1\.Correct option$/i }).click();
   await expect(page.getByText('Correct ✅')).toBeVisible();

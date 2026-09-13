@@ -171,7 +171,7 @@ export default function EmergencyStart() {
         flags: Array(randomized.length).fill(false),
       });
 
-      router.push("/emergency-quiz/1");
+      router.push("/emergency-quiz/q?n=1");
     } catch (error: any) {
       setErr(error?.message || "Kunne ikke starte quiz");
     } finally {
@@ -203,7 +203,7 @@ export default function EmergencyStart() {
         ...buildInitialQuizResumeSession(randomized),
       };
       sessionStorage.setItem(SESSION_KEY, JSON.stringify(session));
-      router.push("/emergency-quiz/1");
+      router.push("/emergency-quiz/q?n=1");
     } catch {
       alert("Could not load the saved wrong-answer set. Clearing it — please try again.");
       localStorage.removeItem(key);
@@ -226,7 +226,7 @@ export default function EmergencyStart() {
         ...buildValidatedQuizResumeSession(snap, (answer, item) => answer >= 0 && answer < item.options.length),
       };
       sessionStorage.setItem(SESSION_KEY, JSON.stringify(session));
-      router.push(`/emergency-quiz/${snap.idx + 1}`);
+      router.push(`/emergency-quiz/q?n=${snap.idx + 1}`);
     } catch {
       setResumeInfo(null);
     }

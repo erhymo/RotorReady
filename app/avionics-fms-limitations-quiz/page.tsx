@@ -178,7 +178,7 @@ export default function AvionicsFmsQuizStart() {
         flags: Array(randomized.length).fill(false),
       });
 
-      router.push("/avionics-fms-limitations-quiz/1");
+      router.push("/avionics-fms-limitations-quiz/q?n=1");
     } catch (error: any) {
       setErr(error?.message || "Could not start quiz");
     } finally {
@@ -204,7 +204,7 @@ export default function AvionicsFmsQuizStart() {
         ...buildInitialQuizResumeSession(randomized),
       };
       sessionStorage.setItem(SESSION_KEY, JSON.stringify(session));
-      router.push("/avionics-fms-limitations-quiz/1");
+      router.push("/avionics-fms-limitations-quiz/q?n=1");
     } catch {
       alert("Could not load saved wrong-answer set. Delete and try again.");
       localStorage.removeItem(key);
@@ -227,7 +227,7 @@ export default function AvionicsFmsQuizStart() {
         ...buildValidatedQuizResumeSession(snap, (answer, item) => answer >= 0 && answer < item.options.length),
       };
       sessionStorage.setItem(SESSION_KEY, JSON.stringify(session));
-      router.push(`/avionics-fms-limitations-quiz/${snap.idx + 1}`);
+      router.push(`/avionics-fms-limitations-quiz/q?n=${snap.idx + 1}`);
     } catch {
       setResumeInfo(null);
     }

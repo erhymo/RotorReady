@@ -100,7 +100,7 @@ export default function AccountPage() {
   function routeForWrongSession(sectionId: string): string | null {
     // Deprecated: My Page now launches a mixed cross-section practice via generic ClientQuiz
     const normalized = sectionId.toLowerCase();
-    if (normalized === "limitations") return "/limitations-quiz/1";
+    if (normalized === "limitations") return "/limitations-quiz/q?n=1";
     return null;
   }
 

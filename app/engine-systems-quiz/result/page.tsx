@@ -67,7 +67,7 @@ export default function EngineQuizResult() {
     const randomized = wrongItems.map(shuffleOptionsForItem);
     const next = { section: session.section || "engine-systems", ...buildInitialQuizResumeSession(randomized) };
     sessionStorage.setItem("engineq_session", JSON.stringify(next));
-    router.push("/engine-systems-quiz/1");
+    router.push("/engine-systems-quiz/q?n=1");
   }
 
   return (

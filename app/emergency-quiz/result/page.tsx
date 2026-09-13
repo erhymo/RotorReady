@@ -121,7 +121,7 @@ export default function EmergencyResultPage() {
       ...buildInitialQuizResumeSession(randomized),
     };
     sessionStorage.setItem(SESSION_KEY, JSON.stringify(next));
-    router.push("/emergency-quiz/1");
+    router.push("/emergency-quiz/q?n=1");
   }
 
   return (

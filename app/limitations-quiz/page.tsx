@@ -129,7 +129,7 @@ export default function LimitationsStart() {
         answers: Array(randomized.length).fill(undefined),
         flags: Array(randomized.length).fill(false),
       });
-      router.push("/limitations-quiz/1");
+      router.push("/limitations-quiz/q?n=1");
     } catch (e: any) {
       setErr(e?.message || "Could not start quiz");
     } finally {
@@ -146,7 +146,7 @@ export default function LimitationsStart() {
         ...buildQuizResumeSession(snap),
       };
       sessionStorage.setItem("limq_session", JSON.stringify(session));
-      router.push(`/limitations-quiz/${snap.idx + 1}`);
+      router.push(`/limitations-quiz/q?n=${snap.idx + 1}`);
     } catch {}
   }
 
@@ -164,7 +164,7 @@ export default function LimitationsStart() {
       const session = loadLimitationsWrongOnlySession<QuizItem>(activeVariant.id);
       if (!session) { alert("No wrong-answer set available. Complete a quiz first."); return; }
       sessionStorage.setItem("limq_session", JSON.stringify(session));
-      router.push("/limitations-quiz/1");
+      router.push("/limitations-quiz/q?n=1");
     } catch {
       alert("Could not load saved incorrect set. Delete and try again.");
       clearLimitationsWrongOnlyRawStorage(activeVariant.id);

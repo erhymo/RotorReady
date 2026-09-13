@@ -153,7 +153,7 @@ export default function ClientQuizPage({ section, amount }: { section: string; a
         ...buildInitialQuizResumeSession(items, amountToken),
       };
       sessionStorage.setItem(sessionKey, JSON.stringify(session));
-      router.replace(`/quiz/${encodeURIComponent(section)}/h125/1`);
+      router.replace(`/quiz/${encodeURIComponent(section)}/h125/q?n=1`);
     }
 
     async function load() {
@@ -169,7 +169,7 @@ export default function ClientQuizPage({ section, amount }: { section: string; a
               ...buildQuizResumeSession(snap),
             };
             sessionStorage.setItem(key, JSON.stringify(session));
-            router.replace(`/quiz/${encodeURIComponent(section)}/h125/${snap.idx + 1}`);
+            router.replace(`/quiz/${encodeURIComponent(section)}/h125/q?n=${snap.idx + 1}`);
             return;
           } else {
             setQuestions(snap.items);

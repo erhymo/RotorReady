@@ -102,7 +102,7 @@ export default function H125ResultClient() {
               ...buildInitialQuizResumeSession(items),
             };
             sessionStorage.setItem(key, JSON.stringify(wrongSession));
-            router.replace(`/quiz/${encodeURIComponent(section)}/h125/1`);
+            router.replace(`/quiz/${encodeURIComponent(section)}/h125/q?n=1`);
           } catch {}
         }} className="px-4 py-2 rounded-lg bg-emerald-600 text-white">Practice wrong answers only</button>
         <Link href="/" className="px-4 py-2 rounded-lg bg-emerald-600/80 text-white">Home</Link>

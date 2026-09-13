@@ -142,7 +142,7 @@ export default function EngineSystemsStart() {
         answers: Array(randomized.length).fill(undefined),
         flags: Array(randomized.length).fill(false),
       });
-      router.push("/engine-systems-quiz/1");
+      router.push("/engine-systems-quiz/q?n=1");
     } catch(e:any) {
       setErr(e?.message || "Could not start quiz");
     } finally {
@@ -163,7 +163,7 @@ export default function EngineSystemsStart() {
         ...buildInitialQuizResumeSession(randomized),
       } as any;
       sessionStorage.setItem("engineq_session", JSON.stringify(session));
-      router.push("/engine-systems-quiz/1");
+      router.push("/engine-systems-quiz/q?n=1");
     } catch {
       alert("Could not load saved wrong-answer set. Delete and try again.");
       localStorage.removeItem(key);
@@ -183,7 +183,7 @@ export default function EngineSystemsStart() {
         ...buildQuizResumeSession(snap),
       };
       sessionStorage.setItem("engineq_session", JSON.stringify(session));
-      router.push(`/engine-systems-quiz/${snap.idx + 1}`);
+      router.push(`/engine-systems-quiz/q?n=${snap.idx + 1}`);
     } catch {}
   }
 

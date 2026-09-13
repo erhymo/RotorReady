@@ -124,7 +124,7 @@ export default function ResultPage() {
             answers: Array(items.length).fill(null),
           };
           sessionStorage.setItem("limq_session", JSON.stringify(limSession));
-          router.push("/limitations-quiz/1");
+          router.push("/limitations-quiz/q?n=1");
 	        }} className="inline-flex min-h-11 items-center justify-center rounded-lg bg-emerald-600 px-4 py-2 font-semibold text-white">Practice wrong answers</button>
 	        <Link href="/" className="inline-flex min-h-11 items-center justify-center rounded-lg border border-slate-300 bg-white px-4 py-2 font-semibold text-slate-800 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100">Home</Link>
       </div>

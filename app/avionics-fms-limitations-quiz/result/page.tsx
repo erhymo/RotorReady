@@ -124,7 +124,7 @@ export default function AvionicsResultPage() {
       ...buildInitialQuizResumeSession(randomized),
     };
     sessionStorage.setItem(SESSION_KEY, JSON.stringify(next));
-    router.push("/avionics-fms-limitations-quiz/1");
+    router.push("/avionics-fms-limitations-quiz/q?n=1");
   }
 
   return (

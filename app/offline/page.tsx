@@ -51,7 +51,9 @@ function getOfflineWarmPaths(id: string) {
   return Array.from(new Set([
     genericHref,
     launchHref,
-    ...(launchHref === genericHref ? [] : [`${launchHref}/1`, `${launchHref}/result`]),
+    // `/q` (not `/q?n=1`) — one page now serves every question index, and the
+    // query string is not part of what gets cached for offline use.
+    ...(launchHref === genericHref ? [] : [`${launchHref}/q`, `${launchHref}/result`]),
   ]));
 }
 

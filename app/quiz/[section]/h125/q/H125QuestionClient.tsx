@@ -1,6 +1,6 @@
 "use client";
 import * as React from "react";
-import { useParams, useRouter } from "next/navigation";
+import { useParams, useRouter, useSearchParams } from "next/navigation";
 import TopBarBackButton from "@/components/TopBarBackButton";
 import QuizBottomBar from "@/components/QuizBottomBar";
 import { reportFlag, type FlagPayload } from "@/lib/flags";
@@ -33,9 +33,11 @@ type Session = {
 
 export default function H125QuestionClient() {
   const router = useRouter();
-  const params = useParams<{ section: string; question: string }>();
+  const params = useParams<{ section: string }>();
+  // Question index comes from `?n=`; the section stays a route segment.
+  const searchParams = useSearchParams();
   const section = decodeURIComponent(params.section || "");
-  const index = Math.max(0, (parseInt(params.question as string, 10) || 1) - 1);
+  const index = Math.max(0, (parseInt(searchParams.get("n") ?? "", 10) || 1) - 1);
   const { variant: activeVariant } = useActiveModelVariant();
 
   const key = `${modelScopedKey("h125q_session", activeVariant.id)}:${section}`;
@@ -121,14 +123,14 @@ export default function H125QuestionClient() {
       router.push(`/quiz/${encodeURIComponent(section)}/h125/result`);
     } else {
       updateResume(index + 1);
-      router.push(`/quiz/${encodeURIComponent(section)}/h125/${index + 2}`);
+      router.push(`/quiz/${encodeURIComponent(section)}/h125/q?n=${index + 2}`);
     }
   }
 
   function prev() {
     if (index > 0) {
       updateResume(index - 1);
-      router.push(`/quiz/${encodeURIComponent(section)}/h125/${index}`);
+      router.push(`/quiz/${encodeURIComponent(section)}/h125/q?n=${index}`);
     }
   }
 

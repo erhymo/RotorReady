@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
     "test:e2e": "playwright test",
-    "ios:sync": "npm run native:shell && cap sync ios",
+    "ios:sync": "LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8 npm run native:shell && LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8 cap sync ios",
     "ios:open": "cap open ios",
     "ios:beta": "cd ios && FASTLANE_OPT_OUT_USAGE=1 FASTLANE_SKIP_UPDATE_CHECK=1 fastlane beta",
     "ios:submit": "cd ios && FASTLANE_OPT_OUT_USAGE=1 FASTLANE_SKIP_UPDATE_CHECK=1 fastlane submit_review",

@@ -57,7 +57,7 @@ function EpisodeLink({ activeVariantId, item, nested }: { activeVariantId: strin
   return (
     <Link
       key={item.id}
-      href={`/audio/${encodeURIComponent(item.id)}`}
+      href={`/audio/play?id=${encodeURIComponent(item.id)}`}
       prefetch={false}
       className={
         nested

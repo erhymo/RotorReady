@@ -90,7 +90,7 @@ export default function LightsAudioListPage() {
             {items.map((item) => (
               <Link
                 key={item.lightId}
-                href={`/training/lights/audio/${encodeURIComponent(item.lightId)}`}
+                href={`/training/lights/audio/play?lightId=${encodeURIComponent(item.lightId)}`}
                 prefetch={false}
                 className="group block w-full rounded-xl border-l-4 border-red-600 bg-red-50/40 transition hover:bg-red-50 dark:border-red-500 dark:bg-red-900/40 dark:hover:bg-red-900/60"
               >

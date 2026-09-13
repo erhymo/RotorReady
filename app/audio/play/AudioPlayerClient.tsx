@@ -1,23 +1,30 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { useParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 
 import AppTopBar from "@/components/AppTopBar";
 import DownloadButton from "@/components/DownloadButton";
 import { PauseIcon, PlayIcon, SkipBackIcon, SkipForwardIcon } from "@/components/Icons";
 import { contentUrl, fetchContentJson } from "@/lib/contentUrl";
 import { useActiveModelVariant } from "@/lib/models/hooks";
+import { isUnlockFlagSet } from "@/lib/unlockCodes";
 import { useOfflineAudioSrc } from "@/lib/useOfflineAudioSrc";
 
-type LightAudioItem = {
-  lightId: string;
+type AudioItem = {
+  id: string;
   title: string;
+  description: string;
   filename: string;
   durationSeconds: number;
+  unlockFlag?: string;
 };
 
 const PLAYBACK_RATES = [1, 1.25, 1.5, 1.75, 2];
+
+function resumeKey(variantId: string, itemId: string) {
+  return `rr_audio_pos_${variantId}_${itemId}`;
+}
 
 function formatTime(totalSeconds: number) {
   if (!Number.isFinite(totalSeconds) || totalSeconds < 0) return "0:00";
@@ -26,17 +33,25 @@ function formatTime(totalSeconds: number) {
   return `${minutes}:${seconds.toString().padStart(2, "0")}`;
 }
 
-export default function LightAudioPlayerClient() {
-  const params = useParams<{ lightId: string }>();
+// The episode id comes from `?id=` rather than a dynamic route segment, so this
+// one page serves every episode. That's what lets a newly published episode be
+// playable in an already-installed native app: the app boots from a static export
+// bundled at build time (capacitor.config.ts), which can only contain pages that
+// existed then — a per-episode route would need a new store release for every new
+// episode, while this single page already covers all of them.
+export default function AudioPlayerClient() {
+  const searchParams = useSearchParams();
+  const episodeId = searchParams.get("id") ?? "";
   const { variant: activeVariant } = useActiveModelVariant();
-  const [item, setItem] = useState<LightAudioItem | null | undefined>(undefined);
+  const [item, setItem] = useState<AudioItem | null | undefined>(undefined);
   const [rate, setRate] = useState(1);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const resumedRef = useRef(false);
 
-  const networkUrl = item ? contentUrl(`/audio/${activeVariant.id}/lights/${item.filename}`) : undefined;
+  const networkUrl = item ? contentUrl(`/audio/${activeVariant.id}/${item.filename}`) : undefined;
   const playbackSrc = useOfflineAudioSrc(networkUrl);
 
   useEffect(() => {
@@ -46,13 +61,15 @@ export default function LightAudioPlayerClient() {
     });
     // fetchContentJson (lib/contentUrl.ts): no `cache: "no-store"` (see
     // app/audio/page.tsx for why that breaks the service worker's offline
-    // cache), and prefers the live origin in the native app so new light
-    // audio shows up there without a new store build.
-    fetchContentJson<{ items?: LightAudioItem[] }>(`/audio/${activeVariant.id}/lights/index.json`)
+    // cache), and prefers the live origin in the native app so new episodes
+    // show up there without a new store build.
+    fetchContentJson<{ items?: AudioItem[] }>(`/audio/${activeVariant.id}/index.json`)
       .then((data) => {
         if (cancelled) return;
-        const items: LightAudioItem[] = Array.isArray(data?.items) ? data.items : [];
-        setItem(items.find((entry) => entry.lightId === params.lightId) ?? null);
+        const items: AudioItem[] = Array.isArray(data?.items) ? data.items : [];
+        const found = items.find((entry) => entry.id === episodeId) ?? null;
+        const visible = found && (!found.unlockFlag || isUnlockFlagSet(found.unlockFlag)) ? found : null;
+        setItem(visible);
       })
       .catch(() => {
         if (!cancelled) setItem(null);
@@ -60,25 +77,64 @@ export default function LightAudioPlayerClient() {
     return () => {
       cancelled = true;
     };
-  }, [activeVariant.id, params.lightId]);
+  }, [activeVariant.id, episodeId]);
 
   useEffect(() => {
+    resumedRef.current = false;
     queueMicrotask(() => {
       setIsPlaying(false);
       setCurrentTime(0);
       setDuration(0);
     });
-  }, [item?.lightId]);
+  }, [item?.id]);
+
+  const savePosition = () => {
+    if (!item || !audioRef.current) return;
+    const t = audioRef.current.currentTime;
+    if (!Number.isFinite(t)) return;
+    window.localStorage.setItem(resumeKey(activeVariant.id, item.id), String(t));
+  };
 
   const handleLoadedMetadata = () => {
     if (!audioRef.current) return;
-    setDuration(audioRef.current.duration || 0);
+    const dur = audioRef.current.duration;
+    if (Number.isFinite(dur)) setDuration(dur);
+    if (!item || resumedRef.current) return;
+    // Wait for a real, finite duration before consuming the one-shot resume
+    // attempt — on some platforms the first metadata event briefly reports
+    // 0/NaN, and a later loadedmetadata/durationchange corrects it. Latching
+    // resumedRef too early meant that correction never got a second chance
+    // and playback silently restarted from zero instead of resuming.
+    if (!Number.isFinite(dur) || dur <= 0) return;
+    resumedRef.current = true;
+    const saved = Number(window.localStorage.getItem(resumeKey(activeVariant.id, item.id)) || 0);
+    if (saved > 0 && saved < dur - 5) {
+      audioRef.current.currentTime = saved;
+      setCurrentTime(saved);
+    }
   };
 
   const handleTimeUpdate = () => {
-    if (!audioRef.current) return;
+    if (!item || !audioRef.current) return;
     setCurrentTime(audioRef.current.currentTime);
+    savePosition();
   };
+
+  // Belt-and-suspenders: timeupdate alone can leave a gap of up to ~1s
+  // un-persisted, and that's exactly the window where backgrounding the app
+  // (or the OS suspending it) can lose the last write. Save immediately on
+  // pause and on every signal that the page is about to go away or hide.
+  useEffect(() => {
+    const onHide = () => savePosition();
+    document.addEventListener("visibilitychange", onHide);
+    window.addEventListener("pagehide", onHide);
+    window.addEventListener("beforeunload", onHide);
+    return () => {
+      document.removeEventListener("visibilitychange", onHide);
+      window.removeEventListener("pagehide", onHide);
+      window.removeEventListener("beforeunload", onHide);
+    };
+  }, [item?.id, activeVariant.id]);
 
   const applyRate = (next: number) => {
     setRate(next);
@@ -115,7 +171,7 @@ export default function LightAudioPlayerClient() {
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-zinc-900">
-      <AppTopBar title="Light Audio" backHref="/training/lights/audio" backLabel="Back" />
+      <AppTopBar title="Audio" backHref="/audio" />
       <div className="mx-auto max-w-2xl p-6 space-y-5">
         {item === undefined && (
           <div className="text-sm text-slate-500 dark:text-zinc-400">Loading…</div>
@@ -123,7 +179,7 @@ export default function LightAudioPlayerClient() {
 
         {item === null && (
           <div className="rounded-xl border border-slate-200 bg-white p-5 text-sm text-slate-600 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-300">
-            Couldn&apos;t find audio for this light on {activeVariant.label}.
+            Couldn&apos;t find this audio session for {activeVariant.label}.
           </div>
         )}
 
@@ -131,13 +187,14 @@ export default function LightAudioPlayerClient() {
           <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-zinc-700 dark:bg-zinc-800">
             <div className="flex items-start justify-between gap-3">
               <div>
-                <div className="text-xs font-semibold uppercase tracking-wide text-red-600 dark:text-red-400">
+                <div className="text-xs font-semibold uppercase tracking-wide text-blue-600 dark:text-blue-400">
                   {activeVariant.label}
                 </div>
                 <h1 className="mt-1 text-xl font-bold text-slate-900 dark:text-zinc-100">{item.title}</h1>
               </div>
               {networkUrl && <DownloadButton url={networkUrl} className="mt-1" />}
             </div>
+            <p className="mt-2 text-sm text-slate-600 dark:text-zinc-300">{item.description}</p>
 
             {playbackSrc && (
               <audio
@@ -150,16 +207,20 @@ export default function LightAudioPlayerClient() {
                 onDurationChange={handleLoadedMetadata}
                 onTimeUpdate={handleTimeUpdate}
                 onPlay={() => setIsPlaying(true)}
-                onPause={() => setIsPlaying(false)}
+                onPause={() => {
+                  setIsPlaying(false);
+                  savePosition();
+                }}
                 onEnded={() => setIsPlaying(false)}
                 className="hidden"
               />
             )}
 
+            {/* Progress bar */}
             <div className="mt-6">
               <div className="relative h-1.5 w-full rounded-full bg-slate-200 dark:bg-zinc-700">
                 <div
-                  className="absolute inset-y-0 left-0 rounded-full bg-red-600 dark:bg-red-400"
+                  className="absolute inset-y-0 left-0 rounded-full bg-blue-600 dark:bg-blue-400"
                   style={{ width: `${progressPercent}%` }}
                 />
                 <input
@@ -170,7 +231,7 @@ export default function LightAudioPlayerClient() {
                   value={currentTime}
                   onChange={handleSeek}
                   aria-label="Seek"
-                  className="absolute inset-0 h-full w-full cursor-pointer appearance-none bg-transparent [&::-webkit-slider-thumb]:h-3.5 [&::-webkit-slider-thumb]:w-3.5 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-red-600 dark:[&::-webkit-slider-thumb]:bg-red-400"
+                  className="absolute inset-0 h-full w-full cursor-pointer appearance-none bg-transparent [&::-webkit-slider-thumb]:h-3.5 [&::-webkit-slider-thumb]:w-3.5 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-blue-600 dark:[&::-webkit-slider-thumb]:bg-blue-400"
                 />
               </div>
               <div className="mt-1.5 flex justify-between text-xs text-slate-500 dark:text-zinc-400">
@@ -179,6 +240,7 @@ export default function LightAudioPlayerClient() {
               </div>
             </div>
 
+            {/* Transport controls: skip-back, big play/pause, skip-forward */}
             <div className="mt-4 flex items-center justify-center gap-6">
               <button
                 type="button"
@@ -192,7 +254,7 @@ export default function LightAudioPlayerClient() {
                 type="button"
                 onClick={togglePlay}
                 aria-label={isPlaying ? "Pause" : "Play"}
-                className="inline-grid h-16 w-16 place-items-center rounded-full bg-red-600 text-white shadow-md transition hover:bg-red-700 active:scale-95 dark:bg-red-500 dark:hover:bg-red-600"
+                className="inline-grid h-16 w-16 place-items-center rounded-full bg-blue-600 text-white shadow-md transition hover:bg-blue-700 active:scale-95 dark:bg-blue-500 dark:hover:bg-blue-600"
               >
                 {isPlaying ? <PauseIcon className="h-7 w-7" /> : <PlayIcon className="h-7 w-7 pl-0.5" />}
               </button>
@@ -215,7 +277,7 @@ export default function LightAudioPlayerClient() {
                   onClick={() => applyRate(r)}
                   className={`rounded-full border px-2.5 py-1 text-xs font-semibold transition ${
                     rate === r
-                      ? "border-red-600 bg-red-600 text-white"
+                      ? "border-blue-600 bg-blue-600 text-white"
                       : "border-slate-300 text-slate-600 hover:bg-slate-100 dark:border-zinc-600 dark:text-zinc-300 dark:hover:bg-zinc-700"
                   }`}
                 >

@@ -42,7 +42,7 @@ export default function VfrTopicListPage() {
               {topics.map((t) => (
                 <Link
                   key={t.slug}
-                  href={`/ifr-vfr/vfr/${t.slug}`}
+                  href={`/ifr-vfr/vfr/topic?slug=${encodeURIComponent(t.slug)}`}
                   className="group block rounded-lg border p-4 transition hover:bg-slate-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 dark:hover:bg-zinc-700 dark:border-zinc-700"
                 >
                   <div className="flex items-center justify-between gap-3">

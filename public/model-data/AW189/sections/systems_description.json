@@ -1,0 +1,1866 @@
+{
+  "items": [
+    {
+      "id": "AW189-SYS-001",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "How does the AW189 RFM Section 7 describe the helicopter and its intended roles?",
+      "options": [
+        "Medium twin-engine aircraft for land and sea operations including offshore services, Tactical Troop Transport, SAR, MEDEVAC/CASEVAC, fire fighting and utility roles.",
+        "Light twin-engine aircraft certified only for onshore VFR passenger transport.",
+        "Heavy three-engine aircraft intended exclusively for offshore oil and gas crew change.",
+        "Medium single-engine aircraft designed for training and aerial survey work."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Section 7 opens by describing the AW189 as a medium twin-engine aircraft designed for land and sea operations including offshore services, Tactical Troop Transport (TTT), Search and Rescue (SAR), Medical/Casualty Evacuation (MEDEVAC/CASEVAC), fire fighting and utility roles.",
+      "references": [
+        "AW189 RFM Section 7 — Helicopter General, Chap 00 (p.7-1)"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "systems",
+        "general",
+        "roles"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-002",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "What does Section 7 state about the AW189 cockpit seats and flight controls?",
+      "options": [
+        "Pilot and co-pilot crashworthy seats with double commands — cyclic, collective bar and pedals.",
+        "A single set of controls on the right side only, with the left seat used for an observer.",
+        "Non-crashworthy seats with a shared centre-mounted cyclic.",
+        "Side-stick controllers for both crew, with no collective bar."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Section 7 states the cockpit has pilot and co-pilot crashworthy seats and double commands (cyclic/collective bar and pedal).",
+      "references": [
+        "AW189 RFM Section 7 — Helicopter General, Chap 00 (p.7-1)"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "systems",
+        "general",
+        "cockpit"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-003",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "Where does the AW189 main cabin structure end, and how is it built?",
+      "options": [
+        "Forward of the STA6700 joint with the rear fuselage, built of aluminium alloy including machined main frames, with carbon fibre/Nomex cored composite side panels.",
+        "Forward of the STA8700 frame, built entirely of carbon fibre with no metallic frames.",
+        "Aft of the STA6700 joint, built as a welded steel tube structure with fabric panels.",
+        "Forward of the STA7200 bulkhead, built of magnesium alloy castings."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The main cabin is the structure forward of the STA6700 joint with the rear fuselage. It is constructed of aluminium alloy, including machined main frames, with carbon fibre/Nomex cored composite side panels, manufactured in modules and assembled in a join jig.",
+      "references": [
+        "AW189 RFM Section 7 — Helicopter General, Chap 00 (p.7-1)"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "systems",
+        "general",
+        "structure"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-004",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "How is the rear fuselage joined to the tail unit on the AW189?",
+      "options": [
+        "It terminates at the STA8700 frame — carbon fibre composite with four machined aluminium alloy fittings — and the joint is made with four bolts.",
+        "It terminates at the STA6700 frame and is bonded to the tail unit with structural adhesive.",
+        "It terminates at the STA8150 bulkhead and is riveted to the tail unit along a continuous lap joint.",
+        "It terminates at the STA7200 bulkhead and the tail unit is welded in place."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The rear fuselage terminates at the STA8700 frame, which is carbon fibre composite together with four machined aluminium alloy fittings, and the joint to the tail unit section is made with four bolts.",
+      "references": [
+        "AW189 RFM Section 7 — Helicopter General, Chap 00 (p.7-1)"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "systems",
+        "general",
+        "structure"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-005",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "What forms the primary structure of the AW189 tail unit?",
+      "options": [
+        "Carbon fibre composite upper and lower longerons providing a continuous load path from the STA8700 joint to the fin.",
+        "Aluminium alloy stringers carrying load from the STA6700 joint to the horizontal stabiliser.",
+        "A titanium torque box running from the tail rotor gearbox forward to the cabin.",
+        "Steel tube truss members between the fin and the rear fuselage bulkhead."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The tail unit primary structural parts are mainly built up by carbon fibre composite upper and lower longerons, which provide a continuous load path from the STA8700 joint to the fin.",
+      "references": [
+        "AW189 RFM Section 7 — Helicopter General, Chap 00 (p.7-1)"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "systems",
+        "general",
+        "structure"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-006",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "Which controls does Section 7 list as being on the AW189 overhead console?",
+      "options": [
+        "Circuit breaker panel, power lever quadrant, rotor brake control lever and the electrical control panel.",
+        "Autopilot guidance panel, fuel control panel and the landing gear selector.",
+        "Engine fire handles, hydraulic isolation valves and the parking brake.",
+        "Radio management units, transponder panel and the cabin heating controls."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The overhead console is installed above the heads of the flight crew and includes the circuit breaker panel, the power lever quadrant, the rotor brake control lever and the electrical control panel.",
+      "references": [
+        "AW189 RFM Section 7 — Helicopter General, Chap 00 (p.7-2)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "general",
+        "cockpit"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-007",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "What makes up the AW189 power system as described in Section 7?",
+      "options": [
+        "Two General Electric CT7-2E1 turboshaft engines and one Microturbo eAPU60H auxiliary power unit with its own fire detection system.",
+        "Two Pratt & Whitney PT6 engines and an APU without fire detection.",
+        "Two General Electric CT7-2E1 engines only — the AW189 has no APU.",
+        "Three turboshaft engines sharing a common accessory gearbox."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The power system is composed of two General Electric CT7-2E1 turboshaft engines and one Auxiliary Power Unit (APU) Microturbo eAPU60H equipped with a fire detection system, installed in the upper deck and covered by cowlings.",
+      "references": [
+        "AW189 RFM Section 7 — Helicopter General, Chap 00 (p.7-2)"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "systems",
+        "general",
+        "powerplant",
+        "apu"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-008",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "What is the AW189 electrical system called, and what does it cover?",
+      "options": [
+        "The Electrical Power Generation and Distribution System (EPGDS) — all equipment needed to generate, convert and distribute electrical power, plus storage, control, protection, monitoring and indication.",
+        "The Integrated Power Management System (IPMS), which controls only AC generation.",
+        "The Electrical Load Control System (ELCS), which covers distribution but not generation.",
+        "The Aircraft Power Bus System (APBS), which covers only the DC side."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The electrical system is named the Electrical Power Generation and Distribution System (EPGDS). It comprises all the equipment necessary to generate, convert and distribute electrical power, with associated equipment for energy conversion, storage, control, protection, monitoring and indication to the flight crew.",
+      "references": [
+        "AW189 RFM Section 7 — Electrical Power, Chap 24 (p.7-83)"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "systems",
+        "electrical",
+        "epgds"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-009",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "Which voltage and frequency does the AW189 EPGDS generate?",
+      "options": [
+        "115 Vac at 400 Hz.",
+        "28 Vdc only, with no AC generation.",
+        "270 Vdc at 400 Hz.",
+        "200 Vac at 60 Hz."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The EPGDS generates 115 Vac 400 Hz, converts that 115 Vac power to the 28 Vdc required by loads, provides 270 Vdc to start each main engine via its starter-generator, and provides 28 Vdc starting power to the APU DC starter.",
+      "references": [
+        "AW189 RFM Section 7 — Electrical Power, Chap 24 (p.7-83)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "electrical",
+        "generation"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-010",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "What voltage does the AW189 EPGDS supply to start each main engine?",
+      "options": [
+        "270 Vdc, through that engine's starter-generator.",
+        "28 Vdc, through the APU DC starter.",
+        "115 Vac, directly from the APU generator.",
+        "200 Vac, through the start rectifier unit."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Among the EPGDS main functions, it provides 270 Vdc power to start each main engine via its starter-generator. The 28 Vdc starting power goes to the APU DC starter, which is a separate function.",
+      "references": [
+        "AW189 RFM Section 7 — Electrical Power, Chap 24 (p.7-83)"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "systems",
+        "electrical",
+        "engine start"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-011",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "Which four subsystems make up the baseline AW189 EPGDS?",
+      "options": [
+        "Alternate Current Start-Generation Subsystem, Direct Current Generation Subsystem, AC/DC Power Distribution and Control Subsystem, and the Solid State Electrical Plant Management System.",
+        "AC generation, DC generation, battery management and the emergency power supply.",
+        "Main generation, standby generation, distribution and load shedding.",
+        "Engine generation, APU generation, external power and battery power."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The baseline EPGDS is grouped into four subsystems: the Alternate Current Start-Generation Subsystem (ACSGS), the Direct Current Generation Subsystem (DCGS), the Alternate Current/Direct Current Power Distribution and Control Subsystem (AC/DC PDCS) and the Solid State Electrical Plant Management System (SSEPMS).",
+      "references": [
+        "AW189 RFM Section 7 — Electrical Power, Chap 24 (p.7-83)"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "systems",
+        "electrical",
+        "epgds"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-012",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "What rating and type are the AW189 main engine-driven generators?",
+      "options": [
+        "Two 25 KVA 115/200 Vac starter-generators (SG 1 and SG 2).",
+        "Two 25 KVA 28 Vdc generators with separate starters.",
+        "Two 17 KVA 115 Vac alternators driven by the main gearbox.",
+        "Three 25 KVA starter-generators, one per engine plus one on the APU."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The baseline AC start-generation subsystem comprises two 25 KVA 115/200 Vac Starter-Generators (SG 1 and SG 2). They convert electrical power to mechanical torque during main engine starting and provide power for AC loads and for conversion to 28 Vdc.",
+      "references": [
+        "AW189 RFM Section 7 — Electrical Power, Chap 24 (p.7-87)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "electrical",
+        "generation"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-013",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "What is the function of the Start Rectifier Unit (SRU) on the AW189?",
+      "options": [
+        "It passively rectifies input AC into output DC and distributes 270 Vdc to the SGCU for main engine start, accommodating the start of one engine followed by the second.",
+        "It converts 115 Vac into the 28 Vdc used by the DC buses in normal flight.",
+        "It rectifies APU generator output to charge the main and auxiliary batteries.",
+        "It provides emergency DC power if both starter-generators fail in flight."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The SRU is capable of passively rectifying input AC into output DC and distributing the power to the SGCU for main engine start, to accommodate the start of one engine followed by the start of the second. A single SRU is connected between SGCU 1 and SGCU 2 and converts AC into 270 Vdc for Main Engine Start.",
+      "references": [
+        "AW189 RFM Section 7 — Electrical Power, Chap 24 (p.7-87, 7-90)"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "systems",
+        "electrical",
+        "engine start"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-014",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "How does the AW189 produce the 28 Vdc its DC loads need?",
+      "options": [
+        "Three 28 Vdc converter units (VCU1, VCU2, VCU3), also called transformer rectifier units, convert 115/200 Vac into 28 Vdc.",
+        "Two DC generators driven directly by the main gearbox accessory pads.",
+        "The starter-generators switch to DC output once the engines are running.",
+        "The main and auxiliary batteries supply all 28 Vdc loads continuously in flight."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The DC generation system uses three 28 Vdc Converter Units (VCU1, VCU2, VCU3), also called Transformer Rectifier Units (TRU1, TRU2, TRU3). Each is a transformer plus a rectifier whose purpose is to convert 115/200 Vac into 28 Vdc.",
+      "references": [
+        "AW189 RFM Section 7 — Electrical Power, Chap 24 (p.7-90)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "electrical",
+        "dc",
+        "tru"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-015",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "What type and capacity are the AW189 batteries, and where are they located?",
+      "options": [
+        "17 Ah nickel-cadmium batteries — a main battery and an optional auxiliary battery — both in the nose avionic bay.",
+        "24 Ah lead-acid batteries mounted in the rear fuselage under the cargo compartment.",
+        "17 Ah lithium-ion batteries in the upper deck beside the APU.",
+        "40 Ah nickel-cadmium batteries located in the left sponson."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The DC generation system includes two 17 Ah nickel-cadmium (NiCd) batteries — the main battery (MAIN BATT) and the auxiliary battery (AUX BATT), the auxiliary being optional. Both are located in the nose avionic bay.",
+      "references": [
+        "AW189 RFM Section 7 — Electrical Power, Chap 24 (p.7-90)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "electrical",
+        "battery"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-016",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "When external power is not available, what is the AW189 battery normally used for?",
+      "options": [
+        "Starting the APU.",
+        "Starting the number 1 engine directly, bypassing the APU.",
+        "Powering the environmental control system during loading.",
+        "Supplying the AC main buses until a generator comes on line."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Section 7 states that when external power is not available, the battery is used for starting the APU. The main battery can be used to start the APU, and the APU is normally then used to start the engines.",
+      "references": [
+        "AW189 RFM Section 7 — Electrical Power, Chap 24 (p.7-90)"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "systems",
+        "electrical",
+        "battery",
+        "apu"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-017",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "Which switches are on the AW189 electrical control panel?",
+      "options": [
+        "BATT MASTER, MAIN BATT, AUX BATT, EMER GEN and AC/DC EXT POWER.",
+        "GEN 1, GEN 2, APU GEN, BUS TIE and INVERTER.",
+        "BATT MASTER, TRU 1, TRU 2, TRU 3 and NON ESS SHED.",
+        "MAIN BATT, AUX BATT, ROTOR BRAKE and EXT POWER only."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The EPGDS control panel is an integrated switch panel assembly with the following switches: BATT MASTER, MAIN BATT, AUX BATT, EMER GEN and AC/DC EXT POWER.",
+      "references": [
+        "AW189 RFM Section 7 — Electrical Power, Chap 24 (p.7-84)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "electrical",
+        "controls"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-018",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "What can the crew do from the ELEC page on the ECDU?",
+      "options": [
+        "Command generators and TRUs on or off line, override the NON ESS bus shed to restore power to non-essential loads, and reset or manage the bus tie contactors.",
+        "Only monitor generator output — the ELEC page is display-only with no control function.",
+        "Select between AC and DC external power, but nothing else.",
+        "Reconfigure circuit breaker panels and reset individual circuit breakers."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "On the ELEC page the operator can command the generator on line or off line as well as the transformer rectifier units (TRUs), and override the NON ESS busses shed to restore power supply to the non-essential loads. The operator can also reset the bus tie contactor (BTC) and manage BTC1 and BTC2. NON ESS load shedding is performed automatically.",
+      "references": [
+        "AW189 RFM Section 7 — Electrical Power, Chap 24 (p.7-84)"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "systems",
+        "electrical",
+        "controls",
+        "ecdu"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-019",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "What is the optional AW189 emergency power supply made up of?",
+      "options": [
+        "Two battery packs of six cells each, giving nominal outputs of 28 Vdc or 5 Vdc and a maximum current of 5 A/h, installed on the right side of the nose avionics bay.",
+        "A single 17 Ah NiCd battery mounted alongside the main battery.",
+        "A permanent-magnet emergency generator driven by the main gearbox.",
+        "A capacitor bank in the rear fuselage feeding the emergency bus for two minutes."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The emergency power supply is installed on the right side of the nose avionics bay on a dedicated mounting tray. It consists of two battery packs of six cells each providing nominal outputs of 28 Vdc or 5 Vdc, and can supply a maximum of 5 A/h.",
+      "references": [
+        "AW189 RFM Section 7 — Electrical Power, Chap 24 (p.7-94)"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "systems",
+        "electrical",
+        "emergency"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-020",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "What is the stated purpose of the AW189 fire protection system?",
+      "options": [
+        "To simultaneously protect all zones of the engine and APU bays, and to provide an adequate quantity of extinguishing agent and rate of discharge for each fire zone.",
+        "To protect the engine bays only — the APU bay relies on the crew shutting it down.",
+        "To detect fire anywhere in the airframe and vent the affected compartment overboard.",
+        "To suppress cabin and baggage fires automatically without crew action."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Section 7 states the purposes of the fire protection system are to simultaneously protect all zones of the engines/APU bays and to provide an adequate quantity of extinguishing agent and rate of discharge for each fire zone. It includes a fire detection system and a fire extinguisher system.",
+      "references": [
+        "AW189 RFM Section 7 — Fire Protection, Chap 26 (p.7-113)"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "systems",
+        "fire"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-021",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "Which indications does the crew get for a fire inside an AW189 engine bay?",
+      "options": [
+        "An ENG 1(2) FIRE warning on the CAS, an ENG 1(2) FIRE audio tone with the master warning flashing, a red FIRE alarm on the fire control panel, a red light on that engine's control panel, and a red engine silhouette with FIRE on the MFD PWR PLANT format.",
+        "A caption on the CAS window only, with no aural warning.",
+        "An audio tone and master caution — engine fire is a caution, not a warning, on the AW189.",
+        "A red FIRE light on the fire control panel only, with no CAS message."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "For a fire inside an engine bay the RFM lists: warning message ENG 1(2) FIRE on the CAS window, audio tone ENG1(2) FIRE with master warning light flashing, red FIRE alarm on the fire control panel, red warning light on the engine control panel of the affected engine, and on the MFD PWR PLANT format the engine silhouette becomes red with a red FIRE message inside.",
+      "references": [
+        "AW189 RFM Section 7 — Fire Protection, Chap 26 (p.7-113)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "fire",
+        "warnings"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-022",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "On the AW189, what does pushing the ENG 1(2) FIRE/ARM push button do?",
+      "options": [
+        "It automatically shuts down the affected engine by closing its fuel shut-off valve, and automatically closes the heating system bleed shut-off valve.",
+        "It discharges both extinguisher bottles into the affected engine bay immediately.",
+        "It arms the extinguisher circuit only — the engine must be shut down separately with the power lever.",
+        "It closes the fuel shut-off valve and isolates that engine's hydraulic system."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The key to Figure 7-38F states that pushing the ENG 1(2) button (FIRE/ARM) will automatically shut down the affected engine by closing its relevant fuel shut-off valve and automatically close the heating system bleed shut-off valve. Discharging a bottle is a separate action on the FIRE EXTING switch.",
+      "references": [
+        "AW189 RFM Section 7 — Fire Protection, Chap 26 (p.7-118)"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "systems",
+        "fire",
+        "memory items"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-023",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "How does the AW189 fire detection wire work?",
+      "options": [
+        "It holds a fixed quantity of inert helium around an internal metal core filled with an active gas; heating a small section of the core releases active gas, raising the pressure and triggering a pressure transducer.",
+        "It uses a bimetallic strip that closes a contact when the bay reaches a preset temperature.",
+        "It uses optical flame sensors spaced along the engine bay looking for infrared flicker.",
+        "It measures the resistance change of a continuous thermistor loop."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The fire detection system consists of a fire wire containing a fixed quantity of inert gas (helium) with an internal metal core filled with an active gas and a pressure transducer. The metal core releases a large quantity of active gas when a small section of its surface reaches high temperature, which increases pressure and activates the transducer.",
+      "references": [
+        "AW189 RFM Section 7 — Fire Protection, Chap 26 (p.7-120)"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "systems",
+        "fire",
+        "detection"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-024",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "How is the AW189 APU bay fire warning arranged relative to the engines?",
+      "options": [
+        "The APU bay has an independent fire warning system using a wire gas type circuit similar to the engine one.",
+        "The APU shares the number 2 engine's detection loop.",
+        "The APU bay uses a smoke detector rather than a fire wire.",
+        "The APU bay has no dedicated detection — fire is inferred from APU parameters."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Section 7 states the APU bay is equipped with an independent fire warning system, consisting of a wire gas type circuit similar to the engine one.",
+      "references": [
+        "AW189 RFM Section 7 — Fire Protection, Chap 26 (p.7-120)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "fire",
+        "apu"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-025",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "How does the AW189 baggage compartment smoke detector work?",
+      "options": [
+        "It is a photoelectric device using the Tyndall effect — smoke particles scatter a pulsed light beam, and the circuitry measures the scattering.",
+        "It is an ionisation detector measuring the change in current across a small radioactive source.",
+        "It is a fire wire identical to the engine bay detection loop.",
+        "It is a temperature rate-of-rise detector mounted on the baggage bay floor."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The baggage smoke detection system consists of a smoke detector installed on the roof of the baggage compartment. It is a photoelectric device that uses the Tyndall effect (light scattering): the detector transmits pulses of light at constant intervals and measures the light scattering, whose intensity depends on smoke concentration.",
+      "references": [
+        "AW189 RFM Section 7 — Fire Protection, Chap 26 (p.7-120)"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "systems",
+        "fire",
+        "detection",
+        "baggage"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-026",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "What extinguishing agent do the AW189 engine fire bottles contain, and how are they connected?",
+      "options": [
+        "HALON 1301 with nitrogen, in two identical interchangeable stainless steel bottles that are cross-connected so either bottle can discharge into either engine bay.",
+        "HALON 1211 in two bottles, each permanently dedicated to one engine bay.",
+        "Dry chemical powder in a single bottle shared between both engines.",
+        "HALON 1301 in two bottles, each dedicated to its own engine with no cross-connection."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Two identical and interchangeable stainless steel engine fire extinguisher bottles charged with HALON 1301 and nitrogen gas are installed between the engine ejectors under the rear sliding fairing. The bottles are cross-connected so that the content of any bottle can be discharged into either engine bay.",
+      "references": [
+        "AW189 RFM Section 7 — Fire Protection, Chap 26 (p.7-120)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "fire",
+        "extinguisher"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-027",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "How does the AW189 warn the crew that an engine fire bottle has lost pressure?",
+      "options": [
+        "A temperature-compensated pressure sensor in the bottle gives a low pressure indication when pressure drops below a preset safety level.",
+        "A mechanical pop-out indicator on the bottle, checked only during the walkaround.",
+        "The CAS generates a bottle low caption whenever ambient temperature changes rapidly.",
+        "There is no cockpit indication — bottle pressure is a maintenance check only."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "A temperature compensated pressure sensor is present in the bottle to provide low pressure indication to the pilot when pressure drops below a preset safety level.",
+      "references": [
+        "AW189 RFM Section 7 — Fire Protection, Chap 26 (p.7-120)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "fire",
+        "extinguisher"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-028",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "How does the AW189 APU fire bottle differ from an engine bottle?",
+      "options": [
+        "It is fully dedicated to the APU, installed behind the APU forward firewall, and has only one output and one electrically actuated cartridge.",
+        "It is larger and shared with the baggage compartment flooding system.",
+        "It is charged with nitrogen only and works by inerting rather than extinguishing.",
+        "It is identical to the engine bottles and cross-connected to them."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "One fully dedicated stainless steel APU fire extinguisher bottle is installed behind the APU forward firewall. It is similar to the engine bottle, with the difference that there is only one output and one electrically actuated cartridge.",
+      "references": [
+        "AW189 RFM Section 7 — Fire Protection, Chap 26 (p.7-120)"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "systems",
+        "fire",
+        "apu",
+        "extinguisher"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-029",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "What does the APU FIRE EXT push button do on the AW189?",
+      "options": [
+        "It automatically shuts down the APU by closing its fuel shut-off valve and automatically closes the heating system bleed shut-off valve.",
+        "It discharges the APU bottle immediately without shutting the APU down.",
+        "It isolates the APU generator from the AC buses and nothing else.",
+        "It closes the APU air inlet door and starts a cooling run."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The key to Figure 7-38G states the FIRE EXT push button will automatically shut down the APU by closing its fuel shut-off valve and automatically close the heating system bleed shut-off valve. Discharging the APU bay bottle is done by moving the BTL switch from down to up.",
+      "references": [
+        "AW189 RFM Section 7 — Fire Protection, Chap 26 (p.7-119)"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "systems",
+        "fire",
+        "apu",
+        "memory items"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-030",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "What are the four principal parts of the AW189 fuel system?",
+      "options": [
+        "Fuel storage, fuel distribution, fuel indicating, and pressure refuelling/defuelling (optional).",
+        "Fuel storage, fuel heating, fuel filtration and fuel jettison.",
+        "Main tanks, auxiliary tanks, cross-feed and fuel dump.",
+        "Fuel storage, fuel distribution, fuel jettison and fuel indicating."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The fuel system provides fuel storage and supplies the two main engines and the APU at the pressure and flow rate requested. Its principal requirements are the fuel storage system, fuel distribution system, fuel indicating system, and the optional pressure refuelling and defuelling system.",
+      "references": [
+        "AW189 RFM Section 7 — Fuel System, Chap 28 (p.7-127)"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "systems",
+        "fuel"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-031",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "Which fuel system controls does the AW189 ECDU fuel page give the pilot?",
+      "options": [
+        "Booster pumps ON/OFF, fuel shut-off valves CLOSE/OPEN, and the cross-feed valve CLOSE/OPEN.",
+        "Fuel quantity gauging calibration and tank venting selection.",
+        "Fuel jettison arming and rate selection.",
+        "Engine fuel flow trimming and APU fuel priming."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The ECDU fuel page allows manual control: the pilot can switch the booster pumps ON/OFF, CLOSE/OPEN the fuel shut-off valves (SOV) and CLOSE/OPEN the cross-feed (XFEED) valve.",
+      "references": [
+        "AW189 RFM Section 7 — Fuel System, Chap 28 (p.7-127)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "fuel",
+        "controls"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-032",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "How does the AW189 cross-feed valve behave in AUTO?",
+      "options": [
+        "It stays closed unless a pressure switch in one of the feeding lines senses low pressure, at which point it opens automatically.",
+        "It stays open continuously so both engines always draw from both tanks.",
+        "It opens automatically whenever a fuel imbalance of more than 50 kg develops.",
+        "It cycles open and closed on a timer to keep the tanks balanced."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "When the XFEED valve operation is in AUTO mode it operates automatically: the valve will be in the closed position unless the pressure switch in one of the feeding lines indicates a low pressure, in which case the valve will automatically open.",
+      "references": [
+        "AW189 RFM Section 7 — Fuel System, Chap 28 (p.7-127)"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "systems",
+        "fuel",
+        "crossfeed"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-033",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "What alerting does the AW189 airframe fuel system generate?",
+      "options": [
+        "Ten cautions and two advisories — the airframe fuel system components generate no warnings.",
+        "Two warnings, ten cautions and two advisories.",
+        "Warnings only, since low fuel is always a warning-level condition.",
+        "Four cautions and four advisories, plus a single FUEL warning."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Section 7 states there are 10 cautions and 2 advisories applicable to the fuel system, and that no warning signals are generated by the airframe fuel system components.",
+      "references": [
+        "AW189 RFM Section 7 — Fuel System, Chap 28 (p.7-130)"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "systems",
+        "fuel",
+        "warnings"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-034",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "How are the AW189 main fuel tanks constructed?",
+      "options": [
+        "Two L-shaped bladder tanks whose structural strength comes from the frames, which retain the bladders via honeycomb panels and form a fume-proof enclosure.",
+        "Two integral wet-wing style tanks sealed directly into the sponson structure.",
+        "Two rigid aluminium tanks bolted to the cabin floor beams.",
+        "A single centre bladder tank feeding both engines through a common collector."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The two main tanks are L-shaped bladder type. The primary structural strength is provided by the frames which, via the honeycomb panels, retain the tank bladders and form a fume proof enclosure.",
+      "references": [
+        "AW189 RFM Section 7 — Fuel System, Chap 28 (p.7-130)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "fuel",
+        "tanks"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-035",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "What is the significance of the 100 mm interconnection flange between the AW189 main tanks?",
+      "options": [
+        "Below the level of that flange the fuel volume is totally independent and forms a collector from which the engines are supplied.",
+        "It is the pressure refuelling connection point for both tanks.",
+        "It is the vent path that equalises tank pressure during climbs and descents.",
+        "It allows fuel to transfer freely between tanks at all fuel states."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The interconnection flange (diameter 100 mm) is situated between the right and left tanks on the vertical central airframe panel. Below the level of the interconnection flange, the fuel volume is totally independent and forms a collector, from which the engines are supplied.",
+      "references": [
+        "AW189 RFM Section 7 — Fuel System, Chap 28 (p.7-130)"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "systems",
+        "fuel",
+        "tanks"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-036",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "How is the AW189 fuel distribution system arranged?",
+      "options": [
+        "Two independent, separate boosted systems supplying the two engines and the APU, joined by an electrically operated cross-feed valve so one system can supply both engines.",
+        "A single boosted manifold feeding both engines and the APU from a common collector.",
+        "Two independent systems with no interconnection, so an engine can only be fed from its own tank.",
+        "A gravity-fed system with electric pumps used only for APU start."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The fuel distribution system consists of two independent and separate boosted systems which supply the two main engines and the APU. Under normal conditions each circuit supplies its associated engine, but the systems can be connected by a cross-feed line controlled by an electrically operated valve, enabling one system to supply both engines.",
+      "references": [
+        "AW189 RFM Section 7 — Fuel System, Chap 28 (p.7-130)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "fuel",
+        "distribution"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-037",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "Where are the AW189 fuel booster pumps installed, and why there?",
+      "options": [
+        "One in each main tank, fitted into the sump plate at the lowest point of the tank, which prevents air being drawn into the fuel circulation.",
+        "In the rear fuselage alongside the manifolds, to keep them clear of the fuel bladders.",
+        "At the top of each tank, so that a leak cannot drain the tank through the pump.",
+        "In the collector between the tanks, so a single pump can feed both engines."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "An electrically driven boost pump, one in each main tank, provides a positive pressure fuel supply to the engines. The pumps are installed into the main tank sump plate at the lowest point of the tanks, which prevents the introduction of air into the fuel circulation.",
+      "references": [
+        "AW189 RFM Section 7 — Fuel System, Chap 28 (p.7-130)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "fuel",
+        "pumps"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-038",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "How are the AW189 fuel shut-off and cross-feed valves grouped?",
+      "options": [
+        "The No. 1 engine and APU SOVs are in the left side (no. 1) manifold; the No. 2 engine SOV and the cross-feed valve are in the right side (no. 2) manifold.",
+        "All shut-off valves and the cross-feed valve are in a single central manifold.",
+        "Each engine SOV is at its own firewall, and the cross-feed valve is in the left manifold with the APU SOV.",
+        "The APU SOV is in the right manifold with the No. 2 engine SOV; the cross-feed valve is separate."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The shut-off valves and cross-feed valve are incorporated into two manifold assemblies with their pressure transducers. The No. 1 engine and APU shut-off valves are in the left side manifold assembly (no. 1 manifold), and the No. 2 engine SOV and cross-feed valve are in the right side manifold assembly (no. 2 manifold).",
+      "references": [
+        "AW189 RFM Section 7 — Fuel System, Chap 28 (p.7-131)"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "systems",
+        "fuel",
+        "valves"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-039",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "Why does the AW189 fuel system use flexible pipes in places rather than rigid ones?",
+      "options": [
+        "To meet crash safety requirements where relative movement between the bladder and a rigid pipe in a survivable crash would damage the bladder and cause serious fuel spillage.",
+        "To allow the tanks to be removed without disturbing the airframe structure.",
+        "To damp out fuel pressure pulses from the booster pumps.",
+        "To allow thermal expansion of the fuel lines in hot climates."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The fuel system lines are composed of rigid and flexible pipes. Flexible pipes are used to meet crash safety requirements where relative movement between the bladder and rigid pipe, in a survivable crash, would damage the bladders causing serious fuel spillage.",
+      "references": [
+        "AW189 RFM Section 7 — Fuel System, Chap 28 (p.7-131)"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "systems",
+        "fuel",
+        "crashworthiness"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-040",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "What does the AW189 hydraulic power system supply, and at what pressure?",
+      "options": [
+        "The main and tail flight control servo actuators and the landing gear circuit, from two independent circuits at a nominal 3000 psi (207 bar).",
+        "Only the flight control actuators, at a nominal 5000 psi (345 bar), from a single circuit with a standby pump.",
+        "The flight controls, landing gear and rotor brake, from three independent circuits at 3000 psi.",
+        "The landing gear and wheel brakes only, at 207 bar — the flight controls are electrically actuated."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The hydraulic power system supplies the power necessary to operate the flight control servo actuators (main and tail) and the landing gear circuit for extension and retraction. It has two independent circuits supplying fluid at a nominal working pressure of 3000 psi (207 bar): hydraulic system No. 1 and No. 2.",
+      "references": [
+        "AW189 RFM Section 7 — Hydraulic System, Chap 29 (p.7-143)"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "systems",
+        "hydraulic"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-041",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "What is the AW189 power control module (PCM), and where is it fitted?",
+      "options": [
+        "The main hydraulic module housing the reservoir, shut-off valves, filters and sensors, installed on the upper deck in front of the main gearbox.",
+        "The electronic unit that schedules hydraulic pump output, mounted in the nose avionics bay.",
+        "The manifold in the tail boom that isolates the tail rotor actuator.",
+        "The accumulator assembly in the sponson that stores emergency landing gear pressure."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The main module of the hydraulic system is called the power control module (PCM). It houses most of the hydraulic system components including the reservoir, shut-off valves, filters and sensors. The PCMs are installed on the upper deck in front of the main gearbox, and their functions are to store, filter and provide hydraulic fluid and to monitor system pressure and temperature.",
+      "references": [
+        "AW189 RFM Section 7 — Hydraulic System, Chap 29 (p.7-143)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "hydraulic",
+        "pcm"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-042",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "Which hydraulic component is not housed in the AW189 PCMs, and what does it do?",
+      "options": [
+        "The Tail Rotor Shut-Off Valve, which isolates the hydraulic circuit 2 tail rotor actuator line in the event of a leak.",
+        "The utility shut-off valve, which isolates the landing gear circuit.",
+        "The electrically driven pump, which is mounted directly on the main gearbox.",
+        "The emergency accumulator, which is mounted in the right sponson."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The Tail Rotor Shut-Off valve (TRSOV) is the only component not included in the PCMs. It enables isolation of the hydraulic circuit 2 tail rotor actuator hydraulic line in the event of a leak.",
+      "references": [
+        "AW189 RFM Section 7 — Hydraulic System, Chap 29 (p.7-143)"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "systems",
+        "hydraulic",
+        "trsov"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-043",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "How are the pumps arranged between AW189 hydraulic systems 1 and 2?",
+      "options": [
+        "System 1 has one mechanically driven self-regulating pump plus one electrically driven pump for ground pre-flight checks; system 2 has two mechanically driven self-regulating pumps.",
+        "Each system has one mechanically driven pump and one electrically driven pump.",
+        "System 1 has two mechanical pumps and system 2 has one mechanical pump plus an electric standby.",
+        "Both systems share a single dual-section pump driven by the main gearbox."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The No. 1 hydraulic system is composed of one mechanically driven self-regulating pump and one electrically driven pump for on-ground pre-flight checks. The No. 2 hydraulic system is composed of two mechanically driven self-regulating pumps, able to provide flow at 207 bar (3000 psi) to the power control module.",
+      "references": [
+        "AW189 RFM Section 7 — Hydraulic System, Chap 29 (p.7-143)"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "systems",
+        "hydraulic",
+        "pumps"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-044",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "How long may the AW189 electrical hydraulic pump be run, and what for?",
+      "options": [
+        "For a limited period of two minutes, and only for ground pre-flight checks of the flight control servo actuators.",
+        "Continuously in flight, as a backup if a mechanical pump fails.",
+        "For five minutes, to pressurise the landing gear circuit before towing.",
+        "For two minutes, to provide emergency landing gear extension in flight."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The mechanical hydraulic pumps are driven continuously by the main gearbox. The electrical hydraulic pump, when operated by the pilot, is only for ground pre-flight checks of the flight control servo actuators, for a limited period of time (2 minutes).",
+      "references": [
+        "AW189 RFM Section 7 — Hydraulic System, Chap 29 (p.7-143)"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "systems",
+        "hydraulic",
+        "pumps"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-045",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "How is the landing gear powered on the AW189, hydraulically?",
+      "options": [
+        "System 2 supplies primary power for extension and retraction — the utility circuit — while system 1 operates the gear only in emergency situations.",
+        "System 1 supplies primary power and system 2 is the emergency backup.",
+        "Both systems supply the gear equally and either can extend or retract it normally.",
+        "The gear is electrically driven and uses hydraulic power only for the wheel brakes."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The No. 1 hydraulic system supplies one channel of the main and tail rotor actuators and is also used to operate the landing gear only in emergency situations. The No. 2 system supplies one channel of the actuators and also supplies primary power to the landing gear extension and retraction system, which is referred to as the utility circuit.",
+      "references": [
+        "AW189 RFM Section 7 — Hydraulic System, Chap 29 (p.7-143)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "hydraulic",
+        "landing gear"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-046",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "How many actuator channels does each AW189 hydraulic system drive?",
+      "options": [
+        "One channel of the main and tail rotor actuators each — three main rotor actuators and one tail rotor actuator per system.",
+        "Both channels of all actuators, so either system alone gives full dual redundancy.",
+        "Three main rotor actuators from system 1 and the single tail rotor actuator from system 2.",
+        "Two main rotor actuators and one tail rotor actuator per system, with the third main actuator shared."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Each hydraulic system supplies power for one channel of the main and tail rotor actuators — three main rotor actuators and one tail rotor actuator.",
+      "references": [
+        "AW189 RFM Section 7 — Hydraulic System, Chap 29 (p.7-143)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "hydraulic",
+        "flight controls"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-047",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "What does the AW189 ECDU hydraulic page toggle offer, and what is its power-up default?",
+      "options": [
+        "NORM, 1CLSD and 2CLSD to close the shut-off valve in either circuit; the default at power-up is NORM with both SOVs open.",
+        "OPEN and CLOSED for each circuit independently; the default is both closed until the crew opens them.",
+        "AUTO and MANUAL; the default is AUTO with the system selecting the circuit.",
+        "NORM, EMER and UTIL; the default is UTIL for ground operations."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The hydraulic page on the ECDU has a three-position horizontal toggle with NORM, 1CLSD and 2CLSD options, allowing the crew to close the SOV in circuit No. 1 or No. 2. The default at power-up is NORM with both SOVs open.",
+      "references": [
+        "AW189 RFM Section 7 — Hydraulic System, Chap 29 (p.7-145)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "hydraulic",
+        "controls"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-048",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "What protection is built into the AW189 hydraulic circuit selection?",
+      "options": [
+        "The two circuits interlock so both cannot be excluded, and an excluded circuit is automatically reactivated if the other fails on low pressure.",
+        "Closing one circuit automatically closes the other to prevent asymmetric actuator loads.",
+        "Neither circuit can be closed in flight — the selector is inhibited above 50 KIAS.",
+        "Both circuits may be closed together, but only with the landing gear down and locked."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The system includes interlocking of the two circuits without the possibility of excluding both systems, and automatic re-activation of the excluded circuit in the event of a failure (low pressure) in the other.",
+      "references": [
+        "AW189 RFM Section 7 — Hydraulic System, Chap 29 (p.7-145)"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "systems",
+        "hydraulic",
+        "controls"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-049",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "What happens when the AW189 PCM 1 reservoir reaches its minimum level of 0.7 litres?",
+      "options": [
+        "The PCM 1 low-level switch signals, closing the PCM emergency circuit shut-off valve to stop a further drop in fluid pressure.",
+        "The electrically driven pump starts automatically to maintain pressure.",
+        "The utility shut-off valve closes and the landing gear circuit is isolated.",
+        "The tail rotor shut-off valve closes to preserve fluid for the main rotor actuators."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "If the hydraulic fluid in PCM 1 reaches the minimum level (0.7 litres), the PCM 1 low-level switch gives a signal which closes the PCM emergency circuit SOV, stopping a further drop in fluid pressure.",
+      "references": [
+        "AW189 RFM Section 7 — Hydraulic System, Chap 29 (p.7-145)"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "systems",
+        "hydraulic",
+        "automatics"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-050",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "What are the two PCM 2 reservoir level thresholds on the AW189, and what does each do?",
+      "options": [
+        "LOW1 at 1.3 litres closes the utility shut-off valve; LOW2 at 0.9 litres reopens the utility SOV and closes the TRSOV.",
+        "LOW1 at 0.9 litres closes the TRSOV; LOW2 at 0.7 litres closes the utility SOV.",
+        "LOW1 at 1.3 litres closes the flight control SOV; LOW2 at 0.9 litres closes the utility SOV.",
+        "LOW1 at 1.3 litres starts the electric pump; LOW2 at 0.9 litres closes both SOVs."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "If PCM 2 reaches the LOW1 level (1.3 litres) the switch signals and closes the PCM utility shut-off valve. If it reaches the LOW2 level (0.9 litres) the signal opens the PCM utility SOV and closes the TRSOV; if the flight control SOV is closed it reopens automatically and its closure is inhibited. At the MIN level (0.7 litres) the utility SOV is closed again.",
+      "references": [
+        "AW189 RFM Section 7 — Hydraulic System, Chap 29 (p.7-145, 7-146)"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "systems",
+        "hydraulic",
+        "automatics"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-051",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "What alerting does the AW189 hydraulic system generate?",
+      "options": [
+        "Several cautions — no warning signals are generated by the hydraulic system components.",
+        "Warnings for low pressure and cautions for high temperature.",
+        "Warnings only, since any hydraulic loss is warning-level on this type.",
+        "Advisories only, with hydraulic state shown on the synoptic page."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Section 7 states there are several possible cautions applicable to the hydraulic system, and that no warning signals are generated by the hydraulic system components.",
+      "references": [
+        "AW189 RFM Section 7 — Hydraulic System, Chap 29 (p.7-146)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "hydraulic",
+        "warnings"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-052",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "How are the two AW189 hydraulic circuits routed through the airframe?",
+      "options": [
+        "The normal circuit 2 runs down the right side of the fuselage and the emergency circuit 1 down the opposite side, for maximum physical separation.",
+        "Both circuits run together down the right side inside a common protective conduit.",
+        "Circuit 1 runs through the cabin roof and circuit 2 under the cabin floor.",
+        "Both circuits run down the left side, with circuit 2 armoured against damage."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The normal circuit 2 is routed in the right side of the fuselage, while the emergency circuit 1 is routed on the opposite side for maximum physical separation.",
+      "references": [
+        "AW189 RFM Section 7 — Hydraulic System, Chap 29 (p.7-146)"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "systems",
+        "hydraulic",
+        "redundancy"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-053",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "What does the AW189 ice and rain protection system consist of?",
+      "options": [
+        "Pitot tube heating, windshield wiping, and an optional ice detector system.",
+        "Engine air intake heating, rotor blade de-icing and windshield heating.",
+        "Pitot heating, windshield heating and airframe de-icing boots.",
+        "Windshield wiping and washing only — the AW189 has no pitot heating."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The ice and rain protection system includes the pitot tube heating system, the windshield wiping system, and an optional ice detector system.",
+      "references": [
+        "AW189 RFM Section 7 — Ice and Rain Protection, Chap 30 (p.7-153)"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "systems",
+        "ice protection"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-054",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "How is the AW189 pitot heating powered and controlled?",
+      "options": [
+        "Electrical heating elements inside the rear of each pitot tube, controlled from the ECDU system menu and powered by the 28 Vdc emergency busbars.",
+        "Engine bleed air ducted to the probes, controlled by a guarded switch on the overhead panel.",
+        "Heating elements powered by the 115 Vac main buses, switched automatically below +5 °C.",
+        "Electrical elements powered from the non-essential bus, with no cockpit control."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The two pitot-static probes are protected against icing by electrical heating elements — an internal resistor installed in the rear part of each pitot tube. The heating elements are controlled by the ECDU system menu and powered by the 28 Vdc EMER busbars.",
+      "references": [
+        "AW189 RFM Section 7 — Ice and Rain Protection, Chap 30 (p.7-153)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "ice protection",
+        "pitot"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-055",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "What do the AW189 pitot icons on the MFD power plant format indicate?",
+      "options": [
+        "Not displayed when the system is off; green when energised and heated; amber when not energised with OAT below the minimum, or when a failure is detected.",
+        "Green when the probes are cold, amber when heated, red when a heater has failed.",
+        "Always displayed, turning green above +5 °C and amber below it.",
+        "Displayed only in flight, showing the measured probe temperature in degrees."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Two pitot icons appear in the upper part of the helicopter silhouette on the MFD power plant format. They are not in view when the pitot heating is not active, appear green when energised and heated, and appear amber when the system has not been energised even with OAT below the minimum, or when a failure is detected.",
+      "references": [
+        "AW189 RFM Section 7 — Ice and Rain Protection, Chap 30 (p.7-153)"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "systems",
+        "ice protection",
+        "pitot",
+        "displays"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-056",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "How is the AW189 windshield wiping system arranged?",
+      "options": [
+        "Two identical installations, one per windshield, which can be operated separately or together, with a MODE toggle offering SINGLE and DUAL.",
+        "A single motor driving both wiper arms through a common linkage.",
+        "Two installations that can only be operated together, with a three-speed selector.",
+        "One wiper for the pilot windshield only; the co-pilot side uses a rain repellent system."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The windshield wiping system consists of a wiper motor converter, wiper arms and wiper blades, in two identical installations — one for the pilot windshield and one for the co-pilot — allowing the blades to be operated separately or together. The ECDU MODE key is a toggle with SINGLE and DUAL modes.",
+      "references": [
+        "AW189 RFM Section 7 — Ice and Rain Protection, Chap 30 (p.7-156, 7-159)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "ice protection",
+        "wipers"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-057",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "What is the AW189 APU, and what is it primarily for?",
+      "options": [
+        "An e-AAP 60 gas turbine driving a 25 kVA generator, primarily intended to deliver electrical power to the EPGDS on the ground and in flight.",
+        "A 25 kVA electrical generator driven by the main gearbox, used only on the ground.",
+        "A gas turbine whose primary purpose is to supply bleed air for engine starting.",
+        "A battery-driven inverter unit that supplies AC power when no generator is on line."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The airborne auxiliary power consists of one APU system with the e-AAP 60 unit, primarily intended to deliver electrical power. It is a gas turbine engine driving a generator, and it drives a 25 kVA generator that provides electrical power to the EPGDS on the ground and in flight.",
+      "references": [
+        "AW189 RFM Section 7 — Auxiliary Power, Chap 49 (p.7-345)"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "systems",
+        "apu"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-058",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "Under what conditions may AW189 APU bleed air be used?",
+      "options": [
+        "For cockpit and cabin heating on the ground only, in cold day conditions with OAT below +20 °C — never during main engine start or in flight.",
+        "On the ground and in flight, whenever the ECS demands additional heating.",
+        "In flight only, to supplement engine bleed for the environmental control system.",
+        "On the ground at any OAT, including during main engine start."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Bleed air is supplied to the ECS for cockpit and cabin heating on the ground only. Bleed air can only be used in cold day conditions while OAT is below +20 °C on the ground, and bleed-air extraction is not allowed during main engine start or in flight.",
+      "references": [
+        "AW189 RFM Section 7 — Auxiliary Power, Chap 49 (p.7-345)"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "systems",
+        "apu",
+        "bleed air"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-059",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "Where is the AW189 APU installed?",
+      "options": [
+        "In a separate high-level fireproof compartment above the cabin roof, between the two main engines and aft of the main gearbox.",
+        "In the rear fuselage under the cargo compartment, beside the starter generator control units.",
+        "In the left sponson, forward of the main landing gear bay.",
+        "In the nose avionics bay, alongside the batteries."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The APU is located in a separated high-level fireproof compartment above the cabin roof and between the two main engines, aft of the MGB.",
+      "references": [
+        "AW189 RFM Section 7 — Auxiliary Power, Chap 49 (p.7-345)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "apu"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-060",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "What does the CLDWN light on the AW189 APU panel indicate?",
+      "options": [
+        "The APU is in its cool-down state — before stopping it stays at constant RPM without load for one minute for thermal stabilisation.",
+        "The APU bleed air valve is closed because OAT is above +20 °C.",
+        "The APU oil temperature has fallen below the minimum for starting.",
+        "The APU has been shut down and its compartment has cooled enough for maintenance access."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The green CLDWN light is illuminated when the APU is in the cool down state: before stopping, the APU remains at constant RPM without load for 1 minute for APU thermal stabilisation.",
+      "references": [
+        "AW189 RFM Section 7 — Auxiliary Power, Chap 49 (p.7-349)"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "systems",
+        "apu",
+        "controls"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-061",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "How does the AW189 APU selector behave in its four positions?",
+      "options": [
+        "OFF and ON are fixed positions; START is momentary and springs back to ON when released; CRANK is momentary and springs back to OFF when released.",
+        "All four positions are fixed and must be selected back manually.",
+        "START is fixed until the APU reaches idle, then must be moved to ON; CRANK is fixed.",
+        "OFF, ON and START are fixed; only CRANK is momentary."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The AAP selector mode for the APU has four positions: OFF; ON, a fixed position with 45° mechanical angle; START, a momentary position with 45° mechanical angle that returns automatically to ON when released; and CRANK, a momentary position 90° from OFF that returns automatically to OFF when released.",
+      "references": [
+        "AW189 RFM Section 7 — Auxiliary Power, Chap 49 (p.7-349)"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "systems",
+        "apu",
+        "controls"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    },
+    {
+      "id": "AW189-SYS-062",
+      "section": "SYSTEMS DESCRIPTION",
+      "sectionId": "systems_description",
+      "type": "single",
+      "question": "What do the READY and FAIL lights on the AW189 APU panel mean?",
+      "options": [
+        "READY means the electronic control unit is ready to start the APU; FAIL illuminates instead if the power-up built-in test detects a failure.",
+        "READY means the APU has reached operating RPM; FAIL means it has shut down on overspeed.",
+        "READY means bleed air is available; FAIL means the bleed valve has jammed.",
+        "READY means the generator is on line; FAIL means the generator control unit has tripped."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "READY indicates the electronic control unit (ECU) is ready to start the APU. In case of a failure detected during the power-up built-in test, the READY light is not illuminated and the FAIL light is illuminated instead.",
+      "references": [
+        "AW189 RFM Section 7 — Auxiliary Power, Chap 49 (p.7-349)"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "systems",
+        "apu",
+        "controls"
+      ],
+      "source": "AW189 RFM",
+      "modelIds": [
+        "AW189"
+      ]
+    }
+  ]
+}

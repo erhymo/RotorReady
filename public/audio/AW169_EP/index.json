@@ -49,20 +49,6 @@
       "group": "AFCS"
     },
     {
-      "id": "automatic-ejection-of-emergency-beacons",
-      "title": "ADELT: Automatic Ejection of Emergency Beacons",
-      "description": "How the ADELT crash position indicator works, followed through a real ditching and crash sequence to show what happens automatically versus what the pilot does.",
-      "filename": "adelt.mp3",
-      "durationSeconds": 1990
-    },
-    {
-      "id": "tcas-ii-vertical-escape-geometry",
-      "title": "TCAS II: Vertical Escape Geometry",
-      "description": "How TCAS II actually thinks, followed through a real traffic encounter from first contact to clear of conflict.",
-      "filename": "tcas.mp3",
-      "durationSeconds": 1836
-    },
-    {
       "id": "htaws-managing-the-flying-data-center",
       "title": "HTAWS: Managing the Flying Data Center",
       "description": "How the terrain awareness and warning system thinks, followed through a real terrain event from first alert to resolution.",

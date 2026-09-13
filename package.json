@@ -22,7 +22,10 @@
     "googleplay:validate": "cd android && FASTLANE_OPT_OUT_USAGE=1 FASTLANE_SKIP_UPDATE_CHECK=1 fastlane validate_play",
     "googleplay:internal": "cd android && FASTLANE_OPT_OUT_USAGE=1 FASTLANE_SKIP_UPDATE_CHECK=1 fastlane internal",
     "extract:b3e": "node scripts/extract-b3e-rfm-pdfjs.mjs",
-    "native:shell": "NATIVE_EXPORT=1 node scripts/build-native-shell.mjs"
+    "native:shell": "NATIVE_EXPORT=1 node scripts/build-native-shell.mjs",
+    "validate:content": "node scripts/validate-content.mjs",
+    "prebuild": "node scripts/validate-content.mjs",
+    "release:check": "node scripts/release-check.mjs"
   },
   "dependencies": {
     "@capacitor/android": "^7.6.5",

@@ -1,6 +1,10 @@
 name: Playwright E2E
 
+# Runs on pushes to main as well as pull requests: work lands on main directly
+# here, so a pull-request-only trigger meant the suite never gated anything.
 on:
+  push:
+    branches: [ main ]
   pull_request:
     branches: [ main ]
 
@@ -13,6 +17,9 @@ jobs:
         with:
           node-version: '18'
       - run: npm ci
+      # Content is served live to installed apps, so a malformed file would
+      # reach users without passing through a store review. Check it first.
+      - run: npm run validate:content
       - run: npx playwright install --with-deps
       - run: npm run build
       - name: Start app

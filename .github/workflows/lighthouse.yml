@@ -1,6 +1,10 @@
 name: Lighthouse CI
 
+# Runs on pushes to main as well as pull requests: work lands on main directly
+# here, so a pull-request-only trigger meant the suite never gated anything.
 on:
+  push:
+    branches: [ main ]
   pull_request:
     branches: [ main ]
 

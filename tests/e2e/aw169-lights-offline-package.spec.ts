@@ -49,13 +49,16 @@ for (const scenario of CASES) {
       .toBe(true);
 
     await page.goto('/training/lights/cwp/aw169');
-    await expect(page.getByRole('heading', { name: 'CWP-trainer · AW169' })).toBeVisible({ timeout: 15000 });
+    await expect(page.getByRole('heading', { name: 'CWP Trainer · AW169' })).toBeVisible({ timeout: 15000 });
 
     await page.getByRole('button', { name: '1(2) ENG OIL PRESS' }).click();
     await expect
       .poll(() => page.evaluate(() => window.location.pathname), { timeout: 15000 })
       .toBe('/training/lights');
     await expect(page.getByRole('button', { name: 'Close procedure' })).toBeVisible({ timeout: 15000 });
+    // AW169 red lights render as text now, with the scanned QRH page behind a
+    // toggle -- open it, since the warmed SVG asset is what this test is about.
+    await page.getByRole('button', { name: /view original QRH page/i }).click();
     await expect(page.getByAltText('1(2) ENG OIL PRESS')).toBeVisible({ timeout: 15000 });
 
     await page.goto('/aw169/procedures/single-engine?resume=1&v=AW169&light=eng-oil-press&mem=0&cwp=1');

@@ -25,7 +25,7 @@ test('account mixed wrong-only prefers history items over fallback duplicates', 
   }, { historyKey: HISTORY_KEY, fallbackKey: FALLBACK_KEY });
 
   await page.goto('/account');
-  await expect(page.getByRole('heading', { name: 'My Page' })).toBeVisible({ timeout: 15000 });
+  await expect(page.getByRole('heading', { name: 'Settings' }).first()).toBeVisible({ timeout: 15000 });
 
   const wrongOnlyCard = page.locator('div.rounded-xl')
     .filter({ has: page.getByText('Practice wrong answers only', { exact: true }) })

@@ -882,7 +882,9 @@
         "200 litres",
         "250 litres"
       ],
-      "answer": [],
+      "answer": [
+        2
+      ],
       "explanation": "Unusable OEI fuel is 200 litres (160 kg indicated).",
       "references": [
         "QRH p18"

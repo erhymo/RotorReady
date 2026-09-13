@@ -43,7 +43,17 @@ function toError(error: unknown): Error {
 }
 
 export function isFirebaseAdminUnavailableError(error: unknown): boolean {
-  return toError(error).message.includes("Firebase Admin SDK er ikke tilgjengelig");
+  const message = toError(error).message;
+  // Our own signal, thrown when the credentials are missing outright.
+  if (message.includes("Firebase Admin SDK er ikke tilgjengelig")) return true;
+  // The SDK loads fine but has nothing to authenticate with, so it only fails
+  // once a query runs. Callers treat that the same way: show an empty view with
+  // a warning rather than a 500, which is what the admin pages expect.
+  return (
+    message.includes("Unable to detect a Project Id") ||
+    message.includes("Could not load the default credentials") ||
+    message.includes("Could not refresh access token")
+  );
 }
 
 function getFirebaseAdminServices(): FirebaseAdminServices {

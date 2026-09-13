@@ -19,28 +19,26 @@ test('home mobile header actions stay inside the header and away from content', 
   await page.goto('/');
 
   await expect(page.getByRole('heading', { name: 'RotorReady' })).toBeVisible();
-	  await expect(page.locator('span[title="In production"]:visible')).toBeVisible();
+	  await expect(page.getByLabel(/^Active model:/).first()).toBeVisible();
 	  await expect(page.locator('a[href="/info"]:visible')).toBeVisible();
 
+  // The "In production" badge this test used to measure no longer exists in the
+  // header; the active-model badge (which links to /account) took its place.
   const header = await page.locator('.rr-safe-top').boundingBox();
-	  const prod = await page.locator('span[title="In production"]:visible').boundingBox();
-	  const info = await page.locator('a[href="/info"]:visible').boundingBox();
+  const info = await page.locator('a[href="/info"]:visible').boundingBox();
   const title = await page.getByRole('heading', { name: 'RotorReady' }).boundingBox();
   const model = await page.locator('a[href="/account"]').first().boundingBox();
 
   expect(header).not.toBeNull();
-  expect(prod).not.toBeNull();
   expect(info).not.toBeNull();
   expect(title).not.toBeNull();
   expect(model).not.toBeNull();
 
-  expect(prod!.y).toBeGreaterThanOrEqual(header!.y);
-  expect(prod!.y + prod!.height).toBeLessThanOrEqual(header!.y + header!.height + 1);
   expect(info!.y).toBeGreaterThanOrEqual(header!.y);
   expect(info!.y + info!.height).toBeLessThanOrEqual(header!.y + header!.height + 1);
-  expect(overlaps(prod!, title!)).toBe(false);
+  expect(model!.y).toBeGreaterThanOrEqual(header!.y);
+  expect(model!.y + model!.height).toBeLessThanOrEqual(header!.y + header!.height + 1);
   expect(overlaps(info!, title!)).toBe(false);
-  expect(overlaps(prod!, model!)).toBe(false);
   expect(overlaps(info!, model!)).toBe(false);
 
   await expectNoHorizontalOverflow(page);

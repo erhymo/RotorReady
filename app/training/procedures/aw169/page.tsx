@@ -11,29 +11,29 @@ export default function AW169ProceduresListPage() {
 
   const procedures = [
     // Clear Area
-    { title: "CLEAR AREA TAKE-OFF PROCEDURE", href: "/aw169/procedures/clear-area-take-off?plist=1" },
-    { title: "CLEAR AREA CAT A LANDING PROCEDURE", href: "/aw169/procedures/clear-area-cat-a-landing-procedure?plist=1" },
+    { title: "CLEAR AREA TAKE-OFF PROCEDURE", href: "/aw169/procedures/detail?slug=clear-area-take-off&plist=1" },
+    { title: "CLEAR AREA CAT A LANDING PROCEDURE", href: "/aw169/procedures/detail?slug=clear-area-cat-a-landing-procedure&plist=1" },
 
     // Ground
     {
       title: "GROUND AND ELEVATED HELIPORT / HELIDECK VERTICAL PROCEDURE",
-      href: "/aw169/procedures/ground-and-elevated-heliport-helideck-vertical-procedure?plist=1",
+      href: "/aw169/procedures/detail?slug=ground-and-elevated-heliport-helideck-vertical-procedure&plist=1",
     },
-    { title: "GROUND AND ELEVATED HELIPORT / HELIDECK VARIABLE TDP PROCEDURE", href: "/aw169/procedures/ground-and-elevated-heliport-helideck-variable-tdp-procedure?plist=1" },
-    { title: "GROUND OR ELEVATED HELIPAD APPROACH AND LANDING VARIABLE LDP PROCEDURE", href: "/aw169/procedures/ground-or-elevated-helipad-approach-and-landing-variable-ldp-procedure?plist=1" },
+    { title: "GROUND AND ELEVATED HELIPORT / HELIDECK VARIABLE TDP PROCEDURE", href: "/aw169/procedures/detail?slug=ground-and-elevated-heliport-helideck-variable-tdp-procedure&plist=1" },
+    { title: "GROUND OR ELEVATED HELIPAD APPROACH AND LANDING VARIABLE LDP PROCEDURE", href: "/aw169/procedures/detail?slug=ground-or-elevated-helipad-approach-and-landing-variable-ldp-procedure&plist=1" },
 
     // Offshore
-    { title: "OFFSHORE AND ELEVATED HELIDECK LANDING PROCEDURES", href: "/aw169/procedures/offshore-and-elevated-helideck-landing-procedures?plist=1" },
-    { title: "OFFSHORE / ELEVATED HELIDECK APPROACH AND NORMAL LANDING PROCEDURE", href: "/aw169/procedures/offshore-elevated-helideck-approach-and-normal-landing-procedure?plist=1" },
-    { title: "OFFSHORE / ELEVATED HELIDECK TAKE-OFF NORMAL PROCEDURE", href: "/aw169/procedures/offshore-elevated-helideck-take-off-normal-procedure?plist=1" },
+    { title: "OFFSHORE AND ELEVATED HELIDECK LANDING PROCEDURES", href: "/aw169/procedures/detail?slug=offshore-and-elevated-helideck-landing-procedures&plist=1" },
+    { title: "OFFSHORE / ELEVATED HELIDECK APPROACH AND NORMAL LANDING PROCEDURE", href: "/aw169/procedures/detail?slug=offshore-elevated-helideck-approach-and-normal-landing-procedure&plist=1" },
+    { title: "OFFSHORE / ELEVATED HELIDECK TAKE-OFF NORMAL PROCEDURE", href: "/aw169/procedures/detail?slug=offshore-elevated-helideck-take-off-normal-procedure&plist=1" },
 
     // Engine (bottom)
-    { title: "ENGINE SHUTDOWN IN EMERGENCY", href: "/aw169/procedures/engine-shutdown-emergency?plist=1" },
+    { title: "ENGINE SHUTDOWN IN EMERGENCY", href: "/aw169/procedures/detail?slug=engine-shutdown-emergency&plist=1" },
     { title: "SINGLE ENGINE PROCEDURE", href: "/aw169/procedures/single-engine?plist=1" },
     ...(isEnhancedPerformance
-      ? [{ title: "EP CAT A OEI CONTINGENCY PROCEDURES", href: "/aw169/procedures/ep-cat-a-oei-contingencies?plist=1" }]
+      ? [{ title: "EP CAT A OEI CONTINGENCY PROCEDURES", href: "/aw169/procedures/detail?slug=ep-cat-a-oei-contingencies&plist=1" }]
       : []),
-    { title: "ENGINE RE-LIGHT (IN FLIGHT)", href: "/aw169/procedures/engine-re-light?plist=1" },
+    { title: "ENGINE RE-LIGHT (IN FLIGHT)", href: "/aw169/procedures/detail?slug=engine-re-light&plist=1" },
   ];
 
   return (

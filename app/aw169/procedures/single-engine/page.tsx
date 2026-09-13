@@ -80,8 +80,9 @@ function SingleEngineProcedureInner() {
               Carry out{" "}
               <Link
                 href={{
-                  pathname: "/aw169/procedures/engine-shutdown-emergency",
+                  pathname: "/aw169/procedures/detail",
                   query: {
+                    slug: "engine-shutdown-emergency",
                     resume: "1",
                     v: sp.get("v") || "AW169",
                     light: sp.get("light") || "",
@@ -121,8 +122,9 @@ function SingleEngineProcedureInner() {
                 <div className="font-semibold mb-1">NO</div>
                 <div className="text-sm">Refer to <Link
                   href={{
-                    pathname: "/aw169/procedures/engine-re-light",
+                    pathname: "/aw169/procedures/detail",
                     query: {
+                      slug: "engine-re-light",
                       resume: "1",
                       v: sp.get("v") || "AW169",
                       light: sp.get("light") || "",

@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect } from "react";
-import { useRouter } from "next/navigation";
+import { Suspense, useEffect } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 
 /**
  * Client-side redirect from an old `/thing/<value>` URL to the query-param page
@@ -10,7 +10,7 @@ import { useRouter } from "next/navigation";
  * native-build time — these thin redirects only exist so links shared or
  * bookmarked under the old shape keep working.
  */
-export default function LegacyRouteRedirect({
+function LegacyRouteRedirectInner({
   to,
   param,
   value,
@@ -20,10 +20,27 @@ export default function LegacyRouteRedirect({
   value: string;
 }) {
   const router = useRouter();
+  const searchParams = useSearchParams();
 
   useEffect(() => {
-    router.replace(`${to}?${param}=${encodeURIComponent(value)}`);
-  }, [router, to, param, value]);
+    // Carry any other query params across. Some of these links are navigation
+    // state, not decoration — the AW169 procedures pass the light and variant
+    // the user came from so the lights trainer can resume where they left off.
+    const next = new URLSearchParams(searchParams.toString());
+    next.set(param, value);
+    router.replace(`${to}?${next.toString()}`);
+  }, [router, searchParams, to, param, value]);
 
   return null;
+}
+
+// useSearchParams needs a Suspense boundary during static generation, and these
+// redirects are rendered from plain server pages, so the boundary lives here
+// rather than being repeated at every call site.
+export default function LegacyRouteRedirect(props: { to: string; param: string; value: string }) {
+  return (
+    <Suspense fallback={null}>
+      <LegacyRouteRedirectInner {...props} />
+    </Suspense>
+  );
 }

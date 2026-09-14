@@ -21,12 +21,25 @@ jobs:
       # reach users without passing through a store review. Check it first.
       - run: npm run validate:content
       - run: npx playwright install --with-deps
-      - run: npm run build
+      # The workflow builds and starts the server itself so it happens once.
+      # playwright.config.ts starts its own only when PLAYWRIGHT_BASE_URL is
+      # unset, so that variable is set on the test step below — without it
+      # Playwright tried to take port 3000 a second time and aborted before
+      # running anything. The admin bypass has to be set on both the build and
+      # the start, because middleware.ts reads it at request time and
+      # admin-api-fallbacks.spec.ts depends on it.
+      - name: Build
+        run: npm run build
+        env:
+          E2E_BYPASS_ADMIN_AUTH: '1'
       - name: Start app
         run: |
-          npx wait-on tcp:3000 &
           npm start &
           npx wait-on http://localhost:3000
+        env:
+          E2E_BYPASS_ADMIN_AUTH: '1'
       - name: Run E2E tests
         run: npx playwright test
+        env:
+          PLAYWRIGHT_BASE_URL: http://localhost:3000
 

@@ -93,6 +93,13 @@
       "filename": "ice-protection-2.mp3",
       "durationSeconds": 1163,
       "group": "Ice Protection"
+    },
+    {
+      "id": "cas",
+      "title": "CAS: How the Aircraft Talks to You",
+      "description": "Not one system but the grammar behind all of them — the four caption levels and what green and white actually mean, the fourteen-entry voice warning priority list and what its order tells you, which warnings get their own voice and which share the word WARNING, every threshold behind them, the two amber cautions that speak, the separate PFD and MFD message channel including the rating timers and the same-source ADS and AHRS messages, and what to do when the alerting system itself disagrees or goes quiet.",
+      "filename": "cas.mp3",
+      "durationSeconds": 1573
     }
   ]
 }

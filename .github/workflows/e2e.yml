@@ -15,7 +15,9 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          # Matches the Node version Vercel builds production with, so this
+          # job gates against the runtime users actually get.
+          node-version: '22'
       - run: npm ci
       # Content is served live to installed apps, so a malformed file would
       # reach users without passing through a store review. Check it first.

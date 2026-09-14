@@ -15,7 +15,9 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          # Matches the Node version Vercel builds production with, so this
+          # job measures the runtime users actually get.
+          node-version: '22'
       - run: npm ci
       - run: npm run build
       - name: Start app

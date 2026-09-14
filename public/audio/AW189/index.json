@@ -77,6 +77,22 @@
       "description": "How the aircraft detects fire — the fire wire in the engine and APU bays, the photoelectric smoke detector in the baggage bay — what the bottles can and cannot reach, and then all ten fire drills taken bay by bay in their ground and flight pairs, including the electrical smoke load-shedding ladder and the two exhaust fires after shutdown. Built around the three landing-urgency terms and the emergency ground egress that most of the drills end in.",
       "filename": "fire-protection.mp3",
       "durationSeconds": 2032
+    },
+    {
+      "id": "ice-protection-1",
+      "title": "Ice Protection: The Systems and the Limits",
+      "description": "Three aircraft in one type — basic, LIPS and full IPS — and what each is actually allowed to do. Pitot heat and wipers, why the basic ice detector gets no credit, what LIPS heats and the five-minute zone clock behind it, then the full system's six main rotor zones, dual channels, dedicated gearbox generator, what normal operation feels like in torque and vibration, override mode and runback ice, and the severe-ice drill.",
+      "filename": "ice-protection-1.mp3",
+      "durationSeconds": 1462,
+      "group": "Ice Protection"
+    },
+    {
+      "id": "ice-protection-2",
+      "title": "Ice Protection: The Failures",
+      "description": "Every icing malfunction organised by what you have lost rather than by caption — the sensors that build the picture, the windshields, engine intake protection, and main and tail rotor heating — plus the mode cautions and the generator failure that costs you three pieces of ice protection at once. Ends with a captions-and-actions cold recap.",
+      "filename": "ice-protection-2.mp3",
+      "durationSeconds": 1163,
+      "group": "Ice Protection"
     }
   ]
 }

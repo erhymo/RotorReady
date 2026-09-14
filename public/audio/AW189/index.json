@@ -63,6 +63,13 @@
       "description": "Every AW189 limitation taken at the point in the flight where you actually meet it — loading on the ramp, APU and engine start, rotor brake and taxi, the hover and take-off power limits, cruise airspeeds and fuel, IFR, and the one-engine and power-off rotor bands. Ends with a numbers-only cold recap.",
       "filename": "limitations.mp3",
       "durationSeconds": 1526
+    },
+    {
+      "id": "electrical",
+      "title": "Electrical: Built Up, Then Taken Apart",
+      "description": "The AW189 electrical system woken up one layer at a time — battery, APU generator, 270 Vdc engine start, both generators, TRUs, distribution and what you can see and command — then every layer taken away again: single, double and triple generator failure, the battery cautions and emergency bus failure. Ends with a numbers-only cold recap.",
+      "filename": "electrical.mp3",
+      "durationSeconds": 1584
     }
   ]
 }

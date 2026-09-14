@@ -114,6 +114,34 @@
       "description": "Three gearbox numbers, the sprag freewheel, and the two oil clocks that decide the rest of the flight.",
       "filename": "rotor-transmission.mp3",
       "durationSeconds": 996
+    },
+    {
+      "id": "tcas",
+      "title": "TCAS: Flying an RA in a Helicopter",
+      "description": "The inhibit heights that quietly switch it off, and how you actually fly a climb or descent advisory in a helicopter.",
+      "filename": "tcas.mp3",
+      "durationSeconds": 1001
+    },
+    {
+      "id": "apu",
+      "title": "APU: The Unit You Think About Least",
+      "description": "What it is for, the bleed air and start limits, and why a failed APU that is still running stays on.",
+      "filename": "apu.mp3",
+      "durationSeconds": 824
+    },
+    {
+      "id": "rnp",
+      "title": "RNP: When the Aircraft Is Unsure",
+      "description": "Cross track against position uncertainty, the four-action escape package, and the one question that decides it.",
+      "filename": "rnp.mp3",
+      "durationSeconds": 1008
+    },
+    {
+      "id": "ditching",
+      "title": "Ditching: A Planned Arrival on Water",
+      "description": "The four bags and how they fire, then the drill in four phases — preliminary, approach, contact, and after.",
+      "filename": "ditching.mp3",
+      "durationSeconds": 867
     }
   ]
 }

@@ -70,6 +70,13 @@
       "description": "The AW189 electrical system woken up one layer at a time — battery, APU generator, 270 Vdc engine start, both generators, TRUs, distribution and what you can see and command — then every layer taken away again: single, double and triple generator failure, the battery cautions and emergency bus failure. Ends with a numbers-only cold recap.",
       "filename": "electrical.mp3",
       "durationSeconds": 1584
+    },
+    {
+      "id": "fire-protection",
+      "title": "Fire Protection: Bay by Bay, Ground and Flight",
+      "description": "How the aircraft detects fire — the fire wire in the engine and APU bays, the photoelectric smoke detector in the baggage bay — what the bottles can and cannot reach, and then all ten fire drills taken bay by bay in their ground and flight pairs, including the electrical smoke load-shedding ladder and the two exhaust fires after shutdown. Built around the three landing-urgency terms and the emergency ground egress that most of the drills end in.",
+      "filename": "fire-protection.mp3",
+      "durationSeconds": 2032
     }
   ]
 }

@@ -3,7 +3,7 @@
     {
       "id": "afcs-full-episode",
       "title": "AFCS: Full Episode (Parts 1–5)",
-      "description": "The whole AFCS series as one continuous listen — the control stack, the Collective Safety Function and engagement envelopes, coupled approaches, failure logic, and Automatic Search Modes. Prefer to take it a piece at a time? The same five parts are below, plus a numbers-only cold recap.",
+      "description": "All five AFCS parts as one continuous listen, plus the cold recap. The same parts are also below individually.",
       "filename": "afcs-full-episode.mp3",
       "durationSeconds": 1460,
       "group": "AFCS",
@@ -12,15 +12,15 @@
     {
       "id": "afcs-1-the-control-stack",
       "title": "AFCS: The Control Stack",
-      "description": "How the AW189's Automatic Flight Control System is layered — basic attitude and control functions, then the upper modes built on top of them, and how the PFD shows you what's armed, captured or changing.",
+      "description": "How the control system is layered — the basic functions, the upper modes on top, and what the PFD shows you.",
       "filename": "afcs-1-the-control-stack.mp3",
       "durationSeconds": 276,
       "group": "AFCS"
     },
     {
       "id": "afcs-2-collective-safety-and-envelopes",
-      "title": "AFCS: Collective Safety Function & Engagement Envelopes",
-      "description": "Power Limiting, Autorotation Protection, the full Low Height floor table, Pitch Assist, Airspeed Envelope Protection, and every mode's engagement range and minimum use height.",
+      "title": "AFCS: Collective Safety & Envelopes",
+      "description": "Power Limiting, Autorotation Protection, Low Height and Pitch Assist, plus every mode's range and minimum use height.",
       "filename": "afcs-2-collective-safety-and-envelopes.mp3",
       "durationSeconds": 330,
       "group": "AFCS"
@@ -28,7 +28,7 @@
     {
       "id": "afcs-3-coupled-approaches",
       "title": "AFCS: Coupled Approaches",
-      "description": "The four-degree Category I ILS certification, coupled ILS and GSPD approach speed limits, and the VOR approach/navigation switching rule.",
+      "description": "Four-degree Category I ILS, coupled ILS and GSPD speed limits, and the VOR approach switching rule.",
       "filename": "afcs-3-coupled-approaches.mp3",
       "durationSeconds": 186,
       "group": "AFCS"
@@ -36,7 +36,7 @@
     {
       "id": "afcs-4-failure-logic",
       "title": "AFCS: Failure Logic",
-      "description": "The common response pattern behind almost every AFCS malfunction, then how AP FAIL/OFF, trim failures, MISTRIM, AFCS panel failure, oscillatory malfunctions, AHRS failure and AFCS Degraded each build on it.",
+      "description": "The common response pattern behind almost every AFCS malfunction, and how each failure builds on it.",
       "filename": "afcs-4-failure-logic.mp3",
       "durationSeconds": 367,
       "group": "AFCS"
@@ -44,7 +44,7 @@
     {
       "id": "afcs-5-automatic-search-modes",
       "title": "AFCS: Automatic Search Modes",
-      "description": "The AW189-specific Search Mode package for SAR and offshore work — TD, TDH, TU, WTR, MOT and Hover Point Approach, their minimum use heights, and the maritime wave-height adjustment.",
+      "description": "The Search Mode package for SAR and offshore work, their minimum use heights, and the wave-height adjustment.",
       "filename": "afcs-5-automatic-search-modes.mp3",
       "durationSeconds": 298,
       "group": "AFCS"
@@ -52,7 +52,7 @@
     {
       "id": "afcs-6-cold-recap",
       "title": "AFCS: Cold Recap",
-      "description": "Every number from this series in one pass, no explanation — for the night before a check.",
+      "description": "Every number from the series in one pass, no explanation — for the night before a check.",
       "filename": "afcs-6-cold-recap.mp3",
       "durationSeconds": 238,
       "group": "AFCS"
@@ -60,28 +60,28 @@
     {
       "id": "limitations",
       "title": "Limitations: Flown as a Sortie",
-      "description": "Every AW189 limitation taken at the point in the flight where you actually meet it — loading on the ramp, APU and engine start, rotor brake and taxi, the hover and take-off power limits, cruise airspeeds and fuel, IFR, and the one-engine and power-off rotor bands. Ends with a numbers-only cold recap.",
+      "description": "Every limitation taken where you actually meet it in the flight, ramp to shutdown. Ends with a cold recap.",
       "filename": "limitations.mp3",
       "durationSeconds": 1526
     },
     {
       "id": "electrical",
       "title": "Electrical: Built Up, Then Taken Apart",
-      "description": "The AW189 electrical system woken up one layer at a time — battery, APU generator, 270 Vdc engine start, both generators, TRUs, distribution and what you can see and command — then every layer taken away again: single, double and triple generator failure, the battery cautions and emergency bus failure. Ends with a numbers-only cold recap.",
+      "description": "The system woken up layer by layer, then every layer taken away — single, double and triple generator failure.",
       "filename": "electrical.mp3",
       "durationSeconds": 1584
     },
     {
       "id": "fire-protection",
-      "title": "Fire Protection: Bay by Bay, Ground and Flight",
-      "description": "How the aircraft detects fire — the fire wire in the engine and APU bays, the photoelectric smoke detector in the baggage bay — what the bottles can and cannot reach, and then all ten fire drills taken bay by bay in their ground and flight pairs, including the electrical smoke load-shedding ladder and the two exhaust fires after shutdown. Built around the three landing-urgency terms and the emergency ground egress that most of the drills end in.",
+      "title": "Fire Protection: Bay by Bay",
+      "description": "How fire is detected, what the bottles can reach, and all ten drills in their ground and flight pairs.",
       "filename": "fire-protection.mp3",
       "durationSeconds": 2032
     },
     {
       "id": "ice-protection-1",
-      "title": "Ice Protection: The Systems and the Limits",
-      "description": "Three aircraft in one type — basic, LIPS and full IPS — and what each is actually allowed to do. Pitot heat and wipers, why the basic ice detector gets no credit, what LIPS heats and the five-minute zone clock behind it, then the full system's six main rotor zones, dual channels, dedicated gearbox generator, what normal operation feels like in torque and vibration, override mode and runback ice, and the severe-ice drill.",
+      "title": "Ice Protection: Systems and Limits",
+      "description": "Three aircraft in one type — basic, LIPS and full IPS — what each may do, and what normal operation feels like.",
       "filename": "ice-protection-1.mp3",
       "durationSeconds": 1462,
       "group": "Ice Protection"
@@ -89,7 +89,7 @@
     {
       "id": "ice-protection-2",
       "title": "Ice Protection: The Failures",
-      "description": "Every icing malfunction organised by what you have lost rather than by caption — the sensors that build the picture, the windshields, engine intake protection, and main and tail rotor heating — plus the mode cautions and the generator failure that costs you three pieces of ice protection at once. Ends with a captions-and-actions cold recap.",
+      "description": "Every icing malfunction organised by what you have lost: the picture, the windshields, the intakes, the rotors.",
       "filename": "ice-protection-2.mp3",
       "durationSeconds": 1163,
       "group": "Ice Protection"
@@ -97,21 +97,21 @@
     {
       "id": "cas",
       "title": "CAS: How the Aircraft Talks to You",
-      "description": "Not one system but the grammar behind all of them — the four caption levels and what green and white actually mean, the fourteen-entry voice warning priority list and what its order tells you, which warnings get their own voice and which share the word WARNING, every threshold behind them, the two amber cautions that speak, the separate PFD and MFD message channel including the rating timers and the same-source ADS and AHRS messages, and what to do when the alerting system itself disagrees or goes quiet.",
+      "description": "The four caption levels, the voice warning priority list, and what to do when the alerting system goes quiet.",
       "filename": "cas.mp3",
       "durationSeconds": 1573
     },
     {
       "id": "engine",
-      "title": "Engine: The Machine and the Six Failures",
-      "description": "A short one. The CT7-2E1 itself — variable compressor geometry, integral particle separator, dual-channel FADEC, and the collective-position transformers that give the engine power anticipation — then engine out, the drive shaft failure that looks like an overspeed until you read the torque, governor loss where step one is not to move the collective, autorotation numbers, and the quick ones: compressor stall, unusual noise, hot start and limit expire.",
+      "title": "Engine: The Machine and Its Failures",
+      "description": "The CT7-2E1 itself, then engine out, drive shaft failure, governor loss, autorotation and the quick ones.",
       "filename": "engine.mp3",
       "durationSeconds": 889
     },
     {
       "id": "rotor-transmission",
-      "title": "Rotor & Transmission: Three Numbers and Two Clocks",
-      "description": "A short one. 21,420 rpm in, 290.45 at the mast, 4,645 down the tail — and the sprag freewheel that lets the rotor keep driving the hydraulics with the engines gone. Then the blades, the rotor speed drills, and the two gearbox oil clocks that decide the rest of the flight: three hours on a failed pump, fifty minutes once a bearing heats up. Ends with tail rotor drive failure and the collective as your remaining yaw control.",
+      "title": "Rotor & Transmission",
+      "description": "Three gearbox numbers, the sprag freewheel, and the two oil clocks that decide the rest of the flight.",
       "filename": "rotor-transmission.mp3",
       "durationSeconds": 996
     }

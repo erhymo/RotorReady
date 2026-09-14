@@ -74,7 +74,9 @@ function EpisodeLink({ activeVariantId, item, nested }: { activeVariantId: strin
           )}
           <div>
             <div className="font-semibold text-slate-900 dark:text-zinc-100">{item.title}</div>
-            <div className="mt-0.5 text-sm text-slate-600 dark:text-zinc-300">{item.description}</div>
+            {/* Clamped so a long description can never turn the card into a
+                wall of text; the episode itself carries the detail. */}
+            <div className="mt-0.5 line-clamp-2 text-sm text-slate-600 dark:text-zinc-300">{item.description}</div>
             <div className="mt-1 text-xs text-slate-500 dark:text-zinc-400">{formatDuration(item.durationSeconds)}</div>
           </div>
         </div>

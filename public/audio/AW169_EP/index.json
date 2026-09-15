@@ -63,11 +63,11 @@
       "durationSeconds": 3070
     },
     {
-      "id": "electrical-failure-logic-and-survival",
-      "title": "Electrical: Failure Logic and Survival",
-      "description": "How the electrical system generates, converts, and distributes power, followed through a real generator failure to show exactly how the system protects itself and what the pilot does.",
-      "filename": "electrical.mp3",
-      "durationSeconds": 2446
+      "id": "electrical-built-up-then-taken-apart",
+      "title": "Electrical: Built Up, Then Taken Apart",
+      "description": "Generation, buses and the failure ladder, from a cold power-up through to isolating electrical smoke.",
+      "filename": "electrical-built-up-then-taken-apart.mp3",
+      "durationSeconds": 2086
     },
     {
       "id": "limitations-flown-as-a-sortie",

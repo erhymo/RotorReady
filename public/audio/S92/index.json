@@ -34,6 +34,27 @@
       "description": "The tightest clock in the manual — bypass within five seconds, failure possible in under ten — and the five symptoms that override everything.",
       "filename": "gearbox.mp3",
       "durationSeconds": 1138
+    },
+    {
+      "id": "rips",
+      "title": "RIPS: Reading the Rhythm",
+      "description": "How rotor deicing actually works, what a healthy cycle feels like in torque and vibration, and how to tell when you are outside the envelope.",
+      "filename": "rips.mp3",
+      "durationSeconds": 1265
+    },
+    {
+      "id": "egpws",
+      "title": "EGPWS: Which Protections Are Actually On",
+      "description": "Basic modes against look ahead, every threshold and aural, and the inhibits that switch protection off without announcing it.",
+      "filename": "egpws.mp3",
+      "durationSeconds": 1237
+    },
+    {
+      "id": "tcas-weather",
+      "title": "Traffic & Weather: What Is Out There",
+      "description": "Traffic advisories only on this aircraft — no resolution advisories — plus what the radar cannot see, and why a blue field is the dangerous one.",
+      "filename": "tcas-weather.mp3",
+      "durationSeconds": 1022
     }
   ]
 }

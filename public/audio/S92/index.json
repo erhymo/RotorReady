@@ -8,13 +8,6 @@
       "durationSeconds": 2625
     },
     {
-      "id": "fire-protection-logic-and-procedures",
-      "title": "Fire: Protection Logic and Procedures",
-      "description": "How the fire detection and extinguishing system is built, followed through a real engine fire from first indication to a safe outcome.",
-      "filename": "fire.mp3",
-      "durationSeconds": 1863
-    },
-    {
       "id": "electrical-system",
       "title": "Electrical: Counting Down the Layers",
       "description": "Two generators, two converters, a backup and a battery — and what each layer costs you as it goes, down to why the gear must come down early.",
@@ -27,6 +20,13 @@
       "description": "Five systems, two valves that close on a leak before you touch anything, and the drills that follow from what the aircraft already decided.",
       "filename": "hydraulic-system.mp3",
       "durationSeconds": 1315
+    },
+    {
+      "id": "fire-protection",
+      "title": "Fire: Where the Agent Actually Goes",
+      "description": "Five infrared detectors, three arm buttons, two bottles — and the fact that the number two engine and APU share a compartment for extinguishing.",
+      "filename": "fire-protection.mp3",
+      "durationSeconds": 1053
     }
   ]
 }

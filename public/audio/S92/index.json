@@ -48,6 +48,20 @@
       "description": "Basic modes against look ahead, every threshold and aural, and the inhibits that switch protection off without announcing it.",
       "filename": "egpws.mp3",
       "durationSeconds": 1237
+    },
+    {
+      "id": "eicas",
+      "title": "EICAS: How the Aircraft Tells You",
+      "description": "Three colours, three levels of noise — and the one that arrives silently, plus the function that hides cautions from you on purpose.",
+      "filename": "eicas.mp3",
+      "durationSeconds": 823
+    },
+    {
+      "id": "apu",
+      "title": "APU: Hydraulic Start, and Two Minds",
+      "description": "Started by an accumulator in the cabin overhead, and a control unit that stops it on the ground for faults it will keep running through in the air.",
+      "filename": "apu.mp3",
+      "durationSeconds": 1096
     }
   ]
 }

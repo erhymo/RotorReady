@@ -79,13 +79,32 @@ function Bar(props: { href: string; title: string; description: string; tone?: "
 	        cancelled = true;
 	      };
 	    }
+	    // Answer from the bundled copy first. It is already on the device, so it
+	    // renders the bar immediately, and it is never wrong about a model that
+	    // had episodes at the last native build. The live index then corrects it,
+	    // which is what still makes the bar appear on its own for a model whose
+	    // first episodes were published since. Before this the bar waited only on
+	    // the live fetch, so on a weak connection it could stay hidden for many
+	    // seconds even though the answer was sitting in the app bundle.
+	    const hasItems = (data: { items?: unknown[] } | null | undefined) =>
+	      Array.isArray(data?.items) && data.items.length > 0;
+	    let liveAnswered = false;
+
+	    fetch(`/audio/${variantId}/index.json`)
+	      .then((res) => (res.ok ? res.json() : null))
+	      .then((data: { items?: unknown[] } | null) => {
+	        // Never let the bundled answer overwrite a live one that already landed.
+	        if (!cancelled && !liveAnswered && data) setHasAudio(hasItems(data));
+	      })
+	      .catch(() => {});
+
 	    fetchContentJson<{ items?: unknown[] }>(`/audio/${variantId}/index.json`)
 	      .then((data) => {
-	        if (!cancelled) setHasAudio(Array.isArray(data?.items) && data.items.length > 0);
+	        if (cancelled) return;
+	        liveAnswered = true;
+	        setHasAudio(hasItems(data));
 	      })
-	      .catch(() => {
-	        if (!cancelled) setHasAudio(false);
-	      });
+	      .catch(() => {});
 	    return () => {
 	      cancelled = true;
 	    };

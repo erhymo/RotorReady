@@ -62,6 +62,13 @@
       "description": "Started by an accumulator in the cabin overhead, and a control unit that stops it on the ground for faults it will keep running through in the air.",
       "filename": "apu.mp3",
       "durationSeconds": 1096
+    },
+    {
+      "id": "elt",
+      "title": "Beacons & Recorders: Being Found",
+      "description": "Three ways of being located, each with its own impact threshold — and the twenty-minute rule that can leave the deployable beacon unable to fire.",
+      "filename": "elt.mp3",
+      "durationSeconds": 984
     }
   ]
 }

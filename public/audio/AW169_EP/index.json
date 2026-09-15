@@ -70,11 +70,11 @@
       "durationSeconds": 2446
     },
     {
-      "id": "operational-and-structural-flight-limits",
-      "title": "Limitations: Operational and Structural Flight Limits",
-      "description": "A complete walkthrough of every operating limitation for the AW169 EP — weight, speed, rotor, engine, and system limits — with a brief note on why each one is set where it is.",
-      "filename": "limitations.mp3",
-      "durationSeconds": 1255
+      "id": "limitations-flown-as-a-sortie",
+      "title": "Limitations: Flown as a Sortie",
+      "description": "Every operating limit taken in the order you meet it, from certification through to the baggage bay.",
+      "filename": "limitations-flown-as-a-sortie.mp3",
+      "durationSeconds": 1984
     }
   ]
 }

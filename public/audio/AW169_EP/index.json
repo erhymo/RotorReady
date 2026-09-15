@@ -56,11 +56,11 @@
       "durationSeconds": 1955
     },
     {
-      "id": "fire-protection-and-emergency-procedures",
-      "title": "Fire: Protection and Emergency Procedures",
-      "description": "How the fire detection and extinguishing system is built, followed through a real engine fire from first indication to a safe outcome.",
-      "filename": "fire.mp3",
-      "durationSeconds": 3070
+      "id": "fire-protection-detect-and-extinguish",
+      "title": "Fire Protection: Detect and Extinguish",
+      "description": "How the fire wire and smoke detector actually work, the two cross-connected bottles, and every fire drill.",
+      "filename": "fire-protection-detect-and-extinguish.mp3",
+      "durationSeconds": 2146
     },
     {
       "id": "electrical-built-up-then-taken-apart",

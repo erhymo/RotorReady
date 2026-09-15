@@ -22,11 +22,11 @@
       "durationSeconds": 2228
     },
     {
-      "id": "electrical-architecture-and-failure-logic",
-      "title": "Electrical: Architecture and Failure Logic",
-      "description": "How the S-92's electrical system generates, converts, and distributes power, followed through a real dual generator failure to show exactly how the system protects itself and what the pilot does.",
-      "filename": "electrical.mp3",
-      "durationSeconds": 2287
+      "id": "electrical-system",
+      "title": "Electrical: Counting Down the Layers",
+      "description": "Two generators, two converters, a backup and a battery — and what each layer costs you as it goes, down to why the gear must come down early.",
+      "filename": "electrical-system.mp3",
+      "durationSeconds": 1348
     }
   ]
 }

@@ -27,6 +27,13 @@
       "description": "Five infrared detectors, three arm buttons, two bottles — and the fact that the number two engine and APU share a compartment for extinguishing.",
       "filename": "fire-protection.mp3",
       "durationSeconds": 1053
+    },
+    {
+      "id": "gearbox",
+      "title": "Main Gearbox: Five Seconds, Ten Minutes",
+      "description": "The tightest clock in the manual — bypass within five seconds, failure possible in under ten — and the five symptoms that override everything.",
+      "filename": "gearbox.mp3",
+      "durationSeconds": 1138
     }
   ]
 }

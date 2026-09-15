@@ -1,5 +1,6 @@
 import UIKit
 import Capacitor
+import AVFoundation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -7,7 +8,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        // A WebView gets the default AVAudioSession category, which silences audio
+        // as soon as the screen locks. .playback is the category that keeps a
+        // podcast running with the phone in a pocket, and it is also what makes the
+        // Media Session metadata (lib/backgroundAudio.ts) appear on the lock screen.
+        // Requires UIBackgroundModes=audio in Info.plist to actually survive
+        // backgrounding.
+        //
+        // Deliberately not .mixWithOthers: this is spoken-word content a pilot is
+        // studying, so it should interrupt other audio rather than play underneath it.
+        do {
+            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .spokenAudio)
+            try AVAudioSession.sharedInstance().setActive(true)
+        } catch {
+            // Non-fatal: playback still works while the app is in the foreground,
+            // and there is nothing useful to show the user at launch about it.
+            print("AVAudioSession setup failed: \(error)")
+        }
         return true
     }
 

@@ -24,6 +24,14 @@
 
         </activity>
 
+        <!-- Holds the process open while a podcast plays with the screen off.
+             mediaPlayback is the type Android 14+ requires to be declared for a
+             service started for this reason. -->
+        <service
+            android:name=".BackgroundAudioService"
+            android:exported="false"
+            android:foregroundServiceType="mediaPlayback" />
+
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.fileprovider"
@@ -38,6 +46,12 @@
     <!-- Permissions -->
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <!-- Background podcast playback: the foreground service keeps the process
+         alive with the screen off, and POST_NOTIFICATIONS is what lets its
+         (silent, ongoing) playback notification be shown on Android 13+. -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 </manifest>

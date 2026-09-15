@@ -6,6 +6,13 @@ import { useSearchParams } from "next/navigation";
 import AppTopBar from "@/components/AppTopBar";
 import DownloadButton from "@/components/DownloadButton";
 import { PauseIcon, PlayIcon, SkipBackIcon, SkipForwardIcon } from "@/components/Icons";
+import {
+  setMediaPlaybackState,
+  setMediaPositionState,
+  setMediaSession,
+  startBackgroundAudio,
+  stopBackgroundAudio,
+} from "@/lib/backgroundAudio";
 import { contentUrl, fetchContentJson } from "@/lib/contentUrl";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 import { isUnlockFlagSet } from "@/lib/unlockCodes";
@@ -118,23 +125,8 @@ export default function AudioPlayerClient() {
     if (!item || !audioRef.current) return;
     setCurrentTime(audioRef.current.currentTime);
     savePosition();
+    setMediaPositionState(audioRef.current.currentTime, audioRef.current.duration, rate);
   };
-
-  // Belt-and-suspenders: timeupdate alone can leave a gap of up to ~1s
-  // un-persisted, and that's exactly the window where backgrounding the app
-  // (or the OS suspending it) can lose the last write. Save immediately on
-  // pause and on every signal that the page is about to go away or hide.
-  useEffect(() => {
-    const onHide = () => savePosition();
-    document.addEventListener("visibilitychange", onHide);
-    window.addEventListener("pagehide", onHide);
-    window.addEventListener("beforeunload", onHide);
-    return () => {
-      document.removeEventListener("visibilitychange", onHide);
-      window.removeEventListener("pagehide", onHide);
-      window.removeEventListener("beforeunload", onHide);
-    };
-  }, [item?.id, activeVariant.id]);
 
   const applyRate = (next: number) => {
     setRate(next);
@@ -158,6 +150,64 @@ export default function AudioPlayerClient() {
       el.pause();
     }
   };
+
+  // The lock screen needs both a session (so the OS has something to show and
+  // somewhere to send button presses) and, on Android, a foreground service
+  // (so the process survives the screen going off at all). Both are torn down
+  // when playback stops so no stale notification is left behind.
+  useEffect(() => {
+    if (!item) return;
+    const cleanup = setMediaSession(
+      { title: item.title, artist: activeVariant.label },
+      {
+        onPlay: () => audioRef.current?.play(),
+        onPause: () => audioRef.current?.pause(),
+        onSeek: (time) => {
+          const el = audioRef.current;
+          if (!el) return;
+          el.currentTime = time;
+          setCurrentTime(time);
+        },
+        onSkip: (delta) => skip(delta),
+      },
+    );
+    return cleanup;
+  }, [item?.id, item?.title, activeVariant.label]);
+
+  useEffect(() => {
+    setMediaPlaybackState(isPlaying);
+    if (!item) return;
+    if (isPlaying) {
+      void startBackgroundAudio(item.title, activeVariant.label);
+    } else {
+      void stopBackgroundAudio();
+    }
+  }, [isPlaying, item?.id, item?.title, activeVariant.label]);
+
+  // Leaving the player (navigating away, or the episode being swapped) must
+  // release the service too — the isPlaying effect above only fires on a state
+  // change, and unmounting is not one.
+  useEffect(() => {
+    return () => {
+      void stopBackgroundAudio();
+    };
+  }, []);
+
+  // Belt-and-suspenders: timeupdate alone can leave a gap of up to ~1s
+  // un-persisted, and that's exactly the window where backgrounding the app
+  // (or the OS suspending it) can lose the last write. Save immediately on
+  // pause and on every signal that the page is about to go away or hide.
+  useEffect(() => {
+    const onHide = () => savePosition();
+    document.addEventListener("visibilitychange", onHide);
+    window.addEventListener("pagehide", onHide);
+    window.addEventListener("beforeunload", onHide);
+    return () => {
+      document.removeEventListener("visibilitychange", onHide);
+      window.removeEventListener("pagehide", onHide);
+      window.removeEventListener("beforeunload", onHide);
+    };
+  }, [item?.id, activeVariant.id]);
 
   const handleSeek = (e: React.ChangeEvent<HTMLInputElement>) => {
     const el = audioRef.current;

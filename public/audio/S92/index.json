@@ -48,13 +48,6 @@
       "description": "Basic modes against look ahead, every threshold and aural, and the inhibits that switch protection off without announcing it.",
       "filename": "egpws.mp3",
       "durationSeconds": 1237
-    },
-    {
-      "id": "tcas-weather",
-      "title": "Traffic & Weather: What Is Out There",
-      "description": "Traffic advisories only on this aircraft — no resolution advisories — plus what the radar cannot see, and why a blue field is the dangerous one.",
-      "filename": "tcas-weather.mp3",
-      "durationSeconds": 1022
     }
   ]
 }

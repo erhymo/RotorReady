@@ -69,14 +69,14 @@
       "title": "Electrical: Built Up, Then Taken Apart",
       "description": "The system woken up layer by layer, then every layer taken away — single, double and triple generator failure.",
       "filename": "electrical.mp3",
-      "durationSeconds": 1584
+      "durationSeconds": 1570
     },
     {
       "id": "fire-protection",
       "title": "Fire Protection: Bay by Bay",
       "description": "How fire is detected, what the bottles can reach, and all ten drills in their ground and flight pairs.",
       "filename": "fire-protection.mp3",
-      "durationSeconds": 2032
+      "durationSeconds": 2052
     },
     {
       "id": "ice-protection-1",
@@ -91,7 +91,7 @@
       "title": "Ice Protection: The Failures",
       "description": "Every icing malfunction organised by what you have lost: the picture, the windshields, the intakes, the rotors.",
       "filename": "ice-protection-2.mp3",
-      "durationSeconds": 1163,
+      "durationSeconds": 1150,
       "group": "Ice Protection"
     },
     {

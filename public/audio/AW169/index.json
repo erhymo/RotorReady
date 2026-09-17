@@ -8,11 +8,11 @@
       "durationSeconds": 2345
     },
     {
-      "id": "tcas-ii-vertical-escape-geometry",
-      "title": "TCAS II: Vertical Escape Geometry",
-      "description": "How TCAS II actually thinks, followed through a real traffic encounter from first contact to clear of conflict.",
-      "filename": "tcas.mp3",
-      "durationSeconds": 1836
+      "id": "tcas-ii-flown-in-power-terms",
+      "title": "TCAS II: Flown in Power Terms",
+      "description": "The 14 NM picture, the inhibit table, and how the supplement has you fly an RA with a collective.",
+      "filename": "tcas-ii-flown-in-power-terms.mp3",
+      "durationSeconds": 1486
     },
     {
       "id": "limitations-flown-as-a-sortie",

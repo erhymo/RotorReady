@@ -357,9 +357,12 @@ function LightsTrainerInner() {
     (async () => {
       setLoading(true);
       try {
+        // Only the per-variant manifest is probed here. A sibling
+        // `training/lights.json` used to be a second candidate, but no model has
+        // ever shipped one, so it was a guaranteed 404 on every open of this page
+        // for every aircraft.
         const manifests: string[] = [
           `/model-data/${activeVariant.id}/training/lights/manifest.json`,
-          `/model-data/${activeVariant.id}/training/lights.json`,
         ];
         // Global AW169 lights (QRH-based) should only be used when training AW169,
         // not as a fallback dataset for other models like R44 II.
@@ -377,11 +380,16 @@ function LightsTrainerInner() {
               const list = (data as any).files as string[];
               if (isVariant) variantFiles.push(...list);
               else fallbackFiles = list;
+              // A variant manifest is the authoritative answer (see the
+              // variantFiles-wins choice below), so stop probing once one is
+              // found rather than fetching the global AW169 manifest too.
+              if (isVariant) break;
               continue;
             }
             if (Array.isArray(data)) {
               if (isVariant) variantFiles.push(...(data as any[] as string[]));
               else fallbackFiles = data as any[] as string[];
+              if (isVariant) break;
               continue;
             }
           } catch (err) {

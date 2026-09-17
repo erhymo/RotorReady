@@ -13,6 +13,13 @@
       "description": "How TCAS II actually thinks, followed through a real traffic encounter from first contact to clear of conflict.",
       "filename": "tcas.mp3",
       "durationSeconds": 1836
+    },
+    {
+      "id": "limitations-flown-as-a-sortie",
+      "title": "Limitations: Flown as a Sortie",
+      "description": "Every operating limit taken in the order you meet it, from certification through to the baggage bay.",
+      "filename": "limitations-flown-as-a-sortie.mp3",
+      "durationSeconds": 2378
     }
   ]
 }

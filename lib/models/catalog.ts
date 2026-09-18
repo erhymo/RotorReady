@@ -145,7 +145,7 @@ export const MODEL_VARIANTS: ModelVariantDefinition[] = [
     proceduresDescription: "Browse R22 normal and emergency procedures.",
     quickReferenceDescription: "Selected R22 POH limitations and numbers.",
     fuelType: "avgas100LL",
-    features: { quickReference: true, systemNotes: true, procedures: true, abbreviations: true, calculations: true },
+    features: { quickReference: true, systemNotes: true, procedures: true, abbreviations: true, calculations: true, audio: true },
   },
   {
     id: "R44_II",

@@ -1,3 +1,39 @@
 {
-  "items": []
+  "items": [
+    {
+      "id": "power-transmission-and-rotors",
+      "title": "Power Transmission and Rotors: The Number Everything Follows",
+      "description": "The 386 rpm reference speed that ties torque, power and free-turbine speed together, the aural-warning band, autorotation glide figures, and the rotor brake and parking limits.",
+      "filename": "power-transmission-and-rotors.mp3",
+      "durationSeconds": 392
+    },
+    {
+      "id": "vemd-and-fli",
+      "title": "VEMD and FLI: One Needle, Three Parameters",
+      "description": "How the FLI tracks Ng, T4 and torque and shows whichever is closest to its limit, the takeoff rating time limits, and the fallback rules for each parameter and screen failure.",
+      "filename": "vemd-and-fli.mp3",
+      "durationSeconds": 502
+    },
+    {
+      "id": "hydraulic-system",
+      "title": "Hydraulic System: Flying Without the Boost",
+      "description": "The three-accumulator backup, the safety speed for flying without boost, the real yaw slide-valve seizure procedure, and the dual-hydraulic-system panel cautions.",
+      "filename": "hydraulic-system.mp3",
+      "durationSeconds": 489
+    },
+    {
+      "id": "electrical-power-systems",
+      "title": "Electrical Power Systems: What Total Failure Costs You",
+      "description": "The DC system and Electrical Master Box, the optional AC system, generator over- and under-voltage limits, and why a complete power failure takes the AFCS with it for good.",
+      "filename": "electrical-power-systems.mp3",
+      "durationSeconds": 410
+    },
+    {
+      "id": "fuel-system",
+      "title": "Fuel System: Tank to FADEC",
+      "description": "The helicopter and engine halves of the fuel system, the FADEC's functions and failure levels, the back-up governor, and the tank capacity and filter-clogged caution.",
+      "filename": "fuel-system.mp3",
+      "durationSeconds": 664
+    }
+  ]
 }

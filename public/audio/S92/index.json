@@ -12,7 +12,7 @@
       "title": "Electrical: Counting Down the Layers",
       "description": "Two generators, two converters, a backup and a battery — and what each layer costs you as it goes, down to why the gear must come down early.",
       "filename": "electrical-system.mp3",
-      "durationSeconds": 1398
+      "durationSeconds": 1400
     },
     {
       "id": "hydraulic-system",
@@ -33,7 +33,7 @@
       "title": "Main Gearbox: Five Seconds, Ten Minutes",
       "description": "The tightest clock in the manual — bypass within five seconds, failure possible in under ten — and the five symptoms that override everything.",
       "filename": "gearbox.mp3",
-      "durationSeconds": 1139
+      "durationSeconds": 1146
     },
     {
       "id": "rips",

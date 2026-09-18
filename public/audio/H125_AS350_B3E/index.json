@@ -1,3 +1,39 @@
 {
-  "items": []
+  "items": [
+    {
+      "id": "power-plant-and-fuel-system",
+      "title": "Power Plant and Fuel System: N1, N2 and TOT",
+      "description": "The Arriel 2D engine's own vocabulary, the FADEC's automatic starting and overspeed-shutdown behaviour, the back-up governor, and the fuel path from tank to injector.",
+      "filename": "power-plant-and-fuel-system.mp3",
+      "durationSeconds": 604
+    },
+    {
+      "id": "vemd-fli-and-performance-page",
+      "title": "VEMD, FLI and the Performance Page",
+      "description": "The duplex VEMD's three operating modes, how the FLI tracks N1, TOT and torque, and the weight-entry page that also drives the LIMIT light's accuracy.",
+      "filename": "vemd-fli-and-performance-page.mp3",
+      "durationSeconds": 402
+    },
+    {
+      "id": "main-gearbox-and-drive-system",
+      "title": "Main Gearbox and Drive System: One Number, Whole Drivetrain",
+      "description": "The engine-to-MGB coupling, the Starflex main rotor and see-saw tail rotor, and the reference speed, aural warnings, glide figures and rotor brake numbers that follow from it.",
+      "filename": "main-gearbox-and-drive-system.mp3",
+      "durationSeconds": 377
+    },
+    {
+      "id": "hydraulic-system",
+      "title": "Hydraulic System: One Pump, One Circuit",
+      "description": "The single-circuit hydraulic system, the LIMIT light and its link to the Performance page's weight entry, and the real failure procedure down to the landing technique.",
+      "filename": "hydraulic-system.mp3",
+      "durationSeconds": 400
+    },
+    {
+      "id": "electrical-power-systems",
+      "title": "Electrical Power Systems: The Starter Generator Choice",
+      "description": "The DC network and Electrical Master Box, the standard-versus-optional starter generator and what it changes, the optional AC system, and why total failure costs you the AFCS for good.",
+      "filename": "electrical-power-systems.mp3",
+      "durationSeconds": 303
+    }
+  ]
 }

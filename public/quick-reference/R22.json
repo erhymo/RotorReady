@@ -107,19 +107,19 @@
         {
           "label": "Gross weight limits",
           "lines": [
-            "Maximum gross weight — Standard & HP: 1300 lb (590 kg).",
-            "Maximum gross weight — Alpha, Beta, Beta II: 1370 lb (622 kg).",
-            "Minimum gross weight: 920 lb (417 kg)."
+            "Maximum gross weight — Standard & HP: 590 kg (1300 lb).",
+            "Maximum gross weight — Alpha, Beta, Beta II: 622 kg (1370 lb).",
+            "Minimum gross weight: 417 kg (920 lb)."
           ]
         },
         {
           "label": "Seats, baggage & CG",
           "lines": [
-            "Maximum per seat, including its baggage compartment: 240 lb (109 kg).",
-            "Maximum in either baggage compartment: 50 lb (23 kg).",
+            "Maximum per seat, including its baggage compartment: 109 kg (240 lb).",
+            "Maximum in either baggage compartment: 23 kg (50 lb).",
             "Reference datum is 100 in forward of the main rotor shaft centerline.",
-            "With both doors installed, a solo pilot plus baggage of 135 lb (61 kg) or more keeps CG within limits; below that, compute weight and balance — removable ballast may be required.",
-            "Minimum solo pilot weight placard: 130 lb (135 lb with full aux fuel), or see the POH."
+            "With both doors installed, a solo pilot plus baggage of 61 kg (135 lb) or more keeps CG within limits; below that, compute weight and balance — removable ballast may be required.",
+            "Minimum solo pilot weight placard: 59 kg (130 lb) (61 kg / 135 lb with full aux fuel), or see the POH."
           ]
         }
       ]

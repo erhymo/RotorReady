@@ -168,16 +168,16 @@
         {
           "label": "Weight",
           "lines": [
-            "Max takeoff and landing weight: 26,500 lb (12,020 kg)",
-            "Min operating weight: 16,200 lb (7,348 kg)"
+            "Max takeoff and landing weight: 12,020 kg (26,500 lb)",
+            "Min operating weight: 7,348 kg (16,200 lb)"
           ]
         },
         {
           "label": "Loading",
           "lines": [
-            "Max cabin floor loading: 75 lb/ft² (366 kg/m²); heavy-duty floor: 200 lb/ft² (976 kg/m²)",
-            "Max combined baggage/ramp load: 1,000 lb (454 kg); max shelf load: 300 lb (136 kg)",
-            "Fuel imbalance above 700 lb (317 kg) combined with unbalanced cargo may exceed lateral CG limits"
+            "Max cabin floor loading: 366 kg/m² (75 lb/ft²); heavy-duty floor: 976 kg/m² (200 lb/ft²)",
+            "Max combined baggage/ramp load: 454 kg (1,000 lb); max shelf load: 136 kg (300 lb)",
+            "Fuel imbalance above 317 kg (700 lb) combined with unbalanced cargo may exceed lateral CG limits"
           ]
         },
         {

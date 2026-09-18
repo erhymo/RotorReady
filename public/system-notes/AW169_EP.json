@@ -1310,7 +1310,7 @@
         {
           "heading": "What it is",
           "paragraphs": [
-            "A Goodrich hoist unit mounted on the right side of the cabin, in either a 290 ft or 165 ft usable-cable version, each with its own pendant. The pilot and copilot can operate the hoist from the collective grip; the Hoist Operator (HO) operates it from the control pendant, which also displays cable payout. Pilot control always overrides the HO's input. Maximum load: 550 lb (249 kg) above 0°C OAT, 500 lb (227 kg) at or below — maximum 2 persons plus equipment either way.",
+            "A Goodrich hoist unit mounted on the right side of the cabin, in either a 290 ft or 165 ft usable-cable version, each with its own pendant. The pilot and copilot can operate the hoist from the collective grip; the Hoist Operator (HO) operates it from the control pendant, which also displays cable payout. Pilot control always overrides the HO's input. Maximum load: 249 kg (550 lb) above 0°C OAT, 227 kg (500 lb) at or below — maximum 2 persons plus equipment either way.",
             "Two independent ways to cut the cable in an emergency: an electrical cable cutter (PQRS), fired from a guarded HOIST CUT switch on either collective grip or from the HO control panel, and a manual cable cutter (BQRS) the HO must always have available as a backup if the electrical system fails."
           ]
         },

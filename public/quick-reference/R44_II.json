@@ -8,8 +8,8 @@
         {
           "label": "Basic VNE / autorotation",
           "lines": [
-            "Vne ≤ 2200 lb takeoff gross weight: 130 KIAS.",
-            "Vne > 2200 lb takeoff gross weight: 120 KIAS.",
+            "Vne ≤ 998 kg (2200 lb) takeoff gross weight: 130 KIAS.",
+            "Vne > 998 kg (2200 lb) takeoff gross weight: 120 KIAS.",
             "Maximum autorotation airspeed: 100 KIAS."
           ]
         },
@@ -58,17 +58,17 @@
         {
           "label": "Gross weight limits",
           "lines": [
-            "Maximum gross weight: 2500 lb.",
-            "Minimum gross weight: 1600 lb."
+            "Maximum gross weight: 1134 kg (2500 lb).",
+            "Minimum gross weight: 726 kg (1600 lb)."
           ]
         },
         {
           "label": "Seats, baggage & CG",
           "lines": [
-            "Maximum weight per seat (including baggage compartment): 300 lb (136 kg).",
-            "Maximum load in any baggage compartment: 50 lb (23 kg).",
-            "Baggage compartment placard: COMPARTMENT CAPACITY 50 LB MAX; do not exceed 300 lb combined seat plus compartment.",
-            "With all doors installed: solo pilot weight ≥ 150 lb (68 kg) keeps CG within limits without adding ballast."
+            "Maximum weight per seat (including baggage compartment): 136 kg (300 lb).",
+            "Maximum load in any baggage compartment: 23 kg (50 lb).",
+            "Baggage compartment placard: COMPARTMENT CAPACITY 50 LB MAX (23 kg); do not exceed 136 kg (300 lb) combined seat plus compartment.",
+            "With all doors installed: solo pilot weight ≥ 68 kg (150 lb) keeps CG within limits without adding ballast."
           ]
         },
         {

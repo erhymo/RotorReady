@@ -542,7 +542,7 @@
           "heading": "What it is",
           "paragraphs": [
             "A separate suction fuel system for each engine. Fuel is held in two crash-resistant nylon-reinforced rubber bladder tanks, one in each sponson, roughly 382 US gallons each. The No. 1 tank feeds the No. 1 engine and the APU; the No. 2 tank feeds the No. 2 engine. A single-point pressure refuel/defuel fitting is on the left side, and both tanks can also be gravity refuelled.",
-            "Usable quantity is about 4,830 lb (2,190 kg) of Jet A on a gravity fill and about 5,175 lb (2,345 kg) on a pressure fill; 4.8 gallons total is unusable, 2.4 gallons in each tank."
+            "Usable quantity is about 2,190 kg (4,830 lb) of Jet A on a gravity fill and about 2,345 kg (5,175 lb) on a pressure fill; 4.8 gallons total is unusable, 2.4 gallons in each tank."
           ]
         },
         {
@@ -569,7 +569,7 @@
               ]
             ]
           },
-          "note": "On extended single-engine flight, crossfeed is used to keep the tank imbalance under 700 lb (317 kg) or to stop the good engine starving — but not if a fuel-system malfunction is suspected as the cause of the failure. An imbalance over 700 lb combined with grossly unbalanced cabin loading can put the aircraft outside lateral CG limits."
+          "note": "On extended single-engine flight, crossfeed is used to keep the tank imbalance under 317 kg (700 lb) or to stop the good engine starving — but not if a fuel-system malfunction is suspected as the cause of the failure. An imbalance over 317 kg (700 lb) combined with grossly unbalanced cabin loading can put the aircraft outside lateral CG limits."
         },
         {
           "heading": "Prime pumps",
@@ -587,7 +587,7 @@
         {
           "heading": "Indications",
           "paragraphs": [
-            "Each tank has two quantity probes at front and rear for an attitude-compensated level, a low-level sensor, and two high-level sensors, all feeding a common Fuel Conditioning Unit that sends quantity to the EICAS pages; fuel flow comes from each engine's FADEC. FUEL 1 LOW or FUEL 2 LOW appears at roughly 215 ± 45 lb remaining in that tank and turns the EICAS fuel figure yellow. With a LOW caution lit, steady pitch attitudes over 10° nose-up or below 5° nose-down are avoided to prevent unporting, and the procedure is to land as soon as practical."
+            "Each tank has two quantity probes at front and rear for an attitude-compensated level, a low-level sensor, and two high-level sensors, all feeding a common Fuel Conditioning Unit that sends quantity to the EICAS pages; fuel flow comes from each engine's FADEC. FUEL 1 LOW or FUEL 2 LOW appears at roughly 98 ± 20 kg (215 ± 45 lb) remaining in that tank and turns the EICAS fuel figure yellow. With a LOW caution lit, steady pitch attitudes over 10° nose-up or below 5° nose-down are avoided to prevent unporting, and the procedure is to land as soon as practical."
           ]
         }
       ]
@@ -737,7 +737,7 @@
           "heading": "Three independent systems, full redundancy",
           "paragraphs": [
             "No. 1 and No. 2 are the primary flight-control hydraulic systems, each fully capable on its own. No. 3 is a genuine backup — it can supply either or both of No. 1/No. 2 if a pump fails, and independently powers the landing gear, cargo ramp, and automatic APU accumulator recharge. All three are completely independent constant-pressure systems (4,000 psi, up to 13 GPM each on No. 1/2); No. 1 and No. 2 pump modules are identical and interchangeable, driven by their respective accessory modules. No. 3 is driven directly off the main gearbox, with a separate reservoir and an AC-motor-driven ground-checkout mode for pre-rotor testing.",
-            "A four-channel boost system (collective, pitch, roll, yaw) is powered by No. 2 hydraulics via a BST switch — turning it OFF illuminates BOOST PRES and noticeably increases control forces (cyclic roughly 1 lb → 6 lb per axis; collective/yaw roughly 4 lb → 13 lb), with some collective-to-yaw interaction. SAS hydraulic power comes through shutoff valves on the pilot-assist manifold, controlled by the SAS1/SAS2 switches on the AFCS panel — below 1,100 psi, SAS 1 PRES or SAS 2 PRES illuminates."
+            "A four-channel boost system (collective, pitch, roll, yaw) is powered by No. 2 hydraulics via a BST switch — turning it OFF illuminates BOOST PRES and noticeably increases control forces (cyclic roughly 0.5 kg → 2.7 kg / 1 lb → 6 lb per axis; collective/yaw roughly 1.8 kg → 5.9 kg / 4 lb → 13 lb), with some collective-to-yaw interaction. SAS hydraulic power comes through shutoff valves on the pilot-assist manifold, controlled by the SAS1/SAS2 switches on the AFCS panel — below 1,100 psi, SAS 1 PRES or SAS 2 PRES illuminates."
           ]
         },
         {
@@ -974,7 +974,7 @@
         {
           "heading": "What it's designed to do",
           "paragraphs": [
-            "At aircraft weights at or above 18,590 lb (8,432 kg), the system is designed to keep the helicopter upright and afloat long enough for full evacuation in mid Sea State 5 (8–12 ft waves, 18–25 kt wind). Below that weight, the design margin is mid Sea State 4 (4–8 ft waves, 17–21 kt wind) — a real, weight-dependent difference in the survivability margin, not just a certification footnote.",
+            "At aircraft weights at or above 8,432 kg (18,590 lb), the system is designed to keep the helicopter upright and afloat long enough for full evacuation in mid Sea State 5 (8–12 ft waves, 18–25 kt wind). Below that weight, the design margin is mid Sea State 4 (4–8 ft waves, 17–21 kt wind) — a real, weight-dependent difference in the survivability margin, not just a certification footnote.",
             "Two forward float bags mount below the cockpit jettisonable windows; one aft bag mounts externally on the underside of the tail. Each of the three bags has two separate, independent pockets — if one pocket fails, the other still provides buoyancy for that section of the aircraft. Four nitrogen bottles inflate the system: two under-floor bottles near the forward entrance (one pocket each of the left/right forward floats), and two in the tail boom (one pocket each of the aft float)."
           ]
         },

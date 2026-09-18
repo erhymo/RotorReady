@@ -206,19 +206,13 @@
       "slug": "electrical-system",
       "title": "Electrical System",
       "subtitle": "A DC-only system on two engine-driven starter-generators and a main battery, an emergency battery feeding the standby instrument and exit lights, and a bus structure — ESS, SHED, NON ESS, EMER — tied together by a BUS TIE control system.",
-      "rfmReference": "H145 (BK117 D-2 / D-3) Flight Manual Section 7.9 (Electrical System — DC power system, DC power system control, indications, MASTER MISSION switch, ground power switch, utility receptacle). Two effectivity versions: early aircraft with a Generator Control Unit, later aircraft with Electrical Master Boxes.",
+      "rfmReference": "H145 D2 (BK117 D-2) Flight Manual Section 7.9 (Electrical System — DC power system, DC power system control, indications, ground power switch, utility receptacle).",
       "sections": [
         {
           "heading": "Sources and buses",
           "paragraphs": [
             "The DC power system is supplied by two engine-driven starter-generators and a main battery, with an emergency (standby) battery that feeds the standby air-data and attitude indicator (IESI) and the emergency exit/lighting on the EMER BUS if both generators and the main battery are lost. An external power unit can be connected for ground operation. Generators give about 28 V DC, the battery about 24 V.",
             "The consumer buses: MAIN BUS 1 and 2; ESS BUS 1 and 2 (flight-essential loads, each fed from its MAIN BUS through diode boxes/power modules with alternative paths from the battery and the opposite MAIN BUS, energised as soon as any source is on); SHED BUS 1 and 2 (secondary loads, shed on a double generator failure); NON ESS BUS 1 and 2 (high-load non-essential, powered only with both generators or an EPU); the BAT BUS; and the EMER BUS. A BUS TIE control system connects MAIN BUS 1 to MAIN BUS 2 and to the BAT BUS, and opens to separate a MAIN BUS on an abnormal electrical condition."
-          ]
-        },
-        {
-          "heading": "Two hardware versions",
-          "paragraphs": [
-            "Early aircraft use a Generator Control Unit with relay-based distribution (generator, bus-tie, starter and battery relays). Later aircraft (S/N 20070, S/N 21016 and subsequent) use Electrical Master Boxes with contactors — battery contactor (BATC), bus-tie contactors (BTC), generator line contactors (GLC), essential-bus contactors (ESSC), etc. — and on this version the BAT MSTR switch controls the essential-bus contactors and connecting an EPU disconnects the BAT BUS from the MAIN buses."
           ]
         },
         {

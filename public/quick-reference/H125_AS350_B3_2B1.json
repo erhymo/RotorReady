@@ -185,6 +185,74 @@
       ]
     },
     {
+      "title": "Optional equipment limits (supplements)",
+      "items": [
+        {
+          "label": "Emergency floatation gear (SUP.17)",
+          "lines": [
+            "Emergency landing on water only; no takeoff after landing on water.",
+            "Max IAS with gear stowed and armed or inflated: 135 kt (250 km/h) power on; 100 kt (185 km/h) with torque below 40 %.",
+            "Maximum altitude for float inflation: 6600 ft (2000 m).",
+            "Gear must be armed below 400 ft (122 m) above water.",
+            "Minimum weight with OAT < 0 °C: 1480 kg (3263 lb).",
+            "Recommended inflation IAS: below 80 kt (148 km/h)."
+          ]
+        },
+        {
+          "label": "External loads (SUP.12 / 13)",
+          "lines": [
+            "Cargo sling: max 750 kg (1660 lb). Cargo swing: max 1400 kg (3086 lb).",
+            "Maximum all-up weight with external load: 2800 kg (6173 lb) or the OGE-hover maximum, whichever is lower.",
+            "Maximum IAS with external load: 80 kt (148 km/h).",
+            "Non-human external cargo only; jettisonable loads only."
+          ]
+        },
+        {
+          "label": "Hoist (SUP.18 / 19)",
+          "lines": [
+            "Maximum load on cable: 136 kg (300 lb) (SUP.18) or 204 kg (450 lb) (SUP.19).",
+            "Minimum crew: pilot and hoist operator. Landing with a load on the cable is prohibited.",
+            "Hoist failure return: VNE 60 kt (111 km/h) with the cable slightly inclined."
+          ]
+        },
+        {
+          "label": "Bambi bucket (SUP.52)",
+          "lines": [
+            "Capacity 1225 litres.",
+            "VNE 90 kt (167 km/h) empty; 80 kt (148 km/h) full or partly filled."
+          ]
+        },
+        {
+          "label": "Sand filter (SUP.14)",
+          "lines": [
+            "Heating and demisting OFF when P2 is ON.",
+            "P2 OFF in visible moisture with OAT below 0 °C.",
+            "Flight in falling snow only with the sand filter installed and P2 OFF."
+          ]
+        },
+        {
+          "label": "AFCS SFIM 85 T 31 (SUP.16)",
+          "lines": [
+            "Minimum height for hands-off operation: 400 ft (120 m).",
+            "Disengaged on the ground except for checks; no engagement before takeoff if the trim test is not satisfactory."
+          ]
+        },
+        {
+          "label": "Dual hydraulic system (SUP.23)",
+          "lines": [
+            "Do not exceed a load factor that lights LIMIT.",
+            "HYD1 or HYD2 with SERVO: bank below 30°, IAS below 110 kt (204 km/h) or VNE if less."
+          ]
+        },
+        {
+          "label": "Increased internal gross weight (SUP.28)",
+          "lines": [
+            "Maximum internal weight in flight and for IGE takeoff and landing: 2370 kg (5225 lb)."
+          ]
+        }
+      ]
+    },
+    {
       "title": "Crew & Operational Use",
       "items": [
         {

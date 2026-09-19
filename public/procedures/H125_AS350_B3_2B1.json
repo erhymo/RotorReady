@@ -4,7 +4,7 @@
   "footerNote": "H125 / AS350 B3 (2B1) training reference. For training use only. Always cross-check with the latest approved RFM.",
   "listGroups": [
     {
-      "heading": "",
+      "heading": "Normal & emergency procedures",
       "slugs": [
         "before-start-and-pre-start-checks",
         "engine-start-normal",
@@ -19,6 +19,20 @@
         "cranking-procedure",
         "after-cockpit-fire-extinguisher-use",
         "tail-rotor-failure-handling-and-landing"
+      ]
+    },
+    {
+      "heading": "Optional equipment & training (supplements)",
+      "slugs": [
+        "autorotation-landing-training",
+        "hydraulic-failure-training",
+        "emergency-floatation-gear",
+        "dual-hydraulic-malfunctions",
+        "afcs-failures",
+        "sand-filter",
+        "hoist-operations",
+        "external-load-operations",
+        "bambi-bucket"
       ]
     }
   ],
@@ -572,6 +586,624 @@
           "left": "Loss of tail rotor control",
           "right": [
             "In case of pedal jamming/loss of control, avoid airspeeds below about 20 kt, especially near the ground. Set IAS around 70 kt (130 km/h) in level flight, use HYD TEST / ACCU TST as described in Section 3.3 §2 and carry out a shallow running landing with slight left sideslip."
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "autorotation-landing-training",
+      "title": "AUTOROTATION LANDING TRAINING",
+      "subtitle": "Twist-grip failure simulation — full touchdown or power recovery (SUP.6)",
+      "rfmReference": "H125 / AS350 B3 (2B1) RFM SUP.6",
+      "steps": [
+        {
+          "left": "Conditions",
+          "right": [
+            "Train within gliding distance of a suitable running landing area. The twist grip can be turned back to FLIGHT quickly at any time and at any NR."
+          ]
+        },
+        {
+          "left": "Failure simulation — 1",
+          "right": [
+            "Collective — REDUCE power."
+          ]
+        },
+        {
+          "left": "Failure simulation — 2",
+          "right": [
+            "Twist grip — IDLE. TWT GRIP light on, gong sounds, engine at idle (Ng about 68 %)."
+          ]
+        },
+        {
+          "left": "Full touchdown — 1",
+          "right": [
+            "Autorotation procedure — APPLY actions 1 to 10 of Section 3.2 §1 of the basic manual."
+          ]
+        },
+        {
+          "left": "Full touchdown — 2 (after full stop)",
+          "right": [
+            "Collective — REDUCE to full low pitch."
+          ]
+        },
+        {
+          "left": "Full touchdown — 3",
+          "right": [
+            "Twist grip — FLIGHT. Rotor speed rises to its normal governed value."
+          ]
+        },
+        {
+          "left": "Power recovery — 1",
+          "right": [
+            "APPLY actions 1 to 4 of the autorotation procedure (Section 3.2 §1) — then:"
+          ]
+        },
+        {
+          "left": "Power recovery — 2–3 (at about 70 ft / 21 m)",
+          "right": [
+            "Check NR in the normal operating range, then twist grip — FLIGHT. Nf increases to its governed value."
+          ]
+        },
+        {
+          "left": "Power recovery — 4",
+          "right": [
+            "Collective — CONTROL to keep NR in the normal operating range."
+          ]
+        },
+        {
+          "left": "Power recovery — 5",
+          "right": [
+            "Cyclic — FLARE."
+          ]
+        },
+        {
+          "left": "Power recovery — 6–9 (at 20–25 ft / 6–8 m, constant attitude)",
+          "right": [
+            "Collective gradually increase to reduce rate of descent and forward speed; cyclic slightly forward for the landing attitude; pedals cancel any sideslip; collective increase as necessary."
+          ]
+        },
+        {
+          "left": "Note",
+          "right": [
+            "No significant Nf transient is expected when switching from IDLE to FLIGHT in autorotation (torque about 0 %), because no power is required from the engine."
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "hydraulic-failure-training",
+      "title": "HYDRAULIC FAILURE TRAINING",
+      "subtitle": "Single hydraulic system — simulation with ACCU TST, then the completed procedure (SUP.7)",
+      "rfmReference": "H125 / AS350 B3 (2B1) RFM SUP.7",
+      "steps": [
+        {
+          "left": "Limitations",
+          "right": [
+            "Trained instructor with recent experience; flight risk assessment beforehand. With hydraulics off: no hover or low-speed maneuvers, no bank above 30°. No passengers other than observers with training duties."
+          ]
+        },
+        {
+          "left": "Recommendations",
+          "right": [
+            "Avoid heavy weights (higher control loads). Train close to an airfield suitable for a running landing. On a go-around, abort the training and reset the hydraulic cut-off switch to ON — expect a significant drop in control loads."
+          ]
+        },
+        {
+          "left": "Step 1 — warning",
+          "right": [
+            "Never activate [ACCU TST] when the hydraulic cut-off switch (RH collective grip) is OFF."
+          ]
+        },
+        {
+          "left": "Step 1 — 1 (instructor, steady cruise)",
+          "right": [
+            "Activate [ACCU TST]. Check HYDR flashes with the gong and the ACCU TST light is on."
+          ]
+        },
+        {
+          "left": "Step 1 — 2 (trainee, when HYDR lights)",
+          "right": [
+            "Bank below 30°, avoid abrupt maneuvers, set IAS between 40 and 60 KIAS (74–111 km/h)."
+          ]
+        },
+        {
+          "left": "Step 1 — 3 (instructor, at safety speed)",
+          "right": [
+            "Reset [ACCU TST] to OFF. Check the light is off and HYDR out within 3 s. If it is not reset, hydraulic assistance cannot be restored."
+          ]
+        },
+        {
+          "left": "Simulation artefact",
+          "right": [
+            "[ACCU TST] also removes all tail rotor control assistance, so yaw pedal loads rise at once — this is not part of a real hydraulic failure. The first step can be skipped at the instructor's discretion."
+          ]
+        },
+        {
+          "left": "Step 2 — 1 (trainee)",
+          "right": [
+            "Check IAS between 40 and 60 KIAS. Keep bank below 30° and do not attempt hover or low-speed maneuvers; do not move the twist grip out of FLIGHT as loads increase."
+          ]
+        },
+        {
+          "left": "Step 2 — 2 (trainee, ready for higher loads)",
+          "right": [
+            "Hydraulic cut-off switch (RH collective grip) — OFF. Check HYDR and gong; control loads increase."
+          ]
+        },
+        {
+          "left": "Step 2 — 3",
+          "right": [
+            "Complete the hydraulic failure emergency procedure."
+          ]
+        },
+        {
+          "left": "After landing",
+          "right": [
+            "Hydraulic cut-off switch — ON before the next takeoff or hover; check HYDR out within 3 s. The instructor stays ready to restore assistance at any time by setting the switch to ON."
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "emergency-floatation-gear",
+      "title": "EMERGENCY FLOATATION GEAR",
+      "subtitle": "Limits, arming, inflation and autorotation onto water (SUP.17)",
+      "rfmReference": "H125 / AS350 B3 (2B1) RFM SUP.17",
+      "steps": [
+        {
+          "left": "Use",
+          "right": [
+            "For emergency landing on water only; takeoff after an emergency landing on water is prohibited. Not certified for ditching."
+          ]
+        },
+        {
+          "left": "Limits",
+          "right": [
+            "Minimum weight with OAT < 0 °C: 1480 kg (3263 lb). Max IAS with the gear stowed and armed or inflated: 135 kt (250 km/h) power on; 100 kt (185 km/h) with torque below 40 %. Maximum altitude for inflation: 6600 ft (2000 m). Below 400 ft (122 m) above water the gear must be armed."
+          ]
+        },
+        {
+          "left": "Arming / disarming",
+          "right": [
+            "[FLOAT ARM] ON — check FLOAT ARM lights 1 and 2 ON. Disarm: [FLOAT ARM] OFF, check lights 1 and 2 OFF."
+          ]
+        },
+        {
+          "left": "Exterior check",
+          "right": [
+            "Floats LOCKED in the lowered position, protective covers CHECKED, pressure in both cylinders CHECKED against the placard."
+          ]
+        },
+        {
+          "left": "Failure with FLOAT ARM set to arm",
+          "right": [
+            "Inflation not possible (also with EMER SW OFF or battery at EMER SHED): continue flight within gliding distance of land. Inflation possible on both floats: continue flight."
+          ]
+        },
+        {
+          "left": "Inflation — 1",
+          "right": [
+            "After an engine failure or urgent need to alight on water, check rotor speed. [FLOAT ARM] — ON."
+          ]
+        },
+        {
+          "left": "Inflation — 2",
+          "right": [
+            "FLOAT ARM lights 1 and 2 — CHECK ON (at least one)."
+          ]
+        },
+        {
+          "left": "Inflation — 3",
+          "right": [
+            "[FLOAT FIRE] under guard on the collective grip — PRESS. Recommended IAS below 80 kt (148 km/h); above 80 KIAS a decelerating pitch-down can occur."
+          ]
+        },
+        {
+          "left": "Autorotation over water — 1–2",
+          "right": [
+            "Collective — REDUCE to keep NR in the normal range. IAS — Vy."
+          ]
+        },
+        {
+          "left": "Autorotation over water — 3–4",
+          "right": [
+            "If relight is impossible or after tail rotor failure: engine starting selector OFF. Head equally between wind and wave direction on final."
+          ]
+        },
+        {
+          "left": "Autorotation over water — 5–9",
+          "right": [
+            "At about 70 ft (21 m) flare; at 20–25 ft (6–8 m) gradually increase collective; cyclic forward slightly for 10° nose-up and under 10 kt (19 km/h) at touchdown; pedals cancel sideslip; collective cushions the touchdown."
+          ]
+        },
+        {
+          "left": "After touchdown",
+          "right": [
+            "Collective gradually to full down, rotor brake APPLY, evacuate once the rotor has stopped. Afloat, open the forward doors with the door jettison handles."
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "dual-hydraulic-malfunctions",
+      "title": "DUAL HYDRAULIC SYSTEM MALFUNCTIONS",
+      "subtitle": "Yaw servo seizure, tail rotor control loss, HYD1 / HYD2, SERVO, LIMIT (SUP.23)",
+      "rfmReference": "H125 / AS350 B3 (2B1) RFM SUP.23",
+      "steps": [
+        {
+          "left": "Maneuvering limit",
+          "right": [
+            "Do not exceed a load factor that lights LIMIT."
+          ]
+        },
+        {
+          "left": "Loss of tail rotor control — symptom",
+          "right": [
+            "Jammed pedals or loss of pedal effectiveness. Below 20 kt (37 km/h) and near the ground a go-around may be impossible because of lost fin efficiency."
+          ]
+        },
+        {
+          "left": "Loss of tail rotor control — 1",
+          "right": [
+            "Cyclic and collective — ADJUST to set IAS 70 kt (130 km/h) in level flight."
+          ]
+        },
+        {
+          "left": "Loss of tail rotor control — 2–3",
+          "right": [
+            "Hydraulic cut-off switch — OFF. Then [ACCU TST] — ON (pre-MOD 07.471) or PRESS for 2 s (post-MOD 07.471); the load compensator depressurizes."
+          ]
+        },
+        {
+          "left": "Loss of tail rotor control — landing",
+          "right": [
+            "On a suitable area make a shallow approach with a slight left sideslip and a running landing. The sideslip reduces as airspeed falls and collective is applied. A right-hand wind component makes it easier."
+          ]
+        },
+        {
+          "left": "Yaw servo slide-valve seizure — hover, no yaw movement",
+          "right": [
+            "Hydraulic cut-off switch — OFF; LAND normally. The yaw load compensator assists with heavier pedal forces."
+          ]
+        },
+        {
+          "left": "Yaw servo slide-valve seizure — hover, yaw rotation",
+          "right": [
+            "Hydraulic cut-off switch — OFF; control yaw, LAND normally."
+          ]
+        },
+        {
+          "left": "Yaw servo slide-valve seizure — cruise",
+          "right": [
+            "Airspeed — REDUCE to 40–60 kt (74–111 km/h) in level flight, sideslip if necessary. Hydraulic cut-off switch — OFF. Normal approach and landing."
+          ]
+        },
+        {
+          "left": "HYD1 or HYD2 with SERVO",
+          "right": [
+            "Loss of pressure on that circuit. Keep a more or less level attitude, avoid abrupt maneuvers, bank below 30°, IAS below 110 kt (204 km/h) or VNE if less. One remaining circuit allows continued safe flight and landing. Land as soon as practicable; normal approach and landing."
+          ]
+        },
+        {
+          "left": "HYD2 (RH circuit) — tail rotor",
+          "right": [
+            "Tail rotor control hydraulic power is lost: do not press [ACCU TST] — it would discharge the yaw load compensator and right pedal loads may become significant. LIMIT may come on with HYD1."
+          ]
+        },
+        {
+          "left": "SERVO alone",
+          "right": [
+            "Jamming of a distributor valve on the main servo unit. Land as soon as practicable."
+          ]
+        },
+        {
+          "left": "LIMIT alone",
+          "right": [
+            "Main servo unit maximum load reached. In high-speed cruise or steep maneuvers reduce power on the collective and reduce speed or load factor on the cyclic — CONTINUE FLIGHT. LIMIT may appear with HYD1 in a real hydraulic failure."
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "afcs-failures",
+      "title": "AFCS FAILURES (SFIM 85 T 31)",
+      "subtitle": "Uncommanded inputs, gyro, hardover, trim, AC and total electrical failure (SUP.16)",
+      "rfmReference": "H125 / AS350 B3 (2B1) RFM SUP.16",
+      "steps": [
+        {
+          "left": "Limits",
+          "right": [
+            "Disengaged on the ground except for checks; do not engage before takeoff if the trim test is not satisfactory; minimum height for hands-off operation 400 ft (120 m)."
+          ]
+        },
+        {
+          "left": "Uncommanded AFCS inputs",
+          "right": [
+            "Jerks not caused by turbulence: disengage the AFCS. If the anomaly disappears, re-engage channels one at a time; disengage the faulty channel and re-engage the others as required. Continue flight."
+          ]
+        },
+        {
+          "left": "Hydraulic system failure",
+          "right": [
+            "Apply the hydraulic failure procedure and disengage the AFCS."
+          ]
+        },
+        {
+          "left": "Vertical gyro, gyro horizon or monitoring unit failure",
+          "right": [
+            "Pitch, roll and monitoring unit disengage automatically; HDG, ALT and A/S are inoperative, yaw remains. Cyclic and collective — HANDS ON. Continue flight."
+          ]
+        },
+        {
+          "left": "Hardover",
+          "right": [
+            "Faulty channel disengages automatically. Controls — HANDS ON; power reduction may be needed to keep within limits. Continue flight."
+          ]
+        },
+        {
+          "left": "Gyro-compass failure",
+          "right": [
+            "Yaw channel and HDG disengage; pitch and roll remain. Pedals — FEET ON. Continue flight."
+          ]
+        },
+        {
+          "left": "Trim failure",
+          "right": [
+            "Faulty trim disengages; the cyclic may move toward the failure first. Controls — HANDS ON. Press trim release momentarily; [PITCH TRIM]/[ROLL TRIM] — PRESS/OFF for the faulty channel; re-engage the AFCS; re-trim with the cyclic trim release. Continue flight."
+          ]
+        },
+        {
+          "left": "Artificial load system seizure",
+          "right": [
+            "Cyclic stick seizure: press trim release; if it persists press [TRIM REL] and apply 10 kg (22 lb) on the affected channel to break the trim shear device. Continue flight."
+          ]
+        },
+        {
+          "left": "AC power failure",
+          "right": [
+            "AFCS disengages. Controls — HANDS ON; check [INV] ON, press it back on if needed. Continue flight."
+          ]
+        },
+        {
+          "left": "Complete electrical power failure",
+          "right": [
+            "AFCS disengages automatically and cannot be re-engaged."
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "sand-filter",
+      "title": "SAND FILTER",
+      "subtitle": "P2 valve use, checks and failures (SUP.14)",
+      "rfmReference": "H125 / AS350 B3 (2B1) RFM SUP.14",
+      "steps": [
+        {
+          "left": "Limits",
+          "right": [
+            "Heating and demisting OFF when P2 is ON. P2 OFF in visible moisture with OAT below 0 °C. Flight in falling snow is permitted with P2 OFF."
+          ]
+        },
+        {
+          "left": "Exterior check",
+          "right": [
+            "Engine air intake and sand filter — clean, with no foreign objects, ice or snow in or around the intake and no stagnant water at the drain hole. Ice or snow left there can be ingested and cause a sudden engine failure."
+          ]
+        },
+        {
+          "left": "Before start",
+          "right": [
+            "[SAND FILT] ON — P2 on the VEMD; then OFF — P2 off."
+          ]
+        },
+        {
+          "left": "Sandy atmosphere",
+          "right": [
+            "Heating and demisting OFF; [SAND FILT] ON — P2 appears on the VEMD."
+          ]
+        },
+        {
+          "left": "P2 remains off",
+          "right": [
+            "The P2 air valve fails to open: avoid flying in a sandy atmosphere."
+          ]
+        },
+        {
+          "left": "P2 remains on",
+          "right": [
+            "The P2 air valve fails to close: continue flight, observing the P2 bleed-air limitations."
+          ]
+        },
+        {
+          "left": "Engine health check",
+          "right": [
+            "[SAND FILT] OFF. The FADEC takes the filter into account automatically."
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "hoist-operations",
+      "title": "HOIST OPERATIONS AND EMERGENCIES",
+      "subtitle": "Checks, hoisting, hoist failure and engine failure (SUP.18 / 19)",
+      "rfmReference": "H125 / AS350 B3 (2B1) RFM SUP.18 / SUP.19",
+      "steps": [
+        {
+          "left": "Crew",
+          "right": [
+            "One pilot and one hoist operator. Landing with a load on the hoist cable is prohibited; a hand cable cutter must be within reach of the operator."
+          ]
+        },
+        {
+          "left": "Load limit",
+          "right": [
+            "Maximum load on the cable: 136 kg (300 lb) (SUP.18) or 204 kg (450 lb) (SUP.19)."
+          ]
+        },
+        {
+          "left": "Duty limits (SUP.18)",
+          "right": [
+            "Air Equipment: never more than 6 consecutive hoisting operations plus one descent with maximum load and maximum reel-out. Breeze: wait 30 s after each operation; after 3 complete cycles a 40 min stop is recommended."
+          ]
+        },
+        {
+          "left": "Checks",
+          "right": [
+            "Cable protectors on the landing gear on and secured; jib and locking device checked; hoist and cable condition checked; ICS checked; operator control grip, safety belt, glove and manual cable cutter in place. Check the load keeps the lateral CG within limits. Run-up: [HOIST] ON, check UP and DOWN operation, then reset to OFF."
+          ]
+        },
+        {
+          "left": "Before hoisting",
+          "right": [
+            "Operator: glove on the guiding hand, safety belt fastened and secured. Pilot: ICS operative, doors opened on order at 60 kt (111 km/h) IAS or less (SUP.18), heating and demisting OFF, power margin and parameters checked."
+          ]
+        },
+        {
+          "left": "Hoisting",
+          "right": [
+            "The hook must touch the ground before the cable is grasped, to discharge static electricity. If the hook hits the upper mechanical stop forcefully, abort the mission. Jib in hoisting position, [HOIST] ON."
+          ]
+        },
+        {
+          "left": "Hoist failure",
+          "right": [
+            "Pull the cable into the aircraft by hand, cut it, or return to base with the cable slightly inclined at VNE 60 kt (111 km/h)."
+          ]
+        },
+        {
+          "left": "Damaged cable, jam or miswrap",
+          "right": [
+            "Stop hoisting (do not use the speed control), inspect the cable, set the load down at the nearest suitable site, raise the cable by hand and store it in the cabin, [HOIST] OFF. If manual raising is not possible, cut with the manual cable cutter."
+          ]
+        },
+        {
+          "left": "Engine failure in the hover",
+          "right": [
+            "Collective — REDUCE according to height. Load — RELEASE as soon as possible with the cable-shear pushbutton. Pedals — control yaw. Cyclic — forward for speed. Collective — INCREASE to cushion touchdown. Pilot moves away to the right; ground crew move to the left."
+          ]
+        },
+        {
+          "left": "ICS failure",
+          "right": [
+            "Complete the present hoisting operation or abort the mission."
+          ]
+        },
+        {
+          "left": "After hoisting",
+          "right": [
+            "Jib in ferrying position, [HOIST] OFF, close the doors as required (check VNE with doors open)."
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "external-load-operations",
+      "title": "EXTERNAL LOAD OPERATIONS AND EMERGENCIES",
+      "subtitle": "Cargo sling 750 kg and cargo swing 1400 kg (SUP.12 / 13)",
+      "rfmReference": "H125 / AS350 B3 (2B1) RFM SUP.12 / SUP.13",
+      "steps": [
+        {
+          "left": "Limits",
+          "right": [
+            "Maximum load: 750 kg (1660 lb) sling; 1400 kg (3086 lb) swing. Maximum all-up weight with load: 2800 kg (6173 lb) or the OGE-hover maximum, whichever is lower. Maximum IAS: 80 kt (148 km/h). Non-human external cargo only."
+          ]
+        },
+        {
+          "left": "Load rules",
+          "right": [
+            "Jettisonable loads lifted free of land or water only. No empty net or unballasted sling unless the operator's approved procedures allow it."
+          ]
+        },
+        {
+          "left": "Check of the installation",
+          "right": [
+            "[SLING] ON; load indicator ZERO (swing: LD ON lit, [ZERO] then [TEST]); hook opens in both electrical and mechanical modes; retaining latch free and its return spring working."
+          ]
+        },
+        {
+          "left": "Takeoff with load — 1–4",
+          "right": [
+            "Load HOOKED and SECURED. Collective — INCREASE very smoothly, keeping the aircraft vertically above the load. Dwell briefly with cables tight. Lift the load vertically."
+          ]
+        },
+        {
+          "left": "Takeoff with load — 5–7",
+          "right": [
+            "Check the load indication (swing: LD ON). Adjust the takeoff path to an immediate forward climb attitude. Check all parameters."
+          ]
+        },
+        {
+          "left": "Engine failure in cruise",
+          "right": [
+            "Apply the autorotation procedure and RELEASE the load as soon as possible."
+          ]
+        },
+        {
+          "left": "Engine failure in the hover",
+          "right": [
+            "Collective — REDUCE according to height. Load — RELEASE as soon as possible. Pedals — control yaw. Cyclic — forward. Collective — INCREASE to cushion touchdown. During hooking the pilot moves away to the right; ground crew to the left."
+          ]
+        },
+        {
+          "left": "Electrical jettison failure",
+          "right": [
+            "Collective lever mechanical release — ACTUATE."
+          ]
+        },
+        {
+          "left": "Load indicator failure (swing)",
+          "right": [
+            "LD ON comes on or goes out untimely — in the hover, release the load electrically and check the light: no change, abort the mission; status change, continue. In cruise make a precautionary approach to the nearest helipad first."
+          ]
+        },
+        {
+          "left": "Precautions",
+          "right": [
+            "Train with gradually increasing loads. Use the shortest cable for a compact load. Keep a trailing cable or net clear of the tail rotor. Use the correct load attachment ring. Wet weather: thick rubber gloves and a conductor between ground and hook."
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "bambi-bucket",
+      "title": "BAMBI BUCKET",
+      "subtitle": "Model 2732S — limits, release and emergency jettison (SUP.52)",
+      "rfmReference": "H125 / AS350 B3 (2B1) RFM SUP.52",
+      "steps": [
+        {
+          "left": "General",
+          "right": [
+            "Use needs approval of the operational authorities. Capacity 1225 litres. Installed on the external load hook (SUP.13.1 or 13.2)."
+          ]
+        },
+        {
+          "left": "Speed limits",
+          "right": [
+            "Empty bucket: VNE 90 kt (167 km/h). Bucket full or partly filled: VNE 80 kt (148 km/h)."
+          ]
+        },
+        {
+          "left": "Controls",
+          "right": [
+            "[SLING] on the console switches the installation on. Cyclic-grip pushbutton releases the contents; second cyclic-grip pushbutton electrically releases the whole load; trigger under the collective releases it mechanically."
+          ]
+        },
+        {
+          "left": "Check before takeoff",
+          "right": [
+            "Bucket correctly secured; the shackle manufacturer's plate and the ballast inside the bucket face forward."
+          ]
+        },
+        {
+          "left": "Water jettison not possible",
+          "right": [
+            "Cannot dump with the cyclic-grip control: place the bucket, full or empty, on the ground as with a sling load; ground staff unhook it with the load release device."
+          ]
+        },
+        {
+          "left": "Bucket emergency jettison",
+          "right": [
+            "For a helicopter problem: release the bucket with the sling electrical or mechanical release controls, ideally in a right-hand turn with a slight load factor."
           ]
         }
       ]

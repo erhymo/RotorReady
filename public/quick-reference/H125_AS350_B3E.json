@@ -8,8 +8,8 @@
         {
           "label": "VNE power on / power off (Hp = 0)",
           "lines": [
-            "VNE power on: 155 kt IAS at Hp = 0.",
-            "VNE power off: 125 kt IAS at Hp = 0."
+            "VNE power on: 155 kt IAS at Hp = 0, less 3 kt per 1000 ft.",
+            "VNE power off: 125 kt IAS at Hp = 0, less 3 kt per 1000 ft."
           ]
         },
         {
@@ -27,88 +27,122 @@
         {
           "label": "Altitude limits",
           "lines": [
-            "Maximum operating altitude in flight (post MOD 07-3368): Hp = 20 000 ft.",
-            "Maximum operating altitude with takeoff power: 16 000 ft.",
-            "Maximum operating altitude in autorotation: 20 000 ft."
+            "Maximum operating altitude in flight: Hp = 23 000 ft (7010 m).",
+            "Post MOD 07-3368: Hp = 20 000 ft (6096 m)."
           ]
         },
         {
           "label": "Temperature limits",
           "lines": [
-            "General flight envelope temperature: -40 °C to ISA+35 °C, limited to +50 °C.",
-            "Engine start without preheating allowed down to -25 °C ambient.",
-            "Maximum ambient temperature for ground operation: +50 °C."
+            "Minimum temperature: -40 °C.",
+            "Maximum temperature: ISA+35 °C, limited to +50 °C."
           ]
         }
       ]
     },
     {
-      "title": "Rotor Speed (Nr)",
+      "title": "Rotor Speed (NR)",
       "items": [
         {
-          "label": "Power-on (continuous / transient)",
+          "label": "Normal and caution ranges",
           "lines": [
-            "Normal Nr range (power-on): 375–394 rpm.",
-            "Maximum transient Nr (power-on): 410 rpm."
+            "Normal operating range: 375–405 rpm.",
+            "Caution ranges: 320–375 rpm and 405–430 rpm."
           ]
         },
         {
-          "label": "Power-off (autorotation)",
+          "label": "Power-off limits",
           "lines": [
-            "Power-off Nr range: 320–430 rpm."
+            "Minimum power-off NR: 320 rpm.",
+            "Maximum power-off NR: 430 rpm."
+          ]
+        },
+        {
+          "label": "Rotor brake",
+          "lines": [
+            "Prohibited before engine shutdown; maximum brake application speed: 170 rpm.",
+            "Minimum time between two consecutive brake applications: 5 min."
           ]
         },
         {
           "label": "Aural warnings",
           "lines": [
-            "Low Nr aural warning: ≤ 360 rpm.",
-            "High Nr aural warning: ≥ 410 rpm."
+            "Low NR aural warning: ≤ 360 rpm.",
+            "High NR aural warning: ≥ 410 rpm."
           ]
         }
       ]
     },
     {
-      "title": "Engine Speeds (Ng / Nf)",
+      "title": "Engine Speeds (N1 / N2)",
       "items": [
         {
-          "label": "Ng (gas generator)",
+          "label": "N1 (gas generator)",
           "lines": [
-            "Continuous operating range: 60–99 %.",
-            "Maximum transient (10 s): 101 %."
+            "Minimum stabilized speed: 67 %.",
+            "Maximum continuous rating: ΔN1 = -4 %.",
+            "Takeoff power range: ΔN1 = -4 % to 0 %; maximum takeoff rating: ΔN1 = 0 %.",
+            "Maximum transient: ΔN1 = +1 % (≤ 20 s).",
+            "100 % N1 = 52 110 rpm."
           ]
         },
         {
-          "label": "Nf (power turbine)",
+          "label": "N2 (power turbine)",
           "lines": [
-            "Continuous operating range: 335–410 rpm.",
-            "Maximum transient: 420 rpm."
+            "Minimum: 367 rpm; normal operating range: 367–413 rpm.",
+            "Maximum continuous: 413 rpm.",
+            "Maximum transient: 440 rpm (20 s).",
+            "NR 386 rpm corresponds to N2 39 158 rpm."
           ]
         }
       ]
     },
     {
-      "title": "Turbine Outlet Temperature (T4 °C)",
+      "title": "Turbine Outlet Temperature (TOT °C)",
       "items": [
+        {
+          "label": "Starting limits",
+          "lines": [
+            "Maximum continuous during start: 750 °C.",
+            "Maximum transient during start: 840 °C (10 s)."
+          ]
+        },
         {
           "label": "Flight limits",
           "lines": [
-            "Max continuous in flight: 867 °C.",
-            "Takeoff limit (5 min): 897 °C."
+            "Maximum continuous rating: 905 °C.",
+            "Takeoff power range: 905–949 °C; maximum takeoff rating: 949 °C.",
+            "Maximum transient: 981 °C (20 s)."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Torque, FLI & Takeoff Power",
+      "items": [
+        {
+          "label": "Main transmission torque",
+          "lines": [
+            "Maximum continuous rating: 92.7 %.",
+            "Takeoff power range: 92.7–100 %; maximum takeoff rating: 100 %.",
+            "Maximum transient: 104 % (5 s).",
+            "100 % torque corresponds to 535 kW at NR 386 rpm."
           ]
         },
         {
-          "label": "Transient / start limits",
+          "label": "First Limitation Indicator (FLI)",
           "lines": [
-            "Maximum transient (10 s): 915 °C.",
-            "Maximum during start (10 s): 950 °C."
+            "Maximum continuous rating: 9.6; takeoff power: 9.6–10; maximum takeoff rating: 10.",
+            "Maximum transient: 10.4 (5 s)."
           ]
         },
         {
-          "label": "Takeoff power usage (general)",
+          "label": "Takeoff power usage",
           "lines": [
-            "Takeoff power may be used up to IAS 40 kt.",
-            "If N1 and/or T4 is in the takeoff power range, limit use to 5 min (pre MOD 07-4309) or 30 min (post MOD 07-4309).",
-            "If only torque is in the takeoff power range, there is no time limit; heating/demisting is permitted up to max takeoff power."
+            "Maximum airspeed with takeoff power: 40 KIAS.",
+            "If N1 and/or TOT is in the takeoff power range (value underlined in yellow): 5 min continuous (pre-OP-4309) or 30 min continuous (post-OP-4309).",
+            "If only torque is in the takeoff power range: no time limit.",
+            "Heating and demisting are authorised up to maximum takeoff power."
           ]
         }
       ]
@@ -120,29 +154,29 @@
           "label": "Internal weight limits",
           "lines": [
             "Maximum internal weight for flight, takeoff and landing: 2250 kg (4961 lb).",
-            "Minimum internal weight for flight and landing: 1310 kg (2888 lb)."
+            "Minimum internal weight for flight, takeoff and landing: 1310 kg (2888 lb)."
           ]
         },
         {
-          "label": "Increased internal gross weight (if SUP.28 installed)",
+          "label": "Increased internal gross weight (SUP.28: high landing gear and dual hydraulics)",
           "lines": [
-            "With high landing gear and dual hydraulics (SUP.28): max internal weight in flight: 2370 kg (5225 lb).",
-            "Max internal weight for IGE takeoff and landing (SUP.28): 2370 kg (5225 lb)."
+            "Maximum internal weight in flight: 2370 kg (5225 lb).",
+            "Maximum internal weight for IGE takeoff and landing: 2370 kg (5225 lb)."
           ]
         },
         {
           "label": "Baggage compartments",
           "lines": [
-            "RH cargo compartment: max 100 kg.",
-            "LH cargo compartment: max 120 kg.",
-            "Rear cargo compartment: max 80 kg."
+            "RH cargo compartment: max 100 kg (220 lb) at max 300 kg/m² (62.5 lb/ft²).",
+            "LH cargo compartment: max 120 kg (264 lb) at max 300 kg/m² (62.5 lb/ft²).",
+            "Rear cargo compartment: max 80 kg (176 lb) at max 145 kg/m² (30 lb/ft²)."
           ]
         },
         {
-          "label": "Cabin floor",
+          "label": "Cabin floor (max distributed load 300 kg/m² / 62.5 lb/ft²)",
           "lines": [
-            "Rear cabin floor: max 310 kg.",
-            "Forward left cabin floor: max 150 kg."
+            "Rear cabin floor: max 310 kg (682 lb).",
+            "Forward left cabin floor: max 150 kg (330 lb)."
           ]
         }
       ]
@@ -153,14 +187,15 @@
         {
           "label": "Landing / rotor stop slopes",
           "lines": [
-            "Maximum slope for landing / rotor stopping: nose up 12°, nose down 6°, sideways 8°."
+            "Maximum slope for landing / rotor stopping: nose up 10°, nose down 6°, sideways 8°."
           ]
         },
         {
           "label": "Running landings & maneuvering",
           "lines": [
-            "Excluding emergencies and failures, maximum IAS for running landings: 40 kt (74 km/h).",
-            "Continuous operation in servo-transparency (significant load feedback in controls) is prohibited."
+            "Excluding emergencies and failures, maximum speed for running landings: 40 kt (74 km/h).",
+            "Continuous operation in servo-transparency (load feedback felt in the controls) is prohibited.",
+            "Single hydraulics, post MOD 07-20039: the LIMIT light and audio tone indicate proximity to servo-transparency but must not be relied on as the sole means to avoid it."
           ]
         }
       ]
@@ -169,19 +204,27 @@
       "title": "Systems (selected limits)",
       "items": [
         {
-          "label": "Fuel & oil",
+          "label": "Fuel",
           "lines": [
-            "Approved turbine fuels: Jet A, Jet A-1, Jet B.",
-            "Normal engine oil temperature range: 0–105 °C (max 105 °C).",
-            "Minimum oil pressure at Ng < 70 %: 0.5 bar."
+            "Normal fuels (no restriction): Jet A-1, Jet A, JP-8, JP-5 (full list in RFM Section 2.5).",
+            "Wide-cut Jet B / JP-4 is a replacement fuel with a restricted envelope: OAT ≤ 25 °C and Hp ≤ 5000 ft (1524 m).",
+            "Russian TS-1 / RT kerosene is a replacement fuel with a restricted envelope: OAT ≤ 40 °C and Hp ≤ 15 000 ft (4572 m)."
+          ]
+        },
+        {
+          "label": "Engine oil",
+          "lines": [
+            "Maximum oil temperature: 117 °C (caution range shown on the gauge).",
+            "Minimum oil temperature before power application: 0 °C (oil 5 cSt) or -10 °C (oil 3 to 3.9 cSt); warm up with the collective in full low pitch, twist grip in IDLE or FLIGHT.",
+            "Oil pressure limits are variable and depend on N1 (see the RFM figure)."
           ]
         },
         {
           "label": "Electrical",
           "lines": [
-            "Minimum battery voltage for engine start: 22 V.",
-            "Maximum generator load in flight: 100 A.",
-            "Maximum generator load on ground: 115 A."
+            "Maximum voltage: 31.5 V (rated 26–29 V).",
+            "Maximum continuous current: 150 A (200 A if the optional 200 A starter generator is installed, SUP.29).",
+            "Pre-start check: battery voltage > 22 V."
           ]
         }
       ]

@@ -632,30 +632,33 @@
     },
     {
       "id": "H125-NOR-022",
-      "question": "When starting engine in hot weather, pilot must ensure:",
+      "question": "During engine starting, which item is selected ON once N1 is at or above 67 %?",
       "options": [
-        "Ventilation fans ON",
-        "Ng acceleration above 15% within 10 s",
-        "Fuel pumps OFF",
-        "Pitot heat ON"
+        "GENE",
+        "PITOT",
+        "AVIONIC",
+        "EPU"
       ],
       "answer": [
-        1
+        0
       ],
-      "explanation": "Ng acceleration must exceed 15% within 10 seconds to avoid hot start.",
+      "explanation": "Section 4.3 Engine starting: when N1 ≥ 67 %, GENE is selected ON (item 7), then the CWP is checked for ENG P, MGB P and HYDR (item 8).",
       "section": "normal_procedures",
       "modelIds": [
         "H125_AS350_B3E"
       ],
       "manual": "RFM H125 Section 4 – Normal Procedures",
-      "reference": "p. 4-7",
+      "reference": "Section 4.3",
       "references": [
-        "RFM H125 Section 4 – Normal Procedures – p. 4-7",
-        "p. 4-7",
-        "RFM H125 Section 4 – Normal Procedures"
+        "RFM B3e Section 4.3",
+        "Section 4.3",
+        "RFM B3e Section 4"
       ],
       "difficulty": "medium",
-      "tags": [],
+      "tags": [
+        "start",
+        "n1"
+      ],
       "sectionId": "normal_procedures",
       "type": "single",
       "source": "RFM H125 Section 4 – Normal Procedures"
@@ -2139,14 +2142,14 @@
       "question": "During engine start, which set of parameters must be monitored according to Section 4.3?",
       "options": [
         "Only torque, NR and hydraulic pressure",
-        "Ng increases, TOT remains within limits, rotor turns when Ng is ≤ 25% and engine oil pressure increases",
+        "N1 increases, TOT remains within limits, rotor turns when N1 is ≤ 25% and engine oil pressure increases",
         "Only TOT and NR",
         "Only battery voltage above 22 V"
       ],
       "answer": [
         1
       ],
-      "explanation": "Engine start item 6 in Section 4.3 lists these four indications: Ng increasing, TOT staying within limits, rotor turning by Ng ≤ 25% and engine oil pressure increasing.",
+      "explanation": "Engine start item 6 in Section 4.3 lists these four indications: N1 increasing, TOT staying below its limits, rotor turning at N1 ≤ 25 % and engine oil pressure increasing.",
       "section": "normal_procedures",
       "modelIds": [
         "H125_AS350_B3E"
@@ -2161,7 +2164,7 @@
       "difficulty": "medium",
       "tags": [
         "engine-start",
-        "Ng",
+        "N1",
         "TOT",
         "oil-pressure"
       ],
@@ -2171,7 +2174,7 @@
     },
     {
       "id": "H125-NOR-076",
-      "question": "When Ng (N1) reaches at least 67% during engine start, which CWP lights must be checked?",
+      "question": "When N1 reaches at least 67% during engine start, which CWP lights must be checked?",
       "options": [
         "GOV, PITOT, HYDR",
         "ENG P, MGB P, HYDR",
@@ -2181,7 +2184,7 @@
       "answer": [
         1
       ],
-      "explanation": "Section 4.3 engine starting item 8 calls for checking that ENG P, MGB P and HYDR are indicated on the CWP when Ng is at or above 67%.",
+      "explanation": "Section 4.3 engine starting item 8 calls for checking that ENG P, MGB P and HYDR are indicated on the CWP when N1 is at or above 67%.",
       "section": "normal_procedures",
       "modelIds": [
         "H125_AS350_B3E"

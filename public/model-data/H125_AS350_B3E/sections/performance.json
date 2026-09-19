@@ -125,8 +125,8 @@
       "question": "The engine health check on the AS350 B3e verifies which two margins?",
       "options": [
         "TRQ MARGIN ISO N1 and TRQ MARGIN ISO TOT",
-        "Torque margin and t4 margin",
-        "Ng margin and NR margin",
+        "Torque margin and TOT margin",
+        "N1 margin and NR margin",
         "Fuel flow margin and oil pressure margin"
       ],
       "answer": [
@@ -186,8 +186,8 @@
       "options": [
         "TRQ MARGIN ISO N1 and TRQ MARGIN ISO TOT are both positive (≥0%)",
         "Only TRQ MARGIN ISO TOT needs to be positive",
-        "T4 margin is negative and torque margin is positive",
-        "Ng is above 100% for at least 1 minute"
+        "TOT margin is negative and torque margin is positive",
+        "N1 is above 100% for at least 1 minute"
       ],
       "answer": [
         0

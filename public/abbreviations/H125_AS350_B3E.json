@@ -49,6 +49,10 @@
       "meaning": "Equipped Empty Weight"
     },
     {
+      "abbr": "EHC",
+      "meaning": "Engine Health Check"
+    },
+    {
       "abbr": "ELT",
       "meaning": "Emergency Locator Transmitter"
     },
@@ -157,6 +161,10 @@
       "meaning": "Left Hand Side"
     },
     {
+      "abbr": "MAUW",
+      "meaning": "Maximum All-Up Weight"
+    },
+    {
       "abbr": "MCP",
       "meaning": "Maximum Continuous Power"
     },
@@ -170,23 +178,23 @@
     },
     {
       "abbr": "MTOP",
-      "meaning": "Maximum Takeoff Power (5 min.)"
+      "meaning": "Maximum Takeoff Power"
     },
     {
       "abbr": "MTOW",
       "meaning": "Maximum Take-Off Weight"
     },
     {
-      "abbr": "Nf",
-      "meaning": "Free Turbine Speed"
-    },
-    {
-      "abbr": "Ng",
+      "abbr": "N1",
       "meaning": "Engine Generator Speed"
     },
     {
-      "abbr": "ΔNg",
+      "abbr": "ΔN1",
       "meaning": "Engine Generator Deviation Indication"
+    },
+    {
+      "abbr": "N2",
+      "meaning": "Free Turbine Speed"
     },
     {
       "abbr": "NR",
@@ -203,10 +211,6 @@
     {
       "abbr": "P/L",
       "meaning": "Payload"
-    },
-    {
-      "abbr": "PENDING",
-      "meaning": "To Be Defined"
     },
     {
       "abbr": "PWR",
@@ -245,10 +249,6 @@
       "meaning": "Second"
     },
     {
-      "abbr": "t4",
-      "meaning": "Power Turbine Inlet Temperature"
-    },
-    {
       "abbr": "TAS",
       "meaning": "True Airspeed"
     },
@@ -257,11 +257,27 @@
       "meaning": "To Be Confirmed"
     },
     {
-      "abbr": "Tq",
+      "abbr": "TBD",
+      "meaning": "To Be Defined"
+    },
+    {
+      "abbr": "TGB",
+      "meaning": "Tail Gear Box"
+    },
+    {
+      "abbr": "TOP",
+      "meaning": "Takeoff Power"
+    },
+    {
+      "abbr": "TOT",
+      "meaning": "HP Turbine Outlet Gas Temperature (T45)"
+    },
+    {
+      "abbr": "TRQ",
       "meaning": "Torque"
     },
     {
-      "abbr": "U bus",
+      "abbr": "Ubus",
       "meaning": "Main Bus Voltage"
     },
     {
@@ -283,10 +299,6 @@
     {
       "abbr": "Vy",
       "meaning": "Best Rate of Climb Speed"
-    },
-    {
-      "abbr": "TGB",
-      "meaning": "Tail Gear Box"
     }
   ]
 }

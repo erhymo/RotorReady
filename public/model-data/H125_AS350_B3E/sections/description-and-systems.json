@@ -604,15 +604,15 @@
       "id": "H125-DS-221",
       "question": "On the B3e instrument panel, what does the rotor speed indicator display alongside NR?",
       "options": [
-        "Nf (free turbine speed)",
+        "N1 (gas generator speed)",
         "N2 (power turbine speed)",
-        "N1 (gas generator speed) directly",
+        "TRQ (torque)",
         "TOT only"
       ],
       "answer": [
         1
       ],
-      "explanation": "The B3e's Arriel 2D terminology uses N2 for the power turbine speed indicator, shown alongside NR — unlike the B3 2B1, which labels this indicator NR/Nf.",
+      "explanation": "The B3e uses N2 for the power turbine speed, shown alongside NR on the rotor speed indicator (NR 386 rpm corresponds to N2 39158 rpm).",
       "section": "description-and-systems",
       "modelIds": [
         "H125_AS350_B3E"

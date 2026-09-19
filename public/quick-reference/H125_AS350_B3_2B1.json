@@ -53,7 +53,40 @@
           "lines": [
             "Maximum continuous: 92.7 %.",
             "Takeoff rating: 100 %.",
-            "Transient (5 s): 104 %."
+            "Transient (5 s): 104 %.",
+            "100 % torque = 535 kW at NR 386 rpm.",
+            "Use of the takeoff rating torque range has no time limit."
+          ]
+        },
+        {
+          "label": "Engine takeoff rating",
+          "lines": [
+            "Use of the engine takeoff rating range is limited to 5 continuous minutes.",
+            "Heating and demisting are forbidden above the engine maximum continuous rating (Ng or t4)."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Engine Speeds (Ng / Nf)",
+      "items": [
+        {
+          "label": "Ng (gas generator)",
+          "lines": [
+            "Minimum stabilized rating: 67 %.",
+            "Maximum continuous: ΔNg = -4 % (Ng 97.1 % at Hp = 0, ISA).",
+            "Takeoff rating range: ΔNg = -4 % to 0 %; maximum takeoff: ΔNg = 0 % (Ng 101.1 %).",
+            "Maximum transient: ΔNg = +1 % (Ng 102.3 %, 5 s).",
+            "100 % Ng = 52 110 rpm."
+          ]
+        },
+        {
+          "label": "Nf (power turbine)",
+          "lines": [
+            "Minimum: 349 rpm; normal operating range: 349–418 rpm.",
+            "Maximum continuous: 418 rpm.",
+            "Maximum transient: 450 rpm (5 s).",
+            "NR 386 rpm = Nf 39 158 rpm."
           ]
         }
       ]
@@ -72,7 +105,8 @@
           "label": "Flight",
           "lines": [
             "Max continuous in flight: 849 °C.",
-            "Takeoff rating: 915 °C."
+            "Takeoff rating range: 849–915 °C; maximum takeoff rating: 915 °C.",
+            "Maximum transient: 941 °C (20 s)."
           ]
         }
       ]
@@ -129,6 +163,9 @@
         {
           "label": "Engine oil",
           "lines": [
+            "Maximum oil temperature: 115 °C (caution range -10 °C to 0 °C).",
+            "Minimum oil temperature before power application: 0 °C (oil 5 cSt).",
+            "Minimum oil pressure (Ng ≥ 70 %): 1.1 bar (16 psi); caution ranges 1.1–2 bar and 6–9.8 bar.",
             "Maximum oil pressure: 9.8 bar (142 psi)."
           ]
         },

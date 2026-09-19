@@ -1915,6 +1915,326 @@
       "sectionId": "limitations",
       "type": "single",
       "source": "RFM H125 Section 2.5"
+    },
+    {
+      "id": "H125-LIM-077",
+      "question": "What is the Nf normal operating range?",
+      "options": [
+        "335–410 rpm",
+        "349–418 rpm",
+        "367–413 rpm",
+        "375–405 rpm"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Section 2.4 Nf limitations: 349 rpm minimum, 349–418 rpm normal operating range, 418 rpm maximum continuous. NR 386 rpm corresponds to Nf 39158 rpm.",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM B3 2B1 Section 2",
+      "reference": "Section 2.4",
+      "references": [
+        "RFM B3 2B1 Section 2 – Section 2.4",
+        "Section 2.4",
+        "RFM B3 2B1 Section 2"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "nf"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM B3 2B1 Section 2"
+    },
+    {
+      "id": "H125-LIM-078",
+      "question": "What is the maximum transient Nf limit?",
+      "options": [
+        "418 rpm",
+        "430 rpm",
+        "440 rpm",
+        "450 rpm"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "Section 2.4 Nf limitations: maximum transient limit 450 rpm (5 sec).",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM B3 2B1 Section 2",
+      "reference": "Section 2.4",
+      "references": [
+        "RFM B3 2B1 Section 2 – Section 2.4",
+        "Section 2.4",
+        "RFM B3 2B1 Section 2"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "nf"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM B3 2B1 Section 2"
+    },
+    {
+      "id": "H125-LIM-079",
+      "question": "What is the minimum stabilized Ng speed?",
+      "options": [
+        "60 %",
+        "65 %",
+        "67 %",
+        "70 %"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Section 2.4 Ng limitations: Ng = 67 % minimum stabilized rating. 100 % Ng corresponds to 52110 rpm.",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM B3 2B1 Section 2",
+      "reference": "Section 2.4",
+      "references": [
+        "RFM B3 2B1 Section 2 – Section 2.4",
+        "Section 2.4",
+        "RFM B3 2B1 Section 2"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "ng"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM B3 2B1 Section 2"
+    },
+    {
+      "id": "H125-LIM-080",
+      "question": "What is the maximum continuous rating on the ΔNg scale?",
+      "options": [
+        "ΔNg = -6 %",
+        "ΔNg = -4 %",
+        "ΔNg = 0 %",
+        "ΔNg = +1 %"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Section 2.4 Ng limitations: maximum continuous ΔNg = -4 % (Ng 97.1 % at Hp = 0, ISA); maximum takeoff ΔNg = 0 %; maximum transient ΔNg = +1 % (5 sec).",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM B3 2B1 Section 2",
+      "reference": "Section 2.4",
+      "references": [
+        "RFM B3 2B1 Section 2 – Section 2.4",
+        "Section 2.4",
+        "RFM B3 2B1 Section 2"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "ng"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM B3 2B1 Section 2"
+    },
+    {
+      "id": "H125-LIM-081",
+      "question": "What is the maximum transient t4 in flight?",
+      "options": [
+        "915 °C",
+        "930 °C",
+        "941 °C",
+        "965 °C"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Section 2.4 t4 limitations (flight): 849 °C maximum continuous; 849–915 °C takeoff rating range; 915 °C maximum takeoff; 941 °C maximum transient (20 sec).",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM B3 2B1 Section 2",
+      "reference": "Section 2.4",
+      "references": [
+        "RFM B3 2B1 Section 2 – Section 2.4",
+        "Section 2.4",
+        "RFM B3 2B1 Section 2"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "t4"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM B3 2B1 Section 2"
+    },
+    {
+      "id": "H125-LIM-082",
+      "question": "What is the maximum engine oil temperature?",
+      "options": [
+        "105 °C",
+        "110 °C",
+        "115 °C",
+        "120 °C"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Section 2.4 Oil Temperature Limitations: maximum temperature 115 °C; caution range -10 °C to 0 °C.",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM B3 2B1 Section 2",
+      "reference": "Section 2.4",
+      "references": [
+        "RFM B3 2B1 Section 2 – Section 2.4",
+        "Section 2.4",
+        "RFM B3 2B1 Section 2"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "oil"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM B3 2B1 Section 2"
+    },
+    {
+      "id": "H125-LIM-083",
+      "question": "What is the minimum oil pressure with Ng ≥ 70 %?",
+      "options": [
+        "0.5 bar",
+        "1.1 bar (16 psi)",
+        "2 bar (29 psi)",
+        "6 bar (87 psi)"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Section 2.4 Oil Pressure Limitations: minimum pressure 1.1 bar (16 psi) at Ng ≥ 70 %; caution ranges 1.1–2 bar and 6–9.8 bar.",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM B3 2B1 Section 2",
+      "reference": "Section 2.4",
+      "references": [
+        "RFM B3 2B1 Section 2 – Section 2.4",
+        "Section 2.4",
+        "RFM B3 2B1 Section 2"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "oil"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM B3 2B1 Section 2"
+    },
+    {
+      "id": "H125-LIM-084",
+      "question": "Use of the engine takeoff rating range is limited to:",
+      "options": [
+        "1 continuous minute",
+        "5 continuous minutes",
+        "10 continuous minutes",
+        "No time limit"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Section 2.4 Engine Limitations: use of the engine takeoff rating range is limited to 5 continuous minutes. Use of the takeoff rating torque range has no time limit.",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM B3 2B1 Section 2",
+      "reference": "Section 2.4",
+      "references": [
+        "RFM B3 2B1 Section 2 – Section 2.4",
+        "Section 2.4",
+        "RFM B3 2B1 Section 2"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "takeoff-power"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM B3 2B1 Section 2"
+    },
+    {
+      "id": "H125-LIM-085",
+      "question": "Use of the takeoff rating torque range has:",
+      "options": [
+        "A 5 minute limit",
+        "A 30 minute limit",
+        "No time limit",
+        "A 1 minute limit"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Section 2.4 Main Transmission Limitations: use of the takeoff rating torque range has no time limit (100 % torque = 535 kW at NR 386 rpm).",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM B3 2B1 Section 2",
+      "reference": "Section 2.4",
+      "references": [
+        "RFM B3 2B1 Section 2 – Section 2.4",
+        "Section 2.4",
+        "RFM B3 2B1 Section 2"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "torque"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM B3 2B1 Section 2"
+    },
+    {
+      "id": "H125-LIM-086",
+      "question": "What is the minimum oil temperature before power application (5 cSt oil)?",
+      "options": [
+        "-10 °C",
+        "-5 °C",
+        "0 °C",
+        "+10 °C"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Section 2.4 Oil Temperature Limitations: minimum oil temperature before power application is 0 °C (oil 5 cSt).",
+      "section": "limitations",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM B3 2B1 Section 2",
+      "reference": "Section 2.4",
+      "references": [
+        "RFM B3 2B1 Section 2 – Section 2.4",
+        "Section 2.4",
+        "RFM B3 2B1 Section 2"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "oil"
+      ],
+      "sectionId": "limitations",
+      "type": "single",
+      "source": "RFM B3 2B1 Section 2"
     }
   ]
 }

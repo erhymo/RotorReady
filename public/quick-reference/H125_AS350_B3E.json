@@ -244,9 +244,10 @@
           ]
         },
         {
-          "label": "External loads (SUP.12 / 13)",
+          "label": "External loads (SUP.12 sling / SUP.13 swing) — only the installation fitted applies",
           "lines": [
-            "Cargo sling: max 750 kg (1660 lb). Cargo swing: max 1400 kg (3086 lb).",
+            "Cargo swing (SUP.13, 13.1, 13.2 — suspended pyramid frame with a SIREN or ON-BOARD release unit): max 1400 kg (3086 lb).",
+            "Cargo sling (SUP.12 — Breeze Eastern release unit and hook, P/N 17149-1): max 750 kg (1660 lb).",
             "Maximum all-up weight with external load: 2800 kg (6173 lb) or the OGE-hover maximum, whichever is lower.",
             "Maximum IAS with external load: 80 kt (148 km/h).",
             "Non-human external cargo only; jettisonable loads only."

@@ -8,10 +8,13 @@ import { fetchContentJson } from "@/lib/contentUrl";
 import { renderInline, type InlineNode } from "@/lib/procedures/inline";
 
 // `group` puts consecutive steps into one titled box. Inside a box a step with no
-// `left` is numbered 1, 2, 3…; a step with `left` is a labelled row (a scenario
+// `label` is numbered 1, 2, 3…; a step with `label` is a labelled row (a scenario
 // or a warning, not part of the numbered sequence). `when` is a short condition
 // shown above the step text. Procedures without `group` keep the plain checklist.
-type Step = { left?: string; group?: string; when?: string; right: InlineNode[] };
+// `left` is still written for grouped steps so that installed app versions that
+// predate boxes (the native shell only updates with a store release) show a
+// readable flat list from the same live JSON; the box layout ignores it.
+type Step = { left?: string; label?: string; group?: string; when?: string; right: InlineNode[] };
 type H125Procedure = {
   slug: string;
   title: string;
@@ -111,7 +114,7 @@ export default function H125ProcedureDetailPage({
         {groups.map((g, gi) => {
           const single = g.steps.length === 1;
           // A lone labelled step reads better as "Title — label" than as a box with one row.
-          const title = single && g.steps[0].left ? `${g.title} — ${g.steps[0].left}` : g.title;
+          const title = single && g.steps[0].label ? `${g.title} — ${g.steps[0].label}` : g.title;
           let n = 0;
           return (
             <section
@@ -123,8 +126,8 @@ export default function H125ProcedureDetailPage({
               </h2>
               <div className="divide-y divide-slate-200/70 dark:divide-zinc-700/60">
                 {g.steps.map((st, si) => {
-                  const labelled = !single && !!st.left;
-                  const numbered = !single && !st.left;
+                  const labelled = !single && !!st.label;
+                  const numbered = !single && !st.label;
                   if (numbered) n += 1;
                   return (
                     <div key={si} className="flex gap-3 px-4 py-3">
@@ -136,7 +139,7 @@ export default function H125ProcedureDetailPage({
                       <div className="min-w-0 flex-1 space-y-1 text-sm text-slate-800 dark:text-zinc-100">
                         {labelled && (
                           <div className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-zinc-400">
-                            {st.left}
+                            {st.label}
                           </div>
                         )}
                         {st.when && (

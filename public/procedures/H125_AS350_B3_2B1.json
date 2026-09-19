@@ -4,7 +4,7 @@
   "footerNote": "H125 / AS350 B3 (2B1) training reference. For training use only. Always cross-check with the latest approved RFM.",
   "listGroups": [
     {
-      "heading": "Normal & emergency procedures",
+      "heading": "Normal procedures",
       "slugs": [
         "before-start-and-pre-start-checks",
         "engine-start-normal",
@@ -16,9 +16,21 @@
         "approach-and-landing-normal",
         "shutdown-and-securing-helicopter",
         "engine-health-check",
-        "cranking-procedure",
+        "cranking-procedure"
+      ]
+    },
+    {
+      "heading": "Emergency procedures",
+      "slugs": [
+        "engine-flame-out-and-autorotation",
+        "tail-rotor-failure-handling-and-landing",
+        "smoke-in-cabin",
         "after-cockpit-fire-extinguisher-use",
-        "tail-rotor-failure-handling-and-landing"
+        "engine-fire-and-governor-failures",
+        "transmission-and-hydraulic-failures",
+        "electrical-and-fuel-alarms",
+        "vemd-and-instrument-failures",
+        "flight-control-and-misc-warnings"
       ]
     },
     {
@@ -518,6 +530,512 @@
           "left": "Completion",
           "right": [
             "Allow starter to cool according to limitations before any subsequent start or cranking cycle."
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "engine-flame-out-and-autorotation",
+      "title": "ENGINE FLAME-OUT & AUTOROTATION",
+      "subtitle": "Cruise, over water, hover IGE, hover OGE, in-flight relighting",
+      "rfmReference": "H125 / AS350 B3 (2B1) RFM Section 3.2",
+      "steps": [
+        {
+          "left": "Cruise — 1",
+          "right": [
+            "Collective — REDUCE to maintain NR in the normal operating range."
+          ]
+        },
+        {
+          "left": "Cruise — 2",
+          "right": [
+            "IAS — Vy."
+          ]
+        },
+        {
+          "left": "Cruise — 3–4 (after loss of tail rotor thrust)",
+          "right": [
+            "Twist grip IDLE; maneuver into the wind on final approach."
+          ]
+        },
+        {
+          "left": "Cruise — 5 (at ≥ 70 ft / 21 m)",
+          "right": [
+            "Cyclic — FLARE."
+          ]
+        },
+        {
+          "left": "Cruise — 6 (at 20–25 ft / 6–8 m, constant attitude)",
+          "right": [
+            "Collective — GRADUALLY INCREASE to reduce rate of descent and forward speed."
+          ]
+        },
+        {
+          "left": "Cruise — 7",
+          "right": [
+            "Cyclic FORWARD for a slightly nose-up landing attitude (below 10°)."
+          ]
+        },
+        {
+          "left": "Cruise — 8",
+          "right": [
+            "Pedals — ADJUST to cancel any sideslip tendency."
+          ]
+        },
+        {
+          "left": "Cruise — 9",
+          "right": [
+            "Collective — INCREASE to cushion touchdown."
+          ]
+        },
+        {
+          "left": "Cruise — 10 (after touchdown)",
+          "right": [
+            "Cyclic, collective, pedals — ADJUST to control the ground run."
+          ]
+        },
+        {
+          "left": "Cruise — 11–12 (once stopped)",
+          "right": [
+            "Collective full low pitch; apply the rotor brake below 170 rotor rpm."
+          ]
+        },
+        {
+          "left": "Over water",
+          "right": [
+            "Same procedure except items 10–12: head equally between wind and wave direction on final, ditch with minimum forward speed (IAS below 30 kt / 56 km/h) and minimum rate of descent. After touchdown: collective MAINTAIN, doors jettison handles PULL-UP, rotor brake APPLY; abandon once the rotor has stopped."
+          ]
+        },
+        {
+          "left": "Hover IGE — 1–3",
+          "right": [
+            "Maintain collective; control yaw with the pedals; increase collective as needed to cushion touchdown."
+          ]
+        },
+        {
+          "left": "Hover OGE — warning",
+          "right": [
+            "A safe autorotative landing cannot be ensured after a failure in HOGE below the top point of the HV diagram or in a confined area."
+          ]
+        },
+        {
+          "left": "Hover OGE — 1–3",
+          "right": [
+            "Collective full low pitch. When NR stops decreasing, cyclic forward to gain airspeed according to the available height, then apply the autorotation procedure."
+          ]
+        },
+        {
+          "left": "In-flight relighting — 1",
+          "right": [
+            "Engine starting selector — OFF."
+          ]
+        },
+        {
+          "left": "In-flight relighting — 2",
+          "right": [
+            "[FUEL P] / [FUEL PUMP] — ON."
+          ]
+        },
+        {
+          "left": "In-flight relighting — 3",
+          "right": [
+            "Engine starting selector — ON. The relighting sequence then runs automatically as soon as Ng is below 17 %."
+          ]
+        },
+        {
+          "left": "In-flight relighting — 4 (after relighting)",
+          "right": [
+            "[FUEL P] / [FUEL PUMP] — OFF. At least 1000 ft (300 m) are needed to complete the relighting procedure after a flame-out."
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "smoke-in-cabin",
+      "title": "SMOKE IN THE CABIN",
+      "subtitle": "Source not identified, source identified",
+      "rfmReference": "H125 / AS350 B3 (2B1) RFM Section 3.4",
+      "steps": [
+        {
+          "left": "Source not identified — 1",
+          "right": [
+            "Heating and demisting — OFF. If the smoke clears, continue depending on atmospheric conditions."
+          ]
+        },
+        {
+          "left": "If smoke does not clear — 1–3",
+          "right": [
+            "[MASTER SW] or [EMER SW] — SHUT OFF; [EXT PWR BATT] or [BAT/EPU] — OFF; [DCT BAT] (if fitted) — OFF."
+          ]
+        },
+        {
+          "left": "If smoke does not clear — 4–6",
+          "right": [
+            "[GEN] or [GENE] — OFF; [AVIONIC] (if fitted) — OFF; ventilate the cabin."
+          ]
+        },
+        {
+          "left": "When smoke clears — 7–11",
+          "right": [
+            "All consumers OFF; then [MASTER SW]/[EMER SW] ON, [DCT BAT] ON, [EXT PWR BATT]/[BAT/EPU] ON (check DC parameters), [GEN]/[GENE] ON (check DC parameters). Continue flight depending on atmospheric conditions."
+          ]
+        },
+        {
+          "left": "If smoke persists",
+          "right": [
+            "LAND AS SOON AS POSSIBLE. If DC parameters are not correct: [GEN]/[GENE] OFF and apply case A of the GENE DC generator off-line procedure."
+          ]
+        },
+        {
+          "left": "If DC parameters are correct",
+          "right": [
+            "[AVIONIC] ON, then minimum required consumers ON one by one; if smoke returns, switch that system off for the rest of the flight. LAND AS SOON AS PRACTICABLE or continue depending on conditions."
+          ]
+        },
+        {
+          "left": "Caution",
+          "right": [
+            "With [MASTER SW]/[EMER SW] actuated, or battery and generator off line, the VEMD goes off: apply the failure-of-both-screens procedure (Section 3.5 §1)."
+          ]
+        },
+        {
+          "left": "Source identified",
+          "right": [
+            "Corresponding system OFF; ventilate the cabin; continue depending on the failed system. After DC has been switched off and on in flight, GOV stays lit until the next normal full engine shutdown and battery-off on the ground."
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "engine-fire-and-governor-failures",
+      "title": "ENGINE FIRE, GOVERNOR & FADEC FAILURES",
+      "subtitle": "Fire in engine bay, governor failure, minor FADEC failure, oil pressure, chip detection",
+      "rfmReference": "H125 / AS350 B3 (2B1) RFM Section 3.6 §1",
+      "steps": [
+        {
+          "left": "Engine fire at start-up",
+          "right": [
+            "Engine starting selector OFF; emergency fuel shut-off handle AFT; [FUEL P]/[FUEL PUMP] OFF; [CRANK] press 10 s; rotor brake APPLY (≤ 170 rpm); [MASTER SW]/[EMER SW] OFF; evacuate and fight the fire from outside."
+          ]
+        },
+        {
+          "left": "Engine fire — hover, takeoff, final",
+          "right": [
+            "LAND IMMEDIATELY with a no-hover powered landing; once on the ground apply the start-up sequence."
+          ]
+        },
+        {
+          "left": "Engine fire — in flight",
+          "right": [
+            "LAND IMMEDIATELY: collective LOWER, IAS Vy, autorotation procedure APPLY, emergency fuel shut-off handle AFT, [FUEL P] CHECK OFF, engine starting selector OFF. After landing: rotor brake APPLY (≤ 170 rpm), [MASTER SW]/[EMER SW] OFF, evacuate and fight the fire from outside."
+          ]
+        },
+        {
+          "left": "Major governor failure — in flight",
+          "right": [
+            "Emergency mode engages automatically and GOV lights. Check flight parameters. Avoid abrupt collective changes. Maintain Ng above 80 % below 20 000 ft (6096 m), above 85 % at or above 20 000 ft. LAND AS SOON AS PRACTICABLE."
+          ]
+        },
+        {
+          "left": "Major governor failure — approach and landing",
+          "right": [
+            "Make a powered approach and avoid a steep angle. After touchdown lower the collective slowly to low pitch and select the engine starting selector OFF. The VEHICLE page shows FF and END; Ng and torque can also be lost on the VEMD."
+          ]
+        },
+        {
+          "left": "Major governor failure — during starting",
+          "right": [
+            "Engine starting selector OFF immediately."
+          ]
+        },
+        {
+          "left": "Minor FADEC failure — continuously on",
+          "right": [
+            "Governing degraded: avoid abrupt power changes, keep IAS below VNE power off, LAND AS SOON AS PRACTICABLE. On the ground do not start the engine."
+          ]
+        },
+        {
+          "left": "Minor FADEC failure — flashing",
+          "right": [
+            "Governor redundancy failure with no impact on governing: abort a start-up (see the Maintenance Manual), or cancel autorotation training and return to base."
+          ]
+        },
+        {
+          "left": "Engine oil pressure at or below 1.1 bar (16 psi)",
+          "right": [
+            "Check the gauge. LOW or NIL: LAND IMMEDIATELY — autorotation procedure, shut down the engine time permitting. NORMAL (CWP light test completed): LAND AS SOON AS PRACTICABLE."
+          ]
+        },
+        {
+          "left": "Twist grip out of FLIGHT position",
+          "right": [
+            "Turn the twist grip to FLIGHT. Continue flight."
+          ]
+        },
+        {
+          "left": "Metal particles in engine oil circuit",
+          "right": [
+            "Reduce power; LAND AS SOON AS POSSIBLE with a low-power approach and be ready for a loss of engine power. Takeoff is prohibited until the engine manufacturer's checks are complete."
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "transmission-and-hydraulic-failures",
+      "title": "TRANSMISSION & HYDRAULIC FAILURES",
+      "subtitle": "MGB oil pressure and temperature, chip detection, hydraulic pressure loss",
+      "rfmReference": "H125 / AS350 B3 (2B1) RFM Section 3.6 §2–3",
+      "steps": [
+        {
+          "left": "MGB low oil pressure (below 1 bar / 14.5 psi)",
+          "right": [
+            "Reduce power; LAND AS SOON AS POSSIBLE. If a safe landing is not possible, continue to the nearest suitable site at minimum power speed (Vy). 55 min of simulated flight at low power has been shown in bench tests."
+          ]
+        },
+        {
+          "left": "MGB oil overheating (above 115 °C)",
+          "right": [
+            "Set IAS to Vy, monitor the CWP; land as soon as practicable — or as soon as possible depending on the trend."
+          ]
+        },
+        {
+          "left": "Metal particles in MGB oil circuit",
+          "right": [
+            "Reduce power and monitor; LAND AS SOON AS POSSIBLE."
+          ]
+        },
+        {
+          "left": "Metal particles in TGB oil circuit",
+          "right": [
+            "Avoid prolonged hovering; continue flight."
+          ]
+        },
+        {
+          "left": "Hydraulic pressure loss — warning",
+          "right": [
+            "Do not use [HYD TEST] or [ACCU TST]: it depressurizes the yaw load compensator and gives heavy pedal loads."
+          ]
+        },
+        {
+          "left": "Hydraulic failure — HIGE, takeoff, final (landing within 30 s possible)",
+          "right": [
+            "Land normally, collective LOCK, twist grip IDLE, apply shutdown."
+          ]
+        },
+        {
+          "left": "Hydraulic failure — in flight",
+          "right": [
+            "Bank below 30°, avoid abrupt maneuvers, smoothly set IAS 40–60 KIAS (74–111 km/h), then hydraulic cut-off switch OFF. Do not let the twist grip leave FLIGHT as loads rise. LAND AS SOON AS POSSIBLE."
+          ]
+        },
+        {
+          "left": "Hydraulic failure — approach and landing",
+          "right": [
+            "No hover or low-speed maneuvers. Over a clear flat area keep 40–60 KIAS, flat approach into wind, slow no-hover running landing at about 10 kt groundspeed (18.5 km/h). After landing collective LOCK, twist grip IDLE, shutdown."
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "electrical-and-fuel-alarms",
+      "title": "ELECTRICAL & FUEL ALARMS",
+      "subtitle": "Battery, generator, AC/inverter, fuel quantity, pressure and filter, miscellaneous alarms",
+      "rfmReference": "H125 / AS350 B3 (2B1) RFM Section 3.6 §4–6",
+      "steps": [
+        {
+          "left": "Battery temperature above maximum",
+          "right": [
+            "[EXT PWR BATT]/[BAT/EPU] OFF, check U bus voltage. If above Umax: battery ON, [GEN]/[GENE] OFF, unnecessary equipment OFF; land as soon as practicable."
+          ]
+        },
+        {
+          "left": "Battery off line",
+          "right": [
+            "Check [BAT/EPU] ON and the voltage on the VEMD; if not resolved land as soon as practicable, otherwise continue."
+          ]
+        },
+        {
+          "left": "DC generator off line",
+          "right": [
+            "Check U bus on the VEMD and [GENE] ON; check the GENE RESET breaker is not popped (30 α panel) and press [GENE RESET]. Case A/B: unnecessary equipment OFF, monitor U bus, land as soon as practicable, or continue if it recovers."
+          ]
+        },
+        {
+          "left": "Battery failure warning",
+          "right": [
+            "The VEMD goes out and NR/Nf indication is lost: apply the failure-of-both-screens procedure, avoid autorotation, shallow approach with a cautious landing."
+          ]
+        },
+        {
+          "left": "AC power supply failure (inverter)",
+          "right": [
+            "Check [INV] ON; if off, all AC consumers are lost — select ON. The AFCS disengages: hands on the controls. Continue flight."
+          ]
+        },
+        {
+          "left": "Fuel quantity low (≤ 48 kg / 106 lb)",
+          "right": [
+            "LAND AS SOON AS POSSIBLE; about 15 minutes of flight remain at MCP. Avoid large attitude changes that could cause a flame-out."
+          ]
+        },
+        {
+          "left": "Low fuel pressure — in flight",
+          "right": [
+            "Reduce power, [FUEL P]/[FUEL PUMP] ON, land as soon as possible with a low-power approach; be prepared for a flame-out."
+          ]
+        },
+        {
+          "left": "Fuel filter clogged",
+          "right": [
+            "Reduce power and establish flight at reduced power; land as soon as practicable — or as soon as possible; monitor Ng on the VEMD. If Ng oscillations occur, LAND IMMEDIATELY and apply the autorotation procedure. Bypass opening drives contamination into the fuel lines and governor."
+          ]
+        },
+        {
+          "left": "Pitot heating not operative",
+          "right": [
+            "Check [PITOT] ON; if it was ON, monitor the airspeed indicator; otherwise switch ON. Continue flight."
+          ]
+        },
+        {
+          "left": "Aural warning not operative",
+          "right": [
+            "Check [HORN] ON; switch ON if off. Continue flight."
+          ]
+        },
+        {
+          "left": "Cargo hold door(s) unlocked",
+          "right": [
+            "Reduce to 70 kt (130 km/h); land as soon as practicable with a descent and approach at a low rate of descent."
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "vemd-and-instrument-failures",
+      "title": "VEMD SCREEN, NR/Nf & PARAMETER FAILURES",
+      "subtitle": "VEMD screen failures, caution messages, abnormal NR/Nf, engine and electrical parameters",
+      "rfmReference": "H125 / AS350 B3 (2B1) RFM Section 3.5",
+      "steps": [
+        {
+          "left": "Failure of one VEMD screen",
+          "right": [
+            "Failed screen OFF; read the other via [SCROLL] on the VEMD or the collective. If the top screen fails, the 3-parameter engine page moves to the lower screen with torque and ΔNg off line — only t4 and digital Ng remain."
+          ]
+        },
+        {
+          "left": "Failure of both VEMD screens",
+          "right": [
+            "Maximum authorized power is what is needed for level flight at IAS = 100 kt at 0 Hp minus 2 kt per 1000 ft (185 km/h minus 4 km/h per 300 m). LAND AS SOON AS PRACTICABLE with a no-hover landing."
+          ]
+        },
+        {
+          "left": "Caution messages",
+          "right": [
+            "When a parameter is off line its value disappears and its scale turns yellow. Messages are self-explanatory; with no CWP light lit no other action is needed. OVERLIMIT DETECTED stays until 40 % Ng at the next start; check the recorded data after flight."
+          ]
+        },
+        {
+          "left": "NR indication failure",
+          "right": [
+            "Maintain collective with torque above 10 % (NR is then read from the Nf pointer); land as soon as practicable."
+          ]
+        },
+        {
+          "left": "Nf indication failure",
+          "right": [
+            "Check NR in the normal range with torque above 0; continue flight. The EBCAU may not be available."
+          ]
+        },
+        {
+          "left": "Engine oil temperature above 115 °C",
+          "right": [
+            "Set 80 kt (148 km/h). If the temperature decreases, land as soon as practicable; if not, check oil cooler fan operation and land as soon as possible."
+          ]
+        },
+        {
+          "left": "Low engine oil pressure (CWP ENG P)",
+          "right": [
+            "If confirmed, LAND IMMEDIATELY — autorotation procedure, shut down the engine time permitting; otherwise land as soon as practicable."
+          ]
+        },
+        {
+          "left": "Loss of Ng, torque or t4",
+          "right": [
+            "The FLI is replaced by 3-data symbology. Ng failure: comply with maximum torque and a t4 limit of 810 °C (the starting limits). Torquemeter failure: comply with the Ng table. Ng and torque lost (GOV): t4 and numeric Ng valid, t4 limit 810 °C. t4 failure: comply with Ng and torque, heating and demisting OFF, no ground start. Land as soon as practicable."
+          ]
+        },
+        {
+          "left": "Generator overvoltage (> 31.5 V)",
+          "right": [
+            "[GEN]/[GENE] OFF, monitor the CWP, apply GENE case A; land as soon as practicable. Between 29.0 V and 31.5 V: monitor U/BUS, continue flight."
+          ]
+        },
+        {
+          "left": "DC bus undervoltage (≤ 26.0 V)",
+          "right": [
+            "Apply the GENE procedure and check U/BUS above 26.0 V — continue if so, otherwise apply case A and land as soon as practicable. The cause is probably a generator defect that does not light GENE."
+          ]
+        },
+        {
+          "left": "Generator current over limit (red underline flashing)",
+          "right": [
+            "Switch off unnecessary equipment; continue flight. A high generator current after a battery start is normal while the battery recharges."
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "flight-control-and-misc-warnings",
+      "title": "FLIGHT CONTROL HARDOVER & OTHER WARNINGS",
+      "subtitle": "Rotor brake, hardover/servojam, bleed valve, ICS, abnormal governing, servo transparency",
+      "rfmReference": "H125 / AS350 B3 (2B1) RFM Section 3.7",
+      "steps": [
+        {
+          "left": "Rotor brake inoperative",
+          "right": [
+            "Wait until the rotor is at a standstill before leaving. With wind, head into the wind and hold the cyclic slightly into the wind."
+          ]
+        },
+        {
+          "left": "Hardover / servojam — HIGE, takeoff, final",
+          "right": [
+            "LAND IMMEDIATELY if possible; after landing hydraulic cut-off switch OFF and apply engine and rotor shutdown."
+          ]
+        },
+        {
+          "left": "Hardover / servojam — in flight",
+          "right": [
+            "Set IAS 40–60 kt (74–111 km/h), sideslip if necessary; hydraulic cut-off switch OFF and apply the HYDR procedure; LAND AS SOON AS POSSIBLE."
+          ]
+        },
+        {
+          "left": "Loads with no hydraulic pressure",
+          "right": [
+            "At high airspeed up to 20 daN (45 lbf) pull on the collective, 7–12 daN (16–27 lbf) push left and 2–4 daN (4.5–9 lbf) push forward on the cyclic."
+          ]
+        },
+        {
+          "left": "Bleed valve failure",
+          "right": [
+            "A flag on the FLI or 3-data page. If it does not clear at high power, maximum power is reduced (especially in the cold); if it does not reappear at low power, the engine may surge. Avoid abrupt power changes; GOV lights; land as soon as practicable."
+          ]
+        },
+        {
+          "left": "ICS inoperative (GMA 340H)",
+          "right": [
+            "ICS OFF; check COM 1 ON and adjust the volume. VHF and audio warnings remain available to the right-hand pilot only via COM 1. Abort hoisting if the ICS fails."
+          ]
+        },
+        {
+          "left": "Abnormal low NR and Nf (aligned)",
+          "right": [
+            "The FADEC governs Nf significantly lower than usual (an erroneous collective anticipator signal). NR/Nf may drop to 360 rpm before GOV lights. If NR/Nf fall below 375 rpm: check engine parameters and that NR and Nf are aligned; land as soon as practicable. Avoid hovering with a left crosswind; make a no-hover landing."
+          ]
+        },
+        {
+          "left": "Servo transparency",
+          "right": [
+            "Self-correcting: reduce the severity of the maneuver, follow the aircraft's natural reaction, let the collective decrease naturally (avoid low pitch) and smoothly counter the right cyclic motion."
           ]
         }
       ]

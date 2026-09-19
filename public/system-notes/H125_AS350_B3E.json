@@ -98,6 +98,468 @@
           "note": "If the fuel contains no freezing inhibitor and OAT is below −20°C, an anti-icing additive is mandatory. Only the fuels listed in Section 2.5 may be used."
         }
       ]
+    },
+    {
+      "slug": "vemd",
+      "title": "VEMD: Vehicle and Engine Management Display",
+      "subtitle": "A duplex display with two independent processing lanes, three operating modes, an FLI that shows the closest limit — and a Performance page whose weight entry also drives the LIMIT light.",
+      "rfmReference": "AS350 B3e Flight Manual Section 7.4 (VEMD — General, Characteristics, Operating Modes, Controls, Operation, Operational Mode pages, N2 Datum); Section 2.4 §3 (First Limitation Indicator); Section 4.3 (weight data entry).",
+      "sections": [
+        {
+          "heading": "What it is",
+          "paragraphs": [
+            "The VEMD is a duplex indicator with two matrix liquid-crystal displays in the centre of the instrument panel. It shows all the engine and vehicle parameters. It is built from three modules: two processing modules, LANE 1 and LANE 2, and one display module holding both screens and the control pushbuttons. It runs on a dual 28 VDC supply protected by circuit breakers.",
+            "It powers up automatically when the battery switch is turned on and runs an initialisation test of both lanes. Pressing OFF1 or OFF2 during the test cuts the chosen lane, validates the test and leaves the other lane in operation. After a successful test it goes to OPERATIONAL mode."
+          ]
+        },
+        {
+          "heading": "Three modes",
+          "table": {
+            "columns": [
+              "Mode",
+              "Available",
+              "What it holds"
+            ],
+            "rows": [
+              [
+                "OPERATIONAL",
+                "Ground and flight — the default",
+                "ENGINE, VEHICLE, FLI, FLIGHT REPORT and ENGINE POWER CHECK pages"
+              ],
+              [
+                "CONFIGURATION",
+                "Ground only",
+                "Configuration of the VEMD (entered by holding SELECT and ENTER while switching the unit back on)"
+              ],
+              [
+                "MAINTENANCE",
+                "Ground only",
+                "Flight report, failure report, overlimits, engine power check, operating times, EECU data and data loading (entered by holding SCROLL and RESET)"
+              ]
+            ]
+          }
+        },
+        {
+          "heading": "Controls",
+          "table": {
+            "columns": [
+              "Control",
+              "Function"
+            ],
+            "rows": [
+              [
+                "OFF1 / OFF2",
+                "Switch processing module 1 or 2, and its screen, on or off"
+              ],
+              [
+                "SCROLL",
+                "Steps through the pages (also on the collective grip)"
+              ],
+              [
+                "RESET",
+                "Returns to the nominal display configuration; exits the flight report page"
+              ],
+              [
+                "SELECT / ENTER",
+                "SELECT picks a data field; ENTER validates it or steps through a list of data"
+              ],
+              [
+                "+ / –",
+                "Change the value of the selected data"
+              ],
+              [
+                "BRT +/–",
+                "Screen brightness"
+              ]
+            ]
+          }
+        },
+        {
+          "heading": "The pages",
+          "paragraphs": [
+            "The FLI page tracks N1, TOT and torque together, so one indication shows whichever is closest to its limit. If one of the three becomes invalid the ENGINE page is displayed automatically and the parameters are read on independent scales. The VEMD upper screen switches to the FLI automatically when N1 passes 60 % during start.",
+            "The Engine Power Check runs in three phases — an initial stabilisation phase, a more restrictive stabilisation phase and a margin-computation phase. The result page shows N1, N2, TOT, pressure altitude, TRQ and OAT together with the torque margin against TOT and against N1, each positive or negative.",
+            "At the end of a flight (N1 below 10 % and NR below 70 rpm) the FLIGHT REPORT page appears automatically on the lower screen: flight number, flight time (from N1 above 60 % after start to N1 below 50 % at shutdown), usage counter, N1 and N2 cycles for the flight and in total, and a yellow message area if a discrepancy was detected."
+          ]
+        },
+        {
+          "heading": "The Performance page",
+          "paragraphs": [
+            "The Performance page calculates aircraft weight and hover performance in and out of ground effect, with wind from any direction and — post MOD 07-5102 — with a headwind or no wind. The crew enters the equipped empty weight (it keeps the value from the previous flight and must be updated after any configuration change), the crew weight (default 80 kg / 176 lb at power-up) and the payload (set at power-up to match the maximum internal takeoff weight). Fuel, sling load (post MOD 07-4716), pressure altitude and OAT are taken automatically. A weight penalty can be entered post MOD 07-5102, in CONFIGURATION mode only.",
+            "Performance values below the actual all-up weight are shown in yellow. For mission planning the pressure altitude and OAT can be changed; the OAT then follows the standard-atmosphere law, and the VEMD goes back to the actual values when the page changes."
+          ],
+          "note": "On single-hydraulics aircraft post MOD 07-20039 this page is not only for performance planning: the weight entered here is one of the inputs to the LIMIT light and its 285 Hz tone, which is why the pre-start and before-takeoff checks both ask for the weight data to be entered and validated."
+        },
+        {
+          "heading": "The N2 datum",
+          "paragraphs": [
+            "The VEMD computes the N2 datum (N2*) from the collective and yaw-pedal positions and sends it to the FADEC over the crosstalk link. Both processing modules compute it; if they disagree, or if one or both inputs are invalid, a back-up value is sent instead. The VEMD also limits how fast N2* can change, so NR and torque do not jump. Post MOD 07-4716, with a hook load of 150 kg or more, N2* is held at a constant 400 rpm regardless of collective and pedal position."
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "central-warning-panel",
+      "title": "Central Warning Panel and Ancillary Systems",
+      "subtitle": "Three ASU cards behind the caution and warning lights — one of which is part of the engine fuel back-up system, not just the annunciators.",
+      "rfmReference": "AS350 B3e Flight Manual Section 7.3 (Central Warning and Ancillary Systems — Description, Characteristics, Ancillary Systems, Overhead Panel).",
+      "sections": [
+        {
+          "heading": "What it is",
+          "paragraphs": [
+            "The Caution and Warning Panel (CWP) carries red warning lights for alarms that need immediate action and amber caution lights for alarms whose action can be delayed. Audio alarms are generated through the intercommunication system and are enabled when the HORN switch on the central console is ON. The panel runs on a dual 28 VDC supply protected by circuit breakers.",
+            "Post MOD 07-20112 or MOD 07-20228 the overhead panel also carries fault indicators for WACS (the wireless airborne communication system) and, if installed, the flight data recorder."
+          ]
+        },
+        {
+          "heading": "Three Ancillary Systems Unit (ASU) cards",
+          "paragraphs": [
+            "The ancillary systems are three ASU cards. Between them they manage all audio warnings, some visual warnings and the processing of specific electrical signals, plus the engine fuel control back-up system. Each card has a dual 28 VDC supply and is protected by breakers."
+          ],
+          "table": {
+            "columns": [
+              "Card",
+              "Function"
+            ],
+            "rows": [
+              [
+                "ASU No.1",
+                "Manages a warning light; generates the audio high and low NR warnings; manages the other audio warnings — a Gong for red alarms and a continuous low tone for an MTOP overlimit"
+              ],
+              [
+                "ASU No.2",
+                "Manages a warning light; processes and filters the VEMD electrical supply"
+              ],
+              [
+                "ASU No.3 (part of the Engine Back-up Control Ancillary Unit, EBCAU)",
+                "Acquires the N2 indicator signal; computes and processes the signal for the back-up fuel metering valve; provides the 'back to neutral' function for that valve (a safety device, also needed after a maintenance test of the system)"
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "slug": "power-transmission-and-rotors",
+      "title": "Power Transmission System and Rotors",
+      "subtitle": "Four links from engine to tail rotor, a Starflex hub with no bearings, and one reference speed — NR 386 rpm — that every engine and torque number is written against.",
+      "rfmReference": "AS350 B3e Flight Manual Section 7.9 (Power Transmission and Rotors); Section 2.4 (Vehicle Limitations); Section 5.1 §10 (glide distance in autorotation).",
+      "sections": [
+        {
+          "heading": "Engine to MGB",
+          "paragraphs": [
+            "The transmission is a chain of four parts: the engine-to-MGB coupling, the main gearbox (MGB), the tail rotor drive shaft and the tail gearbox (TGB). The coupling is a drive shaft joining engine and MGB through a flexible coupling at each end, surrounded by a coupling tube, with a casing to the MGB and a gimbal ring between casing and tube."
+          ]
+        },
+        {
+          "heading": "The main gearbox",
+          "paragraphs": [
+            "The MGB reduces speed from engine to main rotor, drives and supports the hydraulic pump, the MGB lubricating pump and the rotor brake, and carries the servo-control and suspension-bar attachment fittings. It is made of three interchangeable modules with its own lubrication, monitoring and maintenance access. The lubricating pump takes oil from the sump through a strainer, through an oil cooler and a filter, and the oil returns to the sump by gravity."
+          ]
+        },
+        {
+          "heading": "Tail rotor drive train",
+          "paragraphs": [
+            "The tail rotor drive shaft is a forward steel shaft and a long light-alloy shaft, joined to each other, to the engine and to the TGB by three flexible couplings. The long shaft runs on five ball-bearing supports mounted on elastomeric bushes that damp vibration. The TGB sits at the end of the tail boom, combining power transmission and pitch control in one casing. It is splash-lubricated, with a visual oil-level indicator and a chip detector that lights TGB CHIP."
+          ]
+        },
+        {
+          "heading": "Rotors",
+          "paragraphs": [
+            "The main rotor is semi-rigid with a Starflex hub that has no ball bearings and no lubrication system. It has three flexible glass-resin blades and turns clockwise seen from above. Flapping is taken by the composite star arms; lead-lag and pitch come from distortion of elastomeric parts. The tail rotor has two blades on a see-saw mount on the TGB and turns counter-clockwise seen from the right side."
+          ]
+        },
+        {
+          "heading": "The numbers that hang on NR 386 rpm",
+          "table": {
+            "columns": [
+              "Item",
+              "Value"
+            ],
+            "rows": [
+              [
+                "Reference",
+                "NR 386 rpm = N2 39158 rpm; 100 % N1 = 52110 rpm; 100 % torque = 535 kW"
+              ],
+              [
+                "NR ranges",
+                "320 rpm min power-off; 320–375 caution; 375–405 normal; 405–430 caution; 430 rpm max power-off"
+              ],
+              [
+                "Aural warnings",
+                "Low NR at or below 360 rpm; high NR at or above 410 rpm"
+              ],
+              [
+                "Rotor brake",
+                "Never before engine shutdown; maximum application speed 170 rpm; minimum 5 min between two applications"
+              ],
+              [
+                "Autorotation glide",
+                "0.54 NM per 1000 ft at 65 kt IAS and NR 410 rpm (1000 m per 300 m of height at 120 km/h)"
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "slug": "hydraulic-system",
+      "title": "Hydraulic System",
+      "subtitle": "One pump, one circuit, accumulators that buy a limited time — and a LIMIT light whose accuracy depends on a weight you typed into the VEMD.",
+      "rfmReference": "AS350 B3e Flight Manual Section 7.10 (Hydraulic System — General, System Description, Normal Operation, Abnormal Operation); Section 2.3 §6 (maneuvering limitations); Section 3.6 (hydraulic failure); SUP.23 (dual hydraulic system).",
+      "sections": [
+        {
+          "heading": "The system",
+          "paragraphs": [
+            "The hydraulics reduce collective, cyclic and pedal forces. Three main rotor servos (one longitudinal, two lateral) and a tail rotor servo do the work. Total fluid volume is 3 litres (0.79 US gal) to the maximum mark on the reservoir, which sits on top of the MGB.",
+            "A single constant-flow gear pump, belt-driven from a pulley on the engine power drive shaft near the MGB input, generates the pressure. The regulator unit holds a pressure regulating valve set to 40 bar (580 psi) pre-MOD 07-20039 or 60 bar (870 psi) post-MOD 07-20039, a pressure switch, a 3-micron filter with a clogging indicator and a solenoid electrovalve."
+          ]
+        },
+        {
+          "heading": "Safety units and the load compensator",
+          "paragraphs": [
+            "Each main rotor servo carries a safety unit — an accumulator, a non-return valve and a solenoid electrovalve — that keeps hydraulic assistance for a limited time after pressure is lost, long enough to reach a flight regime where the loads are acceptable.",
+            "The yaw side is different. A load-compensating system (accumulator, non-return valve, pressure relief valve, pressure-drop solenoid electrovalve and actuator) reduces the yaw-pedal loads for an indefinite period after pressure is lost. Its pressure can only be dumped by selecting the accumulator test switch to TEST."
+          ]
+        },
+        {
+          "heading": "The two controls",
+          "table": {
+            "columns": [
+              "Control",
+              "What it does"
+            ],
+            "rows": [
+              [
+                "Hydraulic cut-off switch (collective grip, guarded, ON/OFF)",
+                "OFF depressurises the system and, at the same time, the accumulators of the three main rotor servos; the tail rotor load compensator keeps its assist"
+              ],
+              [
+                "ACCU TST pushbutton (centre console, TEST/OFF)",
+                "TEST opens the regulator solenoid to depressurise the system and also opens the tail rotor servo solenoid, dumping the load compensator, while the main rotor servos run on their accumulators for a limited time"
+              ]
+            ]
+          }
+        },
+        {
+          "heading": "Cautions",
+          "paragraphs": [
+            "HYDR on the CWP means loss of pressure or low pressure, with a single gong. Post MOD 07-20039, operating close to servo-transparency also lights LIMIT on the CWP with a continuous 285 Hz tone. The trigger is computed from weight (as entered on the VEMD Performance page), altitude, OAT, airspeed and load factor. The RFM warns that LIMIT and the tone must not be relied on as the sole means of avoiding servo-transparency."
+          ]
+        },
+        {
+          "heading": "Servo types",
+          "paragraphs": [
+            "The aircraft can carry SAMM or Dunlop main rotor servos. SAMM servos have an input-play locking system; if the two lateral servos unlock at slightly different pressures during pressurisation, the cyclic can jump to one side — about 5 daN (11 lbf) of hold force with hand and knees prevents it. Dunlop lateral servos have no such device and are not subject to that asymmetric switch-over."
+          ]
+        },
+        {
+          "heading": "Pre-flight tests",
+          "paragraphs": [
+            "Two tests are normal procedure before every flight. The ACCU TST test checks the accumulators still assist (HYDR flashes and the gong sounds). The cut-off test checks the dump valves; when the switch is returned to ON and ACCU TST to OFF, the time for pressure to recover is the check on nitrogen charge. It normally takes 3 to 4 seconds; 1 second or more than 4 seconds means at least one accumulator is faulty and maintenance is required before flight."
+          ]
+        },
+        {
+          "heading": "Abnormal operation — hydraulic pressure loss",
+          "paragraphs": [
+            "Bank below 30° and no abrupt manoeuvres, then smoothly set IAS between 40 and 60 kt (74–111 km/h). From VNE or the hover this takes under 30 seconds on properly serviced accumulators. If control loads are felt earlier, set the cut-off switch OFF immediately; otherwise switch it OFF as soon as the safety speed is reached, even if assistance remains, so the three main accumulators depressurise together and the lateral loads stay symmetric.",
+            "At the safety speed with the collective near neutral (about 40 % torque) the pilot holds roughly 4 daN (9 lbf) left cyclic and 5 daN (11 lbf) forward cyclic, with near-zero collective force. In the hover, forces up to 5 daN (11 lbf) change direction quickly, which is why the RFM says not to hover or manoeuvre at low speed. Land from a flat approach with a slight running landing at about 10 kt (19 km/h), where up to 17 daN (38 lbf) of forward cyclic may be needed for less than 30 seconds."
+          ]
+        },
+        {
+          "heading": "Dual hydraulic system (SUP.23, optional)",
+          "paragraphs": [
+            "With the dual system the panel shows HYD1 (left circuit) or HYD2 (right circuit) with SERVO for loss of pressure on one circuit; one remaining circuit allows continued safe flight and landing. Bank below 30° and IAS below 110 kt (204 km/h) or VNE if less. HYD2 also means tail rotor hydraulic power is lost and the ACCU TST button must not be pressed. SERVO alone is a jam of a distributor valve on the main servo unit. LIMIT alone means the main servo unit maximum load is reached; reduce power, speed or load factor and continue the flight. Do not exceed a load factor that lights LIMIT."
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "electrical-power-systems",
+      "title": "Electrical Power Systems",
+      "subtitle": "A 28 VDC network built around the Electrical Master Box, a 150 A starter generator (200 A optional), and an optional AC side whose failure takes the AFCS with it.",
+      "rfmReference": "AS350 B3e Flight Manual Section 7.11 (Electrical Power Systems — DC and AC); Section 2.4 §6 (electrical circuit limitations); SUP.16 §3.8 (AFCS and electrical failures); SUP.29 (200 A starter generator).",
+      "sections": [
+        {
+          "heading": "DC power sources",
+          "paragraphs": [
+            "The generating and distribution system supplies the network with regulated 28 VDC. The sources are a starter generator on the engine accessory gearbox, a 15 Ah battery in the right rear cargo bay (a second battery is optional) and a 28 V external power receptacle on the right side."
+          ]
+        },
+        {
+          "heading": "The Electrical Master Box",
+          "paragraphs": [
+            "All three sources connect to the Electrical Master Box (EMB) in the rear cargo bay. It regulates the starter generator, connects the sources to the network through line contactors, distributes and protects the network against supply failures, and interfaces the generation and distribution system with the indicating, control and monitoring system. The distribution has a direct battery bus-bar (PP25), a primary bus-bar (PP12 in the EMB) and secondary bus-bars (PP5, PP6, PP9 and others), with cockpit and cargo-compartment breaker panels."
+          ]
+        },
+        {
+          "heading": "Limits and the generator choice",
+          "table": {
+            "columns": [
+              "Item",
+              "Value"
+            ],
+            "rows": [
+              [
+                "Maximum voltage",
+                "31.5 V (rated 26–29 V)"
+              ],
+              [
+                "Maximum continuous current",
+                "150 A with the basic starter generator"
+              ],
+              [
+                "Optional starter generator",
+                "200 A unit (SUP.29) replaces the basic 150 A unit and gives increased electrical capacity; the 200 A limit applies when it is installed"
+              ]
+            ]
+          }
+        },
+        {
+          "heading": "AC power — optional",
+          "paragraphs": [
+            "The AC system is fitted when the aircraft has an autopilot, gyroscopic instruments or other equipment that needs it. A static inverter, fed from DC, supplies it. Two systems exist: a 250 VA system (115 VAC 150 VA plus 26 VAC 150 VA, maximum 250 VA in total) and a 10 VA system (26 VAC 10 VA), both at 400 Hz. The inverter is fed from the PP9 bus through a 10 A protection for the 250 VA system or 2.5 A for the 10 VA system, switched on with the INV pushbutton, and an INV caution light shows the inverter is off or the AC system has failed."
+          ]
+        },
+        {
+          "heading": "What failure costs",
+          "paragraphs": [
+            "With the SFIM AFCS fitted, an AC power failure disengages the AFCS automatically (hands on the controls, check INV ON and press it back on if needed). On total loss of electrical power the AFCS disengages automatically and cannot be re-engaged."
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "afcs",
+      "title": "AFCS: SFIM 85 T 31 (3-Axis)",
+      "subtitle": "An optional three-axis autopilot with a monitoring unit that disengages the faulty channel — and one hard rule for total electrical failure.",
+      "rfmReference": "AS350 B3e Flight Manual SUP.16 (Automatic Flight Control System SFIM 85 T 31 — Description, Limitations, Emergency Procedures, Normal Procedures).",
+      "sections": [
+        {
+          "heading": "What it is",
+          "paragraphs": [
+            "The AFCS holds the attitudes (pitch, roll, yaw) and heading set by the pilot. Additional modes are A/S (holds present airspeed), ALT (holds present pressure altitude), HDG (acquires and holds the heading selected on the HSI) and T/C (automatic yaw and roll co-ordination in turns). The computer is linked to a vertical gyro, the HSI, a directional gyro and flux valve, an air data unit, a yaw-pedal displacement detector and a lateral accelerometer.",
+            "It has three series actuators (one per channel, each with a galvanometer and a channel-disengaged light) and two parallel trim actuators on pitch and roll with the artificial-load release (trim release) function. A failure monitoring unit compares the vertical gyro with the gyro horizon and warns and disengages the faulty channel; it switches on automatically as soon as a pitch or roll channel is engaged. AC comes from a static inverter (115 and 26 VAC, 400 Hz)."
+          ]
+        },
+        {
+          "heading": "Limitations",
+          "paragraphs": [
+            "On the ground the AFCS must be disengaged unless checks are being made, and it must not be engaged before takeoff if the trim test is not satisfactory. The minimum height for hands-off AFCS operation is 400 ft (120 m)."
+          ]
+        },
+        {
+          "heading": "Failures — what disengages",
+          "table": {
+            "columns": [
+              "Failure",
+              "Effect",
+              "Pilot action"
+            ],
+            "rows": [
+              [
+                "Uncommanded AFCS inputs",
+                "Jerks not caused by turbulence",
+                "Disengage; re-engage channels one at a time to find the faulty one; continue flight"
+              ],
+              [
+                "Vertical gyro, gyro horizon or monitoring unit",
+                "Pitch, roll and monitoring unit disengage; HDG, ALT and A/S inoperative; yaw remains",
+                "Hands on controls; continue flight"
+              ],
+              [
+                "Hardover",
+                "Faulty channel disengages automatically",
+                "Hands on controls; power reduction may be needed; continue flight"
+              ],
+              [
+                "Gyro-compass",
+                "Yaw channel and HDG disengage; pitch and roll remain",
+                "Feet on pedals; continue flight"
+              ],
+              [
+                "Trim failure",
+                "Faulty trim disengages",
+                "Hands on; press trim release momentarily; deactivate the faulty trim; continue flight"
+              ],
+              [
+                "Artificial load system seizure",
+                "Cyclic stick seizure from a seized parallel trim actuator",
+                "Trim release; if it persists, apply 10 kg (22 lb) of load to break the trim shear device"
+              ],
+              [
+                "AC power failure",
+                "AFCS disengages",
+                "Hands on; check INV ON; press it back on if needed; continue flight"
+              ],
+              [
+                "Complete electrical failure",
+                "AFCS disengages and cannot be re-engaged",
+                "Fly the aircraft manually"
+              ],
+              [
+                "Hydraulic failure",
+                "—",
+                "Apply the hydraulic failure procedure and disengage the AFCS"
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "slug": "ventilation-heating-demisting",
+      "title": "Ventilation, Heating and Demisting",
+      "subtitle": "Two ventilation circuits, and a heating system that runs on engine P2 bleed air — which is why it is limited by engine power.",
+      "rfmReference": "AS350 B3e Flight Manual Section 7.13 (Ventilation, Heating and Demisting); Section 2.4 §2 (takeoff power and heating).",
+      "sections": [
+        {
+          "heading": "Ventilation",
+          "paragraphs": [
+            "Two separate circuits ventilate the cabin. Front ventilation takes air from the front cabin through two ducts to the crew, controlled by a pull-knob on the instrument panel. Overhead ventilation takes air from the upper cabin through a ram-air scoop to outlets in the structure posts; each outlet is opened and aimed individually."
+          ]
+        },
+        {
+          "heading": "Heating and demisting",
+          "paragraphs": [
+            "Heating and demisting mix hot P2 air bled from the engine with outside air drawn from under the cabin floor. The mixture goes through two ducts to heating outlets under the front seats and to demisting manifolds at the bottom of the front windscreen. Two manually operated valves on the P2 lines, on the cabin floor, open and control warm-air distribution.",
+            "Because it takes engine bleed air, its use is tied to engine power: heating and demisting are authorised up to maximum takeoff power (TOP) in the basic manual. With the optional sand filter, heating and demisting must be off whenever P2 is ON."
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "sand-filter",
+      "title": "Sand Filter",
+      "subtitle": "A separator-tube filter on the engine intake, blown clear by P2 air — and the only way to fly in falling snow.",
+      "rfmReference": "AS350 B3e Flight Manual SUP.14 (Sand Filter — General, Limitations, Emergency Procedures, Normal Procedures, Performance Data); Section 2.1 (forbidden operations).",
+      "sections": [
+        {
+          "heading": "What it is",
+          "paragraphs": [
+            "The sand filter protects the engine from sand ingestion in the hover or in sand-laden air, and also protects the intake from snow ingestion in falling snow. It has a filter on the engine air intake below the ice protection screen, a P2 air pressure supply system and an electrical control and monitoring system. Ambient air flows through separator tubes that form the filter; the sand leaves through scavenge tubes ventilated by P2 air.",
+            "The SAND FILT pushbutton on the console feeds an electric valve that opens and closes the P2 circuit. A P2 message on the VEMD FLI display shows the valve is fully open; the circuit is protected by the SAND FILT breaker."
+          ]
+        },
+        {
+          "heading": "Limitations",
+          "paragraphs": [
+            "Heating and demisting must be off when P2 is ON. P2 must be OFF in visible moisture with OAT below 0 °C. Flight in falling snow is permitted with P2 OFF — and the basic manual forbids flight in falling snow without the sand filter installed."
+          ]
+        },
+        {
+          "heading": "Valve failure logic",
+          "paragraphs": [
+            "If the P2 valve fails to open (P2 stays off), avoid flying in a sandy atmosphere. If it fails to close (P2 stays on), continue the flight while observing the P2 bleed-air limitations."
+          ]
+        },
+        {
+          "heading": "Operating notes",
+          "paragraphs": [
+            "Before start, the exterior check includes the engine air intake and sand filter: no foreign objects, no ice or snow accumulations in or around the intake and no stagnant water at the drain hole — ice or snow left in or around the intake can be ingested and cause a sudden in-flight engine failure. The SAND FILT switch is tested ON and OFF before starting (P2 on the VEMD). For the engine health check the SAND FILT is OFF; the FADEC takes the filter into account automatically."
+          ]
+        }
+      ]
     }
   ]
 }

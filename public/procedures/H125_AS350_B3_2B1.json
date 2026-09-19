@@ -541,112 +541,119 @@
       "rfmReference": "H125 / AS350 B3 (2B1) RFM Section 3.2",
       "steps": [
         {
-          "left": "Cruise — 1",
+          "group": "Cruise",
           "right": [
             "Collective — REDUCE to maintain NR in the normal operating range."
           ]
         },
         {
-          "left": "Cruise — 2",
+          "group": "Cruise",
           "right": [
             "IAS — Vy."
           ]
         },
         {
-          "left": "Cruise — 3–4 (after loss of tail rotor thrust)",
+          "group": "Cruise",
           "right": [
             "Twist grip IDLE; maneuver into the wind on final approach."
-          ]
+          ],
+          "when": "After loss of tail rotor thrust"
         },
         {
-          "left": "Cruise — 5 (at ≥ 70 ft / 21 m)",
+          "group": "Cruise",
           "right": [
             "Cyclic — FLARE."
-          ]
+          ],
+          "when": "At ≥ 70 ft / 21 m"
         },
         {
-          "left": "Cruise — 6 (at 20–25 ft / 6–8 m, constant attitude)",
+          "group": "Cruise",
           "right": [
             "Collective — GRADUALLY INCREASE to reduce rate of descent and forward speed."
-          ]
+          ],
+          "when": "At 20–25 ft / 6–8 m, constant attitude"
         },
         {
-          "left": "Cruise — 7",
+          "group": "Cruise",
           "right": [
             "Cyclic FORWARD for a slightly nose-up landing attitude (below 10°)."
           ]
         },
         {
-          "left": "Cruise — 8",
+          "group": "Cruise",
           "right": [
             "Pedals — ADJUST to cancel any sideslip tendency."
           ]
         },
         {
-          "left": "Cruise — 9",
+          "group": "Cruise",
           "right": [
             "Collective — INCREASE to cushion touchdown."
           ]
         },
         {
-          "left": "Cruise — 10 (after touchdown)",
+          "group": "Cruise",
           "right": [
             "Cyclic, collective, pedals — ADJUST to control the ground run."
-          ]
+          ],
+          "when": "After touchdown"
         },
         {
-          "left": "Cruise — 11–12 (once stopped)",
+          "group": "Cruise",
           "right": [
             "Collective full low pitch; apply the rotor brake below 170 rotor rpm."
-          ]
+          ],
+          "when": "Once stopped"
         },
         {
-          "left": "Over water",
+          "group": "Over water",
           "right": [
             "Same procedure except items 10–12: head equally between wind and wave direction on final, ditch with minimum forward speed (IAS below 30 kt / 56 km/h) and minimum rate of descent. After touchdown: collective MAINTAIN, doors jettison handles PULL-UP, rotor brake APPLY; abandon once the rotor has stopped."
           ]
         },
         {
-          "left": "Hover IGE — 1–3",
+          "group": "Hover IGE",
           "right": [
             "Maintain collective; control yaw with the pedals; increase collective as needed to cushion touchdown."
           ]
         },
         {
-          "left": "Hover OGE — warning",
+          "group": "Hover OGE",
+          "left": "Warning",
           "right": [
             "A safe autorotative landing cannot be ensured after a failure in HOGE below the top point of the HV diagram or in a confined area."
           ]
         },
         {
-          "left": "Hover OGE — 1–3",
+          "group": "Hover OGE",
           "right": [
             "Collective full low pitch. When NR stops decreasing, cyclic forward to gain airspeed according to the available height, then apply the autorotation procedure."
           ]
         },
         {
-          "left": "In-flight relighting — 1",
+          "group": "In-flight relighting",
           "right": [
             "Engine starting selector — OFF."
           ]
         },
         {
-          "left": "In-flight relighting — 2",
+          "group": "In-flight relighting",
           "right": [
             "[FUEL P] / [FUEL PUMP] — ON."
           ]
         },
         {
-          "left": "In-flight relighting — 3",
+          "group": "In-flight relighting",
           "right": [
             "Engine starting selector — ON. The relighting sequence then runs automatically as soon as Ng is below 17 %."
           ]
         },
         {
-          "left": "In-flight relighting — 4 (after relighting)",
+          "group": "In-flight relighting",
           "right": [
             "[FUEL P] / [FUEL PUMP] — OFF. At least 1000 ft (300 m) are needed to complete the relighting procedure after a flame-out."
-          ]
+          ],
+          "when": "After relighting"
         }
       ]
     },
@@ -657,49 +664,49 @@
       "rfmReference": "H125 / AS350 B3 (2B1) RFM Section 3.4",
       "steps": [
         {
-          "left": "Source not identified — 1",
+          "group": "Source not identified",
           "right": [
             "Heating and demisting — OFF. If the smoke clears, continue depending on atmospheric conditions."
           ]
         },
         {
-          "left": "If smoke does not clear — 1–3",
+          "group": "If smoke does not clear",
           "right": [
             "[MASTER SW] or [EMER SW] — SHUT OFF; [EXT PWR BATT] or [BAT/EPU] — OFF; [DCT BAT] (if fitted) — OFF."
           ]
         },
         {
-          "left": "If smoke does not clear — 4–6",
+          "group": "If smoke does not clear",
           "right": [
             "[GEN] or [GENE] — OFF; [AVIONIC] (if fitted) — OFF; ventilate the cabin."
           ]
         },
         {
-          "left": "When smoke clears — 7–11",
+          "group": "When smoke clears",
           "right": [
             "All consumers OFF; then [MASTER SW]/[EMER SW] ON, [DCT BAT] ON, [EXT PWR BATT]/[BAT/EPU] ON (check DC parameters), [GEN]/[GENE] ON (check DC parameters). Continue flight depending on atmospheric conditions."
           ]
         },
         {
-          "left": "If smoke persists",
+          "group": "If smoke persists",
           "right": [
             "LAND AS SOON AS POSSIBLE. If DC parameters are not correct: [GEN]/[GENE] OFF and apply case A of the GENE DC generator off-line procedure."
           ]
         },
         {
-          "left": "If DC parameters are correct",
+          "group": "If DC parameters are correct",
           "right": [
             "[AVIONIC] ON, then minimum required consumers ON one by one; if smoke returns, switch that system off for the rest of the flight. LAND AS SOON AS PRACTICABLE or continue depending on conditions."
           ]
         },
         {
-          "left": "Caution",
+          "group": "Caution",
           "right": [
             "With [MASTER SW]/[EMER SW] actuated, or battery and generator off line, the VEMD goes off: apply the failure-of-both-screens procedure (Section 3.5 §1)."
           ]
         },
         {
-          "left": "Source identified",
+          "group": "Source identified",
           "right": [
             "Corresponding system OFF; ventilate the cabin; continue depending on the failed system. After DC has been switched off and on in flight, GOV stays lit until the next normal full engine shutdown and battery-off on the ground."
           ]
@@ -713,67 +720,75 @@
       "rfmReference": "H125 / AS350 B3 (2B1) RFM Section 3.6 §1",
       "steps": [
         {
-          "left": "Engine fire at start-up",
+          "group": "Engine fire",
+          "left": "At start-up",
           "right": [
             "Engine starting selector OFF; emergency fuel shut-off handle AFT; [FUEL P]/[FUEL PUMP] OFF; [CRANK] press 10 s; rotor brake APPLY (≤ 170 rpm); [MASTER SW]/[EMER SW] OFF; evacuate and fight the fire from outside."
           ]
         },
         {
-          "left": "Engine fire — hover, takeoff, final",
+          "group": "Engine fire",
+          "left": "Hover, takeoff, final",
           "right": [
             "LAND IMMEDIATELY with a no-hover powered landing; once on the ground apply the start-up sequence."
           ]
         },
         {
-          "left": "Engine fire — in flight",
+          "group": "Engine fire",
+          "left": "In flight",
           "right": [
             "LAND IMMEDIATELY: collective LOWER, IAS Vy, autorotation procedure APPLY, emergency fuel shut-off handle AFT, [FUEL P] CHECK OFF, engine starting selector OFF. After landing: rotor brake APPLY (≤ 170 rpm), [MASTER SW]/[EMER SW] OFF, evacuate and fight the fire from outside."
           ]
         },
         {
-          "left": "Major governor failure — in flight",
+          "group": "Major governor failure",
+          "left": "In flight",
           "right": [
             "Emergency mode engages automatically and GOV lights. Check flight parameters. Avoid abrupt collective changes. Maintain Ng above 80 % below 20 000 ft (6096 m), above 85 % at or above 20 000 ft. LAND AS SOON AS PRACTICABLE."
           ]
         },
         {
-          "left": "Major governor failure — approach and landing",
+          "group": "Major governor failure",
+          "left": "Approach and landing",
           "right": [
             "Make a powered approach and avoid a steep angle. After touchdown lower the collective slowly to low pitch and select the engine starting selector OFF. The VEHICLE page shows FF and END; Ng and torque can also be lost on the VEMD."
           ]
         },
         {
-          "left": "Major governor failure — during starting",
+          "group": "Major governor failure",
+          "left": "During starting",
           "right": [
             "Engine starting selector OFF immediately."
           ]
         },
         {
-          "left": "Minor FADEC failure — continuously on",
+          "group": "Minor FADEC failure",
+          "left": "Continuously on",
           "right": [
             "Governing degraded: avoid abrupt power changes, keep IAS below VNE power off, LAND AS SOON AS PRACTICABLE. On the ground do not start the engine."
           ]
         },
         {
-          "left": "Minor FADEC failure — flashing",
+          "group": "Minor FADEC failure",
+          "left": "Flashing",
           "right": [
             "Governor redundancy failure with no impact on governing: abort a start-up (see the Maintenance Manual), or cancel autorotation training and return to base."
           ]
         },
         {
-          "left": "Engine oil pressure at or below 1.1 bar (16 psi)",
+          "group": "Engine oil pressure at or below 1.1 bar (16 psi)",
           "right": [
             "Check the gauge. LOW or NIL: LAND IMMEDIATELY — autorotation procedure, shut down the engine time permitting. NORMAL (CWP light test completed): LAND AS SOON AS PRACTICABLE."
           ]
         },
         {
-          "left": "Twist grip out of FLIGHT position",
+          "group": "Twist grip out of FLIGHT position",
           "right": [
             "Turn the twist grip to FLIGHT. Continue flight."
           ]
         },
         {
-          "left": "Metal particles in engine oil circuit",
+          "group": "Metal particles in engine oil circuit",
           "right": [
             "Reduce power; LAND AS SOON AS POSSIBLE with a low-power approach and be ready for a loss of engine power. Takeoff is prohibited until the engine manufacturer's checks are complete."
           ]
@@ -787,49 +802,53 @@
       "rfmReference": "H125 / AS350 B3 (2B1) RFM Section 3.6 §2–3",
       "steps": [
         {
-          "left": "MGB low oil pressure (below 1 bar / 14.5 psi)",
+          "group": "MGB low oil pressure (below 1 bar / 14.5 psi)",
           "right": [
             "Reduce power; LAND AS SOON AS POSSIBLE. If a safe landing is not possible, continue to the nearest suitable site at minimum power speed (Vy). 55 min of simulated flight at low power has been shown in bench tests."
           ]
         },
         {
-          "left": "MGB oil overheating (above 115 °C)",
+          "group": "MGB oil overheating (above 115 °C)",
           "right": [
             "Set IAS to Vy, monitor the CWP; land as soon as practicable — or as soon as possible depending on the trend."
           ]
         },
         {
-          "left": "Metal particles in MGB oil circuit",
+          "group": "Metal particles in MGB oil circuit",
           "right": [
             "Reduce power and monitor; LAND AS SOON AS POSSIBLE."
           ]
         },
         {
-          "left": "Metal particles in TGB oil circuit",
+          "group": "Metal particles in TGB oil circuit",
           "right": [
             "Avoid prolonged hovering; continue flight."
           ]
         },
         {
-          "left": "Hydraulic pressure loss — warning",
+          "group": "Hydraulic pressure loss",
+          "left": "Warning",
           "right": [
             "Do not use [HYD TEST] or [ACCU TST]: it depressurizes the yaw load compensator and gives heavy pedal loads."
           ]
         },
         {
-          "left": "Hydraulic failure — HIGE, takeoff, final (landing within 30 s possible)",
+          "group": "Hydraulic failure",
+          "left": "HIGE, takeoff, final (landing within 30 s possible)",
           "right": [
             "Land normally, collective LOCK, twist grip IDLE, apply shutdown."
           ]
         },
         {
-          "left": "Hydraulic failure — in flight",
+          "group": "Hydraulic failure",
+          "left": "In flight",
           "right": [
             "Bank below 30°, avoid abrupt maneuvers, smoothly set IAS 40–60 KIAS (74–111 km/h), then hydraulic cut-off switch OFF. Do not let the twist grip leave FLIGHT as loads rise. LAND AS SOON AS POSSIBLE."
           ]
         },
         {
-          "left": "Hydraulic failure — approach and landing",
+          "group": "Hydraulic failure",
+          "left": "Approach and landing",
           "right": [
             "No hover or low-speed maneuvers. Over a clear flat area keep 40–60 KIAS, flat approach into wind, slow no-hover running landing at about 10 kt groundspeed (18.5 km/h). After landing collective LOCK, twist grip IDLE, shutdown."
           ]
@@ -843,67 +862,68 @@
       "rfmReference": "H125 / AS350 B3 (2B1) RFM Section 3.6 §4–6",
       "steps": [
         {
-          "left": "Battery temperature above maximum",
+          "group": "Battery temperature above maximum",
           "right": [
             "[EXT PWR BATT]/[BAT/EPU] OFF, check U bus voltage. If above Umax: battery ON, [GEN]/[GENE] OFF, unnecessary equipment OFF; land as soon as practicable."
           ]
         },
         {
-          "left": "Battery off line",
+          "group": "Battery off line",
           "right": [
             "Check [BAT/EPU] ON and the voltage on the VEMD; if not resolved land as soon as practicable, otherwise continue."
           ]
         },
         {
-          "left": "DC generator off line",
+          "group": "DC generator off line",
           "right": [
             "Check U bus on the VEMD and [GENE] ON; check the GENE RESET breaker is not popped (30 α panel) and press [GENE RESET]. Case A/B: unnecessary equipment OFF, monitor U bus, land as soon as practicable, or continue if it recovers."
           ]
         },
         {
-          "left": "Battery failure warning",
+          "group": "Battery failure warning",
           "right": [
             "The VEMD goes out and NR/Nf indication is lost: apply the failure-of-both-screens procedure, avoid autorotation, shallow approach with a cautious landing."
           ]
         },
         {
-          "left": "AC power supply failure (inverter)",
+          "group": "AC power supply failure (inverter)",
           "right": [
             "Check [INV] ON; if off, all AC consumers are lost — select ON. The AFCS disengages: hands on the controls. Continue flight."
           ]
         },
         {
-          "left": "Fuel quantity low (≤ 48 kg / 106 lb)",
+          "group": "Fuel quantity low (≤ 48 kg / 106 lb)",
           "right": [
             "LAND AS SOON AS POSSIBLE; about 15 minutes of flight remain at MCP. Avoid large attitude changes that could cause a flame-out."
           ]
         },
         {
-          "left": "Low fuel pressure — in flight",
+          "group": "Low fuel pressure",
+          "left": "In flight",
           "right": [
             "Reduce power, [FUEL P]/[FUEL PUMP] ON, land as soon as possible with a low-power approach; be prepared for a flame-out."
           ]
         },
         {
-          "left": "Fuel filter clogged",
+          "group": "Fuel filter clogged",
           "right": [
             "Reduce power and establish flight at reduced power; land as soon as practicable — or as soon as possible; monitor Ng on the VEMD. If Ng oscillations occur, LAND IMMEDIATELY and apply the autorotation procedure. Bypass opening drives contamination into the fuel lines and governor."
           ]
         },
         {
-          "left": "Pitot heating not operative",
+          "group": "Pitot heating not operative",
           "right": [
             "Check [PITOT] ON; if it was ON, monitor the airspeed indicator; otherwise switch ON. Continue flight."
           ]
         },
         {
-          "left": "Aural warning not operative",
+          "group": "Aural warning not operative",
           "right": [
             "Check [HORN] ON; switch ON if off. Continue flight."
           ]
         },
         {
-          "left": "Cargo hold door(s) unlocked",
+          "group": "Cargo hold door(s) unlocked",
           "right": [
             "Reduce to 70 kt (130 km/h); land as soon as practicable with a descent and approach at a low rate of descent."
           ]
@@ -991,49 +1011,51 @@
       "rfmReference": "H125 / AS350 B3 (2B1) RFM Section 3.7",
       "steps": [
         {
-          "left": "Rotor brake inoperative",
+          "group": "Rotor brake inoperative",
           "right": [
             "Wait until the rotor is at a standstill before leaving. With wind, head into the wind and hold the cyclic slightly into the wind."
           ]
         },
         {
-          "left": "Hardover / servojam — HIGE, takeoff, final",
+          "group": "Hardover / servojam",
+          "left": "HIGE, takeoff, final",
           "right": [
             "LAND IMMEDIATELY if possible; after landing hydraulic cut-off switch OFF and apply engine and rotor shutdown."
           ]
         },
         {
-          "left": "Hardover / servojam — in flight",
+          "group": "Hardover / servojam",
+          "left": "In flight",
           "right": [
             "Set IAS 40–60 kt (74–111 km/h), sideslip if necessary; hydraulic cut-off switch OFF and apply the HYDR procedure; LAND AS SOON AS POSSIBLE."
           ]
         },
         {
-          "left": "Loads with no hydraulic pressure",
+          "group": "Loads with no hydraulic pressure",
           "right": [
             "At high airspeed up to 20 daN (45 lbf) pull on the collective, 7–12 daN (16–27 lbf) push left and 2–4 daN (4.5–9 lbf) push forward on the cyclic."
           ]
         },
         {
-          "left": "Bleed valve failure",
+          "group": "Bleed valve failure",
           "right": [
             "A flag on the FLI or 3-data page. If it does not clear at high power, maximum power is reduced (especially in the cold); if it does not reappear at low power, the engine may surge. Avoid abrupt power changes; GOV lights; land as soon as practicable."
           ]
         },
         {
-          "left": "ICS inoperative (GMA 340H)",
+          "group": "ICS inoperative (GMA 340H)",
           "right": [
             "ICS OFF; check COM 1 ON and adjust the volume. VHF and audio warnings remain available to the right-hand pilot only via COM 1. Abort hoisting if the ICS fails."
           ]
         },
         {
-          "left": "Abnormal low NR and Nf (aligned)",
+          "group": "Abnormal low NR and Nf (aligned)",
           "right": [
             "The FADEC governs Nf significantly lower than usual (an erroneous collective anticipator signal). NR/Nf may drop to 360 rpm before GOV lights. If NR/Nf fall below 375 rpm: check engine parameters and that NR and Nf are aligned; land as soon as practicable. Avoid hovering with a left crosswind; make a no-hover landing."
           ]
         },
         {
-          "left": "Servo transparency",
+          "group": "Servo transparency",
           "right": [
             "Self-correcting: reduce the severity of the maneuver, follow the aircraft's natural reaction, let the collective decrease naturally (avoid low pitch) and smoothly counter the right cyclic motion."
           ]
@@ -1115,73 +1137,76 @@
       "rfmReference": "H125 / AS350 B3 (2B1) RFM SUP.6",
       "steps": [
         {
-          "left": "Conditions",
+          "group": "Conditions",
           "right": [
             "Train within gliding distance of a suitable running landing area. The twist grip can be turned back to FLIGHT quickly at any time and at any NR."
           ]
         },
         {
-          "left": "Failure simulation — 1",
+          "group": "Failure simulation",
           "right": [
             "Collective — REDUCE power."
           ]
         },
         {
-          "left": "Failure simulation — 2",
+          "group": "Failure simulation",
           "right": [
             "Twist grip — IDLE. TWT GRIP light on, gong sounds, engine at idle (Ng about 68 %)."
           ]
         },
         {
-          "left": "Full touchdown — 1",
+          "group": "Full touchdown",
           "right": [
             "Autorotation procedure — APPLY actions 1 to 10 of Section 3.2 §1 of the basic manual."
           ]
         },
         {
-          "left": "Full touchdown — 2 (after full stop)",
+          "group": "Full touchdown",
           "right": [
             "Collective — REDUCE to full low pitch."
-          ]
+          ],
+          "when": "After full stop"
         },
         {
-          "left": "Full touchdown — 3",
+          "group": "Full touchdown",
           "right": [
             "Twist grip — FLIGHT. Rotor speed rises to its normal governed value."
           ]
         },
         {
-          "left": "Power recovery — 1",
+          "group": "Power recovery",
           "right": [
             "APPLY actions 1 to 4 of the autorotation procedure (Section 3.2 §1) — then:"
           ]
         },
         {
-          "left": "Power recovery — 2–3 (at about 70 ft / 21 m)",
+          "group": "Power recovery",
           "right": [
             "Check NR in the normal operating range, then twist grip — FLIGHT. Nf increases to its governed value."
-          ]
+          ],
+          "when": "At about 70 ft / 21 m"
         },
         {
-          "left": "Power recovery — 4",
+          "group": "Power recovery",
           "right": [
             "Collective — CONTROL to keep NR in the normal operating range."
           ]
         },
         {
-          "left": "Power recovery — 5",
+          "group": "Power recovery",
           "right": [
             "Cyclic — FLARE."
           ]
         },
         {
-          "left": "Power recovery — 6–9 (at 20–25 ft / 6–8 m, constant attitude)",
+          "group": "Power recovery",
           "right": [
             "Collective gradually increase to reduce rate of descent and forward speed; cyclic slightly forward for the landing attitude; pedals cancel any sideslip; collective increase as necessary."
-          ]
+          ],
+          "when": "At 20–25 ft / 6–8 m, constant attitude"
         },
         {
-          "left": "Note",
+          "group": "Note",
           "right": [
             "No significant Nf transient is expected when switching from IDLE to FLIGHT in autorotation (torque about 0 %), because no power is required from the engine."
           ]
@@ -1195,67 +1220,73 @@
       "rfmReference": "H125 / AS350 B3 (2B1) RFM SUP.7",
       "steps": [
         {
-          "left": "Limitations",
+          "group": "Limitations",
           "right": [
             "Trained instructor with recent experience; flight risk assessment beforehand. With hydraulics off: no hover or low-speed maneuvers, no bank above 30°. No passengers other than observers with training duties."
           ]
         },
         {
-          "left": "Recommendations",
+          "group": "Recommendations",
           "right": [
             "Avoid heavy weights (higher control loads). Train close to an airfield suitable for a running landing. On a go-around, abort the training and reset the hydraulic cut-off switch to ON — expect a significant drop in control loads."
           ]
         },
         {
-          "left": "Step 1 — warning",
+          "group": "Step 1",
+          "left": "Warning",
           "right": [
             "Never activate [ACCU TST] when the hydraulic cut-off switch (RH collective grip) is OFF."
           ]
         },
         {
-          "left": "Step 1 — 1 (instructor, steady cruise)",
+          "group": "Step 1",
           "right": [
             "Activate [ACCU TST]. Check HYDR flashes with the gong and the ACCU TST light is on."
-          ]
+          ],
+          "when": "Instructor, steady cruise"
         },
         {
-          "left": "Step 1 — 2 (trainee, when HYDR lights)",
+          "group": "Step 1",
           "right": [
             "Bank below 30°, avoid abrupt maneuvers, set IAS between 40 and 60 KIAS (74–111 km/h)."
-          ]
+          ],
+          "when": "Trainee, when HYDR lights"
         },
         {
-          "left": "Step 1 — 3 (instructor, at safety speed)",
+          "group": "Step 1",
           "right": [
             "Reset [ACCU TST] to OFF. Check the light is off and HYDR out within 3 s. If it is not reset, hydraulic assistance cannot be restored."
-          ]
+          ],
+          "when": "Instructor, at safety speed"
         },
         {
-          "left": "Simulation artefact",
+          "group": "Simulation artefact",
           "right": [
             "[ACCU TST] also removes all tail rotor control assistance, so yaw pedal loads rise at once — this is not part of a real hydraulic failure. The first step can be skipped at the instructor's discretion."
           ]
         },
         {
-          "left": "Step 2 — 1 (trainee)",
+          "group": "Step 2",
           "right": [
             "Check IAS between 40 and 60 KIAS. Keep bank below 30° and do not attempt hover or low-speed maneuvers; do not move the twist grip out of FLIGHT as loads increase."
-          ]
+          ],
+          "when": "Trainee"
         },
         {
-          "left": "Step 2 — 2 (trainee, ready for higher loads)",
+          "group": "Step 2",
           "right": [
             "Hydraulic cut-off switch (RH collective grip) — OFF. Check HYDR and gong; control loads increase."
-          ]
+          ],
+          "when": "Trainee, ready for higher loads"
         },
         {
-          "left": "Step 2 — 3",
+          "group": "Step 2",
           "right": [
             "Complete the hydraulic failure emergency procedure."
           ]
         },
         {
-          "left": "After landing",
+          "group": "After landing",
           "right": [
             "Hydraulic cut-off switch — ON before the next takeoff or hover; check HYDR out within 3 s. The instructor stays ready to restore assistance at any time by setting the switch to ON."
           ]
@@ -1269,73 +1300,73 @@
       "rfmReference": "H125 / AS350 B3 (2B1) RFM SUP.17",
       "steps": [
         {
-          "left": "Use",
+          "group": "Use",
           "right": [
             "For emergency landing on water only; takeoff after an emergency landing on water is prohibited. Not certified for ditching."
           ]
         },
         {
-          "left": "Limits",
+          "group": "Limits",
           "right": [
             "Minimum weight with OAT < 0 °C: 1480 kg (3263 lb). Max IAS with the gear stowed and armed or inflated: 135 kt (250 km/h) power on; 100 kt (185 km/h) with torque below 40 %. Maximum altitude for inflation: 6600 ft (2000 m). Below 400 ft (122 m) above water the gear must be armed."
           ]
         },
         {
-          "left": "Arming / disarming",
+          "group": "Arming / disarming",
           "right": [
             "[FLOAT ARM] ON — check FLOAT ARM lights 1 and 2 ON. Disarm: [FLOAT ARM] OFF, check lights 1 and 2 OFF."
           ]
         },
         {
-          "left": "Exterior check",
+          "group": "Exterior check",
           "right": [
             "Floats LOCKED in the lowered position, protective covers CHECKED, pressure in both cylinders CHECKED against the placard."
           ]
         },
         {
-          "left": "Failure with FLOAT ARM set to arm",
+          "group": "Failure with FLOAT ARM set to arm",
           "right": [
             "Inflation not possible (also with EMER SW OFF or battery at EMER SHED): continue flight within gliding distance of land. Inflation possible on both floats: continue flight."
           ]
         },
         {
-          "left": "Inflation — 1",
+          "group": "Inflation",
           "right": [
             "After an engine failure or urgent need to alight on water, check rotor speed. [FLOAT ARM] — ON."
           ]
         },
         {
-          "left": "Inflation — 2",
+          "group": "Inflation",
           "right": [
             "FLOAT ARM lights 1 and 2 — CHECK ON (at least one)."
           ]
         },
         {
-          "left": "Inflation — 3",
+          "group": "Inflation",
           "right": [
             "[FLOAT FIRE] under guard on the collective grip — PRESS. Recommended IAS below 80 kt (148 km/h); above 80 KIAS a decelerating pitch-down can occur."
           ]
         },
         {
-          "left": "Autorotation over water — 1–2",
+          "group": "Autorotation over water",
           "right": [
             "Collective — REDUCE to keep NR in the normal range. IAS — Vy."
           ]
         },
         {
-          "left": "Autorotation over water — 3–4",
+          "group": "Autorotation over water",
           "right": [
             "If relight is impossible or after tail rotor failure: engine starting selector OFF. Head equally between wind and wave direction on final."
           ]
         },
         {
-          "left": "Autorotation over water — 5–9",
+          "group": "Autorotation over water",
           "right": [
             "At about 70 ft (21 m) flare; at 20–25 ft (6–8 m) gradually increase collective; cyclic forward slightly for 10° nose-up and under 10 kt (19 km/h) at touchdown; pedals cancel sideslip; collective cushions the touchdown."
           ]
         },
         {
-          "left": "After touchdown",
+          "group": "After touchdown",
           "right": [
             "Collective gradually to full down, rotor brake APPLY, evacuate once the rotor has stopped. Afloat, open the forward doors with the door jettison handles."
           ]
@@ -1349,73 +1380,79 @@
       "rfmReference": "H125 / AS350 B3 (2B1) RFM SUP.23",
       "steps": [
         {
-          "left": "Maneuvering limit",
+          "group": "Maneuvering limit",
           "right": [
             "Do not exceed a load factor that lights LIMIT."
           ]
         },
         {
-          "left": "Loss of tail rotor control — symptom",
+          "group": "Loss of tail rotor control",
+          "left": "Symptom",
           "right": [
             "Jammed pedals or loss of pedal effectiveness. Below 20 kt (37 km/h) and near the ground a go-around may be impossible because of lost fin efficiency."
           ]
         },
         {
-          "left": "Loss of tail rotor control — 1",
+          "group": "Loss of tail rotor control",
           "right": [
             "Cyclic and collective — ADJUST to set IAS 70 kt (130 km/h) in level flight."
           ]
         },
         {
-          "left": "Loss of tail rotor control — 2–3",
+          "group": "Loss of tail rotor control",
           "right": [
             "Hydraulic cut-off switch — OFF. Then [ACCU TST] — ON, or PRESS for 2 s on aircraft with the later modification; the load compensator depressurizes."
           ]
         },
         {
-          "left": "Loss of tail rotor control — landing",
+          "group": "Loss of tail rotor control",
+          "left": "Landing",
           "right": [
             "On a suitable area make a shallow approach with a slight left sideslip and a running landing. The sideslip reduces as airspeed falls and collective is applied. A right-hand wind component makes it easier."
           ]
         },
         {
-          "left": "Yaw servo slide-valve seizure — hover, no yaw movement",
+          "group": "Yaw servo slide-valve seizure",
+          "left": "Hover, no yaw movement",
           "right": [
             "Hydraulic cut-off switch — OFF; LAND normally. The yaw load compensator assists with heavier pedal forces."
           ]
         },
         {
-          "left": "Yaw servo slide-valve seizure — hover, yaw rotation",
+          "group": "Yaw servo slide-valve seizure",
+          "left": "Hover, yaw rotation",
           "right": [
             "Hydraulic cut-off switch — OFF; control yaw, LAND normally."
           ]
         },
         {
-          "left": "Yaw servo slide-valve seizure — cruise",
+          "group": "Yaw servo slide-valve seizure",
+          "left": "Cruise",
           "right": [
             "Airspeed — REDUCE to 40–60 kt (74–111 km/h) in level flight, sideslip if necessary. Hydraulic cut-off switch — OFF. Normal approach and landing."
           ]
         },
         {
-          "left": "HYD1 or HYD2 with SERVO",
+          "group": "HYD1 or HYD2 with SERVO",
           "right": [
             "Loss of pressure on that circuit. Keep a more or less level attitude, avoid abrupt maneuvers, bank below 30°, IAS below 110 kt (204 km/h) or VNE if less. One remaining circuit allows continued safe flight and landing. Land as soon as practicable; normal approach and landing."
           ]
         },
         {
-          "left": "HYD2 (RH circuit) — tail rotor",
+          "group": "HYD2 (RH circuit)",
+          "left": "Tail rotor",
           "right": [
             "Tail rotor control hydraulic power is lost: do not press [ACCU TST] — it would discharge the yaw load compensator and right pedal loads may become significant. LIMIT may come on with HYD1."
           ]
         },
         {
-          "left": "SERVO alone",
+          "group": "SERVO alone",
           "right": [
             "Jamming of a distributor valve on the main servo unit. Land as soon as practicable."
           ]
         },
         {
-          "left": "LIMIT alone",
+          "group": "LIMIT alone",
           "right": [
             "Main servo unit maximum load reached. In high-speed cruise or steep maneuvers reduce power on the collective and reduce speed or load factor on the cyclic — CONTINUE FLIGHT. LIMIT may appear with HYD1 in a real hydraulic failure."
           ]
@@ -1621,61 +1658,61 @@
       "rfmReference": "H125 / AS350 B3 (2B1) RFM SUP.12 / SUP.13",
       "steps": [
         {
-          "left": "Limits",
+          "group": "Limits",
           "right": [
             "Maximum load: 750 kg (1660 lb) sling; 1400 kg (3086 lb) swing. Maximum all-up weight with load: 2800 kg (6173 lb) or the OGE-hover maximum, whichever is lower. Maximum IAS: 80 kt (148 km/h). Non-human external cargo only."
           ]
         },
         {
-          "left": "Load rules",
+          "group": "Load rules",
           "right": [
             "Jettisonable loads lifted free of land or water only. No empty net or unballasted sling unless the operator's approved procedures allow it."
           ]
         },
         {
-          "left": "Check of the installation",
+          "group": "Check of the installation",
           "right": [
             "[SLING] ON; load indicator ZERO (swing: LD ON lit, [ZERO] then [TEST]); hook opens in both electrical and mechanical modes; retaining latch free and its return spring working."
           ]
         },
         {
-          "left": "Takeoff with load — 1–4",
+          "group": "Takeoff with load",
           "right": [
             "Load HOOKED and SECURED. Collective — INCREASE very smoothly, keeping the aircraft vertically above the load. Dwell briefly with cables tight. Lift the load vertically."
           ]
         },
         {
-          "left": "Takeoff with load — 5–7",
+          "group": "Takeoff with load",
           "right": [
             "Check the load indication (swing: LD ON). Adjust the takeoff path to an immediate forward climb attitude. Check all parameters."
           ]
         },
         {
-          "left": "Engine failure in cruise",
+          "group": "Engine failure in cruise",
           "right": [
             "Apply the autorotation procedure and RELEASE the load as soon as possible."
           ]
         },
         {
-          "left": "Engine failure in the hover",
+          "group": "Engine failure in the hover",
           "right": [
             "Collective — REDUCE according to height. Load — RELEASE as soon as possible. Pedals — control yaw. Cyclic — forward. Collective — INCREASE to cushion touchdown. During hooking the pilot moves away to the right; ground crew to the left."
           ]
         },
         {
-          "left": "Electrical jettison failure",
+          "group": "Electrical jettison failure",
           "right": [
             "Collective lever mechanical release — ACTUATE."
           ]
         },
         {
-          "left": "Load indicator failure (swing)",
+          "group": "Load indicator failure (swing)",
           "right": [
             "LD ON comes on or goes out untimely — in the hover, release the load electrically and check the light: no change, abort the mission; status change, continue. In cruise make a precautionary approach to the nearest helipad first."
           ]
         },
         {
-          "left": "Precautions",
+          "group": "Precautions",
           "right": [
             "Train with gradually increasing loads. Use the shortest cable for a compact load. Keep a trailing cable or net clear of the tail rotor. Use the correct load attachment ring. Wet weather: thick rubber gloves and a conductor between ground and hook."
           ]

@@ -34,6 +34,27 @@
       "description": "The helicopter and engine halves of the fuel system, the FADEC's functions and failure levels, the back-up governor, and the tank capacity and filter-clogged caution.",
       "filename": "fuel-system.mp3",
       "durationSeconds": 664
+    },
+    {
+      "id": "engine-failure-and-autorotation",
+      "title": "Engine Failure and Autorotation: Sequence, Numbers, Height",
+      "description": "Recognition tones, the cruise, over-water and hover autorotations, the relight sequence with its height requirement, and the twist-grip training procedure.",
+      "filename": "engine-failure-and-autorotation.mp3",
+      "durationSeconds": 443
+    },
+    {
+      "id": "tail-rotor-failures",
+      "title": "Tail Rotor Failures: Thrust Lost vs Control Lost",
+      "description": "Yaw left after a loss of thrust and what to do in each height regime, versus jammed pedals, the 70 kt / ACCU TST drill and the running landing.",
+      "filename": "tail-rotor-failures.mp3",
+      "durationSeconds": 330
+    },
+    {
+      "id": "fire-smoke-and-electrical-emergencies",
+      "title": "Fire, Smoke and Electrical Emergencies",
+      "description": "The engine-fire sequences, smoke with and without an identified source, shedding the electrics, and the battery, generator and voltage alarms.",
+      "filename": "fire-smoke-and-electrical-emergencies.mp3",
+      "durationSeconds": 380
     }
   ]
 }

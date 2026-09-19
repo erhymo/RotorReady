@@ -1,5 +1,9 @@
-Podcasts now keep playing when you lock the phone or put it in your pocket, with the episode and working play, pause and skip controls on the lock screen.
+Emergency procedures and optional-equipment procedures for the H125 / AS350 B3 2B1 and B3e, laid out as one titled box per phase (Cruise, Hover IGE, Relighting…) with plain numbered steps. Both variants now cover training procedures, emergency floatation, hoist, external loads, bambi bucket, sand filter, AFCS and dual hydraulics.
 
-New AW169 EP episodes written from the flight manual: Limitations, Electrical and Fire Protection, each walked through as a sortie rather than listed system by system. The S-92 series is complete.
+The H125 / AS350 B3e is now built from its own manual: corrected engine, rotor, temperature and electrical limits in the Quick Reference and quiz, N1/N2/TOT terminology, 14 System Notes and new quiz sections for supplements and weight and balance.
 
-The Audio bar on the home screen now appears immediately instead of waiting on the network, and episode titles are shorter and easier to scan.
+Podcasts: eight new episodes for each H125 / AS350 variant, the first R22 episode, an AW169 Limitations episode, and rewritten AW169 TCAS II and R44 II Drive System episodes built from the manuals. Corrected details in the S-92 and AW169 EP episodes, and two episodes with confirmed errors were removed.
+
+Corrected AW169 EP inter-turbine temperature limits in the Quick Reference. Weights in System Notes and Quick Reference now show kilograms first, with pounds in brackets.
+
+Fixed the Home button on the procedure lists taking you back to the last procedure instead of the home screen.

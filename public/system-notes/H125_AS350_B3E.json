@@ -560,6 +560,269 @@
           ]
         }
       ]
+    },
+    {
+      "slug": "emergency-floatation-gear",
+      "title": "Emergency Floatation Gear",
+      "subtitle": "Floats to keep the helicopter upright for an evacuation after an emergency landing on water — not a ditching certification.",
+      "rfmReference": "AS350 B3e Flight Manual SUP.17 (Emergency Floatation Gear AERAZUR — General, Limitations, Emergency Procedures, Normal Procedures, Performance Data).",
+      "sections": [
+        {
+          "heading": "What it is — and what it isn't",
+          "paragraphs": [
+            "The gear is approved for emergency use, not for ditching to JAR 27. It exists to keep the rotorcraft sufficiently upright and in adequate trim for a safe and orderly evacuation after an emergency landing on water. It consists of two floatation units along each skid, an inflation system with two cylinders (one per float, each with a pressure indicator), a FLOAT ARM pushbutton on the console or instrument panel, and a guarded FLOAT FIRE pushbutton on the collective grip."
+          ]
+        },
+        {
+          "heading": "Limitations",
+          "table": {
+            "columns": [
+              "Item",
+              "Limit"
+            ],
+            "rows": [
+              [
+                "Use",
+                "Emergency landing on water only; takeoff after an emergency landing on water is prohibited"
+              ],
+              [
+                "Minimum weight with OAT < 0 °C",
+                "1480 kg (3263 lb), to keep the minimum rotor rpm in case of engine failure"
+              ],
+              [
+                "Max IAS with the gear stowed and the system armed or the floats inflated",
+                "135 kt (250 km/h) power on; 100 kt (185 km/h) with torque below 40 %"
+              ],
+              [
+                "Maximum altitude for float inflation",
+                "6600 ft (2000 m)"
+              ],
+              [
+                "Below 400 ft (122 m) above water",
+                "The system must always be armed"
+              ],
+              [
+                "Cylinder pressure",
+                "Limit values are on the placard next to the cylinder and apply whenever the flight requires the gear to be armed"
+              ]
+            ]
+          }
+        },
+        {
+          "heading": "Inflation",
+          "paragraphs": [
+            "If float inflation is not possible with FLOAT ARM set to arm, continue the flight and stay within gliding distance of land. Inflation is not possible when the EMER SW is OFF or the battery switch is in EMER SHED.",
+            "To inflate, after an engine failure or another urgent need to alight on water and after checking rotor speed: FLOAT ARM ON, check FLOAT ARM lights 1 and 2 (at least one ON), then press FLOAT FIRE under its guard. The recommended firing speed is below 80 kt (148 km/h); above 80 KIAS a deceleration with a pitch-down movement can occur."
+          ]
+        },
+        {
+          "heading": "Autorotation onto water",
+          "paragraphs": [
+            "Reduce collective to hold NR in the normal range and fly Vy. If a relight is impossible or after tail rotor failure, put the engine starting selector OFF, and head the aircraft equally between wind and wave direction on final. At about 70 ft (21 m) flare; at 20–25 ft (6–8 m) at constant attitude gradually raise the collective, then move the cyclic slightly forward for a 10° nose-up attitude and under 10 kt (19 km/h) at touchdown, cancelling any sideslip with the pedals and cushioning with the collective. After touchdown lower the collective fully, apply the rotor brake and evacuate once the rotor has stopped. When afloat the forward doors must be opened with the jettison handles."
+          ]
+        },
+        {
+          "heading": "Checks and performance",
+          "paragraphs": [
+            "The exterior check confirms the floatation units are locked in the lowered position, the protective covers are in good condition and the pressure in both cylinders is within the placard limits; the interior check arms the system and confirms both FLOAT ARM lights ON. Stability after an emergency landing on water was demonstrated up to a significant wave height of 2.5 m (sea state 4). Rate of climb at Vy is reduced by 50 ft/min (0.25 m/s) and cruise speed by about 2 kt (3.7 km/h)."
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "hoist-installation",
+      "title": "Hoist Installation",
+      "subtitle": "A fixed-speed 136 kg hoist and a variable-speed 204 kg hoist — same crew rules, very different cable systems and duty limits.",
+      "rfmReference": "AS350 B3e Flight Manual SUP.18 (Breeze / Air Equipment electric hoist 136 kg) and SUP.19 (Breeze electric hoist 204 kg); SUP.19.1 (204 kg hoist, grip with support bracket) is a further variant not covered here.",
+      "sections": [
+        {
+          "heading": "Two hoist families",
+          "paragraphs": [
+            "Both installations raise or lower loads in the hover using a pivoting jib on the port side with a locking device for the ferrying and hoisting positions, a safety belt for the hoist operator, two cable protectors on the LH skid, a hand cable cutter stowed on the rear wall and a pyrotechnic cable cutter."
+          ],
+          "table": {
+            "columns": [
+              "",
+              "SUP.18 (136 kg)",
+              "SUP.19 (204 kg)"
+            ],
+            "rows": [
+              [
+                "Hoist",
+                "Breeze BL 16600 or Air Equipment 76370, constant-speed electric motor",
+                "Breeze, variable-speed electric motor"
+              ],
+              [
+                "Cable",
+                "33.5 m (110 ft) Breeze; 40 m (130 ft) Air Equipment",
+                "50 m"
+              ],
+              [
+                "Maximum load on cable",
+                "136 kg (300 lb)",
+                "204 kg (450 lb)"
+              ],
+              [
+                "Operator control",
+                "Rocker switch on the control grip to raise, lower or stop",
+                "Thumbwheel on the grip — cable speed proportional to displacement — plus a cable-out indicator in metres"
+              ],
+              [
+                "Travel limits",
+                "Up-limit switch-off; power cut with 4 m of cable left; mechanical pin stops the drum at 3 m if the down-limit fails",
+                "Electronic control unit decelerates automatically before the limits and stops at them, and on incorrect winding"
+              ],
+              [
+                "Protection",
+                "100 A fuse in the EMB, 60 A breaker, two 2.5 A cutter breakers, 2.5 A up-down breaker",
+                "130 A fuse in the EMB, two 7.5 A cutter breakers, 100 A cut-off breaker, 2.5 A and 6.3 A control breakers"
+              ]
+            ]
+          }
+        },
+        {
+          "heading": "Crew and duty limits",
+          "paragraphs": [
+            "The minimum crew is one pilot and one hoist operator, an experienced operator who wears a harness on a lanyard attached to the rear cabin panel — one person per attachment point, maximum 101 kg (222 lb) per point. Landing with a load suspended on the cable is prohibited, and a hand cable cutter must be within reach of the operator.",
+            "The 136 kg hoists have duty limits. Air Equipment: never more than 6 consecutive hoisting operations plus one descent with maximum load and maximum reel-out. Breeze: wait 30 seconds after each lowering or raising; after 3 complete cycles stopping the hoist for 40 minutes is recommended. The 204 kg supplement lists no such duty cycle."
+          ]
+        },
+        {
+          "heading": "Controls",
+          "paragraphs": [
+            "The pilot switches the installation on with the HOIST pushbutton on the console and has a guarded cable-shear pushbutton on the collective grip. The operator has the control grip described above; on the 136 kg hoist a green light shows the hoist moving up and a red light is for the up-limit microswitch test."
+          ]
+        },
+        {
+          "heading": "Emergency procedures",
+          "paragraphs": [
+            "Hoist failure: depending on load and circumstances, pull the cable in by hand, cut it, or return to base with the cable slightly inclined at a VNE of 60 kt (111 km/h). For a severely damaged cable, jam or miswrap, stop hoisting without using the speed control, inspect the cable, set the load down at the nearest suitable site, raise the cable by hand and store it in the cabin, switch HOIST OFF, and use the hand cutter if manual raising is not possible — continuing risks the cable breaking.",
+            "Engine failure in the hover: reduce collective for the height, release the load as soon as possible with the cable-shear pushbutton, control yaw, cyclic forward for speed and increase collective to cushion. During hoisting the pilot moves away to the right and ground crew are warned to move to the left. On ICS failure, complete the present operation or abort the mission."
+          ]
+        },
+        {
+          "heading": "The static-electricity warning",
+          "paragraphs": [
+            "To discharge static electricity the hook must touch the ground before the cable is grasped, and any discharge cable used must be removed after the hoisting phase. If the hook hits the upper mechanical stop forcefully (failure of the automatic stop), abort the hoisting mission. On the 136 kg hoist (SUP.18) the door is opened on the pilot's order at 60 kt (111 km/h) IAS or less, heating and demisting are OFF, and power margin and parameters are checked before hoisting."
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "external-load",
+      "title": "External Load: Cargo Sling and Cargo Swing",
+      "subtitle": "A 750 kg Breeze Eastern sling and a 1400 kg swing on a pyramid frame — one 80 kt speed limit, non-human cargo only, and a mechanical release behind the electrical one.",
+      "rfmReference": "AS350 B3e Flight Manual SUP.12 (Cargo sling 750 kg, Breeze Eastern P/N 17149-1) and SUP.13 / 13.1 / 13.2 (Cargo swing 1400 kg); Section 9.1 (recommendations for cargo sling operations); Section 5.5 (hover performance with external loads).",
+      "sections": [
+        {
+          "heading": "Two load classes",
+          "paragraphs": [
+            "The cargo sling has a Breeze Eastern release unit and hook with a load sensor, allowing electrical and mechanical opening, a load indicator with zero-setting on the RH door pillar, a SLING pushbutton on the console, a release control on the cyclic grip (electrical) and a release handle under the collective (mechanical). The cargo swing is a suspended pyramid frame carrying a SIREN release unit (free rotation hook in SUP.13, fixed in SUP.13.1; SUP.13.2 uses an on-board release unit) with the same controls and a load indicator with a LD ON light."
+          ]
+        },
+        {
+          "heading": "Limitations",
+          "table": {
+            "columns": [
+              "Item",
+              "Cargo sling (SUP.12)",
+              "Cargo swing (SUP.13 family)"
+            ],
+            "rows": [
+              [
+                "Maximum load",
+                "750 kg (1660 lb)",
+                "1400 kg (3086 lb)"
+              ],
+              [
+                "Maximum all-up weight with external load",
+                "2800 kg (6173 lb) or the maximum weight allowing OGE hover, whichever is lower",
+                "Same"
+              ],
+              [
+                "Maximum IAS with external load",
+                "80 kt (148 km/h)",
+                "80 kt (148 km/h)"
+              ],
+              [
+                "Weight without external load",
+                "Basic manual minimum and maximum still apply",
+                "Same"
+              ]
+            ]
+          }
+        },
+        {
+          "heading": "Operating limitations",
+          "paragraphs": [
+            "The hook system is approved for external loads that are jettisonable and lifted free of land or water. Operation with a load that stays in contact with land, water or a fixed structure is not demonstrated by the manufacturer and needs approval from the responsible authority. Loads are limited to non-human external cargo. Flying with an empty net or unballasted sling is prohibited unless the operator's approved limits and procedures allow it. Two placards near the hook give the maximum sling load and the hook rigging. The pilot is responsible for setting the speed limit for the load and sling length, especially for bulky loads."
+          ]
+        },
+        {
+          "heading": "Emergency procedures",
+          "paragraphs": [
+            "Engine failure in cruise: autorotation procedure and release the load as soon as possible. In the hover: reduce collective for the height, release the load as soon as possible, control yaw, cyclic forward, and increase collective to cushion the touchdown. During hooking the pilot moves the aircraft away to the right, and ground crew are warned to move away to the left. If electrical jettisoning fails, actuate the collective-lever mechanical release.",
+            "Cargo swing only: if the LD ON light comes on or goes out untimely, in the hover during hooking or unhooking release the load electrically and check the light; if nothing changes abort the mission, and if the status changes continue. In cruise, make a precautionary approach to the nearest helipad first."
+          ]
+        },
+        {
+          "heading": "Normal procedures",
+          "paragraphs": [
+            "Heavy loads are delicate because a swinging load affects handling, so pilots are advised to train with gradually increasing loads. Use the shortest cable for a compact load, and keep a trailing cable or net well clear of the tail rotor when carrying no or a low load. A load attachment ring of the wrong size can cause loss or jamming of the load. In wet weather hook handlers wear thick rubber gloves, and static electricity is discharged by a conductor between the ground and the hook. Before use, SLING is switched ON, the load indicator is zeroed, and the hook is checked to open in both electrical and mechanical modes with the latch free and its return spring working. On takeoff, hook and secure the load, raise the collective very smoothly with the aircraft vertically above the load, dwell briefly with the cables tight, lift vertically and adopt an immediate forward climb attitude."
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "bambi-bucket",
+      "title": "Bambi Bucket",
+      "subtitle": "A 1225-litre fire-fighting bucket on the external load hook, with two speed limits and a foam option.",
+      "rfmReference": "AS350 B3e Flight Manual SUP.52 (Bambi Bucket model 2732S — General, Limitations, Emergency Procedures, Normal Procedures).",
+      "sections": [
+        {
+          "heading": "What it is",
+          "paragraphs": [
+            "The Bambi Bucket model 2732S is a fire-fighting system for carrying and releasing water or other liquids in flight, with a maximum capacity of 1225 litres. Its use needs the approval of the operational authorities; the supplement is not an operational authorisation. The bucket hangs from the external load carrying device on a shackle (SUP.13.1 or SUP.13.2) and is filled by plunging it into water. The whole load is dropped in one release. A SACKSAFOAM foam injection system is an option, with a control unit on the panel or console that only works with the cockpit lighting selector on DAY."
+          ]
+        },
+        {
+          "heading": "Controls",
+          "paragraphs": [
+            "The SLING pushbutton on the console switches the installation on. A cyclic-grip pushbutton releases the contents of the bucket. A second cyclic-grip pushbutton electrically releases the whole load from the hook, and a trigger under the collective releases it mechanically. A load indicator shows the weight on the hook."
+          ]
+        },
+        {
+          "heading": "Limitations",
+          "table": {
+            "columns": [
+              "Condition",
+              "VNE"
+            ],
+            "rows": [
+              [
+                "Empty bucket",
+                "90 kt (167 km/h)"
+              ],
+              [
+                "Bucket full or partly filled",
+                "80 kt (148 km/h)"
+              ]
+            ]
+          }
+        },
+        {
+          "heading": "Emergency jettison",
+          "paragraphs": [
+            "If the contents cannot be dumped with the cyclic-grip control, the pilot can set the bucket, full or empty, on the ground as with a sling load and ground staff release it with the load release device. If a helicopter problem requires the bucket to be jettisoned, release it with the sling electrical or mechanical release controls, ideally in a right-hand turn with a slight load factor."
+          ]
+        },
+        {
+          "heading": "Before takeoff",
+          "paragraphs": [
+            "Check that the bucket is correctly secured and that the manufacturer's plate on the shackle and the ballast inside the bucket face forward."
+          ]
+        }
+      ]
     }
   ]
 }

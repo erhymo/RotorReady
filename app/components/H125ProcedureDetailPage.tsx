@@ -119,7 +119,13 @@ export default function H125ProcedureDetailPage({
         className="fixed left-0 right-0 bottom-0 top-0 z-40 bg-white dark:bg-zinc-900 cursor-pointer"
         role="button"
         aria-label="Close procedure"
-        onClick={() => router.push(backHref)}
+        onClick={() => {
+          // Opened from the list with router.push, so closing is one step back.
+          // Pushing the list again stacked a second list entry above the
+          // procedure and made "Home" jump back into it.
+          if (typeof window !== "undefined" && window.history.length > 1) router.back();
+          else router.push(backHref);
+        }}
       >
         <div
           className="h-full w-full overflow-y-auto"

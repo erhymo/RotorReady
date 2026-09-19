@@ -111,7 +111,10 @@ export default function AW169ProcedureDetailPage() {
   // arbitrary timeout (that race lost on slower devices).
   const handleClose = () => {
     if (compactList) {
-      router.push("/training/procedures/aw169");
+      // Opened from the list with router.push: close by stepping back so the
+      // list is not stacked twice (which made "Home" return to this procedure).
+      if (typeof window !== "undefined" && window.history.length > 1) router.back();
+      else router.push("/training/procedures/aw169");
       return;
     }
     const v = sp.get("v") || "";

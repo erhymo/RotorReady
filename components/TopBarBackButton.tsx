@@ -10,6 +10,13 @@ export default function TopBarBackButton({ href, label = "Back", className = "" 
   const onClick = useCallback(
     (e: React.MouseEvent) => {
       e.preventDefault();
+      // A button labelled "Home" promises a destination, not "the previous page":
+      // with history-back it landed on whatever screen was opened last (e.g. the
+      // procedure that had just been closed).
+      if (label === "Home") {
+        router.push("/");
+        return;
+      }
       if (typeof window !== "undefined" && window.history.length > 1) {
         router.back();
       } else if (href) {
@@ -18,7 +25,7 @@ export default function TopBarBackButton({ href, label = "Back", className = "" 
         router.push("/");
       }
     },
-    [router, href]
+    [router, href, label]
   );
 
   return (

@@ -1,0 +1,1158 @@
+{
+  "items": [
+    {
+      "id": "H125-SUP-001",
+      "question": "What is the emergency floatation gear approved for?",
+      "options": [
+        "Ditching in all sea states",
+        "Emergency landing on water only, not ditching",
+        "Continuous flight over water",
+        "Takeoff from water"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "SUP.17: the gear is approved for emergency use (not for ditching according to JAR 27) to keep the rotorcraft upright for evacuation. Takeoff after an emergency landing on water is prohibited.",
+      "section": "supplements",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM B3 2B1 Supplements",
+      "reference": "SUP.17 §1–2",
+      "references": [
+        "RFM B3 2B1 Supplements – SUP.17 §1–2",
+        "SUP.17 §1–2",
+        "RFM B3 2B1 Supplements"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "floatation"
+      ],
+      "sectionId": "supplements",
+      "type": "single",
+      "source": "RFM B3 2B1 Supplements"
+    },
+    {
+      "id": "H125-SUP-002",
+      "question": "What is the maximum IAS with the floatation gear stowed and the system armed or the floats inflated, power on?",
+      "options": [
+        "120 kt (222 km/h)",
+        "100 kt (185 km/h)",
+        "135 kt (250 km/h)",
+        "155 kt (287 km/h)"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "SUP.17 §2: 135 kt (250 km/h) power on; 100 kt (185 km/h) with torque below 40 %.",
+      "section": "supplements",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM B3 2B1 Supplements",
+      "reference": "SUP.17 §2",
+      "references": [
+        "RFM B3 2B1 Supplements – SUP.17 §2",
+        "SUP.17 §2",
+        "RFM B3 2B1 Supplements"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "floatation"
+      ],
+      "sectionId": "supplements",
+      "type": "single",
+      "source": "RFM B3 2B1 Supplements"
+    },
+    {
+      "id": "H125-SUP-003",
+      "question": "What is the maximum IAS with the floatation gear armed or inflated and torque below 40 %?",
+      "options": [
+        "80 kt (148 km/h)",
+        "120 kt (222 km/h)",
+        "135 kt (250 km/h)",
+        "100 kt (185 km/h)"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "SUP.17 §2: 100 kt (185 km/h) with torque below 40 %.",
+      "section": "supplements",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM B3 2B1 Supplements",
+      "reference": "SUP.17 §2",
+      "references": [
+        "RFM B3 2B1 Supplements – SUP.17 §2",
+        "SUP.17 §2",
+        "RFM B3 2B1 Supplements"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "floatation"
+      ],
+      "sectionId": "supplements",
+      "type": "single",
+      "source": "RFM B3 2B1 Supplements"
+    },
+    {
+      "id": "H125-SUP-004",
+      "question": "What is the maximum altitude for float inflation?",
+      "options": [
+        "6600 ft (2000 m)",
+        "3000 ft (914 m)",
+        "5000 ft (1524 m)",
+        "8000 ft (2438 m)"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "SUP.17 §2: maximum altitude for float inflation 6600 ft (2000 m).",
+      "section": "supplements",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM B3 2B1 Supplements",
+      "reference": "SUP.17 §2",
+      "references": [
+        "RFM B3 2B1 Supplements – SUP.17 §2",
+        "SUP.17 §2",
+        "RFM B3 2B1 Supplements"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "floatation"
+      ],
+      "sectionId": "supplements",
+      "type": "single",
+      "source": "RFM B3 2B1 Supplements"
+    },
+    {
+      "id": "H125-SUP-005",
+      "question": "Below what height above water must the emergency floatation gear always be armed?",
+      "options": [
+        "200 ft (61 m)",
+        "400 ft (122 m)",
+        "600 ft (183 m)",
+        "1000 ft (305 m)"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "SUP.17 §2: when flying below 400 ft (122 m) above water the gear must always be armed.",
+      "section": "supplements",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM B3 2B1 Supplements",
+      "reference": "SUP.17 §2",
+      "references": [
+        "RFM B3 2B1 Supplements – SUP.17 §2",
+        "SUP.17 §2",
+        "RFM B3 2B1 Supplements"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "floatation"
+      ],
+      "sectionId": "supplements",
+      "type": "single",
+      "source": "RFM B3 2B1 Supplements"
+    },
+    {
+      "id": "H125-SUP-006",
+      "question": "What is the recommended IAS for firing the floats?",
+      "options": [
+        "Below 40 kt (74 km/h)",
+        "Below 100 kt (185 km/h)",
+        "Below 80 kt (148 km/h)",
+        "Any speed up to VNE"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "SUP.17 §3: recommended firing IAS is below 80 kt (148 km/h); above 80 KIAS a pitch-down deceleration can occur.",
+      "section": "supplements",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM B3 2B1 Supplements",
+      "reference": "SUP.17 §3",
+      "references": [
+        "RFM B3 2B1 Supplements – SUP.17 §3",
+        "SUP.17 §3",
+        "RFM B3 2B1 Supplements"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "floatation"
+      ],
+      "sectionId": "supplements",
+      "type": "single",
+      "source": "RFM B3 2B1 Supplements"
+    },
+    {
+      "id": "H125-SUP-007",
+      "question": "What is the minimum weight with the floatation gear when OAT is below 0 °C?",
+      "options": [
+        "1310 kg (2888 lb)",
+        "1400 kg (3086 lb)",
+        "1600 kg (3527 lb)",
+        "1480 kg (3263 lb)"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "SUP.17 §2: 1480 kg (3263 lb), to comply with the minimum rotor rpm in case of engine failure.",
+      "section": "supplements",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM B3 2B1 Supplements",
+      "reference": "SUP.17 §2",
+      "references": [
+        "RFM B3 2B1 Supplements – SUP.17 §2",
+        "SUP.17 §2",
+        "RFM B3 2B1 Supplements"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "floatation",
+        "weight"
+      ],
+      "sectionId": "supplements",
+      "type": "single",
+      "source": "RFM B3 2B1 Supplements"
+    },
+    {
+      "id": "H125-SUP-008",
+      "question": "Stability after an emergency landing on water was demonstrated up to which wave height?",
+      "options": [
+        "2.5 m significant wave height (sea state 4)",
+        "1 m (sea state 2)",
+        "4 m (sea state 5)",
+        "No limit was demonstrated"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "SUP.17 §5: up to a significant wave height of 2.5 m, sea state 4 (WMO).",
+      "section": "supplements",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM B3 2B1 Supplements",
+      "reference": "SUP.17 §5",
+      "references": [
+        "RFM B3 2B1 Supplements – SUP.17 §5",
+        "SUP.17 §5",
+        "RFM B3 2B1 Supplements"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "floatation"
+      ],
+      "sectionId": "supplements",
+      "type": "single",
+      "source": "RFM B3 2B1 Supplements"
+    },
+    {
+      "id": "H125-SUP-009",
+      "question": "What is the maximum weight of the cargo sling load?",
+      "options": [
+        "500 kg (1102 lb)",
+        "750 kg (1660 lb)",
+        "1400 kg (3086 lb)",
+        "2800 kg (6173 lb)"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "SUP.12 §2.1: maximum authorized sling load weight 750 kg (1660 lb).",
+      "section": "supplements",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM B3 2B1 Supplements",
+      "reference": "SUP.12 §2.1",
+      "references": [
+        "RFM B3 2B1 Supplements – SUP.12 §2.1",
+        "SUP.12 §2.1",
+        "RFM B3 2B1 Supplements"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "external-load"
+      ],
+      "sectionId": "supplements",
+      "type": "single",
+      "source": "RFM B3 2B1 Supplements"
+    },
+    {
+      "id": "H125-SUP-010",
+      "question": "What is the maximum weight of the cargo swing load?",
+      "options": [
+        "750 kg (1660 lb)",
+        "1000 kg (2205 lb)",
+        "1400 kg (3086 lb)",
+        "2800 kg (6173 lb)"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "SUP.13 §2.1: maximum authorized swing load weight 1400 kg (3086 lb).",
+      "section": "supplements",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM B3 2B1 Supplements",
+      "reference": "SUP.13 §2.1",
+      "references": [
+        "RFM B3 2B1 Supplements – SUP.13 §2.1",
+        "SUP.13 §2.1",
+        "RFM B3 2B1 Supplements"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "external-load"
+      ],
+      "sectionId": "supplements",
+      "type": "single",
+      "source": "RFM B3 2B1 Supplements"
+    },
+    {
+      "id": "H125-SUP-011",
+      "question": "What is the maximum all-up weight with an external load?",
+      "options": [
+        "2250 kg (4961 lb)",
+        "2370 kg (5225 lb) in all cases",
+        "3000 kg (6614 lb)",
+        "2800 kg (6173 lb) or the OGE-hover maximum, whichever is lower"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "SUP.12/13 §2.1: 2800 kg (6173 lb) or the maximum all-up weight allowing OGE hover, the lower of the two.",
+      "section": "supplements",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM B3 2B1 Supplements",
+      "reference": "SUP.12/13 §2.1",
+      "references": [
+        "RFM B3 2B1 Supplements – SUP.12/13 §2.1",
+        "SUP.12/13 §2.1",
+        "RFM B3 2B1 Supplements"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "external-load",
+        "weight"
+      ],
+      "sectionId": "supplements",
+      "type": "single",
+      "source": "RFM B3 2B1 Supplements"
+    },
+    {
+      "id": "H125-SUP-012",
+      "question": "What is the absolute maximum IAS with an external load?",
+      "options": [
+        "80 kt (148 km/h)",
+        "60 kt (111 km/h)",
+        "100 kt (185 km/h)",
+        "120 kt (222 km/h)"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "SUP.12/13 §2.3: 80 kt (148 km/h); the pilot sets the limit for the load and sling length.",
+      "section": "supplements",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM B3 2B1 Supplements",
+      "reference": "SUP.12/13 §2.3",
+      "references": [
+        "RFM B3 2B1 Supplements – SUP.12/13 §2.3",
+        "SUP.12/13 §2.3",
+        "RFM B3 2B1 Supplements"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "external-load"
+      ],
+      "sectionId": "supplements",
+      "type": "single",
+      "source": "RFM B3 2B1 Supplements"
+    },
+    {
+      "id": "H125-SUP-013",
+      "question": "External loads are limited to:",
+      "options": [
+        "Cargo and one crew member",
+        "Non-human external cargo only",
+        "Cargo and passengers with harness",
+        "Any load below 750 kg"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "SUP.12/13 §2.4: external loads are limited to Non Human External Cargo (NHEC) only.",
+      "section": "supplements",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM B3 2B1 Supplements",
+      "reference": "SUP.12/13 §2.4",
+      "references": [
+        "RFM B3 2B1 Supplements – SUP.12/13 §2.4",
+        "SUP.12/13 §2.4",
+        "RFM B3 2B1 Supplements"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "external-load"
+      ],
+      "sectionId": "supplements",
+      "type": "single",
+      "source": "RFM B3 2B1 Supplements"
+    },
+    {
+      "id": "H125-SUP-014",
+      "question": "What is the emergency action if electrical load jettisoning fails?",
+      "options": [
+        "Land immediately",
+        "Cut the sling cable with the hand cutter",
+        "Actuate the collective lever mechanical release",
+        "Switch SLING off and on"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "SUP.12/13 §3.2: collective lever mechanical release — ACTUATE.",
+      "section": "supplements",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM B3 2B1 Supplements",
+      "reference": "SUP.12/13 §3.2",
+      "references": [
+        "RFM B3 2B1 Supplements – SUP.12/13 §3.2",
+        "SUP.12/13 §3.2",
+        "RFM B3 2B1 Supplements"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "external-load"
+      ],
+      "sectionId": "supplements",
+      "type": "single",
+      "source": "RFM B3 2B1 Supplements"
+    },
+    {
+      "id": "H125-SUP-015",
+      "question": "An engine fails in cruise with an external load. What is done?",
+      "options": [
+        "Keep the load until landing",
+        "Reduce speed to 40 kt then release",
+        "Release the load only in the hover",
+        "Apply the autorotation procedure and release the load as soon as possible"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "SUP.12/13 §3.1: autorotation procedure — APPLY; external load — RELEASE as soon as possible.",
+      "section": "supplements",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM B3 2B1 Supplements",
+      "reference": "SUP.12/13 §3.1",
+      "references": [
+        "RFM B3 2B1 Supplements – SUP.12/13 §3.1",
+        "SUP.12/13 §3.1",
+        "RFM B3 2B1 Supplements"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "external-load"
+      ],
+      "sectionId": "supplements",
+      "type": "single",
+      "source": "RFM B3 2B1 Supplements"
+    },
+    {
+      "id": "H125-SUP-016",
+      "question": "What are the maximum loads on the hoist cable for SUP.18 and SUP.19?",
+      "options": [
+        "136 kg (300 lb) and 204 kg (450 lb)",
+        "100 kg (220 lb) and 150 kg (331 lb)",
+        "136 kg (300 lb) for both",
+        "204 kg (450 lb) for both"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "SUP.18 §2.2: 136 kg (300 lb). SUP.19 §2.2: 204 kg (450 lb).",
+      "section": "supplements",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM B3 2B1 Supplements",
+      "reference": "SUP.18 / SUP.19 §2.2",
+      "references": [
+        "RFM B3 2B1 Supplements – SUP.18 / SUP.19 §2.2",
+        "SUP.18 / SUP.19 §2.2",
+        "RFM B3 2B1 Supplements"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "hoist"
+      ],
+      "sectionId": "supplements",
+      "type": "single",
+      "source": "RFM B3 2B1 Supplements"
+    },
+    {
+      "id": "H125-SUP-017",
+      "question": "What is the minimum crew for hoist operations?",
+      "options": [
+        "Two pilots",
+        "One pilot and one hoist operator",
+        "One pilot only",
+        "One pilot and two crew members"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "SUP.18/19 §2.1: one pilot and one hoist operator.",
+      "section": "supplements",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM B3 2B1 Supplements",
+      "reference": "SUP.18/19 §2.1",
+      "references": [
+        "RFM B3 2B1 Supplements – SUP.18/19 §2.1",
+        "SUP.18/19 §2.1",
+        "RFM B3 2B1 Supplements"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "hoist"
+      ],
+      "sectionId": "supplements",
+      "type": "single",
+      "source": "RFM B3 2B1 Supplements"
+    },
+    {
+      "id": "H125-SUP-018",
+      "question": "What is the VNE when returning to base after a hoist failure with the cable slightly inclined?",
+      "options": [
+        "40 kt (74 km/h)",
+        "80 kt (148 km/h)",
+        "60 kt (111 km/h)",
+        "100 kt (185 km/h)"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "SUP.18/19 §3.1: return to base with a VNE of 60 kt (111 km/h).",
+      "section": "supplements",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM B3 2B1 Supplements",
+      "reference": "SUP.18/19 §3.1",
+      "references": [
+        "RFM B3 2B1 Supplements – SUP.18/19 §3.1",
+        "SUP.18/19 §3.1",
+        "RFM B3 2B1 Supplements"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "hoist"
+      ],
+      "sectionId": "supplements",
+      "type": "single",
+      "source": "RFM B3 2B1 Supplements"
+    },
+    {
+      "id": "H125-SUP-019",
+      "question": "Landing with a load suspended on the hoist cable is:",
+      "options": [
+        "Permitted below 5 kt",
+        "Permitted with the cable cutter armed",
+        "Permitted on a helideck only",
+        "Prohibited"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "SUP.18/19 §2: landing with a load suspended on the hoist cable is prohibited.",
+      "section": "supplements",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM B3 2B1 Supplements",
+      "reference": "SUP.18/19 §2",
+      "references": [
+        "RFM B3 2B1 Supplements – SUP.18/19 §2",
+        "SUP.18/19 §2",
+        "RFM B3 2B1 Supplements"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "hoist"
+      ],
+      "sectionId": "supplements",
+      "type": "single",
+      "source": "RFM B3 2B1 Supplements"
+    },
+    {
+      "id": "H125-SUP-020",
+      "question": "On the Breeze 136 kg hoist, how long must the operator wait after each lowering or raising?",
+      "options": [
+        "30 sec",
+        "10 sec",
+        "1 min",
+        "2 min"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "SUP.18 §2.3: after each operation (lowering or raising) wait 30 sec; after 3 complete cycles stopping for 40 min is recommended.",
+      "section": "supplements",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM B3 2B1 Supplements",
+      "reference": "SUP.18 §2.3",
+      "references": [
+        "RFM B3 2B1 Supplements – SUP.18 §2.3",
+        "SUP.18 §2.3",
+        "RFM B3 2B1 Supplements"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "hoist"
+      ],
+      "sectionId": "supplements",
+      "type": "single",
+      "source": "RFM B3 2B1 Supplements"
+    },
+    {
+      "id": "H125-SUP-021",
+      "question": "Why must the hoist hook touch the ground before the cable is grasped?",
+      "options": [
+        "To check the cable tension",
+        "To discharge static electricity from the aircraft",
+        "To zero the load indicator",
+        "To reset the up-travel limit"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "SUP.18/19 §4.4.2: the hook shall have ground contact before the cable is grasped to discharge possible static electricity.",
+      "section": "supplements",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM B3 2B1 Supplements",
+      "reference": "SUP.18/19 §4.4.2",
+      "references": [
+        "RFM B3 2B1 Supplements – SUP.18/19 §4.4.2",
+        "SUP.18/19 §4.4.2",
+        "RFM B3 2B1 Supplements"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "hoist"
+      ],
+      "sectionId": "supplements",
+      "type": "single",
+      "source": "RFM B3 2B1 Supplements"
+    },
+    {
+      "id": "H125-SUP-022",
+      "question": "What is the maximum capacity of the Bambi Bucket model 2732S?",
+      "options": [
+        "800 litres",
+        "1000 litres",
+        "1225 litres",
+        "1500 litres"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "SUP.52 §1: maximum capacity 1225 litres.",
+      "section": "supplements",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM B3 2B1 Supplements",
+      "reference": "SUP.52 §1",
+      "references": [
+        "RFM B3 2B1 Supplements – SUP.52 §1",
+        "SUP.52 §1",
+        "RFM B3 2B1 Supplements"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "bambi"
+      ],
+      "sectionId": "supplements",
+      "type": "single",
+      "source": "RFM B3 2B1 Supplements"
+    },
+    {
+      "id": "H125-SUP-023",
+      "question": "What is the VNE with an empty Bambi Bucket?",
+      "options": [
+        "80 kt (148 km/h)",
+        "100 kt (185 km/h)",
+        "120 kt (222 km/h)",
+        "90 kt (167 km/h)"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "SUP.52 §2: empty bucket VNE = 90 kt (167 km/h).",
+      "section": "supplements",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM B3 2B1 Supplements",
+      "reference": "SUP.52 §2",
+      "references": [
+        "RFM B3 2B1 Supplements – SUP.52 §2",
+        "SUP.52 §2",
+        "RFM B3 2B1 Supplements"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "bambi"
+      ],
+      "sectionId": "supplements",
+      "type": "single",
+      "source": "RFM B3 2B1 Supplements"
+    },
+    {
+      "id": "H125-SUP-024",
+      "question": "What is the VNE with the Bambi Bucket full or partly filled?",
+      "options": [
+        "80 kt (148 km/h)",
+        "60 kt (111 km/h)",
+        "90 kt (167 km/h)",
+        "100 kt (185 km/h)"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "SUP.52 §2: full or partly filled VNE = 80 kt (148 km/h).",
+      "section": "supplements",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM B3 2B1 Supplements",
+      "reference": "SUP.52 §2",
+      "references": [
+        "RFM B3 2B1 Supplements – SUP.52 §2",
+        "SUP.52 §2",
+        "RFM B3 2B1 Supplements"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "bambi"
+      ],
+      "sectionId": "supplements",
+      "type": "single",
+      "source": "RFM B3 2B1 Supplements"
+    },
+    {
+      "id": "H125-SUP-025",
+      "question": "If the bucket contents cannot be dumped with the cyclic-grip control, the pilot may:",
+      "options": [
+        "Continue to the fire and try again",
+        "Place the bucket on the ground and have ground staff unhook it",
+        "Release the whole load over people",
+        "Fly to VNE to shake it loose"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "SUP.52 §3.1: place the bucket, filled or empty, on the ground as with a sling load; ground staff unhook it via the load release device.",
+      "section": "supplements",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM B3 2B1 Supplements",
+      "reference": "SUP.52 §3.1",
+      "references": [
+        "RFM B3 2B1 Supplements – SUP.52 §3.1",
+        "SUP.52 §3.1",
+        "RFM B3 2B1 Supplements"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "bambi"
+      ],
+      "sectionId": "supplements",
+      "type": "single",
+      "source": "RFM B3 2B1 Supplements"
+    },
+    {
+      "id": "H125-SUP-026",
+      "question": "With the sand filter installed, heating and demisting must be:",
+      "options": [
+        "ON when P2 is ON",
+        "ON below 0 °C",
+        "OFF when P2 is ON",
+        "Set to demist only"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "SUP.14 §2: heating and demisting systems must be switched off when P2 is ON.",
+      "section": "supplements",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM B3 2B1 Supplements",
+      "reference": "SUP.14 §2",
+      "references": [
+        "RFM B3 2B1 Supplements – SUP.14 §2",
+        "SUP.14 §2",
+        "RFM B3 2B1 Supplements"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "sand-filter"
+      ],
+      "sectionId": "supplements",
+      "type": "single",
+      "source": "RFM B3 2B1 Supplements"
+    },
+    {
+      "id": "H125-SUP-027",
+      "question": "With the sand filter, when must P2 be OFF?",
+      "options": [
+        "In sand-laden air only",
+        "Above 5000 ft only",
+        "Whenever N1 is above 90 %",
+        "In visible moisture with OAT below 0 °C"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "SUP.14 §2: P2 OFF when visible moisture and OAT < 0 °C; flight in falling snow is permitted with P2 OFF.",
+      "section": "supplements",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM B3 2B1 Supplements",
+      "reference": "SUP.14 §2",
+      "references": [
+        "RFM B3 2B1 Supplements – SUP.14 §2",
+        "SUP.14 §2",
+        "RFM B3 2B1 Supplements"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "sand-filter"
+      ],
+      "sectionId": "supplements",
+      "type": "single",
+      "source": "RFM B3 2B1 Supplements"
+    },
+    {
+      "id": "H125-SUP-028",
+      "question": "What is the minimum height for hands-off operation of the SFIM AFCS?",
+      "options": [
+        "400 ft (120 m)",
+        "200 ft (61 m)",
+        "300 ft (91 m)",
+        "500 ft (152 m)"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "SUP.16 §2.2: minimum height for AFCS hands-off operation 400 ft (120 m).",
+      "section": "supplements",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM B3 2B1 Supplements",
+      "reference": "SUP.16 §2.2",
+      "references": [
+        "RFM B3 2B1 Supplements – SUP.16 §2.2",
+        "SUP.16 §2.2",
+        "RFM B3 2B1 Supplements"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "afcs"
+      ],
+      "sectionId": "supplements",
+      "type": "single",
+      "source": "RFM B3 2B1 Supplements"
+    },
+    {
+      "id": "H125-SUP-029",
+      "question": "After a total electrical power failure, the AFCS:",
+      "options": [
+        "Stays engaged on battery power",
+        "Disengages automatically and cannot be re-engaged",
+        "Can be re-engaged with the INV pushbutton",
+        "Reverts to attitude hold only"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "SUP.16 §3.8.2: in the event of total power supply failure the AFCS disengages automatically and cannot be re-engaged.",
+      "section": "supplements",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM B3 2B1 Supplements",
+      "reference": "SUP.16 §3.8.2",
+      "references": [
+        "RFM B3 2B1 Supplements – SUP.16 §3.8.2",
+        "SUP.16 §3.8.2",
+        "RFM B3 2B1 Supplements"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "afcs"
+      ],
+      "sectionId": "supplements",
+      "type": "single",
+      "source": "RFM B3 2B1 Supplements"
+    },
+    {
+      "id": "H125-SUP-030",
+      "question": "With the dual hydraulic system, what applies to HYD1 or HYD2 with SERVO?",
+      "options": [
+        "Bank below 45° and IAS below 130 kt",
+        "No limits; one circuit is enough",
+        "Bank below 30° and IAS below 110 kt (204 km/h) or VNE if less",
+        "Land immediately"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "SUP.23 §3.2.2: keep a level attitude, avoid abrupt maneuvers, bank below 30°, IAS below 110 kt (204 km/h) or VNE if less; one remaining circuit allows continued safe flight and landing.",
+      "section": "supplements",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM B3 2B1 Supplements",
+      "reference": "SUP.23 §3.2.2",
+      "references": [
+        "RFM B3 2B1 Supplements – SUP.23 §3.2.2",
+        "SUP.23 §3.2.2",
+        "RFM B3 2B1 Supplements"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "dual-hydraulic"
+      ],
+      "sectionId": "supplements",
+      "type": "single",
+      "source": "RFM B3 2B1 Supplements"
+    },
+    {
+      "id": "H125-SUP-031",
+      "question": "With the dual hydraulic system, LIMIT on its own means:",
+      "options": [
+        "Distributor valve jam — land as soon as practicable",
+        "Loss of both circuits — land immediately",
+        "Tail rotor hydraulic power lost",
+        "Main servo unit maximum load reached — reduce power and speed or load factor and continue flight"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "SUP.23 §3.2.2: LIMIT = main servo unit maximum load reached; reduce power on the collective and speed or load factor on the cyclic; CONTINUE FLIGHT.",
+      "section": "supplements",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM B3 2B1 Supplements",
+      "reference": "SUP.23 §3.2.2",
+      "references": [
+        "RFM B3 2B1 Supplements – SUP.23 §3.2.2",
+        "SUP.23 §3.2.2",
+        "RFM B3 2B1 Supplements"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "dual-hydraulic"
+      ],
+      "sectionId": "supplements",
+      "type": "single",
+      "source": "RFM B3 2B1 Supplements"
+    },
+    {
+      "id": "H125-SUP-032",
+      "question": "In hydraulic failure training, when must [ACCU TST] never be activated?",
+      "options": [
+        "When the hydraulic cut-off switch is in the OFF position",
+        "Above 60 KIAS",
+        "During the first step only",
+        "When HYDR is not lit"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "SUP.7 §4: the [ACCU TST] pushbutton shall never be activated when the hydraulic cut-off switch (RH collective grip) is in OFF position.",
+      "section": "supplements",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM B3 2B1 Supplements",
+      "reference": "SUP.7 §4",
+      "references": [
+        "RFM B3 2B1 Supplements – SUP.7 §4",
+        "SUP.7 §4",
+        "RFM B3 2B1 Supplements"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "training"
+      ],
+      "sectionId": "supplements",
+      "type": "single",
+      "source": "RFM B3 2B1 Supplements"
+    },
+    {
+      "id": "H125-SUP-033",
+      "question": "What is prohibited with hydraulics off during hydraulic failure training?",
+      "options": [
+        "Any turn",
+        "Hover and low-speed maneuvers, and bank angles above 30°",
+        "Speeds above 40 KIAS",
+        "Flight below 1000 ft AGL"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "SUP.7 §2.2: hover and low speed maneuvers are prohibited with hydraulic off; angle of bank more than 30° is prohibited.",
+      "section": "supplements",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM B3 2B1 Supplements",
+      "reference": "SUP.7 §2.2",
+      "references": [
+        "RFM B3 2B1 Supplements – SUP.7 §2.2",
+        "SUP.7 §2.2",
+        "RFM B3 2B1 Supplements"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "training"
+      ],
+      "sectionId": "supplements",
+      "type": "single",
+      "source": "RFM B3 2B1 Supplements"
+    },
+    {
+      "id": "H125-SUP-034",
+      "question": "In autorotation landing training, how is an engine failure simulated?",
+      "options": [
+        "Engine starting selector to OFF",
+        "Fuel shut-off valve closed",
+        "Twist grip to IDLE",
+        "Collective full up"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "SUP.6 §1/§4.1: reduce power, then twist grip to IDLE. The twist grip can be turned back to FLIGHT quickly at any NR.",
+      "section": "supplements",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM B3 2B1 Supplements",
+      "reference": "SUP.6 §4.1",
+      "references": [
+        "RFM B3 2B1 Supplements – SUP.6 §4.1",
+        "SUP.6 §4.1",
+        "RFM B3 2B1 Supplements"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "training"
+      ],
+      "sectionId": "supplements",
+      "type": "single",
+      "source": "RFM B3 2B1 Supplements"
+    },
+    {
+      "id": "H125-SUP-035",
+      "question": "What does SUP.28 require for a maximum internal weight of 2370 kg (5225 lb)?",
+      "options": [
+        "Increased takeoff power only",
+        "The crash-resistant fuel system",
+        "The 200 A starter generator",
+        "High landing gear and the dual hydraulic system"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "SUP.28 §1: allowed when the aircraft has both the high landing gear and the dual hydraulic system.",
+      "section": "supplements",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM B3 2B1 Supplements",
+      "reference": "SUP.28 §1",
+      "references": [
+        "RFM B3 2B1 Supplements – SUP.28 §1",
+        "SUP.28 §1",
+        "RFM B3 2B1 Supplements"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "weight"
+      ],
+      "sectionId": "supplements",
+      "type": "single",
+      "source": "RFM B3 2B1 Supplements"
+    },
+    {
+      "id": "H125-SUP-036",
+      "question": "What replaces the basic 150 A starter generator under SUP.29?",
+      "options": [
+        "An optional 200 A starter generator",
+        "A second battery",
+        "A 100 A generator",
+        "An external power unit"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "SUP.29: the 200 A starter generator is optional and replaces the basic 150 A unit for increased electrical capacity.",
+      "section": "supplements",
+      "modelIds": [
+        "H125_AS350_B3_2B1"
+      ],
+      "manual": "RFM B3 2B1 Supplements",
+      "reference": "SUP.29 §1",
+      "references": [
+        "RFM B3 2B1 Supplements – SUP.29 §1",
+        "SUP.29 §1",
+        "RFM B3 2B1 Supplements"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "electrical"
+      ],
+      "sectionId": "supplements",
+      "type": "single",
+      "source": "RFM B3 2B1 Supplements"
+    }
+  ]
+}

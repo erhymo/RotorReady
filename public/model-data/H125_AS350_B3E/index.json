@@ -17,7 +17,7 @@
       "id": "limitations",
       "title": "Limitations",
       "file": "sections/limitations.json",
-      "count": 59
+      "count": 76
     },
     {
       "id": "emergency_procedures",
@@ -30,6 +30,18 @@
       "title": "Normal Procedures",
       "file": "sections/normal_procedures.json",
       "count": 96
+    },
+    {
+      "id": "weight_and_balance",
+      "title": "Weight and Balance",
+      "file": "sections/weight_and_balance.json",
+      "count": 15
+    },
+    {
+      "id": "supplements",
+      "title": "Supplements",
+      "file": "sections/supplements.json",
+      "count": 37
     },
     {
       "id": "air_law",

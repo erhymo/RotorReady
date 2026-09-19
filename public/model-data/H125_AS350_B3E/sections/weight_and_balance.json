@@ -1,0 +1,487 @@
+{
+  "items": [
+    {
+      "id": "H125-WB-001",
+      "question": "Where is the CG datum located?",
+      "options": [
+        "At the main rotor head center line",
+        "3.40 m (133.8 in) forward of the main rotor head center line",
+        "3.40 m aft of the main rotor head center line",
+        "At the cabin floor front edge"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Section 2.2: the datum is located 3.40 m (133.8 in) forward of the main rotor head center line.",
+      "section": "weight_and_balance",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM B3e Section 2/4/7",
+      "reference": "Section 2.2",
+      "references": [
+        "RFM B3e Section 2/4/7 – Section 2.2",
+        "Section 2.2",
+        "RFM B3e Section 2/4/7"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "cg"
+      ],
+      "sectionId": "weight_and_balance",
+      "type": "single",
+      "source": "RFM B3e Section 2/4/7"
+    },
+    {
+      "id": "H125-WB-002",
+      "question": "What is the maximum internal weight for flight, takeoff and landing?",
+      "options": [
+        "2150 kg (4740 lb)",
+        "2370 kg (5225 lb)",
+        "2250 kg (4961 lb)",
+        "2450 kg (5401 lb)"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Section 2.2 §1: 2250 kg (4961 lb).",
+      "section": "weight_and_balance",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM B3e Section 2/4/7",
+      "reference": "Section 2.2 §1",
+      "references": [
+        "RFM B3e Section 2/4/7 – Section 2.2 §1",
+        "Section 2.2 §1",
+        "RFM B3e Section 2/4/7"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "weight"
+      ],
+      "sectionId": "weight_and_balance",
+      "type": "single",
+      "source": "RFM B3e Section 2/4/7"
+    },
+    {
+      "id": "H125-WB-003",
+      "question": "What is the minimum internal weight for flight, takeoff and landing?",
+      "options": [
+        "1200 kg (2646 lb)",
+        "1400 kg (3086 lb)",
+        "1480 kg (3263 lb)",
+        "1310 kg (2888 lb)"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "Section 2.2 §1: 1310 kg (2888 lb).",
+      "section": "weight_and_balance",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM B3e Section 2/4/7",
+      "reference": "Section 2.2 §1",
+      "references": [
+        "RFM B3e Section 2/4/7 – Section 2.2 §1",
+        "Section 2.2 §1",
+        "RFM B3e Section 2/4/7"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "weight"
+      ],
+      "sectionId": "weight_and_balance",
+      "type": "single",
+      "source": "RFM B3e Section 2/4/7"
+    },
+    {
+      "id": "H125-WB-004",
+      "question": "What is the forward longitudinal CG limit at the maximum weight of 2250 kg?",
+      "options": [
+        "3.21 m",
+        "3.17 m",
+        "3.30 m",
+        "3.425 m"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Section 2.2 Figure 1: the forward limit is 3.17 m at 2000 kg and below, moving to 3.21 m at 2250 kg.",
+      "section": "weight_and_balance",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM B3e Section 2/4/7",
+      "reference": "Section 2.2 Figure 1",
+      "references": [
+        "RFM B3e Section 2/4/7 – Section 2.2 Figure 1",
+        "Section 2.2 Figure 1",
+        "RFM B3e Section 2/4/7"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "cg"
+      ],
+      "sectionId": "weight_and_balance",
+      "type": "single",
+      "source": "RFM B3e Section 2/4/7"
+    },
+    {
+      "id": "H125-WB-005",
+      "question": "Up to what weight does the forward CG limit stay at 3.17 m?",
+      "options": [
+        "1750 kg",
+        "2000 kg",
+        "2150 kg",
+        "2250 kg"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Section 2.2 Figure 1: the forward limit is 3.17 m up to 2000 kg, then moves aft to 3.21 m at 2250 kg.",
+      "section": "weight_and_balance",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM B3e Section 2/4/7",
+      "reference": "Section 2.2 Figure 1",
+      "references": [
+        "RFM B3e Section 2/4/7 – Section 2.2 Figure 1",
+        "Section 2.2 Figure 1",
+        "RFM B3e Section 2/4/7"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "cg"
+      ],
+      "sectionId": "weight_and_balance",
+      "type": "single",
+      "source": "RFM B3e Section 2/4/7"
+    },
+    {
+      "id": "H125-WB-006",
+      "question": "What is the rearward longitudinal CG limit at 2250 kg?",
+      "options": [
+        "3.21 m",
+        "3.40 m",
+        "3.425 m",
+        "3.50 m"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Section 2.2 Figure 1: the rearward limit is 3.425 m at 2250 kg and moves aft as weight decreases.",
+      "section": "weight_and_balance",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM B3e Section 2/4/7",
+      "reference": "Section 2.2 Figure 1",
+      "references": [
+        "RFM B3e Section 2/4/7 – Section 2.2 Figure 1",
+        "Section 2.2 Figure 1",
+        "RFM B3e Section 2/4/7"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "cg"
+      ],
+      "sectionId": "weight_and_balance",
+      "type": "single",
+      "source": "RFM B3e Section 2/4/7"
+    },
+    {
+      "id": "H125-WB-007",
+      "question": "What is the rearward CG limit at the minimum weight of 1310 kg?",
+      "options": [
+        "3.425 m",
+        "3.40 m",
+        "3.60 m",
+        "3.498 m"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "Section 2.2 Figure 1: the rearward limit reaches 3.498 m at the minimum weight.",
+      "section": "weight_and_balance",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM B3e Section 2/4/7",
+      "reference": "Section 2.2 Figure 1",
+      "references": [
+        "RFM B3e Section 2/4/7 – Section 2.2 Figure 1",
+        "Section 2.2 Figure 1",
+        "RFM B3e Section 2/4/7"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "cg"
+      ],
+      "sectionId": "weight_and_balance",
+      "type": "single",
+      "source": "RFM B3e Section 2/4/7"
+    },
+    {
+      "id": "H125-WB-008",
+      "question": "What is the maximum left lateral CG?",
+      "options": [
+        "0.18 m (7.08 in)",
+        "0.08 m (3.15 in)",
+        "0.14 m (5.51 in)",
+        "0.25 m (9.84 in)"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Section 2.2 §3: maximum left CG 0.18 m (7.08 in), measured from the plane of symmetry.",
+      "section": "weight_and_balance",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM B3e Section 2/4/7",
+      "reference": "Section 2.2 §3",
+      "references": [
+        "RFM B3e Section 2/4/7 – Section 2.2 §3",
+        "Section 2.2 §3",
+        "RFM B3e Section 2/4/7"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "cg"
+      ],
+      "sectionId": "weight_and_balance",
+      "type": "single",
+      "source": "RFM B3e Section 2/4/7"
+    },
+    {
+      "id": "H125-WB-009",
+      "question": "What is the maximum right lateral CG?",
+      "options": [
+        "0.08 m (3.15 in)",
+        "0.14 m (5.51 in)",
+        "0.18 m (7.08 in)",
+        "0.20 m (7.87 in)"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Section 2.2 §3: maximum right CG 0.14 m (5.51 in).",
+      "section": "weight_and_balance",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM B3e Section 2/4/7",
+      "reference": "Section 2.2 §3",
+      "references": [
+        "RFM B3e Section 2/4/7 – Section 2.2 §3",
+        "Section 2.2 §3",
+        "RFM B3e Section 2/4/7"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "cg"
+      ],
+      "sectionId": "weight_and_balance",
+      "type": "single",
+      "source": "RFM B3e Section 2/4/7"
+    },
+    {
+      "id": "H125-WB-010",
+      "question": "What is the maximum fuel tank capacity?",
+      "options": [
+        "500 litres (395 kg / 871 lb)",
+        "540 litres (540 kg / 1191 lb)",
+        "540 litres (427 kg / 941 lb)",
+        "600 litres (474 kg / 1045 lb)"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Section 4.7: maximum capacity 540 litres (142.7 US gal, 427 kg, 941 lb). The unusable quantity is reached at zero on the fuel gauge.",
+      "section": "weight_and_balance",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM B3e Section 2/4/7",
+      "reference": "Section 4.7",
+      "references": [
+        "RFM B3e Section 2/4/7 – Section 4.7",
+        "Section 4.7",
+        "RFM B3e Section 2/4/7"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "fuel",
+        "weight"
+      ],
+      "sectionId": "weight_and_balance",
+      "type": "single",
+      "source": "RFM B3e Section 2/4/7"
+    },
+    {
+      "id": "H125-WB-011",
+      "question": "What fuel density do the kg quantity and kg/h flow indications assume?",
+      "options": [
+        "0.72 kg/l",
+        "0.85 kg/l",
+        "1.00 kg/l",
+        "0.79 kg/l"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "Section 4.7: fuel quantity and fuel flow in kg and kg/h are based on a density of 0.79.",
+      "section": "weight_and_balance",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM B3e Section 2/4/7",
+      "reference": "Section 4.7",
+      "references": [
+        "RFM B3e Section 2/4/7 – Section 4.7",
+        "Section 4.7",
+        "RFM B3e Section 2/4/7"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "fuel"
+      ],
+      "sectionId": "weight_and_balance",
+      "type": "single",
+      "source": "RFM B3e Section 2/4/7"
+    },
+    {
+      "id": "H125-WB-012",
+      "question": "What maximum distributed load applies to the rear cargo compartment?",
+      "options": [
+        "145 kg/m² (30 lb/ft²)",
+        "300 kg/m² (62.5 lb/ft²)",
+        "100 kg/m² (20.5 lb/ft²)",
+        "500 kg/m² (102 lb/ft²)"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Section 2.5 §3: rear cargo compartment 80 kg (176 lb) at a maximum distributed load of 145 kg/m² (30 lb/ft²).",
+      "section": "weight_and_balance",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM B3e Section 2/4/7",
+      "reference": "Section 2.5 §3",
+      "references": [
+        "RFM B3e Section 2/4/7 – Section 2.5 §3",
+        "Section 2.5 §3",
+        "RFM B3e Section 2/4/7"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "baggage"
+      ],
+      "sectionId": "weight_and_balance",
+      "type": "single",
+      "source": "RFM B3e Section 2/4/7"
+    },
+    {
+      "id": "H125-WB-013",
+      "question": "What maximum distributed load applies to the RH and LH cargo compartments and the cabin floor?",
+      "options": [
+        "145 kg/m² (30 lb/ft²)",
+        "300 kg/m² (62.5 lb/ft²)",
+        "200 kg/m² (41 lb/ft²)",
+        "450 kg/m² (92 lb/ft²)"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Section 2.5 §3–4: 300 kg/m² (62.5 lb/ft²) for the RH and LH cargo compartments and for the cabin floor.",
+      "section": "weight_and_balance",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM B3e Section 2/4/7",
+      "reference": "Section 2.5 §3–4",
+      "references": [
+        "RFM B3e Section 2/4/7 – Section 2.5 §3–4",
+        "Section 2.5 §3–4",
+        "RFM B3e Section 2/4/7"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "baggage"
+      ],
+      "sectionId": "weight_and_balance",
+      "type": "single",
+      "source": "RFM B3e Section 2/4/7"
+    },
+    {
+      "id": "H125-WB-014",
+      "question": "With SUP.28 and an internal weight above 2250 kg, operation with a jettisonable external load is:",
+      "options": [
+        "Permitted up to 750 kg",
+        "Permitted below 60 kt",
+        "Forbidden",
+        "Permitted with dual hydraulics only"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "SUP.28 §2.1: operation with a jettisonable external load is forbidden if the internal weight is higher than 2250 kg (4961 lb).",
+      "section": "weight_and_balance",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM B3e Section 2/4/7",
+      "reference": "SUP.28 §2.1",
+      "references": [
+        "RFM B3e Section 2/4/7 – SUP.28 §2.1",
+        "SUP.28 §2.1",
+        "RFM B3e Section 2/4/7"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "weight",
+        "external-load"
+      ],
+      "sectionId": "weight_and_balance",
+      "type": "single",
+      "source": "RFM B3e Section 2/4/7"
+    },
+    {
+      "id": "H125-WB-015",
+      "question": "With SUP.28 and an internal weight above 2250 kg, what is the maximum left and right CG at landing?",
+      "options": [
+        "0.18 m left and 0.14 m right",
+        "0.14 m each side",
+        "0.18 m each side",
+        "0.08 m (3.15 in) each side"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "SUP.28 §2.4.2: for 2250 kg < weight ≤ 2370 kg the maximum left and right CG at landing are 0.08 m (3.15 in).",
+      "section": "weight_and_balance",
+      "modelIds": [
+        "H125_AS350_B3E"
+      ],
+      "manual": "RFM B3e Section 2/4/7",
+      "reference": "SUP.28 §2.4.2",
+      "references": [
+        "RFM B3e Section 2/4/7 – SUP.28 §2.4.2",
+        "SUP.28 §2.4.2",
+        "RFM B3e Section 2/4/7"
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "cg",
+        "weight"
+      ],
+      "sectionId": "weight_and_balance",
+      "type": "single",
+      "source": "RFM B3e Section 2/4/7"
+    }
+  ]
+}

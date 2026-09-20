@@ -107,22 +107,24 @@ needs the numbers and the failure logic cold.
 - **Script file:** `_source/podcast/Podcast/<model>/<area>/<id>-script.txt`
   (use the model's existing podcast folder). Lines are `ASH|<text>` or
   `SAGE|<text>`, one utterance per line, blank lines ignored.
-- **Voices:** `verse` (lead / `ASH`) + `nova` (co-host / `SAGE`) — locked, for
-  consistency across every episode and model. TTS model: `gpt-4o-mini-tts`.
-  (Changed 2026-09-13 from `sage`: A/B tested against `nova`/`shimmer`/`coral`
-  with the same line and instructions after repeated feedback that `sage` read
-  flat/low-energy for an engaged co-host role — `nova` was the clear winner.
-  Every AW169 EP episode was regenerated under this voice as the full switch-
-  over; any earlier episode anywhere still using `sage` predates that change
-  and should be treated as due for the same replacement, not a second style.)
-- **Generator:** `scratchpad/gen_tts.sh <script> <out.mp3> [atempo] [voiceA] [voiceB]`
-  — per-line call to `POST https://api.openai.com/v1/audio/speech` with a shared
-  delivery `instructions` string ("engaged, present instructor, natural varied
-  intonation, not monotone, not theatrical, brisk refresher pace"), concat the
-  turns with ~0.30 s gaps (0.55 s after the opening cue), two-pass
-  `loudnorm I=-16:TP=-1.5:LRA=11` then `libmp3lame -q:a 3`. `atempo` ~1.09–1.12
-  for pace. Key from repo `.env` (`OPENAI_API_KEY`); confirm spend with the user
-  first. `curl` needs `--retry` / `--max-time` and must not trip `set -e`.
+- **Voices (standard from 2026-09-20):** Gemini `gemini-2.5-pro-preview-tts`, two speakers
+  in one call so the voices react to each other — `Orus` (lead / `ASH`) + `Aoede`
+  (co-host / `SAGE`). Chosen by the user after a blind comparison of five samples
+  (OpenAI current settings, OpenAI looser settings, Google Chirp 3 HD, Gemini Flash,
+  Gemini Pro): the Gemini Pro two-speaker sample won. Episodes published before
+  this date (OpenAI `verse` + `nova`, and older `sage`) stay as they are until
+  the user asks for them to be re-cut; do not mix voices inside one multi-part
+  topic — re-cut the whole group.
+- **Generator:** `python3 scripts/podcast-tts.py <script> <out.mp3>` (options
+  `--model`, `--lead`, `--co`, `--chunk`). Sends 8 turns per request with a style
+  prompt ("real podcast conversation… say every word exactly as written"), joins
+  chunks with a 0.35 s gap, single-pass `loudnorm I=-16:TP=-1.5:LRA=11`, mp3.
+  Key: `GEMINI_API_KEY` in the repo `.env` (project needs Gemini API credits;
+  check the balance in AI Studio before a long batch). Models are `preview`, so
+  Google may change them: if a new render sounds different, say so.
+  **Fallback:** the previous OpenAI path (`gpt-4o-mini-tts`, `verse` + `nova`,
+  ≈ USD 0.015/min) still works from a session-local `gen_tts.sh` if Gemini is
+  unavailable, but tell the user before using it.
 - **Verify:** transcribe the finished mp3 with `whisper-cli` and check it against
   the source — full transcript for any branch-heavy script, and head/tail cue
   integrity + `-16 LUFS` on every clip.
@@ -139,9 +141,9 @@ needs the numbers and the failure logic cold.
   modes` style, all sharing `"group": "AFCS"`. Staging `.m4a`/`.txt` files under
   `_source/podcast/Podcast/` are the source of truth and are never deleted after
   deploy — the folder mirrors what is live.
-- **Cost:** `gpt-4o-mini-tts` ≈ USD 0.015 per minute of audio (script text is
-  negligible on top). A 50-minute episode ≈ USD 0.75. The real cost is the hours
-  of scriptwriting + generation + verification, not money.
+- **Cost:** measured per episode in AI Studio, not estimated here; the real cost is the hours of
+  scriptwriting + generation + verification. Gemini can drop or alter words, so the
+  whisper check against the script is mandatory for every full episode.
 
 ---
 

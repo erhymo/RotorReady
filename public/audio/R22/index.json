@@ -6,6 +6,20 @@
       "description": "The two-blade teetering rotor's low inertia, FAA AD 95-26-04 on mast bumping and rotor stall, and the recovery technique that has to be automatic.",
       "filename": "rotor-system-low-g-and-mast-bumping.mp3",
       "durationSeconds": 1004
+    },
+    {
+      "id": "governor-throttle-correlator-and-rpm-control",
+      "title": "Governor: Throttle Correlator and RPM Control",
+      "description": "How the friction-clutch governor and the collective-throttle correlator work, the liftoff overspeed trap, why both fade with altitude, how the governor hides carburetor ice, and the failure procedures.",
+      "filename": "governor-throttle-correlator-and-rpm-control.mp3",
+      "durationSeconds": 868
+    },
+    {
+      "id": "autorotation-power-failure-glide-and-practice",
+      "title": "Autorotation: Power Failure, Glide and Practice",
+      "description": "Recognizing a power failure, the two glide configurations, restart, the flare and touchdown by height band, the height-velocity diagram, and the safety rules for practice autorotations.",
+      "filename": "autorotation-power-failure-glide-and-practice.mp3",
+      "durationSeconds": 791
     }
   ]
 }

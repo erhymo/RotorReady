@@ -121,22 +121,22 @@
               ],
               [
                 "GA",
-                "0–130 KIAS (<5000 ft, −2 kt/1000 ft), 40 KIAS–Vne (>200 ft)",
+                "0–130 KIAS (<5000 ft, −2 kt/1000 ft)",
                 "150 ft cruise / 30 ft hover / 160 ft approach"
               ],
               [
                 "TD",
-                "75 KIAS–Vne or 0–75 KIAS, 150–200 ft band",
+                "40 KIAS–Vne above 200 ft; 75 KIAS–Vne between 150 and 200 ft",
                 "150 ft"
               ],
               [
                 "TDH",
-                "0–85 KIAS, 30–150 ft band",
+                "0–75 KIAS between 150 and 200 ft; 0–85 KIAS between 30 and 150 ft",
                 "30 ft"
               ],
               [
                 "TU",
-                "0–80 KIAS",
+                "0–80 KIAS, 10–200 ft AGL",
                 "30 ft climbing to 200 ft"
               ],
               [
@@ -176,7 +176,7 @@
               ]
             ]
           },
-          "note": "ALTA and VS share a selectable vertical-speed datum, −1500 to +2000 fpm. RHT's selectable height datum is 30–2000 ft. IAS's selectable airspeed datum is 45 KIAS to Vne − 5. RHT, TU and TDH may only engage over a flat surface clear of obstructions — absolute, not situational. Across the HOV/NAV/Approach group: hover/low speed = below 55 KIAS or HOV/TDH engaged, cruise = above 55 KIAS with neither engaged; all of them disengage automatically below 35 KIAS."
+          "note": "ALTA and VS share a selectable vertical-speed datum, −1500 to +2000 fpm. RHT's selectable height datum is 30–2000 ft. IAS's selectable airspeed datum is 45 KIAS to Vne − 5. RHT, TU and TDH may only engage over a flat surface clear of obstructions — absolute, not situational. Hover/low speed = below 55 KIAS or HOV/TDH engaged; cruise = above 55 KIAS with neither engaged. ALTA, VS, TD, IAS, HDG, NAV and the approach modes disengage automatically below 35 KIAS."
         },
         {
           "heading": "Approach limits",

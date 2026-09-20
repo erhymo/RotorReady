@@ -19,7 +19,21 @@
       "title": "Autorotation: Power Failure, Glide and Practice",
       "description": "Recognizing a power failure, the two glide configurations, restart, the flare and touchdown by height band, the height-velocity diagram, and the safety rules for practice autorotations.",
       "filename": "autorotation-power-failure-glide-and-practice.mp3",
-      "durationSeconds": 791
+      "durationSeconds": 798
+    },
+    {
+      "id": "drive-system-belts-clutch-light-and-gearboxes",
+      "title": "Drive System: Belts, Clutch Light and Gearboxes",
+      "description": "From the vee-belts and sprag clutch to the two gearboxes, the belt-slack and clutch-actuator checks, what the clutch light means after three seconds versus ten, chip lights, bearing noise and the rotor brake.",
+      "filename": "drive-system-belts-clutch-light-and-gearboxes.mp3",
+      "durationSeconds": 848
+    },
+    {
+      "id": "limitations-operating-limits-by-phase-of-flight",
+      "title": "Limitations: Operating Limits by Phase of Flight",
+      "description": "Weights and fuel on the ramp, dispatch items, gauge markings at start, the model-specific manifold pressure placards, rotor and engine speeds, VNE, and the wind and turbulence limits.",
+      "filename": "limitations-operating-limits-by-phase-of-flight.mp3",
+      "durationSeconds": 765
     }
   ]
 }

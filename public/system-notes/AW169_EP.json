@@ -1217,6 +1217,66 @@
       ]
     },
     {
+      "slug": "esis",
+      "title": "ESIS: The Standby Instrument",
+      "subtitle": "The one flight display that does not depend on the AHRS or the air data computers, what it shows, and every place the RFM tells you to trust it.",
+      "rfmReference": "AW169 EP RFM Section 2 (Normal Procedures — Cruise Checks, Standby Instrument Operation), Section 3 (Emergency and Malfunction Procedures — AHRS/ADS failure and miscompare, AP DEGR, DU MON, EMER BUS FAIL, Alternate Static), Section 4 (Airspeed Calibration Curve — ESIS), Section 7 (System Description, Chap 34 — Attitude and Direction). Operating detail is in the separate Avionics Pilot's Guide for the Integrated Secondary Flight Display (L3 GH-3900.2), which the RFM refers to.",
+      "sections": [
+        {
+          "heading": "What it is",
+          "paragraphs": [
+            "The Electronic Standby Instrument System sits on the pilot side of the instrument panel, to the left of the pilot's PFD. The RFM also calls it the standby instrument or ADI STBY. Its job is backup pitch, roll and slip/skid, plus backup airspeed, altitude and vertical speed, all taken from its own internal sensors, which the RFM describes as totally independent of the AHRS.",
+            "That independence is the whole point. After an AHRS or ADS reconfiguration both PFDs are on the same source, and the ESIS is then the only independent reference left. It is also the tie-breaker for AHRS miscompares, which is why the RFM keeps sending you back to it in the failure procedures below."
+          ]
+        },
+        {
+          "heading": "What is on the display",
+          "paragraphs": [
+            "The attitude display has a pitch ladder marked every 2.5° within ±7.5° of the horizon and every 5° out to ±90°, a roll scale with pointer, and a slip trapezoid under the pointer that stops at ±10° of slip. The airspeed tape shows an 80 kt window, with a line every 10 kt and figures every 20 kt. Below 20 kt the digital readout shows 0 in black on amber. At or above VNE the digits turn white on red. A solid red bar marks VNE with both engines operating, and a dashed red and white bar marks VNE one engine inoperative.",
+            "The altitude readout runs from −2,000 ft to 40,000 ft, vertical speed reads to ±9,950 ft/min in 50 ft/min steps, and metric altitude can be selected on installations that support it. A magnetic heading tape shows ±30° around the current heading. When a NAV source is selected the ESIS also draws a VOR or ILS display with course, deviation, localizer and glideslope scales and inner, middle and outer marker indications."
+          ]
+        },
+        {
+          "heading": "Controls",
+          "paragraphs": [
+            "Three controls on the bezel: the M (menu) button, the SET knob and the ALN button. Pressing M steps through brightness (BRT), NAV1/NAV2 source, course (CRS), pressure unit (HPA/IN) and altitude unit (feet or metres), and the SET knob scrolls and sets the chosen item. ALN is the attitude align button. NAV1 and NAV2 information is always displayed in green.",
+            "For an ILS approach, select both NAV receivers to the same frequency, then on the ESIS select NAV ON and set the course to the final ILS course. The glideslope scale stays displayed while flying in the back course sector."
+          ]
+        },
+        {
+          "heading": "Power",
+          "paragraphs": [
+            "The ESIS is fed from EMER BUS 1. It is listed among the services lost with a 1 EMER BUS FAIL, together with the pilot clock (where no digital clock is fitted), VHF 1, engine 1 fire detection and extinguisher, and the AFCS force trim release, so that failure takes the standby instrument away at the same time as it degrades the rest of the cockpit.",
+            "Where the optional ADI STBY Emergency Battery is installed, it keeps the standby attitude indicator alive for at least 30 minutes after a total loss of generation. That is a separate note in this section. On the ground it is checked in the engine pre-start checks: hold ADI STBY BATT TEST until TEST illuminates, release, then set ARM."
+          ]
+        },
+        {
+          "heading": "Where the RFM tells you to use it",
+          "paragraphs": [
+            "Cruise checks: check airspeed, altimeter and artificial horizon on the standby instrument against the primary flight display, as a routine item in the cruise checks.",
+            "AHRS miscompare (roll or pitch differing by ±5°, vertical speed by ±200 ft/min): compare with the ESIS to establish which AHRS is giving correct data, then switch to it on the RCP. After an AHRS FAIL and the reconfiguration to the good AHRS, both attitude indicators use the same source, so the procedure ends with monitoring PFD attitude against the ESIS.",
+            "ADS failure: after moving the ADS knob on the RCP to the good system, both air data indicators use the same source, and the procedure again ends with monitoring PFD airspeed and altitude against the ESIS. Vertical speed is not recovered by ADS reconfiguration. If vertical speed is needed, reduce speed to no more than 120 KIAS, continue attentive and disengage the AP channel associated with the failed ADS side.",
+            "ADS miscompare is different. To decide which ADS is right, the RFM says to compare with navigational equipment other than the ESIS, and to select an ADS on the RCP only where the identification is clear and unmistakable. Otherwise fly to the most conservative ADS.",
+            "DU MON (display unit cross-checking not functioning for at least one parameter): cross-monitor attitude, vertical speed, airspeed, barometric altitude and heading on the ESIS, OAT on the stand-alone OAT sensor and, with the MFD P-PLANT page selected, the engine and fuel parameters that are displayed there. OAT SENSOR MISCOMPARE also points to the standby instrument for OAT."
+          ]
+        },
+        {
+          "heading": "AP DEGR: the autopilot watches it too",
+          "paragraphs": [
+            "The AFCS takes ESIS data as a comparison source. The AP DEGR caution means the AFCS is not receiving ESIS data, or the ESIS data miscompares with the AHRS data. The first action is to check the ESIS. The chart splits the cause in two: ESIS attitude misaligned with the PFD values, or ESIS attitude lost. In the lost case, be aware that a subsequent AHRS failure may cause both AP channels to disengage.",
+            "Both cases then share the same actions: reduce speed to no more than 120 KIAS, continue attentive, and use only the permitted AFCS upper modes, which are HOV, TDH and TU, plus the coupled approach modes VAPP, LOC/GS, NAPP and NLOC/NGS."
+          ]
+        },
+        {
+          "heading": "Numbers and corrections",
+          "paragraphs": [
+            "The ESIS has its own airspeed calibration curve in Section 4 (Figure 4-6, ESIS indicator), separate from the one for the primary displays. Indicated altitude on the cockpit instruments is within ±30 ft (9 m) throughout the speed range.",
+            "With the ALTERNATE static source selected (STATIC source switch, guard removed, with ECS set to BACKUP), the source is cabin air and the altimeter reading must be decreased by 200 ft (60 m). Selecting it may also cause AVSR FAIL, with NR fixed at 103%. The pitot-static probes supply pressure to the air data unit and to the standby instrument."
+          ]
+        }
+      ]
+    },
+    {
       "slug": "adi-stby-battery",
       "title": "ADI STBY Emergency Battery",
       "subtitle": "30 minutes of backup power for one instrument, and the three-position switch that controls it.",

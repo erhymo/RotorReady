@@ -1,0 +1,556 @@
+{
+ "qr/0/1": {
+  "id": "qr/0/1",
+  "context": "Quick Reference group 'Transmission Torque / PI (EP)', item 'OEI'",
+  "text": "Max continuous: 148% / Max 2.5 min: 185% / Max transient: 195% (10 s)",
+  "hash": "ce2a636c96ca",
+  "source_rev": "RFM EP Issue 1 Rev 5; QRH EP Issue 1 Rev 3",
+  "candidates": [
+   "RFM:110",
+   "RFM:100",
+   "RFM:101",
+   "RFM:1404",
+   "QRH:259",
+   "QRH:240"
+  ],
+  "readers": {
+   "gemini-3.1-pro-preview": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "1-50",
+     "1-60"
+    ]
+   }
+  },
+  "status": "ok",
+  "checked": "2026-09-21 10:23"
+ },
+ "qr/0/0": {
+  "id": "qr/0/0",
+  "context": "Quick Reference group 'Transmission Torque / PI (EP)', item 'AEO'",
+  "text": "At or below 90 KIAS — Max continuous: 100% / At or below 90 KIAS — Max take-off: 122% (30 min; 5 min with EAPS kit) / Max transient: 132% (10 s) / Above 90 KIAS — Max continuous: 100% / Max transient: 132% (10 s)",
+  "hash": "a4869588ce5f",
+  "source_rev": "RFM EP Issue 1 Rev 5; QRH EP Issue 1 Rev 3",
+  "candidates": [
+   "RFM:99",
+   "RFM:108",
+   "RFM:109",
+   "QRH:313",
+   "RFM:3299",
+   "QRH:306"
+  ],
+  "readers": {
+   "gemini-3.1-pro-preview": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "15",
+     "1-58",
+     "1-59"
+    ]
+   }
+  },
+  "status": "ok",
+  "checked": "2026-09-21 10:28"
+ },
+ "qr/1/1": {
+  "id": "qr/1/1",
+  "context": "Quick Reference group 'Rotor Speed (NR %)', item 'OEI power-on'",
+  "text": "Transient min: 85% / Cautionary (OEI landing/flyaway only): 90–100% / Min continuous: 101% / Continuous: 101–105% / Max continuous: 105% / Transient max: 107%",
+  "hash": "c1a0e524fa26",
+  "source_rev": "RFM EP Issue 1 Rev 5; QRH EP Issue 1 Rev 3",
+  "candidates": [
+   "RFM:96",
+   "QRH:313",
+   "RFM:69",
+   "RFM:74",
+   "RFM:95",
+   "QRH:249"
+  ],
+  "readers": {
+   "gemini-3.7-flash": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "1-24",
+     "1-46",
+     "15"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": false,
+  "checked": "2026-09-21 10:34"
+ },
+ "qr/1/0": {
+  "id": "qr/1/0",
+  "context": "Quick Reference group 'Rotor Speed (NR %)', item 'AEO power-on'",
+  "text": "Variable governing with PLUS-mode (datum varies with airspeed and density altitude) / Green band ±2% around the datum; red indication and aural warning at ±3% / Transient min: 90% / Transient max: 107%",
+  "hash": "85f55e1690b0",
+  "source_rev": "RFM EP Issue 1 Rev 5; QRH EP Issue 1 Rev 3",
+  "candidates": [
+   "RFM:74",
+   "RFM:250",
+   "QRH:10",
+   "RFM:252",
+   "QRH:61",
+   "RFM:96"
+  ],
+  "readers": {
+   "gemini-3.7-flash": {
+    "verdict": "supported",
+    "issues": [
+     {
+      "severity": "minor",
+      "statement": "Variable governing with PLUS-mode",
+      "problem": "The RFM identifies the variable governing system as AVSR rather than PLUS-mode.",
+      "evidence": "AVSR provides a governing of the rotor speed at different values depending on airspeed (IAS)",
+      "page": "1-24"
+     }
+    ],
+    "pages_used": [
+     "1-24"
+    ]
+   }
+  },
+  "status": "ok",
+  "minor": [
+   {
+    "severity": "minor",
+    "statement": "Variable governing with PLUS-mode",
+    "problem": "The RFM identifies the variable governing system as AVSR rather than PLUS-mode.",
+    "evidence": "AVSR provides a governing of the rotor speed at different values depending on airspeed (IAS)",
+    "page": "1-24"
+   }
+  ],
+  "strong": false,
+  "checked": "2026-09-21 10:34"
+ },
+ "qr/1/2": {
+  "id": "qr/1/2",
+  "context": "Quick Reference group 'Rotor Speed (NR %)', item 'Power-off'",
+  "text": "Transient min: 85% / Min continuous: 90% / Continuous: 90–110% / Max continuous: 110% / Transient max: 115%",
+  "hash": "7b9aee913b34",
+  "source_rev": "RFM EP Issue 1 Rev 5; QRH EP Issue 1 Rev 3",
+  "candidates": [
+   "RFM:97",
+   "RFM:96",
+   "RFM:250",
+   "QRH:61",
+   "QRH:10",
+   "RFM:1404"
+  ],
+  "readers": {
+   "gemini-3.1-pro-preview": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "1-47"
+    ]
+   }
+  },
+  "status": "ok",
+  "checked": "2026-09-21 10:28"
+ },
+ "qr/2/0": {
+  "id": "qr/2/0",
+  "context": "Quick Reference group 'Airspeed Limits (selected)', item 'General'",
+  "text": "Max airspeed AEO with TQ above 100%: 90 KIAS / IFR Vmini: 50 KIAS / Max IFR approach: 130 KIAS at and below 5000 ft, then minus 2 kt / 1000 ft above / Max with one AP failed: 120 KIAS / Max wipers: 140 KIAS / Min autorotation: 50 KIAS",
+  "hash": "d650f73352f5",
+  "source_rev": "RFM EP Issue 1 Rev 5; QRH EP Issue 1 Rev 3",
+  "candidates": [
+   "QRH:306",
+   "RFM:58",
+   "RFM:85",
+   "QRH:323",
+   "RFM:2325",
+   "RFM:473"
+  ],
+  "readers": {
+   "gemini-3.1-pro-preview": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "QRH page 306",
+     "RFM page 58"
+    ]
+   }
+  },
+  "status": "ok",
+  "checked": "2026-09-21 10:23"
+ },
+ "qr/3/0": {
+  "id": "qr/3/0",
+  "context": "Quick Reference group 'Ground & Handling Limits', item 'Slope limits (basic configuration)'",
+  "text": "Sloped take‑off and landing limited to: / Nose up: 10° / Nose down: 7° / Left wing low: 10° / Right wing low: 10°",
+  "hash": "d431ecf87a4f",
+  "source_rev": "RFM EP Issue 1 Rev 5; QRH EP Issue 1 Rev 3",
+  "candidates": [
+   "QRH:309",
+   "RFM:66",
+   "RFM:1640",
+   "RFM:162",
+   "QRH:463",
+   "RFM:976"
+  ],
+  "readers": {
+   "gemini-3.1-pro-preview": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "QRH page 309",
+     "RFM page 66"
+    ]
+   }
+  },
+  "status": "ok",
+  "checked": "2026-09-21 10:23"
+ },
+ "qr/3/1": {
+  "id": "qr/3/1",
+  "context": "Quick Reference group 'Ground & Handling Limits', item 'Wheel brake & parking'",
+  "text": "Max running speed for wheel brake application: 40 knots GS / Parking on dry, paved slopes up to 12° permitted for max 20 hours.",
+  "hash": "4f1f67609991",
+  "source_rev": "RFM EP Issue 1 Rev 5; QRH EP Issue 1 Rev 3",
+  "candidates": [
+   "RFM:81",
+   "QRH:315",
+   "QRH:308",
+   "RFM:61",
+   "RFM:1043",
+   "RFM:1049"
+  ],
+  "readers": {
+   "gemini-3.1-pro-preview": {
+    "verdict": "supported",
+    "issues": [
+     {
+      "severity": "minor",
+      "statement": "40 knots GS",
+      "problem": "The manual specifies the unit as 'knots' without explicitly adding 'GS' (Ground Speed) for this specific limitation.",
+      "evidence": "Maximum running speed for wheel brake application ............................ 40 knots",
+      "page": "Page 1-31"
+     }
+    ],
+    "pages_used": [
+     "Page 1-31",
+     "17"
+    ]
+   }
+  },
+  "status": "ok",
+  "minor": [
+   {
+    "severity": "minor",
+    "statement": "40 knots GS",
+    "problem": "The manual specifies the unit as 'knots' without explicitly adding 'GS' (Ground Speed) for this specific limitation.",
+    "evidence": "Maximum running speed for wheel brake application ............................ 40 knots",
+    "page": "Page 1-31"
+   }
+  ],
+  "checked": "2026-09-21 10:23"
+ },
+ "qr/4/0": {
+  "id": "qr/4/0",
+  "context": "Quick Reference group 'Inlet / Inter Turbine Temperature (ITT °C)', item 'Engine start'",
+  "text": "Max for start: 750 °C / Transient 2 s: up to 825 °C",
+  "hash": "9624d82c3cc0",
+  "source_rev": "RFM EP Issue 1 Rev 5; QRH EP Issue 1 Rev 3",
+  "candidates": [
+   "QRH:313",
+   "RFM:2615",
+   "RFM:69",
+   "RFM:154",
+   "QRH:451",
+   "RFM:765"
+  ],
+  "readers": {
+   "gemini-3.1-pro-preview": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "15",
+     "Page 1-19"
+    ]
+   }
+  },
+  "status": "ok",
+  "checked": "2026-09-21 10:24"
+ },
+ "qr/3/2": {
+  "id": "qr/3/2",
+  "context": "Quick Reference group 'Ground & Handling Limits', item 'Ground speed (selected)'",
+  "text": "On paved surfaces (dry, paved): max taxi speed 40 knots GS, rolling take-off / running landing 60 knots GS, max emergency landing speed 60 knots GS / On prepared grass: max taxi speed 20 knots GS / Rolling take-off / running landing: 30 knots GS / Max emergency landing speed: 50 knots GS",
+  "hash": "efc14b475674",
+  "source_rev": "RFM EP Issue 1 Rev 5; QRH EP Issue 1 Rev 3",
+  "candidates": [
+   "RFM:61",
+   "QRH:308",
+   "RFM:2439",
+   "RFM:2354",
+   "RFM:2424",
+   "QRH:30"
+  ],
+  "readers": {
+   "gemini-3.1-pro-preview": {
+    "verdict": "supported",
+    "issues": [
+     {
+      "severity": "minor",
+      "statement": "max taxi speed 40 knots GS",
+      "problem": "The manual includes an additional condition for taxi speeds above 10 knots.",
+      "evidence": "above 10 knots (18 km/h) nose wheel must be LOCK",
+      "page": "61"
+     },
+     {
+      "severity": "minor",
+      "statement": "max taxi speed 20 knots GS",
+      "problem": "The manual includes an additional condition for taxi speeds above 10 knots.",
+      "evidence": "above 10 knots (18 km/h) nose wheel must be LOCK",
+      "page": "61"
+     }
+    ],
+    "pages_used": [
+     "61",
+     "308"
+    ]
+   }
+  },
+  "status": "ok",
+  "minor": [
+   {
+    "severity": "minor",
+    "statement": "max taxi speed 40 knots GS",
+    "problem": "The manual includes an additional condition for taxi speeds above 10 knots.",
+    "evidence": "above 10 knots (18 km/h) nose wheel must be LOCK",
+    "page": "61"
+   },
+   {
+    "severity": "minor",
+    "statement": "max taxi speed 20 knots GS",
+    "problem": "The manual includes an additional condition for taxi speeds above 10 knots.",
+    "evidence": "above 10 knots (18 km/h) nose wheel must be LOCK",
+    "page": "61"
+   }
+  ],
+  "checked": "2026-09-21 10:24"
+ },
+ "qr/3/3": {
+  "id": "qr/3/3",
+  "context": "Quick Reference group 'Ground & Handling Limits', item 'Wind for engine/rotor start & stop'",
+  "text": "Limit is a wind envelope (RFM Figure 1-9): red limit line at 40 kt for most wind directions, 50 kt in a narrow sector dead ahead (355° to 5°) / Parking: if forecast wind exceeds 50 knots, park in a sheltered area or hangar.",
+  "hash": "63ea3d6113b3",
+  "source_rev": "RFM EP Issue 1 Rev 5; QRH EP Issue 1 Rev 3",
+  "candidates": [
+   "RFM:61",
+   "RFM:65",
+   "RFM:3639",
+   "QRH:308",
+   "RFM:3095",
+   "QRH:463"
+  ],
+  "readers": {
+   "gemini-3.1-pro-preview": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "1-11",
+     "1-15"
+    ]
+   }
+  },
+  "status": "ok",
+  "checked": "2026-09-21 10:28"
+ },
+ "qr/4/1": {
+  "id": "qr/4/1",
+  "context": "Quick Reference group 'Inlet / Inter Turbine Temperature (ITT °C)', item 'AEO'",
+  "text": "Max continuous: 868 °C (100%) / 30 min: 869–937 °C (100.1–107.9%) / Max 30 min: 937 °C (107.9%) / Transient 5 s: 941 °C (108.4%)",
+  "hash": "2c0ffafecf22",
+  "source_rev": "RFM EP Issue 1 Rev 5; QRH EP Issue 1 Rev 3",
+  "candidates": [
+   "RFM:69",
+   "RFM:750",
+   "QRH:313",
+   "RFM:105",
+   "RFM:106",
+   "QRH:449"
+  ],
+  "readers": {
+   "gemini-3.1-pro-preview": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "Page 1-19"
+    ]
+   }
+  },
+  "status": "ok",
+  "checked": "2026-09-21 10:24"
+ },
+ "qr/4/2": {
+  "id": "qr/4/2",
+  "context": "Quick Reference group 'Inlet / Inter Turbine Temperature (ITT °C)', item 'OEI'",
+  "text": "Max continuous: 937 °C (107.9%) / 2.5 min: 938–1020 °C (108–117.5%) / Max 2.5 min: 1020 °C (117.5%) / Transient 5 s: 1031 °C (118.8%)",
+  "hash": "7305e94fc88c",
+  "source_rev": "RFM EP Issue 1 Rev 5; QRH EP Issue 1 Rev 3",
+  "candidates": [
+   "RFM:69",
+   "QRH:313",
+   "RFM:106",
+   "RFM:750",
+   "RFM:105",
+   "QRH:129"
+  ],
+  "readers": {
+   "gemini-3.1-pro-preview": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "69"
+    ]
+   }
+  },
+  "status": "ok",
+  "checked": "2026-09-21 10:28"
+ },
+ "qr/5/1": {
+  "id": "qr/5/1",
+  "context": "Quick Reference group 'Engine Oil Limits', item 'Engine oil temperature (°C)'",
+  "text": "Min for engine starting: -40 °C / Cold cautionary range: -40 to 39 °C / Normal range: 40 to 130 °C / Cautionary range (1 min): 131 to 135 °C / Max: 135 °C",
+  "hash": "7630fc761d7b",
+  "source_rev": "RFM EP Issue 1 Rev 5; QRH EP Issue 1 Rev 3",
+  "candidates": [
+   "RFM:70",
+   "QRH:314",
+   "RFM:1388",
+   "RFM:60",
+   "QRH:433",
+   "RFM:1387"
+  ],
+  "readers": {
+   "gemini-3.1-pro-preview": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "RFM page 70",
+     "QRH page 314"
+    ]
+   }
+  },
+  "status": "ok",
+  "checked": "2026-09-21 10:29"
+ },
+ "qr/6/1": {
+  "id": "qr/6/1",
+  "context": "Quick Reference group 'Weight Limits (basic configuration)', item 'Increased gross weight (Supplement 30)'",
+  "text": "Max gross weight for towing / taxi: 4850 kg / Max gross weight for take-off / landing: 4800 kg",
+  "hash": "194369390df6",
+  "source_rev": "RFM EP Issue 1 Rev 5; QRH EP Issue 1 Rev 3",
+  "candidates": [
+   "RFM:1907",
+   "RFM:1913",
+   "RFM:52",
+   "QRH:304",
+   "RFM:1949",
+   "QRH:306"
+  ],
+  "readers": {
+   "gemini-3.1-pro-preview": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "1907",
+     "1949"
+    ]
+   }
+  },
+  "status": "ok",
+  "checked": "2026-09-21 10:24"
+ },
+ "qr/6/0": {
+  "id": "qr/6/0",
+  "context": "Quick Reference group 'Weight Limits (basic configuration)', item 'Basic RFM Section 1'",
+  "text": "Max gross weight for towing / taxi: 4650 kg / Max gross weight for CAT B take-off / landing: 4600 kg / Min flight / rotor-running gross weight: 3300 kg",
+  "hash": "f423c8f67de1",
+  "source_rev": "RFM EP Issue 1 Rev 5; QRH EP Issue 1 Rev 3",
+  "candidates": [
+   "QRH:304",
+   "QRH:333",
+   "QRH:334",
+   "QRH:335",
+   "RFM:1230",
+   "RFM:1297",
+   "RFM:1298",
+   "RFM:1908",
+   "RFM:1909",
+   "RFM:1913",
+   "RFM:52"
+  ],
+  "readers": {
+   "gemini-3.7-flash": {
+    "verdict": "partially_supported",
+    "issues": [
+     {
+      "severity": "material",
+      "statement": "Max gross weight for CAT B take-off / landing: 4600 kg",
+      "problem": "Basic RFM Section 1 does not state a fixed 4600 kg limit for take-off/landing, but references Figure 4-9 and Figure 4-10 depending on wind conditions.",
+      "evidence": "Maximum gross weight for Take-Off/Landing with wind and Take-Off directions differing more than 10° ... See Figure 4-9 / Maximum gross weight for Take-Off/Landing with zero wind or headwind ... See Figure 4-10",
+      "page": "1-2"
+     }
+    ],
+    "pages_used": [
+     "1-2",
+     "6"
+    ]
+   },
+   "gemini-3.5-flash": {
+    "verdict": "partially_supported",
+    "issues": [
+     {
+      "severity": "material",
+      "statement": "Max gross weight for CAT B take-off / landing: 4600 kg",
+      "problem": "The provided pages for the basic configuration do not mention 'CAT B' or state a flat '4600 kg' limit for take-off/landing in the text. Instead, they refer to wind/headwind figures for take-off and landing limits.",
+      "evidence": "Maximum gross weight for Take-Off/Landing with wind and Take-Off directions differing more than 10° ............................. See Figure 4-9 / Maximum gross weight for Take-Off/Landing with zero wind or headwind ................................................................. See Figure 4-10",
+      "page": "Page 1-2"
+     }
+    ],
+    "pages_used": [
+     "Page 1-2",
+     "6",
+     "Page 35"
+    ]
+   }
+  },
+  "status": "flag",
+  "strong": false,
+  "checked": "2026-09-21 10:34"
+ },
+ "qr/5/0": {
+  "id": "qr/5/0",
+  "context": "Quick Reference group 'Engine Oil Limits', item 'Engine oil pressure (bar)'",
+  "text": "Min: 2.6 bar / Transient (20 s): 2.6–5.1 bar / Normal range: 5.2–15.5 bar / Transient (20 s): 15.6–18.1 bar / Max: 18.1 bar",
+  "hash": "ecfd3836b9af",
+  "source_rev": "RFM EP Issue 1 Rev 5; QRH EP Issue 1 Rev 3",
+  "candidates": [
+   "QRH:314",
+   "RFM:70",
+   "RFM:111",
+   "RFM:919",
+   "RFM:918",
+   "QRH:313"
+  ],
+  "readers": {
+   "gemini-3.1-pro-preview": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "Page 1-20"
+    ]
+   }
+  },
+  "status": "ok",
+  "checked": "2026-09-21 10:29"
+ }
+}

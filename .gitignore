@@ -122,3 +122,4 @@ public/fallback-*.js
 /public-native/
 /.native-shell-lock
 /.native-shell-excluded
+.verify-cache/

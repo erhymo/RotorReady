@@ -26,7 +26,8 @@
     "native:shell": "NATIVE_EXPORT=1 node scripts/build-native-shell.mjs",
     "validate:content": "node scripts/validate-content.mjs",
     "prebuild": "node scripts/validate-content.mjs",
-    "release:check": "node scripts/release-check.mjs"
+    "release:check": "node scripts/release-check.mjs",
+    "verify:content": "python3 scripts/verify/verify_claims.py"
   },
   "dependencies": {
     "@capacitor/android": "^7.6.5",

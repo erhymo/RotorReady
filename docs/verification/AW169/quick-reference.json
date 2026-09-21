@@ -1,0 +1,476 @@
+{
+ "qr/0/0": {
+  "id": "qr/0/0",
+  "context": "Quick Reference group 'Transmission Torque (TQ %)', item 'AEO 90 KIAS and below'",
+  "text": "Max continuous: 100% / 30 min: 101–111% / Max 30 min: 111% / Transient 10 s: 125%",
+  "hash": "1f14f3932aec",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:107",
+   "RFM:108",
+   "RFM:98",
+   "RFM:68"
+  ],
+  "readers": {
+   "gemini-3.7-flash": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "1-59"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": false,
+  "checked": "2026-09-21 10:48"
+ },
+ "qr/0/2": {
+  "id": "qr/0/2",
+  "context": "Quick Reference group 'Transmission Torque (TQ %)', item 'OEI'",
+  "text": "Max continuous: 140% / 2.5 min: 141–174% / Max 2.5 min: 174% / Transient 10 s: 192%",
+  "hash": "b8eedcdcde96",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:99",
+   "RFM:109",
+   "RFM:1580",
+   "RFM:70"
+  ],
+  "readers": {
+   "gemini-3.7-flash": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "1-22",
+     "1-61"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": false,
+  "checked": "2026-09-21 10:48"
+ },
+ "qr/0/1": {
+  "id": "qr/0/1",
+  "context": "Quick Reference group 'Transmission Torque (TQ %)', item 'AEO above 90 KIAS'",
+  "text": "Max continuous: 100% / Transient 10 s: 125%",
+  "hash": "cdc2885ac56e",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:108",
+   "RFM:107",
+   "RFM:98",
+   "RFM:3550"
+  ],
+  "readers": {
+   "gemini-3.7-flash": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "1-60"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": false,
+  "checked": "2026-09-21 10:48"
+ },
+ "qr/1/2": {
+  "id": "qr/1/2",
+  "context": "Quick Reference group 'Rotor Speed (NR %)', item 'Power-off'",
+  "text": "Transient min: 85% / Min continuous: 90% / Continuous: 90–110% / Max continuous: 110% / Transient max: 115%",
+  "hash": "7b9aee913b34",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:96",
+   "RFM:95",
+   "RFM:244",
+   "RFM:73"
+  ],
+  "readers": {
+   "gemini-3.7-flash": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "1-25",
+     "1-48"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": false,
+  "checked": "2026-09-21 10:48"
+ },
+ "qr/1/0": {
+  "id": "qr/1/0",
+  "context": "Quick Reference group 'Rotor Speed (NR %)', item 'AEO power-on'",
+  "text": "Variable governing with PLUS-mode / Transient min: 90% / Transient max: 107%",
+  "hash": "f4f30c7a5a08",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:95",
+   "RFM:94",
+   "RFM:73",
+   "RFM:96"
+  ],
+  "readers": {
+   "gemini-3.7-flash": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "1-25",
+     "1-46"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": false,
+  "checked": "2026-09-21 10:48"
+ },
+ "qr/3/0": {
+  "id": "qr/3/0",
+  "context": "Quick Reference group 'Ground & Handling Limits', item 'Slope limits (basic configuration)'",
+  "text": "Sloped take‑off and landing limited to: / Nose up: 10° / Nose down: 7° / Left wing low: 10° / Right wing low: 10°",
+  "hash": "d431ecf87a4f",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:65",
+   "RFM:1754",
+   "RFM:1218",
+   "RFM:160"
+  ],
+  "readers": {
+   "gemini-3.7-flash": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "1-17"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": false,
+  "checked": "2026-09-21 10:48"
+ },
+ "qr/2/0": {
+  "id": "qr/2/0",
+  "context": "Quick Reference group 'Airspeed Limits (selected)', item 'General'",
+  "text": "Max airspeed AEO with TQ above 100%: 90 KIAS / IFR Vmini: 50 KIAS / Max IFR approach: 130 KIAS at and below 5000 ft, then minus 2 kt / 1000 ft above / Max with one AP failed: 120 KIAS / Max wipers: 140 KIAS / Min autorotation: 50 KIAS",
+  "hash": "d650f73352f5",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:56",
+   "RFM:84",
+   "RFM:2437",
+   "RFM:451"
+  ],
+  "readers": {
+   "gemini-3.7-flash": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "1-8"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": false,
+  "checked": "2026-09-21 10:48"
+ },
+ "qr/3/2": {
+  "id": "qr/3/2",
+  "context": "Quick Reference group 'Ground & Handling Limits', item 'Ground speed (selected)'",
+  "text": "On paved surfaces (dry, paved): max taxi speed 40 knots GS, rolling take-off / running landing 60 knots GS, max emergency landing speed 60 knots GS / On prepared grass: max taxi speed 20 knots GS / Rolling take-off / running landing: 30 knots GS / Max emergency landing speed: 50 knots GS",
+  "hash": "efc14b475674",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:59",
+   "RFM:2551",
+   "RFM:2466",
+   "RFM:2536"
+  ],
+  "readers": {
+   "gemini-3.7-flash": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "1-11"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": false,
+  "checked": "2026-09-21 10:48"
+ },
+ "qr/3/1": {
+  "id": "qr/3/1",
+  "context": "Quick Reference group 'Ground & Handling Limits', item 'Wheel brake & parking'",
+  "text": "Max running speed for wheel brake application: 40 knots GS / Parking on dry, paved slopes up to 12° permitted for max 20 hours.",
+  "hash": "4f1f67609991",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:80",
+   "RFM:1281",
+   "RFM:59",
+   "RFM:3539"
+  ],
+  "readers": {
+   "gemini-3.7-flash": {
+    "verdict": "supported",
+    "issues": [
+     {
+      "severity": "minor",
+      "statement": "Max running speed for wheel brake application: 40 knots GS",
+      "problem": "The manual states '40 knots' without explicitly appending 'GS', although ground speed is standard context for running speed.",
+      "evidence": "Maximum running speed for wheel brake application .........................40 knots",
+      "page": "1-32"
+     }
+    ],
+    "pages_used": [
+     "1-32"
+    ]
+   }
+  },
+  "status": "ok",
+  "minor": [
+   {
+    "severity": "minor",
+    "statement": "Max running speed for wheel brake application: 40 knots GS",
+    "problem": "The manual states '40 knots' without explicitly appending 'GS', although ground speed is standard context for running speed.",
+    "evidence": "Maximum running speed for wheel brake application .........................40 knots",
+    "page": "1-32"
+   }
+  ],
+  "strong": false,
+  "checked": "2026-09-21 10:48"
+ },
+ "qr/3/3": {
+  "id": "qr/3/3",
+  "context": "Quick Reference group 'Ground & Handling Limits', item 'Wind for engine/rotor start & stop'",
+  "text": "Limit is a wind envelope (RFM Figure 1-9) / Parking: if forecast wind exceeds 50 knots, park in a sheltered area or hangar.",
+  "hash": "c5e0d8768adc",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:59",
+   "RFM:3539",
+   "RFM:3533",
+   "RFM:57"
+  ],
+  "readers": {
+   "gemini-3.7-flash": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "1-11"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": false,
+  "checked": "2026-09-21 10:52"
+ },
+ "qr/4/0": {
+  "id": "qr/4/0",
+  "context": "Quick Reference group 'Inlet / Inter Turbine Temperature (ITT °C)', item 'Engine start'",
+  "text": "Max for start: 750 °C / Transient 2 s: up to 825 °C",
+  "hash": "9624d82c3cc0",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:68",
+   "RFM:152",
+   "RFM:761",
+   "RFM:332"
+  ],
+  "readers": {
+   "gemini-3.7-flash": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "1-20"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": false,
+  "checked": "2026-09-21 10:49"
+ },
+ "qr/4/1": {
+  "id": "qr/4/1",
+  "context": "Quick Reference group 'Inlet / Inter Turbine Temperature (ITT °C)', item 'AEO'",
+  "text": "Max continuous: 868 °C (100%) / 30 min: 869–930 °C (100.1–107.1%) / Max 30 min: 930 °C (107.1%) / Transient 20 s: 941 °C (108.4%)",
+  "hash": "00f0107729df",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:68",
+   "RFM:742",
+   "RFM:104",
+   "RFM:105"
+  ],
+  "readers": {
+   "gemini-3.7-flash": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "1-20",
+     "1-56"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": false,
+  "checked": "2026-09-21 10:49"
+ },
+ "qr/4/2": {
+  "id": "qr/4/2",
+  "context": "Quick Reference group 'Inlet / Inter Turbine Temperature (ITT °C)', item 'OEI'",
+  "text": "Max continuous: 941 °C (108.4%) / 2.5 min: 942–1020 °C (108.5–117.5%) / Max 2.5 min: 1020 °C (117.5%) / Transient 5 s: 1031 °C (118.8%)",
+  "hash": "14eb26ec28b1",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:68",
+   "RFM:105",
+   "RFM:742",
+   "RFM:104"
+  ],
+  "readers": {
+   "gemini-3.7-flash": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "1-20",
+     "1-57"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": false,
+  "checked": "2026-09-21 10:52"
+ },
+ "qr/5/0": {
+  "id": "qr/5/0",
+  "context": "Quick Reference group 'Engine Oil Limits', item 'Engine oil pressure (bar)'",
+  "text": "Min: 2.6 bar / Transient (20 s): 2.6–5.1 bar / Normal range: 5.2–15.5 bar / Transient (20 s): 15.6–18.1 bar / Max: 18.1 bar",
+  "hash": "ecfd3836b9af",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:69",
+   "RFM:110",
+   "RFM:3469",
+   "RFM:1594"
+  ],
+  "readers": {
+   "gemini-3.7-flash": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "1-21",
+     "1-62"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": false,
+  "checked": "2026-09-21 10:49"
+ },
+ "qr/5/1": {
+  "id": "qr/5/1",
+  "context": "Quick Reference group 'Engine Oil Limits', item 'Engine oil temperature (°C)'",
+  "text": "Min for engine starting: -40 °C / Cold cautionary range: -40 to 39 °C / Normal range: 40 to 130 °C / Cautionary range (1 min): 131 to 135 °C / Max: 135 °C",
+  "hash": "7630fc761d7b",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:69",
+   "RFM:1564",
+   "RFM:58",
+   "RFM:316"
+  ],
+  "readers": {
+   "gemini-3.7-flash": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "1-21"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": false,
+  "checked": "2026-09-21 10:49"
+ },
+ "qr/6/1": {
+  "id": "qr/6/1",
+  "context": "Quick Reference group 'Weight Limits (basic configuration)', item 'Increased gross weight (Supplement 30)'",
+  "text": "Max gross weight for towing / taxi: 4850 kg / Max gross weight for take-off / landing: 4800 kg",
+  "hash": "194369390df6",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:1995",
+   "RFM:2018",
+   "RFM:50",
+   "RFM:2122"
+  ],
+  "readers": {
+   "gemini-3.7-flash": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "S30-3"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": false,
+  "checked": "2026-09-21 10:49"
+ },
+ "qr/6/0": {
+  "id": "qr/6/0",
+  "context": "Quick Reference group 'Weight Limits (basic configuration)', item 'Basic RFM Section 1'",
+  "text": "Max gross weight for towing / taxi: 4650 kg / Max gross weight for CAT B take-off / landing: 4600 kg / Min flight / rotor-running gross weight: 3300 kg",
+  "hash": "f423c8f67de1",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:50",
+   "RFM:2018",
+   "RFM:1114",
+   "RFM:1964"
+  ],
+  "readers": {
+   "gemini-3.7-flash": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "1-2"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": false,
+  "checked": "2026-09-21 10:49"
+ },
+ "qr/1/1": {
+  "id": "qr/1/1",
+  "context": "Quick Reference group 'Rotor Speed (NR %)', item 'OEI power-on'",
+  "text": "Transient min: 85% / Cautionary (OEI landing/flyaway only): 90–100% / Min continuous: 101% / Continuous: 101–105% / Max continuous: 105% / Transient max: 107%",
+  "hash": "c1a0e524fa26",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:95",
+   "RFM:73",
+   "RFM:68",
+   "RFM:94"
+  ],
+  "readers": {
+   "gemini-3.7-flash": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "1-25",
+     "1-47"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": false,
+  "checked": "2026-09-21 10:52"
+ }
+}

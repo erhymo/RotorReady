@@ -1,0 +1,111 @@
+{
+ "quick-reference": {
+  "qr/1/1": {
+   "hash": "c1a0e524fa26",
+   "decision": "accepted",
+   "note": "RFM p.1-24 lists OEI power-on NR: min transient 85, min cautionary 90, cautionary 90-100, min continuous 101, continuous 101-105, max continuous 105, max transient 107. The QR line contains all of them; the reader's 'missing Minimum Cautionary' is the same 90 value as the start of the 90-100 range.",
+   "by": "Claude",
+   "date": "2026-09-21"
+  },
+  "qr/6/0": {
+   "hash": "f423c8f67de1",
+   "decision": "accepted",
+   "note": "RFM p.1-2: towing/taxi 4650 kg, min 3300 kg; take-off/landing weights via Figures 4-9/4-10. RFM p.4-25 (Section 4) states 'maximum allowed (4600 kg)' for Category B take-off/landing, so 4600 kg is supported; the readers only saw Section 1.",
+   "by": "Claude",
+   "date": "2026-09-21"
+  }
+ },
+ "system-notes": {
+  "cargo-hook/1/p0": {
+   "hash": "daa129d8285c",
+   "decision": "accepted",
+   "note": "RFM Supplement 6 p.S6-8: 'Maximum weight with external load ... 4800 kg'; p.S6-13 airspeed limits. The readers were given only S6-13.",
+   "by": "Claude",
+   "date": "2026-09-21"
+  },
+  "fuel-transfer-pump/1/p1": {
+   "hash": "a9faba497ced",
+   "decision": "accepted",
+   "note": "RFM Supplement 39 p.S39-7 (direction advisories FUEL XFER 1->2 / 2->1, green arrow) and p.S39-11 (FUEL XFER COMPLETE displays approx. 10 s after an OEI transfer). Readers did not see S39-11.",
+   "by": "Claude",
+   "date": "2026-09-21"
+  },
+  "fuel-transfer-pump/3/p0": {
+   "hash": "1908e2df6aa5",
+   "decision": "accepted",
+   "note": "RFM Supplement 39 p.S39-11: FUEL XFER STOPPED = AEO transfer stopped automatically by FUEL LOW, displays approx. 10 s and then clears.",
+   "by": "Claude",
+   "date": "2026-09-21"
+  },
+  "ehps/2/p0": {
+   "hash": "87017e696873",
+   "decision": "accepted",
+   "note": "RFM Supplement 42 p.S42-3/S42-4: 80-120 bar with the pump running is correctly in the red zone; deselect ELEC PUMP; 'disengages automatically after 2 minutes'.",
+   "by": "Claude",
+   "date": "2026-09-21"
+  },
+  "electrical-system/1/p0": {
+   "hash": "94f8e155b799",
+   "decision": "accepted",
+   "note": "RFM Section 2 (GEN switches ON, RESET) and Section 7 p.7-120 (panel switches GEN 1, GEN 2, MAIN BATT, BATT AUX, EXT PWR, MCOS).",
+   "by": "Claude",
+   "date": "2026-09-21"
+  },
+  "electrical-system/2/p0": {
+   "hash": "12b49361ea5c",
+   "decision": "accepted",
+   "note": "RFM Section 3 p.3-125: GEN 1 failure loses MAIN BUS 1 and 3, GEN 2 MAIN BUS 2 and 4; p.3-53 lists NON ESS BUS 1 to 6.",
+   "by": "Claude",
+   "date": "2026-09-21"
+  },
+  "electrical-system/6/p2": {
+   "hash": "8e4e108b8812",
+   "decision": "accepted",
+   "note": "RFM Section 3 p.3-51: Note 2 (GEN BUS to OVRD feeds MAIN BUS 1, BUS TIE OVRD also MAIN BUS 2, reduces battery endurance), battery power max 30 min, VHF 1 right side, landing gear emergency down; p.3-125 MAIN BATT OFF: land as soon as possible.",
+   "by": "Claude",
+   "date": "2026-09-21"
+  },
+  "esis/2/p0": {
+   "hash": "3c4018d3d69a",
+   "decision": "accepted",
+   "note": "RFM Section 2 p.2-64 note: NAV 1 and NAV 2 source selected with the SET knob, indications always displayed in green; Section 7 p.7-375 key 27 lists the M-menu options.",
+   "by": "Claude",
+   "date": "2026-09-21"
+  },
+  "fire-protection/8/p0": {
+   "hash": "5facbea85d8d",
+   "decision": "accepted",
+   "note": "RFM Section 3 p.3-53 (EMER BUS 1 failure loses engine 1 fire detection and extinguisher; EMER BUS 2 the engine 2 equivalents).",
+   "by": "Claude",
+   "date": "2026-09-21"
+  },
+  "ditching/2/p1": {
+   "hash": "655030966da3",
+   "decision": "accepted",
+   "note": "RFM Supplement 11A p.S11A-17/18 ditching procedure: RAD ALT set, wipers FAST, PITOT OFF, FLOATS EMER armed, sea/wind, ditching heading, max 30 kt GS, EMERG LTS ON, alert, final position, brace via PA, hover if power, level or slightly nose-up touchdown.",
+   "by": "Claude",
+   "date": "2026-09-21"
+  },
+  "plus-mode/0/p1": {
+   "hash": "41e9444e4cee",
+   "decision": "accepted",
+   "note": "RFM Section 4 p.4-42/Figure 4-21 chart header: 'SAFE VERTICAL REJECT - ENHANCED PERFORMANCE - PLUS MODE - Max Hover Height: 200 ft ALS'.",
+   "by": "Claude",
+   "date": "2026-09-21"
+  },
+  "afcs/5/r0": {
+   "hash": "31df81fb5fa6",
+   "decision": "accepted",
+   "note": "RFM Section 1 p.1-36: Maximum ROD 900 fpm (AFCS coupled approaches); 800 fpm during coupled FMS approaches is on the same page (FMS limitations).",
+   "by": "Claude",
+   "date": "2026-09-21"
+  },
+  "ditching/0/p2": {
+   "hash": "b22e8c3987fd",
+   "decision": "accepted",
+   "note": "RFM Supplement 11A p.S11A-5/6/7: carry-on rafts restrained in a dedicated stowage installed to existing seat, deployed manually through any Type IV emergency exit, capacity 8 to 7; sponson rafts in containers on the sponsons, no negative impact on seating, external activation handle (hinged doors configuration); Section 7 p.7-669: three alternate liferaft installations incl. the emergency flotation kit with integrated 12-pax liferaft (one raft in each aft flotation assembly, two inflation bottles in the tail cone, two cockpit activation handles).",
+   "by": "Claude",
+   "date": "2026-09-21"
+  }
+ }
+}

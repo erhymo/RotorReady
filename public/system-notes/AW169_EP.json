@@ -46,7 +46,7 @@
               ]
             ]
           },
-          "note": "When actively capping, the amber caption PWR LIM shows on the PFD. Autorotation protection activates when engine TQ drops below 15% in a descent. GSPD mode carries its own Airspeed Envelope Protection (AEP): it prevents true airspeed decaying below Vmini (50 KIAS) or exceeding Vne − 5 KIAS, regardless of the groundspeed reference."
+          "note": "When actively capping, the amber caption PWR LIM shows on the PFD. Autorotation protection activates when engine TQ drops below 15% in a descent. GSPD mode carries its own Airspeed Envelope Protection (AEP): it prevents airspeed decaying below Vmini (50 KIAS) or exceeding Vne − 5 KIAS, regardless of the groundspeed reference."
         },
         {
           "heading": "Low height protection",
@@ -137,7 +137,7 @@
               [
                 "TU",
                 "0–80 KIAS, 10–200 ft AGL",
-                "30 ft climbing to 200 ft"
+                "30 ft AGL"
               ],
               [
                 "IAS",
@@ -170,13 +170,13 @@
                 "150 ft cruise / 160 ft approach"
               ],
               [
-                "Approach (VAPP, LOC, NLOC, NGS, NAPP, NDCL)",
-                "40–130 KIAS (<5000 ft, −2 kt/1000 ft)",
-                "160 ft, flat"
+                "Approach (VAPP, LOC, BC, GS, NLOC, NGS, NAPP, NDCL)",
+                "40–130 KIAS (up to 5000 ft, then reduce 2 kt every 1000 ft)",
+                "160 ft AGL"
               ]
             ]
           },
-          "note": "ALTA and VS share a selectable vertical-speed datum, −1500 to +2000 fpm. RHT's selectable height datum is 30–2000 ft. IAS's selectable airspeed datum is 45 KIAS to Vne − 5. RHT, TU and TDH may only engage over a flat surface clear of obstructions — absolute, not situational. Hover/low speed = below 55 KIAS or HOV/TDH engaged; cruise = above 55 KIAS with neither engaged. ALTA, VS, TD, IAS, HDG, NAV and the approach modes disengage automatically below 35 KIAS."
+          "note": "ALTA and VS share a selectable vertical-speed datum, −1500 to +2000 fpm. RHT's selectable height datum is 30–2000 ft. IAS's selectable airspeed datum is 45 KIAS to Vne − 5. Section 1 limits RHT, TU and TDH to flat surfaces clear of obstructions; the Automatic Search Modes supplement (Supplement 54) gives the same limit for TDH, TU and MOT. Hover/low speed = below 55 KIAS or HOV/TDH engaged; cruise = above 55 KIAS with neither engaged. ALTA, VS, TD, IAS, HDG, NAV and the approach modes disengage automatically below 35 KIAS."
         },
         {
           "heading": "Approach limits",
@@ -238,7 +238,7 @@
           ]
         },
         {
-          "heading": "Rotor speed limits (NR%)",
+          "heading": "Rotor speed limits (NR%): AEO power-on (transient red lines)",
           "table": {
             "caption": "AEO power-on",
             "columns": [
@@ -296,7 +296,8 @@
                 "107"
               ]
             ]
-          }
+          },
+          "heading": "Rotor speed limits (NR%): OEI power-on"
         },
         {
           "paragraphs": [],
@@ -328,7 +329,8 @@
                 "115"
               ]
             ]
-          }
+          },
+          "heading": "Rotor speed limits (NR%): power-off"
         },
         {
           "heading": "When AVSR itself fails",
@@ -383,7 +385,7 @@
           "heading": "What it is",
           "paragraphs": [
             "Two Pratt & Whitney Canada turboshafts above the cabin roof, aft of the transmission, in two isolated bays separated by a titanium central firewall — each bay with its own fire warning and its own fuel shut-off valve outside the bay. A single-stage compressor turbine drives the two-stage compressor; a two-stage free power turbine drives the reduction gearbox, which feeds the main gearbox through a shaft.",
-            "AW169 Standard has the PW210A; AW169 EP has the PW210A1. The two engines are physically identical — the only difference is FADEC software, which raises the available power (AEO and OEI) and changes the limits. There is no hardware change between them."
+            "The RFM describes the aircraft as powered by two Pratt & Whitney Canada PW210A or PW210A1 turboshaft engines. The PW210A1 differs from the PW210A only in increased available power (both AEO and OEI), and that difference is only a different FADEC software, which manages different engine limits and power. There is no hardware change."
           ]
         },
         {
@@ -403,7 +405,7 @@
         {
           "heading": "Load sharing and the AEO torque limiter",
           "paragraphs": [
-            "An ITT/TQ LOAD SHARE switch selects whether the two engines are matched by torque or by ITT. An AEO Limit Select button on the collective toggles the all-engines torque limiter between Low and High — it powers up in AEO High every time."
+            "An ITT/TQ LOAD SHARE switch selects whether the two engines are matched by torque or by ITT. An AEO Limit Select button on the collective toggles the all-engines torque limiter between Low and High — it powers up in AEO High every time. The torque values for each limiter setting are tabulated in the RFM (Section 7, Engine controls) under the headings shown below."
           ],
           "table": {
             "caption": "AEO Limit Select — torque limiter settings",
@@ -416,32 +418,32 @@
             ],
             "rows": [
               [
-                "PW210A (Standard) — Low",
+                "PW210A EP — Low limiter",
                 "111% TQ",
                 "125% TQ",
                 "174.6% TQ",
                 "192.1% TQ"
               ],
               [
-                "PW210A (Standard) — High",
+                "PW210A EP — High limiter",
                 "174.6% TQ",
-                "174.6% TQ (no transient)",
-                "192.1% TQ",
-                "192.1% TQ (no transient)"
+                "No transient allowed",
+                "174.6% TQ",
+                "192.1% TQ"
               ],
               [
-                "PW210A1 (EP) — Low",
+                "PW210A1 HP/HP+ — Low limiter",
                 "122% TQ",
                 "132% TQ",
                 "185% TQ",
                 "195% TQ"
               ],
               [
-                "PW210A1 (EP) — High",
+                "PW210A1 HP/HP+ — High limiter",
                 "185% TQ",
-                "185% TQ (no transient)",
-                "195% TQ",
-                "195% TQ (no transient)"
+                "No transient allowed",
+                "185% TQ",
+                "195% TQ"
               ]
             ]
           }
@@ -464,7 +466,7 @@
           "paragraphs": [
             "\"WARNING WARNING\" aural — engine control failure, fixed. The engine is stuck at whatever power it was at; the FADEC can no longer modulate it. First disengage the AFCS upper modes, then achieve a safe OEI condition.",
             "The problem is a torque split: with one engine's power frozen and the other following the rotor, the two torques diverge. A split over 30% brings up the 1(2) ENG DEGR caution on the higher-torque engine. Below that, monitor and land as soon as practicable. During descent, do not let the good engine's torque fall below 10%.",
-            "How the affected engine is shut down depends on where its torque froze: at or below 50%, it can be left running to touchdown (then lower collective smoothly to MPOG, watching NR — shut it down first if NR rises above limit); above 50%, and especially above Maximum Continuous Power, it has to be shut down — within 5 minutes if above MCP — before the approach, expecting NR droop and a large torque split as it spools down."
+            "How the affected engine is handled depends on where its torque froze. At or below 50%, it can be left running: consider the low power available on that engine during landing, and after touchdown lower the collective smoothly to MPOG while keeping NR within limits. If NR rises above the limit, shut down the affected engine before lowering the collective to MPOG. Above 50%, before the approach, the RFM refers to the SINGLE ENGINE PROCEDURE. If the affected engine is above MCP, consider shutting it down within 30 minutes to avoid exceeding limitations, and expect possible NR droop and a large torque variation on the other engine when it is shut down."
           ]
         },
         {
@@ -569,7 +571,7 @@
         {
           "heading": "Losing one generator",
           "paragraphs": [
-            "1(2) DC GEN FAIL — reset the affected generator; if it stays failed, switch it off and let the other one carry everything. The affected side's main buses (1 and 3, or 2 and 4) are lost and all non-essential buses are lost; non-essential buses can be brought back selectively with the NON ESS L/R OVRD switches. Watch the surviving generator's load on the MFD and shed load if it goes over limit.",
+            "1(2) DC GEN FAIL — reset the affected generator (RESET, then confirm ON); if it stays failed, switch it off and let the other one carry the load. With BUS TIE CLOSED the remaining generator supplies power and only the non-essential buses are lost; if BUS TIE stays OPEN (try BUS TIE RESET on the EDCU ELEC page first), the affected generator's main buses (1 and 3, or 2 and 4) are lost as well as all non-essential buses. Non-essential buses can be brought back selectively with the NON ESS L/R OVRD switches. Watch the surviving generator's load on the MFD and reduce electrical load if the limit is exceeded.",
             "1(2) DC GEN HOT (overheat) — switch the affected generator off immediately. Same result: one generator carries the aircraft, all non-essential buses lost.",
             "In both cases the aircraft is fully flyable on one generator — the point is that there is no margin left for a second failure, and the non-essential comfort/mission loads are gone unless deliberately restored."
           ]
@@ -577,7 +579,7 @@
         {
           "heading": "Losing both generators — ELEC FAIL",
           "paragraphs": [
-            "A double DC generator failure triggers the \"WARNING WARNING\" aural and the ELEC FAIL warning. First action is to try to get a generator back (GEN 1 & 2 to RESET, confirm ON). If that fails, the aircraft is running on the main battery alone: all main buses and all non-essential buses are gone, and only the emergency and essential buses remain.",
+            "A double DC generator failure triggers the \"WARNING WARNING\" aural and the ELEC FAIL warning. First actions: pilot utility light ON (for night operations), then GEN 1 & 2 to RESET and confirm ON. If ELEC FAIL remains, the aircraft is on battery power: all main buses and all non-essential buses are lost, and only the emergency and essential buses remain. The RFM warns that battery power is available for a maximum of 30 minutes.",
             "Battery power lasts a maximum of 30 minutes — that is the number that drives everything else. Land as soon as possible.",
             "If a load on MAIN BUS 1 is genuinely required, GEN BUS to OVRD feeds it from the battery — and BUS TIE to OVRD additionally feeds MAIN BUS 2 — but each override shortens the 30 minutes. The landing gear control is on a bus that is lost in flight in this state, so the gear has to be put down with the LANDING GEAR EMERGENCY DOWN procedure; VHF 1 is selected on the right side to keep radio contact. A subsequent MAIN BATT OFF caution means land as soon as possible, without qualification."
           ]
@@ -689,7 +691,7 @@
               [
                 "Manual",
                 "Secondary mode / used after an automatic-mode failure — tilt and gain controlled manually",
-                "320 NM"
+                "—"
               ],
               [
                 "WX (Weather)",
@@ -814,7 +816,7 @@
         {
           "heading": "Ground transmission",
           "paragraphs": [
-            "The weather radar does not transmit on the ground due to the weight-on-wheels (WOW) safety interlock, unless commanded to. Do not turn the radar on within 30 ft (9 m) of personnel or containers holding flammable or explosive material — a wider clearance than the RTA-4112's 17 ft (5 m).",
+            "The weather radar does not transmit on the ground due to the weight-on-wheels (WOW) safety interlock. Do not turn the radar on within 30 ft (9 m) of personnel or containers holding flammable or explosive material — a wider clearance than the RTA-4112's 17 ft (5 m).",
             "Should the WOW switch fail on the ground, the radar will transmit if it is selected to transmit. The response is to confirm the radar is switched OFF."
           ]
         }
@@ -1012,7 +1014,7 @@
               ]
             ]
           },
-          "note": "Height callouts (200/100/50/40/30/20/10 ft) are aural only, no caption. Cautionary alerts annunciate once; warning alerts repeat until the condition clears. TOO LOW TERRAIN and CHECK AIRSPEED only exist when OFFSHORE mode is selected — SINKRATE covers the equivalent onshore case (excessive descent rate relative to terrain, when FLTA isn't available or groundspeed is below 40 kt)."
+          "note": "Aural-only messages with no caption: THREE HUNDRED (priority 4) and, when enabled, the active height callouts (200/100/50/40/30/20/10 ft). Cautionary alerts annunciate once; warning alerts repeat until the condition clears. TOO LOW TERRAIN and CHECK AIRSPEED are generated when OFFSHORE mode has been selected. SINKRATE is the amber alert for an excessive descent rate compared with height above terrain when the FLTA function is not available or the helicopter's groundspeed is below 40 kt."
         },
         {
           "heading": "SAR mode and the offshore approach exception",
@@ -1306,7 +1308,7 @@
         {
           "heading": "What the mode chain is for",
           "paragraphs": [
-            "Requires the LCR110 primary flight sensors to be fitted. Together, these AFCS modes fly an automated profile from cruise down to a stabilized hover over a target, and back up again — the profile a SAR or offshore search actually flies, without the pilot hand-flying every axis through the transition.",
+            "Applicable to Avionic Phase 8.0 and later (Supplement 54). Together, these AFCS modes fly an automated profile from cruise down to a stabilized hover over a target, and back up again — the profile a SAR or offshore search actually flies, without the pilot hand-flying every axis through the transition.",
             "The chain: Transition Up (TU) climbs out of a hover to a preset height and airspeed. In cruise, standard AFCS modes fly the search leg. Transition Down (TD) flies an automatic descent and deceleration toward the target. GATE takes over automatically at the end of a TD or TU when the aircraft is near its target height/airspeed conditions, holding them until the next mode takes over. Transition Down to Hover (TDH) finishes the profile into an actual stabilized hover. Mark On Target (MOT) lets the pilot mark a position while overflying it and returns the aircraft to a headwind hover offset from that mark. Winchman Trim (WTR) hands limited hover control to the hoist operator once established in the hover.",
             "One important, separate limitation this option unlocks: IMC flight below Vmini (50 KIAS) is only permitted when Automatic Search Modes are in use — not otherwise."
           ]
@@ -1330,8 +1332,8 @@
             "rows": [
               [
                 "MOT",
-                "40 KIAS to Vne, or 150 kt GS, 150–2000 ft AGL",
-                "150 ft AGL in TD phase / 30 ft AGL in TDH phase, whichever is less"
+                "40 KIAS to Vne, or 150 kt GS (whichever is less); 150–2000 ft AGL",
+                "150 ft AGL in TD phase / 30 ft AGL in TDH phase"
               ],
               [
                 "WTR",
@@ -1456,7 +1458,7 @@
           "paragraphs": [
             "Two forward and two aft float installations in dedicated fuselage openings, two gas distribution/inflation systems, and four immersion switches. Demonstrated and approved for ditching up to Sea State 6 (significant wave height 4–6 m) at weights up to 4800 kg — well beyond the Sea State 4 that ditching regulations actually require.",
             "The Floatation Control Panel, in the interseat console, has a TEST/OFF/ARMED master switch. OFF isolates power from the water sensors and the guarded collective-grip pushbuttons. ARMED makes the discharge valves live — via water sensor immersion or the pilot/copilot's guarded FLOAT pushbutton. TEST checks the electrical activation circuit's continuity as part of preflight, and is automatically disabled in flight by the weight-on-wheels switch.",
-            "Two liferafts are carried, in one of two configurations: Carry-On (stowed on a seat, deployed manually through a Type IV emergency exit, reduces passenger capacity from 8 to 7) or Sponson (mounted in the sponsons themselves, no seating impact, with an external activation handle accessible from outside the aircraft for a water-side deployment)."
+            "There are three alternate liferaft installations. Carry-On (stowed on a seat, deployed manually through a Type IV emergency exit, reduces passenger capacity from 8 to 7). Sponson (a liferaft mounted on each sponson, no seating impact, with an external activation handle accessible from outside the aircraft on the hinged-doors configuration). And the emergency liferaft system that is part of the emergency flotation system kit with integrated 12-pax liferaft: one liferaft packed inside each aft flotation assembly, inflated from two bottles in the tail cone, with activation handles for both pilots."
           ]
         },
         {
@@ -1651,7 +1653,7 @@
         {
           "heading": "What a GNSS problem actually costs you",
           "paragraphs": [
-            "A single GNSS RAIM integrity failure, or one SBAS precision-approach channel going to standby, just means continue the approach — redundancy is reduced, not lost (SBAS integrity re-checks every 4 seconds and can recover on its own).",
+            "A single GNSS RAIM integrity failure, or one SBAS precision-approach channel going to standby, is annunciated in the RFM as a loss of GNSS redundancy, and the instruction is to continue the approach (the GNSS sensor checks SBAS integrity every 4 seconds and may recover automatically).",
             "If SBAS precision mode is lost on both GNSS sensors at once, the outcome depends on whether Baro-VNAV minima are available for that approach. If they are, FMS deviations revert automatically to LNAV/VNAV and Baro-VNAV — LPV is replaced by VGP on the PFD — and the approach can continue in coupled mode by pressing APP or DCL again, unless the aircraft is already below 1000 ft AGL, in which case discontinue regardless. If Baro-VNAV minima are not available at all, there's no fallback — discontinue the approach outright."
           ]
         }

@@ -1,0 +1,27 @@
+#!/bin/sh
+# Content-verification gate. Blocks a push if it changes an app claim (System Notes / Quick Reference
+# text with numbers) that has not been verified 'ok' (or reviewed) against the RFM/QRH page images.
+# Born 2026-09-22 after a wrong AFCS table lived in the app despite repeated "check against RFM/QRH" requests.
+# See docs/verification/README.md. One-off bypass: git push --no-verify
+#
+# Installed via `git config core.hooksPath .githooks` (done automatically by `npm install`, see
+# scripts/setup-hooks.mjs). This file is tracked in git so the gate travels with the repo.
+
+command -v python3 >/dev/null 2>&1 || { echo "verify-gate: python3 not found, skipping (install it to get this check back)"; exit 0; }
+
+remote_sha=""
+while read -r local_ref local_sha remote_ref r_sha; do
+  remote_sha="$r_sha"
+done
+
+zero="0000000000000000000000000000000000000000"
+if [ -z "$remote_sha" ] || [ "$remote_sha" = "$zero" ]; then
+  remote_sha=$(git merge-base HEAD origin/main 2>/dev/null)
+fi
+
+if [ -z "$remote_sha" ]; then
+  echo "verify-gate: no base commit found to diff against (new repo/branch?) - skipping this push, but run 'npm run verify:content' soon."
+  exit 0
+fi
+
+python3 scripts/verify/verify_claims.py --gate --base "$remote_sha"

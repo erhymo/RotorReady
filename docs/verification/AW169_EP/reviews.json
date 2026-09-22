@@ -101,11 +101,11 @@
    "date": "2026-09-21"
   },
   "ditching/0/p2": {
-   "hash": "b22e8c3987fd",
+   "hash": "1e3c9ef73bf3",
    "decision": "accepted",
-   "note": "RFM Supplement 11A p.S11A-5/6/7: carry-on rafts restrained in a dedicated stowage installed to existing seat, deployed manually through any Type IV emergency exit, capacity 8 to 7; sponson rafts in containers on the sponsons, no negative impact on seating, external activation handle (hinged doors configuration); Section 7 p.7-669: three alternate liferaft installations incl. the emergency flotation kit with integrated 12-pax liferaft (one raft in each aft flotation assembly, two inflation bottles in the tail cone, two cockpit activation handles).",
+   "note": "Superseded 2026-09-22: the prior review at hash b22e8c3987fd was itself wrong (it accepted an invented 'hinged-doors configuration' phrase that is nowhere in the RFM; caught by the new push gate, not by this review process). Re-checked word-for-word against the page images: RFM p.S11A-5 (image, page 1435, confirmed by direct look) 'Two identical rafts ... restrained in a dedicated stowage installed to existing seat and can be deployed manually through any of the Type IV emergency exits. This reduces passenger seating capacity from eight to seven'; Section 7 p.7-669 'The carry on liferaft stowage is a self-contained free standing installation ... installed to seat rails'; p.7-670 sponson: primary handle 'mounted above the pilots head', secondary handle 'on the leading edge of each sponson mounted liferaft container'; p.7-670 integrated system 'two compressed helium reservoirs ... attached in vertical position in the tail cone'; p.7-672 'manually activated through handles positioned in the cockpit near the overhead console as a primary means of activation or, as a backup, by means of two handles placed outside the cabin onto the door strut'. Readers disputed only because retrieval gave them the Section 7 pages but they under-weighted the Supplement 11 pages (1435/1467) that are also in their candidate list and do contain the Type IV/8-to-7 fact - confirmed directly on the rendered page image, not just the text dump.",
    "by": "Claude",
-   "date": "2026-09-21"
+   "date": "2026-09-22"
   }
  }
 }

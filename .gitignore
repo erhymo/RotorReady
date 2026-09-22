@@ -123,3 +123,4 @@ public/fallback-*.js
 /.native-shell-lock
 /.native-shell-excluded
 .verify-cache/
+__pycache__/

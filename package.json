@@ -27,7 +27,10 @@
     "validate:content": "node scripts/validate-content.mjs",
     "prebuild": "node scripts/validate-content.mjs",
     "release:check": "node scripts/release-check.mjs",
-    "verify:content": "python3 scripts/verify/verify_claims.py"
+    "verify:content": "python3 scripts/verify/verify_claims.py",
+    "verify:coverage": "python3 scripts/verify/verify_claims.py --report",
+    "verify:gate": "python3 scripts/verify/verify_claims.py --gate --base origin/main",
+    "prepare": "node scripts/setup-hooks.mjs"
   },
   "dependencies": {
     "@capacitor/android": "^7.6.5",

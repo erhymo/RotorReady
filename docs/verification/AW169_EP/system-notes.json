@@ -6795,72 +6795,57 @@
  "ditching/0/p2": {
   "id": "ditching/0/p2",
   "context": "System note 'Ditching Configurations', section 'What the system is', paragraph",
-  "text": "There are three alternate liferaft installations. Carry-On (stowed on a seat, deployed manually through a Type IV emergency exit, reduces passenger capacity from 8 to 7). Sponson (a liferaft mounted on each sponson, no seating impact, with an external activation handle accessible from outside the aircraft for a water-side deployment). And the emergency liferaft system that is part of the emergency flotation system kit with integrated 12-pax liferaft: one liferaft packed inside each aft flotation assembly, inflated from two bottles in the tail cone, with activation handles for both pilots.",
-  "hash": "65c13caaac0f",
+  "text": "There are three alternate liferaft installations. Carry-On (a free-standing installation on the seat rails, deployed manually through a Type IV emergency exit; requires the 8-seat forward cabin kit and reduces passenger capacity from 8 to 7). Sponson (a liferaft mounted on each sponson, activated from the cockpit via a handle above the pilots' heads or from a secondary handle on the leading edge of the sponson). And the emergency liferaft system that is part of the emergency flotation system kit with integrated 12-pax liferaft: one liferaft packed inside each aft flotation assembly, inflated from two helium bottles in the tail cone, activated from the cockpit near the overhead console or, as a backup, from two handles outside the cabin on the door struts.",
+  "hash": "1e3c9ef73bf3",
   "source_rev": "RFM EP Issue 1 Rev 5; QRH EP Issue 1 Rev 3",
   "candidates": [
    "QRH:12",
    "QRH:303",
-   "QRH:305",
-   "QRH:47",
+   "QRH:497",
+   "QRH:62",
    "RFM:1435",
    "RFM:1467",
-   "RFM:1499",
+   "RFM:1521",
    "RFM:3393",
    "RFM:3394",
    "RFM:3395",
    "RFM:3396"
   ],
   "readers": {
-   "gemini-3.7-flash": {
+   "gemini-3.1-pro-preview": {
     "verdict": "partially_supported",
     "issues": [
      {
       "severity": "material",
-      "statement": "Carry-On (stowed on a seat, deployed manually through a Type IV emergency exit, reduces passenger capacity from 8 to 7)",
-      "problem": "The manual states the carry-on liferaft stowage is a free-standing installation mounted to seat rails, not stowed on a seat. Additionally, specific mention of a 'Type IV emergency exit' and reducing passenger capacity from 8 to 7 are not found on the provided pages.",
+      "statement": "deployed manually through a Type IV emergency exit; requires the 8-seat forward cabin kit and reduces passenger capacity from 8 to 7",
+      "problem": "The provided pages do not state that the carry-on liferaft is deployed through a Type IV emergency exit, requires an 8-seat forward cabin kit, or reduces passenger capacity from 8 to 7.",
       "evidence": "The carry on liferaft stowage is a self-contained free standing installation which is installed to seat rails supplied as part of the passenger seat kit.",
-      "page": "7-669"
+      "page": "3393"
      }
     ],
     "pages_used": [
-     "7-669",
-     "7-670",
-     "7-671",
-     "7-672"
+     "3393",
+     "3394",
+     "3395",
+     "3396"
     ]
    },
-   "gemini-3.5-flash": {
-    "verdict": "partially_supported",
-    "issues": [
-     {
-      "severity": "material",
-      "statement": "with an external activation handle accessible from outside the aircraft for a water-side deployment",
-      "problem": "The manual does not mention 'water-side deployment' or that the handle is specifically for water-side deployment.",
-      "evidence": "The secondary activation handle is mounted on the leading edge of each sponson mounted liferaft container under an orange/red flap marked LIFERAFT HANDLE – PULL TO INFLATE.",
-      "page": "7-671"
-     },
-     {
-      "severity": "material",
-      "statement": "Sponson (a liferaft mounted on each sponson, no seating impact...)",
-      "problem": "The claim attributes 'no seating impact' to the Sponson installation, but the manual only states this ('no negative impact upon possible passenger seating arrangements') for the Kit Integrated Liferaft Stowage Location.",
-      "evidence": "This configuration has no negative impact upon possible passenger seating arrangements.",
-      "page": "S11C-5"
-     }
-    ],
+   "gemini-3.7-flash": {
+    "verdict": "supported",
+    "issues": [],
     "pages_used": [
      "7-669",
      "7-670",
      "7-671",
+     "7-672",
      "S11A-5",
-     "S11B-5",
-     "S11C-5"
+     "S11B-5"
     ]
    }
   },
-  "status": "flag",
-  "strong": false,
-  "checked": "2026-09-21 10:48"
+  "status": "disputed",
+  "strong": true,
+  "checked": "2026-09-22 16:45"
  },
  "eaps/1/p0": {
   "id": "eaps/1/p0",

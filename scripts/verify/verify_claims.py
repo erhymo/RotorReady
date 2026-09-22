@@ -135,6 +135,136 @@ def render(src, key):
     return out
 
 
+# ----------------------------------------------------------------------------- coverage (no network; used by --report and --gate)
+def list_public_files():
+    """(model, kind, path) for every public/system-notes/*.json and public/quick-reference/*.json file, i.e.
+    every model+kind that COULD be checked, whether or not it is registered in SOURCES yet."""
+    out = []
+    for kind, tmpl in FILES.items():
+        d = (ROOT / tmpl.format(m='X')).parent
+        for p in sorted(d.glob('*.json')):
+            out.append((p.stem, kind, p))
+    return out
+
+
+def coverage_row(model, kind, path):
+    """Static coverage check against the ledger: no Gemini calls. Returns (total_units, counts, problems, registered)."""
+    data = json.load(open(path))
+    units = list((units_system_notes if kind == 'system-notes' else units_quick_reference)(data))
+    registered = model in SOURCES
+    counts = collections.Counter()
+    problems = []
+    if not registered:
+        return len(units), counts, problems, False
+    lpath = ROOT / 'docs' / 'verification' / model / f'{kind}.json'
+    ledger = json.load(open(lpath)) if lpath.exists() else {}
+    rpath = ROOT / 'docs' / 'verification' / model / 'reviews.json'
+    reviews = json.load(open(rpath)).get(kind, {}) if rpath.exists() else {}
+    rev = SOURCES[model]['rev']
+    for uid, ctx, claim in units:
+        h = hashlib.sha1(claim.encode()).hexdigest()[:12]
+        old = ledger.get(uid)
+        rv = reviews.get(uid)
+        if not old:
+            counts['never_checked'] += 1
+            problems.append((uid, 'never checked'))
+        elif old.get('hash') != h or old.get('source_rev') != rev:
+            counts['stale'] += 1
+            problems.append((uid, 'content changed since it was last checked'))
+        elif old.get('status') == 'ok':
+            counts['ok'] += 1
+            counts['strong' if old.get('strong') else 'flash_only'] += 1
+        elif rv and rv.get('hash') == h:
+            counts['reviewed'] += 1
+        else:
+            counts[old.get('status', 'unknown')] += 1
+            problems.append((uid, f"unresolved: {old.get('status', 'unknown')}"))
+    return len(units), counts, problems, True
+
+
+def report_coverage():
+    """--report: a table, per model+kind, of what verify_claims has actually checked vs not. Never silently 'ok'."""
+    rows = []
+    for model, kind, path in list_public_files():
+        total, counts, problems, registered = coverage_row(model, kind, path)
+        rows.append((model, kind, total, counts, problems, registered))
+    w = max(len(f"{m}/{k}") for m, k, *_ in rows)
+    print(f"{'model/kind'.ljust(w)}  units  ok(strong+flash)  reviewed  unresolved  never-checked  stale  source")
+    for model, kind, total, counts, problems, registered in rows:
+        if not registered:
+            print(f"{(model + '/' + kind).ljust(w)}  {total:5}  {'-':>17}  {'-':>8}  {'-':>10}  {'-':>13}  {'-':>5}  NOT REGISTERED (never verified)")
+            continue
+        unresolved = sum(v for k2, v in counts.items() if k2 not in ('ok', 'strong', 'flash_only', 'reviewed', 'never_checked', 'stale'))
+        ok = f"{counts['ok']} ({counts['strong']}+{counts['flash_only']})"
+        print(f"{(model + '/' + kind).ljust(w)}  {total:5}  {ok:>17}  {counts['reviewed']:>8}  {unresolved:>10}  {counts['never_checked']:>13}  {counts['stale']:>5}  {SOURCES[model]['rev']}")
+    print()
+    print("'strong' = a pro-class model read the page image; 'flash_only' = only a lighter model has, and is due a --require-strong re-check.")
+    print("A file with no verification source registered is never checked by this tool at all, regardless of what it says on screen.")
+    return rows
+
+
+def base_unit_hashes(base_ref, path):
+    """{unit id: text hash} for a content file as it existed at base_ref, so the gate can tell which claims this
+    push actually touches vs. pre-existing (unrelated) backlog it should not hold hostage."""
+    rel = path.relative_to(ROOT).as_posix()
+    got = subprocess.run(['git', 'show', f'{base_ref}:{rel}'], cwd=ROOT, capture_output=True, text=True)
+    if got.returncode != 0:
+        return {}   # file is new at HEAD (didn't exist at base): every unit in it counts as changed
+    data = json.loads(got.stdout)
+    fn = units_system_notes if 'notes' in data else units_quick_reference
+    return {uid: hashlib.sha1(claim.encode()).hexdigest()[:12] for uid, ctx, claim in fn(data)}
+
+
+def gate(base_ref):
+    """--gate --base <ref>: exit 1 if any claim that CHANGED since base_ref (i.e. is actually part of this push) is
+    not verified 'ok'/reviewed against the manual. Pre-existing, untouched backlog never blocks a push - only what
+    this push itself is introducing or editing. Unregistered models/kinds cannot be checked at all; reported, not blocked."""
+    blocked, unverifiable_touch = [], []
+    for model, kind, path in list_public_files():
+        data = json.load(open(path))
+        units = list((units_system_notes if kind == 'system-notes' else units_quick_reference)(data))
+        base_hashes = base_unit_hashes(base_ref, path) if base_ref else {uid: None for uid, *_ in units}
+        touched = [(uid, hashlib.sha1(claim.encode()).hexdigest()[:12]) for uid, ctx, claim in units if base_hashes.get(uid) != hashlib.sha1(claim.encode()).hexdigest()[:12]]
+        if not touched:
+            continue
+        if model not in SOURCES:
+            unverifiable_touch.append((model, kind, len(touched)))
+            continue
+        lpath = ROOT / 'docs' / 'verification' / model / f'{kind}.json'
+        ledger = json.load(open(lpath)) if lpath.exists() else {}
+        rpath = ROOT / 'docs' / 'verification' / model / 'reviews.json'
+        reviews = json.load(open(rpath)).get(kind, {}) if rpath.exists() else {}
+        rev = SOURCES[model]['rev']
+        problems = []
+        for uid, h in touched:
+            old = ledger.get(uid)
+            rv = reviews.get(uid)
+            if old and old.get('hash') == h and old.get('source_rev') == rev and old.get('status') == 'ok':
+                continue
+            if old and old.get('hash') == h and rv and rv.get('hash') == h:
+                continue
+            problems.append((uid, 'new/edited claim, not (re-)verified' if not old or old.get('hash') != h else f"unresolved: {old.get('status', 'unknown')}"))
+        if problems:
+            blocked.append((model, kind, problems))
+    if unverifiable_touch:
+        print("NOTE: this push edits content with no verification source registered, so it cannot be checked at all:")
+        for m, k, n in unverifiable_touch:
+            print(f"  - {m}/{k}: {n} claim(s) changed")
+    if not blocked:
+        print("verify-gate: every claim this push changes is verified 'ok' (or reviewed) against the manual. OK to push.")
+        return 0
+    print("verify-gate: BLOCKED. This push changes claims that are not verified against the manual:")
+    for m, k, problems in blocked:
+        print(f"\n  {m}/{k}:")
+        for uid, why in problems[:15]:
+            print(f"    - {uid}: {why}")
+        if len(problems) > 15:
+            print(f"    ... and {len(problems) - 15} more")
+    print(f"\nRun: npm run verify:content -- --model <model> --kind <kind>   then review any flags, then push again.")
+    print("To push anyway (e.g. a wording-only change already reviewed by eye), use: git push --no-verify")
+    return 1
+
+
 # ----------------------------------------------------------------------------- units
 def units_system_notes(data):
     for note in data['notes']:
@@ -264,8 +394,11 @@ def verify_unit(idx, src, uid, ctx, claim, models, args):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument('--model', required=True)
-    ap.add_argument('--kind', required=True, choices=list(FILES))
+    ap.add_argument('--report', action='store_true', help='coverage table across every model/kind in public/, no network calls')
+    ap.add_argument('--gate', action='store_true', help='exit 1 if content this push changes is not verified (used by the pre-push hook)')
+    ap.add_argument('--base', help='--gate only: git ref to diff against to find what this push actually changed (the pre-push hook passes the remote-tracking sha)')
+    ap.add_argument('--model')
+    ap.add_argument('--kind', choices=list(FILES))
     ap.add_argument('--file', help='verify this JSON file instead of the one in public/ (regression tests)')
     ap.add_argument('--ledger', help='ledger path (default docs/verification/<model>/<kind>.json)')
     ap.add_argument('--only', help='only units whose id starts with this')
@@ -276,12 +409,17 @@ def main():
     ap.add_argument('--recheck', action='store_true', help='ignore the ledger and check everything')
     ap.add_argument('--require-strong', action='store_true', help='re-check units that were only verified by flash-class readers')
     args = ap.parse_args()
+    if args.report:
+        report_coverage(); return
+    if args.gate:
+        sys.exit(gate(args.base))
+    if not args.model or not args.kind:
+        ap.error('--model and --kind are required unless --report or --gate is given')
     load_env()
     src = dict(SOURCES[args.model]); src['name'] = args.model
     data = json.load(open(args.file or ROOT / FILES[args.kind].format(m=args.model)))
-    units = list((units_system_notes if args.kind == 'system-notes' else units_quick_reference)(data))
-    if args.only:
-        units = [u for u in units if u[0].startswith(args.only)]
+    all_units = list((units_system_notes if args.kind == 'system-notes' else units_quick_reference)(data))
+    units = [u for u in all_units if u[0].startswith(args.only)] if args.only else all_units
     lpath = pathlib.Path(args.ledger) if args.ledger else ROOT / 'docs' / 'verification' / args.model / f'{args.kind}.json'
     lpath.parent.mkdir(parents=True, exist_ok=True)
     ledger = json.load(open(lpath)) if lpath.exists() else {}
@@ -306,8 +444,9 @@ def main():
             rec = f.result(); ledger[rec['id']] = rec; done += 1
             print(f"  [{done}/{len(todo)}] {rec['status']:9} {rec['id']}", flush=True)
             json.dump(ledger, open(lpath, 'w'), indent=1, ensure_ascii=False)
-    # keep the ledger limited to units that still exist
-    live = {u[0] for u in units}
+    # keep the ledger limited to units that still exist (against the FULL unit list, not an --only filter,
+    # or a filtered run would delete every other unit's history - this deleted 226/227 AW169_EP entries once)
+    live = {u[0] for u in all_units}
     for k in list(ledger):
         if k not in live and not args.file:
             del ledger[k]

@@ -11,10 +11,36 @@ npm run verify:content -- --model AW169_EP --kind quick-reference
 npm run verify:content -- --model AW169_EP --kind system-notes
 npm run verify:content -- --model AW169 --kind quick-reference
 npm run verify:content -- ... --require-strong     # re-check units that only flash-class readers have judged
+
+npm run verify:coverage      # table: per model/kind, how much is ok/strong/flash/reviewed/never-checked/stale/unregistered
+npm run verify:gate          # what a `git push` right now would block on (what THIS push changes, not the backlog)
 ```
 
 Needs `GEMINI_API_KEY` in `.env` (project needs Gemini credits). Daily request quota per model applies: `gemini-3.1-pro`
 allowed 250 requests/day on 2026-09-21, so the strong pass is spread over days.
+
+## Coverage report (`--report`) and the push gate (`--gate`)
+
+`--report` never contacts Gemini — it's a static read of the ledgers, so it's cheap and safe to run anytime, and it is
+the answer whenever anyone asks "is the app content correct" or "what have you actually checked": it always prints,
+per model+kind, how many claims are `ok` (split strong pro-model vs flash-only), `reviewed`, `never_checked`, `stale`
+(content edited since it was last checked), and whether the model/kind is registered at all. An unregistered
+model/kind is never silently skipped — it prints as `NOT REGISTERED (never verified)`.
+
+`--gate` is what `.githooks/pre-push` runs on every `git push` (installed automatically by `npm install`, see
+`scripts/setup-hooks.mjs` — this repo uses `core.hooksPath .githooks` instead of the untracked `.git/hooks/`, so the
+hook travels with clones). It diffs the content files against the push's base commit, and for every claim that is
+genuinely new or edited by the push (not the rest of a file that happens to also be touched), requires it to be `ok`
+or `reviewed` in the ledger for the currently-registered models. Pre-existing backlog elsewhere in the file — e.g. the
+145 AW169 Standard System Notes units that have never been run through the tool at all — does not block unrelated
+pushes; `--report` is how that backlog stays visible instead of being forgotten. A push can be forced past the gate
+with `git push --no-verify`, which should be rare and worth mentioning when it happens.
+
+This was added 2026-09-22 after the gate itself caught a real case: an earlier hand-edit to the ditching liferaft note
+(fixing one flagged phrase) had introduced an unsupported detail ("hinged-doors configuration", not in the RFM at
+all) while never re-running the verifier on the edit. `--gate` flagged it as `stale`; it was corrected against the
+RFM Section 7 system description and Supplement 11 pages and is `ok` again. Exactly the failure mode this exists to
+catch: an edit made without re-verification, sitting unnoticed in the published app.
 
 ## How it works
 

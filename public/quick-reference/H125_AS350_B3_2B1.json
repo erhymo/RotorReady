@@ -52,7 +52,7 @@
           "label": "Arriel 2B1 (AEO)",
           "lines": [
             "Maximum continuous: 92.7 %.",
-            "Takeoff rating: 100 %.",
+            "Takeoff rating: 100 % (92.7–100 % torque range placarded for 0–40 kt).",
             "Transient (5 s): 104 %.",
             "100 % torque = 535 kW at NR 386 rpm.",
             "Use of the takeoff rating torque range has no time limit."
@@ -226,15 +226,15 @@
         {
           "label": "Sand filter (SUP.14)",
           "lines": [
-            "Heating and demisting OFF when P2 is ON.",
-            "P2 OFF in visible moisture with OAT below 0 °C.",
-            "Flight in falling snow only with the sand filter installed and P2 OFF."
+            "Heating and demisting OFF when P2 is ON (sand filter active).",
+            "Flight in falling snow is permitted with no restriction when the sand filter is fitted, active or not — the visibility-based snow limits (10 min between 800–1500 m, prohibited below 800 m) only apply without the sand filter installed."
           ]
         },
         {
           "label": "AFCS SFIM 85 T 31 (SUP.16)",
           "lines": [
             "Minimum height for hands-off operation: 400 ft (120 m).",
+            "Minimum all-up weight with AFCS in operation: 1300 kg (2866 lb).",
             "Disengaged on the ground except for checks; no engagement before takeoff if the trim test is not satisfactory."
           ]
         },

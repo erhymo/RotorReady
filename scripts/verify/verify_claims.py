@@ -41,6 +41,12 @@ SOURCES = {
         'rfm_parts': [(1, 3614, '_source/rfm/RFM AW169/Standard/RFM Issue 3. Rev.1.pdf')],
         'qrh_pdf': None,
     },
+    'H125_AS350_B3_2B1': {
+        'rev': 'AS350 B3 2B1 Flight Manual, EASA certification, dated 10/01/2025',
+        'rfm_text': '_source/rfm/as350-b3-2b1-rfm-pages.txt',
+        'rfm_parts': [(1, 640, '_source/manuals/AS350 B3 2B1/1_index.pdf')],   # tagged text dump has a harmless empty trailing "page 641"
+        'qrh_pdf': None,
+    },
 }
 
 FILES = {

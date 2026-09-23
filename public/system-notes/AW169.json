@@ -53,8 +53,8 @@
                 "PW210A (Standard) — High",
                 "174.6% TQ",
                 "174.6% TQ (no transient)",
-                "192.1% TQ",
-                "192.1% TQ (no transient)"
+                "174.6% TQ",
+                "192.1% TQ"
               ],
               [
                 "PW210A1 (EP) — Low",
@@ -67,8 +67,8 @@
                 "PW210A1 (EP) — High",
                 "185% TQ",
                 "185% TQ (no transient)",
-                "195% TQ",
-                "195% TQ (no transient)"
+                "185% TQ",
+                "195% TQ"
               ]
             ]
           }

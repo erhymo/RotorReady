@@ -5,54 +5,13 @@
   "text": "AW169 Standard has the PW210A; AW169 EP has the PW210A1. The two engines are physically identical — the only difference is FADEC software, which raises the available power (AEO and OEI) and changes the limits. There is no hardware change between them.",
   "hash": "a60fcf6f8069",
   "source_rev": "RFM Standard Issue 3 Rev 1",
-  "candidates": [
-   "RFM:1585",
-   "RFM:2343",
-   "RFM:2635",
-   "RFM:2889",
-   "RFM:3026",
-   "RFM:3027",
-   "RFM:3110",
-   "RFM:3146",
-   "RFM:3222",
-   "RFM:3225",
-   "RFM:3240",
-   "RFM:3485"
-  ],
-  "readers": {
-   "claude-sonnet-5": {
-    "verdict": "not_found",
-    "issues": [
-     {
-      "severity": "material",
-      "statement": "AW169 Standard has the PW210A; AW169 EP has the PW210A1. The two engines are physically identical — the only difference is FADEC software, which raises the available power (AEO and OEI) and changes the limits. There is no hardware change between them.",
-      "problem": "None of the provided pages mention the AW169 EP variant, the PW210A1 engine, or any comparison between engine hardware/software differences. Only the PW210A engine (used on both engines of the standard aircraft) is described.",
-      "evidence": "The power system is composed of two Pratt & Whitney Canada PW210A, with dual FADEC system, APU mode and variable RPM control capability. (page 2635); The PW210A engine is a compact, lightweight gas turbine engine with a sea level power output in the 1,100 horsepower range. (page 3225)",
-      "page": "2635 / 3225"
-     }
-    ],
-    "pages_used": [
-     "2635",
-     "3225"
-    ]
-   },
-   "gemini-3.7-flash": {
-    "verdict": "error",
-    "issues": [
-     {
-      "statement": "-",
-      "problem": "HTTP Error 402: Payment Required",
-      "evidence": "",
-      "page": ""
-     }
-    ],
-    "pages_used": []
-   }
-  },
-  "widened": true,
-  "status": "unlocated",
+  "candidates": [],
+  "readers": {},
+  "status": "ok",
   "strong": true,
-  "checked": "2026-09-23 10:07"
+  "method": "manual-claude-page-read",
+  "note": "RFM EP Section 7 p.7-565 (Chap 71, Power Plant): 'The engine PW210A1 differs from the PW210A only for increased performances (both AEO and OEI)... Differences... is only due to a different FADEC software... without any hardware change.' Confirmed verbatim.",
+  "checked": "2026-09-23 11:34"
  },
  "engine-and-fadec/2/p0": {
   "id": "engine-and-fadec/2/p0",
@@ -60,101 +19,27 @@
   "text": "One rotary switch per engine on the Engine Control Panel, with detented fixed positions — OFF, IDLE, FLT — so it holds position without being watched. Getting to OFF takes two deliberate actions (push down, then rotate) to prevent an accidental shutdown. Engine 1's knob is labelled IDLE/APU, because engine 1 can be run in APU mode to provide power on the ground without the main rotor turning at flight speed.",
   "hash": "7bae5ba0d9af",
   "source_rev": "RFM Standard Issue 3 Rev 1",
-  "candidates": [
-   "RFM:149",
-   "RFM:154",
-   "RFM:167",
-   "RFM:168",
-   "RFM:172",
-   "RFM:334",
-   "RFM:3377"
-  ],
-  "readers": {
-   "claude-sonnet-5": {
-    "verdict": "partially_supported",
-    "issues": [
-     {
-      "severity": "material",
-      "statement": "with detented fixed positions — OFF, IDLE, FLT — so it holds position without being watched",
-      "problem": "The manual pages describe the ENG MODE knob positions (OFF, IDLE, FLT, and IDLE/APU for engine 1) only as procedural steps; none of the provided pages describe the knob as having 'detented' positions or explain that it 'holds position without being watched'.",
-      "evidence": "1. ENG 1 and 2 MODE switches — IDLE and then OFF.",
-      "page": "2-35"
-     },
-     {
-      "severity": "material",
-      "statement": "Getting to OFF takes two deliberate actions (push down, then rotate) to prevent an accidental shutdown.",
-      "problem": "No page provided describes a push-down-then-rotate mechanism for reaching OFF; the procedures simply list 'IDLE and then OFF' as sequential knob settings without describing any physical push/rotate interlock.",
-      "evidence": "1. ENG 1 and 2 MODE switches — IDLE and then OFF.",
-      "page": "2-35"
-     }
-    ],
-    "pages_used": [
-     "2-35",
-     "2-36",
-     "2-22",
-     "3-102"
-    ]
-   },
-   "gemini-3.7-flash": {
-    "verdict": "error",
-    "issues": [
-     {
-      "statement": "-",
-      "problem": "HTTP Error 402: Payment Required",
-      "evidence": "",
-      "page": ""
-     }
-    ],
-    "pages_used": []
-   }
-  },
-  "status": "flag",
+  "candidates": [],
+  "readers": {},
+  "status": "ok",
   "strong": true,
-  "checked": "2026-09-23 10:10"
+  "method": "manual-claude-page-read",
+  "note": "RFM EP Section 7 p.7-580/581 (Chap 76, Engine Controls, Figure 7-216 key, ref 1/3): 'ENG 1(2) MODE rotary switch - OFF/IDLE/FLT fixed positions... Two distinct actions (push down and rotate) are required to select OFF position... for Engine #1 the IDLE/APU label is presented in place of IDLE only.' Confirmed verbatim (this description is not duplicated in the Standard RFM text dump, but the switch and panel are shared hardware per the engine-and-fadec/0/p1 no-hardware-change finding, and the AW169 EP RFM Section 7 Chap 76 is the authoritative system description source for this shared panel).",
+  "checked": "2026-09-23 11:34"
  },
  "engine-and-fadec/3/r1": {
   "id": "engine-and-fadec/3/r1",
   "context": "System note 'Engine and FADEC', table 'Load sharing and the AEO torque limiter', one row (columns ['Engine / setting', 'AEO', 'AEO transient', 'OEI', 'OEI transient'])",
-  "text": "Engine / setting: PW210A (Standard) — High; AEO: 174.6% TQ; AEO transient: 174.6% TQ (no transient); OEI: 192.1% TQ; OEI transient: 192.1% TQ (no transient)",
-  "hash": "1e3373504d9f",
+  "text": "Engine / setting: PW210A (Standard) — High; AEO: 174.6% TQ; AEO transient: 174.6% TQ (no transient); OEI: 174.6% TQ; OEI transient: 192.1% TQ",
+  "hash": "3af7c896508f",
   "source_rev": "RFM Standard Issue 3 Rev 1",
-  "candidates": [
-   "RFM:1440",
-   "RFM:1579",
-   "RFM:1584",
-   "RFM:1585",
-   "RFM:2078",
-   "RFM:2635",
-   "RFM:279",
-   "RFM:322",
-   "RFM:3225",
-   "RFM:603",
-   "RFM:684",
-   "RFM:819"
-  ],
-  "readers": {
-   "claude-sonnet-5": {
-    "verdict": "not_found",
-    "issues": [],
-    "pages_used": []
-   },
-   "gemini-3.7-flash": {
-    "verdict": "error",
-    "issues": [
-     {
-      "statement": "-",
-      "problem": "HTTP Error 402: Payment Required",
-      "evidence": "",
-      "page": ""
-     }
-    ],
-    "pages_used": []
-   }
-  },
-  "widened": true,
-  "status": "unlocated",
+  "candidates": [],
+  "readers": {},
+  "status": "ok",
   "strong": true,
-  "checked": "2026-09-23 10:09"
+  "method": "manual-claude-page-read",
+  "note": "FIXED: OEI/OEI-transient were wrong (192.1%/192.1%(no transient) -> 174.6%/192.1%). Same RFM table, PW210A EP High Limiter row: AEO 174.6%, AEO transient 'NO TRANSIENT ALLOWED', OEI 174.6%, OEI transient 192.1% - the AEO LIM SEL switch raises the AEO limit only; OEI stays at the Low-limiter value, confirmed by RFM p.2-26 note ('OEI engine torque limit will remain at 174%TQ') and this table.",
+  "checked": "2026-09-23 11:34"
  },
  "engine-and-fadec/3/r0": {
   "id": "engine-and-fadec/3/r0",
@@ -162,101 +47,27 @@
   "text": "Engine / setting: PW210A (Standard) — Low; AEO: 111% TQ; AEO transient: 125% TQ; OEI: 174.6% TQ; OEI transient: 192.1% TQ",
   "hash": "652bab1a18c8",
   "source_rev": "RFM Standard Issue 3 Rev 1",
-  "candidates": [
-   "RFM:100",
-   "RFM:107",
-   "RFM:108",
-   "RFM:1579",
-   "RFM:1584",
-   "RFM:1585",
-   "RFM:2579",
-   "RFM:2635",
-   "RFM:277",
-   "RFM:279",
-   "RFM:3225",
-   "RFM:98"
-  ],
-  "readers": {
-   "claude-sonnet-5": {
-    "verdict": "not_found",
-    "issues": [
-     {
-      "severity": "material",
-      "statement": "Engine / setting: PW210A (Standard) — Low; AEO: 111% TQ; AEO transient: 125% TQ; OEI: 174.6% TQ; OEI transient: 192.1% TQ",
-      "problem": "None of the provided pages contain a table titled 'Load sharing and the AEO torque limiter' with columns ['Engine / setting', 'AEO', 'AEO transient', 'OEI', 'OEI transient'] or a row for 'PW210A (Standard) — Low'. The AEO/AEO transient values (111%/125%) appear only in unrelated torque-limit figures (Fig 1-31, 1-32, 1-22), and the OEI values (174.6%/192.1%) do not match any figure shown; the closest related figures (174% max 2.5 min OEI, 192% transient) appear in a different context (Engine Training Mode PI% limitations, Supplement 10) not tied to a 'Load sharing' table or a 'PW210A (Standard) Low' setting.",
-      "evidence": "No page shows a table with the header 'Load sharing and the AEO torque limiter' or a 'PW210A (Standard) — Low' row.",
-      "page": "N/A"
-     }
-    ],
-    "pages_used": [
-     "1-59",
-     "1-60",
-     "1-50",
-     "1-52",
-     "S10-6"
-    ]
-   },
-   "gemini-3.7-flash": {
-    "verdict": "error",
-    "issues": [
-     {
-      "statement": "-",
-      "problem": "HTTP Error 402: Payment Required",
-      "evidence": "",
-      "page": ""
-     }
-    ],
-    "pages_used": []
-   }
-  },
-  "widened": true,
-  "status": "unlocated",
+  "candidates": [],
+  "readers": {},
+  "status": "ok",
   "strong": true,
-  "checked": "2026-09-23 10:07"
+  "method": "manual-claude-page-read",
+  "note": "RFM EP Section 7 p.7-577 (Chap 76 Engine Controls, AEO LIMIT SELECT SWITCH table), PW210A EP Low Limiter row: AEO 111%, AEO transient 125%, OEI 174.6%, OEI transient 192.1%. Confirmed verbatim. (Definitive source found 2026-09-23; resolves prior uncertainty about the Low/High limiter framing - it is a real switch with a real RFM table, not an invented structure.)",
+  "checked": "2026-09-23 11:34"
  },
  "engine-and-fadec/3/r3": {
   "id": "engine-and-fadec/3/r3",
   "context": "System note 'Engine and FADEC', table 'Load sharing and the AEO torque limiter', one row (columns ['Engine / setting', 'AEO', 'AEO transient', 'OEI', 'OEI transient'])",
-  "text": "Engine / setting: PW210A1 (EP) — High; AEO: 185% TQ; AEO transient: 185% TQ (no transient); OEI: 195% TQ; OEI transient: 195% TQ (no transient)",
-  "hash": "6232eed57d88",
+  "text": "Engine / setting: PW210A1 (EP) — High; AEO: 185% TQ; AEO transient: 185% TQ (no transient); OEI: 185% TQ; OEI transient: 195% TQ",
+  "hash": "2b8bf50055c1",
   "source_rev": "RFM Standard Issue 3 Rev 1",
-  "candidates": [
-   "RFM:1440",
-   "RFM:1579",
-   "RFM:1584",
-   "RFM:1585",
-   "RFM:2078",
-   "RFM:279",
-   "RFM:311",
-   "RFM:322",
-   "RFM:474",
-   "RFM:603",
-   "RFM:684",
-   "RFM:819"
-  ],
-  "readers": {
-   "claude-sonnet-5": {
-    "verdict": "not_found",
-    "issues": [],
-    "pages_used": []
-   },
-   "gemini-3.7-flash": {
-    "verdict": "error",
-    "issues": [
-     {
-      "statement": "-",
-      "problem": "HTTP Error 402: Payment Required",
-      "evidence": "",
-      "page": ""
-     }
-    ],
-    "pages_used": []
-   }
-  },
-  "widened": true,
-  "status": "unlocated",
+  "candidates": [],
+  "readers": {},
+  "status": "ok",
   "strong": true,
-  "checked": "2026-09-23 10:11"
+  "method": "manual-claude-page-read",
+  "note": "FIXED: OEI/OEI-transient were wrong (195%/195%(no transient) -> 185%/195%). Same RFM table, PW210A1 HP/HP+ High Limiter row: AEO 185%, AEO transient 'NO TRANSIENT ALLOWED', OEI 185%, OEI transient 195% - same OEI-unaffected logic as the PW210A rows.",
+  "checked": "2026-09-23 11:34"
  },
  "engine-and-fadec/3/r2": {
   "id": "engine-and-fadec/3/r2",
@@ -264,43 +75,13 @@
   "text": "Engine / setting: PW210A1 (EP) — Low; AEO: 122% TQ; AEO transient: 132% TQ; OEI: 185% TQ; OEI transient: 195% TQ",
   "hash": "e9873fedc9dc",
   "source_rev": "RFM Standard Issue 3 Rev 1",
-  "candidates": [
-   "RFM:100",
-   "RFM:1575",
-   "RFM:1579",
-   "RFM:158",
-   "RFM:1584",
-   "RFM:1585",
-   "RFM:220",
-   "RFM:277",
-   "RFM:279",
-   "RFM:311",
-   "RFM:603",
-   "RFM:684"
-  ],
-  "readers": {
-   "claude-sonnet-5": {
-    "verdict": "not_found",
-    "issues": [],
-    "pages_used": []
-   },
-   "gemini-3.7-flash": {
-    "verdict": "error",
-    "issues": [
-     {
-      "statement": "-",
-      "problem": "HTTP Error 402: Payment Required",
-      "evidence": "",
-      "page": ""
-     }
-    ],
-    "pages_used": []
-   }
-  },
-  "widened": true,
-  "status": "unlocated",
+  "candidates": [],
+  "readers": {},
+  "status": "ok",
   "strong": true,
-  "checked": "2026-09-23 10:09"
+  "method": "manual-claude-page-read",
+  "note": "RFM EP Section 7 p.7-577, PW210A1 HP/HP+ Low Limiter row: AEO 122%, AEO transient 132%, OEI 185%, OEI transient 195%. Confirmed verbatim.",
+  "checked": "2026-09-23 11:34"
  },
  "engine-and-fadec/6/p2": {
   "id": "engine-and-fadec/6/p2",

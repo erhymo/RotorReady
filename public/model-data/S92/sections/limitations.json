@@ -13,7 +13,7 @@
    "answer": [
     0
    ],
-   "explanation": "With the full normal AFCS configuration engaged (PSAS1/2, AP1/2, ATT Mode, cyclic and rudder trim), maximum VNE is 165 KIAS. Degraded configurations (e.g. SAS Mode or a single AP) reduce maximum VNE to 120 KIAS.",
+   "explanation": "With the full normal AFCS configuration engaged (PSAS1/2, AP1/2, ATT Mode, cyclic and rudder trim), maximum VNE is 165 KIAS — and it stays 165 KIAS with just one AP, or in SAS Mode, as long as both PSAS1 and PSAS2 are still operating. VNE drops to 120 KIAS only when a single PSAS channel is paired with both APs in ATT Mode, or when a single PSAS/AP pair operates in SAS Mode.",
    "references": [
     "S-92 RFM Part 1 Sec I: REQUIRED EQUIPMENT (p.1-1/1-2)"
    ],

@@ -480,7 +480,7 @@
         {
           "left": "Corrected t4 margin",
           "right": [
-            "When necessary, compute corrected t4 margin using the Hp/OAT correction table. This correction only applies when the initial T4 margin is ≥ +35 °C; if the corrected margin is negative the result is acceptable, whereas a T4 margin greater than +35 °C means the engine condition is unsatisfactory."
+            "When necessary, compute corrected t4 margin using the Hp/OAT correction table. This correction only applies when the initial T4 margin is less than +35 °C; if the corrected margin is negative the result is acceptable. A T4 margin of +35 °C or more (before correction) means the engine condition is unsatisfactory outright — no correction to calculate."
           ]
         },
         {
@@ -813,7 +813,7 @@
           "group": "Engine oil pressure at or below 1.1 bar (16 psi)",
           "left": "Engine oil pressure at or below 1.1 bar (16 psi)",
           "right": [
-            "Check the gauge. LOW or NIL: LAND IMMEDIATELY — autorotation procedure, shut down the engine time permitting. NORMAL (CWP light test completed): LAND AS SOON AS PRACTICABLE."
+            "Check the gauge. LOW or NIL: LAND IMMEDIATELY — autorotation procedure, shut down the engine time permitting. NORMAL: LAND AS SOON AS PRACTICABLE."
           ]
         },
         {
@@ -1025,7 +1025,7 @@
         {
           "left": "Engine oil temperature above 115 °C",
           "right": [
-            "Set 80 kt (148 km/h). If the temperature decreases, land as soon as practicable; if not, check oil cooler fan operation and land as soon as possible."
+            "Set 80 kt (148 km/h). If the temperature decreases, land as soon as practicable and check oil cooler fan operation; if it does not decrease, land as soon as possible."
           ]
         },
         {
@@ -1140,13 +1140,7 @@
         {
           "left": "Ventilation",
           "right": [
-            "Ventilate the cabin thoroughly to clear smoke and extinguishing agent before continuing operations."
-          ]
-        },
-        {
-          "left": "Follow-on checks",
-          "right": [
-            "Check affected systems and wiring as required; coordinate with maintenance before next flight."
+            "Ventilate the cabin."
           ]
         }
       ]
@@ -1418,7 +1412,7 @@
           "group": "Failure with FLOAT ARM set to arm",
           "left": "Failure with FLOAT ARM set to arm",
           "right": [
-            "Inflation not possible (also with EMER SW OFF or battery at EMER SHED): continue flight within gliding distance of land. Inflation possible on both floats: continue flight."
+            "Inflation not possible (also happens whenever [MASTER SW] or [EMER SW] is set OFF): continue flight within gliding distance of the coastline. Inflation possible on both floats: continue flight."
           ]
         },
         {
@@ -1579,7 +1573,7 @@
         {
           "left": "Limits",
           "right": [
-            "Disengaged on the ground except for checks; do not engage before takeoff if the trim test is not satisfactory; minimum height for hands-off operation 400 ft (120 m)."
+            "Disengaged on the ground except for checks; do not engage before takeoff if the trim test is not satisfactory; minimum height for hands-off operation 400 ft (120 m); minimum all-up weight with AFCS in operation 1300 kg (2866 lb)."
           ]
         },
         {
@@ -1647,7 +1641,7 @@
         {
           "left": "Limits",
           "right": [
-            "Heating and demisting OFF when P2 is ON. P2 OFF in visible moisture with OAT below 0 °C. Flight in falling snow is permitted with P2 OFF."
+            "Heating and demisting OFF when P2 is ON (sand filter active). Flight in falling snow is permitted with no restriction when the sand filter is fitted, active or not."
           ]
         },
         {
@@ -1677,13 +1671,13 @@
         {
           "left": "P2 remains on",
           "right": [
-            "The P2 air valve fails to close: continue flight, observing the P2 bleed-air limitations."
+            "The P2 air valve fails to close: continue flight."
           ]
         },
         {
           "left": "Engine health check",
           "right": [
-            "[SAND FILT] OFF. The FADEC takes the filter into account automatically."
+            "[SAND FILT] OFF, use the dedicated engine power check chart. The VEMD's power check and hover performance are automatically adjusted for the sand filter when it is fitted."
           ]
         }
       ]
@@ -1734,12 +1728,6 @@
           "left": "Hoist failure",
           "right": [
             "Pull the cable into the aircraft by hand, cut it, or return to base with the cable slightly inclined at VNE 60 kt (111 km/h)."
-          ]
-        },
-        {
-          "left": "Damaged cable, jam or miswrap",
-          "right": [
-            "Stop hoisting (do not use the speed control), inspect the cable, set the load down at the nearest suitable site, raise the cable by hand and store it in the cabin, [HOIST] OFF. If manual raising is not possible, cut with the manual cable cutter."
           ]
         },
         {

@@ -52,6 +52,7 @@ SOURCES = {
 FILES = {
     'system-notes': 'public/system-notes/{m}.json',
     'quick-reference': 'public/quick-reference/{m}.json',
+    'procedures': 'public/procedures/{m}.json',
 }
 
 
@@ -158,7 +159,7 @@ def list_public_files():
 def coverage_row(model, kind, path):
     """Static coverage check against the ledger: no Gemini calls. Returns (total_units, counts, problems, registered)."""
     data = json.load(open(path))
-    units = list((units_system_notes if kind == 'system-notes' else units_quick_reference)(data))
+    units = list(UNIT_FNS[kind](data))
     registered = model in SOURCES
     counts = collections.Counter()
     problems = []
@@ -211,7 +212,7 @@ def report_coverage():
     return rows
 
 
-def base_unit_hashes(base_ref, path):
+def base_unit_hashes(base_ref, kind, path):
     """{unit id: text hash} for a content file as it existed at base_ref, so the gate can tell which claims this
     push actually touches vs. pre-existing (unrelated) backlog it should not hold hostage."""
     rel = path.relative_to(ROOT).as_posix()
@@ -219,8 +220,7 @@ def base_unit_hashes(base_ref, path):
     if got.returncode != 0:
         return {}   # file is new at HEAD (didn't exist at base): every unit in it counts as changed
     data = json.loads(got.stdout)
-    fn = units_system_notes if 'notes' in data else units_quick_reference
-    return {uid: hashlib.sha1(claim.encode()).hexdigest()[:12] for uid, ctx, claim in fn(data)}
+    return {uid: hashlib.sha1(claim.encode()).hexdigest()[:12] for uid, ctx, claim in UNIT_FNS[kind](data)}
 
 
 def gate(base_ref):
@@ -230,8 +230,8 @@ def gate(base_ref):
     blocked, unverifiable_touch = [], []
     for model, kind, path in list_public_files():
         data = json.load(open(path))
-        units = list((units_system_notes if kind == 'system-notes' else units_quick_reference)(data))
-        base_hashes = base_unit_hashes(base_ref, path) if base_ref else {uid: None for uid, *_ in units}
+        units = list(UNIT_FNS[kind](data))
+        base_hashes = base_unit_hashes(base_ref, kind, path) if base_ref else {uid: None for uid, *_ in units}
         touched = [(uid, hashlib.sha1(claim.encode()).hexdigest()[:12]) for uid, ctx, claim in units if base_hashes.get(uid) != hashlib.sha1(claim.encode()).hexdigest()[:12]]
         if not touched:
             continue
@@ -295,6 +295,33 @@ def units_quick_reference(data):
     for gi, g in enumerate(data['groups']):
         for ii, it in enumerate(g['items']):
             yield f"qr/{gi}/{ii}", f"Quick Reference group '{g['title']}', item '{it['label']}'", ' / '.join(it['lines'])
+
+
+def _flatten_inline(nodes):
+    """H125-style procedure steps: 'right' is a list of strings and {style: [text...]} nodes."""
+    out = []
+    for n in nodes:
+        if isinstance(n, str):
+            out.append(n)
+        elif isinstance(n, dict):
+            for v in n.values():
+                out.append(''.join(v) if isinstance(v, list) else str(v))
+    return ''.join(out)
+
+
+def units_procedures(data):
+    """H125/AS350-style procedures: public/procedures/<model>.json, one 'right' text per step. Only
+    steps containing a digit are checked (numeric/limit content), matching the system-notes convention."""
+    for p in data.get('procedures', []):
+        for si, step in enumerate(p.get('steps', [])):
+            text = _flatten_inline(step.get('right', []))
+            if not re.search(r'\d', text):
+                continue
+            label = step.get('left') or step.get('label') or f"step {si}"
+            yield f"{p['slug']}/{si}", f"Procedure '{p['title']}', step '{label}'", text
+
+
+UNIT_FNS = {'system-notes': units_system_notes, 'quick-reference': units_quick_reference, 'procedures': units_procedures}
 
 
 # ----------------------------------------------------------------------------- model call
@@ -479,7 +506,7 @@ def main():
     load_env()
     src = dict(SOURCES[args.model]); src['name'] = args.model
     data = json.load(open(args.file or ROOT / FILES[args.kind].format(m=args.model)))
-    all_units = list((units_system_notes if args.kind == 'system-notes' else units_quick_reference)(data))
+    all_units = list(UNIT_FNS[args.kind](data))
     units = [u for u in all_units if u[0].startswith(args.only)] if args.only else all_units
     lpath = pathlib.Path(args.ledger) if args.ledger else ROOT / 'docs' / 'verification' / args.model / f'{args.kind}.json'
     lpath.parent.mkdir(parents=True, exist_ok=True)

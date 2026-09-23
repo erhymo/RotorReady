@@ -1,10 +1,17 @@
 import { getModelVariant } from "@/lib/models/catalog";
+import { fetchContentJson } from "@/lib/contentUrl";
 
+// Was a plain `fetch(url, { cache: "force-cache" })` — on the native app (no
+// server.url; see capacitor.config.ts) a relative fetch resolves against the
+// bundled local shell, not the live site, and force-cache then pinned whatever
+// that first resolved to for the rest of the session. fetchContentJson is the
+// same live-first-with-bundled-fallback resolution every other content fetch
+// in the app already uses, so "All" quiz, per-section quiz banks, and the
+// offline-package derivation that reuses this function all get fresh content
+// the moment it's pushed, instead of only after the next native store build.
 async function fetchJson<T = unknown>(url: string): Promise<T | null> {
   try {
-    const res = await fetch(url, { cache: "force-cache" });
-    if (!res.ok) return null;
-    return await res.json();
+    return await fetchContentJson<T>(url);
   } catch (error) {
     console.warn("Kunne ikke hente", url, error);
     return null;

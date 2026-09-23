@@ -2,7 +2,7 @@
 import * as React from "react";
 import { useRouter } from "next/navigation";
 import { loadAllQuestions, loadQuestionsForSectionId } from "@/lib/loadAllQuestions";
-import { loadSectionOffline } from "@/lib/offline";
+import { loadSectionOffline, saveSectionOffline } from "@/lib/offline";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 import { modelScopedKey } from "@/lib/models/storage";
 import { buildInitialQuizResumeSession, buildQuizResumeSession, clearQuizResumeSnapshot, findLatestQuizResumeInfo, getQuizResumeStorageKey, readQuizResumeSnapshot, writeQuizResumeSnapshot } from "@/lib/quiz/resumeSnapshot";
@@ -93,12 +93,23 @@ export default function EngineSystemsStart() {
 
 
   async function getData() {
+    // Network first (loadEngineSystemsQuestions resolves live-first on the
+    // native app); offline/local is only a fallback for no signal.
+    const items = await loadEngineSystemsQuestions(activeVariant.id);
+    if (items.length) {
+      try {
+        if (loadSectionOffline(SECTION_ID, activeVariant.id)) {
+          saveSectionOffline(SECTION_ID, { items }, activeVariant.id);
+        }
+      } catch {}
+      return { items };
+    }
+
     const offline = loadSectionOffline<{ items?: any[] }>(SECTION_ID, activeVariant.id);
     if (offline && Array.isArray(offline.items) && offline.items.length) {
       return { items: offline.items };
     }
 
-    const items = await loadEngineSystemsQuestions(activeVariant.id);
     return { items };
   }
 

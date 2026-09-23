@@ -2,7 +2,8 @@
 import * as React from "react";
 import { useRouter } from "next/navigation";
 import { loadQuestionsForSectionId } from "@/lib/loadAllQuestions";
-import { loadSectionOffline } from "@/lib/offline";
+import { loadSectionOffline, saveSectionOffline } from "@/lib/offline";
+import { fetchContentText } from "@/lib/contentUrl";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 import { modelScopedKey } from "@/lib/models/storage";
 import { buildInitialQuizResumeSession, buildValidatedQuizResumeSession, clearQuizResumeSnapshot, findLatestQuizResumeInfo, readQuizResumeSnapshot, writeQuizResumeSnapshot } from "@/lib/quiz/resumeSnapshot";
@@ -90,43 +91,54 @@ export default function AvionicsFmsQuizStart() {
 
 
   async function getData(): Promise<{ items: QuizItem[] }> {
+    // Network first (loadQuestionsForSectionId resolves live-first on the
+    // native app via lib/contentUrl.ts); offline/local is only a fallback for
+    // no signal. Was offline-first, which meant a section downloaded once for
+    // offline use was shown forever afterward, even with a live connection.
+    let items = await loadQuestionsForSectionId<QuizItem>(DATA_SECTION_ID, activeVariant.id);
+
+    if (items.length) {
+      // Keep a previously-downloaded offline copy in sync automatically.
+      try {
+        if (loadSectionOffline(DATA_SECTION_ID, activeVariant.id)) {
+          saveSectionOffline(DATA_SECTION_ID, { items }, activeVariant.id);
+        }
+      } catch {}
+      return { items };
+    }
+
     const offline = loadSectionOffline<{ items?: QuizItem[] }>(DATA_SECTION_ID, activeVariant.id);
     if (offline && Array.isArray(offline.items) && offline.items.length) {
       return { items: offline.items };
     }
 
-    let items = await loadQuestionsForSectionId<QuizItem>(DATA_SECTION_ID, activeVariant.id);
+    const urls = [
+      `/model-data/${activeVariant.id}/sections/${DATA_SECTION_ID}.json`,
+      `/quiz-data/sections/${DATA_SECTION_ID}.json`,
+    ];
 
-    if (!items.length) {
-      const urls = [
-        `/model-data/${activeVariant.id}/sections/${DATA_SECTION_ID}.json`,
-        `/quiz-data/sections/${DATA_SECTION_ID}.json`,
-      ];
+    for (const url of urls) {
+      try {
+        const text = await fetchContentText(url);
 
-      for (const url of urls) {
         try {
-          const res = await fetch(url, { cache: "no-store" });
-          const text = await res.text();
-
+          const json = JSON.parse(text);
+          if (json && Array.isArray(json.items) && json.items.length) {
+            items = json.items as QuizItem[];
+            break;
+          }
+        } catch {
+          const match = text.match(/"items"\s*:\s*(\[[\s\S]*?\])/);
+          if (!match) continue;
           try {
-            const json = JSON.parse(text);
-            if (json && Array.isArray(json.items) && json.items.length) {
-              items = json.items as QuizItem[];
+            const parsed = JSON.parse(match[1]);
+            if (Array.isArray(parsed) && parsed.length) {
+              items = parsed as QuizItem[];
               break;
             }
-          } catch {
-            const match = text.match(/"items"\s*:\s*(\[[\s\S]*?\])/);
-            if (!match) continue;
-            try {
-              const parsed = JSON.parse(match[1]);
-              if (Array.isArray(parsed) && parsed.length) {
-                items = parsed as QuizItem[];
-                break;
-              }
-            } catch {}
-          }
-        } catch {}
-      }
+          } catch {}
+        }
+      } catch {}
     }
 
     return { items };

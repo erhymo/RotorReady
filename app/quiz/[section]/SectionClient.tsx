@@ -172,7 +172,13 @@ export default function SectionClient() {
         setHasQuestions(selected.count > 0);
         return;
       }
-  // 1) Local/offline first
+      // 1) Network first (loadNetworkSectionItems already resolves live-first
+      // on the native app); offline is only a fallback for no-signal.
+      const items = await loadNetworkSectionItems(selected.id, activeVariant);
+      if (!cancelled && items?.length) {
+        setHasQuestions(true);
+        return;
+      }
       try {
         const { loadSectionOffline } = await import("@/lib/offline");
         const offline = loadSectionOffline<{ items?: unknown[] }>(selected.id, activeVariant.id);
@@ -181,11 +187,6 @@ export default function SectionClient() {
           return;
         }
       } catch {}
-      const items = await loadNetworkSectionItems(selected.id, activeVariant);
-      if (!cancelled && items?.length) {
-        setHasQuestions(true);
-        return;
-      }
       if (!cancelled) setHasQuestions(false);
     })();
     return () => { cancelled = true; };
@@ -212,15 +213,14 @@ export default function SectionClient() {
             return;
           } catch {}
         }
-        // Try offline first
-        let items: any[] | null = null;
-        try {
-          const mod = await import("@/lib/offline");
-          const offline = mod.loadSectionOffline<{ items?: any[] }>(selected.id, activeVariant.id);
-          if (offline && Array.isArray(offline.items)) items = offline.items;
-        } catch {}
+        // Network first; offline is only a fallback for no-signal.
+        let items: any[] | null = await loadNetworkSectionItems(selected.id, activeVariant);
         if (!items) {
-          items = await loadNetworkSectionItems(selected.id, activeVariant);
+          try {
+            const mod = await import("@/lib/offline");
+            const offline = mod.loadSectionOffline<{ items?: any[] }>(selected.id, activeVariant.id);
+            if (offline && Array.isArray(offline.items)) items = offline.items;
+          } catch {}
         }
         if (!items) { if (!cancelled) setTotalCount(0); return; }
         const blocked = await loadBlockedQuestionSet();

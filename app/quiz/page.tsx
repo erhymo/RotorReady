@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { fetchContentJson } from "@/lib/contentUrl";
 import { useActiveModelVariant } from "@/lib/models/hooks";
+import { refreshOfflineSectionsInBackground } from "@/lib/offline";
 import TopBarBackButton from "@/components/TopBarBackButton";
 
 
@@ -88,6 +89,15 @@ export default function QuizTypeSelectPage() {
     return () => {
       cancelled = true;
     };
+  }, [activeVariant.id, variantLoading, dynamicVariant]);
+
+  // Silently refresh any previously-downloaded offline quiz packages the moment
+  // this page is opened with a connection, so a package downloaded once doesn't
+  // keep showing what was live on the day it was downloaded. Fire-and-forget:
+  // no UI, no blocking — see lib/offline.ts for details.
+  useEffect(() => {
+    if (!dynamicVariant || variantLoading) return;
+    refreshOfflineSectionsInBackground(activeVariant.id).catch(() => {});
   }, [activeVariant.id, variantLoading, dynamicVariant]);
 
   const pageLoading = dynamicVariant && (variantLoading || currentLoadedSections === null);

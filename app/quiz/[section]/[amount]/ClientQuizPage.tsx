@@ -5,7 +5,7 @@ import ClientQuiz from "./ClientQuiz";
 import { fetchContentText } from "@/lib/contentUrl";
 import { loadBlockedQuestionSet } from "@/lib/blockedQuestions";
 import { useActiveModelVariant } from "@/lib/models/hooks";
-import { loadSectionOffline } from "@/lib/offline";
+import { loadSectionOffline, saveSectionOffline } from "@/lib/offline";
 import { loadAllQuestions } from "@/lib/loadAllQuestions";
 import { modelScopedKey } from "@/lib/models/storage";
 import { clearQuizOverrideSession, readQuizOverrideSession } from "@/lib/quiz/overrideSession";
@@ -240,7 +240,48 @@ export default function ClientQuizPage({ section, amount }: { section: string; a
         }
       }
 
-      // 1) Try locally (offline) first
+      // 1) Try network first — freshest source (native resolves to the live
+      // site via fetchContentText inside loadNetworkSectionItems; web gets the
+      // service worker's NetworkFirst caching). Only fall back to a locally
+      // saved offline copy if this genuinely fails (no signal). This ordering
+      // was flipped from offline-first after the S92 limitations quiz
+      // incident: a section downloaded once for offline use used to be shown
+      // forever afterward, even with a live connection, hiding every edit
+      // pushed since the day it was downloaded.
+      try {
+        const enriched = await loadNetworkSectionItems(section, activeVariant);
+        if (cancelled) return;
+
+        // Keep a previously-downloaded offline copy in sync automatically, so
+        // the user never has to remember to revisit /offline for a refresh.
+        try {
+          if (loadSectionOffline(section, activeVariant.id)) {
+            saveSectionOffline(section, { items: enriched }, activeVariant.id);
+          }
+        } catch {}
+
+        let shuffled = shuffle(enriched);
+        let limited = typeof amount === "number" ? shuffled.slice(0, amount) : shuffled;
+        try {
+          const key = `quiz:lastOrders:${activeVariant.id}:${section}:${amount ?? "all"}`;
+          const lastOrders: string[] = JSON.parse(sessionStorage.getItem(key) || "[]");
+          if (lastOrders.includes(signature(limited))) {
+            shuffled = shuffle(limited);
+            limited = typeof amount === "number" ? shuffled.slice(0, amount) : shuffled;
+          }
+          const updated = [...lastOrders, signature(limited)].slice(-2);
+          sessionStorage.setItem(key, JSON.stringify(updated));
+        } catch {}
+        const randomized = limited.map(shuffleOptionsForItem);
+        if (isH125) return goH125(randomized);
+        setQuestions(randomized);
+        setError(null);
+        return;
+      } catch {
+        // Ignore and fall back to the offline copy, if any.
+      }
+
+      // 2) Network failed (no signal) — fall back to the locally saved offline copy.
       try {
         const offline = loadSectionOffline<{ items?: QuizItem[] }>(section, activeVariant.id);
         if (!cancelled && offline && Array.isArray(offline.items)) {
@@ -266,32 +307,6 @@ export default function ClientQuizPage({ section, amount }: { section: string; a
             return;
           }
         }
-      } catch {
-        // Ignore and try network
-      }
-
-      // 2) Then try network as usual
-      try {
-        const enriched = await loadNetworkSectionItems(section, activeVariant);
-        if (cancelled) return;
-
-        let shuffled = shuffle(enriched);
-        let limited = typeof amount === "number" ? shuffled.slice(0, amount) : shuffled;
-        try {
-          const key = `quiz:lastOrders:${activeVariant.id}:${section}:${amount ?? "all"}`;
-          const lastOrders: string[] = JSON.parse(sessionStorage.getItem(key) || "[]");
-          if (lastOrders.includes(signature(limited))) {
-            shuffled = shuffle(limited);
-            limited = typeof amount === "number" ? shuffled.slice(0, amount) : shuffled;
-          }
-          const updated = [...lastOrders, signature(limited)].slice(-2);
-          sessionStorage.setItem(key, JSON.stringify(updated));
-        } catch {}
-        const randomized = limited.map(shuffleOptionsForItem);
-        if (isH125) return goH125(randomized);
-        setQuestions(randomized);
-        setError(null);
-        return;
       } catch {}
 
       if (!cancelled) {

@@ -2,7 +2,8 @@
 import * as React from "react";
 import { useRouter } from "next/navigation";
 import { loadQuestionsForSectionId } from "@/lib/loadAllQuestions";
-import { loadSectionOffline } from "@/lib/offline";
+import { loadSectionOffline, saveSectionOffline } from "@/lib/offline";
+import { fetchContentText } from "@/lib/contentUrl";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 import { modelScopedKey } from "@/lib/models/storage";
 import { buildInitialQuizResumeSession, buildValidatedQuizResumeSession, clearQuizResumeSnapshot, findLatestQuizResumeInfo, getQuizResumeStorageKey, readQuizResumeSnapshot, writeQuizResumeSnapshot } from "@/lib/quiz/resumeSnapshot";
@@ -88,40 +89,47 @@ export default function EmergencyStart() {
   }, [activeVariant.id]);
 
   async function getData(): Promise<{ items: QuizItem[] }> {
+    // Nett først (loadQuestionsForSectionId løser live-først på native app via
+    // lib/contentUrl.ts); offline/lokalt er kun fallback ved manglende signal.
+    let filtered = await loadQuestionsForSectionId<QuizItem>(SECTION_ID, activeVariant.id);
+
+    if (filtered.length) {
+      try {
+        if (loadSectionOffline(SECTION_ID, activeVariant.id)) {
+          saveSectionOffline(SECTION_ID, { items: filtered }, activeVariant.id);
+        }
+      } catch {}
+      return { items: filtered };
+    }
+
     const offline = loadSectionOffline<{ items?: QuizItem[] }>(SECTION_ID, activeVariant.id);
     if (offline && Array.isArray(offline.items) && offline.items.length) {
       return { items: offline.items };
     }
 
-    // Primært: bruk samlet laster (modell + global bank)
-    let filtered = await loadQuestionsForSectionId<QuizItem>(SECTION_ID, activeVariant.id);
-
-    // Fallback: direkte les kapittelfil hvis samlet laster ikke finner noe (f.eks. pga JSON-formatfeil i kildefil)
-    if (!filtered.length) {
+    // Nødfallback: direkte les kapittelfil hvis samlet laster ikke finner noe (f.eks. pga JSON-formatfeil i kildefil)
+    try {
+      const url = `/model-data/${activeVariant.id}/sections/${SECTION_ID}.json`;
+      const text = await fetchContentText(url);
+      // Forsøk vanlig JSON først
       try {
-        const url = `/model-data/${activeVariant.id}/sections/${SECTION_ID}.json`;
-        const res = await fetch(url, { cache: "no-store" });
-        const text = await res.text();
-        // Forsøk vanlig JSON først
-        try {
-          const json = JSON.parse(text);
-          if (json && Array.isArray(json.items) && json.items.length) {
-            filtered = json.items as QuizItem[];
-          }
-        } catch {
-          // Nødfallback: trekk ut items-array med regex selv om filen har hengende objekter/komma etter arrayen
-          const match = text.match(/"items"\s*:\s*(\[[\s\S]*?\])/);
-          if (match) {
-            try {
-              const arr = JSON.parse(match[1]);
-              if (Array.isArray(arr) && arr.length) {
-                filtered = arr as QuizItem[];
-              }
-            } catch {}
-          }
+        const json = JSON.parse(text);
+        if (json && Array.isArray(json.items) && json.items.length) {
+          filtered = json.items as QuizItem[];
         }
-      } catch {}
-    }
+      } catch {
+        // Nødfallback: trekk ut items-array med regex selv om filen har hengende objekter/komma etter arrayen
+        const match = text.match(/"items"\s*:\s*(\[[\s\S]*?\])/);
+        if (match) {
+          try {
+            const arr = JSON.parse(match[1]);
+            if (Array.isArray(arr) && arr.length) {
+              filtered = arr as QuizItem[];
+            }
+          } catch {}
+        }
+      }
+    } catch {}
 
     return { items: filtered };
   }

@@ -1,4 +1,5 @@
 import { getStoredActiveModelVariantId, modelScopedKey } from "@/lib/models/storage";
+import { fetchContentText } from "@/lib/contentUrl";
 
 export type OfflineBlob = { type: "section"; id: string; payload: unknown; savedAt: string };
 
@@ -46,5 +47,35 @@ export function listOffline(variantId = getStoredActiveModelVariantId()) {
       .map((k) => k.replace(prefix, ""));
   } catch {
     return [] as string[];
+  }
+}
+
+// Quiz sections a user has explicitly downloaded for offline use (via /offline)
+// used to be loaded from this local snapshot forever, with no way to notice a
+// newer version had been pushed — see the S92 limitations quiz incident this
+// was written for. This silently re-fetches each saved section over the network
+// and overwrites the local copy on success, so a downloaded package drifts back
+// into sync the moment the app has signal, without the user having to remember
+// to revisit the Offline packages page. Best-effort: any failure (no signal,
+// derived/manifest-only section not covered by a direct model-data file) just
+// leaves the existing local copy untouched — it's a freshness improvement on
+// top of the safety net, never a replacement for it.
+export async function refreshOfflineSectionsInBackground(
+  variantId = getStoredActiveModelVariantId(),
+): Promise<void> {
+  if (typeof window === "undefined") return;
+  const ids = listOffline(variantId);
+  for (const id of ids) {
+    const urls = [`/model-data/${variantId}/sections/${id}.json`, `/quiz-data/sections/${id}.json`];
+    for (const url of urls) {
+      try {
+        const raw = await fetchContentText(url);
+        const data = JSON.parse(raw);
+        if (data && Array.isArray(data.items) && data.items.length) {
+          saveSectionOffline(id, data, variantId);
+          break;
+        }
+      } catch {}
+    }
   }
 }

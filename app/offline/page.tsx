@@ -1,9 +1,10 @@
 "use client";
 import { useEffect, useMemo, useState } from "react";
 import AppTopBar from "@/components/AppTopBar";
-import { saveSectionOffline, clearOfflineSection, listOffline } from "@/lib/offline";
+import { saveSectionOffline, clearOfflineSection, listOffline, refreshOfflineSectionsInBackground } from "@/lib/offline";
 import { loadAllQuestions } from "@/lib/loadAllQuestions";
 import { useActiveModelVariant } from "@/lib/models/hooks";
+import { fetchContentText } from "@/lib/contentUrl";
 
 type Section = { id: string; title: string };
 type SectionPayload = { items: any[] };
@@ -66,9 +67,11 @@ async function fetchSection(id: string, variantId: string): Promise<{ items?: an
   const promise = (async () => {
     for (const url of urls) {
       try {
-        const res = await fetch(url, { cache: "no-store" });
-        if (!res.ok) continue;
-        const raw = await res.text();
+        // fetchContentText resolves to the live site first on the native app
+        // (see lib/contentUrl.ts) so "Download for offline" and the background
+        // refresh below always save what's actually live, not a stale bundled
+        // snapshot from the last native build.
+        const raw = await fetchContentText(url);
         try {
           return JSON.parse(raw);
         } catch {
@@ -219,6 +222,14 @@ export default function OfflinePage() {
     } catch {
       setOfflineIds([]);
     }
+  }, [activeVariant.id, variantLoading]);
+
+  // Silently refresh every already-downloaded package on open, so visiting this
+  // page with a connection is itself enough to pick up anything pushed since
+  // the last download — no need to notice staleness and re-download by hand.
+  useEffect(() => {
+    if (variantLoading) return;
+    refreshOfflineSectionsInBackground(activeVariant.id).catch(() => {});
   }, [activeVariant.id, variantLoading]);
 
   // Preload the full question bank once per variant so we can cheaply derive

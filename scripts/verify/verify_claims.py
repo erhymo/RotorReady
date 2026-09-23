@@ -47,12 +47,24 @@ SOURCES = {
         'rfm_parts': [(1, 640, '_source/manuals/AS350 B3 2B1/1_index.pdf')],   # tagged text dump has a harmless empty trailing "page 641"
         'qrh_pdf': None,
     },
+    'S92': {
+        'rev': 'S-92A RFM SA S92A-RFM-006',
+        'rfm_text': '_source/rfm/s92-rfm-pages.txt',
+        'rfm_parts': [
+            (1, 164, '_source/manuals/S92/S-92 RFM - Part 1 of 4 (pages 1-164).pdf'),
+            (165, 328, '_source/manuals/S92/S-92 RFM - Part 2 of 4 (pages 165-328).pdf'),
+            (329, 492, '_source/manuals/S92/S-92 RFM - Part 3 of 4 (pages 329-492).pdf'),
+            (493, 655, '_source/manuals/S92/S-92 RFM - Part 4 of 4 (pages 493-655).pdf'),
+        ],
+        'qrh_pdf': None,   # CHC_HS_ECL_S92.pdf (emergency checklist) not yet registered
+    },
 }
 
 FILES = {
     'system-notes': 'public/system-notes/{m}.json',
     'quick-reference': 'public/quick-reference/{m}.json',
     'procedures': 'public/procedures/{m}.json',
+    'quiz-limitations': 'public/model-data/{m}/sections/limitations.json',
 }
 
 
@@ -146,13 +158,22 @@ def render(src, key):
 
 # ----------------------------------------------------------------------------- coverage (no network; used by --report and --gate)
 def list_public_files():
-    """(model, kind, path) for every public/system-notes/*.json and public/quick-reference/*.json file, i.e.
-    every model+kind that COULD be checked, whether or not it is registered in SOURCES yet."""
+    """(model, kind, path) for every file FILES could point at, i.e. every model+kind that COULD be
+    checked, whether or not it is registered in SOURCES yet. Most templates are 'dir/{m}.json' (model name
+    is the whole filename); quiz-* templates are 'dir/{m}/sections/x.json' (model name is a path segment) -
+    handled by globbing the model-data directory instead of the (nonexistent) filename-glob directory."""
     out = []
     for kind, tmpl in FILES.items():
-        d = (ROOT / tmpl.format(m='X')).parent
-        for p in sorted(d.glob('*.json')):
-            out.append((p.stem, kind, p))
+        if '{m}.json' in tmpl:
+            d = (ROOT / tmpl.format(m='X')).parent
+            for p in sorted(d.glob('*.json')):
+                out.append((p.stem, kind, p))
+        else:
+            before, after = tmpl.split('{m}', 1)   # e.g. 'public/model-data/' , '/sections/limitations.json'
+            for model_dir in sorted((ROOT / before).glob('*')):
+                p = ROOT / (before + model_dir.name + after)
+                if p.is_file():
+                    out.append((model_dir.name, kind, p))
     return out
 
 
@@ -321,7 +342,19 @@ def units_procedures(data):
             yield f"{p['slug']}/{si}", f"Procedure '{p['title']}', step '{label}'", text
 
 
-UNIT_FNS = {'system-notes': units_system_notes, 'quick-reference': units_quick_reference, 'procedures': units_procedures}
+def units_quiz_limitations(data):
+    """Quiz sections: public/model-data/<model>/sections/limitations.json, {items: [{question, options,
+    answer, explanation, references, ...}]}. The claim is the question + correct option(s) + explanation,
+    since a quiz question's factual content is the pairing of question and correct answer, not the question
+    text alone (a wrong-but-unchanged distractor list shouldn't mark the unit as changed)."""
+    for it in data.get('items', []):
+        correct = ' / '.join(it['options'][i] for i in it.get('answer', []) if i < len(it['options']))
+        claim = f"{it['question']} -- Correct: {correct}. {it.get('explanation', '')}"
+        yield it['id'], f"Quiz item '{it['id']}' ({it.get('section', '')})", claim
+
+
+UNIT_FNS = {'system-notes': units_system_notes, 'quick-reference': units_quick_reference, 'procedures': units_procedures,
+            'quiz-limitations': units_quiz_limitations}
 
 
 # ----------------------------------------------------------------------------- model call

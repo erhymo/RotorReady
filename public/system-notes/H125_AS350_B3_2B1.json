@@ -29,7 +29,7 @@
               [
                 "CONFIGURATION",
                 "Ground only",
-                "Press and hold OFF1/OFF2, then SELECT+ENTER, then OFF1/OFF2 again, hold until RELEASE KEY appears — used to configure the VEMD"
+                "Press OFF1/OFF2 to switch the VEMD off, press and hold SELECT+ENTER, press OFF1/OFF2 again to switch it back on, hold until RELEASE KEY appears — used to configure the VEMD"
               ],
               [
                 "MAINTENANCE",
@@ -382,7 +382,7 @@
               ]
             ]
           },
-          "note": "At the 40–60 kt safety speed with collective near neutral (~40% torque), expect to hold roughly 4 daN (9 lbf) left lateral cyclic and 5 daN (11 lbf) forward longitudinal cyclic continuously. In a running landing around 10 kt, forward longitudinal force can reach 17 daN (38 lbf) for under 30 seconds. In a hover, expect up to 5 daN (11 lbf) changing rapidly in direction — high workload, and prolonging flight after a hydraulic failure isn't recommended due to fatigue. Other malfunctions (individual component failures rather than a clean pressure loss) can show unusual symptoms: lateral loads pulling LEFT (requiring a RIGHT pull to counter), feedback that varies unusually with airspeed, or a cut-off switch that doesn't fully dump pressure — if the switch itself is inoperative, forces should still normalize once the accumulators deplete naturally, up to roughly 15 daN (34 lbf) lateral and 17 daN (38 lbf) longitudinal at the extremes of the speed envelope."
+          "note": "At the 40–60 kt safety speed with collective near neutral (~40% torque), expect to hold roughly 4 daN (9 lbf) left lateral cyclic and 5 daN (11 lbf) forward longitudinal cyclic continuously. In a running landing around 10 kt, forward longitudinal force can reach 17 daN (38 lbf) for under 30 seconds. In a hover, expect up to 5 daN (11 lbf) changing rapidly in direction — high workload, and prolonging flight after a hydraulic failure isn't recommended due to fatigue. Other malfunctions (individual component failures rather than a clean pressure loss) can show unusual symptoms: lateral loads pulling LEFT (requiring a RIGHT pull to counter), feedback that can be felt immediately on failure with little or no delay, or a cut-off switch that doesn't fully dump pressure — if the switch itself is inoperative, forces should still normalize once the accumulators deplete naturally, up to roughly 15 daN (34 lbf) lateral and 17 daN (38 lbf) longitudinal at the extremes of the speed envelope."
         },
         {
           "heading": "Dual hydraulic system (optional)",
@@ -473,7 +473,7 @@
         {
           "heading": "The direct battery bus-bar — what survives an emergency",
           "paragraphs": [
-            "A direct battery linkage keeps a short list of vital consumers alive even through a circuit failure or a MASTER SW/EMER SW disconnection: the transponder, the NR/Nf instrument, instrument lighting circuit 2, the crew's adjustable reading light, and the start-stop engine switch to FADEC (via a relay box) — post-MOD 07-3273/3274 aircraft add VHF1/NAV1 and one ICS power line to this list via the DCT/BATT pushbutton, and drop the reading light. This lets ground crew monitor radio and plan navigation on battery power alone without powering the whole aircraft.",
+            "A direct battery linkage keeps a short list of vital consumers alive through a circuit failure or a MASTER SW/EMER SW disconnection. Pre-MOD 07-3273/3274: the transponder, the NR/Nf instrument, instrument lighting circuit 2, the crew's adjustable reading light, and the start-stop engine switch to FADEC (via a relay box). Post-MOD, two separate lists apply: the DCT/BATT pushbutton feeds the transponder, VHF1/NAV1, instrument lighting circuit 2, and one ICS power line — letting ground crew monitor radio and plan navigation on battery power alone without powering the whole aircraft — while a total electrical emergency (EMER SW set OFF) still leaves the NR/Nf instrument, the crew's adjustable spot light, and the start-stop engine switch to FADEC directly fed by the battery.",
             "After actuating EMER SW to OFF in an electrical emergency, all DC power is cut except the vital consumers fed directly by the battery: the NR/Nf instrument, the crew's adjustable spot light, and the FADEC start-stop switch path."
           ]
         },

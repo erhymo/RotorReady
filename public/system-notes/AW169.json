@@ -97,7 +97,7 @@
         {
           "heading": "1(2) ENG IDLE",
           "paragraphs": [
-            "Audio tone and voice, ground only. It means power was demanded with an engine not ready to give it: a take-off begun with an engine still at IDLE, or an ENG MODE knob at IDLE with the collective not fully down, or engine 1 still in APU mode. Reduce collective to minimum pitch on ground, then bring the affected knob back to FLT. If engine 1 was in APU mode, set its knob to IDLE and its DRIVE switch to MAIN first, wait for the accessory-drive transition to complete on the MFD, then select FLT."
+            "Audio tone and voice, ground only. It means power was demanded with an engine not ready to give it: a take-off begun with an engine still at IDLE, or an ENG MODE knob at IDLE with the collective not fully down, or engine 1 still in APU mode. Reduce collective to minimum pitch on ground, then bring the affected knob back to FLT. If engine 1 was in APU mode, set its knob to IDLE and its ACC switch to MAIN first, wait for the accessory-drive transition to complete on the MFD, then select FLT."
           ]
         },
         {
@@ -196,7 +196,7 @@
         {
           "heading": "Losing one generator",
           "paragraphs": [
-            "1(2) DC GEN FAIL — reset the affected generator; if it stays failed, switch it off and let the other one carry everything. The affected side's main buses (1 and 3, or 2 and 4) are lost and all non-essential buses are lost; non-essential buses can be brought back selectively with the NON ESS L/R OVRD switches. Watch the surviving generator's load on the MFD and shed load if it goes over limit.",
+            "1(2) DC GEN FAIL — reset the affected generator (RESET, then confirm ON); if it stays failed, switch it off and let the other one carry the load. With BUS TIE CLOSED the remaining generator supplies power and only the non-essential buses are lost; if BUS TIE stays OPEN (try BUS TIE RESET on the EDCU ELEC page first), the affected generator's main buses (1 and 3, or 2 and 4) are lost as well as all non-essential buses. Non-essential buses can be brought back selectively with the NON ESS L/R OVRD switches. Watch the surviving generator's load on the MFD and reduce electrical load if the limit is exceeded.",
             "1(2) DC GEN HOT (overheat) — switch the affected generator off immediately. Same result: one generator carries the aircraft, all non-essential buses lost.",
             "In both cases the aircraft is fully flyable on one generator — the point is that there is no margin left for a second failure, and the non-essential comfort/mission loads are gone unless deliberately restored."
           ]
@@ -204,7 +204,7 @@
         {
           "heading": "Losing both generators — ELEC FAIL",
           "paragraphs": [
-            "A double DC generator failure triggers the \"WARNING WARNING\" aural and the ELEC FAIL warning. First action is to try to get a generator back (GEN 1 & 2 to RESET, confirm ON). If that fails, the aircraft is running on the main battery alone: all main buses and all non-essential buses are gone, and only the emergency and essential buses remain.",
+            "A double DC generator failure triggers the \"WARNING WARNING\" aural and the ELEC FAIL warning. First actions: pilot utility light ON (for night operations), then GEN 1 & 2 to RESET and confirm ON. If ELEC FAIL remains, the aircraft is on battery power: all main buses and all non-essential buses are lost, and only the emergency and essential buses remain. The RFM warns that battery power is available for a maximum of 30 minutes.",
             "Battery power lasts a maximum of 30 minutes — that is the number that drives everything else. Land as soon as possible.",
             "If a load on MAIN BUS 1 is genuinely required, GEN BUS to OVRD feeds it from the battery — and BUS TIE to OVRD additionally feeds MAIN BUS 2 — but each override shortens the 30 minutes. The landing gear control is on a bus that is lost in flight in this state, so the gear has to be put down with the LANDING GEAR EMERGENCY DOWN procedure; VHF 1 is selected on the right side to keep radio contact. A subsequent MAIN BATT OFF caution means land as soon as possible, without qualification."
           ]
@@ -316,7 +316,7 @@
               [
                 "Manual",
                 "Secondary mode / used after an automatic-mode failure — tilt and gain controlled manually",
-                "320 NM"
+                "—"
               ],
               [
                 "WX (Weather)",
@@ -441,7 +441,7 @@
         {
           "heading": "Ground transmission",
           "paragraphs": [
-            "The weather radar does not transmit on the ground due to the weight-on-wheels (WOW) safety interlock, unless commanded to. Do not turn the radar on within 30 ft (9 m) of personnel or containers holding flammable or explosive material — a wider clearance than the RTA-4112's 17 ft (5 m).",
+            "The weather radar does not transmit on the ground due to the weight-on-wheels (WOW) safety interlock. Do not turn the radar on within 30 ft (9 m) of personnel or containers holding flammable or explosive material — a wider clearance than the RTA-4112's 17 ft (5 m).",
             "Should the WOW switch fail on the ground, the radar will transmit if it is selected to transmit. The response is to confirm the radar is switched OFF."
           ]
         }
@@ -546,7 +546,7 @@
           "heading": "What it does",
           "paragraphs": [
             "HTAWS, embedded in the Collins MFD-2810, gives terrain and obstacle awareness through two independent functions: Forward Looking Terrain (and Obstacle) Alerting (FLTA), which looks ahead of the aircraft's flight path, and Ground Proximity Warning System (GPWS), which reacts to the aircraft's actual proximity to terrain. Terrain/obstacle display is selectable on PFD and MFD; an obstacle is defined as any human-made structure higher than 50 ft AGL.",
-            "This configuration provides four operating modes: Mode 1 (excessive rate of descent), Mode 3 (descent after take-off or missed approach), Mode 4 (flight into terrain when not in landing configuration), Mode 5 (excessive downward deviation from an ILS glideslope). There is no OFFSHORE option and no SAR mode on this configuration."
+            "This configuration provides five operating modes: Mode 1 (excessive rate of descent), Mode 3 (descent after take-off or missed approach), Mode 4 (flight into terrain when not in landing configuration), Mode 5 (excessive downward deviation from an ILS glideslope), Mode 6 (altitude callout). There is no OFFSHORE option and no SAR mode on this configuration."
           ]
         },
         {
@@ -940,7 +940,7 @@
           "paragraphs": [
             "Two forward and two aft float installations in dedicated fuselage openings, two gas distribution/inflation systems, and four immersion switches. Demonstrated and approved for ditching up to Sea State 6 (significant wave height 4–6 m) at weights up to 4800 kg — well beyond the Sea State 4 that ditching regulations actually require.",
             "The Floatation Control Panel, in the interseat console, has a TEST/OFF/ARMED master switch. OFF isolates power from the water sensors and the guarded collective-grip pushbuttons. ARMED makes the discharge valves live — via water sensor immersion or the pilot/copilot's guarded FLOAT pushbutton. TEST checks the electrical activation circuit's continuity as part of preflight, and is automatically disabled in flight by the weight-on-wheels switch.",
-            "Two liferafts are carried, in one of two configurations: Carry-On (stowed on a seat, deployed manually through a Type IV emergency exit, reduces passenger capacity from 8 to 7) or Sponson (mounted in the sponsons themselves, no seating impact, with an external activation handle accessible from outside the aircraft for a water-side deployment)."
+            "Two liferafts are carried, in one of two configurations: Carry-On (a free-standing installation on the seat rails, deployed manually through a Type IV emergency exit; requires the 8-seat forward cabin kit and reduces passenger capacity from 8 to 7) or Sponson (a liferaft mounted on each sponson, activated from the cockpit via a handle above the pilots' heads or from a secondary handle on the leading edge of the sponson)."
           ]
         },
         {
@@ -1045,7 +1045,7 @@
                 "Torque (TQ %)",
                 "100",
                 "101–111",
-                "—",
+                "111",
                 "125 (10 sec)"
               ]
             ]
@@ -1135,7 +1135,7 @@
         {
           "heading": "What a GNSS problem actually costs you",
           "paragraphs": [
-            "A single GNSS RAIM integrity failure, or one SBAS precision-approach channel going to standby, just means continue the approach — redundancy is reduced, not lost (SBAS integrity re-checks every 4 seconds and can recover on its own).",
+            "A single GNSS RAIM integrity failure, or one SBAS precision-approach channel going to standby, is annunciated in the RFM as a loss of GNSS redundancy, and the instruction is to continue the approach (the GNSS sensor checks SBAS integrity every 4 seconds and may recover automatically).",
             "If SBAS precision mode is lost on both GNSS sensors at once, the outcome depends on whether Baro-VNAV minima are available for that approach. If they are, FMS deviations revert automatically to LNAV/VNAV and Baro-VNAV — LPV is replaced by VGP on the PFD — and the approach can continue in coupled mode by pressing APP or DCL again, unless the aircraft is already below 1000 ft AGL, in which case discontinue regardless. If Baro-VNAV minima are not available at all, there's no fallback — discontinue the approach outright."
           ]
         }

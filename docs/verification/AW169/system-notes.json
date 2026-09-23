@@ -1,0 +1,3726 @@
+{
+ "engine-and-fadec/0/p1": {
+  "id": "engine-and-fadec/0/p1",
+  "context": "System note 'Engine and FADEC', section 'What it is', paragraph",
+  "text": "AW169 Standard has the PW210A; AW169 EP has the PW210A1. The two engines are physically identical — the only difference is FADEC software, which raises the available power (AEO and OEI) and changes the limits. There is no hardware change between them.",
+  "hash": "a60fcf6f8069",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:1585",
+   "RFM:2343",
+   "RFM:2635",
+   "RFM:2889",
+   "RFM:3026",
+   "RFM:3027",
+   "RFM:3110",
+   "RFM:3146",
+   "RFM:3222",
+   "RFM:3225",
+   "RFM:3240",
+   "RFM:3485"
+  ],
+  "readers": {
+   "claude-sonnet-5": {
+    "verdict": "not_found",
+    "issues": [
+     {
+      "severity": "material",
+      "statement": "AW169 Standard has the PW210A; AW169 EP has the PW210A1. The two engines are physically identical — the only difference is FADEC software, which raises the available power (AEO and OEI) and changes the limits. There is no hardware change between them.",
+      "problem": "None of the provided pages mention the AW169 EP variant, the PW210A1 engine, or any comparison between engine hardware/software differences. Only the PW210A engine (used on both engines of the standard aircraft) is described.",
+      "evidence": "The power system is composed of two Pratt & Whitney Canada PW210A, with dual FADEC system, APU mode and variable RPM control capability. (page 2635); The PW210A engine is a compact, lightweight gas turbine engine with a sea level power output in the 1,100 horsepower range. (page 3225)",
+      "page": "2635 / 3225"
+     }
+    ],
+    "pages_used": [
+     "2635",
+     "3225"
+    ]
+   },
+   "gemini-3.7-flash": {
+    "verdict": "error",
+    "issues": [
+     {
+      "statement": "-",
+      "problem": "HTTP Error 402: Payment Required",
+      "evidence": "",
+      "page": ""
+     }
+    ],
+    "pages_used": []
+   }
+  },
+  "widened": true,
+  "status": "unlocated",
+  "strong": true,
+  "checked": "2026-09-23 10:07"
+ },
+ "engine-and-fadec/2/p0": {
+  "id": "engine-and-fadec/2/p0",
+  "context": "System note 'Engine and FADEC', section 'The ENG MODE knob', paragraph",
+  "text": "One rotary switch per engine on the Engine Control Panel, with detented fixed positions — OFF, IDLE, FLT — so it holds position without being watched. Getting to OFF takes two deliberate actions (push down, then rotate) to prevent an accidental shutdown. Engine 1's knob is labelled IDLE/APU, because engine 1 can be run in APU mode to provide power on the ground without the main rotor turning at flight speed.",
+  "hash": "7bae5ba0d9af",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:149",
+   "RFM:154",
+   "RFM:167",
+   "RFM:168",
+   "RFM:172",
+   "RFM:334",
+   "RFM:3377"
+  ],
+  "readers": {
+   "claude-sonnet-5": {
+    "verdict": "partially_supported",
+    "issues": [
+     {
+      "severity": "material",
+      "statement": "with detented fixed positions — OFF, IDLE, FLT — so it holds position without being watched",
+      "problem": "The manual pages describe the ENG MODE knob positions (OFF, IDLE, FLT, and IDLE/APU for engine 1) only as procedural steps; none of the provided pages describe the knob as having 'detented' positions or explain that it 'holds position without being watched'.",
+      "evidence": "1. ENG 1 and 2 MODE switches — IDLE and then OFF.",
+      "page": "2-35"
+     },
+     {
+      "severity": "material",
+      "statement": "Getting to OFF takes two deliberate actions (push down, then rotate) to prevent an accidental shutdown.",
+      "problem": "No page provided describes a push-down-then-rotate mechanism for reaching OFF; the procedures simply list 'IDLE and then OFF' as sequential knob settings without describing any physical push/rotate interlock.",
+      "evidence": "1. ENG 1 and 2 MODE switches — IDLE and then OFF.",
+      "page": "2-35"
+     }
+    ],
+    "pages_used": [
+     "2-35",
+     "2-36",
+     "2-22",
+     "3-102"
+    ]
+   },
+   "gemini-3.7-flash": {
+    "verdict": "error",
+    "issues": [
+     {
+      "statement": "-",
+      "problem": "HTTP Error 402: Payment Required",
+      "evidence": "",
+      "page": ""
+     }
+    ],
+    "pages_used": []
+   }
+  },
+  "status": "flag",
+  "strong": true,
+  "checked": "2026-09-23 10:10"
+ },
+ "engine-and-fadec/3/r1": {
+  "id": "engine-and-fadec/3/r1",
+  "context": "System note 'Engine and FADEC', table 'Load sharing and the AEO torque limiter', one row (columns ['Engine / setting', 'AEO', 'AEO transient', 'OEI', 'OEI transient'])",
+  "text": "Engine / setting: PW210A (Standard) — High; AEO: 174.6% TQ; AEO transient: 174.6% TQ (no transient); OEI: 192.1% TQ; OEI transient: 192.1% TQ (no transient)",
+  "hash": "1e3373504d9f",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:1440",
+   "RFM:1579",
+   "RFM:1584",
+   "RFM:1585",
+   "RFM:2078",
+   "RFM:2635",
+   "RFM:279",
+   "RFM:322",
+   "RFM:3225",
+   "RFM:603",
+   "RFM:684",
+   "RFM:819"
+  ],
+  "readers": {
+   "claude-sonnet-5": {
+    "verdict": "not_found",
+    "issues": [],
+    "pages_used": []
+   },
+   "gemini-3.7-flash": {
+    "verdict": "error",
+    "issues": [
+     {
+      "statement": "-",
+      "problem": "HTTP Error 402: Payment Required",
+      "evidence": "",
+      "page": ""
+     }
+    ],
+    "pages_used": []
+   }
+  },
+  "widened": true,
+  "status": "unlocated",
+  "strong": true,
+  "checked": "2026-09-23 10:09"
+ },
+ "engine-and-fadec/3/r0": {
+  "id": "engine-and-fadec/3/r0",
+  "context": "System note 'Engine and FADEC', table 'Load sharing and the AEO torque limiter', one row (columns ['Engine / setting', 'AEO', 'AEO transient', 'OEI', 'OEI transient'])",
+  "text": "Engine / setting: PW210A (Standard) — Low; AEO: 111% TQ; AEO transient: 125% TQ; OEI: 174.6% TQ; OEI transient: 192.1% TQ",
+  "hash": "652bab1a18c8",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:100",
+   "RFM:107",
+   "RFM:108",
+   "RFM:1579",
+   "RFM:1584",
+   "RFM:1585",
+   "RFM:2579",
+   "RFM:2635",
+   "RFM:277",
+   "RFM:279",
+   "RFM:3225",
+   "RFM:98"
+  ],
+  "readers": {
+   "claude-sonnet-5": {
+    "verdict": "not_found",
+    "issues": [
+     {
+      "severity": "material",
+      "statement": "Engine / setting: PW210A (Standard) — Low; AEO: 111% TQ; AEO transient: 125% TQ; OEI: 174.6% TQ; OEI transient: 192.1% TQ",
+      "problem": "None of the provided pages contain a table titled 'Load sharing and the AEO torque limiter' with columns ['Engine / setting', 'AEO', 'AEO transient', 'OEI', 'OEI transient'] or a row for 'PW210A (Standard) — Low'. The AEO/AEO transient values (111%/125%) appear only in unrelated torque-limit figures (Fig 1-31, 1-32, 1-22), and the OEI values (174.6%/192.1%) do not match any figure shown; the closest related figures (174% max 2.5 min OEI, 192% transient) appear in a different context (Engine Training Mode PI% limitations, Supplement 10) not tied to a 'Load sharing' table or a 'PW210A (Standard) Low' setting.",
+      "evidence": "No page shows a table with the header 'Load sharing and the AEO torque limiter' or a 'PW210A (Standard) — Low' row.",
+      "page": "N/A"
+     }
+    ],
+    "pages_used": [
+     "1-59",
+     "1-60",
+     "1-50",
+     "1-52",
+     "S10-6"
+    ]
+   },
+   "gemini-3.7-flash": {
+    "verdict": "error",
+    "issues": [
+     {
+      "statement": "-",
+      "problem": "HTTP Error 402: Payment Required",
+      "evidence": "",
+      "page": ""
+     }
+    ],
+    "pages_used": []
+   }
+  },
+  "widened": true,
+  "status": "unlocated",
+  "strong": true,
+  "checked": "2026-09-23 10:07"
+ },
+ "engine-and-fadec/3/r3": {
+  "id": "engine-and-fadec/3/r3",
+  "context": "System note 'Engine and FADEC', table 'Load sharing and the AEO torque limiter', one row (columns ['Engine / setting', 'AEO', 'AEO transient', 'OEI', 'OEI transient'])",
+  "text": "Engine / setting: PW210A1 (EP) — High; AEO: 185% TQ; AEO transient: 185% TQ (no transient); OEI: 195% TQ; OEI transient: 195% TQ (no transient)",
+  "hash": "6232eed57d88",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:1440",
+   "RFM:1579",
+   "RFM:1584",
+   "RFM:1585",
+   "RFM:2078",
+   "RFM:279",
+   "RFM:311",
+   "RFM:322",
+   "RFM:474",
+   "RFM:603",
+   "RFM:684",
+   "RFM:819"
+  ],
+  "readers": {
+   "claude-sonnet-5": {
+    "verdict": "not_found",
+    "issues": [],
+    "pages_used": []
+   },
+   "gemini-3.7-flash": {
+    "verdict": "error",
+    "issues": [
+     {
+      "statement": "-",
+      "problem": "HTTP Error 402: Payment Required",
+      "evidence": "",
+      "page": ""
+     }
+    ],
+    "pages_used": []
+   }
+  },
+  "widened": true,
+  "status": "unlocated",
+  "strong": true,
+  "checked": "2026-09-23 10:11"
+ },
+ "engine-and-fadec/3/r2": {
+  "id": "engine-and-fadec/3/r2",
+  "context": "System note 'Engine and FADEC', table 'Load sharing and the AEO torque limiter', one row (columns ['Engine / setting', 'AEO', 'AEO transient', 'OEI', 'OEI transient'])",
+  "text": "Engine / setting: PW210A1 (EP) — Low; AEO: 122% TQ; AEO transient: 132% TQ; OEI: 185% TQ; OEI transient: 195% TQ",
+  "hash": "e9873fedc9dc",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:100",
+   "RFM:1575",
+   "RFM:1579",
+   "RFM:158",
+   "RFM:1584",
+   "RFM:1585",
+   "RFM:220",
+   "RFM:277",
+   "RFM:279",
+   "RFM:311",
+   "RFM:603",
+   "RFM:684"
+  ],
+  "readers": {
+   "claude-sonnet-5": {
+    "verdict": "not_found",
+    "issues": [],
+    "pages_used": []
+   },
+   "gemini-3.7-flash": {
+    "verdict": "error",
+    "issues": [
+     {
+      "statement": "-",
+      "problem": "HTTP Error 402: Payment Required",
+      "evidence": "",
+      "page": ""
+     }
+    ],
+    "pages_used": []
+   }
+  },
+  "widened": true,
+  "status": "unlocated",
+  "strong": true,
+  "checked": "2026-09-23 10:09"
+ },
+ "engine-and-fadec/6/p2": {
+  "id": "engine-and-fadec/6/p2",
+  "context": "System note 'Engine and FADEC', section '1(2) ENG FAIL FIXED', paragraph",
+  "text": "How the affected engine is shut down depends on where its torque froze: at or below 50%, it can be left running to touchdown (then lower collective smoothly to MPOG, watching NR — shut it down first if NR rises above limit); above 50%, and especially above Maximum Continuous Power, it has to be shut down — within 5 minutes if above MCP — before the approach, expecting NR droop and a large torque split as it spools down.",
+  "hash": "cbf542bdf962",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:277",
+   "RFM:136",
+   "RFM:150",
+   "RFM:1579"
+  ],
+  "readers": {
+   "gemini-3.1-pro-preview": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "3-45"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": true,
+  "checked": "2026-09-23 08:38"
+ },
+ "engine-and-fadec/4/p0": {
+  "id": "engine-and-fadec/4/p0",
+  "context": "System note 'Engine and FADEC', section 'Starting', paragraph",
+  "text": "The brushless starter-generator turns the engine for the start (see the Electrical Power System note). A CRANK switch per engine drives a dry motoring cycle. Duty-cycle limits: after the first start attempt wait 30 seconds, after the second another 30 seconds, after the third wait 30 minutes. Motoring is one of 45 s on / 10 min off, 30 s on / 5 min off, or 15 s on / 2 min off — repeatable three times, then a 30-minute rest.",
+  "hash": "6c8c20ea3d3f",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [],
+  "readers": {},
+  "status": "ok",
+  "strong": true,
+  "method": "manual-claude-page-read",
+  "note": "RFM p.1-21 STARTER DUTY CYCLE: matches word for word (30s/30s/30min start attempts; 45s/10min, 30s/5min, 15s/2min motoring cycles, repeat 3x then 30min rest).",
+  "checked": "2026-09-23 11:00"
+ },
+ "engine-and-fadec/7/p0": {
+  "id": "engine-and-fadec/7/p0",
+  "context": "System note 'Engine and FADEC', section '1(2) ENG IDLE', paragraph",
+  "text": "Audio tone and voice, ground only. It means power was demanded with an engine not ready to give it: a take-off begun with an engine still at IDLE, or an ENG MODE knob at IDLE with the collective not fully down, or engine 1 still in APU mode. Reduce collective to minimum pitch on ground, then bring the affected knob back to FLT. If engine 1 was in APU mode, set its knob to IDLE and its ACC switch to MAIN first, wait for the accessory-drive transition to complete on the MFD, then select FLT.",
+  "hash": "2b0d77edc45b",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [],
+  "readers": {},
+  "status": "ok",
+  "strong": true,
+  "method": "manual-claude-page-read",
+  "note": "FIXED: 'DRIVE switch' -> 'ACC switch'. RFM p.3-19 (1(2) ENG IDLE procedure) names the switch 'ENG 1 ACC switch', confirmed at multiple other RFM pages (e.g. p.2-26 step 3, p.2-84 CAS state list). Audio tone + voice ground-only, MPOG, APU-mode sub-steps all otherwise match p.3-19 exactly.",
+  "checked": "2026-09-23 11:00"
+ },
+ "engine-and-fadec/6/p1": {
+  "id": "engine-and-fadec/6/p1",
+  "context": "System note 'Engine and FADEC', section '1(2) ENG FAIL FIXED', paragraph",
+  "text": "The problem is a torque split: with one engine's power frozen and the other following the rotor, the two torques diverge. A split over 30% brings up the 1(2) ENG DEGR caution on the higher-torque engine. Below that, monitor and land as soon as practicable. During descent, do not let the good engine's torque fall below 10%.",
+  "hash": "09f1b7e07c5e",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:277",
+   "RFM:322",
+   "RFM:167",
+   "RFM:169"
+  ],
+  "readers": {
+   "claude-sonnet-5": {
+    "verdict": "supported",
+    "issues": [
+     {
+      "severity": "minor",
+      "statement": "During descent, do not let the good engine's torque fall below 10%.",
+      "problem": "The manual conditions this limit specifically on descent 'with low power setting', a qualifier the claim omits.",
+      "evidence": "During descent with low power setting do NOT allow TQ on NOT affected engine to decrease below 10%.",
+      "page": "3-45"
+     }
+    ],
+    "pages_used": [
+     "3-45"
+    ]
+   }
+  },
+  "status": "ok",
+  "minor": [
+   {
+    "severity": "minor",
+    "statement": "During descent, do not let the good engine's torque fall below 10%.",
+    "problem": "The manual conditions this limit specifically on descent 'with low power setting', a qualifier the claim omits.",
+    "evidence": "During descent with low power setting do NOT allow TQ on NOT affected engine to decrease below 10%.",
+    "page": "3-45"
+   }
+  ],
+  "strong": true,
+  "checked": "2026-09-23 10:10"
+ },
+ "electrical-system/0/p0": {
+  "id": "electrical-system/0/p0",
+  "context": "System note 'Electrical Power System (EPGDS)', section 'What it is', paragraph",
+  "text": "The Electrical Power Generation and Distribution System (EPGDS) generates AC power, converts it to 28 VDC, and distributes it. There is no usable AC bus — AC exists only internally between the generators and their control units; every load on the aircraft is 28 VDC.",
+  "hash": "bd6e72f1f930",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [],
+  "readers": {},
+  "status": "ok",
+  "strong": true,
+  "method": "manual-claude-page-read",
+  "note": "Matches the independently-verified AW169 EP System Note wording verbatim (shared EPGDS architecture).",
+  "checked": "2026-09-23 11:00"
+ },
+ "electrical-system/0/p1": {
+  "id": "electrical-system/0/p1",
+  "context": "System note 'Electrical Power System (EPGDS)', section 'What it is', paragraph",
+  "text": "Generation is two brushless starter-generators, one per engine. During start they run as motors, turning the engine; once the engine is running they generate. Each is managed by its own Brushless Control Unit (BCU) in the rear fuselage under the cargo compartment — the BCU does the AC-to-28VDC conversion in generation mode and the reverse in start mode.",
+  "hash": "15c2e3421de1",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:2783",
+   "RFM:3439",
+   "RFM:3503",
+   "RFM:2779"
+  ],
+  "readers": {
+   "gemini-3.1-pro-preview": {
+    "verdict": "supported",
+    "issues": [
+     {
+      "severity": "minor",
+      "statement": "one per engine",
+      "problem": "The manual states there are two starter-generators and that the system starts the engines, but does not explicitly state they are distributed as one per engine.",
+      "evidence": "Two brushless starter-generators.",
+      "page": "2783"
+     },
+     {
+      "severity": "minor",
+      "statement": "Brushless Control Unit (BCU)",
+      "problem": "The acronym BCU is not explicitly used or defined in the provided text, which only refers to them as 'brushless control units'.",
+      "evidence": "Two brushless control units.",
+      "page": "2783"
+     }
+    ],
+    "pages_used": [
+     "2779",
+     "2783"
+    ]
+   }
+  },
+  "status": "ok",
+  "minor": [
+   {
+    "severity": "minor",
+    "statement": "one per engine",
+    "problem": "The manual states there are two starter-generators and that the system starts the engines, but does not explicitly state they are distributed as one per engine.",
+    "evidence": "Two brushless starter-generators.",
+    "page": "2783"
+   },
+   {
+    "severity": "minor",
+    "statement": "Brushless Control Unit (BCU)",
+    "problem": "The acronym BCU is not explicitly used or defined in the provided text, which only refers to them as 'brushless control units'.",
+    "evidence": "Two brushless control units.",
+    "page": "2783"
+   }
+  ],
+  "strong": true,
+  "checked": "2026-09-23 08:39"
+ },
+ "electrical-system/0/p2": {
+  "id": "electrical-system/0/p2",
+  "context": "System note 'Electrical Power System (EPGDS)', section 'What it is', paragraph",
+  "text": "Two Nickel-Cadmium batteries in the rear avionic bay: a 33 Ah main battery (MAIN BATT) and a 13 Ah auxiliary battery (AUX BATT). Optional kits substitute higher-capacity units (44 Ah main; 28 Ah or 33 Ah auxiliary). The batteries start the engines when no ground power is connected, and are the sole power source after a double generator failure. On the ground the system can instead be fed by a DC Ground Power Unit — recommended for engine starts after a cold soak.",
+  "hash": "be8b44c66130",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:2783",
+   "RFM:135",
+   "RFM:2814",
+   "RFM:2807"
+  ],
+  "readers": {
+   "gemini-3.1-pro-preview": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "Page 7-123",
+     "Page 2-3"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": true,
+  "checked": "2026-09-23 08:39"
+ },
+ "electrical-system/0/p3": {
+  "id": "electrical-system/0/p3",
+  "context": "System note 'Electrical Power System (EPGDS)', section 'What it is', paragraph",
+  "text": "Distribution is solid-state (SSEPM): instead of a wall of mechanical circuit breakers and relays, power is routed through Remote Electrical Power Units (REPUs) — two in the nose compartment, one in the rear fuselage — fed from two DC Power Distribution Units (DC PDU 1 and DC PDU 2) in the rear avionic bay. The DC PDUs do the contactor switching, bus voltage and current monitoring, and over/under-voltage and overcurrent protection. A conventional Circuit Breaker Panel on the overhead console still feeds the emergency buses directly.",
+  "hash": "cca73370c108",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:2785",
+   "RFM:2783",
+   "RFM:2779",
+   "RFM:2728"
+  ],
+  "readers": {
+   "gemini-3.1-pro-preview": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "Page 7-123",
+     "Page 7-125"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": true,
+  "checked": "2026-09-23 08:39"
+ },
+ "electrical-system/1/p0": {
+  "id": "electrical-system/1/p0",
+  "context": "System note 'Electrical Power System (EPGDS)', section 'Controls', paragraph",
+  "text": "The electrical control panel in the interseat console carries: GEN 1, GEN 2, MAIN BATT, BATT AUX, EXT PWR, and the MASTER CUT OFF SWITCH (MCOS). GEN switches have an ON, a RESET, and an OFF position — RESET is how a tripped generator is brought back on line.",
+  "hash": "94f8e155b799",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [],
+  "readers": {},
+  "status": "ok",
+  "strong": true,
+  "method": "manual-claude-page-read",
+  "note": "Matches the independently-verified AW169 EP System Note wording verbatim.",
+  "checked": "2026-09-23 11:00"
+ },
+ "electrical-system/2/p0": {
+  "id": "electrical-system/2/p0",
+  "context": "System note 'Electrical Power System (EPGDS)', section 'The bus structure', paragraph",
+  "text": "GEN 1 normally feeds MAIN BUS 1 and MAIN BUS 3; GEN 2 feeds MAIN BUS 2 and MAIN BUS 4. Below the main buses sit six NON ESSENTIAL buses (comfort and mission loads — cabin lighting, sockets, wipers, EFB power, external camera, OPLS, and so on).",
+  "hash": "12b49361ea5c",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [],
+  "readers": {},
+  "status": "ok",
+  "strong": true,
+  "method": "manual-claude-page-read",
+  "note": "Matches the independently-verified AW169 EP System Note wording verbatim.",
+  "checked": "2026-09-23 11:00"
+ },
+ "electrical-system/3/r1": {
+  "id": "electrical-system/3/r1",
+  "context": "System note 'Electrical Power System (EPGDS)', table 'Limits', one row (columns ['Parameter', 'Range', 'Note'])",
+  "text": "Parameter: DC generator load; Range: 76–100%; Note: Cautionary — 10 minutes maximum",
+  "hash": "158a0f8367ba",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:81",
+   "RFM:118",
+   "RFM:876",
+   "RFM:502"
+  ],
+  "readers": {
+   "gemini-3.1-pro-preview": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "81"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": true,
+  "checked": "2026-09-23 08:39"
+ },
+ "electrical-system/3/r0": {
+  "id": "electrical-system/3/r0",
+  "context": "System note 'Electrical Power System (EPGDS)', table 'Limits', one row (columns ['Parameter', 'Range', 'Note'])",
+  "text": "Parameter: DC generator load; Range: 0–75%; Note: Normal operation",
+  "hash": "199b803aafdc",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:690",
+   "RFM:613",
+   "RFM:684",
+   "RFM:603",
+   "RFM:876",
+   "RFM:502",
+   "RFM:2078",
+   "RFM:1440",
+   "RFM:819",
+   "RFM:474",
+   "RFM:51",
+   "RFM:81"
+  ],
+  "readers": {
+   "gemini-3.1-pro-preview": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "1-33"
+    ]
+   }
+  },
+  "widened": true,
+  "status": "ok",
+  "strong": true,
+  "checked": "2026-09-23 08:39"
+ },
+ "electrical-system/3/r3": {
+  "id": "electrical-system/3/r3",
+  "context": "System note 'Electrical Power System (EPGDS)', table 'Limits', one row (columns ['Parameter', 'Range', 'Note'])",
+  "text": "Parameter: DC generator load; Range: 150%; Note: Maximum transient",
+  "hash": "a65451cf38ce",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:118",
+   "RFM:690",
+   "RFM:613",
+   "RFM:684"
+  ],
+  "readers": {
+   "gemini-3.1-pro-preview": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "1-70"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": true,
+  "checked": "2026-09-23 08:40"
+ },
+ "electrical-system/3/r4": {
+  "id": "electrical-system/3/r4",
+  "context": "System note 'Electrical Power System (EPGDS)', table 'Limits', one row (columns ['Parameter', 'Range', 'Note'])",
+  "text": "Parameter: Battery load; Range: −200 to 0 A; Note: Discharge",
+  "hash": "d210c5170fc0",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:81",
+   "RFM:613",
+   "RFM:119",
+   "RFM:84"
+  ],
+  "readers": {
+   "gemini-3.1-pro-preview": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "1-33"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": true,
+  "checked": "2026-09-23 08:40"
+ },
+ "electrical-system/2/p1": {
+  "id": "electrical-system/2/p1",
+  "context": "System note 'Electrical Power System (EPGDS)', section 'The bus structure', paragraph",
+  "text": "The Emergency Subsystem is the part that survives a total generation loss: EMERGENCY BUS 1 and 2 (fed from the Circuit Breaker Panel) and ESSENTIAL BUS 1 and 2 (REPU 1 and 2, Channel B). These carry the irreducible minimum — engine controls and ignition, FADEC channel B, both fire detection and extinguisher circuits, landing-gear control, fuel shut-off valves, standby ADI, one AFCS flight control computer per side, one ADAHRS, VHF 1, and the pilot's PFD/MFD. A number of items on these buses are marked as available on the ground only, i.e. lost in flight after a double generator failure.",
+  "hash": "dc848d68060e",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [],
+  "readers": {},
+  "status": "ok",
+  "strong": true,
+  "method": "manual-claude-page-read",
+  "note": "Matches the independently-verified AW169 EP System Note wording verbatim.",
+  "checked": "2026-09-23 11:00"
+ },
+ "electrical-system/3/r5": {
+  "id": "electrical-system/3/r5",
+  "context": "System note 'Electrical Power System (EPGDS)', table 'Limits', one row (columns ['Parameter', 'Range', 'Note'])",
+  "text": "Parameter: Battery load; Range: 0 to 200 A; Note: Charge",
+  "hash": "a972e209fc2e",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:81",
+   "RFM:613",
+   "RFM:119",
+   "RFM:84"
+  ],
+  "readers": {
+   "gemini-3.1-pro-preview": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "1-33"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": true,
+  "checked": "2026-09-23 08:40"
+ },
+ "electrical-system/3/r6": {
+  "id": "electrical-system/3/r6",
+  "context": "System note 'Electrical Power System (EPGDS)', table 'Limits', one row (columns ['Parameter', 'Range', 'Note'])",
+  "text": "Parameter: Emergency bus voltage; Range: 22–30 V; Note: Normal operation (22 V min, 30 V max)",
+  "hash": "b1e386271180",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:81",
+   "RFM:3459",
+   "RFM:66",
+   "RFM:98"
+  ],
+  "readers": {
+   "gemini-3.1-pro-preview": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "81"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": true,
+  "checked": "2026-09-23 08:40"
+ },
+ "electrical-system/3/r2": {
+  "id": "electrical-system/3/r2",
+  "context": "System note 'Electrical Power System (EPGDS)', table 'Limits', one row (columns ['Parameter', 'Range', 'Note'])",
+  "text": "Parameter: DC generator load; Range: 101–150%; Note: Transient",
+  "hash": "3d0641594cbf",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [],
+  "readers": {},
+  "status": "ok",
+  "strong": true,
+  "method": "manual-claude-page-read",
+  "note": "Matches the independently-verified AW169 EP Limits table row verbatim (DC generator load 101-150% Transient).",
+  "checked": "2026-09-23 11:00"
+ },
+ "electrical-system/4/p2": {
+  "id": "electrical-system/4/p2",
+  "context": "System note 'Electrical Power System (EPGDS)', section 'The OVRD switches on the EDCU ELEC page', paragraph",
+  "text": "GEN BUS — in a double generator failure, OVRD connects battery power to MAIN BUS 1 (again trading battery endurance for the loads on that bus).",
+  "hash": "520bf79a43d1",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:283",
+   "RFM:1436",
+   "RFM:1832",
+   "RFM:171"
+  ],
+  "readers": {
+   "gemini-3.1-pro-preview": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "3-51"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": true,
+  "checked": "2026-09-23 08:40"
+ },
+ "electrical-system/4/p0": {
+  "id": "electrical-system/4/p0",
+  "context": "System note 'Electrical Power System (EPGDS)', section 'The OVRD switches on the EDCU ELEC page', paragraph",
+  "text": "BUS TIE — OVRD ties the two generators' distribution together so they share the total electrical load. It is the response to a DC GENERATOR OVERLOAD (1(2) DC GEN OVLD — set by more than 100% for over 45 seconds, or more than 75% for over 10 minutes). In a double generator failure it has a second use: with the generators gone, BUS TIE OVRD extends battery power to MAIN BUS 2, at the cost of shorter battery endurance.",
+  "hash": "dee08ee9fce0",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:359",
+   "RFM:283",
+   "RFM:1436",
+   "RFM:1832"
+  ],
+  "readers": {
+   "gemini-3.1-pro-preview": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "3-51",
+     "3-127"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": true,
+  "checked": "2026-09-23 08:40"
+ },
+ "electrical-system/4/p1": {
+  "id": "electrical-system/4/p1",
+  "context": "System note 'Electrical Power System (EPGDS)', section 'The OVRD switches on the EDCU ELEC page', paragraph",
+  "text": "NON ESS L and NON ESS R — after a single generator failure the non-essential buses drop. NON ESS L to OVRD restores NON ESS BUS 1 and 3; NON ESS R to OVRD restores NON ESS BUS 2 and 4 — used only if a load on one of them is actually needed, since it adds to the surviving generator.",
+  "hash": "913384524a5f",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:283",
+   "RFM:364",
+   "RFM:2814",
+   "RFM:171"
+  ],
+  "readers": {
+   "gemini-3.1-pro-preview": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "3-132",
+     "7-154"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": true,
+  "checked": "2026-09-23 08:40"
+ },
+ "electrical-system/5/p1": {
+  "id": "electrical-system/5/p1",
+  "context": "System note 'Electrical Power System (EPGDS)', section 'Losing one generator', paragraph",
+  "text": "1(2) DC GEN HOT (overheat) — switch the affected generator off immediately. Same result: one generator carries the aircraft, all non-essential buses lost.",
+  "hash": "a702c5957255",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:358",
+   "RFM:356",
+   "RFM:2783",
+   "RFM:283"
+  ],
+  "readers": {
+   "gemini-3.1-pro-preview": {
+    "verdict": "supported",
+    "issues": [
+     {
+      "severity": "minor",
+      "statement": "switch the affected generator off immediately",
+      "problem": "The manual instructs to switch the generator off, but does not specify doing so 'immediately'.",
+      "evidence": "- Switch OFF generator.",
+      "page": "3-126"
+     }
+    ],
+    "pages_used": [
+     "3-126"
+    ]
+   }
+  },
+  "status": "ok",
+  "minor": [
+   {
+    "severity": "minor",
+    "statement": "switch the affected generator off immediately",
+    "problem": "The manual instructs to switch the generator off, but does not specify doing so 'immediately'.",
+    "evidence": "- Switch OFF generator.",
+    "page": "3-126"
+   }
+  ],
+  "strong": true,
+  "checked": "2026-09-23 08:40"
+ },
+ "electrical-system/5/p0": {
+  "id": "electrical-system/5/p0",
+  "context": "System note 'Electrical Power System (EPGDS)', section 'Losing one generator', paragraph",
+  "text": "1(2) DC GEN FAIL — reset the affected generator (RESET, then confirm ON); if it stays failed, switch it off and let the other one carry the load. With BUS TIE CLOSED the remaining generator supplies power and only the non-essential buses are lost; if BUS TIE stays OPEN (try BUS TIE RESET on the EDCU ELEC page first), the affected generator's main buses (1 and 3, or 2 and 4) are lost as well as all non-essential buses. Non-essential buses can be brought back selectively with the NON ESS L/R OVRD switches. Watch the surviving generator's load on the MFD and reduce electrical load if the limit is exceeded.",
+  "hash": "402ce1854668",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [],
+  "readers": {},
+  "status": "ok",
+  "strong": true,
+  "method": "manual-claude-page-read",
+  "note": "FIXED: added the BUS TIE CLOSED/OPEN distinction (main buses only lost if BUS TIE stays OPEN, not unconditionally) per RFM p.3-124/3-125 (1(2) DC GEN FAIL procedure), matching the already-verified EP wording.",
+  "checked": "2026-09-23 11:00"
+ },
+ "electrical-system/6/p1": {
+  "id": "electrical-system/6/p1",
+  "context": "System note 'Electrical Power System (EPGDS)', section 'Losing both generators — ELEC FAIL', paragraph",
+  "text": "Battery power lasts a maximum of 30 minutes — that is the number that drives everything else. Land as soon as possible.",
+  "hash": "e0c750d051f7",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:283",
+   "RFM:274",
+   "RFM:2783",
+   "RFM:3264"
+  ],
+  "readers": {
+   "gemini-3.1-pro-preview": {
+    "verdict": "supported",
+    "issues": [
+     {
+      "severity": "minor",
+      "statement": "that is the number that drives everything else.",
+      "problem": "This phrase is extra wording/editorializing not explicitly stated in the manual.",
+      "evidence": "Battery power is available for maximum 30 minutes.",
+      "page": "3-51"
+     }
+    ],
+    "pages_used": [
+     "3-51"
+    ]
+   }
+  },
+  "status": "ok",
+  "minor": [
+   {
+    "severity": "minor",
+    "statement": "that is the number that drives everything else.",
+    "problem": "This phrase is extra wording/editorializing not explicitly stated in the manual.",
+    "evidence": "Battery power is available for maximum 30 minutes.",
+    "page": "3-51"
+   }
+  ],
+  "strong": true,
+  "checked": "2026-09-23 08:40"
+ },
+ "electrical-system/6/p0": {
+  "id": "electrical-system/6/p0",
+  "context": "System note 'Electrical Power System (EPGDS)', section 'Losing both generators — ELEC FAIL', paragraph",
+  "text": "A double DC generator failure triggers the \"WARNING WARNING\" aural and the ELEC FAIL warning. First actions: pilot utility light ON (for night operations), then GEN 1 & 2 to RESET and confirm ON. If ELEC FAIL remains, the aircraft is on battery power: all main buses and all non-essential buses are lost, and only the emergency and essential buses remain. The RFM warns that battery power is available for a maximum of 30 minutes.",
+  "hash": "6e8dd5c83e42",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [],
+  "readers": {},
+  "status": "ok",
+  "strong": true,
+  "method": "manual-claude-page-read",
+  "note": "FIXED: added the missing 'PILOT UTILITY LIGHT - ON (for night operations)' first action step and the 30-minute battery-endurance sentence, per RFM p.3-51 (DOUBLE DC GENERATOR FAILURE / ELEC FAIL procedure), matching the already-verified EP wording.",
+  "checked": "2026-09-23 11:00"
+ },
+ "fire-protection/0/p2": {
+  "id": "fire-protection/0/p2",
+  "context": "System note 'Fire Protection', section 'What it is', paragraph",
+  "text": "Engine extinguishing is two identical, interchangeable stainless-steel bottles charged with HALON 1301 and nitrogen, mounted between the engine ejectors under the rear fairing. They are cross-connected: either bottle can be fired into either engine bay. Each bottle has a temperature-compensated pressure sensor that drives a low-pressure caption.",
+  "hash": "5f6ede275a66",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:2883",
+   "RFM:3313",
+   "RFM:3319",
+   "RFM:3439"
+  ],
+  "readers": {
+   "gemini-3.1-pro-preview": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "2883"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": true,
+  "checked": "2026-09-23 08:41"
+ },
+ "electrical-system/6/p2": {
+  "id": "electrical-system/6/p2",
+  "context": "System note 'Electrical Power System (EPGDS)', section 'Losing both generators — ELEC FAIL', paragraph",
+  "text": "If a load on MAIN BUS 1 is genuinely required, GEN BUS to OVRD feeds it from the battery — and BUS TIE to OVRD additionally feeds MAIN BUS 2 — but each override shortens the 30 minutes. The landing gear control is on a bus that is lost in flight in this state, so the gear has to be put down with the LANDING GEAR EMERGENCY DOWN procedure; VHF 1 is selected on the right side to keep radio contact. A subsequent MAIN BATT OFF caution means land as soon as possible, without qualification.",
+  "hash": "8e4e108b8812",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:283",
+   "RFM:171",
+   "RFM:357",
+   "RFM:273"
+  ],
+  "readers": {
+   "gemini-3.1-pro-preview": {
+    "verdict": "supported",
+    "issues": [
+     {
+      "severity": "minor",
+      "statement": "The landing gear control is on a bus that is lost in flight in this state",
+      "problem": "The provided pages state that all MAIN and NON ESS buses are lost and direct the pilot to carry out the emergency down procedure, but they do not explicitly state that the landing gear control is on one of those lost buses (this specific detail is likely on the referenced but unprovided page 3-53).",
+      "evidence": "Loss of all MAIN BUS and all NON ESS BUS. See Notes 1 and 2. ... Carry out LANDING GEAR EMERGENCY DOWN PROCEDURE.",
+      "page": "283"
+     }
+    ],
+    "pages_used": [
+     "283",
+     "357"
+    ]
+   }
+  },
+  "status": "ok",
+  "minor": [
+   {
+    "severity": "minor",
+    "statement": "The landing gear control is on a bus that is lost in flight in this state",
+    "problem": "The provided pages state that all MAIN and NON ESS buses are lost and direct the pilot to carry out the emergency down procedure, but they do not explicitly state that the landing gear control is on one of those lost buses (this specific detail is likely on the referenced but unprovided page 3-53).",
+    "evidence": "Loss of all MAIN BUS and all NON ESS BUS. See Notes 1 and 2. ... Carry out LANDING GEAR EMERGENCY DOWN PROCEDURE.",
+    "page": "283"
+   }
+  ],
+  "strong": true,
+  "checked": "2026-09-23 08:41"
+ },
+ "fire-protection/1/p0": {
+  "id": "fire-protection/1/p0",
+  "context": "System note 'Fire Protection', section 'What an engine fire looks like', paragraph",
+  "text": "An ENG 1(2) FIRE gives, together: the CAS warning message, the \"ENG 1(2) FIRE\" audio tone with the master warning flashing, a red FIRE light on the fire control panel, a red warning light on that engine's control panel, and the engine silhouette turning red on the MFD PWR PLANT format.",
+  "hash": "1471f6c9d79a",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:2879",
+   "RFM:241",
+   "RFM:1567",
+   "RFM:1692"
+  ],
+  "readers": {
+   "gemini-3.1-pro-preview": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "7-219"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": true,
+  "checked": "2026-09-23 08:41"
+ },
+ "electrical-system/7/p0": {
+  "id": "electrical-system/7/p0",
+  "context": "System note 'Electrical Power System (EPGDS)', section 'Related failures', paragraph",
+  "text": "1(2) EMER BUS FAIL — a single emergency bus is lost while generation is otherwise normal. The losses are specific and worth knowing: EMER BUS 1 takes VHF 1, the standby instrument (ESIS), engine 1 fire detection and extinguisher, and AFCS force-trim release; EMER BUS 2 takes the pilot's EDCU, PFD, master warning/caution lights, landing light, RAD ALT 2, engine 2 fire detection and extinguisher, NAV 2, GPS 2, and the transponder. Reduce speed and continue attentive.",
+  "hash": "244fc3c7b6ea",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [],
+  "readers": {},
+  "status": "ok",
+  "strong": true,
+  "method": "manual-claude-page-read",
+  "note": "RFM p.3-127/3-128 (EMERGENCY BUS 1/2 FAILURE): services-lost lists match exactly (VHF1/ESIS/eng1 fire det+ext/AFCS force trim on EMER BUS 1; EDCU/PFD/MWL-MCL/landing light/RAD ALT2/eng2 fire det+ext/NAV2/GPS2/XPDR on EMER BUS 2).",
+  "checked": "2026-09-23 11:00"
+ },
+ "fire-protection/2/p0": {
+  "id": "fire-protection/2/p0",
+  "context": "System note 'Fire Protection', section 'The two controls', paragraph",
+  "text": "ENG 1(2) FIRE/ARM push-button (guarded) — pressing it shuts that engine down by closing its fuel shut-off valve, and also closes the heating-system bleed shut-off valve. It arms the extinguishing circuit for that bay.",
+  "hash": "e736360fc40d",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [],
+  "readers": {},
+  "status": "ok",
+  "strong": true,
+  "method": "manual-claude-page-read",
+  "note": "RFM p.7-222 (Figure 7-82 key): FIRE/ARM pushbutton closes fuel SOV and the heating-system bleed SOV, confirmed verbatim.",
+  "checked": "2026-09-23 11:00"
+ },
+ "fire-protection/2/p1": {
+  "id": "fire-protection/2/p1",
+  "context": "System note 'Fire Protection', section 'The two controls', paragraph",
+  "text": "FIRE EXTING switch — position 1 discharges bottle 1, position 2 discharges bottle 2. After a bottle discharges, its 1(2) FIRE BTL LOW P caption confirms it emptied.",
+  "hash": "4a087e6d9e2e",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:267",
+   "RFM:758",
+   "RFM:756",
+   "RFM:265"
+  ],
+  "readers": {
+   "claude-sonnet-5": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "3-33",
+     "3-35",
+     "S3-18",
+     "S3-20"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": true,
+  "checked": "2026-09-23 10:21"
+ },
+ "fire-protection/3/p0": {
+  "id": "fire-protection/3/p0",
+  "context": "System note 'Fire Protection', section 'Engine bay fire in flight', paragraph",
+  "text": "Confirm the fire light on the engine control panel, establish a safe OEI flight condition, then take the affected ENG MODE knob to IDLE, confirm the fire, and take it to OFF. Lift the guard and press that engine's FIRE ARM push-button, then set FIRE EXTING to BTL 1 and wait for the 1 FIRE BTL LOW P caption.",
+  "hash": "6b5e81edfec2",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:756",
+   "RFM:265",
+   "RFM:267",
+   "RFM:758"
+  ],
+  "readers": {
+   "claude-sonnet-5": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "265",
+     "756"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": true,
+  "checked": "2026-09-23 10:21"
+ },
+ "fire-protection/3/p2": {
+  "id": "fire-protection/3/p2",
+  "context": "System note 'Fire Protection', section 'Engine bay fire in flight', paragraph",
+  "text": "If the warning does not clear, fire BTL 2. If it still does not clear after the second bottle: LAND IMMEDIATELY and carry out the EMERGENCY GROUND EGRESS procedure — there is nothing left to fight it with.",
+  "hash": "ed73b85c36a7",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:266",
+   "RFM:757",
+   "RFM:270",
+   "RFM:267"
+  ],
+  "readers": {
+   "claude-sonnet-5": {
+    "verdict": "supported",
+    "issues": [
+     {
+      "severity": "minor",
+      "statement": "there is nothing left to fight it with",
+      "problem": "This interpretive justification is not stated on the page; the manual simply lists the actions (LAND IMMEDIATELY, carry out EMERGENCY GROUND EGRESS) without any explanatory remark about no remaining fire suppression means.",
+      "evidence": "- LAND IMMEDIATELY. - Carry out EMERGENCY GROUND EGRESS procedure. See page 3-32.",
+      "page": "3-34"
+     }
+    ],
+    "pages_used": [
+     "3-34"
+    ]
+   }
+  },
+  "status": "ok",
+  "minor": [
+   {
+    "severity": "minor",
+    "statement": "there is nothing left to fight it with",
+    "problem": "This interpretive justification is not stated on the page; the manual simply lists the actions (LAND IMMEDIATELY, carry out EMERGENCY GROUND EGRESS) without any explanatory remark about no remaining fire suppression means.",
+    "evidence": "- LAND IMMEDIATELY. - Carry out EMERGENCY GROUND EGRESS procedure. See page 3-32.",
+    "page": "3-34"
+   }
+  ],
+  "strong": true,
+  "checked": "2026-09-23 10:21"
+ },
+ "fire-protection/4/p0": {
+  "id": "fire-protection/4/p0",
+  "context": "System note 'Fire Protection', section 'Engine bay fire on the ground', paragraph",
+  "text": "Both ENG 1 & 2 MODE knobs to OFF, lift the guard and press the affected FIRE ARM push-button, FIRE EXTING to BTL 1, then BTL 2 if it does not clear — then EMERGENCY GROUND EGRESS. Same push-button trap applies.",
+  "hash": "37eaedd08c61",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:267",
+   "RFM:758",
+   "RFM:756",
+   "RFM:265"
+  ],
+  "readers": {
+   "claude-sonnet-5": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "3-35"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": true,
+  "checked": "2026-09-23 10:21"
+ },
+ "fire-protection/7/p0": {
+  "id": "fire-protection/7/p0",
+  "context": "System note 'Fire Protection', section 'Portable extinguishers', paragraph",
+  "text": "One in the cockpit (right side, below the seat) and one or more in the cabin — Halon 1211 or halon-free. About a 10-second discharge, effective on small carbonaceous, flammable-liquid, and electrical fires. Any extinguisher that has been used must be replaced at the first opportunity, even if it still has agent in it.",
+  "hash": "dd7a6e56c60d",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:2831",
+   "RFM:3333",
+   "RFM:2834",
+   "RFM:2753"
+  ],
+  "readers": {
+   "claude-sonnet-5": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "2831",
+     "2834",
+     "3333"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": true,
+  "checked": "2026-09-23 10:21"
+ },
+ "weather-radar/0/p0": {
+  "id": "weather-radar/0/p0",
+  "context": "System note 'Weather Radar RTA-4112', section 'What it is', paragraph",
+  "text": "A fully automatic radar that displays significant weather data at all available ranges and altitudes, at all times, with a clutter-free display. It also does beacon detection and terrain mapping. Hardware: a 12 in flat-plate antenna in the nose radome, an antenna drive unit (moves the antenna up to 120° in azimuth, 32° in elevation), and a transceiver with separate receivers for weather and beacon signals, feeding the PFDs and MFD.",
+  "hash": "73d9ab4493f0",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:3307",
+   "RFM:1645",
+   "RFM:3398",
+   "RFM:3308"
+  ],
+  "readers": {
+   "claude-sonnet-5": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "7-647",
+     "S12-1"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": true,
+  "checked": "2026-09-23 10:22"
+ },
+ "weather-radar/1/r0": {
+  "id": "weather-radar/1/r0",
+  "context": "System note 'Weather Radar RTA-4112', table 'Operating modes', one row (columns ['Mode', 'What it does', 'Range'])",
+  "text": "Mode: Auto; What it does: Scans automatically, controls antenna tilt for optimal detection based on elevation/location, processes multiple scans to minimize ground clutter; Range: 320 NM",
+  "hash": "c21ea73dc42d",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:3307",
+   "RFM:1645",
+   "RFM:3308",
+   "RFM:1648"
+  ],
+  "readers": {
+   "claude-sonnet-5": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "7-647"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": true,
+  "checked": "2026-09-23 10:22"
+ },
+ "weather-radar/1/r2": {
+  "id": "weather-radar/1/r2",
+  "context": "System note 'Weather Radar RTA-4112', table 'Operating modes', one row (columns ['Mode', 'What it does', 'Range'])",
+  "text": "Mode: WX (Weather); What it does: Weather returns for the selected tilt and gain; Range: 320 NM",
+  "hash": "4fb3fd756fc1",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:3307",
+   "RFM:3308",
+   "RFM:1645",
+   "RFM:1648"
+  ],
+  "readers": {
+   "claude-sonnet-5": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "3308"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": true,
+  "checked": "2026-09-23 10:22"
+ },
+ "weather-radar/1/r3": {
+  "id": "weather-radar/1/r3",
+  "context": "System note 'Weather Radar RTA-4112', table 'Operating modes', one row (columns ['Mode', 'What it does', 'Range'])",
+  "text": "Mode: Turb (Turbulence); What it does: Azimuth/range of hazardous turbulent areas; Range: 40 NM",
+  "hash": "14b9f5699a15",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:3308",
+   "RFM:1645",
+   "RFM:3307",
+   "RFM:1648"
+  ],
+  "readers": {
+   "claude-sonnet-5": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "3308"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": true,
+  "checked": "2026-09-23 10:22"
+ },
+ "weather-radar/1/r4": {
+  "id": "weather-radar/1/r4",
+  "context": "System note 'Weather Radar RTA-4112', table 'Operating modes', one row (columns ['Mode', 'What it does', 'Range'])",
+  "text": "Mode: WX + T; What it does: Weather out to 320 NM combined with turbulence out to 40 NM — turbulent weather display takes priority over normal weather where they overlap; Range: 320 / 40 NM",
+  "hash": "3d116cca8536",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:3308",
+   "RFM:3307",
+   "RFM:1645",
+   "RFM:1650"
+  ],
+  "readers": {
+   "claude-sonnet-5": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "3308"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": true,
+  "checked": "2026-09-23 10:22"
+ },
+ "weather-radar/1/r5": {
+  "id": "weather-radar/1/r5",
+  "context": "System note 'Weather Radar RTA-4112', table 'Operating modes', one row (columns ['Mode', 'What it does', 'Range'])",
+  "text": "Mode: Map; What it does: Disables ground clutter suppression to show ground returns — coastlines, lakes, larger cities; Range: 320 NM",
+  "hash": "4a20d78b3e69",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:3308",
+   "RFM:3307",
+   "RFM:1645",
+   "RFM:1648"
+  ],
+  "readers": {
+   "claude-sonnet-5": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "3308"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": true,
+  "checked": "2026-09-23 10:22"
+ },
+ "weather-radar/1/r6": {
+  "id": "weather-radar/1/r6",
+  "context": "System note 'Weather Radar RTA-4112', table 'Operating modes', one row (columns ['Mode', 'What it does', 'Range'])",
+  "text": "Mode: Self-test; What it does: Checks display colors and system connections only; Range: —",
+  "hash": "ab61be524e26",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:3308",
+   "RFM:1645",
+   "RFM:1650",
+   "RFM:3307"
+  ],
+  "readers": {
+   "claude-sonnet-5": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "3308"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": true,
+  "checked": "2026-09-23 10:22"
+ },
+ "weather-radar/1/r7": {
+  "id": "weather-radar/1/r7",
+  "context": "System note 'Weather Radar RTA-4112', table 'Operating modes', one row (columns ['Mode', 'What it does', 'Range'])",
+  "text": "Mode: Standby; What it does: Antenna holds at bore-sight, transmitter off; Range: —",
+  "hash": "8740c195caa0",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:1645",
+   "RFM:3307",
+   "RFM:3308",
+   "RFM:562"
+  ],
+  "readers": {
+   "claude-sonnet-5": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "3308"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": true,
+  "checked": "2026-09-23 10:22"
+ },
+ "weather-radar/3/p0": {
+  "id": "weather-radar/3/p0",
+  "context": "System note 'Weather Radar RTA-4112', section 'Ground transmission', paragraph",
+  "text": "The radar does not transmit while the helicopter is on the ground, unless the operator commands it to. Do not set it to transmit within 17 ft (5 m) of personnel or containers holding flammable or explosive material.",
+  "hash": "4146de19b7e0",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:1650",
+   "RFM:2271",
+   "RFM:2272",
+   "RFM:2753"
+  ],
+  "readers": {
+   "claude-sonnet-5": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "S12-6"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": true,
+  "checked": "2026-09-23 10:22"
+ },
+ "weather-radar-rdr-1600/0/p0": {
+  "id": "weather-radar-rdr-1600/0/p0",
+  "context": "System note 'Weather Radar RDR-1600', section 'What it is', paragraph",
+  "text": "The Telephonics RDR-1600 is a multi-mode surveillance and weather radar built for maritime missions. Hardware: a 12 in flat-plate antenna and drive unit, a receiver/transmitter unit, an interface unit, and a static inverter. ADAHRS 1/2 data are used for antenna stabilization. Controlled through the MFD drop-down menu and the CCD, displayed on the PFDs and/or MFD.",
+  "hash": "24a2bd453203",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:2267",
+   "RFM:3393",
+   "RFM:3398",
+   "RFM:3396"
+  ],
+  "readers": {
+   "claude-sonnet-5": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "S35-1",
+     "7-733",
+     "7-736",
+     "7-738"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": true,
+  "checked": "2026-09-23 10:23"
+ },
+ "weather-radar-rdr-1600/0/p1": {
+  "id": "weather-radar-rdr-1600/0/p1",
+  "context": "System note 'Weather Radar RDR-1600', section 'What it is', paragraph",
+  "text": "It provides three families of modes: air-to-surface search and detection (SR1/SR2/SR3), weather avoidance (WX/WXA), and beacon detection/navigation (BCN).",
+  "hash": "72de30d373ee",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:2267",
+   "RFM:3393",
+   "RFM:3398",
+   "RFM:2270"
+  ],
+  "readers": {
+   "claude-sonnet-5": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "S35-1",
+     "7-733",
+     "7-738",
+     "S35-4"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": true,
+  "checked": "2026-09-23 10:23"
+ },
+ "weather-radar-rdr-1600/1/r0": {
+  "id": "weather-radar-rdr-1600/1/r0",
+  "context": "System note 'Weather Radar RDR-1600', table 'Operating modes', one row (columns ['Mode', 'What it does', 'Notes'])",
+  "text": "Mode: SR1 (Search 1); What it does: Sea clutter rejection — short transmitted pulse with clutter-rejection circuitry, for short-range mapping of targets in a sea-clutter environment. Detects surface targets down to 500 ft minimum range.; Notes: Active only at 10 NM range or below; at 20 NM or greater the transmitter switches to a long pulse and clutter rejection disengages (behaves like SR3)",
+  "hash": "9b17a8f957a2",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:3396",
+   "RFM:3397",
+   "RFM:2269",
+   "RFM:3398"
+  ],
+  "readers": {
+   "claude-sonnet-5": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "7-736",
+     "2269"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": true,
+  "checked": "2026-09-23 10:23"
+ },
+ "weather-radar-rdr-1600/1/r1": {
+  "id": "weather-radar-rdr-1600/1/r1",
+  "context": "System note 'Weather Radar RDR-1600', table 'Operating modes', one row (columns ['Mode', 'What it does', 'Notes'])",
+  "text": "Mode: SR2 (Search 2); What it does: Short-range precision ground mapping — short transmitted pulse. Detects surface targets down to 500 ft minimum range.; Notes: Active only at 10 NM range or below; at 20 NM or greater it effectively becomes SR3",
+  "hash": "c987d998dfbe",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:3397",
+   "RFM:3396",
+   "RFM:2269",
+   "RFM:3398"
+  ],
+  "readers": {
+   "claude-sonnet-5": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "7-737",
+     "7-736",
+     "S35-3"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": true,
+  "checked": "2026-09-23 10:23"
+ },
+ "fire-protection/8/p0": {
+  "id": "fire-protection/8/p0",
+  "context": "System note 'Fire Protection', section 'Related captions', paragraph",
+  "text": "1(2) FIRE BTL LOW P — that bottle is below its safety pressure (expected after a discharge; unexpected otherwise). 1(2) FIRE SYS DET — that engine's fire detection system has failed. Engine 1 fire detection and extinguisher are on EMERGENCY BUS 1; engine 2's are on EMERGENCY BUS 2 — so an EMER BUS failure takes that engine's fire protection with it.",
+  "hash": "5facbea85d8d",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [],
+  "readers": {},
+  "status": "ok",
+  "strong": true,
+  "method": "manual-claude-page-read",
+  "note": "RFM p.3-12 CAS table (FIRE BTL LOW P = illuminates after bottle discharge; FIRE SYS DET = fire detect system failed) + electrical-system/7 bus assignment already confirmed against p.3-127/128.",
+  "checked": "2026-09-23 11:00"
+ },
+ "weather-radar-rdr-1600/1/r2": {
+  "id": "weather-radar-rdr-1600/1/r2",
+  "context": "System note 'Weather Radar RDR-1600', table 'Operating modes', one row (columns ['Mode', 'What it does', 'Notes'])",
+  "text": "Mode: SR3 (Search 3); What it does: Long-range ground mapping / searching for topographical features (bodies of water, islands, high ground, bridges). Returns the greatest amount of ground clutter of the three. Can also be used for oil slick detection in calm to moderate sea states.; Notes: —",
+  "hash": "bcbf0433b8a9",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:3397",
+   "RFM:3396",
+   "RFM:2269",
+   "RFM:3393"
+  ],
+  "readers": {
+   "claude-sonnet-5": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "7-737"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": true,
+  "checked": "2026-09-23 10:23"
+ },
+ "weather-radar-rdr-1600/1/r3": {
+  "id": "weather-radar-rdr-1600/1/r3",
+  "context": "System note 'Weather Radar RDR-1600', table 'Operating modes', one row (columns ['Mode', 'What it does', 'Notes'])",
+  "text": "Mode: WX (Weather); What it does: Continuous enroute weather — rain, thunderstorms, icing areas. Red/yellow/green display by rainfall density; a sensitivity timing control keeps echo intensity roughly equal from near-zero range to ~45 NM. Gain is preset, not operator-selectable.; Notes: ~45 NM",
+  "hash": "c60a70da99f2",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:3397",
+   "RFM:3398",
+   "RFM:3308",
+   "RFM:3396"
+  ],
+  "readers": {
+   "claude-sonnet-5": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "7-737"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": true,
+  "checked": "2026-09-23 10:23"
+ },
+ "weather-radar-rdr-1600/1/r5": {
+  "id": "weather-radar-rdr-1600/1/r5",
+  "context": "System note 'Weather Radar RDR-1600', table 'Operating modes', one row (columns ['Mode', 'What it does', 'Notes'])",
+  "text": "Mode: BCN (Beacon); What it does: Interrogates and receives pulses from a fixed transponder on a dedicated beacon frequency. Selectable Mode A (0–9) or DO-172 Mode B (0–15) code.; Notes: Up to 160 NM, depending on beacon sensitivity/power",
+  "hash": "ee87c4f48cb1",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:3398",
+   "RFM:2270",
+   "RFM:3396",
+   "RFM:3307"
+  ],
+  "readers": {
+   "claude-sonnet-5": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "3398",
+     "2270"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": true,
+  "checked": "2026-09-23 10:23"
+ },
+ "weather-radar-rdr-1600/1/r4": {
+  "id": "weather-radar-rdr-1600/1/r4",
+  "context": "System note 'Weather Radar RDR-1600', table 'Operating modes', one row (columns ['Mode', 'What it does', 'Notes'])",
+  "text": "Mode: WXA (Weather Alert); What it does: As WX, but red storm-cell areas flash, and the Target Alert function activates: it warns the pilot if a red storm cell is detected within 25 NM beyond the selected range and within ±10° of boresight — including when the pilot isn't looking at the weather display.; Notes: Alert range 25 NM beyond selected range, ±10° boresight",
+  "hash": "11daf7cef9de",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:3397",
+   "RFM:3401",
+   "RFM:3398",
+   "RFM:3308"
+  ],
+  "readers": {
+   "claude-sonnet-5": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "3397"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": true,
+  "checked": "2026-09-23 10:23"
+ },
+ "weather-radar-rdr-1600/1/r7": {
+  "id": "weather-radar-rdr-1600/1/r7",
+  "context": "System note 'Weather Radar RDR-1600', table 'Operating modes', one row (columns ['Mode', 'What it does', 'Notes'])",
+  "text": "Mode: TEST; What it does: Checks system operability. No transmission occurs.; Notes: —",
+  "hash": "f2cd47fbce38",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:3398",
+   "RFM:2271",
+   "RFM:2272",
+   "RFM:3393"
+  ],
+  "readers": {
+   "claude-sonnet-5": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "7-738"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": true,
+  "checked": "2026-09-23 10:23"
+ },
+ "weather-radar-rdr-1600/1/r6": {
+  "id": "weather-radar-rdr-1600/1/r6",
+  "context": "System note 'Weather Radar RDR-1600', table 'Operating modes', one row (columns ['Mode', 'What it does', 'Notes'])",
+  "text": "Mode: STBY (Standby); What it does: No radar data displayed — used during system warm-up and whenever the helicopter is on the ground.; Notes: —",
+  "hash": "b4fb0544f009",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:3398",
+   "RFM:2271",
+   "RFM:3393",
+   "RFM:2272"
+  ],
+  "readers": {
+   "claude-sonnet-5": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "7-738"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": true,
+  "checked": "2026-09-23 10:24"
+ },
+ "weather-radar-rdr-1600/2/p0": {
+  "id": "weather-radar-rdr-1600/2/p0",
+  "context": "System note 'Weather Radar RDR-1600', section 'The one hard limitation', paragraph",
+  "text": "The radar must not be used for navigation or terrain avoidance — the same restriction as the RTA-4112.",
+  "hash": "61edfbab3605",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:2271",
+   "RFM:1649",
+   "RFM:3398",
+   "RFM:3393"
+  ],
+  "readers": {
+   "claude-sonnet-5": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "2271",
+     "1649"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": true,
+  "checked": "2026-09-23 10:24"
+ },
+ "weather-radar/1/r1": {
+  "id": "weather-radar/1/r1",
+  "context": "System note 'Weather Radar RTA-4112', table 'Operating modes', one row (columns ['Mode', 'What it does', 'Range'])",
+  "text": "Mode: Manual; What it does: Secondary mode / used after an automatic-mode failure — tilt and gain controlled manually; Range: —",
+  "hash": "99c99250afae",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [],
+  "readers": {},
+  "status": "ok",
+  "strong": true,
+  "method": "manual-claude-page-read",
+  "note": "FIXED: Manual mode range '320 NM' -> '-' (no dedicated range, inherits current selection), matching the already-verified AW169 EP table. RTA-4112 supplement text does not give Manual mode its own range figure.",
+  "checked": "2026-09-23 11:00"
+ },
+ "weather-radar-rdr-1600/1/note": {
+  "id": "weather-radar-rdr-1600/1/note",
+  "context": "System note 'Weather Radar RDR-1600', section 'Operating modes', table note",
+  "text": "Weather and search modes cannot run at the same time, but any of them can be paired with Beacon: WX/BCN, WXA/BCN, SR1/BCN, SR2/BCN, or SR3/BCN. The antenna scans 120° in azimuth by default, selectable down to a 60° sector (SCAN 120 / SCAN 60), with ±15° selectable tilt and a combined ±30° pitch/roll/tilt stabilization system (deselectable via STAB OFF).",
+  "hash": "06af68a3a8fd",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:3398",
+   "RFM:3400",
+   "RFM:3307",
+   "RFM:3396"
+  ],
+  "readers": {
+   "claude-sonnet-5": {
+    "verdict": "supported",
+    "issues": [
+     {
+      "severity": "minor",
+      "statement": "selectable down to a 60° sector (SCAN 120 / SCAN 60)",
+      "problem": "The manual describes the antenna being 'operated to scan 120° and 60° different azimuth angles' but does not use the control-label notation 'SCAN 120 / SCAN 60'.",
+      "evidence": "In addition the Drive Antenna can be operated to scan 120° and 60° different azimuth angles.",
+      "page": "3398"
+     },
+     {
+      "severity": "minor",
+      "statement": "(deselectable via STAB OFF)",
+      "problem": "The manual mentions a 'Stabilization Off annunciation' on the display but does not explicitly name a 'STAB OFF' control or confirm it as the deselection mechanism.",
+      "evidence": "Stabilization Off annunciation",
+      "page": "3400"
+     }
+    ],
+    "pages_used": [
+     "3398",
+     "3400",
+     "3396"
+    ]
+   }
+  },
+  "status": "ok",
+  "minor": [
+   {
+    "severity": "minor",
+    "statement": "selectable down to a 60° sector (SCAN 120 / SCAN 60)",
+    "problem": "The manual describes the antenna being 'operated to scan 120° and 60° different azimuth angles' but does not use the control-label notation 'SCAN 120 / SCAN 60'.",
+    "evidence": "In addition the Drive Antenna can be operated to scan 120° and 60° different azimuth angles.",
+    "page": "3398"
+   },
+   {
+    "severity": "minor",
+    "statement": "(deselectable via STAB OFF)",
+    "problem": "The manual mentions a 'Stabilization Off annunciation' on the display but does not explicitly name a 'STAB OFF' control or confirm it as the deselection mechanism.",
+    "evidence": "Stabilization Off annunciation",
+    "page": "3400"
+   }
+  ],
+  "strong": true,
+  "checked": "2026-09-23 10:24"
+ },
+ "tcas-ii/0/p0": {
+  "id": "tcas-ii/0/p0",
+  "context": "System note 'TCAS II: Traffic Advisory System', section 'What it does', paragraph",
+  "text": "The Rockwell Collins TCAS II monitors a nominal 14 NM radius around the helicopter, interrogating ICAO-compliant transponders on other aircraft. Hardware: a processor in the aft avionic bay and two directional antennas — one on top of the nose radome, one under the rear belly.",
+  "hash": "e0bc7b0c0f4c",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:1685",
+   "RFM:3276",
+   "RFM:3277",
+   "RFM:3046"
+  ],
+  "readers": {
+   "claude-sonnet-5": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "S14-1"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": true,
+  "checked": "2026-09-23 10:24"
+ },
+ "tcas-ii/1/r0": {
+  "id": "tcas-ii/1/r0",
+  "context": "System note 'TCAS II: Traffic Advisory System', table 'Flying a Resolution Advisory', one row (columns ['RA', 'Technique'])",
+  "text": "RA: Climb, IAS above 90 KIAS; Technique: Cyclic to reduce airspeed toward (not below) 90 KIAS, collective simultaneously to MCP 100% PI",
+  "hash": "5cb0e94873d1",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:1686",
+   "RFM:1691",
+   "RFM:3550",
+   "RFM:1687"
+  ],
+  "readers": {
+   "claude-sonnet-5": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "1686"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": true,
+  "checked": "2026-09-23 10:24"
+ },
+ "tcas-ii/1/r1": {
+  "id": "tcas-ii/1/r1",
+  "context": "System note 'TCAS II: Traffic Advisory System', table 'Flying a Resolution Advisory', one row (columns ['RA', 'Technique'])",
+  "text": "RA: Climb, IAS 90 KIAS or below; Technique: Collective to Take-Off Power, let IAS increase toward (not above) 90 KIAS",
+  "hash": "9d2273cdc8be",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:1686",
+   "RFM:1687",
+   "RFM:1685",
+   "RFM:1691"
+  ],
+  "readers": {
+   "claude-sonnet-5": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "1686"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": true,
+  "checked": "2026-09-23 10:24"
+ },
+ "tcas-ii/2/r0": {
+  "id": "tcas-ii/2/r0",
+  "context": "System note 'TCAS II: Traffic Advisory System', table 'Limitations', one row (columns ['Function', 'Inhibited below'])",
+  "text": "Function: Increase Descent RA; Inhibited below: 1650 ft AGL climbing / 1450 ft AGL descending",
+  "hash": "bd6af355e31f",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:1687",
+   "RFM:1689",
+   "RFM:1688",
+   "RFM:1694"
+  ],
+  "readers": {
+   "claude-sonnet-5": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "S14-3"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": true,
+  "checked": "2026-09-23 10:24"
+ },
+ "tcas-ii/1/r2": {
+  "id": "tcas-ii/1/r2",
+  "context": "System note 'TCAS II: Traffic Advisory System', table 'Flying a Resolution Advisory', one row (columns ['RA', 'Technique'])",
+  "text": "RA: Descend; Technique: Collective to decrease torque as required — but not into autorotation; minimum 10% PI",
+  "hash": "5f45569c1f17",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:1686",
+   "RFM:1691",
+   "RFM:1685",
+   "RFM:174"
+  ],
+  "readers": {
+   "claude-sonnet-5": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "1686"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": true,
+  "checked": "2026-09-23 10:24"
+ },
+ "tcas-ii/2/r1": {
+  "id": "tcas-ii/2/r1",
+  "context": "System note 'TCAS II: Traffic Advisory System', table 'Limitations', one row (columns ['Function', 'Inhibited below'])",
+  "text": "Function: Descend RA; Inhibited below: 1200 ft AGL climbing / 1000 ft AGL descending",
+  "hash": "8bc9b2e07739",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:1687",
+   "RFM:1688",
+   "RFM:1689",
+   "RFM:3281"
+  ],
+  "readers": {
+   "claude-sonnet-5": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "1687"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": true,
+  "checked": "2026-09-23 10:24"
+ },
+ "tcas-ii/2/r2": {
+  "id": "tcas-ii/2/r2",
+  "context": "System note 'TCAS II: Traffic Advisory System', table 'Limitations', one row (columns ['Function', 'Inhibited below'])",
+  "text": "Function: TA voice messages; Inhibited below: 600 ft AGL climbing / 400 ft AGL descending",
+  "hash": "7110c21b90a3",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:1687",
+   "RFM:1694",
+   "RFM:3281",
+   "RFM:1688"
+  ],
+  "readers": {
+   "claude-sonnet-5": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "1687"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": true,
+  "checked": "2026-09-23 10:24"
+ },
+ "tcas-ii/2/r4": {
+  "id": "tcas-ii/2/r4",
+  "context": "System note 'TCAS II: Traffic Advisory System', table 'Limitations', one row (columns ['Function', 'Inhibited below'])",
+  "text": "Function: Climb RA; Inhibited below: inhibited above 14,000 ft",
+  "hash": "d61173ac3ecc",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:1687",
+   "RFM:1694",
+   "RFM:1686",
+   "RFM:1692"
+  ],
+  "readers": {
+   "claude-sonnet-5": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "1687"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": true,
+  "checked": "2026-09-23 10:24"
+ },
+ "tcas-ii/2/r5": {
+  "id": "tcas-ii/2/r5",
+  "context": "System note 'TCAS II: Traffic Advisory System', table 'Limitations', one row (columns ['Function', 'Inhibited below'])",
+  "text": "Function: Increase Climb RA; Inhibited below: always inhibited",
+  "hash": "362dc571c582",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:1687",
+   "RFM:1694",
+   "RFM:1686",
+   "RFM:1685"
+  ],
+  "readers": {
+   "claude-sonnet-5": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "S14-3"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": true,
+  "checked": "2026-09-23 10:25"
+ },
+ "tcas-ii/2/r3": {
+  "id": "tcas-ii/2/r3",
+  "context": "System note 'TCAS II: Traffic Advisory System', table 'Limitations', one row (columns ['Function', 'Inhibited below'])",
+  "text": "Function: All RAs (reverts to TA only); Inhibited below: 1100 ft AGL climbing / 900 ft AGL descending",
+  "hash": "068af83c7b86",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:1687",
+   "RFM:1694",
+   "RFM:451",
+   "RFM:2577"
+  ],
+  "readers": {
+   "claude-sonnet-5": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "1687"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": true,
+  "checked": "2026-09-23 10:25"
+ },
+ "htaws/0/p0": {
+  "id": "htaws/0/p0",
+  "context": "System note 'HTAWS: Terrain Awareness and Warning', section 'What it does', paragraph",
+  "text": "HTAWS, embedded in the Collins MFD-2810, gives terrain and obstacle awareness through two independent functions: Forward Looking Terrain (and Obstacle) Alerting (FLTA), which looks ahead of the aircraft's flight path, and Ground Proximity Warning System (GPWS), which reacts to the aircraft's actual proximity to terrain. Terrain/obstacle display is selectable on PFD and MFD; an obstacle is defined as any human-made structure higher than 50 ft AGL.",
+  "hash": "f1f8596101ac",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:1663",
+   "RFM:1753",
+   "RFM:1667",
+   "RFM:1668"
+  ],
+  "readers": {
+   "claude-sonnet-5": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "1663",
+     "1667"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": true,
+  "checked": "2026-09-23 10:25"
+ },
+ "tcas-ii/2/note": {
+  "id": "tcas-ii/2/note",
+  "context": "System note 'TCAS II: Traffic Advisory System', section 'Limitations', table note",
+  "text": "TCAS II also automatically reverts to TA-only whenever a higher-priority HTAWS or CAS warning is present, and stays in TA-only for 10 seconds after that warning clears — a current RA becomes a TA during that window.",
+  "hash": "eb53d8dfe32e",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:1687",
+   "RFM:1694",
+   "RFM:3277",
+   "RFM:1692"
+  ],
+  "readers": {
+   "claude-sonnet-5": {
+    "verdict": "supported",
+    "issues": [
+     {
+      "severity": "minor",
+      "statement": "TCAS II also automatically reverts to TA-only whenever a higher-priority HTAWS or CAS warning is present, and stays in TA-only for 10 seconds after that warning clears — a current RA becomes a TA during that window.",
+      "problem": "The 10-second duration and 'current RA becomes TA' detail are not part of the Limitations table's 'Advisory Priority' row itself (which only states the automatic reversion condition); this additional timing/behavior detail is stated in a separate 'Note' on a later page (S14-10), not as a table note on the Limitations page.",
+      "evidence": "Advisory Priority — Automatically reverts to TA Only when higher priority messages (such as HTAWS and CAS WARNINGS) are present. / The RA voice messages are inhibited and TCAS II switches automatically into TA ONLY mode for HTAWS or CAS WARNING voice messages... The TCAS II remains in TA ONLY mode for 10 seconds after the HTAWS or CAS WARNING voice message is removed.",
+      "page": "1687 / 1694"
+     }
+    ],
+    "pages_used": [
+     "1687",
+     "1694"
+    ]
+   }
+  },
+  "status": "ok",
+  "minor": [
+   {
+    "severity": "minor",
+    "statement": "TCAS II also automatically reverts to TA-only whenever a higher-priority HTAWS or CAS warning is present, and stays in TA-only for 10 seconds after that warning clears — a current RA becomes a TA during that window.",
+    "problem": "The 10-second duration and 'current RA becomes TA' detail are not part of the Limitations table's 'Advisory Priority' row itself (which only states the automatic reversion condition); this additional timing/behavior detail is stated in a separate 'Note' on a later page (S14-10), not as a table note on the Limitations page.",
+    "evidence": "Advisory Priority — Automatically reverts to TA Only when higher priority messages (such as HTAWS and CAS WARNINGS) are present. / The RA voice messages are inhibited and TCAS II switches automatically into TA ONLY mode for HTAWS or CAS WARNING voice messages... The TCAS II remains in TA ONLY mode for 10 seconds after the HTAWS or CAS WARNING voice message is removed.",
+    "page": "1687 / 1694"
+   }
+  ],
+  "strong": true,
+  "checked": "2026-09-23 10:25"
+ },
+ "htaws/1/r0": {
+  "id": "htaws/1/r0",
+  "context": "System note 'HTAWS: Terrain Awareness and Warning', table 'Alerts', one row (columns ['Priority', 'Aural', 'Red caption', 'Amber caption'])",
+  "text": "Priority: 1; Aural: PULL UP; Red caption: PULL UP; Amber caption: —",
+  "hash": "c355197049af",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:1669",
+   "RFM:1668",
+   "RFM:1670",
+   "RFM:1667"
+  ],
+  "readers": {
+   "claude-sonnet-5": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "S13-7"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": true,
+  "checked": "2026-09-23 10:25"
+ },
+ "htaws/1/r1": {
+  "id": "htaws/1/r1",
+  "context": "System note 'HTAWS: Terrain Awareness and Warning', table 'Alerts', one row (columns ['Priority', 'Aural', 'Red caption', 'Amber caption'])",
+  "text": "Priority: 2; Aural: WARNING TERRAIN; Red caption: TERRAIN; Amber caption: —",
+  "hash": "f53b8f141412",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:1669",
+   "RFM:1668",
+   "RFM:1667",
+   "RFM:562"
+  ],
+  "readers": {
+   "claude-sonnet-5": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "1669"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": true,
+  "checked": "2026-09-23 10:25"
+ },
+ "htaws/1/r2": {
+  "id": "htaws/1/r2",
+  "context": "System note 'HTAWS: Terrain Awareness and Warning', table 'Alerts', one row (columns ['Priority', 'Aural', 'Red caption', 'Amber caption'])",
+  "text": "Priority: 2; Aural: WARNING OBSTACLE; Red caption: OBSTACLE; Amber caption: —",
+  "hash": "374d465b8cf8",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:1669",
+   "RFM:1668",
+   "RFM:1667",
+   "RFM:2331"
+  ],
+  "readers": {
+   "claude-sonnet-5": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "S13-7"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": true,
+  "checked": "2026-09-23 10:25"
+ },
+ "htaws/1/r3": {
+  "id": "htaws/1/r3",
+  "context": "System note 'HTAWS: Terrain Awareness and Warning', table 'Alerts', one row (columns ['Priority', 'Aural', 'Red caption', 'Amber caption'])",
+  "text": "Priority: 3; Aural: CAUTION TERRAIN; Red caption: —; Amber caption: TERRAIN",
+  "hash": "cbf8a3b4e9ef",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:1669",
+   "RFM:1668",
+   "RFM:1667",
+   "RFM:1670"
+  ],
+  "readers": {
+   "claude-sonnet-5": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "1669"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": true,
+  "checked": "2026-09-23 10:25"
+ },
+ "htaws/1/r4": {
+  "id": "htaws/1/r4",
+  "context": "System note 'HTAWS: Terrain Awareness and Warning', table 'Alerts', one row (columns ['Priority', 'Aural', 'Red caption', 'Amber caption'])",
+  "text": "Priority: 3; Aural: CAUTION OBSTACLE; Red caption: —; Amber caption: OBSTACLE",
+  "hash": "b7b1e5b7e81c",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:1669",
+   "RFM:1668",
+   "RFM:1667",
+   "RFM:1670"
+  ],
+  "readers": {
+   "claude-sonnet-5": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "S13-7"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": true,
+  "checked": "2026-09-23 10:26"
+ },
+ "weather-radar-rdr-1600/3/p0": {
+  "id": "weather-radar-rdr-1600/3/p0",
+  "context": "System note 'Weather Radar RDR-1600', section 'Ground transmission', paragraph",
+  "text": "The weather radar does not transmit on the ground due to the weight-on-wheels (WOW) safety interlock. Do not turn the radar on within 30 ft (9 m) of personnel or containers holding flammable or explosive material — a wider clearance than the RTA-4112's 17 ft (5 m).",
+  "hash": "2275a8ebc257",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [],
+  "readers": {},
+  "status": "ok",
+  "strong": true,
+  "method": "manual-claude-page-read",
+  "note": "FIXED: removed unsupported ', unless commanded to' clause, matching the already-verified AW169 EP wording for the same RDR-1600 ground-transmission note.",
+  "checked": "2026-09-23 11:00"
+ },
+ "htaws/1/r6": {
+  "id": "htaws/1/r6",
+  "context": "System note 'HTAWS: Terrain Awareness and Warning', table 'Alerts', one row (columns ['Priority', 'Aural', 'Red caption', 'Amber caption'])",
+  "text": "Priority: 5; Aural: TOO LOW GEAR; Red caption: —; Amber caption: TOO LOW GEAR",
+  "hash": "b37f9f6dea34",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:1669",
+   "RFM:1668",
+   "RFM:1670",
+   "RFM:562"
+  ],
+  "readers": {
+   "claude-sonnet-5": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "1669"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": true,
+  "checked": "2026-09-23 10:26"
+ },
+ "htaws/1/r5": {
+  "id": "htaws/1/r5",
+  "context": "System note 'HTAWS: Terrain Awareness and Warning', table 'Alerts', one row (columns ['Priority', 'Aural', 'Red caption', 'Amber caption'])",
+  "text": "Priority: 4; Aural: THREE HUNDRED / active height callouts; Red caption: —; Amber caption: —",
+  "hash": "41055723fc4f",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:1669",
+   "RFM:1668",
+   "RFM:242",
+   "RFM:1667"
+  ],
+  "readers": {
+   "claude-sonnet-5": {
+    "verdict": "supported",
+    "issues": [
+     {
+      "severity": "minor",
+      "statement": "Aural: THREE HUNDRED / active height callouts",
+      "problem": "The manual lists these as two separate rows for Priority 4 (one for 'THREE HUNDRED' and one for 'Active callouts (see table)'), which the claim merges into a single entry. Both rows have identical Red/Amber captions (—), so no value is misattributed.",
+      "evidence": "4 | THREE HUNDRED | — | — ; 4 | Active callouts (see table) | — | —",
+      "page": "1669"
+     }
+    ],
+    "pages_used": [
+     "1669"
+    ]
+   }
+  },
+  "status": "ok",
+  "minor": [
+   {
+    "severity": "minor",
+    "statement": "Aural: THREE HUNDRED / active height callouts",
+    "problem": "The manual lists these as two separate rows for Priority 4 (one for 'THREE HUNDRED' and one for 'Active callouts (see table)'), which the claim merges into a single entry. Both rows have identical Red/Amber captions (—), so no value is misattributed.",
+    "evidence": "4 | THREE HUNDRED | — | — ; 4 | Active callouts (see table) | — | —",
+    "page": "1669"
+   }
+  ],
+  "strong": true,
+  "checked": "2026-09-23 10:26"
+ },
+ "htaws/1/r7": {
+  "id": "htaws/1/r7",
+  "context": "System note 'HTAWS: Terrain Awareness and Warning', table 'Alerts', one row (columns ['Priority', 'Aural', 'Red caption', 'Amber caption'])",
+  "text": "Priority: 6; Aural: SINKRATE; Red caption: —; Amber caption: SINKRATE",
+  "hash": "75120812a841",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:1669",
+   "RFM:1668",
+   "RFM:1670",
+   "RFM:562"
+  ],
+  "readers": {
+   "claude-sonnet-5": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "S13-7"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": true,
+  "checked": "2026-09-23 10:26"
+ },
+ "htaws/1/r8": {
+  "id": "htaws/1/r8",
+  "context": "System note 'HTAWS: Terrain Awareness and Warning', table 'Alerts', one row (columns ['Priority', 'Aural', 'Red caption', 'Amber caption'])",
+  "text": "Priority: 7; Aural: DON'T SINK; Red caption: —; Amber caption: DON'T SINK",
+  "hash": "d7f6e56d0ff8",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:1669",
+   "RFM:1670",
+   "RFM:1673",
+   "RFM:1668"
+  ],
+  "readers": {
+   "claude-sonnet-5": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "1669"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": true,
+  "checked": "2026-09-23 10:26"
+ },
+ "htaws/1/r9": {
+  "id": "htaws/1/r9",
+  "context": "System note 'HTAWS: Terrain Awareness and Warning', table 'Alerts', one row (columns ['Priority', 'Aural', 'Red caption', 'Amber caption'])",
+  "text": "Priority: 8; Aural: GLIDESLOPE; Red caption: —; Amber caption: GLIDESLOPE",
+  "hash": "ded7266c72b1",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:1669",
+   "RFM:1668",
+   "RFM:562",
+   "RFM:1667"
+  ],
+  "readers": {
+   "claude-sonnet-5": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "1669"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": true,
+  "checked": "2026-09-23 10:26"
+ },
+ "htaws/1/note": {
+  "id": "htaws/1/note",
+  "context": "System note 'HTAWS: Terrain Awareness and Warning', section 'Alerts', table note",
+  "text": "Height callouts (200/100/50/40/30/20/10 ft) are aural only, no caption. Cautionary alerts annunciate once; warning alerts repeat until the condition clears.",
+  "hash": "a08f312fff4b",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:1668",
+   "RFM:1669",
+   "RFM:1694",
+   "RFM:562"
+  ],
+  "readers": {
+   "claude-sonnet-5": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "1668",
+     "1669"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": true,
+  "checked": "2026-09-23 10:26"
+ },
+ "htaws/4/p0": {
+  "id": "htaws/4/p0",
+  "context": "System note 'HTAWS: Terrain Awareness and Warning', section 'Inhibiting and status messages', paragraph",
+  "text": "TAWS INHIBIT disables all alerts except altitude callouts (the terrain map image stays up). AUDIO INHIB mutes cautions only — not callouts, not warnings — and clears itself after 5 minutes if not deselected first. OFF APT reduces nuisance alerts when landing somewhere not in the database, without disabling the system. G/S CANCEL suppresses the glideslope-deviation alert when the ILS isn't in the database.",
+  "hash": "33c162410bd0",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:1668",
+   "RFM:1671",
+   "RFM:1664",
+   "RFM:1667"
+  ],
+  "readers": {
+   "claude-sonnet-5": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "1664",
+     "1667",
+     "1668",
+     "1671"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": true,
+  "checked": "2026-09-23 10:26"
+ },
+ "htaws/4/p1": {
+  "id": "htaws/4/p1",
+  "context": "System note 'HTAWS: Terrain Awareness and Warning', section 'Inhibiting and status messages', paragraph",
+  "text": "Failure captions: TAWS FAIL (no valid HTAWS info — both FLTA and GPWS gone), TERRAIN (terrain data unavailable), GPWS INOP, FLTA INOP, OBST INOP (obstacle database missing, or too many obstacles in view — the system only ever displays the 100 nearest above the altitude clearance level).",
+  "hash": "05f1ad1f50b9",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:1677",
+   "RFM:1668",
+   "RFM:1667",
+   "RFM:1676"
+  ],
+  "readers": {
+   "claude-sonnet-5": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "S13-14",
+     "S13-15"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": true,
+  "checked": "2026-09-23 10:26"
+ },
+ "svs/2/p0": {
+  "id": "svs/2/p0",
+  "context": "System note 'Synthetic Vision System (SVS)', section 'When it turns off on its own', paragraph",
+  "text": "SVS must not be used for navigation, and must not be selected ON during approach and landing. It won't display at all with the central MFD powered off or reverted to PFD format. It is automatically inhibited whenever aircraft attitude exceeds 30° nose up/down or 50° bank left/right, and re-selects itself automatically once attitude comes back within ±10° pitch and ±5° roll.",
+  "hash": "4d53004b2636",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:1754",
+   "RFM:3398",
+   "RFM:160",
+   "RFM:3035"
+  ],
+  "readers": {
+   "claude-sonnet-5": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "S18-2"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": true,
+  "checked": "2026-09-23 10:26"
+ },
+ "svs/0/p0": {
+  "id": "svs/0/p0",
+  "context": "System note 'Synthetic Vision System (SVS)', section 'What it is', paragraph",
+  "text": "SVS, embedded in the Collins MFD-2810, builds a three-dimensional synthetic view of the terrain around the aircraft from precise navigation sensor inputs plus a high-resolution terrain, obstacle and runway/heliport database. It displays airport runways and helipads, obstacles higher than 50 ft, and a Flight Path Vector (FPV) showing the aircraft's actual trajectory. Selected on the PFD's attitude/navigation area via the PFD menu or the on-side DCP; the FPV and obstacle layers can be switched off independently.",
+  "hash": "294fc2d5962c",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:1753",
+   "RFM:1666",
+   "RFM:1754",
+   "RFM:1663"
+  ],
+  "readers": {
+   "claude-sonnet-5": {
+    "verdict": "supported",
+    "issues": [
+     {
+      "severity": "minor",
+      "statement": "obstacles higher than 50 ft",
+      "problem": "Manual specifies obstacles higher than 50 ft AGL; claim omits the AGL unit qualifier.",
+      "evidence": "towered and non-towered obstacles higher than 50 ft.",
+      "page": "1753"
+     },
+     {
+      "severity": "minor",
+      "statement": "the FPV and obstacle layers can be switched off independently",
+      "problem": "Manual only states both can be disabled through the PFD MENU; it does not explicitly state they can be switched off independently of each other.",
+      "evidence": "The FPV and obstacles display can also be disabled through the PFD MENU.",
+      "page": "1753"
+     }
+    ],
+    "pages_used": [
+     "1753",
+     "1754"
+    ]
+   }
+  },
+  "status": "ok",
+  "minor": [
+   {
+    "severity": "minor",
+    "statement": "obstacles higher than 50 ft",
+    "problem": "Manual specifies obstacles higher than 50 ft AGL; claim omits the AGL unit qualifier.",
+    "evidence": "towered and non-towered obstacles higher than 50 ft.",
+    "page": "1753"
+   },
+   {
+    "severity": "minor",
+    "statement": "the FPV and obstacle layers can be switched off independently",
+    "problem": "Manual only states both can be disabled through the PFD MENU; it does not explicitly state they can be switched off independently of each other.",
+    "evidence": "The FPV and obstacles display can also be disabled through the PFD MENU.",
+    "page": "1753"
+   }
+  ],
+  "strong": true,
+  "checked": "2026-09-23 10:26"
+ },
+ "digital-map/1/r0": {
+  "id": "digital-map/1/r0",
+  "context": "System note 'Digital Map System', table 'Failure and mismatch messages', one row (columns ['Message', 'Trigger'])",
+  "text": "Message: DMAP FAIL; Trigger: Digital map database failure — map data removed",
+  "hash": "24af17665668",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:1740",
+   "RFM:1742",
+   "RFM:3078",
+   "RFM:1741"
+  ],
+  "readers": {
+   "claude-sonnet-5": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "1740"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": true,
+  "checked": "2026-09-23 10:26"
+ },
+ "digital-map/0/p0": {
+  "id": "digital-map/0/p0",
+  "context": "System note 'Digital Map System', section 'What it is', paragraph",
+  "text": "A moving-map display selectable to underlay the FPLN page on the MFD (DMAP item on the MFD menu). The system can receive two DMAP video sources, DMAP1 and DMAP2, either selectable from the DMAP menu. Like the weather radar and HTAWS, it must not be used for navigation — it is an awareness tool, and the display/database may not have the accuracy to base routine navigation decisions or route planning on.",
+  "hash": "46943892d5fd",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:1739",
+   "RFM:3298",
+   "RFM:3138",
+   "RFM:1666"
+  ],
+  "readers": {
+   "claude-sonnet-5": {
+    "verdict": "supported",
+    "issues": [
+     {
+      "severity": "minor",
+      "statement": "Like the weather radar and HTAWS, it must not be used for navigation",
+      "problem": "The provided pages document the HTAWS 'not for navigation' limitation, but do not show a corresponding weather radar limitation statement to confirm the comparison; this is extra context not verifiable from the pages shown.",
+      "evidence": "The HTAWS must not be used for navigation. (page 1666); no weather radar limitation text appears on the provided pages.",
+      "page": "1666"
+     }
+    ],
+    "pages_used": [
+     "1739",
+     "3298",
+     "3138",
+     "1666"
+    ]
+   }
+  },
+  "status": "ok",
+  "minor": [
+   {
+    "severity": "minor",
+    "statement": "Like the weather radar and HTAWS, it must not be used for navigation",
+    "problem": "The provided pages document the HTAWS 'not for navigation' limitation, but do not show a corresponding weather radar limitation statement to confirm the comparison; this is extra context not verifiable from the pages shown.",
+    "evidence": "The HTAWS must not be used for navigation. (page 1666); no weather radar limitation text appears on the provided pages.",
+    "page": "1666"
+   }
+  ],
+  "strong": true,
+  "checked": "2026-09-23 10:26"
+ },
+ "digital-map/1/r1": {
+  "id": "digital-map/1/r1",
+  "context": "System note 'Digital Map System', table 'Failure and mismatch messages', one row (columns ['Message', 'Trigger'])",
+  "text": "Message: DMAP1(2) RNG MSCP; Trigger: Range scale requested on one display doesn't match the other, while the same DMAP source is overlaid on both MFD and copilot PFD",
+  "hash": "4cd3edc2ff66",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:1740",
+   "RFM:1741",
+   "RFM:3298",
+   "RFM:3398"
+  ],
+  "readers": {
+   "claude-sonnet-5": {
+    "verdict": "supported",
+    "issues": [
+     {
+      "severity": "minor",
+      "statement": "Range scale requested on one display doesn't match the other, while the same DMAP source is overlaid on both MFD and copilot PFD",
+      "problem": "Manual specifies this occurs specifically on the FPLN page and with the CPLT PFD set in MFD format; also mentions the data removal outcome, which the claim omits.",
+      "evidence": "In case of DMAP1(2) selected and displayed in OVERLAY on the FPLN page on both the MFD and the CPLT PFD (set in MFD format), whenever on the MFD (or CPLT PFD) a different range scale is requested with respect to CPLT PFD (or MFD), on the CPLT PFD (or MFD) the digital map data is removed and a DMAP1(2) RNG MSCP amber message is displayed.",
+      "page": "1740"
+     }
+    ],
+    "pages_used": [
+     "1740"
+    ]
+   }
+  },
+  "status": "ok",
+  "minor": [
+   {
+    "severity": "minor",
+    "statement": "Range scale requested on one display doesn't match the other, while the same DMAP source is overlaid on both MFD and copilot PFD",
+    "problem": "Manual specifies this occurs specifically on the FPLN page and with the CPLT PFD set in MFD format; also mentions the data removal outcome, which the claim omits.",
+    "evidence": "In case of DMAP1(2) selected and displayed in OVERLAY on the FPLN page on both the MFD and the CPLT PFD (set in MFD format), whenever on the MFD (or CPLT PFD) a different range scale is requested with respect to CPLT PFD (or MFD), on the CPLT PFD (or MFD) the digital map data is removed and a DMAP1(2) RNG MSCP amber message is displayed.",
+    "page": "1740"
+   }
+  ],
+  "strong": true,
+  "checked": "2026-09-23 10:26"
+ },
+ "digital-map/1/r2": {
+  "id": "digital-map/1/r2",
+  "context": "System note 'Digital Map System', table 'Failure and mismatch messages', one row (columns ['Message', 'Trigger'])",
+  "text": "Message: DMAP1(2) POS MSCP; Trigger: ARC/ROSE format selected on one display while the opposite (ROSE/ARC) is already showing on the other, same dual-overlay condition",
+  "hash": "03092e86ca18",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:1740",
+   "RFM:1741",
+   "RFM:3298",
+   "RFM:3138"
+  ],
+  "readers": {
+   "claude-sonnet-5": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "1740"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": true,
+  "checked": "2026-09-23 10:26"
+ },
+ "digital-map/1/r4": {
+  "id": "digital-map/1/r4",
+  "context": "System note 'Digital Map System', table 'Failure and mismatch messages', one row (columns ['Message', 'Trigger'])",
+  "text": "Message: DMAP HDG FAIL; Trigger: Heading data for the map lost",
+  "hash": "c930209b3ed4",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:1740",
+   "RFM:1742",
+   "RFM:1741",
+   "RFM:3078"
+  ],
+  "readers": {
+   "claude-sonnet-5": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "1742"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": true,
+  "checked": "2026-09-23 10:26"
+ },
+ "digital-map/1/r3": {
+  "id": "digital-map/1/r3",
+  "context": "System note 'Digital Map System', table 'Failure and mismatch messages', one row (columns ['Message', 'Trigger'])",
+  "text": "Message: DMAP1(2) HDG MSCP; Trigger: PLAN format selected on one display while ARC or ROSE is already showing on the other, same dual-overlay condition",
+  "hash": "d37553d7ca5a",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:1740",
+   "RFM:3298",
+   "RFM:1741",
+   "RFM:1675"
+  ],
+  "readers": {
+   "claude-sonnet-5": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "1740"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": true,
+  "checked": "2026-09-23 10:26"
+ },
+ "digital-map/1/r5": {
+  "id": "digital-map/1/r5",
+  "context": "System note 'Digital Map System', table 'Failure and mismatch messages', one row (columns ['Message', 'Trigger'])",
+  "text": "Message: DMAP POS FAIL; Trigger: Helicopter's current position missing",
+  "hash": "616039209f10",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:1742",
+   "RFM:1740",
+   "RFM:1741",
+   "RFM:3078"
+  ],
+  "readers": {
+   "claude-sonnet-5": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "1742"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": true,
+  "checked": "2026-09-23 10:27"
+ },
+ "digital-map/1/r6": {
+  "id": "digital-map/1/r6",
+  "context": "System note 'Digital Map System', table 'Failure and mismatch messages', one row (columns ['Message', 'Trigger'])",
+  "text": "Message: NO MAP AVAIL; Trigger: Operating outside the digital map database's coverage area",
+  "hash": "de1f07dddb3e",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:1742",
+   "RFM:1740",
+   "RFM:1739",
+   "RFM:1677"
+  ],
+  "readers": {
+   "claude-sonnet-5": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "S17-4"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": true,
+  "checked": "2026-09-23 10:27"
+ },
+ "digital-map/1/r7": {
+  "id": "digital-map/1/r7",
+  "context": "System note 'Digital Map System', table 'Failure and mismatch messages', one row (columns ['Message', 'Trigger'])",
+  "text": "Message: MISSION FAIL; Trigger: Mission data becomes invalid while on the DMAP presentation",
+  "hash": "013c68b22533",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:1742",
+   "RFM:3078",
+   "RFM:1740",
+   "RFM:3077"
+  ],
+  "readers": {
+   "claude-sonnet-5": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "1742"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": true,
+  "checked": "2026-09-23 10:27"
+ },
+ "opls/0/p0": {
+  "id": "opls/0/p0",
+  "context": "System note 'OPLS: Obstacle Proximity LiDAR System', section 'What it is', paragraph",
+  "text": "OPLS gives visual and audio obstacle-distance awareness while hovering or in low-speed flight. Three LiDAR (Laser Imaging Detection and Ranging) units are mounted around the transmission cowling below the rotor head; their three overlapping beams are digitally mixed to produce 360° obstacle coverage — but only in the plane of the sensor units. Nothing above or below that plane is detected.",
+  "hash": "8db9cdbc5892",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:2325",
+   "RFM:3438",
+   "RFM:3439",
+   "RFM:2331"
+  ],
+  "readers": {
+   "claude-sonnet-5": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "2325",
+     "2331"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": true,
+  "checked": "2026-09-23 10:27"
+ },
+ "opls/0/p1": {
+  "id": "opls/0/p1",
+  "context": "System note 'OPLS: Obstacle Proximity LiDAR System', section 'What it is', paragraph",
+  "text": "Controlled from a dedicated OPLS page on the EDCU (Home → KITS → MIS tab → OPLS tab): POWER, MAINT, MUTE, INFO buttons, plus a status indicator. Displayed on the MFD as a plan-view polar grid of the obstacle profile around the helicopter, selected via the cursor control device (VIDEO → OPLS) or the MFD's T4 top bezel key.",
+  "hash": "8c9d72c55eb4",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:2325",
+   "RFM:3440",
+   "RFM:2326",
+   "RFM:2330"
+  ],
+  "readers": {
+   "claude-sonnet-5": {
+    "verdict": "supported",
+    "issues": [
+     {
+      "severity": "minor",
+      "statement": "Home → KITS → MIS tab → OPLS tab",
+      "problem": "The manual describes navigation as top tab 'MIS' and left tab 'OPLS', not both as 'tabs' in the same sense; wording paraphrased but meaning preserved.",
+      "evidence": "\"choosing the top tab \"MIS\" and the left tab \"OPLS\"\"",
+      "page": "2325"
+     }
+    ],
+    "pages_used": [
+     "2325",
+     "2326",
+     "3440",
+     "2330"
+    ]
+   }
+  },
+  "status": "ok",
+  "minor": [
+   {
+    "severity": "minor",
+    "statement": "Home → KITS → MIS tab → OPLS tab",
+    "problem": "The manual describes navigation as top tab 'MIS' and left tab 'OPLS', not both as 'tabs' in the same sense; wording paraphrased but meaning preserved.",
+    "evidence": "\"choosing the top tab \"MIS\" and the left tab \"OPLS\"\"",
+    "page": "2325"
+   }
+  ],
+  "strong": true,
+  "checked": "2026-09-23 10:27"
+ },
+ "evs-camera/0/p0": {
+  "id": "evs-camera/0/p0",
+  "context": "System note 'EVS Camera', section 'What it is', paragraph",
+  "text": "Two possible installations: the MAX-VIZ EVS-1500, IR image only, or the EVS-2300, which adds a color image alongside the IR one. A Long Wave Infrared camera is mounted facing forward under the right-hand nose compartment, feeding the MFD as a visual aid in reduced visibility. Selected on and off from the EDCU KITS → CAMERA tab; a video test pattern shows for about 5 seconds after power-on, then an OK message, then an IR image after about 20 seconds total.",
+  "hash": "27f747f265c3",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:1843",
+   "RFM:2521",
+   "RFM:3342",
+   "RFM:3344"
+  ],
+  "readers": {
+   "claude-sonnet-5": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "S22-1",
+     "7-682",
+     "7-684"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": true,
+  "checked": "2026-09-23 10:27"
+ },
+ "evs-camera/1/p0": {
+  "id": "evs-camera/1/p0",
+  "context": "System note 'EVS Camera', section 'Display and field of view', paragraph",
+  "text": "Shown full-size on the MFD VIDEO page, or as picture-in-picture on VIDEO or DMAP pages. Brightness/contrast adjust via the VIDEO page bezel buttons — on the EVS-2300, the IR and color channels have independent brightness/contrast controls. Field of view (Narrow/Wide) is selected from the PFD EVS menu or the DCP EVS button, and on the EVS-2300 that selection applies to both the IR and color image together. Zooming is available via PFD controls or the DCP.",
+  "hash": "84dafe9b3e98",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:1843",
+   "RFM:1847",
+   "RFM:1844",
+   "RFM:3343"
+  ],
+  "readers": {
+   "claude-sonnet-5": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "1843",
+     "1844",
+     "1847"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": true,
+  "checked": "2026-09-23 10:27"
+ },
+ "evs-camera/0/p1": {
+  "id": "evs-camera/0/p1",
+  "context": "System note 'EVS Camera', section 'What it is', paragraph",
+  "text": "The camera automatically recalibrates its IR sensor (NUC) every 4 minutes — a 1-second screen blank with CAL displayed — which can be inhibited from the same EDCU page if needed. It's self-anti-iced with internal heaters whenever powered on, fed from Main Bus 1 (REPU 1 Channel A), a bus not shown on the DC ELEC synoptic page.",
+  "hash": "460ced97abc9",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:3342",
+   "RFM:1844",
+   "RFM:1843",
+   "RFM:2926"
+  ],
+  "readers": {
+   "claude-sonnet-5": {
+    "verdict": "supported",
+    "issues": [
+     {
+      "severity": "minor",
+      "statement": "The camera automatically recalibrates its IR sensor (NUC) every 4 minutes",
+      "problem": "The manual states the NUC recalibration happens every 4 minutes OR when manually activated, an additional trigger condition the claim omits.",
+      "evidence": "The shutter closes for approximately one second during the NUC process, which happens every four minutes or when manually activated.",
+      "page": "3342"
+     }
+    ],
+    "pages_used": [
+     "3342",
+     "1843",
+     "1844"
+    ]
+   }
+  },
+  "status": "ok",
+  "minor": [
+   {
+    "severity": "minor",
+    "statement": "The camera automatically recalibrates its IR sensor (NUC) every 4 minutes",
+    "problem": "The manual states the NUC recalibration happens every 4 minutes OR when manually activated, an additional trigger condition the claim omits.",
+    "evidence": "The shutter closes for approximately one second during the NUC process, which happens every four minutes or when manually activated.",
+    "page": "3342"
+   }
+  ],
+  "strong": true,
+  "checked": "2026-09-23 10:27"
+ },
+ "ehps/0/p0": {
+  "id": "ehps/0/p0",
+  "context": "System note 'EHPS: Electric Motor-Driven Hydraulic Power Supply', section 'What it is', paragraph",
+  "text": "A 28 VDC electric motor-driven hydraulic pump installed on hydraulic system 1, ground use only. It provides just enough hydraulic pressure to do the full-and-free flight-controls check on the servo-actuators before either engine — and its mechanically-driven hydraulic power supply — is even running. Controlled from the EDCU HYD page, powered from the helicopter battery, and limited by AMMC logic to 2 minutes of operation maximum. In flight, switching it on is inhibited by design.",
+  "hash": "9f6836622afd",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:2421",
+   "RFM:3450",
+   "RFM:2904",
+   "RFM:2423"
+  ],
+  "readers": {
+   "claude-sonnet-5": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "2421",
+     "2423"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": true,
+  "checked": "2026-09-23 10:27"
+ },
+ "htaws/0/p1": {
+  "id": "htaws/0/p1",
+  "context": "System note 'HTAWS: Terrain Awareness and Warning', section 'What it does', paragraph",
+  "text": "This configuration provides five operating modes: Mode 1 (excessive rate of descent), Mode 3 (descent after take-off or missed approach), Mode 4 (flight into terrain when not in landing configuration), Mode 5 (excessive downward deviation from an ILS glideslope), Mode 6 (altitude callout). There is no OFFSHORE option and no SAR mode on this configuration.",
+  "hash": "f323f7fcfb71",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [],
+  "readers": {},
+  "status": "ok",
+  "strong": true,
+  "method": "manual-claude-page-read",
+  "note": "FIXED: 'four operating modes' -> 'five operating modes', added missing Mode 6 (Altitude Callout). RFM Supplement 13 p.S13-2 (DOC PAGE 1664) lists exactly Mode 1, 3, 4, 5, 6 for this configuration, and confirms no OFFSHORE/SAR modes.",
+  "checked": "2026-09-23 11:00"
+ },
+ "adi-stby-battery/0/p0": {
+  "id": "adi-stby-battery/0/p0",
+  "context": "System note 'ADI STBY Emergency Battery', section 'What it is', paragraph",
+  "text": "A dedicated Li-Ion battery, installed in the left side of the nose avionics bay, that automatically feeds the standby attitude indicator for at least 30 minutes after a total failure of the electrical generating system. It connects through the CB panel to EMER BUS 1, protected by a 7.5A ADI STBY circuit breaker — a self-contained backup for exactly one instrument, not the wider emergency bus.",
+  "hash": "afc4f27a35cf",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:2195",
+   "RFM:2453",
+   "RFM:3459",
+   "RFM:3460"
+  ],
+  "readers": {
+   "claude-sonnet-5": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "2195",
+     "2453",
+     "3459",
+     "3460"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": true,
+  "checked": "2026-09-23 10:27"
+ },
+ "adi-stby-battery/0/p1": {
+  "id": "adi-stby-battery/0/p1",
+  "context": "System note 'ADI STBY Emergency Battery', section 'What it is', paragraph",
+  "text": "Controlled by a Control Switch Annunciator on the right side of the interseat console, three positions: ARM (battery powered through EMER BUS 1, ready to supply output), OFF (disconnected from both EMER BUS 1 and the ADI STBY), and TEST (press and hold — checks state of charge is above 80% plus the internal heater and temperature monitoring; TEST illuminates green if it passes). The STBY annunciator itself lights amber whenever the battery is actually delivering power to the ADI.",
+  "hash": "2b78c2d50f5f",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:2195",
+   "RFM:3461",
+   "RFM:3460",
+   "RFM:2453"
+  ],
+  "readers": {
+   "claude-sonnet-5": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "S31-1"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": true,
+  "checked": "2026-09-23 10:27"
+ },
+ "external-hoist/0/p0": {
+  "id": "external-hoist/0/p0",
+  "context": "System note 'External Hoist Operations (Goodrich)', section 'What it is', paragraph",
+  "text": "A Goodrich hoist unit mounted on the right side of the cabin, in either a 290 ft or 165 ft usable-cable version, each with its own pendant. The pilot and copilot can operate the hoist from the collective grip; the Hoist Operator (HO) operates it from the control pendant, which also displays cable payout. Pilot control always overrides the HO's input. Maximum load: 249 kg (550 lb) above 0°C OAT, 227 kg (500 lb) at or below — maximum 2 persons plus equipment either way.",
+  "hash": "da10eb64e785",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:1402",
+   "RFM:3363",
+   "RFM:1418",
+   "RFM:1401"
+  ],
+  "readers": {
+   "claude-sonnet-5": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "1401",
+     "1402",
+     "1418"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": true,
+  "checked": "2026-09-23 10:28"
+ },
+ "external-hoist/1/p0": {
+  "id": "external-hoist/1/p0",
+  "context": "System note 'External Hoist Operations (Goodrich)', section 'Key limitations', paragraph",
+  "text": "Minimum crew: one pilot plus one Hoist Operator. Load raising/lowering is permitted in a stationary hover or forward flight up to 45 KIAS (80 KIAS with the extended main footstep kit fitted). Maximum permissible bank angle with the cable extended is 20° — exceeding 15° of lateral pendulum angle relative to the helicopter's vertical axis can cause the overload clutch to slip, and that clutch is unlikely to function correctly if actually overloaded. Takeoff and landing with a suspended load on the hoist is prohibited.",
+  "hash": "244c7fcd988f",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [],
+  "readers": {},
+  "status": "ok",
+  "strong": true,
+  "method": "manual-claude-page-read",
+  "note": "RFM Supplement 5 p.S5-16/17/18: 4800 kg max weight, 4600 kg/Supplement 30 threshold, 45/80 KIAS (footstep kit), 20 deg bank, 15 deg pendulum/clutch-slip warning, overload-clutch caution, T/O-landing prohibition all confirmed verbatim.",
+  "checked": "2026-09-23 11:00"
+ },
+ "external-hoist/1/p1": {
+  "id": "external-hoist/1/p1",
+  "context": "System note 'External Hoist Operations (Goodrich)', section 'Key limitations', paragraph",
+  "text": "During hoist operations the pilot must either fly manually, or fly attentively if HOV and RHT (or ALT) modes are engaged — the autopilot is not a substitute for monitoring during a hoist operation. Maximum weight including the hoisted load is 4800 kg (above 4600 kg for takeoff/landing, the Supplement 30 increased-gross-weight configuration is required). The HO must be harnessed throughout, wear protective gloves, and guide the cable by hand.",
+  "hash": "001ee6e82292",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [],
+  "readers": {},
+  "status": "ok",
+  "strong": true,
+  "method": "manual-claude-page-read",
+  "note": "RFM Supplement 5 p.S5-13 (minimum crew: one pilot + one HO) and p.S5-18/S5-19 (autopilot fly-manually-or-attentive rule, HO harness/gloves/cable-guiding) confirmed verbatim.",
+  "checked": "2026-09-23 11:00"
+ },
+ "external-hoist/2/p0": {
+  "id": "external-hoist/2/p0",
+  "context": "System note 'External Hoist Operations (Goodrich)', section 'Cable and hoist malfunctions', paragraph",
+  "text": "HOIST CBL FOUL: the cable isn't winding correctly onto the drum, motor stops automatically. Proceed in forward flight with the load suspended (same 45/80 KIAS limits), find a suitable site, hover and slowly descend to lay the load on the ground, then recover the cable manually.",
+  "hash": "e6aa44adba3d",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:1435",
+   "RFM:1402",
+   "RFM:1429",
+   "RFM:1426"
+  ],
+  "readers": {
+   "claude-sonnet-5": {
+    "verdict": "supported",
+    "issues": [
+     {
+      "severity": "minor",
+      "statement": "same 45/80 KIAS limits",
+      "problem": "The manual specifies that 80 KIAS is only permitted if a specific kit (Extended Main Footstep P/N 6F5260F00711 or P/N 6F5260F00811) is fitted; otherwise the limit is 45 KIAS. The claim states both values without this qualifying condition.",
+      "evidence": "maximum 45 KIAS or maximum 80 KIAS if Kit Extended Main Footstep P/N 6F5260F00711 or P/N 6F5260F00811 are fitted",
+      "page": "1435"
+     },
+     {
+      "severity": "minor",
+      "statement": "Proceed in forward flight with the load suspended",
+      "problem": "The manual adds a qualifier 'allowing adequate load clearance over obstacles' that the claim omits.",
+      "evidence": "Proceed in forward flight with load suspended allowing adequate load clearance over obstacles",
+      "page": "1435"
+     }
+    ],
+    "pages_used": [
+     "1435",
+     "1402"
+    ]
+   }
+  },
+  "status": "ok",
+  "minor": [
+   {
+    "severity": "minor",
+    "statement": "same 45/80 KIAS limits",
+    "problem": "The manual specifies that 80 KIAS is only permitted if a specific kit (Extended Main Footstep P/N 6F5260F00711 or P/N 6F5260F00811) is fitted; otherwise the limit is 45 KIAS. The claim states both values without this qualifying condition.",
+    "evidence": "maximum 45 KIAS or maximum 80 KIAS if Kit Extended Main Footstep P/N 6F5260F00711 or P/N 6F5260F00811 are fitted",
+    "page": "1435"
+   },
+   {
+    "severity": "minor",
+    "statement": "Proceed in forward flight with the load suspended",
+    "problem": "The manual adds a qualifier 'allowing adequate load clearance over obstacles' that the claim omits.",
+    "evidence": "Proceed in forward flight with load suspended allowing adequate load clearance over obstacles",
+    "page": "1435"
+   }
+  ],
+  "strong": true,
+  "checked": "2026-09-23 10:32"
+ },
+ "external-hoist/2/p1": {
+  "id": "external-hoist/2/p1",
+  "context": "System note 'External Hoist Operations (Goodrich)', section 'Cable and hoist malfunctions', paragraph",
+  "text": "HOIST OVER-TEMPERATURE: amber TEMP light on the pendant, motor current automatically limited to 80 amps — the hoist keeps working but at reduced performance. Complete the current cycle and wait for the indication to clear before resuming; prolonged operation with TEMP lit risks a hoist failure.",
+  "hash": "54888a1ff353",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:1435",
+   "RFM:1403",
+   "RFM:3370",
+   "RFM:1402"
+  ],
+  "readers": {
+   "claude-sonnet-5": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "1435",
+     "1403",
+     "3370"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": true,
+  "checked": "2026-09-23 10:33"
+ },
+ "external-hoist/3/p0": {
+  "id": "external-hoist/3/p0",
+  "context": "System note 'External Hoist Operations (Goodrich)', section 'Engine failure in the hover with a load on the hook', paragraph",
+  "text": "Where OEI hover performance capability is not required: the gross weight and hover height that would normally satisfy the Flyaway or Vertical Reject WAT charts may not actually give a safe flyaway or reject with a cable extended and a load hanging — that's a real, named caveat, not a generic warning. Recover aircraft control per the standard Vertical Reject or Flyaway procedure, then either raise the load back into the cabin, emergency-jettison it, or transition forward (same 45/80 KIAS limit), depending on conditions and load type.",
+  "hash": "3b9edcc02960",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:1432",
+   "RFM:1496",
+   "RFM:1433",
+   "RFM:1403"
+  ],
+  "readers": {
+   "claude-sonnet-5": {
+    "verdict": "supported",
+    "issues": [
+     {
+      "severity": "minor",
+      "statement": "transition forward (same 45/80 KIAS limit)",
+      "problem": "The manual specifies the 80 KIAS limit only applies if the Kit Extended Main Footstep (P/N 6F5260F00711 or P/N 6F5260F00811) is fitted; the claim omits this qualifying condition.",
+      "evidence": "maximum 45 KIAS or maximum 80 KIAS if Kit Extended Main Footstep P/N 6F5260F00711 or P/N 6F5260F00811 are fitted",
+      "page": "1432"
+     }
+    ],
+    "pages_used": [
+     "1432"
+    ]
+   }
+  },
+  "status": "ok",
+  "minor": [
+   {
+    "severity": "minor",
+    "statement": "transition forward (same 45/80 KIAS limit)",
+    "problem": "The manual specifies the 80 KIAS limit only applies if the Kit Extended Main Footstep (P/N 6F5260F00711 or P/N 6F5260F00811) is fitted; the claim omits this qualifying condition.",
+    "evidence": "maximum 45 KIAS or maximum 80 KIAS if Kit Extended Main Footstep P/N 6F5260F00711 or P/N 6F5260F00811 are fitted",
+    "page": "1432"
+   }
+  ],
+  "strong": true,
+  "checked": "2026-09-23 10:33"
+ },
+ "ehps/1/p0": {
+  "id": "ehps/1/p0",
+  "context": "System note 'EHPS: Electric Motor-Driven Hydraulic Power Supply', section 'Why it changes the start sequence', paragraph",
+  "text": "Without EHPS, engine 1 normally has to start in ACC (accessory) mode first, because the flight-controls check needs mechanically-driven hydraulic pressure that only comes from a running engine. EHPS removes that dependency: run the electric pump on the ground, do the flight-controls check off it, then engine 1 can be started directly in MAIN mode, either engine first. The equivalent flight-controls check step later in the normal Engines Start procedure is skipped, since it's already been done.",
+  "hash": "02f284731a61",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [],
+  "readers": {},
+  "status": "ok",
+  "strong": true,
+  "method": "manual-claude-page-read",
+  "note": "RFM Supplement 42 p.S42-1/S42-3/S42-4: EHPS purpose, 2-minute AMMC-enforced limit, MAIN-mode start and skipped flight-controls-check step all confirmed verbatim.",
+  "checked": "2026-09-23 11:00"
+ },
+ "external-hoist/4/p0": {
+  "id": "external-hoist/4/p0",
+  "context": "System note 'External Hoist Operations (Goodrich)', section 'If a double DC generator failure happens with a load on the hook', paragraph",
+  "text": "The hoist reverts to being powered by the main battery. If the battery is used to recover the load, the normal 30-minute battery endurance figure is not guaranteed once the hoist has drawn on it.",
+  "hash": "0d7186867025",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:1436",
+   "RFM:283",
+   "RFM:1832",
+   "RFM:1430"
+  ],
+  "readers": {
+   "claude-sonnet-5": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "S5-36"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": true,
+  "checked": "2026-09-23 10:34"
+ },
+ "ehps/2/p0": {
+  "id": "ehps/2/p0",
+  "context": "System note 'EHPS: Electric Motor-Driven Hydraulic Power Supply', section 'The check itself', paragraph",
+  "text": "ELEC PUMP switch on, confirm HYD 1 pressure reads 80–120 bar (this is genuinely in the pump's normal red zone on the gauge — don't read that as a fault). Exercise the controls progressively and slowly: collective to about 50% then cyclic to full displacement, cyclic centered then collective to full displacement, then pedals to full displacement. Deselect ELEC PUMP when done — it also disengages on its own after 2 minutes regardless.",
+  "hash": "87017e696873",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [],
+  "readers": {},
+  "status": "ok",
+  "strong": true,
+  "method": "manual-claude-page-read",
+  "note": "RFM Supplement 42 p.S42-3: 80-120 bar red-zone note, control-exercise sequence (collective ~50% then cyclic full, cyclic centred then collective full, then pedals full), 2-minute auto-disengage all confirmed verbatim.",
+  "checked": "2026-09-23 11:00"
+ },
+ "external-hoist/3/p1": {
+  "id": "external-hoist/3/p1",
+  "context": "System note 'External Hoist Operations (Goodrich)', section 'Engine failure in the hover with a load on the hook', paragraph",
+  "text": "Where OEI hover performance capability is required — meaning the aircraft is being flown at the weights defined on the hover-OGE 2.5-minute-OEI charts specifically to guarantee no rotor droop or height loss on an engine failure — maintain the collective pitch setting (2.5-minute OEI rating covers the hover) and raise the load into the cabin; raising a full-length load from fully extended takes about 2 minutes.",
+  "hash": "16ccd4448493",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [],
+  "readers": {},
+  "status": "ok",
+  "strong": true,
+  "method": "manual-claude-page-read",
+  "note": "RFM Supplement 5 p.S5-32/33 (Procedures when OEI hover performance capability is required): 'Maintain collective pitch setting', 2.5 min OEI rating, ~2 minutes to raise a full-length load from fully extended, all confirmed verbatim.",
+  "checked": "2026-09-23 11:00"
+ },
+ "cargo-hook/4/p0": {
+  "id": "cargo-hook/4/p0",
+  "context": "System note 'Cargo Hook Operations', section 'Engine failure in the hover with a load on the hook', paragraph",
+  "text": "Same caveat as with the hoist: gross weights and hover heights that satisfy the standard Flyaway or Vertical Reject WAT charts may not actually give a safe flyaway or reject with an external load hanging underneath — it's a genuinely different situation from a clean aircraft, not just a heavier one. Recover aircraft control per the standard Vertical Reject or Flyaway procedure, then jettison the load and transition forward (maximum 45 KIAS) depending on conditions.",
+  "hash": "9df79744f72d",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:1496",
+   "RFM:1432",
+   "RFM:494",
+   "RFM:2131"
+  ],
+  "readers": {
+   "claude-sonnet-5": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "1496"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": true,
+  "checked": "2026-09-23 10:35"
+ },
+ "ditching/0/p0": {
+  "id": "ditching/0/p0",
+  "context": "System note 'Ditching Configurations', section 'What the system is', paragraph",
+  "text": "Two forward and two aft float installations in dedicated fuselage openings, two gas distribution/inflation systems, and four immersion switches. Demonstrated and approved for ditching up to Sea State 6 (significant wave height 4–6 m) at weights up to 4800 kg — well beyond the Sea State 4 that ditching regulations actually require.",
+  "hash": "3355c799f360",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:1609",
+   "RFM:1617",
+   "RFM:3313",
+   "RFM:1611"
+  ],
+  "readers": {
+   "claude-sonnet-5": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "1609",
+     "1617"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": true,
+  "checked": "2026-09-23 10:36"
+ },
+ "cargo-hook/0/p0": {
+  "id": "cargo-hook/0/p0",
+  "context": "System note 'Cargo Hook Operations', section 'What it is', paragraph",
+  "text": "A cargo-only (Non-Human External Cargo) hook system, approved for Class B rotorcraft-load combinations — the load must be jettisonable and lifted free of land or water — Day VFR only, one pilot minimum, and only personnel actually involved in the cargo operation may be aboard. Powered from Main Bus 3; the emergency release circuit is on its own separate EMERG Bus 1, so it stays live even if the normal cargo hook power is lost.",
+  "hash": "864eb01e7372",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [],
+  "readers": {},
+  "status": "ok",
+  "strong": true,
+  "method": "manual-claude-page-read",
+  "note": "RFM Supplement 6 p.S6-1 (NHEC/Class B definition, MAIN BUS 3 / EMERG BUS 1 power split) and p.S6-6 (Day VFR, one pilot, only personnel directly involved) confirmed verbatim.",
+  "checked": "2026-09-23 11:00"
+ },
+ "cargo-hook/1/p0": {
+  "id": "cargo-hook/1/p0",
+  "context": "System note 'Cargo Hook Operations', section 'Key limitations', paragraph",
+  "text": "Maximum weight with the external load: 4800 kg. Airspeed: 100 KIAS up to 12,000 ft density/pressure altitude (whichever is lower), 90 KIAS above that — but airspeed is really governed by controllability, since load size, shape, and strop length all affect handling, and airspeed must always be adjusted to keep the load in continuous sight.",
+  "hash": "daa129d8285c",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [],
+  "readers": {},
+  "status": "ok",
+  "strong": true,
+  "method": "manual-claude-page-read",
+  "note": "RFM Supplement 6 p.S6-7 (4800 kg) and p.S6-12 (100 KIAS up to 12000 ft HD/HP, 90 KIAS above, controllability caveat) confirmed verbatim.",
+  "checked": "2026-09-23 11:00"
+ },
+ "ditching/0/p2": {
+  "id": "ditching/0/p2",
+  "context": "System note 'Ditching Configurations', section 'What the system is', paragraph",
+  "text": "Two liferafts are carried, in one of two configurations: Carry-On (a free-standing installation on the seat rails, deployed manually through a Type IV emergency exit; requires the 8-seat forward cabin kit and reduces passenger capacity from 8 to 7) or Sponson (a liferaft mounted on each sponson, activated from the cockpit via a handle above the pilots' heads or from a secondary handle on the leading edge of the sponson).",
+  "hash": "1d988f274e64",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [],
+  "readers": {},
+  "status": "ok",
+  "strong": true,
+  "method": "manual-claude-page-read",
+  "note": "FIXED: 'Carry-On (stowed on a seat...)' -> precise RFM wording (free-standing installation on seat rails); Sponson activation rewritten to include the primary cockpit handle the old text omitted (previously only mentioned the secondary external handle, and used the unsupported phrase 'water-side deployment'). Matches Section 7 p.7-659 and Supplement 11 p.S11A-5, and the already-fixed AW169 EP equivalent (with 'two configurations' correctly kept - unlike EP, the Standard RFM p.7-659 explicitly says 'two alternate liferaft installations', no integrated 12-pax EFS liferaft option).",
+  "checked": "2026-09-23 11:00"
+ },
+ "ditching/2/p1": {
+  "id": "ditching/2/p1",
+  "context": "System note 'Ditching Configurations', section 'The ditching sequence', paragraph",
+  "text": "Approach: set the radar altimeter (height-over-water is notoriously hard to judge by eye, hence the specific caution to use RadAlt cues), wipers fast, pitot heat off, confirm FLOATS EMER armed, assess sea state and wind, establish a ditching heading and a descent profile that targets no more than 30 kt groundspeed at water contact, emergency lights on, alert everyone for impact, transmit final position, brace order over the PA, and — if power allows — establish a hover at a safe height first. Touch down cushioning the impact with the collective, aircraft level or slightly nose-up (5°), avoiding any rearward movement.",
+  "hash": "655030966da3",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:1626",
+   "RFM:261",
+   "RFM:1624",
+   "RFM:1625"
+  ],
+  "readers": {
+   "claude-sonnet-5": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "1624",
+     "1625",
+     "1626"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": true,
+  "checked": "2026-09-23 10:38"
+ },
+ "ditching/2/p0": {
+  "id": "ditching/2/p0",
+  "context": "System note 'Ditching Configurations', section 'The ditching sequence', paragraph",
+  "text": "Preliminary: brief crew and passengers, notify ATC, transponder to 7700, seatbelt sign on, secure loose equipment, cabin doors confirmed closed (they stay closed throughout — opening them lets in the water that would otherwise be kept out), mute HTAWS, inhibit the low-height aural, life vests and harnesses on and tightened.",
+  "hash": "5870f8709fd5",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [],
+  "readers": {},
+  "status": "ok",
+  "strong": true,
+  "method": "manual-claude-page-read",
+  "note": "RFM Supplement 11 p.S11A-17 (DITCHING PROCEDURE, Preliminary steps 1-9): matches verbatim including the doors-stay-closed rationale.",
+  "checked": "2026-09-23 11:00"
+ },
+ "adelt/0/p0": {
+  "id": "adelt/0/p0",
+  "context": "System note 'ADELT: Crash Position Indicator with Deployable ELT', section 'What it is', paragraph",
+  "text": "A locator beacon on the left side of the tail cone, containing its own transmitter and antenna, that ejects from the aircraft in a crash — automatically, or manually at the pilot's discretion. Once deployed it transmits on two channels for two different purposes. The standard swept tone on 121.5/243.0 MHz — the classic analog distress tone — runs until battery power is exhausted, typically around 48 hours. Separately, 406.025 MHz carries an encoded digital message of the aircraft's position, sourced from the GPS/FMS via ARINC, and runs for about 24 hours.",
+  "hash": "920217b7a515",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [
+   "RFM:1707",
+   "RFM:3286",
+   "RFM:3288",
+   "RFM:2839"
+  ],
+  "readers": {
+   "claude-sonnet-5": {
+    "verdict": "supported",
+    "issues": [],
+    "pages_used": [
+     "7-626",
+     "7-628"
+    ]
+   }
+  },
+  "status": "ok",
+  "strong": true,
+  "checked": "2026-09-23 10:38"
+ },
+ "ditching/1/p0": {
+  "id": "ditching/1/p0",
+  "context": "System note 'Ditching Configurations', section 'Hard rules', paragraph",
+  "text": "The floatation system and liferafts exist for ditching only — floatation bags and liferafts must never be inflated in flight. Takeoff after ditching is prohibited. Total occupants, crew included, must not exceed 11 when forecast sea conditions along the route exceed 2.5 m significant wave height. With retractable bear paws fitted, the gear must be retracted before extended overwater flight. Bear paws, snow pads, and snow skis (Supplements 8, 45, 50) are explicitly listed as not compliant with ditching requirements — fit any of those and the ditching approval no longer applies.",
+  "hash": "ebad1e4a5b81",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [],
+  "readers": {},
+  "status": "ok",
+  "strong": true,
+  "method": "manual-claude-page-read",
+  "note": "VERIFIED, no change needed (initially suspected an error, RFM confirms the claim as written): RFM Supplement 49 p.S49-3 confirms 'With retractable bear paws kit installed, landing gear must be retracted before undertaking extended flight overwater' - a DIFFERENT kit (Supplement 49) from the fixed Supplement 8 bear paws, which is what the disqualifying list (Supplements 8/45/50) refers to. Also confirmed: 2.5 m sea state / 11 occupants rule, takeoff-after-ditching prohibition, floats/liferafts-never-inflated-in-flight, and the S8/S45/S50 ditching-incompatibility statements.",
+  "checked": "2026-09-23 11:00"
+ },
+ "adelt/2/p0": {
+  "id": "adelt/2/p0",
+  "context": "System note 'ADELT: Crash Position Indicator with Deployable ELT', section 'Self-test discipline', paragraph",
+  "text": "The self-test should not be run more often than monthly — running it more frequently shortens the battery's life. Notify the nearest ATC facility before testing, since the 121.5 MHz tone the test actually transmits will be treated as a valid distress signal by anyone monitoring it, test or not.",
+  "hash": "0d7e68f151ed",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [],
+  "readers": {},
+  "status": "ok",
+  "strong": true,
+  "method": "manual-claude-page-read",
+  "note": "RFM Supplement 15 p.S15-3: monthly self-test limit (battery life), notify-ATC-first note (121.5 MHz treated as valid distress signal) confirmed verbatim.",
+  "checked": "2026-09-23 11:00"
+ },
+ "eaps/1/p0": {
+  "id": "eaps/1/p0",
+  "context": "System note 'EAPS: Engine Air Particle Separator', section 'Engine limits with EAPS installed', paragraph",
+  "text": "This kit carries its own limitations table for the P&WC 210A, All Engines Operating, airspeed at or below 90 KIAS — distinct from the aircraft's general Section 1 limits, and lower across the board than the EP configuration's version of this same table.",
+  "hash": "ae1e4c61bed9",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [],
+  "readers": {},
+  "status": "ok",
+  "strong": true,
+  "method": "manual-claude-page-read",
+  "note": "RFM Supplement 3 p.S3-4/S3-5 (P&WC 210A engine limits with EAPS, AEO <=90 KIAS) confirmed verbatim; cross-checked against the already-verified AW169 EP EAPS table (122% vs 111% PI/TQ) to confirm 'lower across the board than the EP configuration'.",
+  "checked": "2026-09-23 11:00"
+ },
+ "eaps/1/r0": {
+  "id": "eaps/1/r0",
+  "context": "System note 'EAPS: Engine Air Particle Separator', table 'Engine limits with EAPS installed', one row (columns ['Parameter', 'Max continuous', '5-min Take-Off range', 'Max 5-min', 'Transient'])",
+  "text": "Parameter: Power Index (PI %); Max continuous: 100; 5-min Take-Off range: 101–111; Max 5-min: 111; Transient: 125 (10 sec)",
+  "hash": "3a87487d90f3",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [],
+  "readers": {},
+  "status": "ok",
+  "strong": true,
+  "method": "manual-claude-page-read",
+  "note": "RFM Supplement 3 p.S3-4 POWER INDEX INDICATOR (PI%): 100 / 101-111 / 111 / 125 (10s) confirmed verbatim.",
+  "checked": "2026-09-23 11:00"
+ },
+ "eaps/1/r1": {
+  "id": "eaps/1/r1",
+  "context": "System note 'EAPS: Engine Air Particle Separator', table 'Engine limits with EAPS installed', one row (columns ['Parameter', 'Max continuous', '5-min Take-Off range', 'Max 5-min', 'Transient'])",
+  "text": "Parameter: Gas Generator Speed (NG %); Max continuous: 96.5; 5-min Take-Off range: 96.6–98.2; Max 5-min: 98.2; Transient: 98.9 (20 sec)",
+  "hash": "f5268d51ad68",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [],
+  "readers": {},
+  "status": "ok",
+  "strong": true,
+  "method": "manual-claude-page-read",
+  "note": "RFM Supplement 3 p.S3-4 GAS GENERATOR SPEED (NG%): 96.5 / 96.6-98.2 / 98.2 / 98.9 (20s) confirmed verbatim.",
+  "checked": "2026-09-23 11:00"
+ },
+ "eaps/1/r2": {
+  "id": "eaps/1/r2",
+  "context": "System note 'EAPS: Engine Air Particle Separator', table 'Engine limits with EAPS installed', one row (columns ['Parameter', 'Max continuous', '5-min Take-Off range', 'Max 5-min', 'Transient'])",
+  "text": "Parameter: ITT (°C / %); Max continuous: 868 (100%); 5-min Take-Off range: 869–930 (100.1–107.1%); Max 5-min: 930 (107.1%); Transient: 941 (108.4%, 20 sec)",
+  "hash": "9dd1956d5799",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [],
+  "readers": {},
+  "status": "ok",
+  "strong": true,
+  "method": "manual-claude-page-read",
+  "note": "RFM Supplement 3 p.S3-4 ITT: 868(100%) / 869-930(100.1-107.1%) / 930(107.1%) / 941(108.4%,20s) confirmed verbatim.",
+  "checked": "2026-09-23 11:00"
+ },
+ "eaps/1/r3": {
+  "id": "eaps/1/r3",
+  "context": "System note 'EAPS: Engine Air Particle Separator', table 'Engine limits with EAPS installed', one row (columns ['Parameter', 'Max continuous', '5-min Take-Off range', 'Max 5-min', 'Transient'])",
+  "text": "Parameter: Torque (TQ %); Max continuous: 100; 5-min Take-Off range: 101–111; Max 5-min: 111; Transient: 125 (10 sec)",
+  "hash": "8c61002dec89",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [],
+  "readers": {},
+  "status": "ok",
+  "strong": true,
+  "method": "manual-claude-page-read",
+  "note": "FIXED: 'Max 5-min: -' -> '111'. RFM Supplement 3 p.S3-5 TORQUE (TQ%) explicitly gives 'Maximum 5 minutes ... 111', which the table had blanked out.",
+  "checked": "2026-09-23 11:00"
+ },
+ "eaps/3/p0": {
+  "id": "eaps/3/p0",
+  "context": "System note 'EAPS: Engine Air Particle Separator', section 'Malfunction', paragraph",
+  "text": "1(2) EAPS PRESS means the bleed-air shut-off valve for that engine is stuck — closed when it should be open, or open when it should be closed. Continue flight either way, but know what it costs you: with EAPS switched ON and the valve actually closed, separation is degraded because the ejector isn't getting bleed air. With EAPS switched OFF and the valve actually open, aircraft performance may not match the EAPS-OFF performance charts — use the EAPS-ON charts instead in that case.",
+  "hash": "1cee6da0500c",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [],
+  "readers": {},
+  "status": "ok",
+  "strong": true,
+  "method": "manual-claude-page-read",
+  "note": "RFM Supplement 3 p.S3-24/S3-25 (1(2) EAPS PRESS malfunction): stuck-valve description, EAPS-ON degraded-separation note, and EAPS-OFF performance-chart note all confirmed verbatim.",
+  "checked": "2026-09-23 11:00"
+ },
+ "fuel-transfer-pump/0/p0": {
+  "id": "fuel-transfer-pump/0/p0",
+  "context": "System note 'Fuel Transfer Pump', section 'What it's for', paragraph",
+  "text": "A single reversible pump, submerged in the LH tank sump, that can move fuel in either direction between the left and right main tanks through a pipeline routed via the existing intercommunication channel — no new tank wall interfaces. It self-primes in either direction within 10 seconds of power, self-stops once it can't pump any more fuel to the other side, and reports its health to the AMMC.",
+  "hash": "5311fc702c7d",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [],
+  "readers": {},
+  "status": "ok",
+  "strong": true,
+  "method": "manual-claude-page-read",
+  "note": "Matches the independently-verified AW169 EP System Note wording verbatim (shared fuel transfer pump kit).",
+  "checked": "2026-09-23 11:00"
+ },
+ "fuel-transfer-pump/1/p1": {
+  "id": "fuel-transfer-pump/1/p1",
+  "context": "System note 'Fuel Transfer Pump', section 'The one-way rule in OEI', paragraph",
+  "text": "Direction and progress show as a green arrow over the FUEL XFER icon on EDCU, PFD and the MFD synoptic page, plus an advisory naming the direction (\"FUEL XFER 1→2\" or \"2→1\"). FUEL XFER COMPLETE displays for about 10 seconds once an OEI transfer finishes and the pump stops itself.",
+  "hash": "a9faba497ced",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [],
+  "readers": {},
+  "status": "ok",
+  "strong": true,
+  "method": "manual-claude-page-read",
+  "note": "Matches the independently-verified AW169 EP System Note wording verbatim.",
+  "checked": "2026-09-23 11:00"
+ },
+ "fuel-transfer-pump/2/p0": {
+  "id": "fuel-transfer-pump/2/p0",
+  "context": "System note 'Fuel Transfer Pump', section 'Why unusable fuel becomes 0 kg', paragraph",
+  "text": "Without this kit, fuel below the intercommunication channel in the tank tied to a failed engine simply can't reach the system and counts as unusable. With the Fuel Transfer Pump installed and used, that figure becomes 0 kg indicated for OEI — the pump is precisely what closes that gap. Below 160 kg is where this actually starts mattering; above that level the two tanks are already interconnected and balanced on their own.",
+  "hash": "27f7ee99648f",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [],
+  "readers": {},
+  "status": "ok",
+  "strong": true,
+  "method": "manual-claude-page-read",
+  "note": "Matches the independently-verified AW169 EP System Note wording verbatim.",
+  "checked": "2026-09-23 11:00"
+ },
+ "fuel-transfer-pump/3/p0": {
+  "id": "fuel-transfer-pump/3/p0",
+  "context": "System note 'Fuel Transfer Pump', section 'AEO limits and stopping conditions', paragraph",
+  "text": "In AEO, transfer automatically stops the moment 1(2) FUEL LOW activates on the tank being drawn from — FUEL XFER STOPPED displays for about 10 seconds. In the two genuinely abnormal cases — a leak, or one engine burning fuel unevenly — don't use FUEL XFER unless FUEL LOW is already active on the low tank and the other tank's spare fuel is actually needed to finish the flight safely. The routine case is different: after unbalanced flight has returned to balanced, XFER can simply restore the tanks to even without any of that caution attached. On the ground, it can also be used to correct an unbalance created by single-point refueling below the intercommunication channel.",
+  "hash": "1908e2df6aa5",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [],
+  "readers": {},
+  "status": "ok",
+  "strong": true,
+  "method": "manual-claude-page-read",
+  "note": "Matches the independently-verified AW169 EP System Note wording verbatim.",
+  "checked": "2026-09-23 11:00"
+ },
+ "rnp-apch-lpv/0/p0": {
+  "id": "rnp-apch-lpv/0/p0",
+  "context": "System note 'RNP APCH with LPV/LP Minima', section 'What it is', paragraph",
+  "text": "Requires its own AMMS option file enabled. RNP approaches flown to LPV or LP minima (charted as RNAV(GPS) or RNAV(GNSS)) use Satellite Based Augmentation (SBAS) to fly an approach with vertical guidance down to a 200 ft decision height, with no airport-specific ground equipment required. LPV gives lateral and vertical angular guidance; LP gives lateral angular guidance paired with Baro-VNAV for the vertical path instead. The GNSS sensors feed the FMS pseudo-localizer (NLOC) and pseudo-glideslope (NGS) deviations that the AFCS actually couples to.",
+  "hash": "a9b8b710f646",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [],
+  "readers": {},
+  "status": "ok",
+  "strong": true,
+  "method": "manual-claude-page-read",
+  "note": "Matches the independently-verified AW169 EP System Note wording verbatim (shared Supplement 43).",
+  "checked": "2026-09-23 11:00"
+ },
+ "rnp-apch-lpv/0/p1": {
+  "id": "rnp-apch-lpv/0/p1",
+  "context": "System note 'RNP APCH with LPV/LP Minima', section 'What it is', paragraph",
+  "text": "Approved for day/night VFR and IFR. Maximum glide path angle 9°. Minimum airspeed to engage APP mode for these minima is 45 KIAS, and AFCS IAS mode must be engaged below 50 KIAS. Maximum ROD approaching the missed approach point is 900 fpm. Maximum airspeed at DH is 130 KIAS below 5000 ft, reducing 2 kt per 1000 ft above that — and if PWR LIM illuminates on the way down, airspeed must be reduced enough to clear it before reaching DH.",
+  "hash": "e5377521e76d",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [],
+  "readers": {},
+  "status": "ok",
+  "strong": true,
+  "method": "manual-claude-page-read",
+  "note": "Matches the independently-verified AW169 EP System Note wording verbatim.",
+  "checked": "2026-09-23 11:00"
+ },
+ "rnp-apch-lpv/2/p0": {
+  "id": "rnp-apch-lpv/2/p0",
+  "context": "System note 'RNP APCH with LPV/LP Minima', section 'Flying it', paragraph",
+  "text": "Before the FAF: confirm the white LPV or LP advisory, DA(H) set per the approach chart, PERFINIT executed, VNAV phase at CRUISE before the vertical path capture, and TOD correctly computed and shown. Arm NAPP (and NDCL if a deceleration profile is used) on the AFCS panel. If above the FAF altitude, the FMS captures the vertical path in Baro-VNAV down to FAF altitude, then transitions to pseudo-LOC/pseudo-GS guidance inside 2 NM of the FAF.",
+  "hash": "db76df00f668",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [],
+  "readers": {},
+  "status": "ok",
+  "strong": true,
+  "method": "manual-claude-page-read",
+  "note": "Matches the independently-verified AW169 EP System Note wording verbatim.",
+  "checked": "2026-09-23 11:00"
+ },
+ "rnp-apch-lpv/3/p0": {
+  "id": "rnp-apch-lpv/3/p0",
+  "context": "System note 'RNP APCH with LPV/LP Minima', section 'What a GNSS problem actually costs you', paragraph",
+  "text": "A single GNSS RAIM integrity failure, or one SBAS precision-approach channel going to standby, is annunciated in the RFM as a loss of GNSS redundancy, and the instruction is to continue the approach (the GNSS sensor checks SBAS integrity every 4 seconds and may recover automatically).",
+  "hash": "dda50899d2aa",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [],
+  "readers": {},
+  "status": "ok",
+  "strong": true,
+  "method": "manual-claude-page-read",
+  "note": "FIXED: 'redundancy is reduced, not lost' -> matches the RFM's own literal phrase 'Loss of GNSS redundancy - Continue Approach', confirmed at RFM Supplement 43 p.S43-8 (GNSS RAIM ABOVE LIMIT) and p.S43-9 (SBAS PA FAIL), matching the already-fixed AW169 EP wording.",
+  "checked": "2026-09-23 11:00"
+ },
+ "rnp-apch-lpv/3/p1": {
+  "id": "rnp-apch-lpv/3/p1",
+  "context": "System note 'RNP APCH with LPV/LP Minima', section 'What a GNSS problem actually costs you', paragraph",
+  "text": "If SBAS precision mode is lost on both GNSS sensors at once, the outcome depends on whether Baro-VNAV minima are available for that approach. If they are, FMS deviations revert automatically to LNAV/VNAV and Baro-VNAV — LPV is replaced by VGP on the PFD — and the approach can continue in coupled mode by pressing APP or DCL again, unless the aircraft is already below 1000 ft AGL, in which case discontinue regardless. If Baro-VNAV minima are not available at all, there's no fallback — discontinue the approach outright.",
+  "hash": "bcd6c867416d",
+  "source_rev": "RFM Standard Issue 3 Rev 1",
+  "candidates": [],
+  "readers": {},
+  "status": "ok",
+  "strong": true,
+  "method": "manual-claude-page-read",
+  "note": "Matches the independently-verified AW169 EP System Note wording verbatim (RFM Supplement 43 p.S43-10, dual-SBAS-loss procedure).",
+  "checked": "2026-09-23 11:00"
+ }
+}

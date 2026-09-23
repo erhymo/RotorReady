@@ -16,8 +16,18 @@ npm run verify:coverage      # table: per model/kind, how much is ok/strong/flas
 npm run verify:gate          # what a `git push` right now would block on (what THIS push changes, not the backlog)
 ```
 
-Needs `GEMINI_API_KEY` in `.env` (project needs Gemini credits). Daily request quota per model applies: `gemini-3.1-pro`
-allowed 250 requests/day on 2026-09-21, so the strong pass is spread over days.
+Needs `GEMINI_API_KEY` in `.env` (project needs Gemini credits) and, since 2026-09-23, `ANTHROPIC_API_KEY` (project
+needs Anthropic credits) for the default `--readers`. Daily request quota per model applies: `gemini-3.1-pro-preview`
+allowed 250 requests/day on 2026-09-21, so a Gemini-pro-only pass has to be spread over days.
+
+**Two independent readers, on purpose.** The default is `gemini-3.1-pro-preview,claude-sonnet-5` — a Gemini reader and
+a Claude reader, not two tiers of the same family. Claude wrote much of this app's content, so having Claude also be
+the sole judge of whether it's correct risks the same blind spots that caused the original AFCS error; an unrelated
+model reading the page image fresh is a real second opinion, not a formality. When the Gemini pro quota is exhausted
+for the day, pass `--readers claude-sonnet-5,gemini-3.7-flash` to keep going without waiting — Claude then also
+satisfies `strong` (see `is_strong()`: any pro-class Gemini or any Claude model counts, not the same-family flash
+tier). A `claude-*` model name is dispatched to the Anthropic Messages API; note Claude 5 models reject a
+`temperature` parameter (omitted, not set to 0, unlike the Gemini call).
 
 ## Coverage report (`--report`) and the push gate (`--gate`)
 

@@ -50,10 +50,12 @@ FILES = {
 
 
 def load_env():
-    if 'GEMINI_API_KEY' not in os.environ and (ROOT / '.env').exists():
+    need = {'GEMINI_API_KEY', 'ANTHROPIC_API_KEY'}
+    if need - set(os.environ) and (ROOT / '.env').exists():
         for l in (ROOT / '.env').read_text().splitlines():
-            if l.startswith('GEMINI_API_KEY='):
-                os.environ['GEMINI_API_KEY'] = l.split('=', 1)[1].strip()
+            for k in need:
+                if l.startswith(k + '='):
+                    os.environ.setdefault(k, l.split('=', 1)[1].strip())
 
 
 # ----------------------------------------------------------------------------- page index (retrieval only)
@@ -309,7 +311,34 @@ Answer with JSON: {{"verdict": "supported" | "partially_supported" | "contradict
 Use "not_found" only if the pages do not contain the information at all. Use "supported" when there are no material or omission issues (minor issues may still be listed). If everything is supported and complete, issues must be an empty list."""
 
 
+def is_strong(model):
+    """A model whose judgement is trusted for --require-strong: a pro-class Gemini or any Claude model
+    (Claude was added as an independent reader 2026-09-23 specifically so the two readers are not two
+    variants of the same family sharing the same blind spots)."""
+    return 'pro' in model or model.startswith('claude')
+
+
+def parse_json_reply(txt):
+    """Both providers sometimes wrap the JSON in a ```json fence despite the prompt asking for bare JSON."""
+    t = txt.strip()
+    if t.startswith('```'):
+        t = re.sub(r'^```[a-zA-Z]*\n?', '', t)
+        t = re.sub(r'\n?```$', '', t)
+    res = json.loads(t)
+    if isinstance(res, list):
+        res = next((x for x in res if isinstance(x, dict)), None)
+    if not isinstance(res, dict) or 'verdict' not in res:
+        raise ValueError('unexpected model output: ' + txt[:100])
+    return res
+
+
 def call(model, ctx, claim, images):
+    if model.startswith('claude'):
+        return call_claude(model, ctx, claim, images)
+    return call_gemini(model, ctx, claim, images)
+
+
+def call_gemini(model, ctx, claim, images):
     key = os.environ['GEMINI_API_KEY']
     parts = [{"text": PROMPT.format(ctx=ctx, claim=claim)}]
     for label, path in images:
@@ -327,16 +356,37 @@ def call(model, ctx, claim, images):
                 USAGE[model + ':in'] += u.get('promptTokenCount', 0)
                 USAGE[model + ':out'] += u.get('candidatesTokenCount', 0) + u.get('thoughtsTokenCount', 0)
             txt = r['candidates'][0]['content']['parts'][0]['text']
-            res = json.loads(txt)
-            if isinstance(res, list):
-                res = next((x for x in res if isinstance(x, dict)), None)
-            if not isinstance(res, dict) or 'verdict' not in res:
-                raise ValueError('unexpected model output: ' + txt[:100])
-            return res
+            return parse_json_reply(txt)
         except Exception as e:
             last = str(e)[:150]
             rate = '429' in last or '503' in last or '500' in last
             time.sleep(min(150, 20 * 2 ** attempt) if rate else 4 * (attempt + 1))   # back off hard on rate limits
+    return {"verdict": "error", "issues": [{"statement": "-", "problem": last, "evidence": "", "page": ""}], "pages_used": []}
+
+
+def call_claude(model, ctx, claim, images):
+    key = os.environ['ANTHROPIC_API_KEY']
+    content = [{"type": "text", "text": PROMPT.format(ctx=ctx, claim=claim)}]
+    for label, path in images:
+        content.append({"type": "text", "text": f"IMAGE: {label}"})
+        content.append({"type": "image", "source": {"type": "base64", "media_type": "image/png", "data": base64.b64encode(path.read_bytes()).decode()}})
+    body = {"model": model, "max_tokens": 2048, "messages": [{"role": "user", "content": content}]}   # temperature: Claude 5 models reject it
+    last = None
+    for attempt in range(7):
+        req = urllib.request.Request("https://api.anthropic.com/v1/messages", json.dumps(body).encode(),
+                                     {"Content-Type": "application/json", "x-api-key": key, "anthropic-version": "2023-06-01"})
+        try:
+            r = json.load(urllib.request.urlopen(req, timeout=240))
+            u = r.get('usage', {})
+            with LOCK:
+                USAGE[model + ':in'] += u.get('input_tokens', 0)
+                USAGE[model + ':out'] += u.get('output_tokens', 0)
+            txt = ''.join(b.get('text', '') for b in r.get('content', []) if b.get('type') == 'text')
+            return parse_json_reply(txt)
+        except Exception as e:
+            last = str(e)[:150]
+            rate = '429' in last or '529' in last or '503' in last or '500' in last or 'overloaded' in last.lower()
+            time.sleep(min(150, 20 * 2 ** attempt) if rate else 4 * (attempt + 1))
     return {"verdict": "error", "issues": [{"statement": "-", "problem": last, "evidence": "", "page": ""}], "pages_used": []}
 
 
@@ -387,7 +437,8 @@ def verify_unit(idx, src, uid, ctx, claim, models, args):
     minor = [i for r in rec['readers'].values() for i in r.get('issues', []) if i.get('severity') == 'minor']
     if minor:
         rec['minor'] = minor
-    rec['strong'] = 'pro' in models[0]      # units checked only by flash-class readers are re-checked when a pro reader is available
+    # strong = at least one reader that actually produced a verdict (not 'error') is pro-class Gemini or any Claude
+    rec['strong'] = any(is_strong(m) for m, r in rec['readers'].items() if judged(r) != 'error')
     rec['checked'] = time.strftime('%Y-%m-%d %H:%M')
     return rec
 
@@ -403,7 +454,11 @@ def main():
     ap.add_argument('--ledger', help='ledger path (default docs/verification/<model>/<kind>.json)')
     ap.add_argument('--only', help='only units whose id starts with this')
     ap.add_argument('--limit', type=int, default=0)
-    ap.add_argument('--readers', default='gemini-3.1-pro-preview,gemini-3.7-flash', help='first reader, then the second opinion for non-supported units')
+    ap.add_argument('--readers', default='gemini-3.1-pro-preview,claude-sonnet-5',
+                     help='first reader, then the second opinion for non-supported units. A "claude-*" model name uses ANTHROPIC_API_KEY '
+                          'instead of GEMINI_API_KEY. Claude is the default second reader (since 2026-09-23) so the two opinions are genuinely '
+                          'independent rather than two Gemini tiers sharing the same blind spots; gemini-3.7-flash is a same-family fallback '
+                          'when only Google credits are available.')
     ap.add_argument('--jobs', type=int, default=3)
     ap.add_argument('--k-rfm', type=int, default=4); ap.add_argument('--k-qrh', type=int, default=2)
     ap.add_argument('--recheck', action='store_true', help='ignore the ledger and check everything')

@@ -39,6 +39,23 @@ platform :android do
   end
 
   desc "Validate Google Play API access without uploading a build"
+  desc "Print the version codes on each Play track (read-only) — mirrors the iOS status lane"
+  lane :status do
+    %w[production beta alpha internal].each do |track|
+      begin
+        codes = google_play_track_version_codes(
+          package_name: required_env("GOOGLE_PLAY_PACKAGE_NAME"),
+          json_key: required_env("GOOGLE_PLAY_JSON_KEY_PATH"),
+          track: track
+        )
+        UI.important("#{track}: #{codes.join(', ')}")
+      rescue StandardError
+        # A track with no release makes supply raise (flat_map on nil) instead of returning [].
+        UI.message("#{track}: no release")
+      end
+    end
+  end
+
   lane :validate_play do
     google_play_track_version_codes(
       package_name: required_env("GOOGLE_PLAY_PACKAGE_NAME"),

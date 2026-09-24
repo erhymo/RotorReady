@@ -24,7 +24,7 @@ this wrong is the single most expensive mistake in this repo, so it is worth bei
 | | Reaches users | How |
 |---|---|---|
 | **Content** (anything under `public/`: quiz JSON, System Notes, Quick Reference, Procedures, audio) | **Immediately**, on push | Fetched at runtime from the live site |
-| **Code** (anything that compiles into the app bundle) | **Only on a new store release** | Frozen into the native binary at build time |
+| **Code** (anything that compiles into the app bundle) | **Web: on push. Native app: only on a new store release** | Frozen into the native binary at build time |
 
 The native app has **no `server.url`** — it boots from a bundled copy of the site
 (`public-native/`, built by `scripts/build-native-shell.mjs`) so it starts instantly with or
@@ -74,33 +74,67 @@ A passing type check is not evidence that a screen looks right.
 4. `git push` — the pre-push hook runs the content-fetch guard and the manual-verification
    gate. If the gate blocks, fix the content rather than pushing with `--no-verify`; if you
    ever do bypass it, say so out loud.
+5. After the push, confirm it landed: `gh run list --limit 3` (GitHub runs Playwright E2E,
+   Lighthouse and CodeQL on every push to main) and the Vercel production deploy for the
+   commit. A push is not done until both are green.
 
 Do not commit or push without being asked to.
+
+Two things the native tooling rewrites on its own — review before staging, and restore them
+if the diff is only formatting: `cap sync` rewrites `ios/App/App/Info.plist` (and drops its
+comments), and `pod install` re-indents `ios/App/App.xcodeproj/project.pbxproj`.
 
 ### Ship a native release
 
 Code fixes only reach installed apps this way, so this is the slow path — batch changes rather
 than releasing per fix.
 
-1. `npm run check` — green.
-2. Bump versions in `android/app/build.gradle` (`versionCode` **and** `versionName`) and
-   `ios/App/App.xcodeproj` (`MARKETING_VERSION`). Both must be higher than what is already in
-   the stores, or the upload is rejected.
-3. `npm run release:check` — this catches the classic mistake of archiving without rebuilding
-   the bundled shell.
-4. `npm run ios:sync` / `npm run android:sync` — rebuilds `public-native/` and syncs.
-5. Build and submit: see `docs/app-store-ios.md` and `docs/google-play-android.md`.
+1. `npm run appstore:status` and `npm run googleplay:status` — see what is live now.
+2. `npm run check` — green.
+3. Bump versions above what the stores have, or the upload is rejected:
+   - Android: `versionCode` **and** `versionName` in `android/app/build.gradle`.
+   - iOS: `MARKETING_VERSION` in `ios/App/App.xcodeproj/project.pbxproj` (both build
+     configurations). Re-uploading the same marketing version needs a higher
+     `CURRENT_PROJECT_VERSION` instead.
+4. Release notes — both platforms, user-facing, what changed for a pilot:
+   - iOS: replace the contents of `docs/release-notes/ios.txt` (one file, overwritten each release).
+   - Android: a **new** file `android/fastlane/metadata/android/en-US/changelogs/<versionCode>.txt`.
+     Without it the release ships with no notes.
+5. `npm run ios:sync` and `npm run android:sync` — rebuild `public-native/` and copy it into both
+   native projects. Always through these scripts, never raw `npx cap sync`: `pod install` fails
+   without the UTF-8 locale the iOS script sets.
+6. `npm run release:check` — **after** the sync; before it, it correctly fails with "the bundled
+   shell is older than your sources". Then restore any formatting-only rewrite of `Info.plist`
+   / `project.pbxproj` (see *Commit and push*).
+7. Commit the version bump and release notes (recipe above).
+8. iOS: `npm run ios:beta` (Release build, upload to TestFlight), then `npm run ios:submit` (sends
+   it to review). Submission uses `automatic_release: false`, so **an approved version does not
+   go live by itself** — it waits in `PENDING_DEVELOPER_RELEASE` until
+   `cd ios && fastlane release_pending`.
+9. Android: `cd android && fastlane submit_review` (builds the AAB and uploads it to production
+   as a **draft**). It goes live only when the rollout is started in Play Console.
+10. When both are out, `npm run appstore:status` / `npm run googleplay:status` to confirm.
 
-Read-only status, safe to run any time:
-`cd ios && fastlane status` (App Store version states), `npm run appstore:doctor`,
-`npm run googleplay:doctor`.
+Setup, signing and credentials: `docs/app-store-ios.md` and `docs/google-play-android.md`.
+Environment health: `npm run appstore:doctor`, `npm run googleplay:doctor`.
 
 ### Check what is actually live in the stores
 
 Never assume from memory or from the repo's version numbers — those are what will be shipped
-next, not what users have. Ask the stores: `cd ios && fastlane status`, and for Android the
-`google_play_track_version_codes` lane. Everything committed after the live build's commit is
+next, not what users have. `npm run appstore:status` and `npm run googleplay:status` (both
+read-only) ask the stores directly. Everything committed after the live build's commit is
 **not** on anyone's phone.
+
+### See the native app in a simulator
+
+This Xcode has no Simulator GUI app, so the iOS simulator runs headless: `npm run ios:sync`,
+`xcrun simctl boot "iPhone 17 Pro"`, build with `xcodebuild -workspace ios/App/App.xcworkspace
+-scheme App -sdk iphonesimulator -destination 'id=<udid>' CODE_SIGNING_ALLOWED=NO build`, then
+`simctl install` / `simctl launch com.rotorready.app` / `simctl io <udid> screenshot`. To see a
+specific screen, copy that page's `.html` over `ios/App/App/public/index.html` before building,
+and run `npm run ios:sync` afterwards to put the real start page back. `simctl ui <udid>
+appearance dark` checks dark mode. Text that renders on a Mac can still break on iOS — look at
+the screenshots, don't assume.
 
 ---
 
@@ -114,14 +148,18 @@ plain "ok" was returned with no evidence. Full story: `docs/verification/README.
 **Whenever asked to check, verify, or audit app content (System Notes, Quick Reference, quiz,
 procedures, podcast scripts) against the RFM/QRH/POH — do all of this, every time:**
 
-1. Run `npm run verify:content -- --model <model> --kind <kind>`. This reads the manual's
-   rendered page images, never a text dump.
+1. Check every claim against the manual's **rendered page image** — never a `pdftotext` dump.
+   The default is to do this in-session: render the pages (`pdftoppm -f N -l N -r 130 -png`),
+   read them, and record each decision in `docs/verification/<model>/<kind>.json` with
+   `"method": "manual-claude-page-read"` and a page-cited note. It costs nothing.
+   `npm run verify:content -- --model <model> --kind <kind>` does the same through paid
+   Gemini/Anthropic APIs; use it only when the user asks for a batch sweep.
 2. Run `npm run verify:coverage` and report the table: what was actually checked, what is
    `reviewed`, and — just as important — what is **not covered at all**. Never claim "all good"
    without this table.
-3. Review every `flag`/`disputed`/`unlocated` unit against the page image yourself before
-   deciding. Record the decision with evidence in `docs/verification/<model>/reviews.json`, or
-   fix the content and re-run so it becomes `ok`.
+3. If the paid sweep was used, review every `flag`/`disputed`/`unlocated` unit it produced
+   against the page image yourself before deciding. Record the decision with evidence in
+   `docs/verification/<model>/reviews.json`, or fix the content so it becomes `ok`.
 4. Fix errors found without waiting for permission, then say afterwards what was wrong and what
    changed.
 5. A bare "ok" / "looks fine" / "checked, no issues" about manual-sourced content is never
@@ -151,8 +189,9 @@ RFM/QRH/POH:
   from, leave it out.
 - Prefer extracting a section from its rendered page over paraphrasing from memory, especially
   for decision tables and flowcharts, where branch attachment flips easily.
-- New content is not done when it reads well. It is done when it has been through the verifier,
-  exactly as a re-check of old content would be.
+- New content is not done when it reads well. It is done when every claim has been checked
+  against the page image and recorded in the ledger (step 1 of the workflow above), exactly as
+  a re-check of old content would be.
 
 ---
 
@@ -161,6 +200,8 @@ RFM/QRH/POH:
 | Topic | File |
 |---|---|
 | Content verification, in full | `docs/verification/README.md` |
+| Where each topic lives in each model's manual | `docs/verification/rfm-chapter-map.md` |
+| Release notes (iOS; Android is per-versionCode in `android/fastlane/metadata`) | `docs/release-notes/ios.txt` |
 | Writing quiz questions | `docs/quiz-oppskrift.md`, `docs/question-authoring.md` |
 | Podcast scripts and voicing | `docs/podcast-master-prompt.md` |
 | iOS / App Store | `docs/app-store-ios.md` |

@@ -1044,6 +1044,196 @@
       "sectionId": "emergency_procedures",
       "type": "single",
       "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-056",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "Flight is continued with a \"fail fixed\" engine still operating. How is the approach flown, and when is the affected throttle moved to STOP?",
+      "options": [
+        "Keep demanded torque below the affected engine's torque; move the throttle to STOP on short final",
+        "Fly a steep approach at minimum power; move the throttle to STOP after the rotor has stopped",
+        "Keep demanded torque above the torque of the affected engine during a shallow/normal approach; move the throttle to STOP once on the ground and prior to reducing collective to flat pitch",
+        "Fly a single engine approach; move the throttle to IDLE after touchdown"
+      ],
+      "answer": [2],
+      "explanation": "If flight is continued with the affected engine operating: 6. Collective — maintain demanded torque above the torque of the affected engine while accomplishing a shallow/normal approach and landing. 7. Throttle (affected engine) — STOP, once on the ground and prior to reducing collective to flat pitch. The discussion explains that when total torque demanded is less than the torque of the malfunctioning engine, the rotor system will over-speed.",
+      "references": ["S-92 RFM Part 1 Sec III: 3.4 ENGINE FIXED POWER (p.3-15, p.3-16)"],
+      "tags": ["fadec", "fixed-power", "landing"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-057",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "What does an ENG 1 RATE LIM caution indicate, and what is the first action?",
+      "options": [
+        "Full engine power may not be available; avoid high rates of descent",
+        "Full engine power is available but transient response may be degraded and the engine may be slow to accelerate; reduce the rate of collective input to minimize transient Nr droop",
+        "Both FADEC channels have exceeded their temperature limit; land as soon as possible",
+        "The overspeed system test failed; continue the flight and correct before the next flight"
+      ],
+      "answer": [1],
+      "explanation": "An ENG RATE LIM caution indicates an engine control system malfunction. Full engine power is available, but engine transient response may be degraded and the affected engine may be slow to accelerate. Confirming: possible Nr droop or torque split upon power application; load sharing (torque matching) may be inoperative. Action: 1. Reduce rate of collective input to minimize transient droop of Nr. 2. Land as soon as practical.",
+      "references": ["S-92 RFM Part 1 Sec III: 3.5 ENG RATE LIMIT (p.3-16)"],
+      "tags": ["fadec", "cautions", "rate-limit"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-058",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "An ENG 2 POWER LIM caution illuminates in flight. What does it indicate, and what does the procedure call for?",
+      "options": [
+        "Full engine power may not be available, but engine operation is otherwise normal; avoid high rates of descent and maneuvers that require high power settings, and land as soon as practical",
+        "The engine is about to fail; perform an emergency engine shutdown",
+        "Engine power is fixed; reduce airspeed to 80 KIAS and confirm the fail fixed condition",
+        "Full engine power is available but response is slow; reduce the rate of collective input and continue the flight"
+      ],
+      "answer": [0],
+      "explanation": "An ENG POWER LIM caution indicates an engine control system malfunction. Full engine power may not be available, but engine operation is otherwise normal. Action: 1. Avoid high rates of descent. 2. Avoid maneuvers that require high power settings. 3. Land as soon as practical.",
+      "references": ["S-92 RFM Part 1 Sec III: 3.6 ENG POWER LIMIT (p.3-16, p.3-17)"],
+      "tags": ["fadec", "cautions", "power-limit"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-059",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "FADEC 1 OVRHEAT and FADEC 2 OVRHEAT are both illuminated. What does the RFM require?",
+      "options": [
+        "Land as soon as practical",
+        "Land immediately",
+        "Continue the flight and correct prior to the next flight",
+        "Land as soon as possible"
+      ],
+      "answer": [3],
+      "explanation": "A FADEC OVRHEAT caution indicates that both channels of the engine FADEC have exceeded the operating temperature limit and component failure could result. If one caution is illuminated, land as soon as practical. If both cautions are illuminated, land as soon as possible.",
+      "references": ["S-92 RFM Part 1 Sec III: 3.7 FADEC OVERHEAT (p.3-17)"],
+      "tags": ["fadec", "overheat", "landing-urgency"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-060",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "ENG 1 OVERSPEED is displayed, with Nr and Np of the affected engine cycling between 118 and 120%. After attaining a safe single engine airspeed, what are the next actions?",
+      "options": [
+        "Throttle (affected engine) to IDLE, confirm Nr and remaining engine Np are normal, then throttle (affected engine) to STOP and accomplish SINGLE ENGINE FAILURE DURING CRUISE",
+        "Throttle (affected engine) directly to STOP, then press the ENG START button to motor the engine",
+        "Reduce collective until Nr is below 106% and continue with both engines on line",
+        "Turn off both FADEC channels of the affected engine and restart it in manual mode"
+      ],
+      "answer": [0],
+      "explanation": "Np above 120% or Ng above 108.5% cause the FADEC to shut off fuel to the affected engine; the FADEC will automatically restart the engine once Ng and Np are within limits. Action: 1. Attain safe single engine airspeed. 2. Throttle (affected engine) — IDLE. 3. Confirm Nr and remaining engine Np are normal. 4. Throttle (affected engine) — STOP. 5. Accomplish SINGLE ENGINE FAILURE DURING CRUISE procedure. 6. Land as soon as practical.",
+      "references": ["S-92 RFM Part 1 Sec III: 3.8 ENGINE OVERSPEED (p.3-17, p.3-18)"],
+      "tags": ["overspeed", "fadec", "engine-shutdown"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-061",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "An ENG 2 OVSP TEST caution is displayed in flight. What does it mean, and what is the action?",
+      "options": [
+        "The engine has overspeed and been shut down; land as soon as possible",
+        "The overspeed test is in progress; wait for the caution to clear before increasing power",
+        "The FADEC failed a portion of the overspeed system test and overspeed protection may not be available; continue the flight and correct prior to the next flight",
+        "The overspeed system is inhibited; shut down the affected engine"
+      ],
+      "answer": [2],
+      "explanation": "An ENG OVSP TEST caution indicates that the FADEC failed a portion of the overspeed system test. Overspeed protection for the affected engine may not be available. In flight: continue the flight and correct prior to the next flight. On the ground: correct prior to flight.",
+      "references": ["S-92 RFM Part 1 Sec III: 3.9 ENGINE OVERSPEED TEST (p.3-18)"],
+      "tags": ["overspeed", "fadec", "cautions"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-062",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "INLT 1 A-ICE FAIL illuminates. What does the procedure allow before exiting icing conditions?",
+      "options": [
+        "Cycling the ANTI-ICE ENGINE NO 1 switch OFF then ON repeatedly until the caution clears",
+        "Turning the ANTI-ICE ENGINE NO 1 switch OFF then ON once; the switch should not be cycled from OFF to ON more than once",
+        "Selecting AIR SRCE HEAT/START to APU to restore inlet heating",
+        "Nothing; exit icing conditions immediately and land as soon as possible"
+      ],
+      "answer": [1],
+      "explanation": "CAUTION: failure of engine inlet anti-ice could cause loss of engine power. Turning the affected anti-ice switch OFF and then ON may clear a system fault and restore functionality; do not cycle the switch from OFF to ON more than once. Action: 1. ANTI-ICE ENGINE NO 1 or NO 2 — OFF, then ON. If the caution returns: 2. Exit icing conditions. 3. Continue the flight outside of icing conditions or land as soon as possible.",
+      "references": ["S-92 RFM Part 1 Sec III: 3.11 ENGINE INLET ANTI-ICE FAIL (p.3-19)"],
+      "tags": ["anti-ice", "icing", "engine"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-063",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "Once FADEC training mode has been selected, what will automatically turn training off?",
+      "options": [
+        "Only an actual OEI condition",
+        "Lowering the collective to flat pitch",
+        "Selecting two minute power on the OEI SEL switch",
+        "Raising the collective above 30 second power torque"
+      ],
+      "answer": [0],
+      "explanation": "FADEC/engine faults prevent using the training feature of the FADEC. Once training mode is selected, only an actual OEI condition will automatically turn off training. Faults occurring when one engine is in TRAIN IDLE will revert the FADEC to dual engine training mode.",
+      "references": ["S-92 RFM Part 1 Sec III: 3.12 TRAINING DISABLED (p.3-19)"],
+      "tags": ["fadec", "oei-training"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-064",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "A bang or popping noise with yaw kicks is followed by a rapid TGT rise, torque decrease and Ng/Np fluctuations on one engine. What are the first two actions?",
+      "options": [
+        "Throttle (affected engine) to STOP, then FUEL to OFF",
+        "Increase collective to load the engine, then select two minute power",
+        "Reduce collective, then throttle (affected engine) to IDLE",
+        "Press the FIRE/ARMED pushbutton, then deploy the extinguisher"
+      ],
+      "answer": [2],
+      "explanation": "ENGINE COMPRESSOR STALL. Symptom: bang or popping noise and possible aircraft yaw kicks. Confirming: rapid increase in TGT, decrease in torque, fluctuations in Ng and Np. Action: 1. Collective — reduce. 2. Throttle (affected engine) — IDLE. If the engine returns to normal operation: 3. Throttle — FLY. If the stall persists: 4. Obtain safe single engine airspeed, 5. accomplish EMERGENCY ENGINE SHUTDOWN, 6. accomplish SINGLE ENGINE FAILURE procedure.",
+      "references": ["S-92 RFM Part 1 Sec III: 3.13 ENGINE COMPRESSOR STALL (p.3-20)"],
+      "tags": ["compressor-stall", "engine"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-065",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "According to the ENGINE COMPRESSOR STALL WARNING, what can increase the probability of compressor stalls on one or both engines?",
+      "options": [
+        "Prolonged hover in ground effect at high gross weight",
+        "Flight through extreme air temperature environments, such as close to intense fires, volcanic activity or over smoke or fire stacks",
+        "Rapid changes in Nr between 100% and 105%",
+        "Operation with the engine anti-ice ON above 5°C OAT"
+      ],
+      "answer": [1],
+      "explanation": "The WARNING states that flight through extreme air temperature environments, such as in close proximity to intense fires, volcanic activity or over smoke or fire stacks, may cause rapid engine inlet air temperature changes and increases the probability of compressor stalls on one or both engines. This may exceed engine limitations causing damage to engine components and, in extreme cases, can increase the probability of engine power loss or engine shutdown.",
+      "references": ["S-92 RFM Part 1 Sec III: 3.13 ENGINE COMPRESSOR STALL (p.3-20)"],
+      "tags": ["compressor-stall", "warning"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
     }
   ]
 }

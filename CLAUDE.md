@@ -115,6 +115,13 @@ intended one.
 Code fixes only reach installed apps this way, so this is the slow path — batch changes rather
 than releasing per fix.
 
+**If the new native code depends on a server change** (a new `/api` route, CORS on an existing
+one), push that first and let it deploy, then check the native build against the live site in
+the Android emulator before releasing. Until the server side is live, the native app can only
+show its failure state — which is worth checking too: with no connection, a screen must say so,
+not show "loading" forever. The server change must also keep working for the older app versions
+still installed.
+
 1. `npm run appstore:status` and `npm run googleplay:status` — see what is live now.
 2. `npm run check` — green.
 3. Bump versions above what the stores have, or the upload is rejected:
@@ -211,7 +218,27 @@ to `[]` in `audio/<MODEL>/index.json`), build and launch. If the screen still sh
 content, the fetch went to the live site. Put the file back and `npm run ios:sync` afterwards.
 
 Android: `npm run android:sync` then `(cd android && ./gradlew assembleDebug)` checks that it
-builds (~15 s once warm). An emulator exists (`Medium_Phone_API_36.0`) but has not been used.
+builds (~15 s once warm). Unlike the iOS simulator, the Android emulator can be **driven**:
+- Start headless: `emulator -avd Medium_Phone_API_36.0 -no-window -no-audio -no-boot-anim -gpu
+  swiftshader_indirect &`, then wait for `adb shell getprop sys.boot_completed` = `1`
+  (`$ANDROID_HOME` is `~/Library/Android/sdk`; tools in `platform-tools/` and `emulator/`).
+- Install and launch: `adb install -r android/app/build/outputs/apk/debug/app-debug.apk`,
+  `adb shell monkey -p com.mayday.rotorready -c android.intent.category.LAUNCHER 1`.
+- Drive and look: `adb shell input tap <x> <y>` / `input swipe` / `input keyevent KEYCODE_HOME`,
+  `adb exec-out screencap -p > shot.png` (screen is 1080×2400).
+- Which app is in front: `adb shell dumpsys activity activities | grep topResumedActivity` —
+  this is how a hand-off to Chrome shows up.
+- **Inspect the app's own WebView** (debug builds): `adb forward tcp:9333
+  localabstract:webview_devtools_remote_$(adb shell pidof com.mayday.rotorready)`, then
+  `chromium.connectOverCDP("http://127.0.0.1:9333")` in Playwright and `page.evaluate(...)` —
+  e.g. read `localStorage` directly instead of inferring it from the screen.
+- **Test that settings survive Android killing the app** (it does this routinely in the
+  background): write, `input keyevent KEYCODE_HOME`, `adb shell am kill com.mayday.rotorready`,
+  relaunch, read again. Keys the app rewrites at every start (theme, `rr_traffic_*`) prove
+  nothing — check a key only a user action writes, such as `rr_active_model_variant`.
+- `adb shell pm clear com.mayday.rotorready` wipes the app's data. **Copy
+  `app_webview/Default/Local Storage/` out with `run-as` first** if you are investigating a
+  storage problem — clearing destroys the evidence.
 
 ---
 

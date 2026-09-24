@@ -175,20 +175,26 @@ function LightsBar(props: {
 	    " transition block focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-zinc-900";
 	  const inner = (
 	    <div className="px-5 py-4 flex items-start justify-between gap-4">
-	      <div className="flex items-start gap-3">
+	      <div className="flex min-w-0 flex-1 items-start gap-3">
 	        {props.icon && (
 	          <span className="inline-grid place-items-center h-8 w-8 rounded-lg bg-white/70 text-slate-700 dark:bg-zinc-900/80 dark:text-zinc-100">
 	            {props.icon}
 	          </span>
 	        )}
-	        <div>
+	        <div className="min-w-0">
 	          <div className="font-semibold text-slate-900 dark:text-zinc-100">{props.title}</div>
 	          <div className="text-sm text-slate-600 dark:text-zinc-300 mt-0.5">{props.description}</div>
+	          {/* On a phone the action label goes under the description: beside it, it
+	              either broke across three lines or squeezed the title into a narrow
+	              column. From sm up there is room for it on the right. */}
+	          {props.actionLabel && (
+	            <div className="mt-2 text-sm font-medium text-slate-700 dark:text-zinc-200 sm:hidden">{props.actionLabel}</div>
+	          )}
 	        </div>
 	      </div>
-	      <div className="flex items-center gap-2 text-slate-400 dark:text-zinc-400 text-sm">
+	      <div className="flex shrink-0 items-center gap-2 text-slate-400 dark:text-zinc-400 text-sm">
 	        {props.actionLabel && (
-	          <span className="font-medium text-slate-700 dark:text-zinc-200">{props.actionLabel}</span>
+	          <span className="hidden whitespace-nowrap font-medium text-slate-700 dark:text-zinc-200 sm:inline">{props.actionLabel}</span>
 	        )}
 	        <span className="text-xl transition-transform group-hover:translate-x-0.5">&gt;</span>
 	      </div>
@@ -1548,10 +1554,10 @@ function LightsTrainerInner() {
 			            <LightsBar
 			              tone="red"
 			              icon={<WarningTriangleIcon />}
-			              title="Red Warning Lights  Trainer"
+			              title="Red Warning Lights – Trainer"
 			              description="Practice all red warning lights in random order. Tap to start."
 			              actionLabel={
-			                loading ? "Loading" : warningLights.length ? `Start (${warningLights.length} lights)` : "No red lights"
+			                loading ? "Loading…" : warningLights.length ? `Start (${warningLights.length} lights)` : "No red lights"
 			              }
 			              onClick={() => start("warning")}
 			              disabled={loading || !warningLights.length}
@@ -1561,7 +1567,7 @@ function LightsTrainerInner() {
 			              tone="slate"
 			              icon={<CwpPanelIcon />}
 			              title="CWP Trainer"
-			              description="AW139 warning panel  tap to train by pressing lights."
+			              description="AW139 warning panel — tap to train by pressing lights."
 			              href="/training/lights/cwp/aw139"
 			            />
 			          </div>
@@ -1572,10 +1578,10 @@ function LightsTrainerInner() {
 	            <LightsBar
 		              tone="red"
 		              icon={<WarningTriangleIcon />}
-	              title="Red Warning Lights  Trainer"
+	              title="Red Warning Lights – Trainer"
 	              description="Practice all red warning lights in random order. Tap to start."
 	              actionLabel={
-	                loading ? "Loading" : warningLights.length ? `Start (${warningLights.length} lights)` : "No red lights"
+	                loading ? "Loading…" : warningLights.length ? `Start (${warningLights.length} lights)` : "No red lights"
 	              }
 	              onClick={() => start("warning")}
 	              disabled={loading || !warningLights.length}
@@ -1585,7 +1591,7 @@ function LightsTrainerInner() {
 	              tone="slate"
 	              icon={<CwpPanelIcon />}
 	              title="CWP Trainer"
-	              description="AW169 warning panel  tap to train by pressing lights."
+	              description="AW169 warning panel — tap to train by pressing lights."
 	              href="/training/lights/cwp/aw169"
 	            />
 

@@ -57,12 +57,6 @@ export default function Header() {
 	        {/* Right-side nav (hidden on mobile to avoid horizontal scroll) */}
 	        <nav className="ml-auto hidden md:flex items-center gap-4 text-sm">
 	          <Link
-	            href="/offline"
-	            className="text-slate-700 hover:text-slate-900 dark:text-zinc-200 dark:hover:text-white"
-	          >
-	            Offline
-	          </Link>
-	          <Link
 	            href="/account"
 	            className="text-slate-700 hover:text-slate-900 dark:text-zinc-200 dark:hover:text-white"
 	          >

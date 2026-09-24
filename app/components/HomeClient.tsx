@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 
-import { BoltIcon, BookIcon, DownloadIcon, HeadphonesIcon, MessageIcon } from "@/components/Icons";
+import { BoltIcon, BookIcon, HeadphonesIcon, MessageIcon } from "@/components/Icons";
 import { shouldShowNorwayTools } from "@/lib/geo/norwayToolsVisibility";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 import { modelRoutes } from "@/lib/models/catalog";
@@ -265,14 +265,7 @@ function Bar(props: { href: string; title: string; description: string; tone?: "
 		      )}
 
 	      <section className="space-y-3">
-	        <h2 className="text-sm font-semibold uppercase tracking-wide text-slate-700 dark:text-zinc-200">Offline & App</h2>
-	        <Bar
-	          href="/offline"
-	          title="Offline Packages"
-	          description="Download chapters locally for use without network coverage."
-	          tone="emerald"
-	          icon={<DownloadIcon className="h-4 w-4" />}
-	        />
+	        <h2 className="text-sm font-semibold uppercase tracking-wide text-slate-700 dark:text-zinc-200">App</h2>
 	        <Bar
 	          href="/account"
 		          title="Settings"

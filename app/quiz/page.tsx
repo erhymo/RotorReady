@@ -175,11 +175,8 @@ export default function QuizTypeSelectPage() {
   return (
     <div className="max-w-2xl mx-auto p-6 space-y-6 rounded-xl border-l-4 border-blue-600 bg-white dark:border-blue-400 dark:bg-zinc-900">
       <div className="mb-2"><TopBarBackButton href="/" /></div>
-      <div className="mb-4 flex items-center justify-between">
+      <div className="mb-4">
         <h1 className="text-2xl font-bold text-slate-900 dark:text-white">Choose quiz type</h1>
-        <Link href="/offline" className="text-xs px-2 py-1 rounded-md bg-slate-100 hover:bg-slate-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 text-slate-700 dark:text-zinc-200 border border-slate-200 dark:border-zinc-700">
-          Download for offline
-        </Link>
       </div>
       <div className="space-y-4">
         {sections.map((section) => (

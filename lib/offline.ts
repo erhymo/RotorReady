@@ -29,15 +29,6 @@ export function loadSectionOffline<T = unknown>(id: string, variantId = getStore
   }
 }
 
-export function clearOfflineSection(id: string, variantId = getStoredActiveModelVariantId()) {
-  if (typeof window === "undefined") return;
-  try {
-    localStorage.removeItem(keyFor(variantId, id));
-  } catch (error) {
-    console.warn("Kunne ikke slette offline-seksjon", { id, variantId, error });
-  }
-}
-
 export function listOffline(variantId = getStoredActiveModelVariantId()) {
   if (typeof window === "undefined") return [] as string[];
   try {
@@ -50,13 +41,13 @@ export function listOffline(variantId = getStoredActiveModelVariantId()) {
   }
 }
 
-// Quiz sections a user has explicitly downloaded for offline use (via /offline)
+// Quiz sections a user explicitly downloaded for offline use (via the Offline
+// packages page, removed 2026-09-24 — older installs still hold such copies)
 // used to be loaded from this local snapshot forever, with no way to notice a
 // newer version had been pushed — see the S92 limitations quiz incident this
 // was written for. This silently re-fetches each saved section over the network
 // and overwrites the local copy on success, so a downloaded package drifts back
-// into sync the moment the app has signal, without the user having to remember
-// to revisit the Offline packages page. Best-effort: any failure (no signal,
+// into sync the moment the app has signal. Best-effort: any failure (no signal,
 // derived/manifest-only section not covered by a direct model-data file) just
 // leaves the existing local copy untouched — it's a freshness improvement on
 // top of the safety net, never a replacement for it.

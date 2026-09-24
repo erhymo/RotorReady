@@ -87,9 +87,8 @@ export default function RootLayout({
           <Header />
         </div>
         <main id="main-content">
-          {/* Client-side route protection for selected paths */}
-          {/* Wrapped in a client component to avoid server-side auth dependencies */}
-          {/* NOTE: ProtectedRoutes only guards specific prefixes (quiz/offline/training/...) */}
+          {/* ProtectedRoutes passes everything through while the app is free; it is
+              kept as the single place to add access control later. */}
           <ProtectedRoutes>{children}</ProtectedRoutes>
         </main>
         <Analytics />

@@ -252,8 +252,7 @@ export default function ClientQuizPage({ section, amount }: { section: string; a
         const enriched = await loadNetworkSectionItems(section, activeVariant);
         if (cancelled) return;
 
-        // Keep a previously-downloaded offline copy in sync automatically, so
-        // the user never has to remember to revisit /offline for a refresh.
+        // Keep a previously-downloaded offline copy in sync automatically.
         try {
           if (loadSectionOffline(section, activeVariant.id)) {
             saveSectionOffline(section, { items: enriched }, activeVariant.id);

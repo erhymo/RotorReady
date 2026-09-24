@@ -48,7 +48,7 @@ test('core app pages load on mobile', async ({ page }) => {
   const pages = [
     { path: '/', heading: 'RotorReady' },
     { path: '/account', heading: 'Settings' },
-    { path: '/offline', heading: 'Offline packages' },
+    { path: '/offline', heading: "You're offline" },
     { path: '/weather', heading: 'Weather planning' },
     { path: '/airports', heading: 'Airports' },
   ];

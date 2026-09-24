@@ -55,6 +55,8 @@ const withPWA = withPWAInit({
   // so precaching them again at install is pure duplication. Excluding them leaves install
   // down to essentially just the JS/CSS app shell.
   publicExcludes: ['!**/*.pdf', '!**/*.mp3', '!**/*/*.png', '!**/*/*.svg', '!**/*.json'],
+  // Shown for a navigation that fails offline and was never cached. The page must
+  // exist: next-pwa precaches it, and a precache entry that 404s fails the install.
   fallbacks: {
     document: '/offline',
   },
@@ -112,7 +114,7 @@ const withPWA = withPWAInit({
     {
       // Ensure quiz start/question/result pages are cached and available offline.
       // Place this before the generic navigate handler so explicit quiz routes
-      // reuse the dedicated cache warmed from the Offline page.
+      // get their own cache.
       urlPattern: ({ url }) => [
         '/quiz/',
         '/emergency-quiz',

@@ -41,6 +41,17 @@ try {
   bad("content validation failed — run npm run validate:content to see what");
 }
 
+// 1b. does every content fetch still go through lib/contentUrl.ts?
+// This matters most at release time: a raw fetch ships frozen content to every
+// installed app until the *next* store release, which is the slowest possible
+// bug to correct. See scripts/check-content-fetch.mjs.
+try {
+  execFileSync("node", [path.join("scripts", "check-content-fetch.mjs")], { cwd: ROOT, stdio: "pipe" });
+  ok("every content fetch goes through lib/contentUrl.ts");
+} catch (err) {
+  bad("a raw fetch bypasses lib/contentUrl.ts — run npm run check:content-fetch to see which");
+}
+
 // 2. is the bundled shell newer than the sources it is built from?
 function newestFile(dir, state = { time: 0, file: null }) {
   let entries = [];

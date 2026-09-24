@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 
 import AppTopBar from "@/components/AppTopBar";
+import { fetchContentJson } from "@/lib/contentUrl";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 
 const VARIANT_ID = "H145_D2" as const;
@@ -49,18 +50,15 @@ export default function Page() {
         const manifestUrl = `/model-data/${VARIANT_ID}/training/lights/manifest.json`;
         let files: string[] = [];
         try {
-          const res = await fetch(manifestUrl, { cache: "no-store" });
-          if (res.ok) {
-            const data = await res.json();
-            if (Array.isArray((data as any)?.files)) files = (data as any).files;
-            else if (Array.isArray(data)) files = data as any;
-          }
+          const data = await fetchContentJson<unknown>(manifestUrl);
+          if (Array.isArray((data as any)?.files)) files = (data as any).files;
+          else if (Array.isArray(data)) files = data as any;
         } catch {}
 
         const arrays = await Promise.allSettled(
           files.map((path) => {
             const finalPath = path.startsWith("/") ? path : `/model-data/${VARIANT_ID}/training/lights/${path}`;
-            return fetch(finalPath, { cache: "no-store" }).then((res) => (res.ok ? res.json() : []));
+            return fetchContentJson<unknown>(finalPath).catch(() => []);
           })
         );
         const merged: LightItem[] = arrays.flatMap((result) =>

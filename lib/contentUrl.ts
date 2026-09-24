@@ -25,6 +25,19 @@ export function contentUrl(path: string): string {
   return Capacitor.isNativePlatform() ? `${LIVE_ORIGIN}${path}` : path;
 }
 
+/**
+ * Same idea as contentUrl, for the handful of /api/* routes the app genuinely
+ * needs. scripts/build-native-shell.mjs strips app/api out of the bundle, so a
+ * relative call there hits the local bundle and 404s — the native app has no
+ * server of its own. These must go to the live origin, which makes them
+ * cross-origin requests; the routes answer with CORS headers for the WebView's
+ * origins (lib/server/nativeCors.ts). They need a connection by nature, so
+ * callers should degrade gracefully rather than treat a failure as fatal.
+ */
+export function apiUrl(path: string): string {
+  return Capacitor.isNativePlatform() ? `${LIVE_ORIGIN}${path}` : path;
+}
+
 // No signal fails fast, so the bundled fallback kicks in straight away. A bad
 // signal is the dangerous case: a captive portal or a hangar with one bar can
 // accept the connection and then never answer, and a plain fetch will sit there

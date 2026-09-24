@@ -7,6 +7,12 @@
 # Installed via `git config core.hooksPath .githooks` (done automatically by `npm install`, see
 # scripts/setup-hooks.mjs). This file is tracked in git so the gate travels with the repo.
 
+# Content-fetch guard: every fetch of a file under public/ must go through
+# lib/contentUrl.ts, or the native app silently serves its bundled snapshot
+# instead of live content (see scripts/check-content-fetch.mjs for the incident
+# this came from). Cheap and static, so it runs on every push, not just on diffs.
+node scripts/check-content-fetch.mjs || exit 1
+
 command -v python3 >/dev/null 2>&1 || { echo "verify-gate: python3 not found, skipping (install it to get this check back)"; exit 0; }
 
 remote_sha=""

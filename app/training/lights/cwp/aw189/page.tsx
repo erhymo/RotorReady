@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 
 import AppTopBar from "@/components/AppTopBar";
+import { fetchContentJson } from "@/lib/contentUrl";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 
 type Severity = "warning" | "caution";
@@ -69,9 +70,7 @@ export default function Page() {
         let files: string[] = [];
         for (const url of manifests) {
           try {
-            const res = await fetch(url, { cache: "no-store" });
-            if (!res.ok) continue;
-            const data = await res.json();
+            const data = await fetchContentJson<unknown>(url);
             if (Array.isArray((data as any)?.files)) { files = (data as any).files; break; }
             if (Array.isArray(data)) { files = data as any; break; }
           } catch {}
@@ -81,7 +80,7 @@ export default function Page() {
         const arrays = await Promise.allSettled(
           files.map((path) => {
             const finalPath = path.startsWith("/") ? path : `/model-data/${VARIANT_ID}/training/lights/${path}`;
-            return fetch(finalPath, { cache: "no-store" }).then((res) => (res.ok ? res.json() : []));
+            return fetchContentJson<unknown>(finalPath).catch(() => []);
           })
         );
         const merged: LightItem[] = arrays.flatMap((result) =>

@@ -1,3 +1,5 @@
+import { apiUrl } from "@/lib/contentUrl";
+
 let blockedQuestionsPromise: Promise<Set<string>> | null = null;
 
 export async function loadBlockedQuestionSet(): Promise<Set<string>> {
@@ -5,7 +7,7 @@ export async function loadBlockedQuestionSet(): Promise<Set<string>> {
 
   blockedQuestionsPromise = (async () => {
     try {
-      const res = await fetch("/api/blocked-questions", { cache: "no-store" });
+      const res = await fetch(apiUrl("/api/blocked-questions"), { cache: "no-store" });
       if (!res.ok) return new Set<string>();
       const data = await res.json();
       const ids: string[] = Array.isArray(data?.ids) ? data.ids : [];

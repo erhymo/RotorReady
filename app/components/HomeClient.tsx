@@ -9,7 +9,7 @@ import { modelRoutes } from "@/lib/models/catalog";
 import { openLiveOnlyLink } from "@/lib/liveOnlyLinks";
 import { contentUrl, fetchContentJson } from "@/lib/contentUrl";
 
-function Bar(props: { href: string; title: string; description: string; tone?: "blue"|"amber"|"slate"|"emerald"; icon?: React.ReactNode; liveOnly?: boolean }) {
+function Bar(props: { href: string; title: string; description: string; tone?: "blue"|"amber"|"slate"|"emerald"; icon?: React.ReactNode; liveOnly?: boolean; pending?: boolean }) {
   const tones: Record<string, string> = {
     blue: "border-blue-600 bg-blue-50/40 hover:bg-blue-50 dark:border-blue-400 dark:bg-blue-900/40 dark:hover:bg-blue-900/60",
     amber: "border-amber-500 bg-amber-50/40 hover:bg-amber-50 dark:border-amber-400 dark:bg-amber-900/40 dark:hover:bg-amber-900/60",
@@ -30,6 +30,20 @@ function Bar(props: { href: string; title: string; description: string; tone?: "
       <div className="text-slate-400 text-xl transition-transform group-hover:translate-x-0.5 dark:text-zinc-400">›</div>
     </div>
   );
+
+  // The model-specific bars below can only resolve their destination once the
+  // stored model has been read from localStorage, which happens at hydration.
+  // They used to be omitted entirely until then, so they dropped into the page
+  // a beat after everything else and pushed the rest down. Rendering the same
+  // box, sized identically and with its (static) title already showing, keeps
+  // the layout still; only the link and the model-specific line arrive late.
+  if (props.pending) {
+    return (
+      <div className={`${className} cursor-default`} aria-hidden="true">
+        {content}
+      </div>
+    );
+  }
 
   // Needs a live server (weather/airport data) — not part of the native app's
   // bundled local shell, so it navigates to the live site instead of a dead
@@ -66,14 +80,18 @@ function Bar(props: { href: string; title: string; description: string; tone?: "
 	  // the app does not keep. Reading it from the same index the audio page uses
 	  // also means the bar appears on its own the day episodes are published, with
 	  // no app release involved.
-	  const [hasAudio, setHasAudio] = useState(false);
+	  // null = not answered yet. The bar's slot is held open while that is true,
+	  // so the answer arriving does not shove everything below it down the page;
+	  // 10 of the 12 models have episodes, so holding the space is right far more
+	  // often than not, and the two without simply collapse it once known.
+	  const [hasAudio, setHasAudio] = useState<boolean | null>(null);
 
 	  useEffect(() => {
 	    const variantId = activeVariant?.id;
 	    let cancelled = false;
 	    if (!variantId || !features?.audio) {
 	      queueMicrotask(() => {
-	        if (!cancelled) setHasAudio(false);
+	        if (!cancelled) setHasAudio(variantId ? false : null);
 	      });
 	      return () => {
 	        cancelled = true;
@@ -90,6 +108,9 @@ function Bar(props: { href: string; title: string; description: string; tone?: "
 	      Array.isArray(data?.items) && data.items.length > 0;
 	    let liveAnswered = false;
 
+	    // Deliberately the bundled copy: it answers instantly and works offline, and
+	    // the fetchContentJson call right below overrides it with the live answer.
+	    // content-fetch-ok: bundled-first on purpose, corrected by the live fetch below
 	    fetch(`/audio/${variantId}/index.json`)
 	      .then((res) => (res.ok ? res.json() : null))
 	      .then((data: { items?: unknown[] } | null) => {
@@ -165,7 +186,9 @@ function Bar(props: { href: string; title: string; description: string; tone?: "
 		          tone="blue"
 		          icon={<BookIcon className="h-4 w-4" />}
 		        />
-		        {features?.audio && hasAudio && (
+		        {hasAudio === null ? (
+          <Bar pending href="" title="Audio" description="Deep-dive study podcasts you can listen to on the go." tone="blue" icon={<HeadphonesIcon className="h-4 w-4" />} />
+        ) : features?.audio && hasAudio ? (
           <Bar
             href="/audio"
             title="Audio"
@@ -173,8 +196,10 @@ function Bar(props: { href: string; title: string; description: string; tone?: "
             tone="blue"
             icon={<HeadphonesIcon className="h-4 w-4" />}
           />
-        )}
-        {activeVariant && features?.procedures && routes && (
+        ) : null}
+        {!activeVariant ? (
+	          <Bar pending href="" title="Procedures" description="Browse normal, emergency and engine-failure procedures." tone="emerald" icon={<BookIcon className="h-4 w-4" />} />
+	        ) : features?.procedures && routes ? (
 	          <Bar
 	            href={routes.trainingProcedures}
 	            title="Procedures"
@@ -182,7 +207,7 @@ function Bar(props: { href: string; title: string; description: string; tone?: "
 	            tone="emerald"
 	            icon={<BookIcon className="h-4 w-4" />}
 	          />
-	        )}
+	        ) : null}
 		      </section>
 
 		      <section className="space-y-3">
@@ -194,7 +219,9 @@ function Bar(props: { href: string; title: string; description: string; tone?: "
 		          tone="slate"
 		          icon={<BookIcon className="h-4 w-4" />}
 		        />
-	        {activeVariant && features?.quickReference && routes && (
+	        {!activeVariant ? (
+	          <Bar pending href="" title="Quick Reference" description="Key limitations and numbers to have at hand." tone="slate" icon={<BookIcon className="h-4 w-4" />} />
+	        ) : features?.quickReference && routes ? (
 	          <Bar
 	            href={routes.quickReference}
 	            title="Quick Reference"
@@ -202,8 +229,10 @@ function Bar(props: { href: string; title: string; description: string; tone?: "
 	            tone="slate"
 	            icon={<BookIcon className="h-4 w-4" />}
 	          />
-	        )}
-	        {activeVariant && features?.systemNotes && routes && (
+	        ) : null}
+	        {!activeVariant ? (
+	          <Bar pending href="" title="System Notes" description="Written deep-dives on the systems — how they work, and the numbers to know." tone="slate" icon={<BookIcon className="h-4 w-4" />} />
+	        ) : features?.systemNotes && routes ? (
 	          <Bar
 	            href={routes.systemNotes}
 	            title="System Notes"
@@ -211,7 +240,7 @@ function Bar(props: { href: string; title: string; description: string; tone?: "
 	            tone="slate"
 	            icon={<BookIcon className="h-4 w-4" />}
 	          />
-	        )}
+	        ) : null}
 	        {/* Exterior Map: work in progress, deliberately not linked from Home yet.
 	            Route/component/data stay in the repo — reachable directly at
 	            /aw169/exterior-map for local iteration — until it's ready to re-link. */}

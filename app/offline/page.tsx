@@ -4,7 +4,7 @@ import AppTopBar from "@/components/AppTopBar";
 import { saveSectionOffline, clearOfflineSection, listOffline, refreshOfflineSectionsInBackground } from "@/lib/offline";
 import { loadAllQuestions } from "@/lib/loadAllQuestions";
 import { useActiveModelVariant } from "@/lib/models/hooks";
-import { fetchContentText } from "@/lib/contentUrl";
+import { fetchContentJson, fetchContentText } from "@/lib/contentUrl";
 
 type Section = { id: string; title: string };
 type SectionPayload = { items: any[] };
@@ -158,9 +158,7 @@ async function fetchAvailableSections(variantId: string, productId: string): Pro
     const collected: Section[] = [];
     for (const url of urls) {
       try {
-        const res = await fetch(url, { cache: "no-store" });
-        if (!res.ok) continue;
-        const data = await res.json();
+        const data = await fetchContentJson<{ sections?: unknown }>(url);
         const arr = Array.isArray(data.sections) ? (data.sections as Section[]) : [];
         collected.push(...arr);
       } catch {}
@@ -180,9 +178,7 @@ async function fetchAvailableSections(variantId: string, productId: string): Pro
   const collected: Section[] = [];
   for (const url of urls) {
     try {
-      const res = await fetch(url, { cache: "no-store" });
-      if (!res.ok) continue;
-      const data = await res.json();
+      const data = await fetchContentJson<{ sections?: unknown }>(url);
       const arr = Array.isArray(data.sections) ? (data.sections as Section[]) : [];
       collected.push(...arr);
     } catch {}
@@ -330,11 +326,13 @@ export default function OfflinePage() {
     setStatus((prev) => ({ ...prev, [id]: message }));
   }
 
-  async function fetchJsonNoStore(url: string) {
+  // Reads a manifest to discover which asset URLs to warm below. Goes through
+  // contentUrl so the list it discovers is the live one, not whatever shipped in
+  // the last native build — otherwise a newly added light page would never be
+  // among the files prepared for offline use.
+  async function fetchJsonForPrefetch(url: string) {
     try {
-      const res = await fetch(url, { cache: "no-store" });
-      if (!res.ok) return null;
-      return await res.json();
+      return await fetchContentJson<unknown>(url);
     } catch {
       return null;
     }
@@ -343,6 +341,7 @@ export default function OfflinePage() {
   async function prefetchHtmlRoutes(paths: string[]) {
     for (const path of Array.from(new Set(paths))) {
       try {
+        // content-fetch-ok: warming the SW cache at this exact route URL
         await fetch(path, {
           cache: "no-store",
           headers: { Accept: "text/html" },
@@ -359,7 +358,7 @@ export default function OfflinePage() {
     const lightEntries: any[] = [];
 
     for (const url of AW169_LIGHTS_SEED_DATA_PATHS) {
-      const data = await fetchJsonNoStore(url);
+      const data = await fetchJsonForPrefetch(url);
       if (Array.isArray((data as any)?.files)) {
         const baseDir = url.startsWith("/model-data/")
           ? `/model-data/${activeVariant.id}/training/lights`
@@ -387,7 +386,7 @@ export default function OfflinePage() {
 
     for (const url of Array.from(jsonUrls)) {
       if (seedUrls.has(url)) continue;
-      const data = await fetchJsonNoStore(url);
+      const data = await fetchJsonForPrefetch(url);
       if (Array.isArray(data)) {
         lightEntries.push(...data.filter((entry) => entry && typeof entry === "object"));
       }
@@ -401,6 +400,7 @@ export default function OfflinePage() {
     }
 
     await Promise.all(
+      // content-fetch-ok: warming the SW cache at these exact asset URLs
       [...jsonUrls, ...assetUrls].map((url) => fetch(url, { cache: "no-store" }).catch(() => {}))
     );
   }
@@ -439,24 +439,31 @@ export default function OfflinePage() {
 	    updateStatus(section.id, "Removed local offline data");
   }
 
+  // The raw relative fetches below are the point of this function: it primes the
+  // service worker's cache at exactly the URLs the app will later ask for, so they
+  // resolve offline. It warms a cache — it never reads content for display.
   async function prefetchAllQuestionsAssets() {
     try {
 	      // Kuraterte all-questions-banker er i praksis AW169-spesifikke. For
 	      // andre modeller vil de uansett bli filtrert bort, så vi dropper å
 	      // laste dem for å spare båndbredde og parsing.
 	      if (activeVariant.productId === "AW169") {
+	        // content-fetch-ok: warming the SW cache at this exact URL
 	        const r = await fetch('/quiz-data/all-questions/manifest.json', { cache: 'no-store' });
 	        if (r.ok) {
 	          const arr = await r.json();
 	          if (Array.isArray(arr)) {
 	            await Promise.all(
+	              // content-fetch-ok: warming the SW cache at these exact URLs
 	              arr.map((f) => fetch(`/quiz-data/all-questions/${f}`, { cache: 'no-store' }).catch(() => {}))
 	            );
 	          }
 	        }
 	      }
       // Priming index files helps future navigation offline
+      // content-fetch-ok: warming the SW cache at this exact URL
       await fetch(`/model-data/${activeVariant.id}/index.json`, { cache: 'no-store' }).catch(() => {});
+      // content-fetch-ok: warming the SW cache at this exact URL
       await fetch('/quiz-data/index.json', { cache: 'no-store' }).catch(() => {});
     } catch {}
   }

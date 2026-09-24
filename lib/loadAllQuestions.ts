@@ -1,5 +1,5 @@
 import { getModelVariant } from "@/lib/models/catalog";
-import { fetchContentJson } from "@/lib/contentUrl";
+import { apiUrl, fetchContentJson } from "@/lib/contentUrl";
 
 // Was a plain `fetch(url, { cache: "force-cache" })` — on the native app (no
 // server.url; see capacitor.config.ts) a relative fetch resolves against the
@@ -72,7 +72,7 @@ async function fetchBlockedSet(): Promise<Set<string>> {
   if (blockedSetPromise) return blockedSetPromise;
   blockedSetPromise = (async () => {
     try {
-      const res = await fetch("/api/blocked-questions", { cache: "no-store" });
+      const res = await fetch(apiUrl("/api/blocked-questions"), { cache: "no-store" });
       if (!res.ok) return new Set<string>();
       const data = await res.json();
       const ids: string[] = Array.isArray(data?.ids) ? data.ids : [];

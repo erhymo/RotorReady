@@ -150,7 +150,16 @@ const expectPath = (page, want, why) => {
 // It never throws on a miss: the caller asserts on where we actually ended up, which makes a clearer failure.
 async function tapTo(page, loc, want) {
   await loc.first().tap({ timeout: 20000 });
-  const test = typeof want === "string" ? (p) => p === want : (p) => want.test(p);
+  // `want` is a path string, a RegExp, or a predicate function. The function
+  // case used to fall into the RegExp branch and throw "want.test is not a
+  // function" inside waitForURL's callback — swallowed by the .catch() below,
+  // so tapTo returned without ever waiting for the navigation. Every scenario
+  // that passes a predicate (procedures, calculations) then asserted against a
+  // URL that had not changed yet and reported a failure the app did not have.
+  const test =
+    typeof want === "string" ? (p) => p === want
+    : typeof want === "function" ? want
+    : (p) => want.test(p);
   await page.waitForURL((u) => test(new URL(u).pathname.replace(/\.html$/, "").replace(/\/$/, "") || "/"), { timeout: 20000 }).catch(() => {});
   await settle(page, 400);
 }

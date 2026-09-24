@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import AppTopBar from "@/components/AppTopBar";
 import { MessageIcon } from "@/components/Icons";
+import { apiUrl } from "@/lib/contentUrl";
 
 const FEEDBACK_EMAIL = "myhre@mayday-as.no";
 
@@ -79,7 +80,7 @@ export default function FeedbackPage() {
     setSending(true);
     setError(null);
     try {
-      const res = await fetch("/api/feedback", {
+      const res = await fetch(apiUrl("/api/feedback"), {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message, email, page, visitorId: getVisitorId(), honeypot }),

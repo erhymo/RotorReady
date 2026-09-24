@@ -1,8 +1,14 @@
 import { NextResponse } from "next/server";
 import { isProduction } from "@/lib/env";
 import { upsertUserMessage } from "@/lib/server/messages/firestoreMessagesStore";
+import { handleNativeCorsPreflight, nativeCorsHeaders } from "@/lib/server/nativeCors";
 
 export const runtime = "nodejs";
+
+// The native app posts here cross-origin from the WebView; see lib/server/nativeCors.ts.
+export async function OPTIONS(req: Request) {
+  return handleNativeCorsPreflight(req);
+}
 
 function sanitizeText(value: unknown, max = 2000) {
   return typeof value === "string" ? value.trim().slice(0, max) : "";
@@ -14,6 +20,7 @@ function sanitizeVisitorId(value: unknown) {
 }
 
 export async function POST(req: Request) {
+  const cors = nativeCorsHeaders(req);
   const body = (await req.json().catch(() => null)) as {
     message?: string;
     email?: string;
@@ -22,11 +29,11 @@ export async function POST(req: Request) {
     honeypot?: string;
   } | null;
 
-  if (body?.honeypot) return NextResponse.json({ ok: true });
+  if (body?.honeypot) return NextResponse.json({ ok: true }, { headers: cors });
 
   const message = sanitizeText(body?.message, 2000);
   if (message.length < 5) {
-    return NextResponse.json({ error: "Message is too short" }, { status: 400 });
+    return NextResponse.json({ error: "Message is too short" }, { status: 400, headers: cors });
   }
 
   const email = sanitizeText(body?.email, 180) || null;
@@ -40,12 +47,12 @@ export async function POST(req: Request) {
       userEmail: email,
       body: `${message}${context}`,
     });
-    return NextResponse.json({ ok: true, conversation });
+    return NextResponse.json({ ok: true, conversation }, { headers: cors });
   } catch (error: any) {
     console.error("Could not store public feedback", error);
     if (!isProduction) {
-      return NextResponse.json({ ok: true, devWarning: "Feedback not stored in dev without Firestore admin." });
+      return NextResponse.json({ ok: true, devWarning: "Feedback not stored in dev without Firestore admin." }, { headers: cors });
     }
-    return NextResponse.json({ error: error?.message || "Could not send feedback" }, { status: 500 });
+    return NextResponse.json({ error: error?.message || "Could not send feedback" }, { status: 500, headers: cors });
   }
 }

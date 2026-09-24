@@ -79,6 +79,13 @@ platform :ios do
       build_str = v.build ? "build #{v.build.version}" : "no build attached"
       UI.important("Version #{v.version_string} — state: #{v.app_store_state} — #{build_str}")
     end
+
+    # Uploaded builds and whether Apple has finished processing them. ios:submit can only
+    # pick a build once it is VALID; right after ios:beta it is usually still PROCESSING.
+    builds = Spaceship::ConnectAPI::Build.all(app_id: app.id, sort: "-uploadedDate", limit: 3)
+    builds.each do |b|
+      UI.important("Uploaded build #{b.app_version} (#{b.version}) — processing: #{b.processing_state}")
+    end
   end
 
   desc "Release a PENDING_DEVELOPER_RELEASE version to the App Store (manual release step)"

@@ -138,13 +138,28 @@ than releasing per fix.
    built last month — the iOS 15.0 pod deployment-target fix in `ios/App/Podfile` was only
    found this way.
 7. Commit the version bump and release notes (recipe above).
-8. iOS: `npm run ios:beta` (Release build, upload to TestFlight), then `npm run ios:submit` (sends
-   it to review). Submission uses `automatic_release: false`, so **an approved version does not
-   go live by itself** — it waits in `PENDING_DEVELOPER_RELEASE` until
-   `cd ios && fastlane release_pending`.
-9. Android: `cd android && fastlane submit_review` (builds the AAB and uploads it to production
-   as a **draft**). It goes live only when the rollout is started in Play Console.
-10. When both are out, `npm run appstore:status` / `npm run googleplay:status` to confirm.
+8. iOS: `npm run ios:beta` (Release build, upload to TestFlight, ~3 min). Apple then processes
+   the build; `npm run ios:submit` can only pick it once `npm run appstore:status` shows
+   `Uploaded build <version> (<build>) — processing: VALID` (took ~2 min for 1.0.15). Then
+   `npm run ios:submit` (screenshots, release notes, precheck, sent to review). Submission uses
+   `automatic_release: false`, so **an approved version does not go live by itself** — it waits
+   in `PENDING_DEVELOPER_RELEASE` until `npm run ios:release`.
+9. Android: `npm run android:submit` (builds the AAB and uploads it to production as a
+   **draft**, with `changelogs/<versionCode>.txt`, ~1 min). It goes live only when the rollout is
+   started in Play Console. iOS and Android can run back to back but **not at the same time**:
+   both rebuild the native shell, which moves `app/api` out of the tree while it builds.
+10. Confirm with `npm run appstore:status` (the new version `WAITING_FOR_REVIEW`) and
+    `npm run googleplay:status` (the new release `draft`, the live one `completed`).
+
+The store APIs occasionally stall: a status call that sits for over a minute on almost no CPU
+is waiting on the network, not working. Stop it and run it again.
+
+Always run fastlane through these npm scripts, never as a bare `fastlane <lane>`: they set
+`LANG`/`LC_ALL=en_US.UTF-8`. Without it, `xcpretty` crashes on the `➜` characters in
+`xcodebuild`'s own output ("invalid byte sequence in US-ASCII"), the build is cut off, and
+fastlane's error handler crashes on the same character — so the real log looks like a build
+failure with no error in it. The full build log is `~/Library/Logs/gym/App-App.log`.
+A background run's exit status only reflects the wrapper; read the `EXIT=` line or the log.
 
 Setup, signing and credentials: `docs/app-store-ios.md` and `docs/google-play-android.md`.
 Environment health: `npm run appstore:doctor`, `npm run googleplay:doctor`.

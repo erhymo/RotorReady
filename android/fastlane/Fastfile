@@ -41,18 +41,26 @@ platform :android do
   desc "Validate Google Play API access without uploading a build"
   desc "Print the version codes on each Play track (read-only) — mirrors the iOS status lane"
   lane :status do
-    %w[production beta alpha internal].each do |track|
-      begin
-        codes = google_play_track_version_codes(
-          package_name: required_env("GOOGLE_PLAY_PACKAGE_NAME"),
-          json_key: required_env("GOOGLE_PLAY_JSON_KEY_PATH"),
-          track: track
-        )
-        UI.important("#{track}: #{codes.join(', ')}")
-      rescue StandardError
-        # A track with no release makes supply raise (flat_map on nil) instead of returning [].
-        UI.message("#{track}: no release")
+    # Lists each release with its status. Version codes alone were misleading: after a
+    # submit_review, production showed "14, 13" with nothing saying 14 was only a draft.
+    # Opens an edit to read the tracks and always aborts it, so nothing is ever changed.
+    require "supply"
+    package_name = required_env("GOOGLE_PLAY_PACKAGE_NAME")
+    client = Supply::Client.make_from_config(params: {
+      json_key: required_env("GOOGLE_PLAY_JSON_KEY_PATH"),
+      package_name: package_name
+    })
+    client.begin_edit(package_name: package_name)
+    begin
+      order = %w[production beta alpha internal]
+      client.tracks.sort_by { |t| order.index(t.track) || order.length }.each do |track|
+        releases = (track.releases || []).map do |r|
+          "#{(r.version_codes || []).join('+')} #{r.name.to_s.empty? ? '' : "(#{r.name}) "}— #{r.status}"
+        end
+        UI.important("#{track.track}: #{releases.empty? ? 'no release' : releases.join(' | ')}")
       end
+    ensure
+      client.abort_current_edit
     end
   end
 

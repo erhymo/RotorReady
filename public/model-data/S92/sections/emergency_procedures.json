@@ -1462,6 +1462,234 @@
       "sectionId": "emergency_procedures",
       "type": "single",
       "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-078",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "After a dual AC generator failure the aircraft is operating on the APU generator. Which statement is correct?",
+      "options": [
+        "All aircraft systems are powered normally by the APU generator",
+        "The RIPS droop stop heaters are lost, but the RIPS blade heating elements continue to operate",
+        "The AVC, windshield anti-ice, number 1 engine inlet anti-ice and RIPS main and tail rotor blade heating are not powered; the pilot windshield anti-ice can be recovered with OVRD, which should only be selected if required for safe flight",
+        "The pilot windshield anti-ice cannot be recovered by any means"
+      ],
+      "answer": [2],
+      "explanation": "When operating on the APU generator, the AVC, windshield anti-ice, number 1 engine inlet anti-ice, and RIPS main and tail rotor blade heating elements will not be powered. The RIPS droop stop heaters will still function properly, and the pilot windshield anti-ice can be recovered by selecting OVRD. Do not select OVRD unless required for safe flight.",
+      "references": ["S-92 RFM Part 1 Sec III: 8.2 DUAL AC GENERATOR FAILURE (p.3-37)"],
+      "tags": ["electrical", "apu-generator", "icing"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-079",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "Following a dual AC generator failure with the generators remaining off, an APU GEN FAIL caution illuminates. What does the procedure call for?",
+      "options": [
+        "LDG GEAR — DN, and land as soon as possible",
+        "Restart the APU and continue to the destination",
+        "Continue on battery power and land as soon as practical",
+        "Select both AC GEN switches ON again and continue the flight"
+      ],
+      "answer": [0],
+      "explanation": "If an APU FAULT or APU GEN FAIL or APU GCU FAIL caution illuminates after a dual generator failure: 8. LDG GEAR — DN. 9. Land as soon as possible. (With the generators remaining off and the APU generator working, the procedure is to land as soon as practical.)",
+      "references": ["S-92 RFM Part 1 Sec III: 8.2 DUAL AC GENERATOR FAILURE (p.3-37)"],
+      "tags": ["electrical", "apu", "landing-gear"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-080",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "How does the required action differ between a single primary hydraulic pump failure and a dual hydraulic pump failure (HYD 1 and HYD 2 PUMP FAIL)?",
+      "options": [
+        "Both: land immediately",
+        "Single: land as soon as possible. Dual: land immediately",
+        "Single: the #3 system supplies pressure to that system; monitor gauges and land as soon as practical. Dual: restrict control inputs to moderate rates, monitor the #3 system and land as soon as possible",
+        "Single: continue and correct prior to the next flight. Dual: land as soon as practical"
+      ],
+      "answer": [2],
+      "explanation": "With loss of a single primary hydraulic pump, the #3 hydraulic system will supply pressure to that system; action: monitor hydraulic system pressure gauges and land as soon as practical. With loss of both primary hydraulic systems, the #3 hydraulic system will pressurize the primary servos allowing control of the aircraft; action: restrict control inputs to moderate rates, monitor the #3 hydraulic system and land as soon as possible.",
+      "references": ["S-92 RFM Part 1 Sec III: 9.1 DUAL HYDRAULIC PUMP FAILURE / 9.2 SINGLE PRIMARY HYDRAULIC PUMP FAILURE (p.3-42)"],
+      "tags": ["hydraulics", "landing-urgency"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-081",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "With the #3 hydraulic system inoperative (HYD 3 PUMP FAIL), what are the consequences, and how is the landing gear lowered?",
+      "options": [
+        "No effect on the primary systems; lower the gear normally",
+        "The primary systems have no backup, the ramp is inoperative and normal landing gear operation is not possible; extend the gear with the emergency blow down system (EMER DN, less than 90 KIAS)",
+        "The primary servos lose pressure; land immediately with the gear up",
+        "The boost system is lost; lower the gear normally below 120 KIAS"
+      ],
+      "answer": [1],
+      "explanation": "Confirming: #3 hydraulic pressure less than 500 psi in the depress mode or less than 2000 psi in the high mode. With the #3 hydraulic system inoperative, the primary systems have no backup, the ramp will be inoperative and normal landing gear operation will not be possible; use the emergency blow down system. Action: land as soon as practical, LDG GEAR — DN, EMER DN — activate, less than 90 KIAS. Once the gear is blown down, do not raise it until maintenance personnel have inspected and bled the landing gear hydraulic lines.",
+      "references": ["S-92 RFM Part 1 Sec III: 9.3 #3 HYDRAULIC PUMP FAILURE (p.3-43)"],
+      "tags": ["hydraulics", "landing-gear"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-082",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "MR SVO 2 PRES remains illuminated after checking the SERVO switch is at BOTH. What restrictions apply?",
+      "options": [
+        "Do not exceed 45° angle of bank or 150 KIAS; land as soon as practical",
+        "No restrictions; continue the flight and correct prior to the next flight",
+        "Remain below 80 KIAS and land immediately",
+        "Do not exceed 30° angle of bank or 120 KIAS, avoid abrupt maneuvering, and land as soon as possible"
+      ],
+      "answer": [3],
+      "explanation": "MAIN ROTOR SERVO PRESSURE (MR SVO 1 PRES or MR SVO 2 PRES): 1. Check SERVO switch — BOTH. If the caution remains illuminated: 2. Do not exceed 30° angle of bank. 3. Do not exceed 120 KIAS. 4. Avoid abrupt maneuvering. 5. Land as soon as possible.",
+      "references": ["S-92 RFM Part 1 Sec III: 9.11 MAIN ROTOR SERVO PRESSURE (p.3-46, p.3-47)"],
+      "tags": ["hydraulics", "servo", "limits"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-083",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "After selecting the landing gear handle DN in direct sunlight, no green gear-down lights are illuminated. What is the first action?",
+      "options": [
+        "Activate EMER DN immediately",
+        "Set the P/B DIMMER rheostat to OFF",
+        "Cycle the LDG GEAR handle UP then DN",
+        "Slow to 80 KIAS and pull the landing gear circuit breaker"
+      ],
+      "answer": [1],
+      "explanation": "The P/B DIMMER rheostat on the upper console lighting panel controls the bright and dim setting of the LDG GEAR control panel. In direct sunlight the LDG GEAR panel lights will be DIM and appear off if the P/B DIMMER rheostat is not set in the OFF position; the bright setting is enabled only with the rheostat OFF. Action if no green indicator lights are illuminated: 1. P/B DIMMER rheostat — OFF.",
+      "references": ["S-92 RFM Part 1 Sec III: 10.1 LANDING GEAR WILL NOT EXTEND (p.3-48)"],
+      "tags": ["landing-gear", "lighting"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-084",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "What does the RFM CAUTION recommend when landing with asymmetrical landing gear extension?",
+      "options": [
+        "Land with the gear up on a prepared surface",
+        "Perform a running landing above 40 knots groundspeed",
+        "Consider evacuating all nonessential crew and passengers in a \"light on wheels hover\" before putting the full weight of the aircraft on the landing gear",
+        "Cycle the gear repeatedly until a symmetrical indication is obtained"
+      ],
+      "answer": [2],
+      "explanation": "With asymmetrical landing gear extension, the aircraft could roll over. Consideration should be given to evacuating all nonessential crew and passengers in a \"light on wheels hover\" before putting the full weight of the aircraft on the landing gear. If a safe gear indication (three green lights, no red light) is obtained after a malfunction, do not cycle the gear; if the gear cannot be extended safely, landing on a cradle or some other fixture should be accomplished.",
+      "references": ["S-92 RFM Part 1 Sec III: 10.0 LANDING GEAR (p.3-48)"],
+      "tags": ["landing-gear", "rollover"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-085",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "According to the LANDING GEAR WILL NOT RETRACT CAUTION, which set of secondary symptoms may indicate a Weight On Wheels (WOW) failure, and what should the crew then avoid?",
+      "options": [
+        "Gear fails to retract, AFCS #1 and #2 ATT mode not engaging, transponder, weather radar and TCAS remaining in standby; avoid flight in icing conditions, since RIPS blade heating is prohibited",
+        "Loss of both hydraulic pumps and the ramp; avoid speeds above 90 KIAS",
+        "EICAS blanking and loss of the copilot displays; avoid IMC",
+        "Gear fails to retract and the rotor brake caution illuminates; avoid running landings"
+      ],
+      "answer": [0],
+      "explanation": "Failure of the WOW system may result in the failure of the landing gear to retract, AFCS #1 and #2 ATT mode not engaging, and the transponder, weather radar and TCAS remaining in the standby mode. Although not indicated in the cockpit, such a WOW failure would also prohibit the RIPS from heating the main and tail rotor blades. If any of these secondary symptoms of a WOW failure exist, avoid flight in icing conditions.",
+      "references": ["S-92 RFM Part 1 Sec III: 10.2 LANDING GEAR WILL NOT RETRACT (p.3-50)"],
+      "tags": ["landing-gear", "wow", "icing"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-086",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "What may precede an impending tail rotor drive failure?",
+      "options": [
+        "A sudden increase in Nr with no change in torque",
+        "A TR QUAD caution with normal pedal response",
+        "A left yaw that increases with airspeed",
+        "Excessive noise or vibration from the tail rotor section, often felt as a middle frequency \"buzz\" through the rudder pedals"
+      ],
+      "answer": [3],
+      "explanation": "Impending tail rotor drive failure may be preceded by excessive noise or vibration from the tail rotor section, often felt by the pilot as a middle frequency \"buzz\" through the rudder pedals. Loss of tail rotor thrust is associated with a loss in drive and characterized by a sharp right yaw requiring immediate entry into autorotation in forward flight or landing in a hover; if thrust is lost at 60 KIAS or above, roll excursions up to 10°, pitch changes up to 5° and heading changes up to 50° may be experienced during the transition to autorotation.",
+      "references": ["S-92 RFM Part 1 Sec III: 11.0 TAIL ROTOR MALFUNCTIONS (p.3-51)"],
+      "tags": ["tail-rotor", "recognition"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-087",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "Tail rotor thrust is lost in a hover (sharp right yaw/spin, unresponsive to pedals). At what height are the throttles moved to STOP?",
+      "options": [
+        "5 to 10 feet",
+        "Immediately, at any height",
+        "After ground contact",
+        "20 to 30 feet"
+      ],
+      "answer": [0],
+      "explanation": "LOSS OF TAIL ROTOR THRUST IN A HOVER: 1. Hold the aircraft in level attitude, attempt to achieve zero groundspeed and drift in a low hover. 2. Throttles — STOP (5 to 10 feet). 3. Collective — increase to cushion landing. After ground contact: 4. Lower collective to minimum. 5. Apply wheel brakes.",
+      "references": ["S-92 RFM Part 1 Sec III: 11.2 LOSS OF TAIL ROTOR THRUST IN A HOVER (p.3-51, p.3-52)"],
+      "tags": ["tail-rotor", "hover"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-088",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "TR QUAD illuminates and the aircraft does not respond to pedal inputs because both tail rotor cables have failed. What does the centering spring allow, and how is yaw controlled?",
+      "options": [
+        "Trimmed flight only in the hover; yaw is controlled with differential braking in flight",
+        "Trimmed flight at about 60 and 120 KIAS; left yaw is controlled by reducing collective at all speeds",
+        "Trimmed flight at about 30 KIAS and 150 KIAS; below 30 and above 150 KIAS right yaw is controlled by reducing collective, and between 30 and 150 KIAS left yaw is controlled by increasing collective",
+        "Normal handling qualities; land as soon as practical"
+      ],
+      "answer": [2],
+      "explanation": "If only one cable fails, no change in handling qualities should occur (push either pedal; if normal yaw control, land as soon as practical). If both cables fail, a centering spring positions the tail rotor servo linkage to a preset pitch, allowing trimmed flight at about 30 KIAS and 150 KIAS (varying with gross weight). Below 30 and above 150 KIAS, right yaw can be controlled by reducing collective; between 30 and 150 KIAS, left yaw can be controlled by increasing collective. If the aircraft does not respond to pedal inputs: adjust airspeed to reduce yaw, perform a shallow approach to a roll on landing, lower collective slowly and use differential braking to control heading.",
+      "references": ["S-92 RFM Part 1 Sec III: 11.3 TAIL ROTOR CABLE FAILURE (p.3-52)"],
+      "tags": ["tail-rotor", "cable-failure"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-089",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "A tail rotor fixed pitch condition occurs at low power. What does the procedure call for?",
+      "options": [
+        "Lowering collective will yaw the nose left; approach below 60 KIAS",
+        "Raising collective will yaw the nose right; try to attain 70 to 80 KIAS and fly a shallow approach to a roll-on landing at the speed giving minimum yaw angle, expecting right yaw to increase as collective is added to cushion",
+        "Enter autorotation and close the throttles before touchdown",
+        "Raising collective will yaw the nose left; approach at 100 KIAS and hover to land"
+      ],
+      "answer": [1],
+      "explanation": "If fixed pitch at low power: 1. Raising collective will yaw the nose right. 2. Try to attain 70 to 80 KIAS. 3. Fly a shallow approach to a roll-on landing at speed which results in minimum yaw angle. 4. Right yaw will increase as collective is added to cushion landing. 5. After touchdown, lower collective slowly. 6. Use differential braking to control heading. (At high power, lowering collective yaws the nose left; at cruise power, approach and land below 60 KIAS.)",
+      "references": ["S-92 RFM Part 1 Sec III: 11.4 TAIL ROTOR CONTROL SYSTEM MALFUNCTIONS (p.3-53, p.3-54)"],
+      "tags": ["tail-rotor", "fixed-pitch"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
     }
   ]
 }

@@ -65,24 +65,50 @@ hand-pick individual scripts instead.
 For UI changes, also look at the actual page at phone width (390px) before calling it done.
 A passing type check is not evidence that a screen looks right.
 
+Added or removed quiz questions? Run `npm run fix:counts` first. The quiz list shows each
+section's size from `count` in `public/model-data/<MODEL>/index.json`, not from the section
+file, and it does not update itself; `validate:content` fails when a count is missing or wrong.
+
 ### Commit and push
 
 1. `npm run check` — must be green (the full one, not `check:fast`).
-2. `git status` — review what is staged; add files by name, never `git add -A` blindly.
-3. Commit. Write **why**, not what. If the change fixes something subtle, say what the failure
-   looked like and what the root cause was, so the next person does not re-derive it.
-4. `git push` — the pre-push hook runs the content-fetch guard and the manual-verification
-   gate. If the gate blocks, fix the content rather than pushing with `--no-verify`; if you
-   ever do bypass it, say so out loud.
-5. After the push, confirm it landed: `gh run list --limit 3` (GitHub runs Playwright E2E,
-   Lighthouse and CodeQL on every push to main) and the Vercel production deploy for the
-   commit. A push is not done until both are green.
+2. `git status` — every file listed should be one you meant to change. The native tooling
+   rewrites two files on its own: `cap sync` rewrites `ios/App/App/Info.plist` (and drops its
+   comments), and `pod install` re-indents `ios/App/App.xcodeproj/project.pbxproj`. If
+   `git diff -w <file>` is empty, the change is formatting only — `git checkout -- <file>`.
+3. Stage by name (`git add <files>`), never `git add -A`. Then read what is actually staged:
+   `git diff --cached --stat`, and `git diff --cached <file>` for anything you are unsure of.
+4. Commit with the message in a heredoc, `git commit -F - <<'EOF' … EOF`. Write **why**, not
+   what: if the change fixes something subtle, say what the failure looked like and what the
+   root cause was, so the next person does not re-derive it.
+5. `git push origin main` — the pre-push hook runs the content-fetch guard and the
+   manual-verification gate. If the gate blocks, fix the content rather than pushing with
+   `--no-verify`; if you ever do bypass it, say so out loud.
+6. Confirm it landed — a push is not done until both are green:
+   - GitHub: `gh run list --limit 3` — Playwright E2E, Lighthouse and CodeQL, ~3–4 min.
+     (Do not filter with `--commit <short-sha>`: it needs the full SHA and silently returns
+     nothing, so a wait loop on it never ends.)
+   - Vercel: the production deploy for the commit reaches READY, ~2–3 min. The surest sign the
+     new code is serving is to request something only the new code does.
 
-Do not commit or push without being asked to.
+Do not commit or push without being asked to. Several unrelated changes go in separate
+commits, one per theme.
 
-Two things the native tooling rewrites on its own — review before staging, and restore them
-if the diff is only formatting: `cap sync` rewrites `ios/App/App/Info.plist` (and drops its
-comments), and `pod install` re-indents `ios/App/App.xcodeproj/project.pbxproj`.
+**Splitting one file across two commits.** Avoid it when you can. When you cannot, build the
+first commit's version of the file from `HEAD` and write it straight into the index, then check
+it: `git show HEAD:<file>` → apply only the first change → `git hash-object -w <tmp>` →
+`git update-index --cacheinfo 100644,<blob>,<file>` → `git diff --cached <file>`. Do not stage
+hunks with `git diff -U0` + `git apply --cached --unidiff-zero`: once an earlier commit has
+landed, git re-aligns the diff and that path once staged a duplicate line instead of the
+intended one.
+
+**If git itself refuses to run:**
+- *"You have not agreed to the Xcode license agreements"* — the user has to run
+  `sudo xcodebuild -license` in a terminal; it needs their password. Running fastlane or Xcode
+  tools can trigger this.
+- *`.git/index.lock` exists* — check first: `ps aux | grep "[g]it "`. Right after a commit,
+  `git maintenance run --auto` often runs in the background and holds the lock for a moment;
+  wait for it. Never delete the lock while a git process is running.
 
 ### Ship a native release
 
@@ -106,6 +132,11 @@ than releasing per fix.
 6. `npm run release:check` — **after** the sync; before it, it correctly fails with "the bundled
    shell is older than your sources". Then restore any formatting-only rewrite of `Info.plist`
    / `project.pbxproj` (see *Commit and push*).
+   Then build both locally before the slow fastlane path: a simulator build for iOS and
+   `(cd android && ./gradlew assembleDebug)` (see *See the native app in a simulator*), and look
+   at the start screen and a couple of changed screens. A new Xcode can refuse a project that
+   built last month — the iOS 15.0 pod deployment-target fix in `ios/App/Podfile` was only
+   found this way.
 7. Commit the version bump and release notes (recipe above).
 8. iOS: `npm run ios:beta` (Release build, upload to TestFlight), then `npm run ios:submit` (sends
    it to review). Submission uses `automatic_release: false`, so **an approved version does not
@@ -117,6 +148,27 @@ than releasing per fix.
 
 Setup, signing and credentials: `docs/app-store-ios.md` and `docs/google-play-android.md`.
 Environment health: `npm run appstore:doctor`, `npm run googleplay:doctor`.
+
+### Remove code or a dependency
+
+1. **Prove it is unused.** For a file: nothing imports it and it is not a route or a config the
+   tooling loads. For a dependency: search source files, config files, npm scripts,
+   `.github/workflows` and the native projects — and **exclude `package.json` and
+   `package-lock.json`**, which contain every dependency's name (an earlier check that did not
+   exclude them reported "0 unused" when there were six). Things loaded by tooling are not dead
+   even without an import: `react-dom`, `@capacitor/ios`/`android`, `@types/*`, ESLint and
+   PostCSS plugins.
+2. **Trace the chain before deleting.** What does the file import, and who else imports those?
+   Removing the Stripe routes orphaned `lib/server/subscriptions/service.ts` (so it went too, in
+   `6617925c`), but `firestore.ts`
+   and `models.ts` had to stay because the admin dashboard reads them through `metrics.ts`.
+   Also think about callers grep cannot see — a webhook is called by an outside service.
+3. **Read commented-out blocks before removing them.** A detector flagged `sections/*.json`
+   inside an ordinary `//` comment as a dead block.
+4. Delete. For a dependency use `npm uninstall <pkg…>`, which keeps the lockfile consistent.
+5. **Verify:** `npm run check`; on a dev server, removed routes answer 404 and the ones that
+   stay answer as before; `npm run ios:sync` plus a simulator build, and `npm run android:sync`
+   plus `(cd android && ./gradlew assembleDebug)`; the app still starts in the simulator.
 
 ### Check what is actually live in the stores
 
@@ -134,7 +186,17 @@ This Xcode has no Simulator GUI app, so the iOS simulator runs headless: `npm ru
 specific screen, copy that page's `.html` over `ios/App/App/public/index.html` before building,
 and run `npm run ios:sync` afterwards to put the real start page back. `simctl ui <udid>
 appearance dark` checks dark mode. Text that renders on a Mac can still break on iOS — look at
-the screenshots, don't assume.
+the screenshots, don't assume. (Six corrupted dashes showed as empty boxes on iOS for nine
+months and were invisible in a desktop browser.)
+
+**Prove the native app reads live content, not the bundle.** Since the shell is rebuilt from
+the current sources, the bundled copy usually matches the live one and a screen alone proves
+nothing. Make them differ: empty a bundled file under `ios/App/App/public/` (e.g. set `items`
+to `[]` in `audio/<MODEL>/index.json`), build and launch. If the screen still shows the live
+content, the fetch went to the live site. Put the file back and `npm run ios:sync` afterwards.
+
+Android: `npm run android:sync` then `(cd android && ./gradlew assembleDebug)` checks that it
+builds (~15 s once warm). An emulator exists (`Medium_Phone_API_36.0`) but has not been used.
 
 ---
 

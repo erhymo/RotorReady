@@ -7,6 +7,8 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { db } from "@/lib/firebase/client";
 import { collection, getDocs } from "firebase/firestore/lite";
 
+import ClientErrorsPanel from "./ClientErrorsPanel";
+
 type AdminFlag = {
   id: string;
   section: string;
@@ -76,6 +78,7 @@ type TrafficMetrics = {
     appOpens: number;
     uniqueVisitors: number;
   };
+  last30DaysByPlatform?: Record<string, number>;
   activeLast7Days: number;
   activeLast30Days: number;
   activeToday: number;
@@ -380,6 +383,8 @@ export default function AdminPage() {
           </p>
         </header>
 
+        <ClientErrorsPanel />
+
         <section className="rounded-2xl border border-slate-200 bg-white/90 p-6 shadow-sm backdrop-blur dark:border-zinc-800 dark:bg-zinc-900/80 dark:text-zinc-100 space-y-4">
           <div className="flex flex-wrap items-center justify-between gap-3">
 	            <div>
@@ -501,6 +506,16 @@ export default function AdminPage() {
 	              <p className="text-xs text-slate-500 dark:text-zinc-400">
 	                Total tracked visitors/installations: {trafficMetrics.totalTrackedUsers}. App opens are throttled to one event per visitor every 30 minutes.
 	              </p>
+	              {trafficMetrics.last30DaysByPlatform && Object.keys(trafficMetrics.last30DaysByPlatform).length > 0 && (
+	                <p className="text-xs text-slate-500 dark:text-zinc-400">
+	                  Unique visitors last 30 days by platform:{" "}
+	                  {Object.entries(trafficMetrics.last30DaysByPlatform)
+	                    .sort((a, b) => b[1] - a[1])
+	                    .map(([platform, n]) => `${platform} ${n}`)
+	                    .join(" · ")}
+	                  . Native app opens are only counted from the first store release after 2026-09-24; &quot;unrecorded&quot; is opens from before the platform was sent.
+	                </p>
+	              )}
 	            </div>
           )}
         </section>

@@ -31,8 +31,8 @@ Viktig: Dette er en uavhengig treningsapplikasjon. Den er ikke en offisielt godk
   - Resultatside og historikk vises; “Øv kun på feil” kan startes fra Min side
 
 ## Personvern og analyse
-- Feilsporing: Vi planlegger å bruke Sentry for å fange tekniske feil (stacktrace, nettleser/URL). Sensitive data logges ikke.
-- Bruksinnsikt: Vi planlegger å bruke PostHog for anonym bruksdata (f.eks. start/avslutt quiz). Ingen personlig identifiserbar info samles uten samtykke.
+- Feilrapporter: appen sender egne feilrapporter (feilmelding, stacktrace, side, plattform, appversjon, nettleser) til `/api/client-error`; de vises under "Errors" i admin. Se `lib/clientErrors.ts`.
+- Bruksinnsikt: anonym besøks-ID, tidspunkt for app-åpning og plattform, via `/api/traffic/heartbeat`; vises under "Traffic" i admin.
 - Du kan be om innsyn/sletting via kontaktseksjonen på Min side.
 
 ## Teknisk

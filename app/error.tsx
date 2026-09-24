@@ -1,6 +1,9 @@
 "use client";
 
+import { useEffect } from "react";
+
 import { Logo } from "@/components/Logo";
+import { reportClientError } from "@/lib/clientErrors";
 
 export default function GlobalError({
   error,
@@ -9,14 +12,11 @@ export default function GlobalError({
   error: Error & { digest?: string };
   reset: () => void;
 }) {
-  // Sentry's client config already installs a global window error handler
-  // (sentry.client.config.ts), so uncaught render errors reaching this
-  // boundary are already reported without an explicit captureException call
-  // here. Importing @sentry/nextjs directly in a page-level file pulls in
-  // its server instrumentation bundle too, which breaks the production
-  // build (unresolved @opentelemetry/semantic-conventions) — keep this file
-  // free of that import.
-  void error;
+  // Render errors caught here never reach window's error handler, so this
+  // boundary reports them itself (see lib/clientErrors.ts).
+  useEffect(() => {
+    reportClientError("boundary", error, { digest: error.digest });
+  }, [error]);
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-zinc-900 flex items-center justify-center p-6">

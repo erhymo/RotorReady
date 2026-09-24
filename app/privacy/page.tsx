@@ -10,7 +10,7 @@ export default function PrivacyPage() {
     <div className="mx-auto max-w-3xl p-6 space-y-6 text-slate-800 dark:text-zinc-100">
       <header className="space-y-2">
         <h1 className="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">Privacy Policy</h1>
-        <p className="text-sm text-slate-600 dark:text-zinc-300">Last updated: 12 June 2026</p>
+        <p className="text-sm text-slate-600 dark:text-zinc-300">Last updated: 24 September 2026</p>
       </header>
 
       <section className="rounded-2xl border bg-white p-5 shadow-sm dark:border-zinc-800 dark:bg-zinc-900 space-y-3">
@@ -38,9 +38,19 @@ export default function PrivacyPage() {
       <section className="rounded-2xl border bg-white p-5 shadow-sm dark:border-zinc-800 dark:bg-zinc-900 space-y-3">
         <h2 className="text-lg font-semibold">Basic app usage metrics</h2>
         <p>
-          RotorReady may record a random local visitor ID and app-open timestamps to understand recent usage, such as
-          activity during the last 30 days, 7 days and 24 hours. These basic metrics are used to improve the app and do
-          not require an account.
+          RotorReady may record a random local visitor ID, app-open timestamps and the platform (web, iOS or Android) to
+          understand recent usage, such as activity during the last 30 days, 7 days and 24 hours. These basic metrics are
+          used to improve the app and do not require an account.
+        </p>
+      </section>
+
+      <section className="rounded-2xl border bg-white p-5 shadow-sm dark:border-zinc-800 dark:bg-zinc-900 space-y-3">
+        <h2 className="text-lg font-semibold">Crash reports</h2>
+        <p>
+          If the app runs into a technical error, it sends a crash report so the problem can be found and fixed. A report
+          contains the error message, where in the app&apos;s code it happened, the page you were on, the platform, the app
+          version and your browser or device type. It does not contain your visitor ID, and your IP address is not stored
+          with it. Crash reports are used only to fix errors.
         </p>
       </section>
 

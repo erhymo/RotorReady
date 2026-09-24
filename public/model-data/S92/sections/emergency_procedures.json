@@ -1234,6 +1234,234 @@
       "sectionId": "emergency_procedures",
       "type": "single",
       "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-066",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "STARTER 1 ON remains displayed after the engine has reached normal ground idle. You shut the engine down with the throttle at STOP, but the starter is still engaged. What is the next action?",
+      "options": [
+        "Press the ENG START button again to disengage the starter",
+        "APU CTRL — OFF",
+        "FUEL (affected engine) — OFF",
+        "Pull the starter circuit breaker"
+      ],
+      "answer": [1],
+      "explanation": "The STARTER ON caution indicates that the associated starter has been motoring for more than 60 seconds. Action: 1. Monitor TGT and Ng. If the engine does not accelerate: 2. Abort the start by placing the throttle in STOP. If the engine has achieved normal ground idle: 3. Shut down engine, affected engine throttle — STOP. If starter is still engaged: 4. APU CTRL — OFF.",
+      "references": ["S-92 RFM Part 1 Sec III: 4.1 ENGINE STARTER (p.3-21)"],
+      "tags": ["starter", "engine-start", "apu"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-067",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "A loud high-speed rattle is heard with rapidly accelerating Np (momentarily above Nr) and ENG 2 OVERSPEED, followed by a loud bang, torque dropping to zero and engine vibration. If the FADEC has not shut the engine down, what does the procedure call for?",
+      "options": [
+        "Throttle (affected engine) to IDLE, then land as soon as practical",
+        "Reduce collective to hold Nr below 106% and continue with the engine on line",
+        "Throttle (affected engine) to STOP, accomplish SINGLE ENGINE FAILURE, and land as soon as possible",
+        "Wait for the FADEC automatic restart, then land as soon as practical"
+      ],
+      "answer": [2],
+      "explanation": "These are the symptoms and confirming indications of an ENGINE HIGH SPEED SHAFT FAILURE. The FADEC should immediately recognize a high speed shaft failure and automatically shut down the engine; if an automatic shutdown does not occur, quick pilot action is required to shut down the affected engine before the severed shaft can damage other aircraft components. Action: 1. Throttle (affected engine) — STOP. 2. Accomplish SINGLE ENGINE FAILURE procedure. 3. Land as soon as possible.",
+      "references": ["S-92 RFM Part 1 Sec III: 4.2 ENGINE HIGH SPEED SHAFT FAILURE (p.3-21, p.3-22)"],
+      "tags": ["high-speed-shaft", "engine-failure", "overspeed"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-068",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "An ENG 1 OIL PRES caution is displayed. You have attained safe single engine airspeed and set the affected throttle to IDLE. What then requires an emergency engine shutdown?",
+      "options": [
+        "Any further illumination of an engine oil caution",
+        "Engine oil pressure decreasing and engine temperature rising, unless that engine's power is required for continued safe flight",
+        "The caution remaining on for more than 60 seconds",
+        "Nothing; the RFM never calls for shutting down an engine for an oil system malfunction"
+      ],
+      "answer": [1],
+      "explanation": "Engine oil system malfunctions (ENG OIL PRES, ENG OIL HOT or ENG OIL BYPASS): 1. Attain safe single engine airspeed. 2. Throttle (affected engine) — IDLE. 3. Land as soon as practical. If engine oil pressure is decreasing and engine temperature is rising: 4. Accomplish the EMERGENCY ENGINE SHUTDOWN and SINGLE ENGINE FAILURE procedure. The CAUTION states: do not shut down an engine for an oil system malfunction if that engine power is required for continued safe flight. If the engine has not been shut down, the throttle may go to FLY on final if dual engine power is required for landing, and the engine is shut down after touchdown.",
+      "references": ["S-92 RFM Part 1 Sec III: 4.4 ENGINE OIL SYSTEM MALFUNCTIONS (p.3-23)"],
+      "tags": ["engine-oil", "engine-shutdown"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-069",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "ENG 2 FUEL PRES illuminates with fluctuating Ng, TGT and torque. You select the affected fuel selector switch to XFD and the caution remains. What is next?",
+      "options": [
+        "FUEL selector (affected engine) — DIRECT, and land as soon as practical using SINGLE ENGINE FAILURE procedures",
+        "Leave the selector in XFD and continue the flight",
+        "Perform an emergency engine shutdown and land immediately",
+        "Select both fuel selectors to XFD and land as soon as possible"
+      ],
+      "answer": [0],
+      "explanation": "An ENG FUEL PRES caution indicates reduced fuel pressure at the engine driven fuel boost pump, which could indicate an air leak in the fuel supply lines. Confirming: erratic fuel flow and/or fluctuating Ng, TGT and Q. Action: 1. Fuel selector switch (affected engine) — XFD. If the caution extinguishes: 2. Land as soon as practical. If the caution remains: 3. FUEL selector (affected engine) — DIRECT. 4. Land as soon as practical using SINGLE ENGINE FAILURE procedures.",
+      "references": ["S-92 RFM Part 1 Sec III: 4.5 LOW ENGINE FUEL PRESSURE (p.3-23, p.3-24)"],
+      "tags": ["fuel-system", "fuel-pressure"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-070",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "FUEL 1 BYPASS and FUEL 2 BYPASS both illuminate. What does the procedure call for?",
+      "options": [
+        "Both fuel selectors to XFD and land as soon as practical",
+        "Affected engine to IDLE and land as soon as practical",
+        "Both FUEL selectors to DIRECT and land as soon as possible",
+        "Both FUEL selectors to OFF, one at a time, and autorotate"
+      ],
+      "answer": [2],
+      "explanation": "A FUEL BYPASS caution indicates that the affected engine fuel filter is impending bypass. If a single caution illuminates: 1. Affected engine FUEL selector — XFD. 2. Land as soon as practical. If both cautions illuminate: 3. FUEL NO.1 and NO.2 FUEL selectors — DIRECT. 4. Land as soon as possible.",
+      "references": ["S-92 RFM Part 1 Sec III: 4.6 FUEL FILTER BYPASS (p.3-24)"],
+      "tags": ["fuel-system", "fuel-filter"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-071",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "APU GEN FAIL illuminates. You cycle APU GEN to OFF/RESET and back to ON, but the caution returns. What does the procedure call for?",
+      "options": [
+        "Land immediately",
+        "Exit IMC conditions as soon as possible and continue the flight in VMC",
+        "Shut down the APU and land as soon as possible",
+        "Continue the flight; no further action is required"
+      ],
+      "answer": [1],
+      "explanation": "APU GENERATOR FAILURE: 1. APU GEN — OFF/RESET then back to ON. If the caution remains off: 2. Continue the flight. If the caution returns: 3. Exit IMC conditions as soon as possible and continue the flight in VMC. After an APU generator failure, the APU generator will not be available for emergency power or for engine shutdown; if APU generator power is not available during engine shutdown, monitor TGT on the pilot inboard EICAS display and connect external power, if available.",
+      "references": ["S-92 RFM Part 1 Sec III: 6.2 APU GENERATOR FAILURE (p.3-27, p.3-28)"],
+      "tags": ["apu", "electrical", "imc"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-072",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "If an imminent main gearbox failure is suspected, how should the descent and landing be flown?",
+      "options": [
+        "In autorotation with both engines at idle, to unload the gearbox",
+        "At maximum continuous power to keep Nr high, with a hover landing",
+        "At a reduced power setting of no more than 15% torque, with a no-hover landing preferred over a running landing",
+        "At a reduced power setting but with at least 15% torque, avoiding rapid or frequent power changes, with a running landing preferred"
+      ],
+      "answer": [3],
+      "explanation": "If an imminent failure is suspected, the primary consideration is to land before the failure progresses to a gearbox seizure or loss of drive to the main or tail rotor. The descent should be made at a reduced power setting but with at least 15% torque to ensure the engines continue to drive the transmission. Avoid rapid or frequent power changes. A running landing is preferred since it requires less power and smaller power changes; a no-hover landing should be performed if a running landing area is not available.",
+      "references": ["S-92 RFM Part 1 Sec III: 7.0 GEAR BOX MALFUNCTIONS (p.3-31)"],
+      "tags": ["mgb", "transmission", "landing"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-073",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "An MGB oil pump failure produces low MGB oil pressure fluctuating between 5 and 25 psi, and may overheat the corresponding accessory and input modules (INPUT 1/2 CHIP caution). What should the pilot do if possible?",
+      "options": [
+        "Select MGB OIL BYP back to NORM to restore flow",
+        "Retard the engine on the affected side to IDLE to reduce heating due to churning oil",
+        "Increase airspeed to improve MGB cooling",
+        "Shut down the APU to reduce accessory module load"
+      ],
+      "answer": [1],
+      "explanation": "A pump failure will lead to low oil pressure which fluctuates between 5 and 25 psi and may result in high temperatures in the corresponding accessory and input modules (indicated by an INPUT 1/2 CHIP caution). If possible, the pilot should retard the engine on the affected side to IDLE to reduce heating due to churning oil.",
+      "references": ["S-92 RFM Part 1 Sec III: 7.0 GEAR BOX MALFUNCTIONS (p.3-31)"],
+      "tags": ["mgb", "oil-pump", "input-chip"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-074",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "In flight, what distinguishes the MGB OIL PRES caution from the MGB OIL PRES warning?",
+      "options": [
+        "Caution: manifold pressure below 45 psi or \"last jet\" pressure below 24 psi. Warning: manifold pressure below 35 psi and \"last jet\" pressure below 24 psi",
+        "Caution: manifold pressure below 35 psi. Warning: manifold pressure below 5 psi",
+        "Caution: manifold pressure below 60 psi. Warning: manifold pressure below 45 psi or \"last jet\" below 35 psi",
+        "Caution and warning illuminate together below 35 psi; the warning adds the aural alert"
+      ],
+      "answer": [0],
+      "explanation": "The MGB OIL PRES caution illuminates in flight when gearbox pressure at the manifold falls below 45 psi or pressure at the \"last jet\" falls below 24 psi. The MGB OIL PRES warning illuminates when oil pressure at the manifold falls below 35 psi and pressure at the \"last jet\" falls below 24 psi. If the warning illuminates, the caution will not be illuminated.",
+      "references": ["S-92 RFM Part 1 Sec III: 7.0 GEAR BOX MALFUNCTIONS (p.3-32)"],
+      "tags": ["mgb", "oil-pressure", "cautions"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-075",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "After an MGB OIL PRES warning, BYP is selected, the APU and APU generator are on, and no symptoms of imminent gearbox failure exist. What altitude and airspeed does the procedure call for?",
+      "options": [
+        "Climb to at least 1,500 feet and maintain 70 KIAS",
+        "Maintain cruise altitude and at least 120 KIAS to shorten the time to landing",
+        "Descend to a minimum safe altitude while reducing airspeed below 120 KIAS (below 500 feet above the water/terrain if conditions permit), and maintain 80 to 120 KIAS until committed to land",
+        "Descend to 200 feet and maintain 50 KIAS"
+      ],
+      "answer": [2],
+      "explanation": "MAIN GEARBOX OIL PRESSURE WARNING (confirming: MGB oil pressure below 35 psi): 1. MGB OIL BYP — select BYP within 5 seconds. 2. If either INPUT 1/2 CHIP caution also illuminates, throttle (affected engine) — IDLE unless dual engine power is required for continued safe flight. 3. APU CTRL — ON. 4. APU GEN — ON. 5. Descend to a minimum safe altitude while reducing airspeed below 120 KIAS; if conditions permit, descend below 500 feet above the water/terrain; maintain airspeed between 80 and 120 KIAS until committed to land. 6. Land as soon as possible (dual engine power for landing if required). If any symptom of imminent gearbox failure exists: 7. Land immediately.",
+      "references": ["S-92 RFM Part 1 Sec III: 7.1 MAIN GEARBOX OIL PRESSURE WARNING (p.3-32A)"],
+      "tags": ["mgb", "oil-pressure", "airspeed"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-076",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "TGB HOT illuminates in flight. What is the action, and when does it become land immediately?",
+      "options": [
+        "Land as soon as practical; land immediately only if the TGB CHIP also illuminates",
+        "Reduce airspeed to 80 KIAS and land as soon as possible; land immediately if accompanied by loud/unusual noises, pedal kicks, high vibration or both CHIP and HOT cautions",
+        "Increase airspeed to improve cooling and land as soon as possible; land immediately if the caution persists for more than 5 minutes",
+        "Reduce airspeed to 120 KIAS and continue; land immediately only if tail rotor control is lost"
+      ],
+      "answer": [1],
+      "explanation": "TAIL/INTERMEDIATE OIL HOT/CHIP (TGB HOT, IGB HOT, TGB CHIP or IGB CHIP): 1. Reduce airspeed to 80 KIAS. 2. Land as soon as possible. If accompanied by loud/unusual noises, pedal kicks, high vibration or the combination of both CHIP and HOT cautions: 3. Land immediately.",
+      "references": ["S-92 RFM Part 1 Sec III: 7.6 TAIL/INTERMEDIATE OIL HOT/CHIP (p.3-33)"],
+      "tags": ["tgb", "igb", "landing-urgency"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-077",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "What is the difference in required action between S/P TEMP DETECT and S/P TEMP LIMIT (with the \"SWASHPLATE TEMPERATURE\" aural alert)?",
+      "options": [
+        "Both require land immediately",
+        "S/P TEMP DETECT: land as soon as possible. S/P TEMP LIMIT: land immediately in all cases",
+        "S/P TEMP DETECT: continue and correct before the next flight. S/P TEMP LIMIT: land as soon as practical",
+        "S/P TEMP DETECT: land as soon as practical. S/P TEMP LIMIT: land as soon as possible, or land immediately if accompanied by secondary indications such as restricted control motion, unusual noises or vibrations"
+      ],
+      "answer": [3],
+      "explanation": "SWASHPLATE TEMPERATURE: for S/P TEMP DETECT, land as soon as practical. For S/P TEMP LIMIT with the \"SWASHPLATE TEMPERATURE\" aural alert, land as soon as possible; if accompanied by secondary indications such as restricted control motion, unusual noises or vibrations, land immediately.",
+      "references": ["S-92 RFM Part 1 Sec III: 7.7 SWASHPLATE TEMPERATURE (p.3-33, p.3-34)"],
+      "tags": ["swashplate", "landing-urgency"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
     }
   ]
 }

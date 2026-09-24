@@ -1,5 +1,7 @@
 'use client';
 
+import { apiUrl } from '@/lib/contentUrl';
+
 let firebaseClientPromise: Promise<typeof import('@/lib/firebase/client')> | null = null;
 let firestoreLitePromise: Promise<typeof import('firebase/firestore/lite')> | null = null;
 
@@ -35,7 +37,8 @@ async function flushQueue() {
     try {
       const headers: Record<string, string> = { 'Content-Type': 'application/json' };
       if (idToken) headers['Authorization'] = `Bearer ${idToken}`;
-      const res = await fetch('/api/flags', { method: 'POST', headers, body: JSON.stringify(item) });
+      // apiUrl: a relative /api call inside the native app hits the bundled shell and 404s.
+      const res = await fetch(apiUrl('/api/flags'), { method: 'POST', headers, body: JSON.stringify(item) });
       if (!res.ok) throw new Error('HTTP '+res.status);
     } catch (e) {
       // Fallback: write directly to Firestore from client (no Vercel server env needed)

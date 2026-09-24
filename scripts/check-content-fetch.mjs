@@ -14,6 +14,12 @@
 // fetched with { cache: "force-cache" } instead of fetchContentJson. The same
 // class of bug was then found sitting unnoticed in seven CWP light pages.
 //
+// The same goes for the /api/* routes the app calls: app/api is stripped out of
+// the native bundle, so a relative /api fetch there 404s against the bundled
+// shell. Those must go through apiUrl(). Found 2026-09-24: the traffic heartbeat
+// and question flagging had done this since the native shell went local-first,
+// so no native app open was ever counted and flags depended on a fallback.
+//
 // Deliberate exception: put `content-fetch-ok: <reason>` in a comment on the
 // offending line or the line above it.
 
@@ -78,12 +84,21 @@ for (const file of SCAN_DIRS.flatMap((d) => walk(path.join(root, d)))) {
   // literal or by variable. This keeps the variable check below from flagging
   // every ordinary fetch in the app.
   const mentionsContent = CONTENT_PREFIXES.some((p) => source.includes(p));
-  if (!mentionsContent) continue;
 
   lines.forEach((line, i) => {
+    const literal = /\bfetch\(\s*([`"'][^`"')]*)/.exec(line);
+
+    if (literal && literal[1].slice(1).startsWith("/api/")) {
+      const allowed = /content-fetch-ok/.test(rawLines[i] || "") || /content-fetch-ok/.test(rawLines[i - 1] || "");
+      if (!allowed) {
+        findings.push({ file: rel, line: i + 1, text: (rawLines[i] || "").trim().slice(0, 100), why: "relative /api call — use apiUrl()" });
+      }
+      return;
+    }
+
+    if (!mentionsContent) return;
     if (/contentUrl\s*\(/.test(line)) return; // fetch(contentUrl(...)) is correct
 
-    const literal = /\bfetch\(\s*([`"'][^`"')]*)/.exec(line);
     // The variable form — `fetch(url, ...)` where url came from a content-path
     // array. This is how the Offline page's section lookup escaped an earlier,
     // literals-only version of this check.
@@ -105,14 +120,14 @@ for (const file of SCAN_DIRS.flatMap((d) => walk(path.join(root, d)))) {
 }
 
 if (!findings.length) {
-  console.log("content-fetch guard: every content fetch goes through lib/contentUrl.ts. OK.");
+  console.log("content-fetch guard: every content and /api fetch goes through lib/contentUrl.ts. OK.");
   process.exit(0);
 }
 
-console.error("\ncontent-fetch guard: raw fetch() on a content path.\n");
-console.error("These read the bundled snapshot inside the native app, so edits to this");
-console.error("content would never reach installed apps without a new store release.\n");
+console.error("\ncontent-fetch guard: raw fetch() on a content path or an /api route.\n");
+console.error("Inside the native app these resolve against the bundled shell: content comes");
+console.error("from a snapshot frozen at the last store release, and /api calls 404.\n");
 for (const f of findings) console.error(`  ${f.file}:${f.line}  (${f.why})\n    ${f.text}`);
-console.error(`\nUse fetchContentJson / fetchContentText / contentUrl from "@/lib/contentUrl".`);
+console.error(`\nUse fetchContentJson / fetchContentText / contentUrl — or apiUrl for /api routes — from "@/lib/contentUrl".`);
 console.error(`If a raw fetch is genuinely intended, add a "content-fetch-ok: <reason>" comment.\n`);
 process.exit(1);

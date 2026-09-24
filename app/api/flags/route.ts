@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import fs from "fs";
 import path from "path";
 import { isProduction } from "@/lib/env";
+import { handleNativeCorsPreflight, withNativeCors } from "@/lib/server/nativeCors";
 export const runtime = "nodejs";
 
 const FILE = path.join(process.cwd(), "public", "quiz-data", "flags.json");
@@ -46,7 +47,7 @@ async function getAuthContext(req: Request) {
   }
 }
 
-export async function POST(req: Request) {
+async function postHandler(req: Request) {
   const payload = await req.json().catch(() => null) as Partial<Flag> | null;
   if (!payload || typeof payload !== 'object' || !payload.section || !payload.questionId) {
     return NextResponse.json({ error: 'Missing section or questionId' }, { status: 400 });
@@ -103,3 +104,6 @@ export async function POST(req: Request) {
     }
   }
 }
+
+export const POST = withNativeCors(postHandler);
+export const OPTIONS = handleNativeCorsPreflight;

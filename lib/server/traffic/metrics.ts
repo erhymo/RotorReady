@@ -13,6 +13,11 @@ export type TrafficMetrics = {
   last1Day: TrafficWindowMetrics;
   last7Days: TrafficWindowMetrics;
   last30Days: TrafficWindowMetrics;
+  /**
+   * Unique visitors in the last 30 days per platform (web / ios / android).
+   * Opens recorded before the platform was sent (2026-09-24) count as "unrecorded".
+   */
+  last30DaysByPlatform: Record<string, number>;
   /** Legacy field kept for older admin clients. */
   activeLast7Days: number;
   /** Legacy field kept for older admin clients. */
@@ -43,6 +48,7 @@ export function createEmptyTrafficMetrics(): TrafficMetrics {
     last1Day: { ...EMPTY_WINDOW },
     last7Days: { ...EMPTY_WINDOW },
     last30Days: { ...EMPTY_WINDOW },
+    last30DaysByPlatform: {},
     activeLast7Days: 0,
     activeLast30Days: 0,
     activeToday: 0,
@@ -67,6 +73,7 @@ export async function getTrafficMetrics(now: Date = new Date()): Promise<Traffic
   let opens1d = 0;
   let opens7d = 0;
   let opens30d = 0;
+  const byPlatform30d = new Map<string, Set<string>>();
 
   eventsSnapshot.forEach((doc: any) => {
     const data = doc.data() as any;
@@ -78,6 +85,9 @@ export async function getTrafficMetrics(now: Date = new Date()): Promise<Traffic
     if (ts >= thirtyDaysAgoMs) {
       opens30d += 1;
       unique30d.add(visitorId);
+      const platform = typeof data?.platform === "string" && data.platform ? data.platform : "unrecorded";
+      if (!byPlatform30d.has(platform)) byPlatform30d.set(platform, new Set());
+      byPlatform30d.get(platform)!.add(visitorId);
     }
     if (ts >= sevenDaysAgoMs) {
       opens7d += 1;
@@ -107,6 +117,7 @@ export async function getTrafficMetrics(now: Date = new Date()): Promise<Traffic
     last1Day: { appOpens: opens1d, uniqueVisitors: unique1d.size },
     last7Days: { appOpens: opens7d, uniqueVisitors: unique7d.size },
     last30Days: { appOpens: opens30d, uniqueVisitors: unique30d.size },
+    last30DaysByPlatform: Object.fromEntries([...byPlatform30d].map(([platform, ids]) => [platform, ids.size])),
     activeLast7Days: unique7d.size,
     activeLast30Days: unique30d.size,
     activeToday: unique1d.size,

@@ -1,6 +1,9 @@
 "use client";
 
+import { Capacitor } from "@capacitor/core";
 import { useEffect } from "react";
+
+import { apiUrl } from "@/lib/contentUrl";
 
 const VISITOR_ID_KEY = "rr_traffic_visitor_id";
 const LAST_SENT_KEY = "rr_traffic_last_sent_at";
@@ -42,15 +45,20 @@ export default function AnalyticsProvider() {
       visitorId: getVisitorId(),
       path: window.location.pathname,
       source: "app-open",
+      platform: Capacitor.getPlatform(),
     };
 
     const send = async () => {
       try {
-        const res = await fetch("/api/traffic/heartbeat", {
+        // apiUrl, not a relative path: inside the native app a relative /api
+        // call hits the bundled shell and 404s, so until 2026-09-24 no native
+        // app open was ever counted. No keepalive either — this runs on mount,
+        // not on page exit, and a keepalive request that needs a CORS
+        // preflight (the native case) is not reliably supported.
+        const res = await fetch(apiUrl("/api/traffic/heartbeat"), {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload),
-          keepalive: true,
         });
         if (res.ok) markHeartbeatSent();
       } catch {

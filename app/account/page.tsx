@@ -245,6 +245,7 @@ export default function AccountPage() {
 	      } catch {
 	        // If we cannot obtain a token, the API will return 401 and we surface a friendly error.
 	      }
+		      // content-fetch-ok: dormant account surface, only runs when ACCOUNT_FEATURES_ENABLED
 		      const res = await fetch(`/api/messages`, { cache: "no-store", headers });
 		      if (!res.ok) {
 		        if (res.status === 401) {
@@ -427,6 +428,7 @@ export default function AccountPage() {
 	        "Content-Type": "application/json",
 	        Authorization: `Bearer ${token!}`,
 	      };
+	      // content-fetch-ok: dormant account surface, only runs when ACCOUNT_FEATURES_ENABLED
 	      const res = await fetch("/api/messages", {
 	        method: "POST",
 	        headers,

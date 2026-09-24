@@ -2,10 +2,12 @@ import { NextResponse } from "next/server";
 
 import { isProduction } from "@/lib/env";
 import { adminDb, isFirebaseAdminUnavailableError } from "@/lib/firebase/admin";
+import { handleNativeCorsPreflight, withNativeCors } from "@/lib/server/nativeCors";
 
 export const runtime = "nodejs";
 
 const EVENT_COOLDOWN_MS = 30 * 60 * 1000;
+const PLATFORMS = new Set(["web", "ios", "android"]);
 
 function sanitizeVisitorId(value: unknown) {
   const clean = typeof value === "string" ? value.trim().replace(/[^a-zA-Z0-9_-]/g, "").slice(0, 80) : "";
@@ -27,17 +29,21 @@ function toDate(value: any): Date | null {
   return null;
 }
 
-export async function POST(req: Request) {
+async function postHandler(req: Request) {
   const body = (await req.json().catch(() => null)) as {
     visitorId?: string;
     path?: string;
     source?: string;
+    platform?: string;
   } | null;
 
   const visitorId = sanitizeVisitorId(body?.visitorId);
   if (!visitorId) {
     return NextResponse.json({ error: "Missing visitorId" }, { status: 400 });
   }
+
+  // Absent on reports from clients older than the 2026-09-24 fix.
+  const platform = PLATFORMS.has(String(body?.platform)) ? String(body?.platform) : null;
 
   const now = new Date();
   const nowIso = now.toISOString();
@@ -58,6 +64,7 @@ export async function POST(req: Request) {
           updatedAt: nowIso,
           path: sanitizeText(body?.path),
           source: sanitizeText(body?.source || "web"),
+          ...(platform ? { platform } : {}),
           ...(shouldRecordOpen ? { lastOpenAt: nowIso, openCount: (Number(snap.get("openCount")) || 0) + 1 } : {}),
         },
         { merge: true },
@@ -71,6 +78,7 @@ export async function POST(req: Request) {
           dayKey: nowIso.slice(0, 10),
           path: sanitizeText(body?.path),
           source: sanitizeText(body?.source || "web"),
+          ...(platform ? { platform } : {}),
         });
         recordedOpen = true;
       }
@@ -85,3 +93,6 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: error?.message || "Could not record traffic" }, { status: 500 });
   }
 }
+
+export const POST = withNativeCors(postHandler);
+export const OPTIONS = handleNativeCorsPreflight;

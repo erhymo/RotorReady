@@ -645,6 +645,215 @@
       "sectionId": "emergency_procedures",
       "type": "single",
       "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-035",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "An engine fails in a hover at 5 to 15 feet. What is the first action in the RFM procedure?",
+      "options": [
+        "Lower the collective immediately to preserve Nr",
+        "Maintain the collective setting",
+        "Select two minute power and climb out",
+        "Rotate nose down to gain airspeed"
+      ],
+      "answer": [1],
+      "explanation": "SINGLE ENGINE FAILURE — HOVER (5-15 FEET): 1. Collective — maintain collective setting. 2. Increase collective to cushion landing. 3. After touchdown, neutralize cyclic and reduce collective to minimum. 4. Apply wheel brakes.",
+      "references": ["S-92 RFM Part 1 Sec III: 1.5 SINGLE ENGINE FAILURE — HOVER (5-15 FEET) (p.3-6)"],
+      "tags": ["engine-failure", "hover"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-036",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "An engine fails before the TDP during a ground level helipad vertical takeoff. During the vertical descent back to the helipad, what Nr should be maintained, and why?",
+      "options": [
+        "Between 95% and 100%, so the operating engine can reach 30 second power",
+        "Above 105%, to store rotor energy for the landing",
+        "Between 100% and 104%: at or above 100% for sufficient rotor energy for the landing, and below 105% so the remaining engine produces maximum power",
+        "Exactly 100%, because 30 second power is only available at 100% Nr"
+      ],
+      "answer": [2],
+      "explanation": "Prior to or at the TDP: decrease collective sharply to stop the vertical climb, then descend vertically to the helipad maintaining between 100% and 104% Nr. The CAUTION explains: maintain Nr at or above 100% during the vertical descent to ensure sufficient rotor energy is available for the landing, and below 105% to ensure that the remaining engine is producing maximum power.",
+      "references": ["S-92 RFM Part 1 Sec III: 1.6A SINGLE ENGINE FAILURE ON TAKEOFF — GROUND LEVEL HELIPAD VERTICAL PROCEDURE (p.3-7)"],
+      "tags": ["vertical-takeoff", "helipad", "rotor-speed"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-037",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "Flying the helipad vertical-procedure land back from a high TDP in strong winds, what minimum rate of descent should the pilot ensure, and why?",
+      "options": [
+        "600 FPM, to avoid exceeding 30 seconds of 30 second OEI power",
+        "300 FPM, to limit landing gear loads at touchdown",
+        "1,000 FPM, to keep Nr above 100%",
+        "500 FPM, to avoid tail contact with the helipad"
+      ],
+      "answer": [0],
+      "explanation": "When the land back maneuver is flown in strong winds from a high TDP, the aircraft may require more than 30 seconds to return to the ground if the rotor is below 105%. The pilot should ensure a minimum descent rate of 600 FPM to avoid exceeding 30 seconds of 30 second OEI power. In this unusual case, it is permitted to descend at 105% Nr.",
+      "references": ["S-92 RFM Part 1 Sec III: 1.6A SINGLE ENGINE FAILURE ON TAKEOFF — GROUND LEVEL HELIPAD VERTICAL PROCEDURE (p.3-8)"],
+      "tags": ["vertical-takeoff", "helipad", "oei-power"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-038",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "An engine fails after the TDP during a ground level helipad vertical takeoff. What is the first action?",
+      "options": [
+        "Decrease collective sharply and descend vertically to the helipad",
+        "Rotate to approximately 5° nose up and continue the vertical climb",
+        "Raise collective to 30 second power and hold a level attitude until Vtoss",
+        "Decrease collective to maintain Nr above 95% while rotating the aircraft to 20° below the horizon"
+      ],
+      "answer": [3],
+      "explanation": "After TDP: 1. Decrease collective to maintain Nr above 95% while rotating the aircraft to 20° below the horizon. 2. Rotate to approximately 5° nose above the horizon when approaching Vtoss. 3. Climb at Vtoss or above at 100% Nr. 4. Landing gear up when a positive rate of climb is established. Minimum drop down is attained by initially rounding out 5 knots below Vtoss and then accomplishing a climbing acceleration to Vtoss using 30 second OEI power.",
+      "references": ["S-92 RFM Part 1 Sec III: 1.6A SINGLE ENGINE FAILURE ON TAKEOFF — GROUND LEVEL HELIPAD VERTICAL PROCEDURE (p.3-8)"],
+      "tags": ["vertical-takeoff", "helipad", "engine-failure"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-039",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "For a rejected takeoff after an engine failure during a Category B takeoff, at about what height does the RFM call for a partial flare?",
+      "options": [
+        "About 20 feet",
+        "About 50 feet",
+        "About 100 feet",
+        "About 200 feet"
+      ],
+      "answer": [1],
+      "explanation": "If gross weight and flight path permit, a Category B takeoff and climbout may be continued. For a rejected takeoff: reduce collective pitch as necessary to maintain Nr if altitude permits, make a partial flare at about 50 feet to reduce ground speed, apply collective to cushion ground contact, neutralize cyclic and reduce collective to minimum, and apply brakes to minimize ground roll.",
+      "references": ["S-92 RFM Part 1 Sec III: 1.7 SINGLE ENGINE FAILURE ON TAKEOFF — CATEGORY \"B\" (p.3-8A, p.3-9)"],
+      "tags": ["category-b", "rejected-takeoff"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-040",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "After a single engine failure during cruise, under what condition does the RFM say to consider an air restart?",
+      "options": [
+        "Always, as soon as single engine airspeed is established",
+        "Only if the APU can be started as an air source",
+        "Only if the cause of the failure has been determined and corrected",
+        "Only after descending below 5,000 feet"
+      ],
+      "answer": [2],
+      "explanation": "SINGLE ENGINE FAILURE DURING CRUISE: adjust collective to maintain desired Nr while transitioning to single engine airspeed; select two minute and then maximum continuous power when conditions permit (not two minute power until obstacle clearance is assured). Consider an air restart per ENGINE RESTART IN FLIGHT only if the cause of failure has been determined and corrected. If restart fails or no attempt is made, follow EMERGENCY ENGINE SHUTDOWN, and land as soon as practical.",
+      "references": ["S-92 RFM Part 1 Sec III: 1.8 SINGLE ENGINE FAILURE DURING CRUISE (p.3-9)"],
+      "tags": ["engine-failure", "engine-restart", "cruise"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-041",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "How does the RFM define the Category A Landing Decision Point (LDP) for a horizontal approach, and what applies if an engine fails after it?",
+      "options": [
+        "200 feet above intended landing elevation, 50 KIAS and 600 FPM rate of descent; after the LDP the approach must continue to touchdown",
+        "100 feet above intended landing elevation, 40 KIAS and 500 FPM; after the LDP a go around is still permitted",
+        "200 feet above intended landing elevation, 70 KIAS and 1,000 FPM; after the LDP the approach must continue to touchdown",
+        "50 feet above intended landing elevation, 50 KIAS and 300 FPM; after the LDP a go around is still permitted"
+      ],
+      "answer": [0],
+      "explanation": "A Category A LDP is defined as 200 feet above intended landing elevation, 50 KIAS and a descent rate of 600 feet per minute. If an engine failure occurs at or above the LDP, the pilot may elect to perform a go around or continue the landing. If the engine failure occurs after the LDP, the approach must continue to touchdown.",
+      "references": ["S-92 RFM Part 1 Sec III: 1.9 SINGLE ENGINE FAILURE DURING HORIZONTAL APPROACH — CATEGORY \"A\" (p.3-9)"],
+      "tags": ["category-a", "ldp", "approach"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-042",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "An engine fails before the LDP on a Category A horizontal approach and the pilot elects to go around. What are the initial collective and pitch targets?",
+      "options": [
+        "Collective for Nr above 95%, pitch for 55 KIAS or above",
+        "Collective for 105% Nr, pitch for Vy of 80 KIAS",
+        "Collective for 100% Nr (ensuring 30 second power is activated), pitch for 70 KIAS",
+        "Collective for 104% Nr, pitch for 50 KIAS"
+      ],
+      "answer": [2],
+      "explanation": "Prior to or at the LDP, balked landing (go around): 1. Adjust collective to maintain 100% Nr (ensure 30 second power is activated). 2. Adjust pitch attitude to maintain 70 KIAS. 3. Landing gear up when a positive rate of climb is established. Two minute power is not selected until obstacle clearance is assured.",
+      "references": ["S-92 RFM Part 1 Sec III: 1.9 SINGLE ENGINE FAILURE DURING HORIZONTAL APPROACH — CATEGORY \"A\" (p.3-9, p.3-10)"],
+      "tags": ["category-a", "go-around", "approach"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-043",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "During a Category A or B single engine landing, after confirming 30 second power is armed, when is the deceleration initiated?",
+      "options": [
+        "Passing 200 feet and 50 KIAS",
+        "Passing 100 feet and 70 KIAS",
+        "Passing 20 feet and 35 KIAS",
+        "Passing 50 feet and 50 KIAS"
+      ],
+      "answer": [3],
+      "explanation": "SINGLE ENGINE LANDING — CATEGORY \"A\" OR \"B\": 1. Confirm 30 second power is armed. 2. Initiate deceleration passing 50 feet and 50 KIAS. 3. Use collective to cushion touchdown. 4. After touchdown, neutralize cyclic and simultaneously reduce collective to minimum. 5. Apply brakes as necessary to stop within confines of the landing area.",
+      "references": ["S-92 RFM Part 1 Sec III: 1.10 SINGLE ENGINE LANDING — CATEGORY \"A\" OR \"B\" (p.3-10)"],
+      "tags": ["single-engine-landing", "category-a", "category-b"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-044",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "An engine fails before the LDP on an approach to a ground level helipad and the pilot elects to go around. What are the first two actions?",
+      "options": [
+        "Adjust collective to maintain 100% Nr and pitch to maintain 70 KIAS",
+        "Adjust collective to maintain Nr above 95% and pitch to obtain 55 KIAS or above",
+        "Lower collective to keep Nr above 105% and pitch to 35 KIAS",
+        "Select two minute power and pitch for Vy"
+      ],
+      "answer": [1],
+      "explanation": "Ground level helipad, prior to or at the LDP (go around): 1. Adjust collective to maintain Nr above 95%. 2. Adjust pitch attitude to obtain 55 KIAS or above. 3. Adjust collective to maintain 100% Nr. 4. Landing gear up when a positive rate of climb is established. Two minute power is not selected until obstacle clearance is assured. If the engine fails after the LDP, the pilot is committed to land.",
+      "references": ["S-92 RFM Part 1 Sec III: 1.11 SINGLE ENGINE FAILURE DURING APPROACH TO A GROUND LEVEL HELIPAD (p.3-10)"],
+      "tags": ["helipad", "go-around", "approach"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-045",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "After the LDP on a single engine approach to a ground level helipad, what does the RFM require before and during the flare?",
+      "options": [
+        "At least 50 KIAS and no more than 600 FPM before the flare, and flare at 20 feet",
+        "At least 35 KIAS and no more than 500 FPM before the flare, flare initiated at 50 feet and completed before descending below 20 feet",
+        "At least 55 KIAS and no more than 300 FPM before the flare, and flare completed below 10 feet",
+        "At least 35 KIAS and no more than 1,000 FPM before the flare, and flare initiated at 100 feet"
+      ],
+      "answer": [1],
+      "explanation": "After LDP, single engine landing: maintain at least 35 KIAS and no more than 500 FPM rate of descent prior to the flare, and initiate the flare at 50 feet to slow the rate of descent and reduce ground speed to zero. The CAUTION states that to prevent tail to ground contact, the flare should be completed prior to descending below 20 feet. Then descend vertically in a landing attitude and cushion the landing with the collective.",
+      "references": ["S-92 RFM Part 1 Sec III: 1.11 SINGLE ENGINE FAILURE DURING APPROACH TO A GROUND LEVEL HELIPAD (p.3-10A)"],
+      "tags": ["helipad", "single-engine-landing", "flare"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
     }
   ]
 }

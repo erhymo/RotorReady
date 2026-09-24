@@ -33,9 +33,14 @@ needs the numbers and the failure logic cold.
    (b) another section of the *same* manual (e.g. Section 7 system description);
    (c) a principle that is universally true for turbine engines, rotor
    aerodynamics, hydraulics or electrical systems and is not config-specific.
-   When the reason comes from (c) — or from your own logical reading rather than a
-   stated mechanism — **say so out loud**: "the manual doesn't state why; the
-   general principle is…". 
+   **Never tell the listener that the manual is silent.** No "the manual doesn't
+   say why", "we won't invent a reason", "that's as far as the manual takes it" —
+   that is meta-commentary about sourcing, and the listener is a pilot learning a
+   system, not an auditor of the research. Two options only: if the reason follows
+   plainly from documented facts, state it as the reason; otherwise say nothing
+   about the gap and just give the instruction. Grep new scripts for
+   "manual does not" / "manual will not" / "not the reason" before generating.
+   (Corrected 2026-09-15 — this section previously said the opposite.)
 5. **Never invent.** No number, threshold, step, branch, mode, caption, system
    behaviour, or "you'll feel a yaw / hear a bang" that is not in the source.
    A flattened or re-ordered branch structure counts as inventing.
@@ -74,6 +79,20 @@ needs the numbers and the failure logic cold.
 - **Self-contained segments.** A listener who hears one segment and nothing else
   must never sense that another segment exists or touches the same system. No
   "as we covered / like the other one / similarly / circles back / earlier we".
+- **Walk a flight when the material allows it — standing default.** For topics
+  whose items map onto phases of flight (Limitations, AFCS, and similar), structure
+  the episode as **one continuous sortie** and introduce each limit, mode or failure
+  at the point the pilot actually meets it, not in the order the manual lists them.
+  AW189 Limitations (2026-09-14) is the reference implementation: loading on the
+  ramp → whether the day allows it → APU and engine start with duty cycles and the
+  ITT start limit → rotor brake → taxi and doors → hover wind envelope and take-off
+  power → cruise airspeeds and fuel → IFR → OEI and power-off rotor bands. Fold
+  failures into the moment they would appear rather than bolting a malfunction list
+  on the end, and close with a numbers-only cold recap so it still works as revision.
+  **Do not force it** where there is no natural sequence — Electrical works built up
+  in layers then taken apart, Fire bay by bay in ground/flight pairs, Hydraulics
+  around what the aircraft isolates, RNP around what you have lost. Pick the frame
+  before writing.
 
 ---
 
@@ -90,10 +109,8 @@ needs the numbers and the failure logic cold.
 - **Abbreviations.** The first time one is used *within a segment*: say the
   abbreviation, then the full term, then a short plain-English gloss; then just
   the abbreviation for the rest of that segment. Re-explain it if it recurs in a
-  later segment. Follow the canonical spoken-forms table
-  (`reference_afcs_abbreviation_spoken_forms` memory): some revert to a word
-  (HDG → heading, KIAS → knots, TOT → turbine temp), some stay a word (NAV), some
-  are spelled out (SAS, VNE, N1, CG, OEI).
+  later segment. Then follow the canonical spoken-forms table in section F — it is
+  genuinely mixed, not one uniform rule, which is why it is a lookup table.
 - **Seating.** In these aircraft the PIC / solo pilot is in the **right** seat.
   Never default to "left seat" as the normal position.
 - **One aircraft.** Never mention, compare to, or reference another helicopter
@@ -127,7 +144,25 @@ needs the numbers and the failure logic cold.
   unavailable, but tell the user before using it.
 - **Verify:** transcribe the finished mp3 with `whisper-cli` and check it against
   the source — full transcript for any branch-heavy script, and head/tail cue
-  integrity + `-16 LUFS` on every clip.
+  integrity + `-16 LUFS` on every clip. Checking the *numbers* is necessary but not
+  sufficient; two other classes reached published episodes on 2026-09-14:
+  - **Outside-frame references** — text that is factually right but does not belong
+    in a helicopter-only product: fixed-wing framing ("most of what pilots know
+    about TCAS comes from fixed wing"), "airplane"/"aeroplane" meaning the aircraft,
+    fourth-wall breaks about the app or our own past bugs, and other models.
+    Grep the script *and* the transcript for
+    `fixed.?wing|airplane|aeroplane|in the app|filed as|copied over|data behind`
+    plus the other model names.
+  - **TTS mispronunciation the numeric check cannot see** — the model designation
+    came out "AW819" and "AW89" mid-sentence (fix by rewording to avoid the number,
+    not by regenerating and hoping), and `Two 25-kVA starter-generators` was voiced
+    "225 KVA" (any `<number> <number>-<unit>` construction is ambiguous aloud —
+    write "Two starter-generators, twenty-five KVA each"). Transcribe the first 3 s
+    separately to confirm the opening cue names the model correctly, and re-check
+    anything suspicious at 0.6x before dismissing it as a transcription artifact.
+  - The whisper model lives in the session scratchpad and is cleared between
+    sessions. A missing model makes whisper fail **silently** with empty
+    transcripts rather than erroring — re-download rather than assuming it is there.
 - **Place & register:** copy the `.mp3` to `_source/podcast/Podcast/<model>/...`
   and to `public/audio/<MODEL_ID>/` (or `.../lights/`). Add or append an entry to
   the relevant `index.json`: `id`, `title`, `description`, `filename`,
@@ -159,3 +194,45 @@ Produce a **segment map from the source** and get it approved:
 
 Only after the map is approved: write the `ASH|`/`SAGE|` script, generate,
 verify, register.
+
+---
+
+## F. Canonical spoken forms
+
+What the voice says on **every mention after** the first-use expansion. Built from the
+user's own corrections, not from assumptions — an early guess that SAS and FMS were said
+as words was wrong. **If an abbreviation is not on this list, ask rather than guess.**
+
+### Revert to the plain word or phrase
+HDG → "heading" · ALT → "altitude" · APP → "approach mode" · VS → "VS mode" ·
+IAS → "airspeed" · GA → "go-around" · FD → "flight director" · YD → "yaw damper" ·
+ATT → "attitude" · BC → "back course" · GS → "glideslope" · KIAS → "knots" ·
+TAS → "true airspeed" · TOT → "turbine temperature" (not "turbine outlet temperature") ·
+TQ → "torque" · MGB → "main gearbox" · TGB → "tail gearbox" · TR → "tail rotor" ·
+AMSL → "above mean sea level" · DH → "decision height" ·
+EGPWS → "ground proximity warning" (short form) · WAT → "weight altitude temperature" ·
+HIGE / HOGE / IGE / OGE → the full phrase ("Hover In Ground Effect" etc.)
+
+### Said as a word, never spelled
+NAV · ALTA · VNAV ("V-NAV") · LNAV ("L-NAV") · FADEC ("fay-dek") · TCAS ("tee-kas")
+
+### Always spelled out, even after first mention
+SAS · FMS · PFD · MFD · EDCU · NVG · VNE · NR · NG · N1 ("N-one") · N2 ("N-two") ·
+ITT · OAT · AGL · CG · OEI · AEO · HYD · ADF · DME · VOR · ILS · GPS · VFR · IFR
+
+VOR is spelled despite NAV/VNAV/LNAV being spoken as words — do not reason by analogy.
+
+### Hybrid
+NVIS → "N-VIS" (N spelled, VIS as a syllable) · HTAWS → "H-TAWS"
+
+Because this is script text fed straight to a TTS engine, write the phonetic hint in at
+**every** occurrence, not just the first.
+
+### Not yet answered — do not guess
+ECU, EEC. Asked 2026-08-16; the user skipped them. Ask again before use.
+
+**Why this table exists,** in the user's words: *"når de snakker om HDG, så sier de H D G
+også sier heading … men når de fortsetter å snakke om det så sier de H D G, jeg vil at de
+da sier heading, da blir det lettere å følge med for vi sier også heading, ikke H D G."*
+The first-use pattern (letter it, expand it, explain it) was already right and is
+unchanged — only the ongoing spoken form was wrong.

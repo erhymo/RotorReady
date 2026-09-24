@@ -1,5 +1,3 @@
-export const dynamic = "force-dynamic";
-
 import Link from "next/link";
 import AppTopBar from "@/components/AppTopBar";
 import { NO_AIRPORTS } from "@/lib/airports/no_icao";

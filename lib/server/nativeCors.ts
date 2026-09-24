@@ -31,3 +31,15 @@ export function nativeCorsHeaders(req: Request): Record<string, string> {
 export function handleNativeCorsPreflight(req: Request): Response {
   return new Response(null, { status: 204, headers: nativeCorsHeaders(req) });
 }
+
+// Wraps a route handler so every response it returns carries the CORS headers —
+// including early returns, error replies and rate-limit 429s. Without them the
+// WebView reports any of those as a bare network failure instead of the real
+// status. Usage: `export const GET = withNativeCors(getHandler)`.
+export function withNativeCors(handler: (req: Request) => Response | Promise<Response>) {
+  return async (req: Request): Promise<Response> => {
+    const res = await handler(req);
+    for (const [key, value] of Object.entries(nativeCorsHeaders(req))) res.headers.set(key, value);
+    return res;
+  };
+}

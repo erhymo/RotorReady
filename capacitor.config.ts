@@ -24,10 +24,12 @@ const config: CapacitorConfig = {
   // the background. Simpler and predictable, at the cost of needing a real app-store
   // release for a content-only fix.
   //
-  // Genuinely network-only destinations (weather, airports, admin, login/signup) are
-  // just normal in-app links again (not bundled, not specially handled) — visiting them
-  // requires a live connection, same as any other page that needs a server, and that's
-  // an honest, obvious failure mode rather than a special case to maintain.
+  // Weather and Airports are bundled like every other page (2026-09-24): their pages ship
+  // in the app and only their data comes from the live API via apiUrl(), with CORS for
+  // the WebView (lib/server/nativeCors.ts). They used to hand off to rotor-ready.com, which
+  // Capacitor opens in the external browser — the user left the app, the site there
+  // remembered a different aircraft, and the app's location permission did not apply.
+  // Admin and login/signup remain web-only.
   //
   // 2026-09-11: the 2026-09-10 "content only via a new build" tradeoff above turned out
   // to be unacceptable in practice — new podcasts genuinely weren't reaching users

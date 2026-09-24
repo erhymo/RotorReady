@@ -10,6 +10,7 @@ import { getAirportMinima } from "@/lib/airports/no_minima";
 import { distanceNm } from "@/lib/geo/haversine";
 import { decodeTafChunks, parseIssueTimeUtc, minutesSince, formatAgeMinutes } from "@/lib/weather/decode";
 import type { TafChunk } from "@/lib/weather/decode";
+import { apiUrl } from "@/lib/contentUrl";
 
 type Wx = {
   icao: string;
@@ -43,6 +44,7 @@ export default function WeatherHubClient() {
   const [primaryWx, setPrimaryWx] = useState<Wx | null>(null);
     const [globalAlternates, setGlobalAlternates] = useState<Wx[]>([]);
   const [primaryDayNight, setPrimaryDayNight] = useState<DayNight | null>(null);
+  const [wxFailed, setWxFailed] = useState(false);
 
     useEffect(() => {
       if (!navigator.geolocation) {
@@ -106,7 +108,7 @@ export default function WeatherHubClient() {
               if (active) setPrimaryWx(null);
               return;
             }
-            const resNo = await fetch(`/api/weather/metar-taf?icao=${nearestNo.icao}`, { cache: "no-store" });
+            const resNo = await fetch(apiUrl(`/api/weather/metar-taf?icao=${nearestNo.icao}`), { cache: "no-store" });
             if (!resNo.ok) throw new Error(`HTTP ${resNo.status}`);
             const json = await resNo.json();
             icao = nearestNo.icao;
@@ -115,7 +117,7 @@ export default function WeatherHubClient() {
             isAMD = json?.taf?.isAMD ?? undefined;
             if (active) setGlobalAlternates([]);
           } else {
-            const res = await fetch(`/api/weather/nearest-global?lat=${pos.lat}&lon=${pos.lon}`, { cache: "no-store" });
+            const res = await fetch(apiUrl(`/api/weather/nearest-global?lat=${pos.lat}&lon=${pos.lon}`), { cache: "no-store" });
             if (!res.ok) throw new Error(`HTTP ${res.status}`);
             const json = await res.json();
             const primaryJson = json?.primary || json;
@@ -144,6 +146,7 @@ export default function WeatherHubClient() {
           const minima = icao ? getAirportMinima(icao) : undefined;
           const tafChunks: TafChunk[] | undefined = tafRaw && minima ? decodeTafChunks(tafRaw, minima) : undefined;
 
+          if (active) setWxFailed(false);
           if (active && icao) {
             setPrimaryWx({ icao, metarRaw, tafRaw, tafChunks, isAMD });
           } else if (active) {
@@ -152,6 +155,7 @@ export default function WeatherHubClient() {
         } catch (e) {
           console.warn("wx fetch failed (global)", e);
           if (active) {
+            setWxFailed(true);
             setPrimaryWx(null);
             setGlobalAlternates([]);
           }
@@ -183,7 +187,7 @@ export default function WeatherHubClient() {
       }
 
       try {
-        const res = await fetch(`/api/weather/daynight?icao=${primary.icao}`, { cache: "no-store" });
+        const res = await fetch(apiUrl(`/api/weather/daynight?icao=${primary.icao}`), { cache: "no-store" });
         if (!res.ok) {
           if (active) setPrimaryDayNight(null);
           return;
@@ -298,7 +302,7 @@ export default function WeatherHubClient() {
                     })()}
                     <div className="text-sm text-slate-700 dark:text-zinc-200">
                       <span className="font-medium">METAR:</span>{" "}
-                      {wx?.metarRaw || <span className="text-slate-400">(loading...)</span>}
+                      {wx?.metarRaw || <span className="text-slate-400">(not available)</span>}
                     </div>
                     {(() => {
                       const t = wx?.tafRaw ? parseIssueTimeUtc(wx.tafRaw) : null;
@@ -325,7 +329,7 @@ export default function WeatherHubClient() {
                           ))}
                         </div>
                       ) : (
-                        <span className="text-slate-400"> {wx?.tafRaw || "(loading...)"}</span>
+                        <span className="text-slate-400"> {wx?.tafRaw || "(not available)"}</span>
                       )}
                     </div>
                     <div className="text-xs text-slate-600 dark:text-zinc-300 flex items-center gap-3">
@@ -373,7 +377,7 @@ export default function WeatherHubClient() {
               })()}
               <div className="text-sm text-slate-700 dark:text-zinc-200">
                 <span className="font-medium">METAR:</span>{" "}
-                {primaryWx.metarRaw || <span className="text-slate-400">(loading...)</span>}
+                {primaryWx.metarRaw || <span className="text-slate-400">(not available)</span>}
               </div>
               {(() => {
                 const t = primaryWx.tafRaw ? parseIssueTimeUtc(primaryWx.tafRaw) : null;
@@ -385,7 +389,7 @@ export default function WeatherHubClient() {
               <div className="text-sm text-slate-700 dark:text-zinc-200">
                 <span className="font-medium">{primaryWx.isAMD ? "AMD TAF" : "TAF"}:</span>
                 <span className="ml-1">
-                  {primaryWx.tafRaw || <span className="text-slate-400">(loading...)</span>}
+                  {primaryWx.tafRaw || <span className="text-slate-400">(not available)</span>}
                 </span>
               </div>
             </div>
@@ -405,11 +409,11 @@ export default function WeatherHubClient() {
                     <div className="font-semibold">{wx.icao}</div>
                     <div>
                       <span className="font-medium">METAR:</span>{" "}
-                      {wx.metarRaw || <span className="text-slate-400">(loading...)</span>}
+                      {wx.metarRaw || <span className="text-slate-400">(not available)</span>}
                     </div>
                     <div>
                       <span className="font-medium">{wx.isAMD ? "AMD TAF" : "TAF"}:</span>{" "}
-                      {wx.tafRaw || <span className="text-slate-400">(loading...)</span>}
+                      {wx.tafRaw || <span className="text-slate-400">(not available)</span>}
                     </div>
                   </div>
                 ))}
@@ -419,13 +423,22 @@ export default function WeatherHubClient() {
         </section>
       )}
 
+      {wxFailed && (
+        <p className="rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-800 dark:border-amber-900/60 dark:bg-amber-950/30 dark:text-amber-200">
+          Could not load weather — check your connection. The airport list below still works.
+        </p>
+      )}
+
       {geoErr && (
 	        <p className="rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-800 dark:border-amber-900/60 dark:bg-amber-950/30 dark:text-amber-200">
           Location unavailable: {geoErr}. You can still browse all airports below.
         </p>
       )}
 
-      {inNorway && (
+      {/* Also shown when location fails: the notice above promises this list, and without a
+          position it is the only way in. It used to render only for a confirmed position in
+          Norway, so a denied or timed-out location left an empty page under that promise. */}
+      {(inNorway || geoErr) && (
         <section className="space-y-2">
           <h2 className="text-sm font-semibold text-slate-700 dark:text-zinc-200">Norwegian airports</h2>
 	          <ul className="overflow-hidden rounded-xl border border-slate-200 bg-white divide-y divide-slate-200 dark:border-zinc-800 dark:bg-zinc-900 dark:divide-zinc-800">

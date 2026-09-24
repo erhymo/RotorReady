@@ -27,7 +27,7 @@ const root = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..")
 // (EXCLUDE_FROM_EXPORT). A raw fetch there can only ever run against a real server.
 const SKIP_DIRS = new Set([
   "node_modules", ".next", ".next-native", ".git", "public", "public-native",
-  "app/api", "app/admin", "app/login", "app/signup", "app/weather", "app/airports",
+  "app/api", "app/admin", "app/login", "app/signup",
   "app/dev",
 ]);
 

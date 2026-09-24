@@ -5,8 +5,8 @@
 // boots from local files every time — online or offline, no network or service
 // worker activation required to start.
 //
-// Routes that inherently need a live server (auth, admin, billing, weather,
-// airports) are temporarily moved out of app/ for the duration of this build so
+// Routes that inherently need a live server (API, admin, login/signup) are
+// temporarily moved out of app/ for the duration of this build so
 // `next build` with output: 'export' only has to deal with the static-safe tree,
 // then moved back — the normal Vercel build (which serves those routes) is
 // completely untouched by this script.
@@ -32,8 +32,6 @@ const EXCLUDE_FROM_EXPORT = [
   "app/admin",
   "app/login",
   "app/signup",
-  "app/weather",
-  "app/airports",
   "middleware.ts",
 ];
 

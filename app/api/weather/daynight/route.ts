@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { handleNativeCorsPreflight, withNativeCors } from "@/lib/server/nativeCors";
 
 import { NO_AIRPORTS } from "@/lib/airports/no_icao";
 import { NO_AIRPORT_FEATURES } from "@/lib/airports/no_features";
@@ -44,7 +45,7 @@ function formatLocalOslo(iso: string | null | undefined): string | null {
   }
 }
 
-export async function GET(req: Request) {
+async function getHandler(req: Request) {
   const rl = checkRateLimit(req, { bucket: "weather:daynight", limit: 30, windowMs: 60_000 });
   if (!rl.allowed) return rateLimitResponse(rl.retryAfterSeconds);
 
@@ -142,3 +143,6 @@ export async function GET(req: Request) {
   }
 }
 
+// The native app calls this cross-origin from its WebView; see lib/server/nativeCors.ts.
+export const GET = withNativeCors(getHandler);
+export const OPTIONS = handleNativeCorsPreflight;

@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
 import AppTopBar from "@/components/AppTopBar";
+import { apiUrl } from "@/lib/contentUrl";
 
 export default function AirportDetailClient() {
   const { icao: icaoParam } = useParams() as { icao: string };
@@ -14,7 +15,7 @@ export default function AirportDetailClient() {
   useEffect(() => {
     if (!icao) return;
     let cancelled = false;
-    fetch(`/api/airports/hours?icao=${icao}`, { cache: "no-store" })
+    fetch(apiUrl(`/api/airports/hours?icao=${icao}`), { cache: "no-store" })
       .then(async (r) => {
         if (!r.ok) throw new Error(await r.text());
         return r.json();

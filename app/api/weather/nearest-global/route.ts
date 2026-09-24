@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { handleNativeCorsPreflight, withNativeCors } from "@/lib/server/nativeCors";
 
 import { checkRateLimit, rateLimitResponse } from "@/lib/server/rateLimit";
 
@@ -137,7 +138,7 @@ function extractStationsWithAlternates(metarJson: any, tafJson: any, maxCount: n
   return results;
 }
 
-export async function GET(req: Request) {
+async function getHandler(req: Request) {
   const rl = checkRateLimit(req, { bucket: "weather:nearest-global", limit: 20, windowMs: 60_000 });
   if (!rl.allowed) return rateLimitResponse(rl.retryAfterSeconds);
 
@@ -210,3 +211,6 @@ export async function GET(req: Request) {
   }
 }
 
+// The native app calls this cross-origin from its WebView; see lib/server/nativeCors.ts.
+export const GET = withNativeCors(getHandler);
+export const OPTIONS = handleNativeCorsPreflight;

@@ -6,10 +6,9 @@ import { BoltIcon, BookIcon, DownloadIcon, HeadphonesIcon, MessageIcon } from "@
 import { shouldShowNorwayTools } from "@/lib/geo/norwayToolsVisibility";
 import { useActiveModelVariant } from "@/lib/models/hooks";
 import { modelRoutes } from "@/lib/models/catalog";
-import { openLiveOnlyLink } from "@/lib/liveOnlyLinks";
 import { contentUrl, fetchContentJson } from "@/lib/contentUrl";
 
-function Bar(props: { href: string; title: string; description: string; tone?: "blue"|"amber"|"slate"|"emerald"; icon?: React.ReactNode; liveOnly?: boolean; pending?: boolean }) {
+function Bar(props: { href: string; title: string; description: string; tone?: "blue"|"amber"|"slate"|"emerald"; icon?: React.ReactNode; pending?: boolean }) {
   const tones: Record<string, string> = {
     blue: "border-blue-600 bg-blue-50/40 hover:bg-blue-50 dark:border-blue-400 dark:bg-blue-900/40 dark:hover:bg-blue-900/60",
     amber: "border-amber-500 bg-amber-50/40 hover:bg-amber-50 dark:border-amber-400 dark:bg-amber-900/40 dark:hover:bg-amber-900/60",
@@ -42,17 +41,6 @@ function Bar(props: { href: string; title: string; description: string; tone?: "
       <div className={`${className} cursor-default`} aria-hidden="true">
         {content}
       </div>
-    );
-  }
-
-  // Needs a live server (weather/airport data) — not part of the native app's
-  // bundled local shell, so it navigates to the live site instead of a dead
-  // client-side route. See lib/liveOnlyLinks.ts.
-  if (props.liveOnly) {
-    return (
-      <button type="button" onClick={() => openLiveOnlyLink(props.href)} className={`${className} w-full`}>
-        {content}
-      </button>
     );
   }
 
@@ -256,14 +244,12 @@ function Bar(props: { href: string; title: string; description: string; tone?: "
 		                title="Weather planning"
 		                description="Nearest ICAO airports with METAR/TAF and alternates."
 		                tone="slate"
-		                liveOnly
 		              />
 		              <Bar
 		                href="/airports"
 		                title="Airports"
 		                description="Browse Avinor AIS airports, ATS and fuel opening hours."
 		                tone="slate"
-		                liveOnly
 		              />
 		            </>
 		          )}

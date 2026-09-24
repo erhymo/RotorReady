@@ -1690,6 +1690,234 @@
       "sectionId": "emergency_procedures",
       "type": "single",
       "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-090",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "How does the RFM distinguish a SAS hardover, a boost hardover and a trim hardover?",
+      "options": [
+        "SAS: slow attitude change with control movement. Boost: abrupt attitude change without control movement. Trim: rapid control movement in one axis",
+        "SAS: abrupt, uncommanded attitude change without corresponding pilot flight control movement. Boost: rapid, uncommanded flight control movement in one axis with a corresponding attitude change. Trim: slow, uncommanded attitude change with a corresponding flight control movement",
+        "All three produce identical symptoms and can only be identified from the EICAS cautions",
+        "SAS: rapid control movement in all axes. Boost: slow attitude change without control movement. Trim: abrupt yaw only"
+      ],
+      "answer": [1],
+      "explanation": "SAS hardovers cause abrupt, uncommanded aircraft attitude changes in one or more axes without a corresponding pilot's flight control movement. Boost hardovers cause rapid, uncommanded flight control movements in one axis with a corresponding change in aircraft attitude. Trim hardovers cause slow, uncommanded aircraft attitude changes in one or more axes with a corresponding flight control movement. The pilot should observe attitude changes and EICAS cautions to determine the appropriate procedure.",
+      "references": ["S-92 RFM Part 1 Sec III: 12.0 AUTOMATIC FLIGHT CONTROL SYSTEM (p.3-55)"],
+      "tags": ["afcs", "hardover", "recognition"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-091",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "During a trim hardover, what happens if the pilot does not intervene, and what is the first action?",
+      "options": [
+        "Nothing; the SAS fully cancels a trim hardover indefinitely, so no action is needed",
+        "The AFCS disengages automatically; re-engage the APs",
+        "The SAS initially counteracts it, giving a slow attitude change, but once the SAS saturates the attitude change becomes rapid; depress the cyclic and collective trim releases while adjusting the flight controls to maintain control",
+        "The aircraft pitches up abruptly; turn SERVO BST OFF"
+      ],
+      "answer": [2],
+      "explanation": "The SAS system will initially counteract a trim hardover, resulting in a slow aircraft attitude change. If the pilot does not intervene before the SAS reaches saturation, the attitude change will become rapid. Action: 1. Depress cyclic and collective trim releases while adjusting flight controls to maintain aircraft control. 2. Reduce airspeed to 120 KIAS or less. 3. Disable the malfunctioning trim axis by pressing the appropriate TRIM button. 4. Continue the flight while actively monitoring the controls.",
+      "references": ["S-92 RFM Part 1 Sec III: 12.7 TRIM HARDOVERS (p.3-58, p.3-59)"],
+      "tags": ["afcs", "trim", "hardover"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-092",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "Per the JAMMED OR RESTRICTED FLIGHT CONTROLS procedure, trim actuators have a slip clutch override. Approximately what pilot force overcomes it?",
+      "options": [
+        "5 pounds in pitch, 5 pounds in roll and 10 pounds in collective",
+        "30 pounds in pitch, 30 pounds in roll and 60 pounds in collective",
+        "12 pounds in pitch, 15 pounds in roll and 20 pounds in collective",
+        "15 pounds in pitch, 12 pounds in roll and 30 pounds in collective"
+      ],
+      "answer": [3],
+      "explanation": "Trim actuators incorporate a slip clutch that provides an override capability in the event of a jammed trim actuator; the pilot applied forces required to overcome it are approximately 15 pounds in pitch, 12 pounds in roll and 30 pounds in collective. Actions: adjust flight controls to maintain control, reduce airspeed to 120 KIAS or less, check for foreign objects, then trim OFF (affected control); if still restricted trim ON, then SERVO BST OFF, then SERVO BST ON; if still restricted, manually apply sufficient force if possible and land as soon as possible.",
+      "references": ["S-92 RFM Part 1 Sec III: 12.7A JAMMED OR RESTRICTED FLIGHT CONTROLS (Temporary Revision No. 7, facing p.3-59)"],
+      "tags": ["afcs", "jammed-controls", "trim"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-093",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "An engine fire on the ground is not extinguished after throttle STOP, FIRE/ARMED pushed in and the extinguisher (MAIN/RESERVE) used. What are the next actions?",
+      "options": [
+        "Both throttles OFF, rotor brake apply, BATT and APU CTRL OFF, evacuate the aircraft",
+        "Motor the engine with the starter until the fire is out",
+        "Take off and land clear of the fire",
+        "Leave the other engine running to power the fire extinguishing system, then evacuate"
+      ],
+      "answer": [0],
+      "explanation": "Engine fire on the ground: 1. Throttle (affected engine) — STOP. 2. FIRE/ARMED pushbutton (affected engine) — PUSH IN. 3. FIRE EXTG — MAIN/RESERVE as required. If fire is not extinguished: 4. Both throttles — OFF. 5. Rotor brake — apply. 6. BATT and APU CTRL — OFF. 7. Evacuate aircraft. If the FIRE warning remains on for several seconds after the first bottle is deployed, select the RESERVE extinguisher.",
+      "references": ["S-92 RFM Part 1 Sec III: 13.1 ENGINE FIRES (p.3-60)"],
+      "tags": ["fire", "engine-fire", "ground"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-094",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "SMOKE IN BAGGAGE is displayed and smoke from a baggage compartment fire is entering the cabin. What does the RFM NOTE say about airspeed?",
+      "options": [
+        "Increasing airspeed above 140 KIAS will stop the smoke intrusion",
+        "Decreasing airspeed below 140 KIAS may slow or stop the smoke intrusion, weighed against the need for speed to reach the nearest safe landing zone",
+        "Airspeed has no effect; open the side windows",
+        "Decreasing airspeed below 80 KIAS is required before venting the cabin"
+      ],
+      "answer": [1],
+      "explanation": "If smoke from a baggage compartment fire is observed in the cabin, decreasing airspeed below 140 KIAS may slow or stop the smoke intrusion. Prior to slowing the aircraft, the pilot must weigh the necessity for speed to quickly reach the nearest safe landing zone versus the amount of smoke in the cabin. Actions: ECS CONT PANEL CABIN and COCKPIT — VENT, land as soon as possible, inspect the baggage compartment and fight fire if required.",
+      "references": ["S-92 RFM Part 1 Sec III: 13.5 BAGGAGE COMPARTMENT SMOKE DETECTED (p.3-62, p.3-63)"],
+      "tags": ["fire", "smoke", "baggage"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-095",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "During an electrical fire in flight, after attaining VFR conditions, turning off non-essential systems and landing as soon as possible, in what order is electrical power removed if the fire persists?",
+      "options": [
+        "BATT OFF, then AC GEN NO 1 and NO 2 and APU GEN OFF, then DC CONV NO. 1 and NO. 2 OFF",
+        "AC GEN NO 1 and NO 2 and APU GEN OFF, then BATT OFF, then DC CONV NO. 1 and NO. 2 OFF",
+        "DC CONV NO. 1 and NO. 2 OFF, then AC GEN NO 1 and NO 2 and APU GEN OFF, then BATT OFF",
+        "All switches OFF together"
+      ],
+      "answer": [2],
+      "explanation": "ELECTRICAL FIRE IN FLIGHT: 1. Attain VFR conditions while continuing with the following steps. 2. Turn off all non-essential electrical systems. 3. Land as soon as possible. If the fire persists: 4. DC CONV NO. 1 and NO. 2 — OFF. If the fire persists: 5. AC GEN NO 1 and NO 2, APU GEN — OFF. If the fire persists: 6. BATT — OFF. The CAUTION states that prior to shutting off electrical power the pilot must consider what equipment is essential for continued safe flight.",
+      "references": ["S-92 RFM Part 1 Sec III: 13.7 ELECTRICAL FIRE IN FLIGHT (p.3-63, p.3-64)"],
+      "tags": ["fire", "electrical"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-096",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "After a single DCU failure has been identified and the good DCU selected on the reversion control panel, why must the flight director corresponding to the good DCU be selected, and how is the flight continued?",
+      "options": [
+        "To restore the failed EICAS page; the flight may continue in IMC",
+        "To ensure power limiting is available during coupled flight; continue the flight in VMC, or land as soon as practical if VMC is not available",
+        "To re-enable the autopilots; land immediately",
+        "To restore the cautions on the failed side; continue and correct prior to the next flight"
+      ],
+      "answer": [1],
+      "explanation": "After a single DCU failure, select the FD that corresponds to the functioning DCU to ensure power limiting is available during coupled flight. Then continue the flight in VMC; if VMC is not available, land as soon as practical. On the ground, do not conduct flight in IMC until the fault is corrected. A simple DCU miscompare still presents full data on both EICAS pages; with a DCU failure, the failed side EICAS page has no data.",
+      "references": ["S-92 RFM Part 1 Sec III: 14.6 SINGLE DCU FAILURE or MISCOMPARE (p.3-68)"],
+      "tags": ["dcu", "avionics", "afcs"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-097",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "Both DCUs fail (DCU 1 and DCU 2, no data on either EICAS, no Nr, Np, TGT or Q on either PFD). Which statement is correct?",
+      "options": [
+        "Aircraft performance is not affected and full AFCS functionality remains, but the pilot cannot monitor aircraft health and most cautions, warnings and aural alerts are unavailable; land as soon as possible",
+        "Aircraft performance is degraded and the AFCS disengages; land immediately",
+        "Attitude, heading, airspeed and altitude displays are lost; use the standby instruments and continue",
+        "All cautions remain available on the standby display; continue the flight"
+      ],
+      "answer": [0],
+      "explanation": "If both DCUs fail, the performance of the aircraft will not be affected but the pilot will not be able to monitor aircraft health. Most cautions and warnings and most aural alerts will not be available. Attitude, heading, airspeed and altitude displays, navigation and communication radios and displays, and full AFCS functionality will be available. Action: land as soon as possible.",
+      "references": ["S-92 RFM Part 1 Sec III: 14.7 DUAL DCU FAILURE (p.3-69)"],
+      "tags": ["dcu", "avionics"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-098",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "RIPS DEGRD OAT indicates a dual RIPS OAT sensor failure. What OAT does the RIPS use, and why is a manual RIPS mode not recommended?",
+      "options": [
+        "-5°C; manual modes are disabled with this failure",
+        "-12°C; without an OAT input the RIPS OAT interlock will not function, so in a manual mode the blades are heated regardless of OAT and blade damage could occur above 5°C OAT",
+        "0°C; manual modes heat the blades too little",
+        "-20°C; manual modes will switch off the tail rotor heating"
+      ],
+      "answer": [1],
+      "explanation": "With a dual RIPS OAT sensor failure, in all modes the RIPS schedules the blade heating element on time using a default OAT value of -12°C. WARNING: without an OAT input, the RIPS OAT interlock will not function; in a manual mode, the RIPS will continue to heat the main and tail rotor blades regardless of OAT. Blade damage could occur at an OAT above 5°C. Therefore, use of a manual mode with a dual RIPS OAT sensor failure is not recommended. Actions include monitoring vibrations and power requirements and exiting icing conditions as soon as practical.",
+      "references": ["S-92 RFM Part 1 Sec III: 15.13 DUAL RIPS OAT SENSOR FAILURE (p.3-78A, p.3-79)"],
+      "tags": ["rips", "icing", "oat"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-099",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "During a ditching, which statement about float deployment is correct?",
+      "options": [
+        "The floats should be deployed before water entry to absorb the impact",
+        "Automatic float deployment works on battery power only; manual deployment requires generator power",
+        "FLOTATION is armed above 120 KIAS so the floats deploy on the approach",
+        "The floats must only be deployed after water entry; automatic deployment will not function on battery power only, while manual deployment will, and the pilot should manually deploy the floats immediately after water entry"
+      ],
+      "answer": [3],
+      "explanation": "The floats are not designed to absorb the force of water impact and must only be deployed after water entry. When the flotation system is armed, the floats deploy automatically via the immersion switch or manually via the collective mounted FLOAT switch; the pilot should manually deploy the floats immediately after water entry. Automatic float deployment will not function when operating on battery power only; manual float deployment will. Action: LDG GEAR — DOWN (floats can be deployed with the gear retracted if it cannot be extended), FLOTATION — ARM below 80 KIAS, execute the water landing, FLOATS — deploy.",
+      "references": ["S-92 RFM Part 1 Sec III: 17.0 DITCHING (p.3-82, p.3-82A)"],
+      "tags": ["ditching", "floats"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-100",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "After a ditching with life rafts installed, when may the crew deploy the rafts and evacuate?",
+      "options": [
+        "Immediately after the floats deploy, with the rotor still turning, inflating life vests inside the cabin",
+        "Only after the rotor blades have stopped turning (rotor brake gently applied); life vests are not inflated until clear of the helicopter",
+        "After the throttles are OFF, whether or not the rotor has stopped",
+        "After an extended water taxi, with life vests inflated before leaving the seat"
+      ],
+      "answer": [1],
+      "explanation": "After throttles OFF: rotor brake — gently apply to slowly stop the rotor. Do not deploy rafts until the rotor blades have stopped turning. Then LIFE RAFTS — ARM, LIFE RAFT JETT — deploy (the rafts may also be deployed by pulling the red D-rings on the forward edge of each sponson), and evacuate. WARNING: do not evacuate the helicopter until the rotor blades have stopped turning; do not inflate life vests until clear of the helicopter.",
+      "references": ["S-92 RFM Part 1 Sec III: 17.0 DITCHING (p.3-83)"],
+      "tags": ["ditching", "life-rafts", "evacuation"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-101",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "After an inadvertent in-flight float deployment, what restrictions apply?",
+      "options": [
+        "Rate of climb 1000 fpm or less, bank 30° or less, maximum indicated airspeed 50 KIAS in climb, 55 KIAS in level flight and 60 KIAS in descent/autorotation, and flare attitude at touchdown 8° or less",
+        "Maximum 80 KIAS in all flight conditions, with no bank or climb restriction",
+        "Rate of climb 500 fpm or less, bank 15° or less, and 100 KIAS maximum",
+        "No restrictions other than landing as soon as practical"
+      ],
+      "answer": [0],
+      "explanation": "Intentional in-flight deployment of the float bags is prohibited. After an inadvertent deployment: restrict rate of climb to 1000 fpm or less, angle of bank to 30° or less, and adhere to the float deployed maximum indicated airspeeds (climb 50, level flight 55, descent/autorotation 60), which produce an 80 knot calibrated airspeed because deployed floats affect airspeed accuracy. Land as soon as practical, restricting flare attitude on touchdown to 8° or less to avoid hitting the aft float bag, and avoid icing conditions with floats deployed.",
+      "references": ["S-92 RFM Part 1 Sec III: 18.1 INADVERTENT FLOTATION DEPLOYMENT (p.3-84, p.3-85)"],
+      "tags": ["floats", "limits"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
     }
   ]
 }

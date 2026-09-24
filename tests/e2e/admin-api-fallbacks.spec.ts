@@ -16,6 +16,7 @@ test('admin APIs return fallback payloads instead of 500 when Firebase Admin is 
     last1Day: { appOpens: 0, uniqueVisitors: 0 },
     last7Days: { appOpens: 0, uniqueVisitors: 0 },
     last30Days: { appOpens: 0, uniqueVisitors: 0 },
+    last30DaysByPlatform: {},
     activeLast7Days: 0,
     activeLast30Days: 0,
     activeToday: 0,
@@ -27,6 +28,12 @@ test('admin APIs return fallback payloads instead of 500 when Firebase Admin is 
   const users = await usersRes.json();
   expect(users.users).toEqual([]);
   expect(users.devWarning ?? users.error).toBeTruthy();
+
+  const errorsRes = await request.get('/api/admin/client-errors');
+  expect(errorsRes.status()).toBe(200);
+  const errors = await errorsRes.json();
+  expect(errors.errors).toEqual([]);
+  expect(errors.devWarning ?? errors.error).toBeTruthy();
 });
 
 test('admin page renders subscriptions and traffic warnings instead of failing', async ({ page }) => {
@@ -34,6 +41,7 @@ test('admin page renders subscriptions and traffic warnings instead of failing',
 
   await expect(page.getByRole('heading', { name: 'Subscriptions' })).toBeVisible();
   await expect(page.getByRole('heading', { name: 'Traffic' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Errors' })).toBeVisible();
   await expect(page.getByText(/viser tom abonnementsoversikt/i)).toBeVisible();
   await expect(page.getByText(/viser tom trafikkoversikt/i)).toBeVisible();
 });

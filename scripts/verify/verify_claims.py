@@ -65,6 +65,8 @@ FILES = {
     'quick-reference': 'public/quick-reference/{m}.json',
     'procedures': 'public/procedures/{m}.json',
     'quiz-limitations': 'public/model-data/{m}/sections/limitations.json',
+    'quiz-emergency_procedures': 'public/model-data/{m}/sections/emergency_procedures.json',
+    'quiz-normal_procedures': 'public/model-data/{m}/sections/normal_procedures.json',
 }
 
 
@@ -354,7 +356,10 @@ def units_quiz_limitations(data):
 
 
 UNIT_FNS = {'system-notes': units_system_notes, 'quick-reference': units_quick_reference, 'procedures': units_procedures,
-            'quiz-limitations': units_quiz_limitations}
+            'quiz-limitations': units_quiz_limitations,
+            # Same shape as limitations (question + correct option + explanation); only the file differs.
+            'quiz-emergency_procedures': units_quiz_limitations,
+            'quiz-normal_procedures': units_quiz_limitations}
 
 
 # ----------------------------------------------------------------------------- model call

@@ -29,6 +29,7 @@
     "nav:smoke": "node scripts/nav-smoke.mjs",
     "native:shell": "NATIVE_EXPORT=1 node scripts/build-native-shell.mjs",
     "validate:content": "node scripts/validate-content.mjs",
+    "fix:counts": "node scripts/fix-quiz-counts.mjs",
     "check:content-fetch": "node scripts/check-content-fetch.mjs",
     "prebuild": "node scripts/validate-content.mjs",
     "release:check": "node scripts/release-check.mjs",

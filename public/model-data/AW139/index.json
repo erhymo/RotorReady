@@ -1,11 +1,34 @@
 {
   "sections": [
-    { "id": "limitations", "title": "Limitations" },
-    { "id": "avionics_fms_limitations", "title": "Avionics & FMS Limitations" },
-    { "id": "engine-systems", "title": "Engine, Fuel, Lubricants, Hydraulics & System Limitations" },
-    { "id": "emergency_procedures", "title": "Emergency Procedures" },
-    { "id": "normal_procedures", "title": "Normal Procedures" },
-    { "id": "air_law", "title": "Air Law (EASA)" }
+    {
+      "id": "limitations",
+      "title": "Limitations",
+      "count": 297
+    },
+    {
+      "id": "avionics_fms_limitations",
+      "title": "Avionics & FMS Limitations",
+      "count": 25
+    },
+    {
+      "id": "engine-systems",
+      "title": "Engine, Fuel, Lubricants, Hydraulics & System Limitations",
+      "count": 55
+    },
+    {
+      "id": "emergency_procedures",
+      "title": "Emergency Procedures",
+      "count": 54
+    },
+    {
+      "id": "normal_procedures",
+      "title": "Normal Procedures",
+      "count": 50
+    },
+    {
+      "id": "air_law",
+      "title": "Air Law (EASA)",
+      "count": 20
+    }
   ]
 }
-

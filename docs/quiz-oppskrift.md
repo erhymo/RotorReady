@@ -110,6 +110,10 @@ For at en seksjon skal vises i appen:
    - Mappes i `app/quiz/page.tsx` sin `SECTION_ROUTE_MAP`.
    - Route‑komponenten filtrerer spørsmål på riktig `sectionId` når det trengs (f.eks. `"emergency_procedures"`).
 3. `loadAllQuestions` brukes til å hente alle spørsmål for en modell og filtrerer på `modelIds`/`productIds`.
+4. Kjør `npm run fix:counts` hver gang spørsmål er lagt til eller fjernet. Antallet quizlisten
+   viser («48 questions») står i `count` i `index.json`, ikke i spørsmålsfila, og oppdaterer seg
+   ikke selv. `npm run validate:content` (og dermed `npm run check` og CI) stopper hvis et tall
+   mangler eller er feil.
 
 **Regel:**
 - Kapitler uten innhold skal ikke vises i appen (ingen tomme kapitler i `index.json`).

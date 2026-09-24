@@ -265,6 +265,38 @@ for (const dir of [
   }
 }
 
+// ---------- quiz section counts ----------
+// The quiz list shows each section's size from the `count` in the model's
+// index.json, not from the section file, so the list can render without
+// fetching every file. Nothing kept the two in step: S92 limitations went from
+// 20 to 48 questions and the list went on saying "20 questions" (with AW169 and
+// AW169 EP also off). The quiz itself was fine; only the promise on the list
+// was wrong. This makes the count part of the content, checked like the rest.
+for (const model of subdirs(path.join(PUBLIC, "model-data"))) {
+  const indexFile = path.join(PUBLIC, "model-data", model, "index.json");
+  const index = readJson(indexFile);
+  if (!index || !Array.isArray(index.sections)) continue;
+  const rel = path.relative(ROOT, indexFile);
+  for (const section of index.sections) {
+    const sectionFile = path.join(PUBLIC, "model-data", model, "sections", `${section.id}.json`);
+    // No model file means the section is served from quiz-data or derived; nothing to
+    // compare. Parse directly: the file was already validated (and counted) above.
+    if (!existsSync(sectionFile)) continue;
+    let items;
+    try {
+      const data = JSON.parse(readFileSync(sectionFile, "utf8"));
+      items = Array.isArray(data) ? data : data.items;
+    } catch {
+      continue;
+    }
+    if (!Array.isArray(items)) continue;
+    if (typeof section?.count !== "number")
+      fail(rel, `section "${section.id}" has no count (sections/${section.id}.json has ${items.length} questions) — run npm run fix:counts`);
+    else if (items.length !== section.count)
+      fail(rel, `section "${section.id}" says count ${section.count}, but sections/${section.id}.json has ${items.length} questions — run npm run fix:counts`);
+  }
+}
+
 function jsonFilesIn(dir) {
   try {
     return readdirSync(dir)

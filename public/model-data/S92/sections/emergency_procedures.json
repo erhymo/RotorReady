@@ -854,6 +854,196 @@
       "sectionId": "emergency_procedures",
       "type": "single",
       "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-046",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "Upon a dual engine failure, which way will the helicopter nose swing, and why?",
+      "options": [
+        "To the right, due to the reduction in torque",
+        "To the left, due to the reduction in torque as engine power decreases",
+        "To the left, due to the tail rotor overspeeding",
+        "It will not swing; the AFCS holds heading automatically"
+      ],
+      "answer": [1],
+      "explanation": "Upon dual engine failure, the helicopter nose will swing to the left due to reduction in torque as the engine power decreases. Immediate collective reduction is required to maintain Nr within safe limits; full down collective should be maintained until Nr recovers to the normal operating range, and rudder pedals should be applied to maintain heading.",
+      "references": ["S-92 RFM Part 1 Sec III: 2.0 DUAL-ENGINE FAILURE (p.3-10B)"],
+      "tags": ["dual-engine-failure", "yaw"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-047",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "What does the WARNING for a dual engine failure while hovering or on takeoff at 10 feet or less caution against?",
+      "options": [
+        "Failing to move the cyclic forward while lowering the collective, which can decrease main rotor blade to tail cone clearance",
+        "Raising the collective before ground contact, which can overtorque the drivetrain",
+        "Applying wheel brakes before the collective is fully down",
+        "Holding a level attitude, which can cause a nose-low touchdown"
+      ],
+      "answer": [0],
+      "explanation": "The WARNING states that failure to move the cyclic forward while lowering the collective can decrease the main rotor blade to tail cone clearance and increase the possibility of striking the tail cone with a rotor blade. Actions: hold the aircraft in level attitude, increase the collective as required to cushion the landing, then after ground contact lower collective to minimum and apply wheel brakes.",
+      "references": ["S-92 RFM Part 1 Sec III: 2.1 DUAL ENGINE FAILURE WHILE HOVERING OR ON TAKEOFF AT 10 FEET OR LESS (p.3-10B)"],
+      "tags": ["dual-engine-failure", "hover", "tail-strike"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-048",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "Following a dual engine failure in cruise, what rotor speed and airspeed does the procedure call for?",
+      "options": [
+        "Reduce collective to maintain Nr at 100% and establish a 60 to 70 KIAS glide",
+        "Reduce collective to maintain Nr at 110% and establish a 50 to 60 KIAS glide",
+        "Reduce collective immediately to maintain Nr at 105% and establish an autorotative glide between 80 and 100 KIAS",
+        "Maintain Nr at 96% and hold 120 KIAS until the landing site is selected"
+      ],
+      "answer": [2],
+      "explanation": "DUAL ENGINE FAILURE DURING CRUISE: 1. Reduce collective immediately — maintain Nr at 105%. 2. Establish autorotative glide between 80 and 100 KIAS. 3. LDG GEAR — DN. 4. Fuel and engine throttles — OFF. 5. Cabin occupants — alert. If time and altitude permit, try to restart one or both engines; if neither engine will start, perform an autorotative landing.",
+      "references": ["S-92 RFM Part 1 Sec III: 2.3 DUAL ENGINE FAILURE DURING CRUISE (p.3-11, p.3-12)"],
+      "tags": ["dual-engine-failure", "autorotation", "rotor-speed"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-049",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "In autorotation, at what airspeeds are the minimum rate of descent and the maximum glide distance attained?",
+      "options": [
+        "Minimum rate of descent (2,200 to 2,400 fpm) at 80 KIAS; maximum glide distance (0.6 nm/1000 feet) at 100 KIAS",
+        "Minimum rate of descent at 100 KIAS; maximum glide distance at 80 KIAS",
+        "Both at 85 KIAS",
+        "Minimum rate of descent at 60 KIAS; maximum glide distance at 120 KIAS"
+      ],
+      "answer": [0],
+      "explanation": "The minimum rate of descent of 2,200 to 2,400 fpm may be attained at 80 KIAS and 100 to 105% Nr. The maximum glide distance of 0.6 nm/1000 feet may be attained at 100 KIAS and 100 to 105% Nr.",
+      "references": ["S-92 RFM Part 1 Sec III: 2.3 DUAL ENGINE FAILURE DURING CRUISE (p.3-11)"],
+      "tags": ["autorotation", "glide"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-050",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "During an autorotative landing, at what height is the flare executed, and what nose-up attitude should not be exceeded as the flare loses effectiveness and the helicopter settles?",
+      "options": [
+        "At 50 feet; maximum 15° nose up",
+        "At 200 feet; maximum 5° nose up",
+        "At 100 feet; maximum 20° nose up",
+        "At 100 feet; maximum 10° nose up"
+      ],
+      "answer": [3],
+      "explanation": "AUTOROTATIVE LANDINGS: establish an 80 to 100 KIAS autorotative glide (recommended flare airspeed is 85 KIAS minimum), maintain Nr at 105%, gear down. At 100 feet, execute a flare to decrease airspeed, decrease sink rate and increase Nr. As the flare loses effectiveness and the helicopter starts to settle, reduce flare to a maximum 10° nose up. Prior to ground contact, increase collective to cushion landing; immediately after landing decrease collective, neutralize cyclic and apply wheel brakes.",
+      "references": ["S-92 RFM Part 1 Sec III: 2.4 AUTOROTATIVE LANDINGS (p.3-12)"],
+      "tags": ["autorotation", "flare"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-051",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "ENG 1 HOT START is displayed (TGT above 1000° during start). After moving the throttle to STOP, what does the procedure call for?",
+      "options": [
+        "Press the ENG START button and motor the engine until TGT decreases below 250°",
+        "Turn FUEL OFF and wait until TGT decreases below 150° before any motoring",
+        "Press the ENG START button and motor the engine until TGT decreases below 540°",
+        "Discharge the fire extinguisher into the affected engine"
+      ],
+      "answer": [0],
+      "explanation": "The FADEC hot start prevention logic should automatically abort a normal start attempt when TGT reaches 1000°; it is not provided during emergency start procedures. For ENG HOT START (TGT greater than 1000° during start): 1. Throttle (affected engine) — STOP. 2. ENG START button — PRESS. 3. Motor engine until TGT decreases below 250°.",
+      "references": ["S-92 RFM Part 1 Sec III: 3.1 ENGINE HOT START (p.3-13)"],
+      "tags": ["hot-start", "engine-start", "tgt"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-052",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "With a FADEC Channel B failure (FADEC 1B FAIL or FADEC 2B FAIL), which cautions for the affected engine are disabled?",
+      "options": [
+        "ENG OIL HOT, FUEL BYPASS and ENG OIL PRES",
+        "ENG OIL BYPASS, ENG FUEL PRES and ENG CHIP",
+        "ENG POWER LIM and ENG RATE LIM",
+        "No cautions are disabled by a single channel failure"
+      ],
+      "answer": [1],
+      "explanation": "Channel B failure: loss of the affected engine oil pressure and TGT indications, ENG POWER LIM caution illuminates, and ENG OIL BYPASS, ENG FUEL PRES and ENG CHIP cautions are disabled. (Channel A failure disables ENG OIL HOT, FUEL BYPASS and ENG OIL PRES instead.) Complete loss of a single FADEC channel will not degrade engine performance; loss of both channels on one engine will cause that engine to fail. In flight: land as soon as practical. On the ground: correct prior to flight.",
+      "references": ["S-92 RFM Part 1 Sec III: 3.2 FADEC CHANNEL FAILURE (p.3-13, p.3-14)"],
+      "tags": ["fadec", "cautions"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-053",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "A FADEC 1 XENG caution (cross engine communications fault) illuminates. What does the CAUTION say about the affected engine, and what are the actions?",
+      "options": [
+        "The affected engine is limited to maximum continuous power; select two minute power only below 500 feet",
+        "The affected engine will not respond to collective changes; shut it down immediately",
+        "30 second power will be armed on the affected engine; avoid high engine power settings and rapid collective movements, and land as soon as practical",
+        "Load sharing is lost; match torques manually with the throttle and continue the flight"
+      ],
+      "answer": [2],
+      "explanation": "FADEC CROSS ENGINE COMMUNICATIONS FAULT (FADEC 1 XENG or FADEC 2 XENG). CAUTION: 30 second power will be armed on the affected engine. Action: 1. Avoid high engine power settings and rapid collective movements. 2. Land as soon as practical.",
+      "references": ["S-92 RFM Part 1 Sec III: 3.3 FADEC CROSS ENGINE COMMUNICATIONS FAULT (p.3-14)"],
+      "tags": ["fadec", "oei-power"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-054",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "In an ENGINE FIXED POWER (\"fail fixed\") condition, collective has been reduced to try to get a rate of descent at 80 KIAS. When does the procedure require the affected throttle to be moved to STOP in flight?",
+      "options": [
+        "As soon as the torque split is noticed",
+        "When Nr increases above 106% and torque on the good engine reaches 0 before a rate of descent can be established",
+        "When Nr decreases below 100% during the collective reduction",
+        "Only once on the ground, never in flight"
+      ],
+      "answer": [1],
+      "explanation": "Actions: 1. Airspeed — 80 KIAS. 2. Collective — make small changes to confirm the fail fixed condition. 3. Collective — reduce until a rate of descent is obtained or Nr increases above 106%. If Nr increases above 106% and torque on the good engine reaches 0 before a rate of descent can be established: 4. Throttle (affected engine) — STOP, then 5. accomplish SINGLE ENGINE FAILURE procedure. The WARNING notes that in a fail fixed condition there is no automatic engine overspeed protection. If a descent rate can be obtained at 80 KIAS, the approach and landing may be made with the fail fixed engine on line.",
+      "references": ["S-92 RFM Part 1 Sec III: 3.4 ENGINE FIXED POWER (p.3-15, p.3-16)"],
+      "tags": ["fadec", "fixed-power", "overspeed"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-055",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "In a \"fail fixed\" condition you move the affected throttle to STOP, but the engine does not shut down. What does the RFM say to do?",
+      "options": [
+        "Move the throttle to IDLE, which will bring the engine to idle",
+        "Press the FIRE/ARMED pushbutton to cut fuel",
+        "Cycle the FADEC channel circuit breakers",
+        "Shut the engine down by moving the affected fuel switch to OFF"
+      ],
+      "answer": [3],
+      "explanation": "In a fail fixed condition, moving the affected throttle to IDLE will not cause the engine to go to idle. If moving the throttle to STOP does not cause the engine to shut down, shut down the engine by moving the affected fuel switch to OFF.",
+      "references": ["S-92 RFM Part 1 Sec III: 3.4 ENGINE FIXED POWER (p.3-16)"],
+      "tags": ["fadec", "fixed-power", "engine-shutdown"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
     }
   ]
 }

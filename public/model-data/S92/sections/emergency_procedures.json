@@ -379,6 +379,272 @@
       "sectionId": "emergency_procedures",
       "type": "single",
       "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-021",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "In the S-92 Emergency Procedures, what does the term \"land as soon as possible\" mean?",
+      "options": [
+        "Continued flight may not be possible; ditching or landing in hazardous terrain is preferable to continuing flight",
+        "Land at the nearest site where a safe landing can be accomplished",
+        "Extended flight is not recommended; landing site and duration of flight are at the pilot's discretion",
+        "Land at the nearest airfield where maintenance support is available"
+      ],
+      "answer": [1],
+      "explanation": "The RFM defines \"land as soon as possible\" as landing at the nearest site where a safe landing can be accomplished. \"Land immediately\" means continued flight may not be possible and ditching or landing in hazardous terrain is preferable to continuing flight; \"land as soon as practical\" means extended flight is not recommended, with landing site and duration of flight at the pilot's discretion.",
+      "references": ["S-92 RFM Part 1 Sec III: INTRODUCTION (p.3-2)"],
+      "tags": ["definitions", "landing-urgency"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-022",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "According to the Emergency Procedures introduction, when should the pilot reset a popped circuit breaker?",
+      "options": [
+        "Up to three times, provided the associated caution extinguishes each time",
+        "At any time, as long as the associated system caution is illuminated",
+        "Only if the affected system is required for flight, only once, and only if there is no indication of electrical fire",
+        "Only on the ground, after the electrical system has been checked"
+      ],
+      "answer": [2],
+      "explanation": "A circuit breaker should be reset only if the affected system is required for flight. The pilot should reset a circuit breaker only once and only if there is no indication of electrical fire.",
+      "references": ["S-92 RFM Part 1 Sec III: INTRODUCTION (p.3-2)"],
+      "tags": ["circuit-breakers", "electrical"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-023",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "After an emergency engine shutdown (throttle STOP, FUEL OFF), TGT remains above 540°. What does the procedure call for?",
+      "options": [
+        "Press the ENG START button to engage the starter with the throttle in STOP, and press it again to turn the starter off when TGT is below 150°",
+        "Push in the FIRE/ARMED pushbutton and discharge the main fire extinguisher bottle",
+        "Move the throttle to IDLE to restore airflow until TGT is below 540°",
+        "Wait until TGT is below 150°, then select FUEL back to DIRECT"
+      ],
+      "answer": [0],
+      "explanation": "If TGT remains above 540° or there is other evidence of combustion after engine shutdown, press the ENG START button to engage the starter with the throttle in STOP. When TGT is below 150°, press the ENG START button to turn the starter off.",
+      "references": ["S-92 RFM Part 1 Sec III: 1.1 EMERGENCY ENGINE SHUTDOWN (p.3-3)"],
+      "tags": ["engine-shutdown", "tgt", "starter"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-024",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "An engine flamed out while its fuel selector was in XFD. According to ENGINE RESTART IN FLIGHT, what should be done with the fuel selector for the restart?",
+      "options": [
+        "Leave it in XFD so the operating engine's fuel supply primes the failed engine",
+        "Select OFF until Ng passes ground idle, then return it to XFD",
+        "Place the fuel selector switch to DIRECT during the restart sequence",
+        "Place it to OFF and restart only with APU bleed air"
+      ],
+      "answer": [2],
+      "explanation": "The ENGINE RESTART IN FLIGHT procedure assumes the engine was operating with the fuel selector in DIRECT. If the flameout occurred while operating in XFD, place the fuel selector switch to DIRECT during the restart sequence.",
+      "references": ["S-92 RFM Part 1 Sec III: 1.2 ENGINE RESTART IN FLIGHT (p.3-3)"],
+      "tags": ["engine-restart", "fuel-system"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-025",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "During an in-flight engine restart using crossbleed air, what does the CAUTION require on the operating engine?",
+      "options": [
+        "At least 80% torque",
+        "At least 95% Ng",
+        "At least 100% Nr with 30 second power armed",
+        "At least 90% Ng"
+      ],
+      "answer": [3],
+      "explanation": "The CAUTION states: maintain at least 90% Ng on the operating engine when accomplishing a crossbleed start. The same caution appears in both ENGINE RESTART IN FLIGHT and EMERGENCY ENGINE START.",
+      "references": ["S-92 RFM Part 1 Sec III: 1.2 ENGINE RESTART IN FLIGHT / 1.3 EMERGENCY ENGINE START (p.3-4, p.3-5)"],
+      "tags": ["engine-restart", "crossbleed"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-026",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "During an in-flight engine restart with AIR SRCE HEAT/START in ENG and the APU on, which air source does the system use?",
+      "options": [
+        "The operating engine if it is at approximately 80% torque or above; otherwise the APU",
+        "Always the APU, since the APU has priority whenever it is running",
+        "Always the operating engine, since ENG is selected",
+        "The operating engine if it is below approximately 80% torque; otherwise the APU"
+      ],
+      "answer": [0],
+      "explanation": "With the AIR SRCE HEAT/START switch in ENG and the APU on, the system uses the engine as the air source if the operating engine is at approximately 80% torque or above; below approximately 80% torque it uses the APU. The APU should be ON for in-flight restarts if possible, and use of engine cross-bleed results in a loss of up to 3% power of the operating engine.",
+      "references": ["S-92 RFM Part 1 Sec III: 1.2 ENGINE RESTART IN FLIGHT (p.3-4)"],
+      "tags": ["engine-restart", "crossbleed", "apu"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-027",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "What protection is absent during the EMERGENCY ENGINE START procedure, and what must the pilot do about it?",
+      "options": [
+        "None; FADEC hot start prevention remains active, so no pilot intervention is required",
+        "FADEC hot start prevention is not present; the pilot must monitor engine temperature and place the throttle to STOP if a hot start is imminent",
+        "Hot start prevention remains active, but the pilot must hold the throttle in IDLE until TGT is below 540°C",
+        "FADEC hot start prevention is not present; the pilot should move the throttle to IDLE if a hot start is imminent"
+      ],
+      "answer": [1],
+      "explanation": "During normal engine starts, hot start prevention is provided automatically by the FADEC. This protective feature is not present during an emergency start procedure: the pilot must monitor engine temperature and manually abort the start by placing the throttle to STOP if a hot start is imminent. An emergency start is only to be used when damage to the engine is secondary to safety of flight.",
+      "references": ["S-92 RFM Part 1 Sec III: 1.3 EMERGENCY ENGINE START (p.3-4, p.3-5)"],
+      "tags": ["emergency-start", "hot-start", "fadec"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-028",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "During the EMERGENCY ENGINE START procedure, when is the throttle of the affected engine moved to FLY?",
+      "options": [
+        "Only once Ng has stabilized at ground idle",
+        "When TGT is below 540°C, and never sooner",
+        "Only after the FADEC automatic blow down has completed",
+        "When TGT is below 150°C, or sooner if the situation dictates"
+      ],
+      "answer": [3],
+      "explanation": "The emergency start sequence is: APU CTRL ON (if time permits), AIR SRCE HEAT/START to ENG (if APU is OFF) or APU (if APU is ON), ENG IGN AUTO, FUEL selector DIRECT or XFD, throttle OFF, ENG START button PRESS, then throttle to FLY when TGT is below 150°C or sooner if the situation dictates. The emergency start procedure overrides the FADEC automatic blow down.",
+      "references": ["S-92 RFM Part 1 Sec III: 1.3 EMERGENCY ENGINE START (p.3-4, p.3-5)"],
+      "tags": ["emergency-start", "throttle", "tgt"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-029",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "After a single engine failure, how is 30 second power re-armed?",
+      "options": [
+        "By moving the collective OEI SEL switch aft",
+        "By pushing in on the collective OEI SEL switch",
+        "By pushing forward on the collective OEI SEL switch, at any time",
+        "By cycling the operating engine throttle from FLY to IDLE and back"
+      ],
+      "answer": [2],
+      "explanation": "Thirty second power can be re-armed at any time by pushing forward on the OEI SEL switch. After an engine failure, 30 second power is attained by raising the collective until Nr decreases to 100%. Moving the switch aft selects two minute power; pushing in on it (after two minute power is selected) selects maximum continuous power.",
+      "references": ["S-92 RFM Part 1 Sec III: 1.4 SINGLE ENGINE FAILURE (p.3-6)"],
+      "tags": ["oei-power", "engine-failure"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-030",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "While cushioning a single engine landing, Nr droops below 96%. If the APU and APU generator are not on, what is the result?",
+      "options": [
+        "The AFCS disengages and aircraft control is degraded until Nr recovers",
+        "The AC generators drop off line, only the battery bus powers aircraft systems and the copilot MFDs momentarily blank, with no degradation to aircraft control",
+        "The pilot MFDs blank and remain blank until the generators are reset manually",
+        "The operating engine automatically selects two minute power to restore Nr"
+      ],
+      "answer": [1],
+      "explanation": "When increasing collective to cushion a single engine landing, Nr may droop below 96%, causing the AC generators to drop off line at touchdown. Unless the APU is on and the APU generator switch is on, only the battery bus will be available. This does not degrade aircraft control but causes the copilot MFDs to momentarily blank. Once the collective is moved to flat pitch and Nr recovers above 96%, normal electrical power returns.",
+      "references": ["S-92 RFM Part 1 Sec III: 1.4 SINGLE ENGINE FAILURE (p.3-6)"],
+      "tags": ["engine-failure", "electrical", "single-engine-landing"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-031",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "Extended single engine flight is needed to reach a safe landing area. When does the RFM say NOT to use fuel crossfeed?",
+      "options": [
+        "When the pilot suspects the engine failed due to a fuel system malfunction",
+        "When fuel imbalance exceeds 700 pounds (317 kg)",
+        "Whenever the APU is running",
+        "At any time during single engine flight"
+      ],
+      "answer": [0],
+      "explanation": "If extended single engine flight is required, the pilot should use the fuel crossfeed system to prevent exceeding 700 pounds (317 kg) of fuel imbalance or to prevent flaming out the good engine due to fuel starvation. Do not crossfeed if the pilot suspects that the engine failed due to a fuel system malfunction.",
+      "references": ["S-92 RFM Part 1 Sec III: 1.4 SINGLE ENGINE FAILURE (p.3-6)"],
+      "tags": ["engine-failure", "fuel-crossfeed"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-032",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "An engine fails during a Category A horizontal takeoff exactly at the takeoff decision point (TDP). What does the RFM direct?",
+      "options": [
+        "Continue the takeoff, since the TDP has been reached",
+        "Continue the takeoff only if Vtoss has already been reached",
+        "Reject the takeoff",
+        "Either option, at the pilot's discretion, depending on remaining distance"
+      ],
+      "answer": [2],
+      "explanation": "If the engine fails before or at the takeoff decision point (TDP), the takeoff is rejected. If the failure occurs after the TDP, the takeoff may be continued. Prior to reaching TDP, the rejected takeoff is initiated by rotating nose up to decrease forward speed and attain a landing attitude.",
+      "references": ["S-92 RFM Part 1 Sec III: 1.6 SINGLE ENGINE FAILURE ON TAKEOFF — CATEGORY \"A\" HORIZONTAL (p.3-6, p.3-6A)"],
+      "tags": ["category-a", "takeoff", "engine-failure"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-033",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "Following an engine failure on a Category A takeoff, what rotor speed does the RFM specify from the TDP up to the best rate of climb speed, and for single engine flight above it?",
+      "options": [
+        "105% Nr up to Vy, then 100% Nr above Vy",
+        "104% Nr throughout the climb and in single engine cruise",
+        "100% Nr throughout, including single engine flight above Vy",
+        "100% Nr from TDP to Vy (80 KIAS), then 105% Nr for single engine flight above Vy"
+      ],
+      "answer": [3],
+      "explanation": "During a Category A climbout, 100% Nr is used to maximize climb rates from TDP to the best rate of climb speed of 80 KIAS. For single engine flight above the best rate of climb airspeed, use 105% Nr.",
+      "references": ["S-92 RFM Part 1 Sec III: 1.6 SINGLE ENGINE FAILURE ON TAKEOFF — CATEGORY \"A\" HORIZONTAL (p.3-6)"],
+      "tags": ["category-a", "rotor-speed", "oei"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-ep-034",
+      "section": "EMERGENCY PROCEDURES",
+      "question": "After an engine failure past the TDP in a Category A horizontal takeoff, when should two minute power be selected?",
+      "options": [
+        "Immediately at the engine failure, before adjusting pitch attitude",
+        "Not until obstacle clearance is assured; select it when obstacles are cleared",
+        "On reaching Vtoss, before retracting the landing gear",
+        "Only after reaching Vy and selecting maximum continuous power"
+      ],
+      "answer": [1],
+      "explanation": "After TDP: adjust pitch attitude to establish Vtoss, adjust collective to maintain 100% Nr, and retract the landing gear when a positive rate of climb is established. A WARNING states: do not select two minute power until obstacle clearance is assured. When obstacles are cleared, select two minute power, continue the climb and accelerate to Vy, then select maximum continuous power and land as soon as practical.",
+      "references": ["S-92 RFM Part 1 Sec III: 1.6 SINGLE ENGINE FAILURE ON TAKEOFF — CATEGORY \"A\" HORIZONTAL (p.3-7)"],
+      "tags": ["category-a", "oei-power", "takeoff"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "emergency_procedures",
+      "type": "single",
+      "modelIds": ["S92"]
     }
   ]
 }

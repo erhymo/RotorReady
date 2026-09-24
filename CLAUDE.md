@@ -192,6 +192,52 @@ Environment health: `npm run appstore:doctor`, `npm run googleplay:doctor`.
    stay answer as before; `npm run ios:sync` plus a simulator build, and `npm run android:sync`
    plus `(cd android && ./gradlew assembleDebug)`; the app still starts in the simulator.
 
+### Add a new aircraft model
+
+The model list (`lib/models/catalog.ts`) and the per-model pages are **code**, so a new model
+reaches the native app only with a store release. Once it is there, its content updates live
+like every other model's. Installed older versions never show it: their catalog does not have it.
+
+The last model added from scratch was the R22 (`1255549e`, `e953332e`, `97b95f6c`), but its
+content has since moved to live JSON. Copy today's R22 files, not those commits.
+
+1. **Source first.** Put the manual under `_source/manuals/<name>/`. Add where each topic lives
+   to `docs/verification/rfm-chapter-map.md`. Register it in `SOURCES` in
+   `scripts/verify/verify_claims.py`: a page-delimited text dump (`=== DOC PAGE n ===`, same
+   format as `_source/rfm/s92-rfm-pages.txt`) plus the PDF page ranges. An unregistered model is
+   never checked, and the pre-push gate does not cover it (see *Content verification*).
+2. **Catalog.** Add one `MODEL_VARIANTS` entry in `lib/models/catalog.ts`. Its `id` is also the
+   name of every content file. Its `routeSlug` is the folder name under `app/`. Also set
+   `docLabel` and `fuelType`. A new aircraft family, as opposed to a variant of an existing one,
+   also needs its `ProductId` added to the type and to `isProductId`. Set a `features` flag only
+   when that content exists. The settings picker, the Home bars, the Calculations hub and
+   `nav:smoke` all read this entry, so nothing else lists models. The quiz list reads the
+   model's own `model-data/<id>/index.json` (step 4).
+3. **Route wrappers**, one per feature, each a 7–13 line copy of R22's with the id and slug
+   changed:
+   - `app/<slug>/system-notes/page.tsx` and `system-notes/note/page.tsx`
+   - `app/<slug>/quick-reference/page.tsx`
+   - `app/<slug>/abbreviations/page.tsx`
+   - `app/<slug>/procedures/detail/page.tsx` and `app/training/procedures/<slug>/page.tsx`
+   - `app/calculations/<slug>/{true-airspeed,unit-conversions}/page.tsx`
+
+   Skip R22's `[slug]` pages. They only redirect old links, and a new model has none.
+4. **Content**, all keyed by the variant id. Copy the shape of R22's file for each:
+   - `public/system-notes/<id>.json`, `quick-reference/<id>.json`, `procedures/<id>.json`
+     and `abbreviations/<id>.json`
+   - `public/model-data/<id>/index.json` plus `sections/*.json`. Every quiz item carries
+     `modelIds: ["<id>"]`. Then run `npm run fix:counts`.
+   - `public/audio/<id>/index.json` (see `docs/podcast-master-prompt.md`)
+
+   Write it from the manual page, not from pattern (see *Writing new content*), and record every
+   claim in the ledger before it counts as done.
+5. **Verify.** Run `npm run check`. `nav:smoke` picks up the new variant from the catalog;
+   `node scripts/nav-smoke.mjs --only <id>` runs just that variant. Look at every new screen at
+   390px, choose the model in Settings on the Android emulator, and do an iOS simulator build.
+6. **Release** it with *Ship a native release*. Until then only the web shows the model. If the
+   store listing names models (the Play `full_description.txt` does), update it in the same
+   release.
+
 ### Check what is actually live in the stores
 
 Never assume from memory or from the repo's version numbers — those are what will be shipped

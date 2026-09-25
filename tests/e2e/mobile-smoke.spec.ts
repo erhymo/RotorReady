@@ -80,7 +80,8 @@ test('core detail and training pages load on mobile', async ({ page }) => {
 
 test('limitations quiz question can be answered and finished on mobile', async ({ page }) => {
   await page.addInitScript(() => {
-    sessionStorage.setItem('limq_session', JSON.stringify({
+    localStorage.setItem('rr_active_model_variant', 'AW169');
+    sessionStorage.setItem('quiz_session:AW169:limitations', JSON.stringify({
       section: 'limitations',
       createdAt: '2024-01-01T00:00:00.000Z',
       items: [{
@@ -97,13 +98,13 @@ test('limitations quiz question can be answered and finished on mobile', async (
     }));
   });
 
-  await page.goto('/limitations-quiz/q?n=1');
+  await page.goto('/quiz/limitations/play/q?n=1');
   await expect(page.getByText('Question 1 / 1').first()).toBeVisible();
 	  await page.getByRole('button', { name: /^1\.Correct option$/i }).click();
   await expect(page.getByText('Correct ✅')).toBeVisible();
 
   await Promise.all([
-    page.waitForURL(/\/limitations-quiz\/result$/, { timeout: 15_000 }),
+    page.waitForURL(/\/quiz\/limitations\/play\/result$/, { timeout: 15_000 }),
     page.getByRole('button', { name: /finish/i }).click(),
   ]);
 

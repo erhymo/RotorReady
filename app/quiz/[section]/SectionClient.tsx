@@ -64,6 +64,10 @@ const AMOUNT_OPTIONS = [
 
 type AmountOptionValue = (typeof AMOUNT_OPTIONS)[number]["value"];
 
+const LEGACY_SECTION_KEYS: Record<string, string[]> = {
+  avionics_fms_limitations: ["avionics-fms-limitations", "avionics"],
+};
+
 export default function SectionClient() {
   const router = useRouter();
   const params = useParams<{ section: string }>();
@@ -115,6 +119,8 @@ export default function SectionClient() {
                 emergency_procedures: "Emergency Procedures",
                 normal_procedures: "Normal Procedures",
                 air_law: "Air Law (EASA)",
+                "engine-systems": "Engine, Fuel, Lubricants, Hydraulics & System Limitations",
+                avionics_fms_limitations: "Avionics & FMS Limitations",
               };
               const title = TITLE_FALLBACK[routeSection] || routeSection.replaceAll("_", " ").replace(/\b\w/g, (c) => c.toUpperCase());
               arr = [...arr, { id: routeSection, title }];
@@ -138,6 +144,8 @@ export default function SectionClient() {
             emergency_procedures: "Emergency Procedures",
             normal_procedures: "Normal Procedures",
             air_law: "Air Law (EASA)",
+            "engine-systems": "Engine, Fuel, Lubricants, Hydraulics & System Limitations",
+            avionics_fms_limitations: "Avionics & FMS Limitations",
           };
           const title = TITLE_FALLBACK[routeSection] || routeSection.replaceAll("_", " ").replace(/\b\w/g, (c) => c.toUpperCase());
           setSections(addAll([{ id: routeSection, title }]));
@@ -261,19 +269,24 @@ export default function SectionClient() {
   }
   async function startWrongOnly() {
     const id = selected?.id || routeSection;
-    const lowerKey = `${modelScopedKey("rr_progress_last_wrong", activeVariant.id)}:${id}`;
-    const upperKey = `${modelScopedKey("rr_progress_last_wrong", activeVariant.id)}:${id.toUpperCase()}`;
-    const legacyLower = activeVariant.id === "AW169" ? `rr_progress_last_wrong:${id}` : null;
-    const legacyUpper = activeVariant.id === "AW169" ? `rr_progress_last_wrong:${id.toUpperCase()}` : null;
+    // The retired Avionics quiz (/avionics-fms-limitations-quiz) stored its
+    // wrong-answer sets under its own section names; read those too so a pilot's
+    // saved set survives the move to this page.
+    const ids = [id, ...(LEGACY_SECTION_KEYS[id] ?? [])];
+    const wrongKeys = ids.flatMap((sid) => [
+      `${modelScopedKey("rr_progress_last_wrong", activeVariant.id)}:${sid}`,
+      `${modelScopedKey("rr_progress_last_wrong", activeVariant.id)}:${sid.toUpperCase()}`,
+      ...(activeVariant.id === "AW169" ? [`rr_progress_last_wrong:${sid}`, `rr_progress_last_wrong:${sid.toUpperCase()}`] : []),
+    ]);
 
     // Prefer aggregated history across last 10 sessions if available
-    const histKey = `${modelScopedKey("rr_wrong_history", activeVariant.id)}:${id}`;
-    const rawHist = localStorage.getItem(histKey);
     let combinedItems: any[] | null = null;
     try {
-      const arr = rawHist ? JSON.parse(rawHist) : null;
-      if (Array.isArray(arr) && arr.length) {
-        const out: Record<string, any> = {};
+      const out: Record<string, any> = {};
+      for (const sid of ids) {
+        const rawHist = localStorage.getItem(`${modelScopedKey("rr_wrong_history", activeVariant.id)}:${sid}`);
+        const arr = rawHist ? JSON.parse(rawHist) : null;
+        if (!Array.isArray(arr)) continue;
         for (const sess of arr.slice(-10)) {
           if (Array.isArray(sess?.items)) {
             for (const it of sess.items) {
@@ -281,18 +294,11 @@ export default function SectionClient() {
             }
           }
         }
-
-        combinedItems = Object.values(out);
       }
+      if (Object.keys(out).length) combinedItems = Object.values(out);
     } catch {}
 
-
-
-    const raw =
-      localStorage.getItem(lowerKey) ||
-      localStorage.getItem(upperKey) ||
-      (legacyLower ? localStorage.getItem(legacyLower) : null) ||
-      (legacyUpper ? localStorage.getItem(legacyUpper) : null);
+    const raw = wrongKeys.map((k) => localStorage.getItem(k)).find(Boolean) || null;
 
     if (!combinedItems && !raw) {
       alert("No wrong-answer set available. Complete a quiz first.");
@@ -304,10 +310,7 @@ export default function SectionClient() {
       router.push(`/quiz/${encodeURIComponent(id)}/all`);
     } catch {
       alert("Could not load saved wrong-answer set. Delete and try again.");
-      localStorage.removeItem(lowerKey);
-      localStorage.removeItem(upperKey);
-      if (legacyLower) localStorage.removeItem(legacyLower);
-      if (legacyUpper) localStorage.removeItem(legacyUpper);
+      for (const k of wrongKeys) localStorage.removeItem(k);
     }
   }
 

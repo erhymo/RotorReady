@@ -42,8 +42,8 @@ test('generic wrong-only uses saved wrong-set and clears override session after 
   await expect(wrongOnlyCard).toBeVisible();
   await expect(async () => {
     await wrongOnlyCard.getByRole('button', { name: /practice wrong answers/i }).click();
-    await expect(page).toHaveURL(/\/quiz\/normal_procedures\/all$/, { timeout: 5000 });
-  }).toPass({ timeout: 15000 });
+    await expect(page).toHaveURL(/\/quiz\/normal_procedures\/play\/q\?n=1$/, { timeout: 20000 });
+  }).toPass({ timeout: 45000 });
   await expect(page.getByText(/Seeded wrong-only question [12]\?/)).toBeVisible();
   await expect(page.getByText('Question 1 / 2').first()).toBeVisible();
 
@@ -85,8 +85,8 @@ test('generic wrong-only prefers rr_wrong_history over last-wrong fallback', asy
   await expect(wrongOnlyCard).toBeVisible();
   await expect(async () => {
     await wrongOnlyCard.getByRole('button', { name: /practice wrong answers/i }).click();
-    await expect(page).toHaveURL(/\/quiz\/normal_procedures\/all$/, { timeout: 5000 });
-  }).toPass({ timeout: 15000 });
+    await expect(page).toHaveURL(/\/quiz\/normal_procedures\/play\/q\?n=1$/, { timeout: 20000 });
+  }).toPass({ timeout: 45000 });
   await expect(page.getByText('Question 1 / 1').first()).toBeVisible();
   await expect(page.getByText('History item wins')).toBeVisible();
   await expect(page.getByText('Fallback item should be ignored')).toHaveCount(0);

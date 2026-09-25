@@ -40,6 +40,12 @@ export function getQuizSectionIds(): string[] {
   for (const model of subdirs(path.join(PUBLIC_DIR, "model-data"))) {
     addFromIndex(path.join(PUBLIC_DIR, "model-data", model, "index.json"));
   }
+  // Virtual sections that are not in any index.json but are real quiz routes:
+  // "all" (every chapter, from the quiz list) and "all_wrong" (Settings →
+  // Practice wrong answers). Without them the native app's bundled shell had no
+  // page for either, so both buttons led nowhere inside the app.
+  ids.add("all");
+  ids.add("all_wrong");
   return Array.from(ids);
 }
 

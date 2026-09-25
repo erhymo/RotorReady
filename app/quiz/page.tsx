@@ -20,25 +20,23 @@ type LoadedSectionsState = {
   error: string | null;
 };
 
+// Shown only when the model's own section list cannot be loaded.
 const STATIC_QUIZ_TYPES = [
-  { href: "/limitations-quiz", title: "Limitations" },
+  { href: "/quiz/limitations", title: "Limitations" },
   { href: "/quiz/normal_procedures", title: "Normal Procedures" },
   { href: "/quiz/air_law", title: "Air Law (EASA)" },
   {
-    href: "/engine-systems-quiz",
+    href: "/quiz/engine-systems",
     title: "Engine, Fuel, Lubricants, Hydraulics & System Limitations",
   },
-  { href: "/avionics-fms-limitations-quiz", title: "Avionics & FMS Limitations" }
+  { href: "/quiz/avionics_fms_limitations", title: "Avionics & FMS Limitations" }
 ];
-const SECTION_ROUTE_MAP: Record<string, string> = {
-  limitations: "/limitations-quiz",
-  avionics_fms_limitations: "/avionics-fms-limitations-quiz",
-  emergency_procedures: "/emergency-quiz",
-  "engine-systems": "/engine-systems-quiz",
-};
 
+// Every section, for every model, runs through the same /quiz/<section> flow.
+// Limitations, Emergency, Engine systems and Avionics used to have their own
+// copies (/limitations-quiz and so on), which had to be fixed one by one.
 function resolveSectionRoute(sectionId: string): string {
-  return SECTION_ROUTE_MAP[sectionId] ?? `/quiz/${encodeURIComponent(sectionId)}`;
+  return `/quiz/${encodeURIComponent(sectionId)}`;
 }
 
 export default function QuizTypeSelectPage() {

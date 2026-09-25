@@ -115,12 +115,7 @@ const withPWA = withPWAInit({
       // Ensure quiz start/question/result pages are cached and available offline.
       // Place this before the generic navigate handler so explicit quiz routes
       // get their own cache.
-      urlPattern: ({ url }) => [
-        '/quiz/',
-        '/emergency-quiz',
-        '/engine-systems-quiz',
-        '/avionics-fms-limitations-quiz',
-      ].some((prefix) => url.pathname.startsWith(prefix)),
+      urlPattern: ({ url }) => url.pathname.startsWith('/quiz/'),
       handler: 'NetworkFirst',
       options: { cacheName: 'quiz-pages' },
     },

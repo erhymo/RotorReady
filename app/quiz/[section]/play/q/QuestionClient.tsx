@@ -5,6 +5,8 @@ import TopBarBackButton from "@/components/TopBarBackButton";
 import QuizBottomBar from "@/components/QuizBottomBar";
 import { reportFlag, type FlagPayload } from "@/lib/flags";
 import { useActiveModelVariant } from "@/lib/models/hooks";
+import Link from "next/link";
+import { modelRoutes } from "@/lib/models/catalog";
 import { modelScopedKey } from "@/lib/models/storage";
 import { isEditableKeyboardTarget } from "@/lib/isEditableKeyboardTarget";
 import { clearQuizResumeSnapshotForSession, syncQuizResumeSnapshot } from "@/lib/quiz/resumeSnapshot";
@@ -31,16 +33,18 @@ type Session = {
   amountToken?: string;
 };
 
-export default function H125QuestionClient() {
+export default function QuestionClient() {
   const router = useRouter();
   const params = useParams<{ section: string }>();
   // Question index comes from `?n=`; the section stays a route segment.
   const searchParams = useSearchParams();
   const section = decodeURIComponent(params.section || "");
   const index = Math.max(0, (parseInt(searchParams.get("n") ?? "", 10) || 1) - 1);
-  const { variant: activeVariant } = useActiveModelVariant();
+  // Wait for the stored aircraft before reading the session: the key includes
+  // the model id, and the first render still has the default model.
+  const { variant: activeVariant, loading: variantLoading } = useActiveModelVariant();
 
-  const key = `${modelScopedKey("h125q_session", activeVariant.id)}:${section}`;
+  const key = `${modelScopedKey("quiz_session", activeVariant.id)}:${section}`;
 
   const [session, setSession] = React.useState<Session | null>(null);
   const [selected, setSelected] = React.useState<number | null>(null);
@@ -52,18 +56,19 @@ export default function H125QuestionClient() {
 
 
   React.useEffect(() => {
+    if (variantLoading) return;
     try {
       const raw = sessionStorage.getItem(key);
       if (!raw) { router.replace(`/quiz/${encodeURIComponent(section)}`); return; }
       const s = JSON.parse(raw) as Session;
       if (!s.items?.length) { router.replace(`/quiz/${encodeURIComponent(section)}`); return; }
-      if (index >= s.items.length) { router.replace(`/quiz/${encodeURIComponent(section)}/h125/result`); return; }
+      if (index >= s.items.length) { router.replace(`/quiz/${encodeURIComponent(section)}/play/result`); return; }
       setSession(s);
       setSelected(s.answers[index] ?? null);
     } catch {
       router.replace(`/quiz/${encodeURIComponent(section)}`);
     }
-  }, [index, key]);
+  }, [index, key, variantLoading]);
 
   function persist(mutator: (s: Session) => void) {
     const raw = sessionStorage.getItem(key); if (!raw) return;
@@ -120,17 +125,17 @@ export default function H125QuestionClient() {
 	    clearQuizResumeSnapshotForSession(activeVariant.id, section, {
 	      amountToken: String(session?.amountToken ?? "all"),
 	    });
-      router.push(`/quiz/${encodeURIComponent(section)}/h125/result`);
+      router.push(`/quiz/${encodeURIComponent(section)}/play/result`);
     } else {
       updateResume(index + 1);
-      router.push(`/quiz/${encodeURIComponent(section)}/h125/q?n=${index + 2}`);
+      router.push(`/quiz/${encodeURIComponent(section)}/play/q?n=${index + 2}`);
     }
   }
 
   function prev() {
     if (index > 0) {
       updateResume(index - 1);
-      router.push(`/quiz/${encodeURIComponent(section)}/h125/q?n=${index}`);
+      router.push(`/quiz/${encodeURIComponent(section)}/play/q?n=${index}`);
     }
   }
 
@@ -168,10 +173,10 @@ export default function H125QuestionClient() {
       </div>
       <div className="flex items-center justify-end">
         <div className="flex items-center gap-2">
-          {activeVariant.id === "AW169" && (
-            <a href="/aw169/abbreviations" className="px-2 py-1 rounded border text-xs bg-white dark:bg-zinc-800 dark:text-zinc-100 dark:border-zinc-700">ABBR</a>
+          {activeVariant.features.abbreviations && (
+            <Link href={modelRoutes(activeVariant).abbreviations} className="px-2 py-1 rounded border text-xs bg-white dark:bg-zinc-800 dark:text-zinc-100 dark:border-zinc-700">ABBR</Link>
           )}
-          <button onClick={toggleFlag} className={`px-3 py-1 rounded border text-sm ${session!.flags[index] ? "bg-amber-100 border-amber-400 dark:bg-amber-900 dark:border-amber-600 dark:text-zinc-100" : "bg-white dark:bg-zinc-800 dark:text-zinc-100 dark:border-zinc-700"}`}>{session!.flags[index] ? "Flagged" : "Flag"}</button>
+          <button onClick={toggleFlag} aria-label={session!.flags[index] ? "Remove flag" : "Flag this question"} className={`px-3 py-1 rounded border text-sm ${session!.flags[index] ? "bg-amber-100 border-amber-400 dark:bg-amber-900 dark:border-amber-600 dark:text-zinc-100" : "bg-white dark:bg-zinc-800 dark:text-zinc-100 dark:border-zinc-700"}`}>{session!.flags[index] ? "Flagged" : "Flag"}</button>
         </div>
       </div>
 

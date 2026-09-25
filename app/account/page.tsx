@@ -97,12 +97,7 @@ export default function AccountPage() {
     return null;
   }
 
-  function routeForWrongSession(sectionId: string): string | null {
-    // Deprecated: My Page now launches a mixed cross-section practice via generic ClientQuiz
-    const normalized = sectionId.toLowerCase();
-    if (normalized === "limitations") return "/limitations-quiz/q?n=1";
-    return null;
-  }
+
 
   function startWrongOnly() {
     // Build a mixed set across ALL sections for the active model variant
@@ -154,7 +149,7 @@ export default function AccountPage() {
       return;
     }
 
-    // Normalize minimal shape for ClientQuiz
+    // Normalize to the quiz item shape
     const normalizedItems = items.map((it) => {
       const answer = Array.isArray(it?.answer) ? it.answer : (typeof it?.answer === "number" ? [it.answer] : []);
       const type = Array.isArray(answer) && answer.length > 1 ? "multi" : "single";

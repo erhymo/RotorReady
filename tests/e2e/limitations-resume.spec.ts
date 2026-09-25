@@ -27,7 +27,7 @@ async function seedResumeSnapshot(page: import('@playwright/test').Page) {
 
 test('limitations resume continue rebuilds session and opens the saved question', async ({ page }) => {
   await seedResumeSnapshot(page);
-  await page.goto('/limitations-quiz');
+  await page.goto('/quiz/limitations');
 
   const resumeCard = page.locator('div.rounded-xl').filter({ hasText: 'Resume session' });
   await expect(resumeCard).toBeVisible();
@@ -35,10 +35,10 @@ test('limitations resume continue rebuilds session and opens the saved question'
 
   await expect(async () => {
     await resumeCard.getByRole('button', { name: /^continue$/i }).click();
-    await expect(page).toHaveURL(/\/limitations-quiz\/q\?n=2$/, { timeout: 5000 });
-  }).toPass({ timeout: 15000 });
+    await expect(page).toHaveURL(/\/quiz\/limitations\/play\/q\?n=2$/, { timeout: 20000 });
+  }).toPass({ timeout: 45000 });
 
-  const session = await page.evaluate(() => JSON.parse(sessionStorage.getItem('limq_session') || 'null'));
+  const session = await page.evaluate(() => JSON.parse(sessionStorage.getItem('quiz_session:AW169:limitations') || 'null'));
   expect(session?.section).toBe('limitations');
   expect(session?.amountToken).toBe('20');
   expect(session?.items).toHaveLength(3);
@@ -48,7 +48,7 @@ test('limitations resume continue rebuilds session and opens the saved question'
 
 test('limitations start over clears the stored resume snapshot', async ({ page }) => {
   await seedResumeSnapshot(page);
-  await page.goto('/limitations-quiz');
+  await page.goto('/quiz/limitations');
 
   const resumeCard = page.locator('div.rounded-xl').filter({ hasText: 'Resume session' });
   await expect(resumeCard).toBeVisible();

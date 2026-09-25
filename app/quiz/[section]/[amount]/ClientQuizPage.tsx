@@ -1,7 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import ClientQuiz from "./ClientQuiz";
 import { fetchContentText } from "@/lib/contentUrl";
 import { loadBlockedQuestionSet } from "@/lib/blockedQuestions";
 import { useActiveModelVariant } from "@/lib/models/hooks";
@@ -9,7 +8,7 @@ import { loadSectionOffline, saveSectionOffline } from "@/lib/offline";
 import { loadAllQuestions } from "@/lib/loadAllQuestions";
 import { modelScopedKey } from "@/lib/models/storage";
 import { clearQuizOverrideSession, readQuizOverrideSession } from "@/lib/quiz/overrideSession";
-import { buildInitialQuizResumeSession, buildQuizResumeSession, getQuizResumeStorageKey, readQuizResumeSnapshot, writeQuizResumeSnapshot } from "@/lib/quiz/resumeSnapshot";
+import { buildInitialQuizResumeSession, buildQuizResumeSession, readQuizResumeSnapshot, writeQuizResumeSnapshot } from "@/lib/quiz/resumeSnapshot";
 import { shuffleOptionsForItem } from "@/lib/quiz/shuffleOptions";
 
 type ActiveVariantInfo = { id: string; productId?: string };
@@ -120,22 +119,18 @@ async function loadNetworkSectionItems(section: string, activeVariant: ActiveVar
 
 export default function ClientQuizPage({ section, amount }: { section: string; amount: number | null }) {
   const router = useRouter();
-  const [questions, setQuestions] = useState<QuizItem[] | null>(null);
-  const [resume, setResume] = useState<{ idx: number; answers: (number | undefined)[]; flags: boolean[] } | null>(null);
-
   const [error, setError] = useState<string | null>(null);
   const { variant: activeVariant, loading: variantLoading } = useActiveModelVariant();
-  const isH125 = activeVariant.productId === "H125";
-
-  const amountTokenRender = String(amount === null ? "all" : amount);
-  const resumeKeyRender = getQuizResumeStorageKey(activeVariant.id, section, amountTokenRender);
 
   useEffect(() => {
     if (variantLoading) return;
     let cancelled = false;
 
-    async function goH125(items: QuizItem[]) {
-      const sessionKey = `${modelScopedKey("h125q_session", activeVariant.id)}:${section}`;
+    // Every quiz, for every model and section, runs in /quiz/<section>/play: one
+    // question per page (?n=) and a shared result page. The questions for this
+    // round are handed over in sessionStorage.
+    async function goToQuestions(items: QuizItem[]) {
+      const sessionKey = `${modelScopedKey("quiz_session", activeVariant.id)}:${section}`;
       const amountToken = String(amount ?? "all");
       // Initialize local resume snapshot
       writeQuizResumeSnapshot({
@@ -153,7 +148,7 @@ export default function ClientQuizPage({ section, amount }: { section: string; a
         ...buildInitialQuizResumeSession(items, amountToken),
       };
       sessionStorage.setItem(sessionKey, JSON.stringify(session));
-      router.replace(`/quiz/${encodeURIComponent(section)}/h125/q?n=1`);
+      router.replace(`/quiz/${encodeURIComponent(section)}/play/q?n=1`);
     }
 
     async function load() {
@@ -162,21 +157,14 @@ export default function ClientQuizPage({ section, amount }: { section: string; a
         const amountToken = String(amount ?? "all");
         const snap = readQuizResumeSnapshot<QuizItem>(activeVariant.id, section, amountToken);
         if (!cancelled && snap) {
-          if (isH125) {
-            const key = `${modelScopedKey("h125q_session", activeVariant.id)}:${section}`;
-            const session = {
-              section,
-              ...buildQuizResumeSession(snap),
-            };
-            sessionStorage.setItem(key, JSON.stringify(session));
-            router.replace(`/quiz/${encodeURIComponent(section)}/h125/q?n=${snap.idx + 1}`);
-            return;
-          } else {
-            setQuestions(snap.items);
-            setResume({ idx: snap.idx, answers: snap.answers, flags: snap.flags });
-            setError(null);
-            return;
-          }
+          const key = `${modelScopedKey("quiz_session", activeVariant.id)}:${section}`;
+          const session = {
+            section,
+            ...buildQuizResumeSession(snap),
+          };
+          sessionStorage.setItem(key, JSON.stringify(session));
+          router.replace(`/quiz/${encodeURIComponent(section)}/play/q?n=${snap.idx + 1}`);
+          return;
         }
       } catch {}
 
@@ -203,12 +191,8 @@ export default function ClientQuizPage({ section, amount }: { section: string; a
             } catch {}
             // randomize alternatives per question
             const randomized = limited.map(shuffleOptionsForItem);
-            // mark source file if possible is unknown in override; leave as undefined
-            if (isH125) return goH125(randomized);
-            setQuestions(randomized);
-            setError(null);
             clearQuizOverrideSession(activeVariant.id, section);
-            return;
+            return goToQuestions(randomized);
         }
       } catch {}
 
@@ -230,10 +214,7 @@ export default function ClientQuizPage({ section, amount }: { section: string; a
             sessionStorage.setItem(key, JSON.stringify(updated));
           } catch {}
           const randomized = limited.map(shuffleOptionsForItem);
-          if (isH125) return goH125(randomized);
-          setQuestions(randomized);
-          setError(null);
-          return;
+          return goToQuestions(randomized);
         } catch (e) {
           setError("Could not load questions across sections");
           return;
@@ -272,10 +253,7 @@ export default function ClientQuizPage({ section, amount }: { section: string; a
           sessionStorage.setItem(key, JSON.stringify(updated));
         } catch {}
         const randomized = limited.map(shuffleOptionsForItem);
-        if (isH125) return goH125(randomized);
-        setQuestions(randomized);
-        setError(null);
-        return;
+        return goToQuestions(randomized);
       } catch {
         // Ignore and fall back to the offline copy, if any.
       }
@@ -300,10 +278,7 @@ export default function ClientQuizPage({ section, amount }: { section: string; a
               sessionStorage.setItem(key, JSON.stringify(updated));
             } catch {}
             const randomized = limited.map(shuffleOptionsForItem);
-            if (isH125) return goH125(randomized);
-            setQuestions(randomized);
-            setError(null);
-            return;
+            return goToQuestions(randomized);
           }
         }
       } catch {}
@@ -330,18 +305,5 @@ export default function ClientQuizPage({ section, amount }: { section: string; a
       </div>
     );
   }
-  if (!questions) {
-    return <div className="min-h-screen grid place-items-center p-8 text-center dark:bg-zinc-900 dark:text-zinc-100">Loading questions ...</div>;
-  }
-  return (
-    <ClientQuiz
-      section={section}
-      initial={questions}
-      resumeKey={String(resumeKeyRender)}
-      amountToken={String(amountTokenRender)}
-      initialIdx={resume?.idx ?? 0}
-      initialAnswers={resume?.answers}
-      initialFlags={resume?.flags}
-    />
-  );
+  return <div className="min-h-screen grid place-items-center p-8 text-center dark:bg-zinc-900 dark:text-zinc-100">Loading questions ...</div>;
 }

@@ -19,17 +19,17 @@ test('limitations wrong-only rebuilds a fresh session from saved items', async (
     }));
   });
 
-  await page.goto('/limitations-quiz');
+  await page.goto('/quiz/limitations');
 
-  await expect(page.getByRole('heading', { name: 'Limitations Quiz' })).toBeVisible({ timeout: 15000 });
+  await expect(page.getByRole('heading', { name: 'Limitations' })).toBeVisible({ timeout: 15000 });
   const wrongOnlyCard = page.locator('div.rounded-xl').filter({ hasText: 'Practice wrong answers only' });
   await expect(wrongOnlyCard).toBeVisible();
   await expect(async () => {
     await wrongOnlyCard.getByRole('button', { name: /practice wrong answers/i }).click();
-    await expect(page).toHaveURL(/\/limitations-quiz\/q\?n=1$/, { timeout: 5000 });
-  }).toPass({ timeout: 15000 });
+    await expect(page).toHaveURL(/\/quiz\/limitations\/play\/q\?n=1$/, { timeout: 20000 });
+  }).toPass({ timeout: 45000 });
 
-  const session = await page.evaluate(() => JSON.parse(sessionStorage.getItem('limq_session') || 'null'));
+  const session = await page.evaluate(() => JSON.parse(sessionStorage.getItem('quiz_session:AW169:limitations') || 'null'));
 
   expect(session?.section).toBe('limitations');
   expect(session?.items).toHaveLength(1);

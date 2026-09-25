@@ -1,0 +1,29 @@
+[
+ {
+  "id": "mem-fire-smoke-in-cabin-or-cockpit-on-the-ground",
+  "name": "FIRE / SMOKE IN CABIN OR COCKPIT — ON THE GROUND",
+  "severity": "memory",
+  "description": "",
+  "procedure": [
+   {
+    "type": "action",
+    "text": "PF: Radio call — Complete"
+   },
+   {
+    "type": "action",
+    "text": "PM: Passengers — Brief"
+   },
+   {
+    "type": "action",
+    "text": "Both throttles — STOP"
+   }
+  ],
+  "references": [
+   "S-92A emergency checklist 1.7"
+  ],
+  "links": [],
+  "modelIds": [
+   "S92"
+  ]
+ }
+]

@@ -13,7 +13,10 @@ import { useActiveModelVariant } from "@/lib/models/hooks";
 
 
 type StepType = "note" | "action" | "branch" | "caution" | "warning" | "step";
-type Severity = "warning" | "caution";
+// "memory" = an immediate-action drill that is not tied to a warning light (e.g. S-92 tail
+// rotor failures). Such items appear only in the Memory Items Trainer. App versions that
+// predate this value ignore the items, since they filter on "warning" / "caution".
+type Severity = "warning" | "caution" | "memory";
 
 type ProcedureStep =
   | { type: "branch"; heading?: string; text: string }
@@ -449,12 +452,44 @@ function LightsTrainerInner() {
 
 	  const warningLights = useMemo(() => all.filter((item) => item.severity === "warning"), [all]);
 
+  // The "All memory items" page exists for a model when its content has a
+  // memory-items.json, so adding a model later needs no store release.
+  const [hasMemoryList, setHasMemoryList] = useState(false);
+  useEffect(() => {
+    let cancelled = false;
+    queueMicrotask(() => {
+      if (!cancelled) setHasMemoryList(false);
+    });
+    fetchContentJson<unknown>(`/model-data/${activeVariant.id}/training/memory-items.json`)
+      .then(() => {
+        if (!cancelled) setHasMemoryList(true);
+      })
+      .catch(() => {});
+    return () => {
+      cancelled = true;
+    };
+  }, [activeVariant.id]);
+
+  const memoryListBar = hasMemoryList ? (
+    <LightsBar
+      tone="slate"
+      title="All memory items"
+      description="Every immediate-action memory item for this aircraft on one page."
+      href="/training/memory-items"
+    />
+  ) : null;
+
 	  const aw169RedMemoryLights = useMemo(() => {
 	    if (isAw169) return warningLights.filter((item) => (AW169_MEMORY_CROPS as any)[item.id]);
-	    if (isS92) return warningLights.filter((item) => (item.procedure || []).some((s) => s.type === "action"));
+	    if (isS92)
+	      return all.filter(
+	        (item) =>
+	          (item.severity === "warning" || item.severity === "memory") &&
+	          (item.procedure || []).some((s) => s.type === "action")
+	      );
 	    if (hasImageMemory) return warningLights.filter((item) => !!getMemoryCropRects(activeVariant.id, item.id));
 	    return [];
-	  }, [warningLights, activeVariant.id, isAw169, isS92, hasImageMemory]);
+	  }, [all, warningLights, activeVariant.id, isAw169, isS92, hasImageMemory]);
 
 	  const aw169AmberMemoryLights = useMemo(
 	    () =>
@@ -913,7 +948,7 @@ function LightsTrainerInner() {
     return (
       <div className="sticky top-0 z-10 bg-slate-50/90 dark:bg-zinc-900/90 backdrop-blur">
         <div className="mx-auto max-w-3xl px-6 py-2.5 flex items-center gap-3">
-          <span className={`${current.severity === "warning" ? "bg-red-500" : "bg-amber-500"} inline-block h-2 w-2 rounded-full shrink-0`} aria-hidden />
+          <span className={`${current.severity === "caution" ? "bg-amber-500" : "bg-red-500"} inline-block h-2 w-2 rounded-full shrink-0`} aria-hidden />
           <span className="text-sm font-medium text-slate-900 dark:text-zinc-100">{displayName(current)}</span>
           {current.system && <span className="text-xs opacity-60 uppercase tracking-wide dark:text-zinc-400">{current.system}</span>}
         </div>
@@ -1468,6 +1503,7 @@ function LightsTrainerInner() {
                 disabled={loading || memoryCount === 0}
               />
             )}
+            {(isS92 || hasImageMemory) && memoryListBar}
 			          </div>
 			        )}
 
@@ -1526,6 +1562,8 @@ function LightsTrainerInner() {
                 href="/training/lights/audio"
               />
             )}
+
+            {memoryListBar}
 
 		            <>
 		              <LightsBar
@@ -1671,7 +1709,7 @@ function LightsTrainerInner() {
             <button
               onClick={reveal}
               className={`w-full rounded-2xl border-l-4 ${
-                current.severity === "warning" ? "border-red-600 dark:border-red-500" : "border-amber-500 dark:border-amber-400"
+                current.severity === "caution" ? "border-amber-500 dark:border-amber-400" : "border-red-600 dark:border-red-500"
               } bg-white dark:bg-zinc-800 shadow-sm p-6 text-left transition hover:shadow-md`}
               aria-label={memoryOnly ? "Click to show memory items" : "Click to show procedure"}
               title="Click to show procedure"

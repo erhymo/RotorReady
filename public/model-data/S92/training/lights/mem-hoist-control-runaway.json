@@ -1,0 +1,29 @@
+[
+ {
+  "id": "mem-hoist-control-runaway",
+  "name": "HOIST CONTROL RUNAWAY",
+  "severity": "memory",
+  "description": "",
+  "procedure": [
+   {
+    "type": "action",
+    "text": "Hoist operator — Inform PF"
+   },
+   {
+    "type": "action",
+    "text": "EMERGENCY STOP button — Press (hoist operator confirms to PF that the hoist has stopped)"
+   },
+   {
+    "type": "action",
+    "text": "Aircraft — Manoeuvre to a safe position"
+   }
+  ],
+  "references": [
+   "S-92A emergency checklist 13.3"
+  ],
+  "links": [],
+  "modelIds": [
+   "S92"
+  ]
+ }
+]

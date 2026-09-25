@@ -1,0 +1,405 @@
+{
+  "modelId": "S92",
+  "source": "S-92A Emergency Checklist, Rev 12 (01 Oct 2024) — immediate actions, outlined in the checklist",
+  "intro": "Immediate actions are carried out from memory and then verified from the checklist.",
+  "groups": [
+    {
+      "title": "Fire",
+      "drills": [
+        {
+          "ref": "1.2",
+          "title": "Engine fire in flight",
+          "steps": [
+            {
+              "n": "1",
+              "item": "Steady cockpit fire warning",
+              "action": "Confirm"
+            },
+            {
+              "n": "2",
+              "item": "Safe OEI flight",
+              "action": "Attain"
+            }
+          ]
+        },
+        {
+          "ref": "1.3",
+          "title": "Post shutdown fire",
+          "steps": [
+            {
+              "n": "1",
+              "item": "Throttle (affected engine)",
+              "action": "STOP"
+            },
+            {
+              "n": "2",
+              "item": "ENG START button (affected engine)",
+              "action": "Press"
+            },
+            {
+              "n": "a",
+              "item": "Motor until TGT <250°C",
+              "sub": true
+            }
+          ]
+        },
+        {
+          "ref": "1.7",
+          "title": "Fire / smoke in cabin or cockpit — on the ground",
+          "steps": [
+            {
+              "n": "1",
+              "item": "PF: Radio call",
+              "action": "Complete"
+            },
+            {
+              "n": "2",
+              "item": "PM: Passengers",
+              "action": "Brief"
+            },
+            {
+              "n": "3",
+              "item": "Both throttles",
+              "action": "STOP"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Engine",
+      "drills": [
+        {
+          "ref": "2.1",
+          "title": "Engine — dual failure",
+          "steps": [
+            {
+              "n": "1",
+              "item": "Autorotation",
+              "action": "Enter immediately (80 to 100 KIAS, 105% NR)"
+            },
+            {
+              "n": "2",
+              "item": "APU CTRL",
+              "action": "ON"
+            },
+            {
+              "n": "3",
+              "item": "Landing gear",
+              "action": "Down"
+            },
+            {
+              "n": "4",
+              "item": "Radio call",
+              "action": "Complete"
+            },
+            {
+              "n": "5",
+              "item": "If over water:",
+              "condition": true
+            },
+            {
+              "n": "a",
+              "item": "Floats",
+              "action": "ARM",
+              "sub": true
+            }
+          ]
+        },
+        {
+          "ref": "2.2",
+          "title": "Engine — single failure",
+          "steps": [
+            {
+              "n": "1",
+              "item": "Safe OEI flight",
+              "action": "Attain"
+            }
+          ]
+        },
+        {
+          "ref": "2.3",
+          "title": "Engine overspeed",
+          "steps": [
+            {
+              "n": "1",
+              "item": "Safe OEI flight",
+              "action": "Attain"
+            },
+            {
+              "n": "2",
+              "item": "Throttle (affected engine)",
+              "action": "IDLE"
+            },
+            {
+              "n": "3",
+              "item": "NR and good engine NP",
+              "action": "Confirm normal"
+            },
+            {
+              "n": "4",
+              "item": "Throttle (affected engine)",
+              "action": "STOP"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Tail rotor",
+      "drills": [
+        {
+          "ref": "6.1",
+          "title": "Loss of tail rotor thrust in forward flight",
+          "steps": [
+            {
+              "n": "1",
+              "item": "Autorotation",
+              "action": "Enter immediately (80 to 100 KIAS, 105% NR)"
+            },
+            {
+              "n": "2",
+              "item": "APU CTRL",
+              "action": "ON"
+            },
+            {
+              "n": "3",
+              "item": "Landing gear",
+              "action": "Down"
+            },
+            {
+              "n": "4",
+              "item": "Radio call",
+              "action": "Complete"
+            },
+            {
+              "n": "5",
+              "item": "If over water:",
+              "condition": true
+            },
+            {
+              "n": "a",
+              "item": "Floats",
+              "action": "ARM",
+              "sub": true
+            },
+            {
+              "n": "6",
+              "item": "Throttles",
+              "action": "STOP (before touchdown)"
+            }
+          ]
+        },
+        {
+          "ref": "6.2",
+          "title": "Tail rotor cable failure",
+          "steps": [
+            {
+              "n": "1",
+              "item": "Power / airspeed",
+              "action": "Adjust to minimise yaw"
+            }
+          ]
+        },
+        {
+          "ref": "6.3",
+          "title": "Tail rotor loss of hydraulics",
+          "steps": [
+            {
+              "n": "1",
+              "item": "Power / airspeed",
+              "action": "Adjust to minimise yaw"
+            }
+          ]
+        },
+        {
+          "ref": "6.4",
+          "title": "Tail rotor control malfunction in forward flight",
+          "steps": [
+            {
+              "n": "1",
+              "item": "Power / airspeed",
+              "action": "Adjust to minimise yaw"
+            },
+            {
+              "n": "2",
+              "item": "Yaw pedals",
+              "action": "Centre (if possible). PM places feet on pedals to maintain central."
+            }
+          ]
+        },
+        {
+          "ref": "6.5",
+          "title": "Loss of tail rotor thrust in hover",
+          "steps": [
+            {
+              "n": "1",
+              "item": "Collective",
+              "action": "Lower to LAND IMMEDIATELY"
+            },
+            {
+              "n": "2",
+              "item": "Throttles",
+              "action": "STOP"
+            },
+            {
+              "n": "3",
+              "item": "Brakes",
+              "action": "Apply"
+            }
+          ]
+        },
+        {
+          "ref": "6.6",
+          "title": "Loss of tail rotor control in hover",
+          "steps": [
+            {
+              "n": "1",
+              "item": "Collective",
+              "action": "Lower to LAND IMMEDIATELY"
+            },
+            {
+              "n": "2",
+              "item": "Throttles",
+              "action": "STOP"
+            },
+            {
+              "n": "3",
+              "item": "Brakes",
+              "action": "Apply"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Electrical",
+      "drills": [
+        {
+          "ref": "8.2",
+          "title": "AC generator — dual failure",
+          "steps": [
+            {
+              "n": "1",
+              "item": "Aircraft attitude",
+              "action": "Control using STBY instruments"
+            },
+            {
+              "n": "2",
+              "item": "APU CTRL",
+              "action": "ON"
+            }
+          ]
+        },
+        {
+          "ref": "8.9",
+          "title": "DC converter dual failure and backup converter failure",
+          "steps": [
+            {
+              "n": "1",
+              "item": "Aircraft attitude",
+              "action": "Control using STBY instruments"
+            },
+            {
+              "n": "2",
+              "item": "Backup converter",
+              "action": "OFF"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Flight controls and instruments",
+      "drills": [
+        {
+          "ref": "9.6",
+          "title": "AHRS — dual failure",
+          "steps": [
+            {
+              "n": "1",
+              "item": "Aircraft attitude",
+              "action": "Control using STBY instruments"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Hoist",
+      "drills": [
+        {
+          "ref": "13.1",
+          "title": "Hoist overtemp",
+          "steps": [
+            {
+              "n": "1",
+              "item": "Hoist operator",
+              "action": "Inform PF"
+            },
+            {
+              "n": "2",
+              "item": "Aircraft",
+              "action": "Manoeuvre to a safe position"
+            },
+            {
+              "n": "3",
+              "item": "If someone is on the wire",
+              "action": "Make safe as quickly as possible"
+            }
+          ]
+        },
+        {
+          "ref": "13.2",
+          "title": "Hoist control failure",
+          "steps": [
+            {
+              "n": "1",
+              "item": "Hoist operator",
+              "action": "Inform PF"
+            },
+            {
+              "n": "2",
+              "item": "Aircraft",
+              "action": "Manoeuvre to a safe position"
+            }
+          ]
+        },
+        {
+          "ref": "13.3",
+          "title": "Hoist control runaway",
+          "steps": [
+            {
+              "n": "1",
+              "item": "Hoist operator",
+              "action": "Inform PF"
+            },
+            {
+              "n": "2",
+              "item": "EMERGENCY STOP button",
+              "action": "Press"
+            },
+            {
+              "n": "•",
+              "item": "Hoist operator confirms to PF that the hoist has stopped",
+              "note": true
+            },
+            {
+              "n": "3",
+              "item": "Aircraft",
+              "action": "Manoeuvre to a safe position"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "principles": {
+    "title": "In all emergency and abnormal situations",
+    "items": [
+      "Maintain aircraft control",
+      "Analyse the situation",
+      "Take appropriate action"
+    ]
+  }
+}

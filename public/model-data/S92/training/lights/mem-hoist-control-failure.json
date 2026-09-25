@@ -1,0 +1,25 @@
+[
+ {
+  "id": "mem-hoist-control-failure",
+  "name": "HOIST CONTROL FAILURE",
+  "severity": "memory",
+  "description": "",
+  "procedure": [
+   {
+    "type": "action",
+    "text": "Hoist operator — Inform PF"
+   },
+   {
+    "type": "action",
+    "text": "Aircraft — Manoeuvre to a safe position"
+   }
+  ],
+  "references": [
+   "S-92A emergency checklist 13.2"
+  ],
+  "links": [],
+  "modelIds": [
+   "S92"
+  ]
+ }
+]

@@ -1,0 +1,33 @@
+[
+ {
+  "id": "mem-engine-overspeed",
+  "name": "ENGINE OVERSPEED",
+  "severity": "memory",
+  "description": "",
+  "procedure": [
+   {
+    "type": "action",
+    "text": "Safe OEI flight — Attain"
+   },
+   {
+    "type": "action",
+    "text": "Throttle (affected engine) — IDLE"
+   },
+   {
+    "type": "action",
+    "text": "NR and good engine NP — Confirm normal"
+   },
+   {
+    "type": "action",
+    "text": "Throttle (affected engine) — STOP"
+   }
+  ],
+  "references": [
+   "S-92A emergency checklist 2.3"
+  ],
+  "links": [],
+  "modelIds": [
+   "S92"
+  ]
+ }
+]

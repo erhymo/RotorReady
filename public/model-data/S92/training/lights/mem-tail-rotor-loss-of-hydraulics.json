@@ -1,0 +1,21 @@
+[
+ {
+  "id": "mem-tail-rotor-loss-of-hydraulics",
+  "name": "TAIL ROTOR LOSS OF HYDRAULICS",
+  "severity": "memory",
+  "description": "",
+  "procedure": [
+   {
+    "type": "action",
+    "text": "Power / airspeed — Adjust to minimise yaw"
+   }
+  ],
+  "references": [
+   "S-92A emergency checklist 6.3"
+  ],
+  "links": [],
+  "modelIds": [
+   "S92"
+  ]
+ }
+]

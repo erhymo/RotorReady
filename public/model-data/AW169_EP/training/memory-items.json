@@ -1,0 +1,353 @@
+{
+  "modelId": "AW169_EP",
+  "source": "AW169 QRH (EP), Issue 1 Rev. 3 — boxed immediate actions",
+  "intro": "Boxed steps are immediate actions, carried out from memory and then verified from the QRH.",
+  "groups": [
+    {
+      "title": "Fire",
+      "drills": [
+        {
+          "ref": "p.39",
+          "title": "Engine bay fire (flight) — 1(2) ENG FIRE",
+          "steps": [
+            {
+              "n": "1",
+              "item": "Confirm ENGINE FIRE light ON on engine control panel"
+            },
+            {
+              "n": "2",
+              "item": "Flight condition",
+              "action": "Safe OEI"
+            },
+            {
+              "n": "3",
+              "item": "Affected ENG MODE knob",
+              "action": "Confirm and IDLE"
+            },
+            {
+              "n": "4",
+              "item": "Engine FIRE",
+              "action": "Confirm"
+            },
+            {
+              "n": "5",
+              "item": "Affected ENG MODE knob",
+              "action": "Confirm and OFF"
+            },
+            {
+              "n": "6",
+              "item": "Affected ENG FIRE ARM pushbutton",
+              "action": "Confirm, lift guard and press. ARM illuminated"
+            },
+            {
+              "n": "7",
+              "item": "FIRE EXTING switch",
+              "action": "Set to BTL 1"
+            }
+          ]
+        },
+        {
+          "ref": "p.40",
+          "title": "Engine bay fire (ground) — 1(2) ENG FIRE",
+          "steps": [
+            {
+              "n": "1",
+              "item": "Confirm ENGINE FIRE light ON on engine control panel"
+            },
+            {
+              "n": "2",
+              "item": "ENG 1 & 2 MODE knob",
+              "action": "OFF"
+            },
+            {
+              "n": "3",
+              "item": "Affected ENG FIRE ARM pushbutton",
+              "action": "Lift guard and press. ARM illuminated"
+            },
+            {
+              "n": "4",
+              "item": "FIRE EXTING switch",
+              "action": "Set to BTL 1"
+            }
+          ]
+        },
+        {
+          "ref": "p.41",
+          "title": "Baggage bay fire — BAG FIRE",
+          "steps": [
+            {
+              "n": "1",
+              "item": "Land as soon as possible (if in flight)"
+            }
+          ]
+        },
+        {
+          "ref": "p.42",
+          "title": "Cockpit / cabin fire (flight)",
+          "steps": [
+            {
+              "n": "1",
+              "item": "ECS",
+              "action": "BACKUP"
+            },
+            {
+              "n": "2",
+              "item": "COCKPIT / CABIN FAN",
+              "action": "OFF"
+            }
+          ]
+        },
+        {
+          "ref": "p.44",
+          "title": "Electrical fire / smoke (flight)",
+          "steps": [
+            {
+              "n": "1",
+              "item": "Airspeed",
+              "action": "Reduce to Vy"
+            },
+            {
+              "n": "2",
+              "item": "Landing gear",
+              "action": "DOWN; three green lights illuminated on LDG control panel"
+            },
+            {
+              "n": "3",
+              "item": "ECS",
+              "action": "BACKUP"
+            },
+            {
+              "n": "4",
+              "item": "COCKPIT / CABIN FAN",
+              "action": "OFF"
+            },
+            {
+              "n": "5",
+              "item": "Pilot DV windows",
+              "action": "Open to ventilate"
+            },
+            {
+              "n": "6",
+              "item": "COM/NAV",
+              "action": "Select VHF 1 on right side to ensure continue radio communication"
+            },
+            {
+              "n": "7",
+              "item": "PILOT UTILITY LIGHT",
+              "action": "ON (for night operations)"
+            },
+            {
+              "n": "8",
+              "item": "Land as soon as possible"
+            }
+          ]
+        },
+        {
+          "ref": "p.46",
+          "title": "Wheel brake fire (in flight)",
+          "steps": [
+            {
+              "n": "1",
+              "item": "Landing gear",
+              "action": "Extend"
+            },
+            {
+              "n": "2",
+              "item": "Aircraft",
+              "action": "Land as soon as possible"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Engine",
+      "drills": [
+        {
+          "ref": "p.19",
+          "title": "Engine oil pressure — 1(2) ENG OIL PRESS",
+          "steps": [
+            {
+              "n": "1",
+              "item": "Affected engine",
+              "action": "Check oil pressure and temperature on PFD/MFD"
+            }
+          ]
+        },
+        {
+          "ref": "p.20",
+          "title": "Engine control failure, fixed — 1(2) ENG FAIL FIXED",
+          "steps": [
+            {
+              "n": "1",
+              "item": "AFCS UPPER modes",
+              "action": "Disengage"
+            },
+            {
+              "n": "2",
+              "item": "Flight condition",
+              "action": "Achieve safe OEI"
+            }
+          ]
+        },
+        {
+          "ref": "p.21",
+          "title": "Engine out — 1(2) ENG OUT",
+          "steps": [
+            {
+              "n": "1",
+              "item": "Flight condition",
+              "action": "Safe OEI"
+            }
+          ]
+        },
+        {
+          "ref": "p.22",
+          "title": "Engine drive shaft failure",
+          "steps": [
+            {
+              "n": "1",
+              "item": "Flight condition",
+              "action": "Safe OEI"
+            }
+          ]
+        },
+        {
+          "ref": "p.23",
+          "title": "Engine idle — 1(2) ENG IDLE",
+          "steps": [
+            {
+              "n": "1",
+              "item": "Reduce collective to MPOG"
+            }
+          ]
+        },
+        {
+          "ref": "p.24",
+          "title": "Engine EECU fail — 1(2) ENG EECU FAIL",
+          "steps": [
+            {
+              "n": "1",
+              "item": "Flight condition",
+              "action": "Safe OEI"
+            }
+          ]
+        },
+        {
+          "ref": "p.35",
+          "title": "Engine shutdown in emergency",
+          "steps": [
+            {
+              "n": "1",
+              "item": "ENG MODE knob",
+              "action": "Confirm and OFF"
+            },
+            {
+              "n": "2",
+              "item": "ENG FIRE ARM pushbutton",
+              "action": "Confirm, lift guard and press"
+            },
+            {
+              "n": "3",
+              "item": "FUEL SOV (EDCU FUEL page or PFD)",
+              "action": "Confirm CLOSE"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Electrical",
+      "drills": [
+        {
+          "ref": "p.13",
+          "title": "Double DC generator failure — ELEC FAIL",
+          "steps": [
+            {
+              "n": "1",
+              "item": "Pilot utility light",
+              "action": "ON (for night operations)"
+            },
+            {
+              "n": "2",
+              "item": "GEN 1 & 2 switches",
+              "action": "Select RESET and confirm ON"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Rotor and transmission",
+      "drills": [
+        {
+          "ref": "p.57",
+          "title": "Rotor under-speed — ROTOR LOW",
+          "steps": [
+            {
+              "n": "1",
+              "item": "Collective",
+              "action": "Adjust to increase the rotor speed"
+            }
+          ]
+        },
+        {
+          "ref": "p.57",
+          "title": "Rotor over-speed — ROTOR HIGH",
+          "steps": [
+            {
+              "n": "1",
+              "item": "Collective",
+              "action": "Adjust to decrease the rotor speed"
+            }
+          ]
+        },
+        {
+          "ref": "p.60",
+          "title": "MGB oil pressure low — MGB OIL PRESS",
+          "steps": [
+            {
+              "n": "1",
+              "item": "TQ 1 & 2",
+              "action": "Reduce not to exceed 55/55%"
+            },
+            {
+              "n": "2",
+              "item": "Clock",
+              "action": "START"
+            },
+            {
+              "n": "3",
+              "item": "PFD / MFD",
+              "action": "Check MGB oil pressure"
+            }
+          ]
+        },
+        {
+          "ref": "p.61",
+          "title": "MGB oil temperature high — MGB OIL TEMP",
+          "steps": [
+            {
+              "n": "1",
+              "item": "TQ 1 & 2",
+              "action": "Reduce not to exceed 55/55%"
+            },
+            {
+              "n": "2",
+              "item": "MGB oil temperature",
+              "action": "Check on PFD/MFD"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "principles": {
+    "title": "In all emergency and abnormal situations",
+    "items": [
+      "Maintain aircraft control",
+      "Analyse the situation",
+      "Take appropriate action"
+    ]
+  }
+}

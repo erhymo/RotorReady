@@ -1,0 +1,25 @@
+[
+ {
+  "id": "mem-ac-generator-dual-failure",
+  "name": "AC GENERATOR — DUAL FAILURE",
+  "severity": "memory",
+  "description": "",
+  "procedure": [
+   {
+    "type": "action",
+    "text": "Aircraft attitude — Control using STBY instruments"
+   },
+   {
+    "type": "action",
+    "text": "APU CTRL — ON"
+   }
+  ],
+  "references": [
+   "S-92A emergency checklist 8.2"
+  ],
+  "links": [],
+  "modelIds": [
+   "S92"
+  ]
+ }
+]

@@ -18,6 +18,21 @@
     "dcu-mfd-comm-fault.json",
     "dcu-dual-failure.json",
     "input-acc-hot.json",
-    "mgb-pump-fail.json"
+    "mgb-pump-fail.json",
+    "mem-post-shutdown-fire.json",
+    "mem-fire-smoke-in-cabin-or-cockpit-on-the-ground.json",
+    "mem-engine-overspeed.json",
+    "mem-loss-of-tail-rotor-thrust-in-forward-flight.json",
+    "mem-tail-rotor-cable-failure.json",
+    "mem-tail-rotor-loss-of-hydraulics.json",
+    "mem-tail-rotor-control-malfunction-in-forward-flight.json",
+    "mem-loss-of-tail-rotor-thrust-in-hover.json",
+    "mem-loss-of-tail-rotor-control-in-hover.json",
+    "mem-ac-generator-dual-failure.json",
+    "mem-dc-converter-dual-failure-and-backup-converter-failure.json",
+    "mem-ahrs-dual-failure.json",
+    "mem-hoist-overtemp.json",
+    "mem-hoist-control-failure.json",
+    "mem-hoist-control-runaway.json"
   ]
 }

@@ -1,0 +1,25 @@
+[
+ {
+  "id": "mem-post-shutdown-fire",
+  "name": "POST SHUTDOWN FIRE",
+  "severity": "memory",
+  "description": "",
+  "procedure": [
+   {
+    "type": "action",
+    "text": "Throttle (affected engine) — STOP"
+   },
+   {
+    "type": "action",
+    "text": "ENG START button (affected engine) — Press. Motor until TGT <250°C"
+   }
+  ],
+  "references": [
+   "S-92A emergency checklist 1.3"
+  ],
+  "links": [],
+  "modelIds": [
+   "S92"
+  ]
+ }
+]

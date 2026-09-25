@@ -1,0 +1,41 @@
+[
+ {
+  "id": "mem-loss-of-tail-rotor-thrust-in-forward-flight",
+  "name": "LOSS OF TAIL ROTOR THRUST IN FORWARD FLIGHT",
+  "severity": "memory",
+  "description": "",
+  "procedure": [
+   {
+    "type": "action",
+    "text": "Autorotation — Enter immediately (80 to 100 KIAS, 105% NR)"
+   },
+   {
+    "type": "action",
+    "text": "APU CTRL — ON"
+   },
+   {
+    "type": "action",
+    "text": "Landing gear — Down"
+   },
+   {
+    "type": "action",
+    "text": "Radio call — Complete"
+   },
+   {
+    "type": "action",
+    "text": "If over water: Floats — ARM"
+   },
+   {
+    "type": "action",
+    "text": "Throttles — STOP (before touchdown)"
+   }
+  ],
+  "references": [
+   "S-92A emergency checklist 6.1"
+  ],
+  "links": [],
+  "modelIds": [
+   "S92"
+  ]
+ }
+]

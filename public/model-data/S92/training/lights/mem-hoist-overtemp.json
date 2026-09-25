@@ -1,0 +1,29 @@
+[
+ {
+  "id": "mem-hoist-overtemp",
+  "name": "HOIST OVERTEMP",
+  "severity": "memory",
+  "description": "",
+  "procedure": [
+   {
+    "type": "action",
+    "text": "Hoist operator — Inform PF"
+   },
+   {
+    "type": "action",
+    "text": "Aircraft — Manoeuvre to a safe position"
+   },
+   {
+    "type": "action",
+    "text": "If someone is on the wire — Make safe as quickly as possible"
+   }
+  ],
+  "references": [
+   "S-92A emergency checklist 13.1"
+  ],
+  "links": [],
+  "modelIds": [
+   "S92"
+  ]
+ }
+]

@@ -1,0 +1,21 @@
+[
+ {
+  "id": "mem-tail-rotor-cable-failure",
+  "name": "TAIL ROTOR CABLE FAILURE",
+  "severity": "memory",
+  "description": "",
+  "procedure": [
+   {
+    "type": "action",
+    "text": "Power / airspeed — Adjust to minimise yaw"
+   }
+  ],
+  "references": [
+   "S-92A emergency checklist 6.2"
+  ],
+  "links": [],
+  "modelIds": [
+   "S92"
+  ]
+ }
+]

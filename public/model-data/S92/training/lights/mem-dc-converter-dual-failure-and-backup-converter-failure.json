@@ -1,0 +1,25 @@
+[
+ {
+  "id": "mem-dc-converter-dual-failure-and-backup-converter-failure",
+  "name": "DC CONVERTER DUAL FAILURE AND BACKUP CONVERTER FAILURE",
+  "severity": "memory",
+  "description": "",
+  "procedure": [
+   {
+    "type": "action",
+    "text": "Aircraft attitude — Control using STBY instruments"
+   },
+   {
+    "type": "action",
+    "text": "Backup converter — OFF"
+   }
+  ],
+  "references": [
+   "S-92A emergency checklist 8.9"
+  ],
+  "links": [],
+  "modelIds": [
+   "S92"
+  ]
+ }
+]

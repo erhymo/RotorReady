@@ -1,0 +1,21 @@
+[
+ {
+  "id": "mem-ahrs-dual-failure",
+  "name": "AHRS — DUAL FAILURE",
+  "severity": "memory",
+  "description": "",
+  "procedure": [
+   {
+    "type": "action",
+    "text": "Aircraft attitude — Control using STBY instruments"
+   }
+  ],
+  "references": [
+   "S-92A emergency checklist 9.6"
+  ],
+  "links": [],
+  "modelIds": [
+   "S92"
+  ]
+ }
+]

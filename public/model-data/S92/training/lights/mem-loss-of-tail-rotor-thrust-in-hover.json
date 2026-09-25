@@ -1,0 +1,29 @@
+[
+ {
+  "id": "mem-loss-of-tail-rotor-thrust-in-hover",
+  "name": "LOSS OF TAIL ROTOR THRUST IN HOVER",
+  "severity": "memory",
+  "description": "",
+  "procedure": [
+   {
+    "type": "action",
+    "text": "Collective — Lower to LAND IMMEDIATELY"
+   },
+   {
+    "type": "action",
+    "text": "Throttles — STOP"
+   },
+   {
+    "type": "action",
+    "text": "Brakes — Apply"
+   }
+  ],
+  "references": [
+   "S-92A emergency checklist 6.5"
+  ],
+  "links": [],
+  "modelIds": [
+   "S92"
+  ]
+ }
+]

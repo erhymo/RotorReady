@@ -1,0 +1,25 @@
+[
+ {
+  "id": "mem-tail-rotor-control-malfunction-in-forward-flight",
+  "name": "TAIL ROTOR CONTROL MALFUNCTION IN FORWARD FLIGHT",
+  "severity": "memory",
+  "description": "",
+  "procedure": [
+   {
+    "type": "action",
+    "text": "Power / airspeed — Adjust to minimise yaw"
+   },
+   {
+    "type": "action",
+    "text": "Yaw pedals — Centre (if possible). PM places feet on pedals to maintain central."
+   }
+  ],
+  "references": [
+   "S-92A emergency checklist 6.4"
+  ],
+  "links": [],
+  "modelIds": [
+   "S92"
+  ]
+ }
+]

@@ -1,9 +1,9 @@
-Quiz, lights and offline packages now always use the latest content. The app could keep showing the questions it was released with; new and corrected questions now appear as soon as they are published, without waiting for an app update.
+Fixed: the app would not open on iOS 27. This version starts normally again on every supported iPhone.
 
-S-92: 28 new Limitations questions, 48 in total, each checked against the flight manual.
+Weather planning and Airports now open inside the app instead of in Safari, and keep your selected aircraft.
 
-Content checked against the flight manuals, with corrections: AS350 B3 2B1 Quick Reference, System Notes and all 29 procedures; AW169 and AW169 EP System Notes, including the AEO LIM SEL torque limiter table and the AW169 EP AFCS engagement ranges (TD, TDH, GA). New AW169 EP System Note on the standby instrument (ESIS).
+S-92: the Emergency Procedures quiz now has 101 questions, each checked against the flight manual.
 
-New R22 episodes: Governor, Autorotation, Drive System and Limitations.
+The separate "Download for offline" page is gone: all training content is already included in the app and kept up to date automatically.
 
-Fixed: titles on the Emergency & Malfunction screen that showed empty boxes on iPhone, home screen items that jumped into place while the page loaded, feedback sent from the app that failed with an error, and question counts on the quiz list — now shown and correct for every aircraft.
+If the app runs into a technical error, it now sends an anonymous crash report so the problem can be found and fixed quickly.

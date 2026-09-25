@@ -49,7 +49,7 @@ const config: CapacitorConfig = {
     errorPath: "native-error.html",
   },
   ios: {
-    contentInset: "always",
+    contentInset: "never",
   },
   android: {
     // Android 15+ enforces edge-to-edge rendering (content draws behind the status/nav

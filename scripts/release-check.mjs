@@ -20,7 +20,7 @@ const IGNORED_DIRS = new Set(["node_modules", ".next", ".next-native", ".git", "
 // mtime every run, and they are excluded from the shell anyway — so their age
 // says nothing about whether the bundled shell is current.
 const NOT_IN_SHELL = [
-  "app/api", "app/admin", "app/login", "app/signup", "app/weather", "app/airports",
+  "app/api", "app/admin", "app/login", "app/signup",
 ].map((p) => path.join(ROOT, p));
 
 let failed = false;
@@ -130,6 +130,28 @@ try {
   }
 } catch {
   bad("could not read capacitor.config.ts");
+}
+
+// 5. the iOS app must actually launch on the newest iOS. 1.0.15 built, passed review
+// and then would not open at all on iOS 27 (missing UIScene life cycle, required by
+// the iOS 27 SDK) — it had only been looked at on iOS 26. See ios-launch-check.mjs.
+try {
+  const plist = readFileSync(path.join(ROOT, "ios/App/App/Info.plist"), "utf8");
+  if (!plist.includes("<key>UIApplicationSceneManifest</key>")) {
+    bad("ios/App/App/Info.plist has no UIApplicationSceneManifest — apps built with the iOS 27 SDK do not launch on iOS 27 without it");
+  } else {
+    ok("Info.plist declares the UIScene life cycle");
+  }
+} catch {
+  bad("could not read ios/App/App/Info.plist");
+}
+if (process.platform === "darwin") {
+  try {
+    execFileSync("node", [path.join(ROOT, "scripts/ios-launch-check.mjs")], { stdio: "inherit" });
+    ok("iOS app launches on the newest installed iOS simulator");
+  } catch {
+    bad("iOS app did not launch on the newest installed iOS simulator (see ios-launch-check output above)");
+  }
 }
 
 console.log(

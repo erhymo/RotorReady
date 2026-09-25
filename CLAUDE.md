@@ -137,7 +137,14 @@ still installed.
    native projects. Always through these scripts, never raw `npx cap sync`: `pod install` fails
    without the UTF-8 locale the iOS script sets.
 6. `npm run release:check` — **after** the sync; before it, it correctly fails with "the bundled
-   shell is older than your sources". Then restore any formatting-only rewrite of `Info.plist`
+   shell is older than your sources". It also builds Release, installs it on the **newest
+   installed iOS simulator runtime** and fails if the app is not running 15 s after launch
+   (`scripts/ios-launch-check.mjs`, ~2 min). Never skip or work around a failure there.
+   1.0.15 built, passed review and would not open at all on iOS 27: it was the first build
+   with Xcode 27, whose iOS 27 SDK requires the UIScene life cycle, and it had only been
+   looked at on iOS 26. **After installing a new Xcode, install its newest iOS simulator
+   runtime too** (`xcodebuild -downloadPlatform iOS`), or the launch check tests an older
+   iOS than users have. Then restore any formatting-only rewrite of `Info.plist`
    / `project.pbxproj` (see *Commit and push*).
    Then build both locally before the slow fastlane path: a simulator build for iOS and
    `(cd android && ./gradlew assembleDebug)` (see *See the native app in a simulator*), and look

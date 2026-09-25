@@ -29,9 +29,20 @@ export default function PrivacyPage() {
       </section>
 
       <section className="rounded-2xl border bg-white p-5 shadow-sm dark:border-zinc-800 dark:bg-zinc-900 space-y-3">
-        <h2 className="text-lg font-semibold">Support contact</h2>
+        <h2 className="text-lg font-semibold">Support contact and feedback</h2>
         <p>
-          If you contact support, the information you choose to send may be used only to respond to your request.
+          If you contact support or send feedback in the app, we receive your message, the page you sent it from and, if
+          you choose to give it, your email address. This is used only to respond to you and improve the app.
+        </p>
+      </section>
+
+      <section className="rounded-2xl border bg-white p-5 shadow-sm dark:border-zinc-800 dark:bg-zinc-900 space-y-3">
+        <h2 className="text-lg font-semibold">Location</h2>
+        <p>
+          Weather planning can show weather for the airports nearest to you. Only if you allow location access, your
+          position is sent to our server and to our weather data provider to find those airports. It is used for that
+          request only and is not saved; the server keeps the airport result, keyed to a rounded position, for about a
+          minute so repeated requests are answered faster.
         </p>
       </section>
 

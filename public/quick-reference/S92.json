@@ -125,7 +125,7 @@
         {
           "label": "Ground / low-speed",
           "lines": [
-            "Max groundspeed takeoff/landing: 65 kt (50 kt per later manual change)",
+            "Max groundspeed normal takeoff/landing: 50 kt (Temporary Revision No. 3); after landing above 50 kt, no further flight or towing (taxi permitted)",
             "Max groundspeed taxi: 35 kt",
             "Max groundspeed brake application: 35 kt",
             "Max sideward flight / crosswind hover: 35 kt",

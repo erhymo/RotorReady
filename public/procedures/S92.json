@@ -132,6 +132,15 @@
       ],
       "notes": [
         "Vy (best rate of climb speed) is 80 KIAS at sea level, decreasing 1 knot per 1000 ft of altitude above sea level."
+      ],
+      "figures": [
+        {
+          "src": "/s92/procedures/figures/fig-4-7.png",
+          "alt": "Category A horizontal takeoff: normal, rejected and continued takeoff profiles from a 10 ft hover through the TDP",
+          "caption": "Figure 4-7. Cat 'A' Horizontal Takeoff Procedures — S-92 RFM Part 1, Section IV, p.4-10",
+          "width": 1500,
+          "height": 1890
+        }
       ]
     },
     {
@@ -242,6 +251,15 @@
             }
           ]
         }
+      ],
+      "figures": [
+        {
+          "src": "/s92/procedures/figures/fig-4-14.png",
+          "alt": "Category A horizontal landing profile: descent at 600 fpm and 50 KIAS to the decision point at 200 ft, landing or climb away at 70 KIAS",
+          "caption": "Figure 4-14. Cat 'A' Horizontal Landing Profile — S-92 RFM Part 1, Section IV, p.4-24",
+          "width": 1786,
+          "height": 1535
+        }
       ]
     },
     {
@@ -341,6 +359,15 @@
       "notes": [
         "Maximum TDP = maximum height for a successful rejected takeoff (vertical land-back). Minimum TDP = minimum height for a successful continued takeoff (fly-away) with 15 ft clearance from the takeoff surface. Near obstacles, the TDP should not be lower than the minimum TDP plus the obstacle height (for obstacles within takeoff distance of the helipad).",
         "Vy (best rate of climb speed) is 80 KIAS at sea level, decreasing 1 knot per 1000 ft of altitude above sea level."
+      ],
+      "figures": [
+        {
+          "src": "/s92/procedures/figures/fig-4-16.png",
+          "alt": "Category A ground level helipad vertical takeoff: vertical climb to TDP at 850 to 1150 fpm, normal takeoff, OEI rejected and OEI continued takeoff",
+          "caption": "Figure 4-16. Cat 'A' Vertical Takeoff Profile — S-92 RFM Part 1, Section IV, p.4-26",
+          "width": 1747,
+          "height": 1575
+        }
       ]
     },
     {
@@ -395,6 +422,15 @@
       "notes": [
         "Minimum LDP is the lowest height from which a balked landing can be performed with 25 ft clearance from the landing surface (15 ft clearance from a 10 ft obstacle). Where obstacles taller than 10 ft lie in the balked-landing path, the LDP must not be lower than the published minimum plus the excess obstacle height.",
         "When entering the flare, the pad may be blocked from view — identify cues outside the immediate landing area beforehand, and/or slightly yaw the aircraft to maintain cueing."
+      ],
+      "figures": [
+        {
+          "src": "/s92/procedures/figures/fig-4-20.png",
+          "alt": "Category A ground level helipad landing: descent at 500 fpm and 35 KIAS through the LDP, normal or OEI landing, or balked landing",
+          "caption": "Figure 4-20. Cat 'A' Vertical Landing Profile — S-92 RFM Part 1, Section IV, p.4-39",
+          "width": 1656,
+          "height": 1573
+        }
       ]
     },
     {
@@ -448,6 +484,15 @@
       ],
       "notes": [
         "Vy (best rate of climb speed) is 80 KIAS at sea level, decreasing 1 knot per 1000 ft of altitude above sea level."
+      ],
+      "figures": [
+        {
+          "src": "/s92/procedures/figures/fig-4-23.png",
+          "alt": "Category B takeoff profile: hover at 10 ft, accelerate, rotate at 45 KIAS and climb at Vy",
+          "caption": "Figure 4-23. Cat 'B' Takeoff Profile — S-92 RFM Part 1, Section IV, p.4-45",
+          "width": 1500,
+          "height": 1877
+        }
       ]
     },
     {
@@ -479,6 +524,15 @@
               ]
             }
           ]
+        }
+      ],
+      "figures": [
+        {
+          "src": "/s92/procedures/figures/fig-4-26.png",
+          "alt": "Category B landing profile: descent at 600 fpm and 50 KIAS from 200 ft, deceleration flare at 50 ft",
+          "caption": "Figure 4-26. Cat 'B' Landing Profile — S-92 RFM Part 1, Section IV, p.4-50",
+          "width": 1500,
+          "height": 1818
         }
       ]
     },
@@ -582,6 +636,15 @@
             }
           ]
         }
+      ],
+      "figures": [
+        {
+          "src": "/s92/procedures/figures/fig-3-23.png",
+          "alt": "Elevated helideck takeoff profile: TDP, EFP1 and EFP2, OEI rejected takeoff, forced landing and continued takeoff",
+          "caption": "Figure 3-23. Elevated Helideck Takeoff Profile — S-92 RFM Part 2, Section III, p.III-1-52",
+          "width": 1549,
+          "height": 1368
+        }
       ]
     },
     {
@@ -623,6 +686,15 @@
       ],
       "notes": [
         "Landing Decision Point (LDP) is 200 ft above the surface of the ground/water below the helideck."
+      ],
+      "figures": [
+        {
+          "src": "/s92/procedures/figures/fig-3-24.png",
+          "alt": "Elevated helideck landing profile: descent at 600 fpm and 40 KIAS to the LDP at 200 ft, flare 50 ft above the helideck, OEI balked landing",
+          "caption": "Figure 3-24. Elevated Helideck Landing Profile — S-92 RFM Part 2, Section III, p.III-1-53",
+          "width": 1573,
+          "height": 1368
+        }
       ]
     },
     {
@@ -992,6 +1064,22 @@
       ],
       "notes": [
         "LDP is 200 ft above the ground/water surface below the helideck. An engine failure above the LDP allows a go-around or continued landing; after the LDP, the approach must continue to touchdown."
+      ],
+      "figures": [
+        {
+          "src": "/s92/procedures/figures/fig-3-23.png",
+          "alt": "Elevated helideck takeoff profile: TDP, EFP1 and EFP2, OEI rejected takeoff, forced landing and continued takeoff",
+          "caption": "Figure 3-23. Elevated Helideck Takeoff Profile — S-92 RFM Part 2, Section III, p.III-1-52",
+          "width": 1549,
+          "height": 1368
+        },
+        {
+          "src": "/s92/procedures/figures/fig-3-24.png",
+          "alt": "Elevated helideck landing profile: descent at 600 fpm and 40 KIAS to the LDP at 200 ft, flare 50 ft above the helideck, OEI balked landing",
+          "caption": "Figure 3-24. Elevated Helideck Landing Profile — S-92 RFM Part 2, Section III, p.III-1-53",
+          "width": 1573,
+          "height": 1368
+        }
       ]
     },
     {

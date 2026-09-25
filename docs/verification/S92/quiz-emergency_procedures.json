@@ -1,4 +1,284 @@
 {
+ "s92-ep-001": {
+  "id": "s92-ep-001",
+  "context": "Quiz item 's92-ep-001' (EMERGENCY PROCEDURES)",
+  "text": "Following a single engine failure, what power level is automatically available to the operating engine without further pilot switch action? -- Correct: 30 second power. After a single engine failure, the operative engine automatically has 30 second power available. The pilot can then select 2 minute power by moving the collective OEI SEL switch aft, and maximum continuous power by first selecting 2 minute power and then pushing in on the OEI SEL switch.",
+  "hash": "0c253a5f99dc",
+  "source_rev": "S-92A RFM SA S92A-RFM-006",
+  "candidates": [],
+  "readers": {},
+  "status": "ok",
+  "strong": true,
+  "method": "manual-claude-page-read",
+  "note": "RFM Part 1 Sec III 1.4 SINGLE ENGINE FAILURE p.3-6 (DOC 117): 30 second power automatically available; OEI SEL aft = two minute; push in after two minute = maximum continuous. Checked on the rendered page image 2026-09-25.",
+  "checked": "2026-09-25 09:30"
+ },
+ "s92-ep-002": {
+  "id": "s92-ep-002",
+  "context": "Quiz item 's92-ep-002' (EMERGENCY PROCEDURES)",
+  "text": "Which indication distinguishes an actual single engine failure from an ENGINE FIXED POWER (FADEC) malfunction? -- Correct: An actual engine failure shows a red X over the engine pod on EICAS together with an ENGINE FAILURE aural alert, which a FADEC fixed-power malfunction does not produce. An engine failure is always accompanied by a #1/#2 ENG OUT warning light, an ENGINE FAILURE aural alert, and a red X over the failed engine pod on EICAS. An engine with a FADEC-caused fixed power malfunction shows none of these and retains Ng above 50% airborne (above 63% on the ground).",
+  "hash": "fa1b20bac12b",
+  "source_rev": "S-92A RFM SA S92A-RFM-006",
+  "candidates": [],
+  "readers": {},
+  "status": "ok",
+  "strong": true,
+  "method": "manual-claude-page-read",
+  "note": "p.3-5 (DOC 116) symptoms #1/#2 ENG OUT, ENGINE ONE/TWO FAILURE aural, red X over pod; p.3-14A (DOC 130) NOTE: FADEC malfunction has none of these and Ng above 50% airborne (63% ground). Checked on the rendered page image 2026-09-25.",
+  "checked": "2026-09-25 09:30"
+ },
+ "s92-ep-003": {
+  "id": "s92-ep-003",
+  "context": "Quiz item 's92-ep-003' (EMERGENCY PROCEDURES)",
+  "text": "How does the pilot select two-minute OEI power after a single engine failure? -- Correct: Move the collective OEI SEL switch aft. Moving the collective OEI SEL switch aft selects 2 minute power. Pushing in on the switch (after 2 minute power is already selected) gives maximum continuous power, and pushing forward re-arms 30 second power.",
+  "hash": "6d98a0eeb0ca",
+  "source_rev": "S-92A RFM SA S92A-RFM-006",
+  "candidates": [],
+  "readers": {},
+  "status": "ok",
+  "strong": true,
+  "method": "manual-claude-page-read",
+  "note": "p.3-6 (DOC 117): OEI SEL switch aft selects two minute power; push in = MCP; push forward re-arms 30 second power. Checked on the rendered page image 2026-09-25.",
+  "checked": "2026-09-25 09:30"
+ },
+ "s92-ep-004": {
+  "id": "s92-ep-004",
+  "context": "Quiz item 's92-ep-004' (EMERGENCY PROCEDURES)",
+  "text": "What is the immediate, critical pilot action upon a dual engine failure? -- Correct: Immediately reduce collective and enter autorotation. Nr will decay rapidly to an unrecoverable state with resultant loss of aircraft control unless autorotation is entered immediately after a dual engine failure; immediate collective reduction is required to maintain Nr within safe limits.",
+  "hash": "a5fbb1e93235",
+  "source_rev": "S-92A RFM SA S92A-RFM-006",
+  "candidates": [],
+  "readers": {},
+  "status": "ok",
+  "strong": true,
+  "method": "manual-claude-page-read",
+  "note": "2.0 DUAL-ENGINE FAILURE p.3-10B (DOC 125): WARNING Nr decays unless autorotation entered immediately; NOTE immediate collective reduction required. Checked on the rendered page image 2026-09-25.",
+  "checked": "2026-09-25 09:30"
+ },
+ "s92-ep-005": {
+  "id": "s92-ep-005",
+  "context": "Quiz item 's92-ep-005' (EMERGENCY PROCEDURES)",
+  "text": "A FADEC Channel A failure specifically causes loss of which indications on the affected engine? -- Correct: Engine oil temperature and TGT indications, with ENG POWER LIM illuminated. A Channel A failure causes loss of the affected engine's oil temperature and TGT indications, and disables ENG OIL HOT, FUEL BYPASS and ENG OIL PRES cautions, with ENG POWER LIM illuminated. A Channel B failure instead causes loss of oil pressure and TGT indications.",
+  "hash": "593c40eee2a8",
+  "source_rev": "S-92A RFM SA S92A-RFM-006",
+  "candidates": [],
+  "readers": {},
+  "status": "ok",
+  "strong": true,
+  "method": "manual-claude-page-read",
+  "note": "3.2 FADEC CHANNEL FAILURE p.3-13 (DOC 128): Channel A = loss of oil temperature and TGT indications, ENG POWER LIM, ENG OIL HOT/FUEL BYPASS/ENG OIL PRES disabled; Channel B = oil press and TGT. Checked on the rendered page image 2026-09-25.",
+  "checked": "2026-09-25 09:30"
+ },
+ "s92-ep-006": {
+  "id": "s92-ep-006",
+  "context": "Quiz item 's92-ep-006' (EMERGENCY PROCEDURES)",
+  "text": "What indicates an ENGINE FIXED POWER (\"fail fixed\") condition? -- Correct: A torque split, with the affected engine not responding to collective movements. ENG 1/2 FIXED PWR is indicated by a torque split where the affected engine does not respond to collective movements, because loss of both Np signals and the Nr signal to a FADEC freezes that engine's power at the setting it had when the sensors failed.",
+  "hash": "686c21fd0472",
+  "source_rev": "S-92A RFM SA S92A-RFM-006",
+  "candidates": [],
+  "readers": {},
+  "status": "ok",
+  "strong": true,
+  "method": "manual-claude-page-read",
+  "note": "3.4 ENGINE FIXED POWER p.3-14 (DOC 129) symptom torque split, engine does not respond to collective; p.3-14A (DOC 130) discussion: loss of both Np signals and Nr signal holds power. Checked on the rendered page image 2026-09-25.",
+  "checked": "2026-09-25 09:30"
+ },
+ "s92-ep-007": {
+  "id": "s92-ep-007",
+  "context": "Quiz item 's92-ep-007' (EMERGENCY PROCEDURES)",
+  "text": "What Np or Ng values define an engine overspeed condition that causes the FADEC to shut off fuel to the affected engine? -- Correct: Np above 120% or Ng above 108.5%. Np above 120% or Ng above 108.5% are overspeed conditions that cause the FADEC to shut off fuel to the affected engine; the FADEC automatically restarts the engine once Ng and Np return within limits.",
+  "hash": "29ad16a29b83",
+  "source_rev": "S-92A RFM SA S92A-RFM-006",
+  "candidates": [],
+  "readers": {},
+  "status": "ok",
+  "strong": true,
+  "method": "manual-claude-page-read",
+  "note": "3.8 ENGINE OVERSPEED p.3-17 (DOC 133): Np above 120% or Ng above 108.5% cause FADEC fuel shutoff; FADEC restarts engine once within limits. Checked on the rendered page image 2026-09-25.",
+  "checked": "2026-09-25 09:30"
+ },
+ "s92-ep-008": {
+  "id": "s92-ep-008",
+  "context": "Quiz item 's92-ep-008' (EMERGENCY PROCEDURES)",
+  "text": "What action is required immediately after an ENG CHIP caution illuminates? -- Correct: No action is required until a safe single engine airspeed is attained; then reduce the affected engine to idle and land as soon as practical. An ENG CHIP caution indicates metal particles in the affected oil system; no action is required until a safe single engine airspeed is obtained, after which the affected throttle is reduced to idle and the flight is landed as soon as practical.",
+  "hash": "ccb6fff4e9c0",
+  "source_rev": "S-92A RFM SA S92A-RFM-006",
+  "candidates": [],
+  "readers": {},
+  "status": "ok",
+  "strong": true,
+  "method": "manual-claude-page-read",
+  "note": "4.3 ENGINE CHIP INDICATION p.3-22 (DOC 139): NOTE no action until safe single engine airspeed; actions attain SE airspeed, throttle IDLE, land as soon as practical. Checked on the rendered page image 2026-09-25.",
+  "checked": "2026-09-25 09:30"
+ },
+ "s92-ep-009": {
+  "id": "s92-ep-009",
+  "context": "Quiz item 's92-ep-009' (EMERGENCY PROCEDURES)",
+  "text": "What main fuel quantity confirms a FUEL LOW caution? -- Correct: Less than 215 ± 45 pounds. A FUEL LOW caution is confirmed by main fuel quantity less than 215 ± 45 pounds, along with the fuel level turning yellow on the EICAS page.",
+  "hash": "8fc1d255452d",
+  "source_rev": "S-92A RFM SA S92A-RFM-006",
+  "candidates": [],
+  "readers": {},
+  "status": "ok",
+  "strong": true,
+  "method": "manual-claude-page-read",
+  "note": "5.1 FUEL LOW p.3-25 (DOC 142): confirming main fuel quantity less than 215 ±45 pounds; fuel level on EICAS turns yellow. Checked on the rendered page image 2026-09-25.",
+  "checked": "2026-09-25 09:30"
+ },
+ "s92-ep-010": {
+  "id": "s92-ep-010",
+  "context": "Quiz item 's92-ep-010' (EMERGENCY PROCEDURES)",
+  "text": "During a crossfeed-position start of the second engine, why might PRIME PUMP FAIL illuminate without an actual pump failure? -- Correct: The already-running engine's mechanical fuel pump overpowers the prime pump, causing a low pressure reading at the prime pump sensor. When starting the second engine with fuel valves in crossfeed, the operating engine's mechanical fuel pump can overpower the prime pump, causing a low pressure reading at the prime pump sensor — this is not an actual prime pump failure, which is instead confirmed if the caution remains illuminated after the starter cuts out.",
+  "hash": "449a0c57e4c6",
+  "source_rev": "S-92A RFM SA S92A-RFM-006",
+  "candidates": [],
+  "readers": {},
+  "status": "ok",
+  "strong": true,
+  "method": "manual-claude-page-read",
+  "note": "5.2 PRIME PUMP FAIL p.3-26 (DOC 143) NOTE: crossfeed start of second engine, operating engine's mechanical pump overpowers prime pump, low pressure at sensor; actual failure if caution remains after starter cuts out. Checked on the rendered page image 2026-09-25.",
+  "checked": "2026-09-25 09:30"
+ },
+ "s92-ep-011": {
+  "id": "s92-ep-011",
+  "context": "Quiz item 's92-ep-011' (EMERGENCY PROCEDURES)",
+  "text": "After an automatic APU shutdown (APU FAIL caution), what must the pilot NOT do? -- Correct: Attempt to restart the APU. After an automatic APU shutdown, the pilot must not attempt to restart the APU. The APU generator will not be available for emergency power or engine shutdown, so TGT should be monitored and external power connected if available.",
+  "hash": "6d3d4e30dad5",
+  "source_rev": "S-92A RFM SA S92A-RFM-006",
+  "candidates": [],
+  "readers": {},
+  "status": "ok",
+  "strong": true,
+  "method": "manual-claude-page-read",
+  "note": "6.1 APU FAILURE p.3-27 (DOC 144): CAUTION do not attempt to restart the APU after automatic shutdown; NOTE monitor TGT on pilot inboard EICAS, connect external power if available. Checked on the rendered page image 2026-09-25.",
+  "checked": "2026-09-25 09:30"
+ },
+ "s92-ep-012": {
+  "id": "s92-ep-012",
+  "context": "Quiz item 's92-ep-012' (EMERGENCY PROCEDURES)",
+  "text": "What does the APU OVERLOAD caution indicate, and what is the first action? -- Correct: APU generator load is in excess of normal limits; decrease APU electrical load by turning off nonessential systems. APU OVERLOAD indicates the APU generator load exceeds normal limits. The first action is to decrease APU electrical load by turning off nonessential systems; if the caution remains, attain VMC and land as soon as practical.",
+  "hash": "be2fc3eb02f2",
+  "source_rev": "S-92A RFM SA S92A-RFM-006",
+  "candidates": [],
+  "readers": {},
+  "status": "ok",
+  "strong": true,
+  "method": "manual-claude-page-read",
+  "note": "6.5 APU OVERLOAD p.3-29/3-30 (DOC 146/147): generator load in excess of normal limits; decrease load by turning off nonessential systems; if remains attain VMC as soon as possible, land as soon as practical. Checked on the rendered page image 2026-09-25.",
+  "checked": "2026-09-25 09:30"
+ },
+ "s92-ep-013": {
+  "id": "s92-ep-013",
+  "context": "Quiz item 's92-ep-013' (EMERGENCY PROCEDURES)",
+  "text": "At what MGB oil pressure does the RFM require the pilot to Land Immediately? -- Correct: Below 5 psi. A total loss of MGB oil pressure may result in MGB failure in less than 10 minutes. If MGB OIL PRES is less than 5 psi, the RFM requires Land Immediately. The caution (manifold below 45 psi) and warning (manifold below 35 psi) thresholds do not by themselves call for Land Immediately; the MGB OIL PRES warning procedure is land as soon as possible.",
+  "hash": "f8ff9d6993e0",
+  "source_rev": "S-92A RFM SA S92A-RFM-006",
+  "candidates": [],
+  "readers": {},
+  "status": "ok",
+  "strong": true,
+  "method": "manual-claude-page-read",
+  "note": "7.0 p.3-31 (DOC 148) and 7.1 p.3-32 (DOC 149) WARNING: total loss may give MGB failure in less than 10 minutes; below 5 psi Land Immediately. p.3-32 NOTE caution 45 psi manifold, warning 35 psi; 7.1 procedure p.3-32A (DOC 150) land as soon as possible. Checked on the rendered page image 2026-09-25.",
+  "checked": "2026-09-25 09:30"
+ },
+ "s92-ep-014": {
+  "id": "s92-ep-014",
+  "context": "Quiz item 's92-ep-014' (EMERGENCY PROCEDURES)",
+  "text": "Within how many seconds must MGB OIL BYP be selected after the MGB OIL PRES warning illuminates? -- Correct: 5 seconds. BYP must be selected within 5 seconds after the MGB OIL PRES warning illuminates, to ensure an adequate quantity of oil remains in the gearbox.",
+  "hash": "4234cf4d2257",
+  "source_rev": "S-92A RFM SA S92A-RFM-006",
+  "candidates": [],
+  "readers": {},
+  "status": "ok",
+  "strong": true,
+  "method": "manual-claude-page-read",
+  "note": "7.1 p.3-32 (DOC 149) WARNING: BYP must be selected within 5 seconds after the MGB OIL PRES warning. Checked on the rendered page image 2026-09-25.",
+  "checked": "2026-09-25 09:30"
+ },
+ "s92-ep-015": {
+  "id": "s92-ep-015",
+  "context": "Quiz item 's92-ep-015' (EMERGENCY PROCEDURES)",
+  "text": "What is the result of a dual AC generator failure (AC GEN 1 FAIL and AC GEN 2 FAIL)? -- Correct: Loss of all electrical systems except those powered by the battery buses, including loss of copilot displays. A dual AC generator failure results in loss of all electrical systems except those powered by the battery buses, including loss of copilot displays, until the APU generator or the AC generators are recovered.",
+  "hash": "cb223274bb5c",
+  "source_rev": "S-92A RFM SA S92A-RFM-006",
+  "candidates": [],
+  "readers": {},
+  "status": "ok",
+  "strong": true,
+  "method": "manual-claude-page-read",
+  "note": "8.2 DUAL AC GENERATOR FAILURE p.3-35 (DOC 154) confirming: loss of all electrical systems except those powered by the battery buses, including copilot displays. Checked on the rendered page image 2026-09-25.",
+  "checked": "2026-09-25 09:30"
+ },
+ "s92-ep-016": {
+  "id": "s92-ep-016",
+  "context": "Quiz item 's92-ep-016' (EMERGENCY PROCEDURES)",
+  "text": "After a dual DC converter and backup converter failure with the converters not recovered, why must the landing gear be lowered before battery power is depleted? -- Correct: Normal and emergency extension of the landing gear is not possible without electrical power. Normal and emergency extension of the landing gear is not possible without electrical power, so when operating on battery power only, the landing gear should be lowered before battery power is depleted.",
+  "hash": "7413ba9fed58",
+  "source_rev": "S-92A RFM SA S92A-RFM-006",
+  "candidates": [],
+  "readers": {},
+  "status": "ok",
+  "strong": true,
+  "method": "manual-claude-page-read",
+  "note": "8.6 p.3-39 (DOC 157) CAUTION: normal and emergency gear extension not possible without electrical power; lower gear before battery depleted. Checked on the rendered page image 2026-09-25.",
+  "checked": "2026-09-25 09:30"
+ },
+ "s92-ep-017": {
+  "id": "s92-ep-017",
+  "context": "Quiz item 's92-ep-017' (EMERGENCY PROCEDURES)",
+  "text": "With both primary hydraulic pumps failed (HYD 1 PUMP FAIL and HYD 2 PUMP FAIL), what maintains control of the aircraft? -- Correct: The #3 hydraulic system pressurizes the primary servos. With loss of both primary hydraulic systems, the #3 hydraulic system pressurizes the primary servos, allowing continued control of the aircraft while control inputs are restricted to moderate rates.",
+  "hash": "4af59d4f49bc",
+  "source_rev": "S-92A RFM SA S92A-RFM-006",
+  "candidates": [],
+  "readers": {},
+  "status": "ok",
+  "strong": true,
+  "method": "manual-claude-page-read",
+  "note": "9.1 DUAL HYDRAULIC PUMP FAILURE p.3-42 (DOC 160) NOTE: #3 system pressurizes the primary servos; action restrict control inputs to moderate rates. Checked on the rendered page image 2026-09-25.",
+  "checked": "2026-09-25 09:30"
+ },
+ "s92-ep-018": {
+  "id": "s92-ep-018",
+  "context": "Quiz item 's92-ep-018' (EMERGENCY PROCEDURES)",
+  "text": "What is the maximum airspeed for activating the landing gear emergency blow down (EMER DN) system? -- Correct: 90 KIAS. Maximum airspeed for activation of the landing gear emergency blow down switch is 90 KIAS.",
+  "hash": "2e5f43606483",
+  "source_rev": "S-92A RFM SA S92A-RFM-006",
+  "candidates": [],
+  "readers": {},
+  "status": "ok",
+  "strong": true,
+  "method": "manual-claude-page-read",
+  "note": "10.1 LANDING GEAR WILL NOT EXTEND p.3-49 (DOC 167) NOTE: maximum airspeed for activation of emergency blow down switch is 90 KIAS. Checked on the rendered page image 2026-09-25.",
+  "checked": "2026-09-25 09:30"
+ },
+ "s92-ep-019": {
+  "id": "s92-ep-019",
+  "context": "Quiz item 's92-ep-019' (EMERGENCY PROCEDURES)",
+  "text": "What is the correct response to a loss of tail rotor thrust in forward flight (sharp, uncommanded right yaw unresponsive to pedal inputs)? -- Correct: Enter autorotation immediately and maintain 80 to 100 KIAS. Loss of tail rotor thrust in forward flight is associated with a loss of drive and makes level flight impossible. The pilot enters autorotation, maintains 80 to 100 KIAS, lowers the landing gear and moves the throttles to STOP prior to touchdown.",
+  "hash": "d51dd24089fb",
+  "source_rev": "S-92A RFM SA S92A-RFM-006",
+  "candidates": [],
+  "readers": {},
+  "status": "ok",
+  "strong": true,
+  "method": "manual-claude-page-read",
+  "note": "11.0/11.1 p.3-51 (DOC 169): loss of thrust = loss of drive, level flight impossible; actions enter autorotation, 80 to 100 KIAS, gear down, throttles STOP prior to touchdown. Checked on the rendered page image 2026-09-25.",
+  "checked": "2026-09-25 09:30"
+ },
+ "s92-ep-020": {
+  "id": "s92-ep-020",
+  "context": "Quiz item 's92-ep-020' (EMERGENCY PROCEDURES)",
+  "text": "In flight, after confirming an engine fire, what is the correct order of the initial actions? -- Correct: Adjust collective to single engine power, stop the affected throttle, then push in FIRE/ARMED and deploy the fire extinguisher. After confirming an in-flight engine fire, the pilot adjusts collective to single engine power, stops the affected throttle, pushes in the FIRE/ARMED pushbutton, and deploys MAIN/RESERVE fire extinguisher as required, before accomplishing the SINGLE ENGINE FAILURE procedure and landing.",
+  "hash": "3b40f5c4c18f",
+  "source_rev": "S-92A RFM SA S92A-RFM-006",
+  "candidates": [],
+  "readers": {},
+  "status": "ok",
+  "strong": true,
+  "method": "manual-claude-page-read",
+  "note": "13.1 ENGINE FIRES in flight p.3-60/3-61 (DOC 180/181): confirm fire, collective to single engine power, throttle STOP, FIRE/ARMED push in, FIRE EXTG MAIN/RESERVE, SINGLE ENGINE FAILURE, land as soon as possible. Checked on the rendered page image 2026-09-25.",
+  "checked": "2026-09-25 09:30"
+ },
  "s92-ep-021": {
   "id": "s92-ep-021",
   "context": "Quiz item 's92-ep-021' (EMERGENCY PROCEDURES)",
@@ -10,8 +290,8 @@
   "status": "ok",
   "strong": true,
   "method": "manual-claude-page-read",
-  "note": "p.3-2 INTRODUCTION: definitions of land immediately / land as soon as possible / land as soon as practical read on the image; all three match the explanation. Distractor D is not an RFM definition. [DOC page 113 of the full RFM; checked on the page image rendered at 130 dpi]",
-  "checked": "2026-09-25 00:23"
+  "note": "p.3-2 INTRODUCTION: definitions of land immediately / land as soon as possible / land as soon as practical read on the image; all three match the explanation. Distractor D is not an RFM definition. [DOC page 113 of the full RFM; checked on the page image rendered at 130 dpi] Independently re-checked on the rendered page image 2026-09-25.",
+  "checked": "2026-09-25 09:30"
  },
  "s92-ep-022": {
   "id": "s92-ep-022",
@@ -24,22 +304,22 @@
   "status": "ok",
   "strong": true,
   "method": "manual-claude-page-read",
-  "note": "p.3-2 INTRODUCTION, last NOTE: reset only if the affected system is required for flight; only once; only if no indication of electrical fire. Confirmed on the image. [DOC page 113 of the full RFM; checked on the page image rendered at 130 dpi]",
-  "checked": "2026-09-25 00:23"
+  "note": "p.3-2 INTRODUCTION, last NOTE: reset only if the affected system is required for flight; only once; only if no indication of electrical fire. Confirmed on the image. [DOC page 113 of the full RFM; checked on the page image rendered at 130 dpi] Independently re-checked on the rendered page image 2026-09-25.",
+  "checked": "2026-09-25 09:30"
  },
  "s92-ep-023": {
   "id": "s92-ep-023",
   "context": "Quiz item 's92-ep-023' (EMERGENCY PROCEDURES)",
-  "text": "After an emergency engine shutdown (throttle STOP, FUEL OFF), TGT remains above 540°. What does the procedure call for? -- Correct: Press the ENG START button to engage the starter with the throttle in STOP, and press it again to turn the starter off when TGT is below 150°. If TGT remains above 540° or there is other evidence of combustion after engine shutdown, press the ENG START button to engage the starter with the throttle in STOP. When TGT is below 150°, press the ENG START button to turn the starter off.",
-  "hash": "496c93b3646d",
+  "text": "After an emergency engine shutdown (throttle STOP, FUEL OFF), TGT remains above 540°. What does the procedure call for? -- Correct: Press ENG START to engage the starter with the throttle in STOP, until TGT is below 150°. If TGT remains above 540° or there is other evidence of combustion after engine shutdown, press the ENG START button to engage the starter with the throttle in STOP. When TGT is below 150°, press the ENG START button to turn the starter off.",
+  "hash": "ff2afbc7f91c",
   "source_rev": "S-92A RFM SA S92A-RFM-006",
   "candidates": [],
   "readers": {},
   "status": "ok",
   "strong": true,
   "method": "manual-claude-page-read",
-  "note": "p.3-3 1.1 EMERGENCY ENGINE SHUTDOWN: steps 1 Throttle STOP, 2 FUEL OFF; 'If TGT remains above 540 deg or there is other evidence of combustion' step 3 ENG START PRESS to engage starter with throttle in STOP; 'When TGT is below 150 deg' step 4 ENG START PRESS to turn starter off. Page prints degrees without C; kept as printed. [DOC page 114 of the full RFM; checked on the page image rendered at 130 dpi]",
-  "checked": "2026-09-25 00:23"
+  "note": "p.3-3 1.1 EMERGENCY ENGINE SHUTDOWN: steps 1 Throttle STOP, 2 FUEL OFF; 'If TGT remains above 540 deg or there is other evidence of combustion' step 3 ENG START PRESS to engage starter with throttle in STOP; 'When TGT is below 150 deg' step 4 ENG START PRESS to turn starter off. Page prints degrees without C; kept as printed. [DOC page 114 of the full RFM; checked on the page image rendered at 130 dpi] Independently re-checked on the rendered page image 2026-09-25; answer options reworded so the correct one is not given away by length, facts unchanged.",
+  "checked": "2026-09-25 09:30"
  },
  "s92-ep-024": {
   "id": "s92-ep-024",
@@ -52,8 +332,8 @@
   "status": "ok",
   "strong": true,
   "method": "manual-claude-page-read",
-  "note": "p.3-3 1.2 ENGINE RESTART IN FLIGHT NOTE: procedure assumes fuel selector in DIRECT; if flameout occurred in XFD, place fuel selector switch to DIRECT during restart sequence. Confirmed on image. [DOC page 114 of the full RFM; checked on the page image rendered at 130 dpi]",
-  "checked": "2026-09-25 00:23"
+  "note": "p.3-3 1.2 ENGINE RESTART IN FLIGHT NOTE: procedure assumes fuel selector in DIRECT; if flameout occurred in XFD, place fuel selector switch to DIRECT during restart sequence. Confirmed on image. [DOC page 114 of the full RFM; checked on the page image rendered at 130 dpi] Independently re-checked on the rendered page image 2026-09-25.",
+  "checked": "2026-09-25 09:30"
  },
  "s92-ep-025": {
   "id": "s92-ep-025",
@@ -66,8 +346,8 @@
   "status": "ok",
   "strong": true,
   "method": "manual-claude-page-read",
-  "note": "p.3-4 CAUTION and p.3-5 CAUTION: 'Maintain at least 90% Ng on the operating engine when accomplishing a crossbleed start.' Confirmed on both images. The 80% torque figure (distractor A) belongs to the air-source note on p.3-4. [DOC page 115, 116 of the full RFM; checked on the page image rendered at 130 dpi]",
-  "checked": "2026-09-25 00:23"
+  "note": "p.3-4 CAUTION and p.3-5 CAUTION: 'Maintain at least 90% Ng on the operating engine when accomplishing a crossbleed start.' Confirmed on both images. The 80% torque figure (distractor A) belongs to the air-source note on p.3-4. [DOC page 115, 116 of the full RFM; checked on the page image rendered at 130 dpi] Independently re-checked on the rendered page image 2026-09-25.",
+  "checked": "2026-09-25 09:30"
  },
  "s92-ep-026": {
   "id": "s92-ep-026",
@@ -80,8 +360,8 @@
   "status": "ok",
   "strong": true,
   "method": "manual-claude-page-read",
-  "note": "p.3-4 NOTE (change-barred): APU should be ON for in-flight restarts if possible; cross-bleed loses up to 3% power of operating engine; with AIR SRCE HEAT/START in ENG and APU on, engine is the air source at approx 80% torque or above, APU below approx 80%. Confirmed on image. [DOC page 115 of the full RFM; checked on the page image rendered at 130 dpi]",
-  "checked": "2026-09-25 00:23"
+  "note": "p.3-4 NOTE (change-barred): APU should be ON for in-flight restarts if possible; cross-bleed loses up to 3% power of operating engine; with AIR SRCE HEAT/START in ENG and APU on, engine is the air source at approx 80% torque or above, APU below approx 80%. Confirmed on image. [DOC page 115 of the full RFM; checked on the page image rendered at 130 dpi] Independently re-checked on the rendered page image 2026-09-25.",
+  "checked": "2026-09-25 09:30"
  },
  "s92-ep-027": {
   "id": "s92-ep-027",
@@ -94,8 +374,8 @@
   "status": "ok",
   "strong": true,
   "method": "manual-claude-page-read",
-  "note": "p.3-4 1.3 intro sentence (damage to engine secondary to safety of flight); p.3-5 first CAUTION: hot start prevention not present in emergency start; pilot monitors temperature and places throttle to STOP if hot start imminent. Confirmed on images. [DOC page 115, 116 of the full RFM; checked on the page image rendered at 130 dpi]",
-  "checked": "2026-09-25 00:23"
+  "note": "p.3-4 1.3 intro sentence (damage to engine secondary to safety of flight); p.3-5 first CAUTION: hot start prevention not present in emergency start; pilot monitors temperature and places throttle to STOP if hot start imminent. Confirmed on images. [DOC page 115, 116 of the full RFM; checked on the page image rendered at 130 dpi] Independently re-checked on the rendered page image 2026-09-25.",
+  "checked": "2026-09-25 09:30"
  },
  "s92-ep-028": {
   "id": "s92-ep-028",
@@ -108,8 +388,8 @@
   "status": "ok",
   "strong": true,
   "method": "manual-claude-page-read",
-  "note": "p.3-5 action steps 1-7 read on image: step 5 throttle OFF, step 6 ENG START PRESS, step 7 throttle FLY when TGT below 150 deg C or sooner if the situation dictates. p.3-4 NOTE: emergency start overrides automatic blow down. [DOC page 115, 116 of the full RFM; checked on the page image rendered at 130 dpi]",
-  "checked": "2026-09-25 00:23"
+  "note": "p.3-5 action steps 1-7 read on image: step 5 throttle OFF, step 6 ENG START PRESS, step 7 throttle FLY when TGT below 150 deg C or sooner if the situation dictates. p.3-4 NOTE: emergency start overrides automatic blow down. [DOC page 115, 116 of the full RFM; checked on the page image rendered at 130 dpi] Independently re-checked on the rendered page image 2026-09-25.",
+  "checked": "2026-09-25 09:30"
  },
  "s92-ep-029": {
   "id": "s92-ep-029",
@@ -122,22 +402,22 @@
   "status": "ok",
   "strong": true,
   "method": "manual-claude-page-read",
-  "note": "p.3-6 first paragraph: 30 second power attained by raising collective until Nr decreases to 100%; two minute power by moving OEI SEL aft; MCP by first selecting two minute then pushing in; 30 second power re-armed at any time by pushing forward on OEI SEL. Confirmed on image. [DOC page 117 of the full RFM; checked on the page image rendered at 130 dpi]",
-  "checked": "2026-09-25 00:23"
+  "note": "p.3-6 first paragraph: 30 second power attained by raising collective until Nr decreases to 100%; two minute power by moving OEI SEL aft; MCP by first selecting two minute then pushing in; 30 second power re-armed at any time by pushing forward on OEI SEL. Confirmed on image. [DOC page 117 of the full RFM; checked on the page image rendered at 130 dpi] Independently re-checked on the rendered page image 2026-09-25.",
+  "checked": "2026-09-25 09:30"
  },
  "s92-ep-030": {
   "id": "s92-ep-030",
   "context": "Quiz item 's92-ep-030' (EMERGENCY PROCEDURES)",
-  "text": "While cushioning a single engine landing, Nr droops below 96%. If the APU and APU generator are not on, what is the result? -- Correct: The AC generators drop off line, only the battery bus powers aircraft systems and the copilot MFDs momentarily blank, with no degradation to aircraft control. When increasing collective to cushion a single engine landing, Nr may droop below 96%, causing the AC generators to drop off line at touchdown. Unless the APU is on and the APU generator switch is on, only the battery bus will be available. This does not degrade aircraft control but causes the copilot MFDs to momentarily blank. Once the collective is moved to flat pitch and Nr recovers above 96%, normal electrical power returns.",
-  "hash": "f2ecddd7a287",
+  "text": "While cushioning a single engine landing, Nr droops below 96%. If the APU and APU generator are not on, what is the result? -- Correct: The AC generators drop off line and the copilot MFDs momentarily blank; aircraft control is not degraded. When increasing collective to cushion a single engine landing, Nr may droop below 96%, causing the AC generators to drop off line at touchdown. Unless the APU is on and the APU generator switch is on, only the battery bus will be available. This does not degrade aircraft control but causes the copilot MFDs to momentarily blank. Once the collective is moved to flat pitch and Nr recovers above 96%, normal electrical power returns.",
+  "hash": "e8de2b7e099b",
   "source_rev": "S-92A RFM SA S92A-RFM-006",
   "candidates": [],
   "readers": {},
   "status": "ok",
   "strong": true,
   "method": "manual-claude-page-read",
-  "note": "p.3-6 first NOTE: Nr below 96% -> AC generators drop off line at touchdown; unless APU on and APU GEN on, only battery bus; no degradation to aircraft control; copilot MFDs momentarily blank; power returns with flat pitch and Nr above 96%. Confirmed on image. [DOC page 117 of the full RFM; checked on the page image rendered at 130 dpi]",
-  "checked": "2026-09-25 00:23"
+  "note": "p.3-6 first NOTE: Nr below 96% -> AC generators drop off line at touchdown; unless APU on and APU GEN on, only battery bus; no degradation to aircraft control; copilot MFDs momentarily blank; power returns with flat pitch and Nr above 96%. Confirmed on image. [DOC page 117 of the full RFM; checked on the page image rendered at 130 dpi] Independently re-checked on the rendered page image 2026-09-25; answer options reworded so the correct one is not given away by length, facts unchanged.",
+  "checked": "2026-09-25 09:30"
  },
  "s92-ep-031": {
   "id": "s92-ep-031",
@@ -150,8 +430,8 @@
   "status": "ok",
   "strong": true,
   "method": "manual-claude-page-read",
-  "note": "p.3-6 second NOTE: use crossfeed to prevent exceeding 700 lb (317 kg) imbalance or fuel starvation of the good engine; do not crossfeed if engine failure suspected due to fuel system malfunction. Confirmed on image. Distractor B inverts the note (crossfeed is used to prevent exceeding 700 lb). [DOC page 117 of the full RFM; checked on the page image rendered at 130 dpi]",
-  "checked": "2026-09-25 00:23"
+  "note": "p.3-6 second NOTE: use crossfeed to prevent exceeding 700 lb (317 kg) imbalance or fuel starvation of the good engine; do not crossfeed if engine failure suspected due to fuel system malfunction. Confirmed on image. Distractor B inverts the note (crossfeed is used to prevent exceeding 700 lb). [DOC page 117 of the full RFM; checked on the page image rendered at 130 dpi] Independently re-checked on the rendered page image 2026-09-25.",
+  "checked": "2026-09-25 09:30"
  },
  "s92-ep-032": {
   "id": "s92-ep-032",
@@ -164,8 +444,8 @@
   "status": "ok",
   "strong": true,
   "method": "manual-claude-page-read",
-  "note": "p.3-6 1.6 intro: fails before or at TDP -> takeoff rejected; after TDP may be continued. p.3-6A 'Prior to Reaching TDP' step 1 rotate nose up to decrease forward speed and attain landing attitude. Confirmed on images. [DOC page 117, 118 of the full RFM; checked on the page image rendered at 130 dpi]",
-  "checked": "2026-09-25 00:23"
+  "note": "p.3-6 1.6 intro: fails before or at TDP -> takeoff rejected; after TDP may be continued. p.3-6A 'Prior to Reaching TDP' step 1 rotate nose up to decrease forward speed and attain landing attitude. Confirmed on images. [DOC page 117, 118 of the full RFM; checked on the page image rendered at 130 dpi] Independently re-checked on the rendered page image 2026-09-25.",
+  "checked": "2026-09-25 09:30"
  },
  "s92-ep-033": {
   "id": "s92-ep-033",
@@ -178,8 +458,8 @@
   "status": "ok",
   "strong": true,
   "method": "manual-claude-page-read",
-  "note": "p.3-6 last paragraph: 100% Nr from TDP to best rate of climb speed of 80 KIAS; single engine flight above best rate of climb airspeed use 105% Nr. Confirmed on image. [DOC page 117 of the full RFM; checked on the page image rendered at 130 dpi]",
-  "checked": "2026-09-25 00:23"
+  "note": "p.3-6 last paragraph: 100% Nr from TDP to best rate of climb speed of 80 KIAS; single engine flight above best rate of climb airspeed use 105% Nr. Confirmed on image. [DOC page 117 of the full RFM; checked on the page image rendered at 130 dpi] Independently re-checked on the rendered page image 2026-09-25.",
+  "checked": "2026-09-25 09:30"
  },
  "s92-ep-034": {
   "id": "s92-ep-034",
@@ -192,8 +472,8 @@
   "status": "ok",
   "strong": true,
   "method": "manual-claude-page-read",
-  "note": "p.3-7 After TDP steps 1-7 and WARNING read on image: Vtoss, 100% Nr, gear up at positive climb, WARNING no two minute power until obstacle clearance assured, step 4 select two minute power when obstacles cleared, 5 accelerate to Vy (5.1 RIPS HEAVY in icing), 6 MCP, 7 land as soon as practical. [DOC page 119 of the full RFM; checked on the page image rendered at 130 dpi]",
-  "checked": "2026-09-25 00:23"
+  "note": "p.3-7 After TDP steps 1-7 and WARNING read on image: Vtoss, 100% Nr, gear up at positive climb, WARNING no two minute power until obstacle clearance assured, step 4 select two minute power when obstacles cleared, 5 accelerate to Vy (5.1 RIPS HEAVY in icing), 6 MCP, 7 land as soon as practical. [DOC page 119 of the full RFM; checked on the page image rendered at 130 dpi] Independently re-checked on the rendered page image 2026-09-25.",
+  "checked": "2026-09-25 09:30"
  },
  "s92-ep-035": {
   "id": "s92-ep-035",
@@ -206,22 +486,22 @@
   "status": "ok",
   "strong": true,
   "method": "manual-claude-page-read",
-  "note": "p.3-6 1.5 action steps 1-4 read on image: maintain collective setting; increase collective to cushion landing; after touchdown neutralize cyclic and reduce collective to minimum; apply wheel brakes. [DOC page 117 of the full RFM; checked on the page image rendered at 130 dpi]",
-  "checked": "2026-09-25 00:25"
+  "note": "p.3-6 1.5 action steps 1-4 read on image: maintain collective setting; increase collective to cushion landing; after touchdown neutralize cyclic and reduce collective to minimum; apply wheel brakes. [DOC page 117 of the full RFM; checked on the page image rendered at 130 dpi] Independently re-checked on the rendered page image 2026-09-25.",
+  "checked": "2026-09-25 09:30"
  },
  "s92-ep-036": {
   "id": "s92-ep-036",
   "context": "Quiz item 's92-ep-036' (EMERGENCY PROCEDURES)",
-  "text": "An engine fails before the TDP during a ground level helipad vertical takeoff. During the vertical descent back to the helipad, what Nr should be maintained, and why? -- Correct: Between 100% and 104%: at or above 100% for sufficient rotor energy for the landing, and below 105% so the remaining engine produces maximum power. Prior to or at the TDP: decrease collective sharply to stop the vertical climb, then descend vertically to the helipad maintaining between 100% and 104% Nr. The CAUTION explains: maintain Nr at or above 100% during the vertical descent to ensure sufficient rotor energy is available for the landing, and below 105% to ensure that the remaining engine is producing maximum power.",
-  "hash": "d014c52d0b5e",
+  "text": "An engine fails before the TDP during a ground level helipad vertical takeoff. During the vertical descent back to the helipad, what Nr should be maintained, and why? -- Correct: Between 100% and 104%: enough rotor energy for the landing, yet below 105% so the remaining engine gives maximum power. Prior to or at the TDP: decrease collective sharply to stop the vertical climb, then descend vertically to the helipad maintaining between 100% and 104% Nr. The CAUTION explains: maintain Nr at or above 100% during the vertical descent to ensure sufficient rotor energy is available for the landing, and below 105% to ensure that the remaining engine is producing maximum power.",
+  "hash": "bcdc96f97641",
   "source_rev": "S-92A RFM SA S92A-RFM-006",
   "candidates": [],
   "readers": {},
   "status": "ok",
   "strong": true,
   "method": "manual-claude-page-read",
-  "note": "p.3-7 1.6A 'Prior to or at the TDP' steps 1-2 and CAUTION read on image: decrease collective sharply; descend vertically, maintain 100-104% Nr; caution at or above 100% for rotor energy, below 105% for maximum power from remaining engine. [DOC page 119 of the full RFM; checked on the page image rendered at 130 dpi]",
-  "checked": "2026-09-25 00:25"
+  "note": "p.3-7 1.6A 'Prior to or at the TDP' steps 1-2 and CAUTION read on image: decrease collective sharply; descend vertically, maintain 100-104% Nr; caution at or above 100% for rotor energy, below 105% for maximum power from remaining engine. [DOC page 119 of the full RFM; checked on the page image rendered at 130 dpi] Independently re-checked on the rendered page image 2026-09-25; answer options reworded so the correct one is not given away by length, facts unchanged.",
+  "checked": "2026-09-25 09:30"
  },
  "s92-ep-037": {
   "id": "s92-ep-037",
@@ -234,8 +514,8 @@
   "status": "ok",
   "strong": true,
   "method": "manual-claude-page-read",
-  "note": "p.3-8 NOTE (change-barred) read on image: strong winds from high TDP may need more than 30 s to return if rotor below 105%; minimum 600 FPM descent to avoid exceeding 30 s of 30 second OEI power; permitted to descend at 105% Nr in this case. [DOC page 120 of the full RFM; checked on the page image rendered at 130 dpi]",
-  "checked": "2026-09-25 00:25"
+  "note": "p.3-8 NOTE (change-barred) read on image: strong winds from high TDP may need more than 30 s to return if rotor below 105%; minimum 600 FPM descent to avoid exceeding 30 s of 30 second OEI power; permitted to descend at 105% Nr in this case. [DOC page 120 of the full RFM; checked on the page image rendered at 130 dpi] Independently re-checked on the rendered page image 2026-09-25.",
+  "checked": "2026-09-25 09:30"
  },
  "s92-ep-038": {
   "id": "s92-ep-038",
@@ -248,8 +528,8 @@
   "status": "ok",
   "strong": true,
   "method": "manual-claude-page-read",
-  "note": "p.3-8 'After TDP' steps 1-4 and NOTE on minimum drop down read on image. Distractor A is the before/at-TDP action from p.3-7. [DOC page 120 of the full RFM; checked on the page image rendered at 130 dpi]",
-  "checked": "2026-09-25 00:25"
+  "note": "p.3-8 'After TDP' steps 1-4 and NOTE on minimum drop down read on image. Distractor A is the before/at-TDP action from p.3-7. [DOC page 120 of the full RFM; checked on the page image rendered at 130 dpi] Independently re-checked on the rendered page image 2026-09-25.",
+  "checked": "2026-09-25 09:30"
  },
  "s92-ep-039": {
   "id": "s92-ep-039",
@@ -262,8 +542,8 @@
   "status": "ok",
   "strong": true,
   "method": "manual-claude-page-read",
-  "note": "p.3-8A 1.7 steps 1-2 (partial flare at about 50 feet) and p.3-9 steps 3-5 read on images. [DOC page 121, 122 of the full RFM; checked on the page image rendered at 130 dpi]",
-  "checked": "2026-09-25 00:25"
+  "note": "p.3-8A 1.7 steps 1-2 (partial flare at about 50 feet) and p.3-9 steps 3-5 read on images. [DOC page 121, 122 of the full RFM; checked on the page image rendered at 130 dpi] Independently re-checked on the rendered page image 2026-09-25.",
+  "checked": "2026-09-25 09:30"
  },
  "s92-ep-040": {
   "id": "s92-ep-040",
@@ -276,8 +556,8 @@
   "status": "ok",
   "strong": true,
   "method": "manual-claude-page-read",
-  "note": "p.3-9 1.8 steps 1-5 and WARNING read on image; step 3: consider air restart only if cause of failure has been determined and corrected. [DOC page 122 of the full RFM; checked on the page image rendered at 130 dpi]",
-  "checked": "2026-09-25 00:25"
+  "note": "p.3-9 1.8 steps 1-5 and WARNING read on image; step 3: consider air restart only if cause of failure has been determined and corrected. [DOC page 122 of the full RFM; checked on the page image rendered at 130 dpi] Independently re-checked on the rendered page image 2026-09-25.",
+  "checked": "2026-09-25 09:30"
  },
  "s92-ep-041": {
   "id": "s92-ep-041",
@@ -290,8 +570,8 @@
   "status": "ok",
   "strong": true,
   "method": "manual-claude-page-read",
-  "note": "p.3-9 1.9 intro paragraph read on image: LDP 200 ft above intended landing elevation, 50 KIAS, 600 FPM; at or above LDP go around or continue; after LDP must continue to touchdown. [DOC page 122 of the full RFM; checked on the page image rendered at 130 dpi]",
-  "checked": "2026-09-25 00:25"
+  "note": "p.3-9 1.9 intro paragraph read on image: LDP 200 ft above intended landing elevation, 50 KIAS, 600 FPM; at or above LDP go around or continue; after LDP must continue to touchdown. [DOC page 122 of the full RFM; checked on the page image rendered at 130 dpi] Independently re-checked on the rendered page image 2026-09-25.",
+  "checked": "2026-09-25 09:30"
  },
  "s92-ep-042": {
   "id": "s92-ep-042",
@@ -304,8 +584,8 @@
   "status": "ok",
   "strong": true,
   "method": "manual-claude-page-read",
-  "note": "p.3-9 balked landing steps 1-3 and p.3-10 WARNING and steps 4-7 read on images. Distractor A is the ground level helipad go-around (p.3-10). [DOC page 122, 123 of the full RFM; checked on the page image rendered at 130 dpi]",
-  "checked": "2026-09-25 00:25"
+  "note": "p.3-9 balked landing steps 1-3 and p.3-10 WARNING and steps 4-7 read on images. Distractor A is the ground level helipad go-around (p.3-10). [DOC page 122, 123 of the full RFM; checked on the page image rendered at 130 dpi] Independently re-checked on the rendered page image 2026-09-25.",
+  "checked": "2026-09-25 09:30"
  },
  "s92-ep-043": {
   "id": "s92-ep-043",
@@ -318,8 +598,8 @@
   "status": "ok",
   "strong": true,
   "method": "manual-claude-page-read",
-  "note": "p.3-10 1.10 steps 1-5 read on image. [DOC page 123 of the full RFM; checked on the page image rendered at 130 dpi]",
-  "checked": "2026-09-25 00:25"
+  "note": "p.3-10 1.10 steps 1-5 read on image. [DOC page 123 of the full RFM; checked on the page image rendered at 130 dpi] Independently re-checked on the rendered page image 2026-09-25.",
+  "checked": "2026-09-25 09:30"
  },
  "s92-ep-044": {
   "id": "s92-ep-044",
@@ -332,8 +612,8 @@
   "status": "ok",
   "strong": true,
   "method": "manual-claude-page-read",
-  "note": "p.3-10 1.11 intro and balked landing steps 1-4 read on image; p.3-10A WARNING and steps 5-8. Distractor A is the Cat A horizontal go-around (p.3-9). [DOC page 123 of the full RFM; checked on the page image rendered at 130 dpi]",
-  "checked": "2026-09-25 00:25"
+  "note": "p.3-10 1.11 intro and balked landing steps 1-4 read on image; p.3-10A WARNING and steps 5-8. Distractor A is the Cat A horizontal go-around (p.3-9). [DOC page 123 of the full RFM; checked on the page image rendered at 130 dpi] Independently re-checked on the rendered page image 2026-09-25.",
+  "checked": "2026-09-25 09:30"
  },
  "s92-ep-045": {
   "id": "s92-ep-045",
@@ -346,8 +626,8 @@
   "status": "ok",
   "strong": true,
   "method": "manual-claude-page-read",
-  "note": "p.3-10A 'After LDP — Single Engine Landing' steps 1-5 and CAUTION read on image: 35 KIAS min, 500 FPM max before flare, flare at 50 ft, complete before below 20 ft to prevent tail to ground contact. [DOC page 124 of the full RFM; checked on the page image rendered at 130 dpi]",
-  "checked": "2026-09-25 00:25"
+  "note": "p.3-10A 'After LDP — Single Engine Landing' steps 1-5 and CAUTION read on image: 35 KIAS min, 500 FPM max before flare, flare at 50 ft, complete before below 20 ft to prevent tail to ground contact. [DOC page 124 of the full RFM; checked on the page image rendered at 130 dpi] Independently re-checked on the rendered page image 2026-09-25.",
+  "checked": "2026-09-25 09:30"
  },
  "s92-ep-046": {
   "id": "s92-ep-046",
@@ -360,8 +640,8 @@
   "status": "ok",
   "strong": true,
   "method": "manual-claude-page-read",
-  "note": "p.3-10B 2.0 NOTE read on image: nose swings to the left due to reduction in torque; immediate collective reduction; full down collective until Nr in normal range; pedals to maintain heading. [DOC page 125 of the full RFM; checked on the page image rendered at 130 dpi]",
-  "checked": "2026-09-25 00:28"
+  "note": "p.3-10B 2.0 NOTE read on image: nose swings to the left due to reduction in torque; immediate collective reduction; full down collective until Nr in normal range; pedals to maintain heading. [DOC page 125 of the full RFM; checked on the page image rendered at 130 dpi] Independently re-checked on the rendered page image 2026-09-25.",
+  "checked": "2026-09-25 09:30"
  },
  "s92-ep-047": {
   "id": "s92-ep-047",
@@ -374,8 +654,8 @@
   "status": "ok",
   "strong": true,
   "method": "manual-claude-page-read",
-  "note": "p.3-10B 2.1 WARNING and action steps 1-4 read on image. [DOC page 125 of the full RFM; checked on the page image rendered at 130 dpi]",
-  "checked": "2026-09-25 00:28"
+  "note": "p.3-10B 2.1 WARNING and action steps 1-4 read on image. [DOC page 125 of the full RFM; checked on the page image rendered at 130 dpi] Independently re-checked on the rendered page image 2026-09-25.",
+  "checked": "2026-09-25 09:30"
  },
  "s92-ep-048": {
   "id": "s92-ep-048",
@@ -388,22 +668,22 @@
   "status": "ok",
   "strong": true,
   "method": "manual-claude-page-read",
-  "note": "p.3-11 2.3 action steps 1-6 and p.3-12 step 7 read on images. [DOC page 126, 127 of the full RFM; checked on the page image rendered at 130 dpi]",
-  "checked": "2026-09-25 00:28"
+  "note": "p.3-11 2.3 action steps 1-6 and p.3-12 step 7 read on images. [DOC page 126, 127 of the full RFM; checked on the page image rendered at 130 dpi] Independently re-checked on the rendered page image 2026-09-25.",
+  "checked": "2026-09-25 09:30"
  },
  "s92-ep-049": {
   "id": "s92-ep-049",
   "context": "Quiz item 's92-ep-049' (EMERGENCY PROCEDURES)",
-  "text": "In autorotation, at what airspeeds are the minimum rate of descent and the maximum glide distance attained? -- Correct: Minimum rate of descent (2,200 to 2,400 fpm) at 80 KIAS; maximum glide distance (0.6 nm/1000 feet) at 100 KIAS. The minimum rate of descent of 2,200 to 2,400 fpm may be attained at 80 KIAS and 100 to 105% Nr. The maximum glide distance of 0.6 nm/1000 feet may be attained at 100 KIAS and 100 to 105% Nr.",
-  "hash": "f5aadb665471",
+  "text": "In autorotation, at what airspeeds are the minimum rate of descent and the maximum glide distance attained? -- Correct: Minimum rate of descent at 80 KIAS; maximum glide distance at 100 KIAS. The minimum rate of descent of 2,200 to 2,400 fpm may be attained at 80 KIAS and 100 to 105% Nr. The maximum glide distance of 0.6 nm/1000 feet may be attained at 100 KIAS and 100 to 105% Nr.",
+  "hash": "afed30c626a8",
   "source_rev": "S-92A RFM SA S92A-RFM-006",
   "candidates": [],
   "readers": {},
   "status": "ok",
   "strong": true,
   "method": "manual-claude-page-read",
-  "note": "p.3-11 2.3 NOTE read on image: min ROD 2,200-2,400 fpm at 80 KIAS and 100-105% Nr; max glide 0.6 nm/1000 ft at 100 KIAS and 100-105% Nr. [DOC page 126 of the full RFM; checked on the page image rendered at 130 dpi]",
-  "checked": "2026-09-25 00:28"
+  "note": "p.3-11 2.3 NOTE read on image: min ROD 2,200-2,400 fpm at 80 KIAS and 100-105% Nr; max glide 0.6 nm/1000 ft at 100 KIAS and 100-105% Nr. [DOC page 126 of the full RFM; checked on the page image rendered at 130 dpi] Independently re-checked on the rendered page image 2026-09-25; answer options reworded so the correct one is not given away by length, facts unchanged.",
+  "checked": "2026-09-25 09:30"
  },
  "s92-ep-050": {
   "id": "s92-ep-050",
@@ -416,8 +696,8 @@
   "status": "ok",
   "strong": true,
   "method": "manual-claude-page-read",
-  "note": "p.3-12 2.4 action steps 1-8 read on image: 85 KIAS minimum recommended flare airspeed, flare at 100 feet, reduce flare to maximum 10 deg nose up. [DOC page 127 of the full RFM; checked on the page image rendered at 130 dpi]",
-  "checked": "2026-09-25 00:28"
+  "note": "p.3-12 2.4 action steps 1-8 read on image: 85 KIAS minimum recommended flare airspeed, flare at 100 feet, reduce flare to maximum 10 deg nose up. [DOC page 127 of the full RFM; checked on the page image rendered at 130 dpi] Independently re-checked on the rendered page image 2026-09-25.",
+  "checked": "2026-09-25 09:30"
  },
  "s92-ep-051": {
   "id": "s92-ep-051",
@@ -430,8 +710,8 @@
   "status": "ok",
   "strong": true,
   "method": "manual-claude-page-read",
-  "note": "p.3-13 3.1 NOTE, confirming and action steps 1-3 read on image (1000 deg abort; motor until TGT below 250 deg; page prints degrees without C). [DOC page 128 of the full RFM; checked on the page image rendered at 130 dpi]",
-  "checked": "2026-09-25 00:28"
+  "note": "p.3-13 3.1 NOTE, confirming and action steps 1-3 read on image (1000 deg abort; motor until TGT below 250 deg; page prints degrees without C). [DOC page 128 of the full RFM; checked on the page image rendered at 130 dpi] Independently re-checked on the rendered page image 2026-09-25.",
+  "checked": "2026-09-25 09:30"
  },
  "s92-ep-052": {
   "id": "s92-ep-052",
@@ -444,8 +724,8 @@
   "status": "ok",
   "strong": true,
   "method": "manual-claude-page-read",
-  "note": "p.3-13 channel A/B confirming lists and p.3-14 (change-barred line: ENG OIL BYPASS, ENG FUEL PRES and ENG CHIP disabled for channel B), NOTE and in-flight/on-ground actions read on images. [DOC page 128, 129 of the full RFM; checked on the page image rendered at 130 dpi]",
-  "checked": "2026-09-25 00:28"
+  "note": "p.3-13 channel A/B confirming lists and p.3-14 (change-barred line: ENG OIL BYPASS, ENG FUEL PRES and ENG CHIP disabled for channel B), NOTE and in-flight/on-ground actions read on images. [DOC page 128, 129 of the full RFM; checked on the page image rendered at 130 dpi] Independently re-checked on the rendered page image 2026-09-25.",
+  "checked": "2026-09-25 09:30"
  },
  "s92-ep-053": {
   "id": "s92-ep-053",
@@ -458,22 +738,22 @@
   "status": "ok",
   "strong": true,
   "method": "manual-claude-page-read",
-  "note": "p.3-14 3.3 CAUTION and actions 1-2 read on image. [DOC page 129 of the full RFM; checked on the page image rendered at 130 dpi]",
-  "checked": "2026-09-25 00:28"
+  "note": "p.3-14 3.3 CAUTION and actions 1-2 read on image. [DOC page 129 of the full RFM; checked on the page image rendered at 130 dpi] Independently re-checked on the rendered page image 2026-09-25.",
+  "checked": "2026-09-25 09:30"
  },
  "s92-ep-054": {
   "id": "s92-ep-054",
   "context": "Quiz item 's92-ep-054' (EMERGENCY PROCEDURES)",
-  "text": "In an ENGINE FIXED POWER (\"fail fixed\") condition, collective has been reduced to try to get a rate of descent at 80 KIAS. When does the procedure require the affected throttle to be moved to STOP in flight? -- Correct: When Nr increases above 106% and torque on the good engine reaches 0 before a rate of descent can be established. Actions: 1. Airspeed — 80 KIAS. 2. Collective — make small changes to confirm the fail fixed condition. 3. Collective — reduce until a rate of descent is obtained or Nr increases above 106%. If Nr increases above 106% and torque on the good engine reaches 0 before a rate of descent can be established: 4. Throttle (affected engine) — STOP, then 5. accomplish SINGLE ENGINE FAILURE procedure. The WARNING notes that in a fail fixed condition there is no automatic engine overspeed protection. If a descent rate can be obtained at 80 KIAS, the approach and landing may be made with the fail fixed engine on line.",
-  "hash": "618e4133ab11",
+  "text": "In an ENGINE FIXED POWER (\"fail fixed\") condition, collective has been reduced to try to get a rate of descent at 80 KIAS. When does the procedure require the affected throttle to be moved to STOP in flight? -- Correct: When Nr rises above 106% and torque on the good engine reaches 0 before a rate of descent is established. Actions: 1. Airspeed — 80 KIAS. 2. Collective — make small changes to confirm the fail fixed condition. 3. Collective — reduce until a rate of descent is obtained or Nr increases above 106%. If Nr increases above 106% and torque on the good engine reaches 0 before a rate of descent can be established: 4. Throttle (affected engine) — STOP, then 5. accomplish SINGLE ENGINE FAILURE procedure. The WARNING notes that in a fail fixed condition there is no automatic engine overspeed protection. If a descent rate can be obtained at 80 KIAS, the approach and landing may be made with the fail fixed engine on line.",
+  "hash": "0e61cf7ac160",
   "source_rev": "S-92A RFM SA S92A-RFM-006",
   "candidates": [],
   "readers": {},
   "status": "ok",
   "strong": true,
   "method": "manual-claude-page-read",
-  "note": "p.3-15 WARNING, action steps 1-4, both NOTEs and the conditional line 'If Nr increases above 106% and torque on the good engine reaches 0 before a rate of descent can be established' read on image; p.3-16 step 5. [DOC page 131, 132 of the full RFM; checked on the page image rendered at 130 dpi]",
-  "checked": "2026-09-25 00:28"
+  "note": "p.3-15 WARNING, action steps 1-4, both NOTEs and the conditional line 'If Nr increases above 106% and torque on the good engine reaches 0 before a rate of descent can be established' read on image; p.3-16 step 5. [DOC page 131, 132 of the full RFM; checked on the page image rendered at 130 dpi] Independently re-checked on the rendered page image 2026-09-25; answer options reworded so the correct one is not given away by length, facts unchanged.",
+  "checked": "2026-09-25 09:30"
  },
  "s92-ep-055": {
   "id": "s92-ep-055",
@@ -486,50 +766,50 @@
   "status": "ok",
   "strong": true,
   "method": "manual-claude-page-read",
-  "note": "p.3-16 NOTE at top of page read on image. [DOC page 132 of the full RFM; checked on the page image rendered at 130 dpi]",
-  "checked": "2026-09-25 00:28"
+  "note": "p.3-16 NOTE at top of page read on image. [DOC page 132 of the full RFM; checked on the page image rendered at 130 dpi] Independently re-checked on the rendered page image 2026-09-25.",
+  "checked": "2026-09-25 09:30"
  },
  "s92-ep-056": {
   "id": "s92-ep-056",
   "context": "Quiz item 's92-ep-056' (EMERGENCY PROCEDURES)",
-  "text": "Flight is continued with a \"fail fixed\" engine still operating. How is the approach flown, and when is the affected throttle moved to STOP? -- Correct: Keep demanded torque above the torque of the affected engine during a shallow/normal approach; move the throttle to STOP once on the ground and prior to reducing collective to flat pitch. If flight is continued with the affected engine operating: 6. Collective — maintain demanded torque above the torque of the affected engine while accomplishing a shallow/normal approach and landing. 7. Throttle (affected engine) — STOP, once on the ground and prior to reducing collective to flat pitch. The discussion explains that when total torque demanded is less than the torque of the malfunctioning engine, the rotor system will over-speed.",
-  "hash": "819a97370680",
+  "text": "Flight is continued with a \"fail fixed\" engine still operating. How is the approach flown, and when is the affected throttle moved to STOP? -- Correct: Keep demanded torque above the affected engine's torque; throttle to STOP on the ground, before flat pitch. If flight is continued with the affected engine operating: 6. Collective — maintain demanded torque above the torque of the affected engine while accomplishing a shallow/normal approach and landing. 7. Throttle (affected engine) — STOP, once on the ground and prior to reducing collective to flat pitch. The discussion explains that when total torque demanded is less than the torque of the malfunctioning engine, the rotor system will over-speed.",
+  "hash": "85b8f905f5bf",
   "source_rev": "S-92A RFM SA S92A-RFM-006",
   "candidates": [],
   "readers": {},
   "status": "ok",
   "strong": true,
   "method": "manual-claude-page-read",
-  "note": "p.3-16 steps 6-7 under 'If flight is continued with the affected engine operating' read on image; p.3-15 paragraph on rotor over-speed when total torque demanded is less than the malfunctioning engine's torque. [DOC page 131, 132 of the full RFM; checked on the page image rendered at 130 dpi]",
-  "checked": "2026-09-25 00:29"
+  "note": "p.3-16 steps 6-7 under 'If flight is continued with the affected engine operating' read on image; p.3-15 paragraph on rotor over-speed when total torque demanded is less than the malfunctioning engine's torque. [DOC page 131, 132 of the full RFM; checked on the page image rendered at 130 dpi] Independently re-checked on the rendered page image 2026-09-25; answer options reworded so the correct one is not given away by length, facts unchanged.",
+  "checked": "2026-09-25 09:30"
  },
  "s92-ep-057": {
   "id": "s92-ep-057",
   "context": "Quiz item 's92-ep-057' (EMERGENCY PROCEDURES)",
-  "text": "What does an ENG 1 RATE LIM caution indicate, and what is the first action? -- Correct: Full engine power is available but transient response may be degraded and the engine may be slow to accelerate; reduce the rate of collective input to minimize transient Nr droop. An ENG RATE LIM caution indicates an engine control system malfunction. Full engine power is available, but engine transient response may be degraded and the affected engine may be slow to accelerate. Confirming: possible Nr droop or torque split upon power application; load sharing (torque matching) may be inoperative. Action: 1. Reduce rate of collective input to minimize transient droop of Nr. 2. Land as soon as practical.",
-  "hash": "73c10a48d183",
+  "text": "What does an ENG 1 RATE LIM caution indicate, and what is the first action? -- Correct: Full power is available but the engine may be slow to accelerate; reduce the rate of collective input. An ENG RATE LIM caution indicates an engine control system malfunction. Full engine power is available, but engine transient response may be degraded and the affected engine may be slow to accelerate. Confirming: possible Nr droop or torque split upon power application; load sharing (torque matching) may be inoperative. Action: 1. Reduce rate of collective input to minimize transient droop of Nr. 2. Land as soon as practical.",
+  "hash": "9f28a5034ebc",
   "source_rev": "S-92A RFM SA S92A-RFM-006",
   "candidates": [],
   "readers": {},
   "status": "ok",
   "strong": true,
   "method": "manual-claude-page-read",
-  "note": "p.3-16 3.5 NOTE, confirming and actions read on image. Distractors are the POWER LIM (p.3-17), FADEC OVRHEAT (p.3-17) and OVSP TEST (p.3-18) meanings. [DOC page 132 of the full RFM; checked on the page image rendered at 130 dpi]",
-  "checked": "2026-09-25 00:29"
+  "note": "p.3-16 3.5 NOTE, confirming and actions read on image. Distractors are the POWER LIM (p.3-17), FADEC OVRHEAT (p.3-17) and OVSP TEST (p.3-18) meanings. [DOC page 132 of the full RFM; checked on the page image rendered at 130 dpi] Independently re-checked on the rendered page image 2026-09-25; answer options reworded so the correct one is not given away by length, facts unchanged.",
+  "checked": "2026-09-25 09:30"
  },
  "s92-ep-058": {
   "id": "s92-ep-058",
   "context": "Quiz item 's92-ep-058' (EMERGENCY PROCEDURES)",
-  "text": "An ENG 2 POWER LIM caution illuminates in flight. What does it indicate, and what does the procedure call for? -- Correct: Full engine power may not be available, but engine operation is otherwise normal; avoid high rates of descent and maneuvers that require high power settings, and land as soon as practical. An ENG POWER LIM caution indicates an engine control system malfunction. Full engine power may not be available, but engine operation is otherwise normal. Action: 1. Avoid high rates of descent. 2. Avoid maneuvers that require high power settings. 3. Land as soon as practical.",
-  "hash": "a54a8eeca1f1",
+  "text": "An ENG 2 POWER LIM caution illuminates in flight. What does it indicate, and what does the procedure call for? -- Correct: Full power may not be available; avoid high descent rates and high power maneuvers, and land as soon as practical. An ENG POWER LIM caution indicates an engine control system malfunction. Full engine power may not be available, but engine operation is otherwise normal. Action: 1. Avoid high rates of descent. 2. Avoid maneuvers that require high power settings. 3. Land as soon as practical.",
+  "hash": "ceac3196a479",
   "source_rev": "S-92A RFM SA S92A-RFM-006",
   "candidates": [],
   "readers": {},
   "status": "ok",
   "strong": true,
   "method": "manual-claude-page-read",
-  "note": "p.3-17 3.6 NOTE and actions 1-3 read on image. [DOC page 132, 133 of the full RFM; checked on the page image rendered at 130 dpi]",
-  "checked": "2026-09-25 00:29"
+  "note": "p.3-17 3.6 NOTE and actions 1-3 read on image. [DOC page 132, 133 of the full RFM; checked on the page image rendered at 130 dpi] Independently re-checked on the rendered page image 2026-09-25; answer options reworded so the correct one is not given away by length, facts unchanged.",
+  "checked": "2026-09-25 09:30"
  },
  "s92-ep-059": {
   "id": "s92-ep-059",
@@ -542,36 +822,36 @@
   "status": "ok",
   "strong": true,
   "method": "manual-claude-page-read",
-  "note": "p.3-17 3.7 NOTE and actions 1-2 (one caution: as soon as practical; both: as soon as possible) read on image. [DOC page 133 of the full RFM; checked on the page image rendered at 130 dpi]",
-  "checked": "2026-09-25 00:29"
+  "note": "p.3-17 3.7 NOTE and actions 1-2 (one caution: as soon as practical; both: as soon as possible) read on image. [DOC page 133 of the full RFM; checked on the page image rendered at 130 dpi] Independently re-checked on the rendered page image 2026-09-25.",
+  "checked": "2026-09-25 09:30"
  },
  "s92-ep-060": {
   "id": "s92-ep-060",
   "context": "Quiz item 's92-ep-060' (EMERGENCY PROCEDURES)",
-  "text": "ENG 1 OVERSPEED is displayed, with Nr and Np of the affected engine cycling between 118 and 120%. After attaining a safe single engine airspeed, what are the next actions? -- Correct: Throttle (affected engine) to IDLE, confirm Nr and remaining engine Np are normal, then throttle (affected engine) to STOP and accomplish SINGLE ENGINE FAILURE DURING CRUISE. Np above 120% or Ng above 108.5% cause the FADEC to shut off fuel to the affected engine; the FADEC will automatically restart the engine once Ng and Np are within limits. Action: 1. Attain safe single engine airspeed. 2. Throttle (affected engine) — IDLE. 3. Confirm Nr and remaining engine Np are normal. 4. Throttle (affected engine) — STOP. 5. Accomplish SINGLE ENGINE FAILURE DURING CRUISE procedure. 6. Land as soon as practical.",
-  "hash": "57f2a5c92626",
+  "text": "ENG 1 OVERSPEED is displayed, with Nr and Np of the affected engine cycling between 118 and 120%. After attaining a safe single engine airspeed, what are the next actions? -- Correct: Throttle to IDLE, confirm Nr and the other engine's Np are normal, then throttle to STOP. Np above 120% or Ng above 108.5% cause the FADEC to shut off fuel to the affected engine; the FADEC will automatically restart the engine once Ng and Np are within limits. Action: 1. Attain safe single engine airspeed. 2. Throttle (affected engine) — IDLE. 3. Confirm Nr and remaining engine Np are normal. 4. Throttle (affected engine) — STOP. 5. Accomplish SINGLE ENGINE FAILURE DURING CRUISE procedure. 6. Land as soon as practical.",
+  "hash": "7befb7129d63",
   "source_rev": "S-92A RFM SA S92A-RFM-006",
   "candidates": [],
   "readers": {},
   "status": "ok",
   "strong": true,
   "method": "manual-claude-page-read",
-  "note": "p.3-17 3.8 paragraph (automatic restart once Ng and Np within limits), confirming (Nr/Np cycle 118-120%, or Ng above 108.5%) and step 1; p.3-18 steps 2-6 read on images. [DOC page 133, 134 of the full RFM; checked on the page image rendered at 130 dpi]",
-  "checked": "2026-09-25 00:29"
+  "note": "p.3-17 3.8 paragraph (automatic restart once Ng and Np within limits), confirming (Nr/Np cycle 118-120%, or Ng above 108.5%) and step 1; p.3-18 steps 2-6 read on images. [DOC page 133, 134 of the full RFM; checked on the page image rendered at 130 dpi] Independently re-checked on the rendered page image 2026-09-25; answer options reworded so the correct one is not given away by length, facts unchanged.",
+  "checked": "2026-09-25 09:30"
  },
  "s92-ep-061": {
   "id": "s92-ep-061",
   "context": "Quiz item 's92-ep-061' (EMERGENCY PROCEDURES)",
-  "text": "An ENG 2 OVSP TEST caution is displayed in flight. What does it mean, and what is the action? -- Correct: The FADEC failed a portion of the overspeed system test and overspeed protection may not be available; continue the flight and correct prior to the next flight. An ENG OVSP TEST caution indicates that the FADEC failed a portion of the overspeed system test. Overspeed protection for the affected engine may not be available. In flight: continue the flight and correct prior to the next flight. On the ground: correct prior to flight.",
-  "hash": "eec328501792",
+  "text": "An ENG 2 OVSP TEST caution is displayed in flight. What does it mean, and what is the action? -- Correct: The FADEC failed part of the overspeed test and protection may be lost; continue and correct before the next flight. An ENG OVSP TEST caution indicates that the FADEC failed a portion of the overspeed system test. Overspeed protection for the affected engine may not be available. In flight: continue the flight and correct prior to the next flight. On the ground: correct prior to flight.",
+  "hash": "e18f2a669c73",
   "source_rev": "S-92A RFM SA S92A-RFM-006",
   "candidates": [],
   "readers": {},
   "status": "ok",
   "strong": true,
   "method": "manual-claude-page-read",
-  "note": "p.3-18 3.9 NOTE and in-flight/on-ground actions read on image. [DOC page 134 of the full RFM; checked on the page image rendered at 130 dpi]",
-  "checked": "2026-09-25 00:29"
+  "note": "p.3-18 3.9 NOTE and in-flight/on-ground actions read on image. [DOC page 134 of the full RFM; checked on the page image rendered at 130 dpi] Independently re-checked on the rendered page image 2026-09-25; answer options reworded so the correct one is not given away by length, facts unchanged.",
+  "checked": "2026-09-25 09:30"
  },
  "s92-ep-062": {
   "id": "s92-ep-062",
@@ -584,8 +864,8 @@
   "status": "ok",
   "strong": true,
   "method": "manual-claude-page-read",
-  "note": "p.3-19 3.11 CAUTION, NOTE (change-barred) and actions 1-3 read on image. [DOC page 135 of the full RFM; checked on the page image rendered at 130 dpi]",
-  "checked": "2026-09-25 00:29"
+  "note": "p.3-19 3.11 CAUTION, NOTE (change-barred) and actions 1-3 read on image. [DOC page 135 of the full RFM; checked on the page image rendered at 130 dpi] Independently re-checked on the rendered page image 2026-09-25.",
+  "checked": "2026-09-25 09:30"
  },
  "s92-ep-063": {
   "id": "s92-ep-063",
@@ -598,8 +878,8 @@
   "status": "ok",
   "strong": true,
   "method": "manual-claude-page-read",
-  "note": "p.3-19 3.12 NOTE read on image. [DOC page 135 of the full RFM; checked on the page image rendered at 130 dpi]",
-  "checked": "2026-09-25 00:29"
+  "note": "p.3-19 3.12 NOTE read on image. [DOC page 135 of the full RFM; checked on the page image rendered at 130 dpi] Independently re-checked on the rendered page image 2026-09-25.",
+  "checked": "2026-09-25 09:30"
  },
  "s92-ep-064": {
   "id": "s92-ep-064",
@@ -612,22 +892,22 @@
   "status": "ok",
   "strong": true,
   "method": "manual-claude-page-read",
-  "note": "p.3-20 3.13 symptom, confirming and action steps 1-6 with both branches read on image. [DOC page 136 of the full RFM; checked on the page image rendered at 130 dpi]",
-  "checked": "2026-09-25 00:29"
+  "note": "p.3-20 3.13 symptom, confirming and action steps 1-6 with both branches read on image. [DOC page 136 of the full RFM; checked on the page image rendered at 130 dpi] Independently re-checked on the rendered page image 2026-09-25.",
+  "checked": "2026-09-25 09:30"
  },
  "s92-ep-065": {
   "id": "s92-ep-065",
   "context": "Quiz item 's92-ep-065' (EMERGENCY PROCEDURES)",
-  "text": "According to the ENGINE COMPRESSOR STALL WARNING, what can increase the probability of compressor stalls on one or both engines? -- Correct: Flight through extreme air temperature environments, such as close to intense fires, volcanic activity or over smoke or fire stacks. The WARNING states that flight through extreme air temperature environments, such as in close proximity to intense fires, volcanic activity or over smoke or fire stacks, may cause rapid engine inlet air temperature changes and increases the probability of compressor stalls on one or both engines. This may exceed engine limitations causing damage to engine components and, in extreme cases, can increase the probability of engine power loss or engine shutdown.",
-  "hash": "b8804baee3bf",
+  "text": "According to the ENGINE COMPRESSOR STALL WARNING, what can increase the probability of compressor stalls on one or both engines? -- Correct: Flight close to intense fires, volcanic activity or over smoke or fire stacks. The WARNING states that flight through extreme air temperature environments, such as in close proximity to intense fires, volcanic activity or over smoke or fire stacks, may cause rapid engine inlet air temperature changes and increases the probability of compressor stalls on one or both engines. This may exceed engine limitations causing damage to engine components and, in extreme cases, can increase the probability of engine power loss or engine shutdown.",
+  "hash": "f85b20b763dc",
   "source_rev": "S-92A RFM SA S92A-RFM-006",
   "candidates": [],
   "readers": {},
   "status": "ok",
   "strong": true,
   "method": "manual-claude-page-read",
-  "note": "p.3-20 3.13 WARNING read on image. Distractors are not stated anywhere in 3.13. [DOC page 136 of the full RFM; checked on the page image rendered at 130 dpi]",
-  "checked": "2026-09-25 00:29"
+  "note": "p.3-20 3.13 WARNING read on image. Distractors are not stated anywhere in 3.13. [DOC page 136 of the full RFM; checked on the page image rendered at 130 dpi] Independently re-checked on the rendered page image 2026-09-25; answer options reworded so the correct one is not given away by length, facts unchanged.",
+  "checked": "2026-09-25 09:30"
  },
  "s92-ep-066": {
   "id": "s92-ep-066",
@@ -640,8 +920,8 @@
   "status": "ok",
   "strong": true,
   "method": "manual-claude-page-read",
-  "note": "p.3-21 4.1 NOTE (more than 60 seconds) and action steps 1-4 with their conditions read on image. [DOC page 138 of the full RFM; checked on the page image rendered at 130 dpi]",
-  "checked": "2026-09-25 00:32"
+  "note": "p.3-21 4.1 NOTE (more than 60 seconds) and action steps 1-4 with their conditions read on image. [DOC page 138 of the full RFM; checked on the page image rendered at 130 dpi] Independently re-checked on the rendered page image 2026-09-25.",
+  "checked": "2026-09-25 09:30"
  },
  "s92-ep-067": {
   "id": "s92-ep-067",
@@ -654,36 +934,36 @@
   "status": "ok",
   "strong": true,
   "method": "manual-claude-page-read",
-  "note": "p.3-21 4.2 symptom and confirming lists; p.3-22 CAUTION and action steps 1-3 read on images. [DOC page 138, 139 of the full RFM; checked on the page image rendered at 130 dpi]",
-  "checked": "2026-09-25 00:32"
+  "note": "p.3-21 4.2 symptom and confirming lists; p.3-22 CAUTION and action steps 1-3 read on images. [DOC page 138, 139 of the full RFM; checked on the page image rendered at 130 dpi] Independently re-checked on the rendered page image 2026-09-25.",
+  "checked": "2026-09-25 09:30"
  },
  "s92-ep-068": {
   "id": "s92-ep-068",
   "context": "Quiz item 's92-ep-068' (EMERGENCY PROCEDURES)",
-  "text": "An ENG 1 OIL PRES caution is displayed. You have attained safe single engine airspeed and set the affected throttle to IDLE. What then requires an emergency engine shutdown? -- Correct: Engine oil pressure decreasing and engine temperature rising, unless that engine's power is required for continued safe flight. Engine oil system malfunctions (ENG OIL PRES, ENG OIL HOT or ENG OIL BYPASS): 1. Attain safe single engine airspeed. 2. Throttle (affected engine) — IDLE. 3. Land as soon as practical. If engine oil pressure is decreasing and engine temperature is rising: 4. Accomplish the EMERGENCY ENGINE SHUTDOWN and SINGLE ENGINE FAILURE procedure. The CAUTION states: do not shut down an engine for an oil system malfunction if that engine power is required for continued safe flight. If the engine has not been shut down, the throttle may go to FLY on final if dual engine power is required for landing, and the engine is shut down after touchdown.",
-  "hash": "b24e059f022a",
+  "text": "An ENG 1 OIL PRES caution is displayed. You have attained safe single engine airspeed and set the affected throttle to IDLE. What then requires an emergency engine shutdown? -- Correct: Oil pressure decreasing and engine temperature rising, unless that engine's power is needed for safe flight. Engine oil system malfunctions (ENG OIL PRES, ENG OIL HOT or ENG OIL BYPASS): 1. Attain safe single engine airspeed. 2. Throttle (affected engine) — IDLE. 3. Land as soon as practical. If engine oil pressure is decreasing and engine temperature is rising: 4. Accomplish the EMERGENCY ENGINE SHUTDOWN and SINGLE ENGINE FAILURE procedure. The CAUTION states: do not shut down an engine for an oil system malfunction if that engine power is required for continued safe flight. If the engine has not been shut down, the throttle may go to FLY on final if dual engine power is required for landing, and the engine is shut down after touchdown.",
+  "hash": "be979c0620a1",
   "source_rev": "S-92A RFM SA S92A-RFM-006",
   "candidates": [],
   "readers": {},
   "status": "ok",
   "strong": true,
   "method": "manual-claude-page-read",
-  "note": "p.3-23 4.4 CAUTION, NOTE, symptoms and action steps 1-6 with the two conditional branches read on image. [DOC page 140 of the full RFM; checked on the page image rendered at 130 dpi]",
-  "checked": "2026-09-25 00:32"
+  "note": "p.3-23 4.4 CAUTION, NOTE, symptoms and action steps 1-6 with the two conditional branches read on image. [DOC page 140 of the full RFM; checked on the page image rendered at 130 dpi] Independently re-checked on the rendered page image 2026-09-25; answer options reworded so the correct one is not given away by length, facts unchanged.",
+  "checked": "2026-09-25 09:30"
  },
  "s92-ep-069": {
   "id": "s92-ep-069",
   "context": "Quiz item 's92-ep-069' (EMERGENCY PROCEDURES)",
-  "text": "ENG 2 FUEL PRES illuminates with fluctuating Ng, TGT and torque. You select the affected fuel selector switch to XFD and the caution remains. What is next? -- Correct: FUEL selector (affected engine) — DIRECT, and land as soon as practical using SINGLE ENGINE FAILURE procedures. An ENG FUEL PRES caution indicates reduced fuel pressure at the engine driven fuel boost pump, which could indicate an air leak in the fuel supply lines. Confirming: erratic fuel flow and/or fluctuating Ng, TGT and Q. Action: 1. Fuel selector switch (affected engine) — XFD. If the caution extinguishes: 2. Land as soon as practical. If the caution remains: 3. FUEL selector (affected engine) — DIRECT. 4. Land as soon as practical using SINGLE ENGINE FAILURE procedures.",
-  "hash": "2b3eaba0c1c0",
+  "text": "ENG 2 FUEL PRES illuminates with fluctuating Ng, TGT and torque. You select the affected fuel selector switch to XFD and the caution remains. What is next? -- Correct: FUEL selector (affected engine) to DIRECT, then land as soon as practical using SINGLE ENGINE FAILURE procedures. An ENG FUEL PRES caution indicates reduced fuel pressure at the engine driven fuel boost pump, which could indicate an air leak in the fuel supply lines. Confirming: erratic fuel flow and/or fluctuating Ng, TGT and Q. Action: 1. Fuel selector switch (affected engine) — XFD. If the caution extinguishes: 2. Land as soon as practical. If the caution remains: 3. FUEL selector (affected engine) — DIRECT. 4. Land as soon as practical using SINGLE ENGINE FAILURE procedures.",
+  "hash": "89a948700619",
   "source_rev": "S-92A RFM SA S92A-RFM-006",
   "candidates": [],
   "readers": {},
   "status": "ok",
   "strong": true,
   "method": "manual-claude-page-read",
-  "note": "p.3-24 4.5 NOTE, confirming and action steps 1-4 with both branches read on image. [DOC page 140, 141 of the full RFM; checked on the page image rendered at 130 dpi]",
-  "checked": "2026-09-25 00:32"
+  "note": "p.3-24 4.5 NOTE, confirming and action steps 1-4 with both branches read on image. [DOC page 140, 141 of the full RFM; checked on the page image rendered at 130 dpi] Independently re-checked on the rendered page image 2026-09-25; answer options reworded so the correct one is not given away by length, facts unchanged.",
+  "checked": "2026-09-25 09:30"
  },
  "s92-ep-070": {
   "id": "s92-ep-070",
@@ -696,22 +976,22 @@
   "status": "ok",
   "strong": true,
   "method": "manual-claude-page-read",
-  "note": "p.3-24 4.6 NOTE and actions for single vs both cautions read on image. [DOC page 141 of the full RFM; checked on the page image rendered at 130 dpi]",
-  "checked": "2026-09-25 00:32"
+  "note": "p.3-24 4.6 NOTE and actions for single vs both cautions read on image. [DOC page 141 of the full RFM; checked on the page image rendered at 130 dpi] Independently re-checked on the rendered page image 2026-09-25.",
+  "checked": "2026-09-25 09:30"
  },
  "s92-ep-071": {
   "id": "s92-ep-071",
   "context": "Quiz item 's92-ep-071' (EMERGENCY PROCEDURES)",
-  "text": "APU GEN FAIL illuminates. You cycle APU GEN to OFF/RESET and back to ON, but the caution returns. What does the procedure call for? -- Correct: Exit IMC conditions as soon as possible and continue the flight in VMC. APU GENERATOR FAILURE: 1. APU GEN — OFF/RESET then back to ON. If the caution remains off: 2. Continue the flight. If the caution returns: 3. Exit IMC conditions as soon as possible and continue the flight in VMC. After an APU generator failure, the APU generator will not be available for emergency power or for engine shutdown; if APU generator power is not available during engine shutdown, monitor TGT on the pilot inboard EICAS display and connect external power, if available.",
-  "hash": "a7e400b65658",
+  "text": "APU GEN FAIL illuminates. You cycle APU GEN to OFF/RESET and back to ON, but the caution returns. What does the procedure call for? -- Correct: Exit IMC as soon as possible and continue the flight in VMC. APU GENERATOR FAILURE: 1. APU GEN — OFF/RESET then back to ON. If the caution remains off: 2. Continue the flight. If the caution returns: 3. Exit IMC conditions as soon as possible and continue the flight in VMC. After an APU generator failure, the APU generator will not be available for emergency power or for engine shutdown; if APU generator power is not available during engine shutdown, monitor TGT on the pilot inboard EICAS display and connect external power, if available.",
+  "hash": "ce8f8f770268",
   "source_rev": "S-92A RFM SA S92A-RFM-006",
   "candidates": [],
   "readers": {},
   "status": "ok",
   "strong": true,
   "method": "manual-claude-page-read",
-  "note": "p.3-27 6.2 steps 1-2 and p.3-28 'If caution returns' step 3 and NOTE read on images. [DOC page 144, 145 of the full RFM; checked on the page image rendered at 130 dpi]",
-  "checked": "2026-09-25 00:32"
+  "note": "p.3-27 6.2 steps 1-2 and p.3-28 'If caution returns' step 3 and NOTE read on images. [DOC page 144, 145 of the full RFM; checked on the page image rendered at 130 dpi] Independently re-checked on the rendered page image 2026-09-25; answer options reworded so the correct one is not given away by length, facts unchanged.",
+  "checked": "2026-09-25 09:30"
  },
  "s92-ep-072": {
   "id": "s92-ep-072",
@@ -724,8 +1004,8 @@
   "status": "ok",
   "strong": true,
   "method": "manual-claude-page-read",
-  "note": "p.3-31 7.0 third paragraph read on image. [DOC page 148 of the full RFM; checked on the page image rendered at 130 dpi]",
-  "checked": "2026-09-25 00:32"
+  "note": "p.3-31 7.0 third paragraph read on image. [DOC page 148 of the full RFM; checked on the page image rendered at 130 dpi] Independently re-checked on the rendered page image 2026-09-25.",
+  "checked": "2026-09-25 09:30"
  },
  "s92-ep-073": {
   "id": "s92-ep-073",
@@ -738,8 +1018,8 @@
   "status": "ok",
   "strong": true,
   "method": "manual-claude-page-read",
-  "note": "p.3-31 7.0 paragraph after the WARNING read on image. [DOC page 148 of the full RFM; checked on the page image rendered at 130 dpi]",
-  "checked": "2026-09-25 00:32"
+  "note": "p.3-31 7.0 paragraph after the WARNING read on image. [DOC page 148 of the full RFM; checked on the page image rendered at 130 dpi] Independently re-checked on the rendered page image 2026-09-25.",
+  "checked": "2026-09-25 09:30"
  },
  "s92-ep-074": {
   "id": "s92-ep-074",
@@ -752,22 +1032,22 @@
   "status": "ok",
   "strong": true,
   "method": "manual-claude-page-read",
-  "note": "p.3-32 last NOTE before 7.1 read on image: caution <45 psi manifold OR <24 psi last jet; warning <35 psi manifold AND <24 psi last jet; caution not illuminated when warning is. [DOC page 149 of the full RFM; checked on the page image rendered at 130 dpi]",
-  "checked": "2026-09-25 00:32"
+  "note": "p.3-32 last NOTE before 7.1 read on image: caution <45 psi manifold OR <24 psi last jet; warning <35 psi manifold AND <24 psi last jet; caution not illuminated when warning is. [DOC page 149 of the full RFM; checked on the page image rendered at 130 dpi] Independently re-checked on the rendered page image 2026-09-25.",
+  "checked": "2026-09-25 09:30"
  },
  "s92-ep-075": {
   "id": "s92-ep-075",
   "context": "Quiz item 's92-ep-075' (EMERGENCY PROCEDURES)",
-  "text": "After an MGB OIL PRES warning, BYP is selected, the APU and APU generator are on, and no symptoms of imminent gearbox failure exist. What altitude and airspeed does the procedure call for? -- Correct: Descend to a minimum safe altitude while reducing airspeed below 120 KIAS (below 500 feet above the water/terrain if conditions permit), and maintain 80 to 120 KIAS until committed to land. MAIN GEARBOX OIL PRESSURE WARNING (confirming: MGB oil pressure below 35 psi): 1. MGB OIL BYP — select BYP within 5 seconds. 2. If either INPUT 1/2 CHIP caution also illuminates, throttle (affected engine) — IDLE unless dual engine power is required for continued safe flight. 3. APU CTRL — ON. 4. APU GEN — ON. 5. Descend to a minimum safe altitude while reducing airspeed below 120 KIAS; if conditions permit, descend below 500 feet above the water/terrain; maintain airspeed between 80 and 120 KIAS until committed to land. 6. Land as soon as possible (dual engine power for landing if required). If any symptom of imminent gearbox failure exists: 7. Land immediately.",
-  "hash": "0395cf4b058e",
+  "text": "After an MGB OIL PRES warning, BYP is selected, the APU and APU generator are on, and no symptoms of imminent gearbox failure exist. What altitude and airspeed does the procedure call for? -- Correct: Descend to a minimum safe altitude (below 500 feet above the water/terrain if conditions permit) and hold 80 to 120 KIAS. MAIN GEARBOX OIL PRESSURE WARNING (confirming: MGB oil pressure below 35 psi): 1. MGB OIL BYP — select BYP within 5 seconds. 2. If either INPUT 1/2 CHIP caution also illuminates, throttle (affected engine) — IDLE unless dual engine power is required for continued safe flight. 3. APU CTRL — ON. 4. APU GEN — ON. 5. Descend to a minimum safe altitude while reducing airspeed below 120 KIAS; if conditions permit, descend below 500 feet above the water/terrain; maintain airspeed between 80 and 120 KIAS until committed to land. 6. Land as soon as possible (dual engine power for landing if required). If any symptom of imminent gearbox failure exists: 7. Land immediately.",
+  "hash": "096a70f5fd41",
   "source_rev": "S-92A RFM SA S92A-RFM-006",
   "candidates": [],
   "readers": {},
   "status": "ok",
   "strong": true,
   "method": "manual-claude-page-read",
-  "note": "p.3-32A 7.1 confirming and action steps 1-7 with the imminent-failure symptom list read on image. [DOC page 150 of the full RFM; checked on the page image rendered at 130 dpi]",
-  "checked": "2026-09-25 00:32"
+  "note": "p.3-32A 7.1 confirming and action steps 1-7 with the imminent-failure symptom list read on image. [DOC page 150 of the full RFM; checked on the page image rendered at 130 dpi] Independently re-checked on the rendered page image 2026-09-25; answer options reworded so the correct one is not given away by length, facts unchanged.",
+  "checked": "2026-09-25 09:30"
  },
  "s92-ep-076": {
   "id": "s92-ep-076",
@@ -780,36 +1060,36 @@
   "status": "ok",
   "strong": true,
   "method": "manual-claude-page-read",
-  "note": "p.3-33 7.6 action steps 1-3 and the condition for step 3 read on image. [DOC page 152 of the full RFM; checked on the page image rendered at 130 dpi]",
-  "checked": "2026-09-25 00:32"
+  "note": "p.3-33 7.6 action steps 1-3 and the condition for step 3 read on image. [DOC page 152 of the full RFM; checked on the page image rendered at 130 dpi] Independently re-checked on the rendered page image 2026-09-25.",
+  "checked": "2026-09-25 09:30"
  },
  "s92-ep-077": {
   "id": "s92-ep-077",
   "context": "Quiz item 's92-ep-077' (EMERGENCY PROCEDURES)",
-  "text": "What is the difference in required action between S/P TEMP DETECT and S/P TEMP LIMIT (with the \"SWASHPLATE TEMPERATURE\" aural alert)? -- Correct: S/P TEMP DETECT: land as soon as practical. S/P TEMP LIMIT: land as soon as possible, or land immediately if accompanied by secondary indications such as restricted control motion, unusual noises or vibrations. SWASHPLATE TEMPERATURE: for S/P TEMP DETECT, land as soon as practical. For S/P TEMP LIMIT with the \"SWASHPLATE TEMPERATURE\" aural alert, land as soon as possible; if accompanied by secondary indications such as restricted control motion, unusual noises or vibrations, land immediately.",
-  "hash": "8fb7c27e46d7",
+  "text": "What is the difference in required action between S/P TEMP DETECT and S/P TEMP LIMIT (with the \"SWASHPLATE TEMPERATURE\" aural alert)? -- Correct: DETECT: land as soon as practical. LIMIT: land as soon as possible, or immediately if secondary indications exist. SWASHPLATE TEMPERATURE: for S/P TEMP DETECT, land as soon as practical. For S/P TEMP LIMIT with the \"SWASHPLATE TEMPERATURE\" aural alert, land as soon as possible; if accompanied by secondary indications such as restricted control motion, unusual noises or vibrations, land immediately.",
+  "hash": "4cf22d7766f2",
   "source_rev": "S-92A RFM SA S92A-RFM-006",
   "candidates": [],
   "readers": {},
   "status": "ok",
   "strong": true,
   "method": "manual-claude-page-read",
-  "note": "p.3-33 7.7 S/P TEMP DETECT (caution, yellow) action; S/P TEMP LIMIT (warning, red) symptom; p.3-34 aural alert and actions 1-2 read on images. [DOC page 152, 153 of the full RFM; checked on the page image rendered at 130 dpi]",
-  "checked": "2026-09-25 00:32"
+  "note": "p.3-33 7.7 S/P TEMP DETECT (caution, yellow) action; S/P TEMP LIMIT (warning, red) symptom; p.3-34 aural alert and actions 1-2 read on images. [DOC page 152, 153 of the full RFM; checked on the page image rendered at 130 dpi] Independently re-checked on the rendered page image 2026-09-25; answer options reworded so the correct one is not given away by length, facts unchanged.",
+  "checked": "2026-09-25 09:30"
  },
  "s92-ep-078": {
   "id": "s92-ep-078",
   "context": "Quiz item 's92-ep-078' (EMERGENCY PROCEDURES)",
-  "text": "After a dual AC generator failure the aircraft is operating on the APU generator. Which statement is correct? -- Correct: The AVC, windshield anti-ice, number 1 engine inlet anti-ice and RIPS main and tail rotor blade heating are not powered; the pilot windshield anti-ice can be recovered with OVRD, which should only be selected if required for safe flight. When operating on the APU generator, the AVC, windshield anti-ice, number 1 engine inlet anti-ice, and RIPS main and tail rotor blade heating elements will not be powered. The RIPS droop stop heaters will still function properly, and the pilot windshield anti-ice can be recovered by selecting OVRD. Do not select OVRD unless required for safe flight.",
-  "hash": "72bf73000ea1",
+  "text": "After a dual AC generator failure the aircraft is operating on the APU generator. Which statement is correct? -- Correct: The AVC, windshield anti-ice, No. 1 engine inlet anti-ice and RIPS blade heating are unpowered; pilot windshield anti-ice can be recovered with OVRD. When operating on the APU generator, the AVC, windshield anti-ice, number 1 engine inlet anti-ice, and RIPS main and tail rotor blade heating elements will not be powered. The RIPS droop stop heaters will still function properly, and the pilot windshield anti-ice can be recovered by selecting OVRD. Do not select OVRD unless required for safe flight.",
+  "hash": "7b4191eea546",
   "source_rev": "S-92A RFM SA S92A-RFM-006",
   "candidates": [],
   "readers": {},
   "status": "ok",
   "strong": true,
   "method": "manual-claude-page-read",
-  "note": "p.3-37 NOTE after step 6 read on image: list of unpowered items on APU generator; droop stop heaters still function; pilot windshield anti-ice recoverable with OVRD, only if required for safe flight. [DOC page 155 of the full RFM; checked on the page image rendered at 130 dpi]",
-  "checked": "2026-09-25 00:34"
+  "note": "p.3-37 NOTE after step 6 read on image: list of unpowered items on APU generator; droop stop heaters still function; pilot windshield anti-ice recoverable with OVRD, only if required for safe flight. [DOC page 155 of the full RFM; checked on the page image rendered at 130 dpi] Independently re-checked on the rendered page image 2026-09-25; answer options reworded so the correct one is not given away by length, facts unchanged.",
+  "checked": "2026-09-25 09:30"
  },
  "s92-ep-079": {
   "id": "s92-ep-079",
@@ -822,36 +1102,36 @@
   "status": "ok",
   "strong": true,
   "method": "manual-claude-page-read",
-  "note": "p.3-37 steps 5-9 and the condition line 'If an APU FAULT or APU GEN FAIL or APU GCU FAIL caution illuminates after a dual generator failure' read on image. [DOC page 155 of the full RFM; checked on the page image rendered at 130 dpi]",
-  "checked": "2026-09-25 00:34"
+  "note": "p.3-37 steps 5-9 and the condition line 'If an APU FAULT or APU GEN FAIL or APU GCU FAIL caution illuminates after a dual generator failure' read on image. [DOC page 155 of the full RFM; checked on the page image rendered at 130 dpi] Independently re-checked on the rendered page image 2026-09-25.",
+  "checked": "2026-09-25 09:30"
  },
  "s92-ep-080": {
   "id": "s92-ep-080",
   "context": "Quiz item 's92-ep-080' (EMERGENCY PROCEDURES)",
-  "text": "How does the required action differ between a single primary hydraulic pump failure and a dual hydraulic pump failure (HYD 1 and HYD 2 PUMP FAIL)? -- Correct: Single: the #3 system supplies pressure to that system; monitor gauges and land as soon as practical. Dual: restrict control inputs to moderate rates, monitor the #3 system and land as soon as possible. With loss of a single primary hydraulic pump, the #3 hydraulic system will supply pressure to that system; action: monitor hydraulic system pressure gauges and land as soon as practical. With loss of both primary hydraulic systems, the #3 hydraulic system will pressurize the primary servos allowing control of the aircraft; action: restrict control inputs to moderate rates, monitor the #3 hydraulic system and land as soon as possible.",
-  "hash": "9f72fb16d425",
+  "text": "How does the required action differ between a single primary hydraulic pump failure and a dual hydraulic pump failure (HYD 1 and HYD 2 PUMP FAIL)? -- Correct: Single: monitor the gauges and land as soon as practical. Dual: restrict control inputs to moderate rates and land as soon as possible. With loss of a single primary hydraulic pump, the #3 hydraulic system will supply pressure to that system; action: monitor hydraulic system pressure gauges and land as soon as practical. With loss of both primary hydraulic systems, the #3 hydraulic system will pressurize the primary servos allowing control of the aircraft; action: restrict control inputs to moderate rates, monitor the #3 hydraulic system and land as soon as possible.",
+  "hash": "d7c2817cb6b4",
   "source_rev": "S-92A RFM SA S92A-RFM-006",
   "candidates": [],
   "readers": {},
   "status": "ok",
   "strong": true,
   "method": "manual-claude-page-read",
-  "note": "p.3-42 9.1 and 9.2 NOTEs and actions read on image. [DOC page 160 of the full RFM; checked on the page image rendered at 130 dpi]",
-  "checked": "2026-09-25 00:34"
+  "note": "p.3-42 9.1 and 9.2 NOTEs and actions read on image. [DOC page 160 of the full RFM; checked on the page image rendered at 130 dpi] Independently re-checked on the rendered page image 2026-09-25; answer options reworded so the correct one is not given away by length, facts unchanged.",
+  "checked": "2026-09-25 09:30"
  },
  "s92-ep-081": {
   "id": "s92-ep-081",
   "context": "Quiz item 's92-ep-081' (EMERGENCY PROCEDURES)",
-  "text": "With the #3 hydraulic system inoperative (HYD 3 PUMP FAIL), what are the consequences, and how is the landing gear lowered? -- Correct: The primary systems have no backup, the ramp is inoperative and normal landing gear operation is not possible; extend the gear with the emergency blow down system (EMER DN, less than 90 KIAS). Confirming: #3 hydraulic pressure less than 500 psi in the depress mode or less than 2000 psi in the high mode. With the #3 hydraulic system inoperative, the primary systems have no backup, the ramp will be inoperative and normal landing gear operation will not be possible; use the emergency blow down system. Action: land as soon as practical, LDG GEAR — DN, EMER DN — activate, less than 90 KIAS. Once the gear is blown down, do not raise it until maintenance personnel have inspected and bled the landing gear hydraulic lines.",
-  "hash": "603103cf130c",
+  "text": "With the #3 hydraulic system inoperative (HYD 3 PUMP FAIL), what are the consequences, and how is the landing gear lowered? -- Correct: The primary systems have no backup and the ramp is inoperative; extend the gear with EMER DN below 90 KIAS. Confirming: #3 hydraulic pressure less than 500 psi in the depress mode or less than 2000 psi in the high mode. With the #3 hydraulic system inoperative, the primary systems have no backup, the ramp will be inoperative and normal landing gear operation will not be possible; use the emergency blow down system. Action: land as soon as practical, LDG GEAR — DN, EMER DN — activate, less than 90 KIAS. Once the gear is blown down, do not raise it until maintenance personnel have inspected and bled the landing gear hydraulic lines.",
+  "hash": "f960ea5913b8",
   "source_rev": "S-92A RFM SA S92A-RFM-006",
   "candidates": [],
   "readers": {},
   "status": "ok",
   "strong": true,
   "method": "manual-claude-page-read",
-  "note": "p.3-43 9.3 confirming, NOTE, CAUTION and actions 1-3 read on image. [DOC page 161 of the full RFM; checked on the page image rendered at 130 dpi]",
-  "checked": "2026-09-25 00:34"
+  "note": "p.3-43 9.3 confirming, NOTE, CAUTION and actions 1-3 read on image. [DOC page 161 of the full RFM; checked on the page image rendered at 130 dpi] Independently re-checked on the rendered page image 2026-09-25; answer options reworded so the correct one is not given away by length, facts unchanged.",
+  "checked": "2026-09-25 09:30"
  },
  "s92-ep-082": {
   "id": "s92-ep-082",
@@ -864,8 +1144,8 @@
   "status": "ok",
   "strong": true,
   "method": "manual-claude-page-read",
-  "note": "p.3-46 9.11 symptom and p.3-47 actions 1-5 read on images. [DOC page 164, 165 of the full RFM; checked on the page image rendered at 130 dpi]",
-  "checked": "2026-09-25 00:34"
+  "note": "p.3-46 9.11 symptom and p.3-47 actions 1-5 read on images. [DOC page 164, 165 of the full RFM; checked on the page image rendered at 130 dpi] Independently re-checked on the rendered page image 2026-09-25.",
+  "checked": "2026-09-25 09:30"
  },
  "s92-ep-083": {
   "id": "s92-ep-083",
@@ -878,50 +1158,50 @@
   "status": "ok",
   "strong": true,
   "method": "manual-claude-page-read",
-  "note": "p.3-48 10.1 second NOTE and 'If no green indicator lights are illuminated: 1. P/B DIMMER rheostat - OFF' read on image. [DOC page 166 of the full RFM; checked on the page image rendered at 130 dpi]",
-  "checked": "2026-09-25 00:34"
+  "note": "p.3-48 10.1 second NOTE and 'If no green indicator lights are illuminated: 1. P/B DIMMER rheostat - OFF' read on image. [DOC page 166 of the full RFM; checked on the page image rendered at 130 dpi] Independently re-checked on the rendered page image 2026-09-25.",
+  "checked": "2026-09-25 09:30"
  },
  "s92-ep-084": {
   "id": "s92-ep-084",
   "context": "Quiz item 's92-ep-084' (EMERGENCY PROCEDURES)",
-  "text": "What does the RFM CAUTION recommend when landing with asymmetrical landing gear extension? -- Correct: Consider evacuating all nonessential crew and passengers in a \"light on wheels hover\" before putting the full weight of the aircraft on the landing gear. With asymmetrical landing gear extension, the aircraft could roll over. Consideration should be given to evacuating all nonessential crew and passengers in a \"light on wheels hover\" before putting the full weight of the aircraft on the landing gear. If a safe gear indication (three green lights, no red light) is obtained after a malfunction, do not cycle the gear; if the gear cannot be extended safely, landing on a cradle or some other fixture should be accomplished.",
-  "hash": "b4751fffa006",
+  "text": "What does the RFM CAUTION recommend when landing with asymmetrical landing gear extension? -- Correct: Consider evacuating nonessential crew and passengers in a light on wheels hover before full weight is on the gear. With asymmetrical landing gear extension, the aircraft could roll over. Consideration should be given to evacuating all nonessential crew and passengers in a \"light on wheels hover\" before putting the full weight of the aircraft on the landing gear. If a safe gear indication (three green lights, no red light) is obtained after a malfunction, do not cycle the gear; if the gear cannot be extended safely, landing on a cradle or some other fixture should be accomplished.",
+  "hash": "acc1cac15095",
   "source_rev": "S-92A RFM SA S92A-RFM-006",
   "candidates": [],
   "readers": {},
   "status": "ok",
   "strong": true,
   "method": "manual-claude-page-read",
-  "note": "p.3-48 10.0 paragraphs and CAUTION read on image. [DOC page 166 of the full RFM; checked on the page image rendered at 130 dpi]",
-  "checked": "2026-09-25 00:34"
+  "note": "p.3-48 10.0 paragraphs and CAUTION read on image. [DOC page 166 of the full RFM; checked on the page image rendered at 130 dpi] Independently re-checked on the rendered page image 2026-09-25; answer options reworded so the correct one is not given away by length, facts unchanged.",
+  "checked": "2026-09-25 09:30"
  },
  "s92-ep-085": {
   "id": "s92-ep-085",
   "context": "Quiz item 's92-ep-085' (EMERGENCY PROCEDURES)",
-  "text": "According to the LANDING GEAR WILL NOT RETRACT CAUTION, which set of secondary symptoms may indicate a Weight On Wheels (WOW) failure, and what should the crew then avoid? -- Correct: Gear fails to retract, AFCS #1 and #2 ATT mode not engaging, transponder, weather radar and TCAS remaining in standby; avoid flight in icing conditions, since RIPS blade heating is prohibited. Failure of the WOW system may result in the failure of the landing gear to retract, AFCS #1 and #2 ATT mode not engaging, and the transponder, weather radar and TCAS remaining in the standby mode. Although not indicated in the cockpit, such a WOW failure would also prohibit the RIPS from heating the main and tail rotor blades. If any of these secondary symptoms of a WOW failure exist, avoid flight in icing conditions.",
-  "hash": "78a0cf924684",
+  "text": "According to the LANDING GEAR WILL NOT RETRACT CAUTION, which set of secondary symptoms may indicate a Weight On Wheels (WOW) failure, and what should the crew then avoid? -- Correct: Gear fails to retract, ATT mode will not engage, and transponder, weather radar and TCAS stay in standby; avoid icing conditions. Failure of the WOW system may result in the failure of the landing gear to retract, AFCS #1 and #2 ATT mode not engaging, and the transponder, weather radar and TCAS remaining in the standby mode. Although not indicated in the cockpit, such a WOW failure would also prohibit the RIPS from heating the main and tail rotor blades. If any of these secondary symptoms of a WOW failure exist, avoid flight in icing conditions.",
+  "hash": "aa9d65e88bdc",
   "source_rev": "S-92A RFM SA S92A-RFM-006",
   "candidates": [],
   "readers": {},
   "status": "ok",
   "strong": true,
   "method": "manual-claude-page-read",
-  "note": "p.3-50 CAUTION (change-barred) read on image. [DOC page 168 of the full RFM; checked on the page image rendered at 130 dpi]",
-  "checked": "2026-09-25 00:34"
+  "note": "p.3-50 CAUTION (change-barred) read on image. [DOC page 168 of the full RFM; checked on the page image rendered at 130 dpi] Independently re-checked on the rendered page image 2026-09-25; answer options reworded so the correct one is not given away by length, facts unchanged.",
+  "checked": "2026-09-25 09:30"
  },
  "s92-ep-086": {
   "id": "s92-ep-086",
   "context": "Quiz item 's92-ep-086' (EMERGENCY PROCEDURES)",
-  "text": "What may precede an impending tail rotor drive failure? -- Correct: Excessive noise or vibration from the tail rotor section, often felt as a middle frequency \"buzz\" through the rudder pedals. Impending tail rotor drive failure may be preceded by excessive noise or vibration from the tail rotor section, often felt by the pilot as a middle frequency \"buzz\" through the rudder pedals. Loss of tail rotor thrust is associated with a loss in drive and characterized by a sharp right yaw requiring immediate entry into autorotation in forward flight or landing in a hover; if thrust is lost at 60 KIAS or above, roll excursions up to 10°, pitch changes up to 5° and heading changes up to 50° may be experienced during the transition to autorotation.",
-  "hash": "003d8e04eb2b",
+  "text": "What may precede an impending tail rotor drive failure? -- Correct: Excessive noise or vibration from the tail rotor section, often felt as a middle frequency buzz in the pedals. Impending tail rotor drive failure may be preceded by excessive noise or vibration from the tail rotor section, often felt by the pilot as a middle frequency \"buzz\" through the rudder pedals. Loss of tail rotor thrust is associated with a loss in drive and characterized by a sharp right yaw requiring immediate entry into autorotation in forward flight or landing in a hover; if thrust is lost at 60 KIAS or above, roll excursions up to 10°, pitch changes up to 5° and heading changes up to 50° may be experienced during the transition to autorotation.",
+  "hash": "90f310283146",
   "source_rev": "S-92A RFM SA S92A-RFM-006",
   "candidates": [],
   "readers": {},
   "status": "ok",
   "strong": true,
   "method": "manual-claude-page-read",
-  "note": "p.3-51 11.0 paragraphs read on image (loss of thrust description and the 'buzz' sentence). [DOC page 169 of the full RFM; checked on the page image rendered at 130 dpi]",
-  "checked": "2026-09-25 00:34"
+  "note": "p.3-51 11.0 paragraphs read on image (loss of thrust description and the 'buzz' sentence). [DOC page 169 of the full RFM; checked on the page image rendered at 130 dpi] Independently re-checked on the rendered page image 2026-09-25; answer options reworded so the correct one is not given away by length, facts unchanged.",
+  "checked": "2026-09-25 09:30"
  },
  "s92-ep-087": {
   "id": "s92-ep-087",
@@ -934,64 +1214,64 @@
   "status": "ok",
   "strong": true,
   "method": "manual-claude-page-read",
-  "note": "p.3-51 11.2 symptom and p.3-52 action steps 1-5 read on images. [DOC page 169, 170 of the full RFM; checked on the page image rendered at 130 dpi]",
-  "checked": "2026-09-25 00:34"
+  "note": "p.3-51 11.2 symptom and p.3-52 action steps 1-5 read on images. [DOC page 169, 170 of the full RFM; checked on the page image rendered at 130 dpi] Independently re-checked on the rendered page image 2026-09-25.",
+  "checked": "2026-09-25 09:30"
  },
  "s92-ep-088": {
   "id": "s92-ep-088",
   "context": "Quiz item 's92-ep-088' (EMERGENCY PROCEDURES)",
-  "text": "TR QUAD illuminates and the aircraft does not respond to pedal inputs because both tail rotor cables have failed. What does the centering spring allow, and how is yaw controlled? -- Correct: Trimmed flight at about 30 KIAS and 150 KIAS; below 30 and above 150 KIAS right yaw is controlled by reducing collective, and between 30 and 150 KIAS left yaw is controlled by increasing collective. If only one cable fails, no change in handling qualities should occur (push either pedal; if normal yaw control, land as soon as practical). If both cables fail, a centering spring positions the tail rotor servo linkage to a preset pitch, allowing trimmed flight at about 30 KIAS and 150 KIAS (varying with gross weight). Below 30 and above 150 KIAS, right yaw can be controlled by reducing collective; between 30 and 150 KIAS, left yaw can be controlled by increasing collective. If the aircraft does not respond to pedal inputs: adjust airspeed to reduce yaw, perform a shallow approach to a roll on landing, lower collective slowly and use differential braking to control heading.",
-  "hash": "8c4cdeb8cb6f",
+  "text": "TR QUAD illuminates and the aircraft does not respond to pedal inputs because both tail rotor cables have failed. What does the centering spring allow, and how is yaw controlled? -- Correct: Trimmed flight at about 30 and 150 KIAS; between those speeds, left yaw is controlled by increasing collective. If only one cable fails, no change in handling qualities should occur (push either pedal; if normal yaw control, land as soon as practical). If both cables fail, a centering spring positions the tail rotor servo linkage to a preset pitch, allowing trimmed flight at about 30 KIAS and 150 KIAS (varying with gross weight). Below 30 and above 150 KIAS, right yaw can be controlled by reducing collective; between 30 and 150 KIAS, left yaw can be controlled by increasing collective. If the aircraft does not respond to pedal inputs: adjust airspeed to reduce yaw, perform a shallow approach to a roll on landing, lower collective slowly and use differential braking to control heading.",
+  "hash": "c590402a7db9",
   "source_rev": "S-92A RFM SA S92A-RFM-006",
   "candidates": [],
   "readers": {},
   "status": "ok",
   "strong": true,
   "method": "manual-claude-page-read",
-  "note": "p.3-52 11.3 paragraphs and actions 1-6 read on image. [DOC page 170 of the full RFM; checked on the page image rendered at 130 dpi]",
-  "checked": "2026-09-25 00:34"
+  "note": "p.3-52 11.3 paragraphs and actions 1-6 read on image. [DOC page 170 of the full RFM; checked on the page image rendered at 130 dpi] Independently re-checked on the rendered page image 2026-09-25; answer options reworded so the correct one is not given away by length, facts unchanged.",
+  "checked": "2026-09-25 09:30"
  },
  "s92-ep-089": {
   "id": "s92-ep-089",
   "context": "Quiz item 's92-ep-089' (EMERGENCY PROCEDURES)",
-  "text": "A tail rotor fixed pitch condition occurs at low power. What does the procedure call for? -- Correct: Raising collective will yaw the nose right; try to attain 70 to 80 KIAS and fly a shallow approach to a roll-on landing at the speed giving minimum yaw angle, expecting right yaw to increase as collective is added to cushion. If fixed pitch at low power: 1. Raising collective will yaw the nose right. 2. Try to attain 70 to 80 KIAS. 3. Fly a shallow approach to a roll-on landing at speed which results in minimum yaw angle. 4. Right yaw will increase as collective is added to cushion landing. 5. After touchdown, lower collective slowly. 6. Use differential braking to control heading. (At high power, lowering collective yaws the nose left; at cruise power, approach and land below 60 KIAS.)",
-  "hash": "e7772df307ec",
+  "text": "A tail rotor fixed pitch condition occurs at low power. What does the procedure call for? -- Correct: Raising collective will yaw the nose right; try to attain 70 to 80 KIAS and fly a shallow approach to a roll-on landing. If fixed pitch at low power: 1. Raising collective will yaw the nose right. 2. Try to attain 70 to 80 KIAS. 3. Fly a shallow approach to a roll-on landing at speed which results in minimum yaw angle. 4. Right yaw will increase as collective is added to cushion landing. 5. After touchdown, lower collective slowly. 6. Use differential braking to control heading. (At high power, lowering collective yaws the nose left; at cruise power, approach and land below 60 KIAS.)",
+  "hash": "480db9c196fd",
   "source_rev": "S-92A RFM SA S92A-RFM-006",
   "candidates": [],
   "readers": {},
   "status": "ok",
   "strong": true,
   "method": "manual-claude-page-read",
-  "note": "p.3-53 11.4 high and cruise power branches and p.3-54 cruise step 2 and low power steps 1-6 read on images; branch attachment (low power -> raising collective yaws right, 70-80 KIAS) confirmed. [DOC page 171, 172 of the full RFM; checked on the page image rendered at 130 dpi]",
-  "checked": "2026-09-25 00:34"
+  "note": "p.3-53 11.4 high and cruise power branches and p.3-54 cruise step 2 and low power steps 1-6 read on images; branch attachment (low power -> raising collective yaws right, 70-80 KIAS) confirmed. [DOC page 171, 172 of the full RFM; checked on the page image rendered at 130 dpi] Independently re-checked on the rendered page image 2026-09-25; answer options reworded so the correct one is not given away by length, facts unchanged.",
+  "checked": "2026-09-25 09:30"
  },
  "s92-ep-090": {
   "id": "s92-ep-090",
   "context": "Quiz item 's92-ep-090' (EMERGENCY PROCEDURES)",
-  "text": "How does the RFM distinguish a SAS hardover, a boost hardover and a trim hardover? -- Correct: SAS: abrupt, uncommanded attitude change without corresponding pilot flight control movement. Boost: rapid, uncommanded flight control movement in one axis with a corresponding attitude change. Trim: slow, uncommanded attitude change with a corresponding flight control movement. SAS hardovers cause abrupt, uncommanded aircraft attitude changes in one or more axes without a corresponding pilot's flight control movement. Boost hardovers cause rapid, uncommanded flight control movements in one axis with a corresponding change in aircraft attitude. Trim hardovers cause slow, uncommanded aircraft attitude changes in one or more axes with a corresponding flight control movement. The pilot should observe attitude changes and EICAS cautions to determine the appropriate procedure.",
-  "hash": "f5fc4715019d",
+  "text": "How does the RFM distinguish a SAS hardover, a boost hardover and a trim hardover? -- Correct: SAS: abrupt attitude change, no control movement. Boost: rapid control movement in one axis. Trim: slow attitude change with control movement. SAS hardovers cause abrupt, uncommanded aircraft attitude changes in one or more axes without a corresponding pilot's flight control movement. Boost hardovers cause rapid, uncommanded flight control movements in one axis with a corresponding change in aircraft attitude. Trim hardovers cause slow, uncommanded aircraft attitude changes in one or more axes with a corresponding flight control movement. The pilot should observe attitude changes and EICAS cautions to determine the appropriate procedure.",
+  "hash": "e89a52208daa",
   "source_rev": "S-92A RFM SA S92A-RFM-006",
   "candidates": [],
   "readers": {},
   "status": "ok",
   "strong": true,
   "method": "manual-claude-page-read",
-  "note": "p.3-55 12.0 three hardover descriptions read on image; consistent with 12.5-12.7 symptoms on p.3-58. [DOC page 173 of the full RFM; checked on the page image rendered at 130 dpi]",
-  "checked": "2026-09-25 00:38"
+  "note": "p.3-55 12.0 three hardover descriptions read on image; consistent with 12.5-12.7 symptoms on p.3-58. [DOC page 173 of the full RFM; checked on the page image rendered at 130 dpi] Independently re-checked on the rendered page image 2026-09-25; answer options reworded so the correct one is not given away by length, facts unchanged.",
+  "checked": "2026-09-25 09:30"
  },
  "s92-ep-091": {
   "id": "s92-ep-091",
   "context": "Quiz item 's92-ep-091' (EMERGENCY PROCEDURES)",
-  "text": "During a trim hardover, what happens if the pilot does not intervene, and what is the first action? -- Correct: The SAS initially counteracts it, giving a slow attitude change, but once the SAS saturates the attitude change becomes rapid; depress the cyclic and collective trim releases while adjusting the flight controls to maintain control. The SAS system will initially counteract a trim hardover, resulting in a slow aircraft attitude change. If the pilot does not intervene before the SAS reaches saturation, the attitude change will become rapid. Action: 1. Depress cyclic and collective trim releases while adjusting flight controls to maintain aircraft control. 2. Reduce airspeed to 120 KIAS or less. 3. Disable the malfunctioning trim axis by pressing the appropriate TRIM button. 4. Continue the flight while actively monitoring the controls.",
-  "hash": "4bdf18626300",
+  "text": "During a trim hardover, what happens if the pilot does not intervene, and what is the first action? -- Correct: The attitude change is slow at first but becomes rapid once the SAS saturates; depress the cyclic and collective trim releases. The SAS system will initially counteract a trim hardover, resulting in a slow aircraft attitude change. If the pilot does not intervene before the SAS reaches saturation, the attitude change will become rapid. Action: 1. Depress cyclic and collective trim releases while adjusting flight controls to maintain aircraft control. 2. Reduce airspeed to 120 KIAS or less. 3. Disable the malfunctioning trim axis by pressing the appropriate TRIM button. 4. Continue the flight while actively monitoring the controls.",
+  "hash": "6887b5cbaa41",
   "source_rev": "S-92A RFM SA S92A-RFM-006",
   "candidates": [],
   "readers": {},
   "status": "ok",
   "strong": true,
   "method": "manual-claude-page-read",
-  "note": "p.3-58 12.7 symptom and p.3-59 NOTE and action steps 1-4 read on images. [DOC page 177, 179 of the full RFM; checked on the page image rendered at 130 dpi]",
-  "checked": "2026-09-25 00:38"
+  "note": "p.3-58 12.7 symptom and p.3-59 NOTE and action steps 1-4 read on images. [DOC page 177, 179 of the full RFM; checked on the page image rendered at 130 dpi] Independently re-checked on the rendered page image 2026-09-25; answer options reworded so the correct one is not given away by length, facts unchanged.",
+  "checked": "2026-09-25 09:30"
  },
  "s92-ep-092": {
   "id": "s92-ep-092",
@@ -1004,8 +1284,8 @@
   "status": "ok",
   "strong": true,
   "method": "manual-claude-page-read",
-  "note": "Temporary Revision No. 7 (FAA approved Sept 30, 2010; inserted facing p.3-59; adds 12.7A) read on image: NOTE slip clutch 15 lb pitch, 12 lb roll, 30 lb collective; action steps 1-9 with the 'If control continues to be restricted' conditions. [DOC page 178 of the full RFM; checked on the page image rendered at 130 dpi]",
-  "checked": "2026-09-25 00:38"
+  "note": "Temporary Revision No. 7 (FAA approved Sept 30, 2010; inserted facing p.3-59; adds 12.7A) read on image: NOTE slip clutch 15 lb pitch, 12 lb roll, 30 lb collective; action steps 1-9 with the 'If control continues to be restricted' conditions. [DOC page 178 of the full RFM; checked on the page image rendered at 130 dpi] Independently re-checked on the rendered page image 2026-09-25.",
+  "checked": "2026-09-25 09:30"
  },
  "s92-ep-093": {
   "id": "s92-ep-093",
@@ -1018,22 +1298,22 @@
   "status": "ok",
   "strong": true,
   "method": "manual-claude-page-read",
-  "note": "p.3-60 13.1 NOTE and 'On the ground' steps 1-7 with the 'If fire is not extinguished' condition read on image. [DOC page 180 of the full RFM; checked on the page image rendered at 130 dpi]",
-  "checked": "2026-09-25 00:38"
+  "note": "p.3-60 13.1 NOTE and 'On the ground' steps 1-7 with the 'If fire is not extinguished' condition read on image. [DOC page 180 of the full RFM; checked on the page image rendered at 130 dpi] Independently re-checked on the rendered page image 2026-09-25.",
+  "checked": "2026-09-25 09:30"
  },
  "s92-ep-094": {
   "id": "s92-ep-094",
   "context": "Quiz item 's92-ep-094' (EMERGENCY PROCEDURES)",
-  "text": "SMOKE IN BAGGAGE is displayed and smoke from a baggage compartment fire is entering the cabin. What does the RFM NOTE say about airspeed? -- Correct: Decreasing airspeed below 140 KIAS may slow or stop the smoke intrusion, weighed against the need for speed to reach the nearest safe landing zone. If smoke from a baggage compartment fire is observed in the cabin, decreasing airspeed below 140 KIAS may slow or stop the smoke intrusion. Prior to slowing the aircraft, the pilot must weigh the necessity for speed to quickly reach the nearest safe landing zone versus the amount of smoke in the cabin. Actions: ECS CONT PANEL CABIN and COCKPIT — VENT, land as soon as possible, inspect the baggage compartment and fight fire if required.",
-  "hash": "9c4061296d7a",
+  "text": "SMOKE IN BAGGAGE is displayed and smoke from a baggage compartment fire is entering the cabin. What does the RFM NOTE say about airspeed? -- Correct: Slowing below 140 KIAS may slow or stop it, weighed against the need to reach a landing zone quickly. If smoke from a baggage compartment fire is observed in the cabin, decreasing airspeed below 140 KIAS may slow or stop the smoke intrusion. Prior to slowing the aircraft, the pilot must weigh the necessity for speed to quickly reach the nearest safe landing zone versus the amount of smoke in the cabin. Actions: ECS CONT PANEL CABIN and COCKPIT — VENT, land as soon as possible, inspect the baggage compartment and fight fire if required.",
+  "hash": "f44313d68a45",
   "source_rev": "S-92A RFM SA S92A-RFM-006",
   "candidates": [],
   "readers": {},
   "status": "ok",
   "strong": true,
   "method": "manual-claude-page-read",
-  "note": "p.3-62 13.5 symptom and p.3-63 NOTE and actions 1-3 read on images. [DOC page 182, 183 of the full RFM; checked on the page image rendered at 130 dpi]",
-  "checked": "2026-09-25 00:38"
+  "note": "p.3-62 13.5 symptom and p.3-63 NOTE and actions 1-3 read on images. [DOC page 182, 183 of the full RFM; checked on the page image rendered at 130 dpi] Independently re-checked on the rendered page image 2026-09-25; answer options reworded so the correct one is not given away by length, facts unchanged.",
+  "checked": "2026-09-25 09:30"
  },
  "s92-ep-095": {
   "id": "s92-ep-095",
@@ -1046,64 +1326,64 @@
   "status": "ok",
   "strong": true,
   "method": "manual-claude-page-read",
-  "note": "p.3-63 13.7 CAUTION and steps 1-2, p.3-64 steps 3-6 with the three 'If the fire persists' conditions read on images. [DOC page 183, 184 of the full RFM; checked on the page image rendered at 130 dpi]",
-  "checked": "2026-09-25 00:38"
+  "note": "p.3-63 13.7 CAUTION and steps 1-2, p.3-64 steps 3-6 with the three 'If the fire persists' conditions read on images. [DOC page 183, 184 of the full RFM; checked on the page image rendered at 130 dpi] Independently re-checked on the rendered page image 2026-09-25.",
+  "checked": "2026-09-25 09:30"
  },
  "s92-ep-096": {
   "id": "s92-ep-096",
   "context": "Quiz item 's92-ep-096' (EMERGENCY PROCEDURES)",
-  "text": "After a single DCU failure has been identified and the good DCU selected on the reversion control panel, why must the flight director corresponding to the good DCU be selected, and how is the flight continued? -- Correct: To ensure power limiting is available during coupled flight; continue the flight in VMC, or land as soon as practical if VMC is not available. After a single DCU failure, select the FD that corresponds to the functioning DCU to ensure power limiting is available during coupled flight. Then continue the flight in VMC; if VMC is not available, land as soon as practical. On the ground, do not conduct flight in IMC until the fault is corrected. A simple DCU miscompare still presents full data on both EICAS pages; with a DCU failure, the failed side EICAS page has no data.",
-  "hash": "fcb6e6bb5de6",
+  "text": "After a single DCU failure has been identified and the good DCU selected on the reversion control panel, why must the flight director corresponding to the good DCU be selected, and how is the flight continued? -- Correct: To keep power limiting available in coupled flight; continue in VMC, or land as soon as practical. After a single DCU failure, select the FD that corresponds to the functioning DCU to ensure power limiting is available during coupled flight. Then continue the flight in VMC; if VMC is not available, land as soon as practical. On the ground, do not conduct flight in IMC until the fault is corrected. A simple DCU miscompare still presents full data on both EICAS pages; with a DCU failure, the failed side EICAS page has no data.",
+  "hash": "4a165beb8747",
   "source_rev": "S-92A RFM SA S92A-RFM-006",
   "candidates": [],
   "readers": {},
   "status": "ok",
   "strong": true,
   "method": "manual-claude-page-read",
-  "note": "p.3-68 NOTE (miscompare vs failure), in-flight steps 1-8 with NOTE on FD selection, and on-ground step read on image. [DOC page 188 of the full RFM; checked on the page image rendered at 130 dpi]",
-  "checked": "2026-09-25 00:38"
+  "note": "p.3-68 NOTE (miscompare vs failure), in-flight steps 1-8 with NOTE on FD selection, and on-ground step read on image. [DOC page 188 of the full RFM; checked on the page image rendered at 130 dpi] Independently re-checked on the rendered page image 2026-09-25; answer options reworded so the correct one is not given away by length, facts unchanged.",
+  "checked": "2026-09-25 09:30"
  },
  "s92-ep-097": {
   "id": "s92-ep-097",
   "context": "Quiz item 's92-ep-097' (EMERGENCY PROCEDURES)",
-  "text": "Both DCUs fail (DCU 1 and DCU 2, no data on either EICAS, no Nr, Np, TGT or Q on either PFD). Which statement is correct? -- Correct: Aircraft performance is not affected and full AFCS functionality remains, but the pilot cannot monitor aircraft health and most cautions, warnings and aural alerts are unavailable; land as soon as possible. If both DCUs fail, the performance of the aircraft will not be affected but the pilot will not be able to monitor aircraft health. Most cautions and warnings and most aural alerts will not be available. Attitude, heading, airspeed and altitude displays, navigation and communication radios and displays, and full AFCS functionality will be available. Action: land as soon as possible.",
-  "hash": "7b348f2364fb",
+  "text": "Both DCUs fail (DCU 1 and DCU 2, no data on either EICAS, no Nr, Np, TGT or Q on either PFD). Which statement is correct? -- Correct: Performance is unaffected and full AFCS remains, but aircraft health cannot be monitored; land as soon as possible. If both DCUs fail, the performance of the aircraft will not be affected but the pilot will not be able to monitor aircraft health. Most cautions and warnings and most aural alerts will not be available. Attitude, heading, airspeed and altitude displays, navigation and communication radios and displays, and full AFCS functionality will be available. Action: land as soon as possible.",
+  "hash": "63c2e4707e10",
   "source_rev": "S-92A RFM SA S92A-RFM-006",
   "candidates": [],
   "readers": {},
   "status": "ok",
   "strong": true,
   "method": "manual-claude-page-read",
-  "note": "p.3-69 14.7 NOTE, symptoms and action read on image. [DOC page 189 of the full RFM; checked on the page image rendered at 130 dpi]",
-  "checked": "2026-09-25 00:38"
+  "note": "p.3-69 14.7 NOTE, symptoms and action read on image. [DOC page 189 of the full RFM; checked on the page image rendered at 130 dpi] Independently re-checked on the rendered page image 2026-09-25; answer options reworded so the correct one is not given away by length, facts unchanged.",
+  "checked": "2026-09-25 09:30"
  },
  "s92-ep-098": {
   "id": "s92-ep-098",
   "context": "Quiz item 's92-ep-098' (EMERGENCY PROCEDURES)",
-  "text": "RIPS DEGRD OAT indicates a dual RIPS OAT sensor failure. What OAT does the RIPS use, and why is a manual RIPS mode not recommended? -- Correct: -12°C; without an OAT input the RIPS OAT interlock will not function, so in a manual mode the blades are heated regardless of OAT and blade damage could occur above 5°C OAT. With a dual RIPS OAT sensor failure, in all modes the RIPS schedules the blade heating element on time using a default OAT value of -12°C. WARNING: without an OAT input, the RIPS OAT interlock will not function; in a manual mode, the RIPS will continue to heat the main and tail rotor blades regardless of OAT. Blade damage could occur at an OAT above 5°C. Therefore, use of a manual mode with a dual RIPS OAT sensor failure is not recommended. Actions include monitoring vibrations and power requirements and exiting icing conditions as soon as practical.",
-  "hash": "97998995b042",
+  "text": "RIPS DEGRD OAT indicates a dual RIPS OAT sensor failure. What OAT does the RIPS use, and why is a manual RIPS mode not recommended? -- Correct: -12°C; with no OAT input the OAT interlock is lost, so a manual mode heats the blades regardless of OAT. With a dual RIPS OAT sensor failure, in all modes the RIPS schedules the blade heating element on time using a default OAT value of -12°C. WARNING: without an OAT input, the RIPS OAT interlock will not function; in a manual mode, the RIPS will continue to heat the main and tail rotor blades regardless of OAT. Blade damage could occur at an OAT above 5°C. Therefore, use of a manual mode with a dual RIPS OAT sensor failure is not recommended. Actions include monitoring vibrations and power requirements and exiting icing conditions as soon as practical.",
+  "hash": "6ea29fa53fe0",
   "source_rev": "S-92A RFM SA S92A-RFM-006",
   "candidates": [],
   "readers": {},
   "status": "ok",
   "strong": true,
   "method": "manual-claude-page-read",
-  "note": "p.3-78A 15.13 discussion (default OAT -12 deg C) and p.3-79 WARNING, CAUTION and actions read on images. [DOC page 204, 205 of the full RFM; checked on the page image rendered at 130 dpi]",
-  "checked": "2026-09-25 00:38"
+  "note": "p.3-78A 15.13 discussion (default OAT -12 deg C) and p.3-79 WARNING, CAUTION and actions read on images. [DOC page 204, 205 of the full RFM; checked on the page image rendered at 130 dpi] Independently re-checked on the rendered page image 2026-09-25; answer options reworded so the correct one is not given away by length, facts unchanged.",
+  "checked": "2026-09-25 09:30"
  },
  "s92-ep-099": {
   "id": "s92-ep-099",
   "context": "Quiz item 's92-ep-099' (EMERGENCY PROCEDURES)",
-  "text": "During a ditching, which statement about float deployment is correct? -- Correct: The floats must only be deployed after water entry; automatic deployment will not function on battery power only, while manual deployment will, and the pilot should manually deploy the floats immediately after water entry. The floats are not designed to absorb the force of water impact and must only be deployed after water entry. When the flotation system is armed, the floats deploy automatically via the immersion switch or manually via the collective mounted FLOAT switch; the pilot should manually deploy the floats immediately after water entry. Automatic float deployment will not function when operating on battery power only; manual float deployment will. Action: LDG GEAR — DOWN (floats can be deployed with the gear retracted if it cannot be extended), FLOTATION — ARM below 80 KIAS, execute the water landing, FLOATS — deploy.",
-  "hash": "b5a35ce4874f",
+  "text": "During a ditching, which statement about float deployment is correct? -- Correct: Deploy the floats only after water entry; automatic deployment does not work on battery power only, manual deployment does. The floats are not designed to absorb the force of water impact and must only be deployed after water entry. When the flotation system is armed, the floats deploy automatically via the immersion switch or manually via the collective mounted FLOAT switch; the pilot should manually deploy the floats immediately after water entry. Automatic float deployment will not function when operating on battery power only; manual float deployment will. Action: LDG GEAR — DOWN (floats can be deployed with the gear retracted if it cannot be extended), FLOTATION — ARM below 80 KIAS, execute the water landing, FLOATS — deploy.",
+  "hash": "8e0e3a533dc9",
   "source_rev": "S-92A RFM SA S92A-RFM-006",
   "candidates": [],
   "readers": {},
   "status": "ok",
   "strong": true,
   "method": "manual-claude-page-read",
-  "note": "p.3-82 17.0 paragraph, NOTEs and step 1, and p.3-82A steps 2-4 read on images. [DOC page 208, 209 of the full RFM; checked on the page image rendered at 130 dpi]",
-  "checked": "2026-09-25 00:38"
+  "note": "p.3-82 17.0 paragraph, NOTEs and step 1, and p.3-82A steps 2-4 read on images. [DOC page 208, 209 of the full RFM; checked on the page image rendered at 130 dpi] Independently re-checked on the rendered page image 2026-09-25; answer options reworded so the correct one is not given away by length, facts unchanged.",
+  "checked": "2026-09-25 09:30"
  },
  "s92-ep-100": {
   "id": "s92-ep-100",
@@ -1116,21 +1396,21 @@
   "status": "ok",
   "strong": true,
   "method": "manual-claude-page-read",
-  "note": "p.3-83 steps 6-10 for rafts not installed / installed, NOTEs and both WARNINGs read on image. [DOC page 210 of the full RFM; checked on the page image rendered at 130 dpi]",
-  "checked": "2026-09-25 00:38"
+  "note": "p.3-83 steps 6-10 for rafts not installed / installed, NOTEs and both WARNINGs read on image. [DOC page 210 of the full RFM; checked on the page image rendered at 130 dpi] Independently re-checked on the rendered page image 2026-09-25.",
+  "checked": "2026-09-25 09:30"
  },
  "s92-ep-101": {
   "id": "s92-ep-101",
   "context": "Quiz item 's92-ep-101' (EMERGENCY PROCEDURES)",
-  "text": "After an inadvertent in-flight float deployment, what restrictions apply? -- Correct: Rate of climb 1000 fpm or less, bank 30° or less, maximum indicated airspeed 50 KIAS in climb, 55 KIAS in level flight and 60 KIAS in descent/autorotation, and flare attitude at touchdown 8° or less. Intentional in-flight deployment of the float bags is prohibited. After an inadvertent deployment: restrict rate of climb to 1000 fpm or less, angle of bank to 30° or less, and adhere to the float deployed maximum indicated airspeeds (climb 50, level flight 55, descent/autorotation 60), which produce an 80 knot calibrated airspeed because deployed floats affect airspeed accuracy. Land as soon as practical, restricting flare attitude on touchdown to 8° or less to avoid hitting the aft float bag, and avoid icing conditions with floats deployed.",
-  "hash": "08604b9bfab8",
+  "text": "After an inadvertent in-flight float deployment, what restrictions apply? -- Correct: Climb 1000 fpm or less, bank 30° or less, 50/55/60 KIAS maximum (climb/level/descent), flare 8° or less at touchdown. Intentional in-flight deployment of the float bags is prohibited. After an inadvertent deployment: restrict rate of climb to 1000 fpm or less, angle of bank to 30° or less, and adhere to the float deployed maximum indicated airspeeds (climb 50, level flight 55, descent/autorotation 60), which produce an 80 knot calibrated airspeed because deployed floats affect airspeed accuracy. Land as soon as practical, restricting flare attitude on touchdown to 8° or less to avoid hitting the aft float bag, and avoid icing conditions with floats deployed.",
+  "hash": "0b2fca881c1f",
   "source_rev": "S-92A RFM SA S92A-RFM-006",
   "candidates": [],
   "readers": {},
   "status": "ok",
   "strong": true,
   "method": "manual-claude-page-read",
-  "note": "p.3-84 18.1 actions 1-4, NOTE, airspeed table (50/55/60) and CAUTIONs read on image; p.3-85 icing CAUTION. [DOC page 211, 212 of the full RFM; checked on the page image rendered at 130 dpi]",
-  "checked": "2026-09-25 00:38"
+  "note": "p.3-84 18.1 actions 1-4, NOTE, airspeed table (50/55/60) and CAUTIONs read on image; p.3-85 icing CAUTION. [DOC page 211, 212 of the full RFM; checked on the page image rendered at 130 dpi] Independently re-checked on the rendered page image 2026-09-25; answer options reworded so the correct one is not given away by length, facts unchanged.",
+  "checked": "2026-09-25 09:30"
  }
 }

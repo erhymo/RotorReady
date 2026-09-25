@@ -12,7 +12,7 @@
       ],
       "answer": [0],
       "explanation": "After a single engine failure, the operative engine automatically has 30 second power available. The pilot can then select 2 minute power by moving the collective OEI SEL switch aft, and maximum continuous power by first selecting 2 minute power and then pushing in on the OEI SEL switch.",
-      "references": ["S-92 RFM Part 1 Sec III: 1.4 SINGLE ENGINE FAILURE (p.3-5)"],
+      "references": ["S-92 RFM Part 1 Sec III: 1.4 SINGLE ENGINE FAILURE (p.3-6)"],
       "tags": ["engine-failure", "oei-power"],
       "source": "S-92 RFM Part 1",
       "sectionId": "emergency_procedures",
@@ -50,7 +50,7 @@
       ],
       "answer": [0],
       "explanation": "Moving the collective OEI SEL switch aft selects 2 minute power. Pushing in on the switch (after 2 minute power is already selected) gives maximum continuous power, and pushing forward re-arms 30 second power.",
-      "references": ["S-92 RFM Part 1 Sec III: 1.4 SINGLE ENGINE FAILURE (p.3-5)"],
+      "references": ["S-92 RFM Part 1 Sec III: 1.4 SINGLE ENGINE FAILURE (p.3-6)"],
       "tags": ["oei-power", "engine-failure"],
       "source": "S-92 RFM Part 1",
       "sectionId": "emergency_procedures",
@@ -221,7 +221,7 @@
       ],
       "answer": [0],
       "explanation": "APU OVERLOAD indicates the APU generator load exceeds normal limits. The first action is to decrease APU electrical load by turning off nonessential systems; if the caution remains, attain VMC and land as soon as practical.",
-      "references": ["S-92 RFM Part 1 Sec III: 6.5 APU OVERLOAD (p.3-29)"],
+      "references": ["S-92 RFM Part 1 Sec III: 6.5 APU OVERLOAD (p.3-29, p.3-30)"],
       "tags": ["apu", "electrical"],
       "source": "S-92 RFM Part 1",
       "sectionId": "emergency_procedures",
@@ -239,7 +239,7 @@
         "Below 24 psi"
       ],
       "answer": [0],
-      "explanation": "A total loss of MGB oil pressure below 5 psi may result in MGB failure in less than 10 minutes, requiring the pilot to Land Immediately. The MGB OIL PRES caution/warning thresholds (45 psi / 35 psi at the manifold) trigger the initial caution/warning but not the Land Immediately requirement by themselves.",
+      "explanation": "A total loss of MGB oil pressure may result in MGB failure in less than 10 minutes. If MGB OIL PRES is less than 5 psi, the RFM requires Land Immediately. The caution (manifold below 45 psi) and warning (manifold below 35 psi) thresholds do not by themselves call for Land Immediately; the MGB OIL PRES warning procedure is land as soon as possible.",
       "references": ["S-92 RFM Part 1 Sec III: 7.1 MAIN GEARBOX OIL PRESSURE WARNING (p.3-31/3-32)"],
       "tags": ["gearbox", "mgb", "oil-pressure"],
       "source": "S-92 RFM Part 1",
@@ -334,8 +334,8 @@
         "150 KIAS"
       ],
       "answer": [0],
-      "explanation": "Maximum airspeed for activation of the landing gear emergency blow down switch is 90 KIAS, consistent with the airspeed limit stated in the Operating Limitations section.",
-      "references": ["S-92 RFM Part 1 Sec III: 10.1 LANDING GEAR WILL NOT EXTEND (p.3-48/3-49)"],
+      "explanation": "Maximum airspeed for activation of the landing gear emergency blow down switch is 90 KIAS.",
+      "references": ["S-92 RFM Part 1 Sec III: 10.1 LANDING GEAR WILL NOT EXTEND (p.3-49)"],
       "tags": ["landing-gear", "emergency-blowdown"],
       "source": "S-92 RFM Part 1",
       "sectionId": "emergency_procedures",
@@ -353,7 +353,7 @@
         "Apply full left pedal and continue powered flight"
       ],
       "answer": [0],
-      "explanation": "Loss of tail rotor thrust in forward flight is a loss-of-drive failure that makes level flight impossible; the pilot must enter autorotation immediately and maintain 80 to 100 KIAS to touchdown.",
+      "explanation": "Loss of tail rotor thrust in forward flight is associated with a loss of drive and makes level flight impossible. The pilot enters autorotation, maintains 80 to 100 KIAS, lowers the landing gear and moves the throttles to STOP prior to touchdown.",
       "references": ["S-92 RFM Part 1 Sec III: 11.1 LOSS OF TAIL ROTOR THRUST IN FORWARD FLIGHT (p.3-51)"],
       "tags": ["tail-rotor", "autorotation"],
       "source": "S-92 RFM Part 1",
@@ -423,10 +423,10 @@
       "section": "EMERGENCY PROCEDURES",
       "question": "After an emergency engine shutdown (throttle STOP, FUEL OFF), TGT remains above 540°. What does the procedure call for?",
       "options": [
-        "Press the ENG START button to engage the starter with the throttle in STOP, and press it again to turn the starter off when TGT is below 150°",
-        "Push in the FIRE/ARMED pushbutton and discharge the main fire extinguisher bottle",
-        "Move the throttle to IDLE to restore airflow until TGT is below 540°",
-        "Wait until TGT is below 150°, then select FUEL back to DIRECT"
+        "Press ENG START to engage the starter with the throttle in STOP, until TGT is below 150°",
+        "Push in the FIRE/ARMED pushbutton and discharge the MAIN extinguisher bottle",
+        "Move the throttle to IDLE to restore cooling airflow until TGT is below 540°",
+        "Wait until TGT is below 150°, then select the FUEL selector back to DIRECT"
       ],
       "answer": [0],
       "explanation": "If TGT remains above 540° or there is other evidence of combustion after engine shutdown, press the ENG START button to engage the starter with the throttle in STOP. When TGT is below 150°, press the ENG START button to turn the starter off.",
@@ -557,8 +557,8 @@
       "question": "While cushioning a single engine landing, Nr droops below 96%. If the APU and APU generator are not on, what is the result?",
       "options": [
         "The AFCS disengages and aircraft control is degraded until Nr recovers",
-        "The AC generators drop off line, only the battery bus powers aircraft systems and the copilot MFDs momentarily blank, with no degradation to aircraft control",
-        "The pilot MFDs blank and remain blank until the generators are reset manually",
+        "The AC generators drop off line and the copilot MFDs momentarily blank; aircraft control is not degraded",
+        "The pilot MFDs blank and stay blank until the generators are reset manually",
         "The operating engine automatically selects two minute power to restore Nr"
       ],
       "answer": [1],
@@ -670,10 +670,10 @@
       "section": "EMERGENCY PROCEDURES",
       "question": "An engine fails before the TDP during a ground level helipad vertical takeoff. During the vertical descent back to the helipad, what Nr should be maintained, and why?",
       "options": [
-        "Between 95% and 100%, so the operating engine can reach 30 second power",
-        "Above 105%, to store rotor energy for the landing",
-        "Between 100% and 104%: at or above 100% for sufficient rotor energy for the landing, and below 105% so the remaining engine produces maximum power",
-        "Exactly 100%, because 30 second power is only available at 100% Nr"
+        "Between 95% and 100%: low enough that the operating engine can reach 30 second power",
+        "Above 105%: to store as much rotor energy as possible for the landing",
+        "Between 100% and 104%: enough rotor energy for the landing, yet below 105% so the remaining engine gives maximum power",
+        "Exactly 100%: because 30 second power is only available at 100% Nr"
       ],
       "answer": [2],
       "explanation": "Prior to or at the TDP: decrease collective sharply to stop the vertical climb, then descend vertically to the helipad maintaining between 100% and 104% Nr. The CAUTION explains: maintain Nr at or above 100% during the vertical descent to ensure sufficient rotor energy is available for the landing, and below 105% to ensure that the remaining engine is producing maximum power.",
@@ -917,9 +917,9 @@
       "section": "EMERGENCY PROCEDURES",
       "question": "In autorotation, at what airspeeds are the minimum rate of descent and the maximum glide distance attained?",
       "options": [
-        "Minimum rate of descent (2,200 to 2,400 fpm) at 80 KIAS; maximum glide distance (0.6 nm/1000 feet) at 100 KIAS",
+        "Minimum rate of descent at 80 KIAS; maximum glide distance at 100 KIAS",
         "Minimum rate of descent at 100 KIAS; maximum glide distance at 80 KIAS",
-        "Both at 85 KIAS",
+        "Both at 85 KIAS, the recommended minimum flare airspeed",
         "Minimum rate of descent at 60 KIAS; maximum glide distance at 120 KIAS"
       ],
       "answer": [0],
@@ -1012,10 +1012,10 @@
       "section": "EMERGENCY PROCEDURES",
       "question": "In an ENGINE FIXED POWER (\"fail fixed\") condition, collective has been reduced to try to get a rate of descent at 80 KIAS. When does the procedure require the affected throttle to be moved to STOP in flight?",
       "options": [
-        "As soon as the torque split is noticed",
-        "When Nr increases above 106% and torque on the good engine reaches 0 before a rate of descent can be established",
+        "As soon as the torque split is noticed, before any collective reduction",
+        "When Nr rises above 106% and torque on the good engine reaches 0 before a rate of descent is established",
         "When Nr decreases below 100% during the collective reduction",
-        "Only once on the ground, never in flight"
+        "Never in flight; only once on the ground and before reducing to flat pitch"
       ],
       "answer": [1],
       "explanation": "Actions: 1. Airspeed — 80 KIAS. 2. Collective — make small changes to confirm the fail fixed condition. 3. Collective — reduce until a rate of descent is obtained or Nr increases above 106%. If Nr increases above 106% and torque on the good engine reaches 0 before a rate of descent can be established: 4. Throttle (affected engine) — STOP, then 5. accomplish SINGLE ENGINE FAILURE procedure. The WARNING notes that in a fail fixed condition there is no automatic engine overspeed protection. If a descent rate can be obtained at 80 KIAS, the approach and landing may be made with the fail fixed engine on line.",
@@ -1050,10 +1050,10 @@
       "section": "EMERGENCY PROCEDURES",
       "question": "Flight is continued with a \"fail fixed\" engine still operating. How is the approach flown, and when is the affected throttle moved to STOP?",
       "options": [
-        "Keep demanded torque below the affected engine's torque; move the throttle to STOP on short final",
-        "Fly a steep approach at minimum power; move the throttle to STOP after the rotor has stopped",
-        "Keep demanded torque above the torque of the affected engine during a shallow/normal approach; move the throttle to STOP once on the ground and prior to reducing collective to flat pitch",
-        "Fly a single engine approach; move the throttle to IDLE after touchdown"
+        "Keep demanded torque below the affected engine's torque; throttle to STOP on short final",
+        "Fly a steep approach at minimum power; throttle to STOP after the rotor has stopped",
+        "Keep demanded torque above the affected engine's torque; throttle to STOP on the ground, before flat pitch",
+        "Fly a single engine approach; throttle to IDLE after touchdown, before flat pitch"
       ],
       "answer": [2],
       "explanation": "If flight is continued with the affected engine operating: 6. Collective — maintain demanded torque above the torque of the affected engine while accomplishing a shallow/normal approach and landing. 7. Throttle (affected engine) — STOP, once on the ground and prior to reducing collective to flat pitch. The discussion explains that when total torque demanded is less than the torque of the malfunctioning engine, the rotor system will over-speed.",
@@ -1069,10 +1069,10 @@
       "section": "EMERGENCY PROCEDURES",
       "question": "What does an ENG 1 RATE LIM caution indicate, and what is the first action?",
       "options": [
-        "Full engine power may not be available; avoid high rates of descent",
-        "Full engine power is available but transient response may be degraded and the engine may be slow to accelerate; reduce the rate of collective input to minimize transient Nr droop",
+        "Full power may not be available; avoid high rates of descent and high power maneuvers",
+        "Full power is available but the engine may be slow to accelerate; reduce the rate of collective input",
         "Both FADEC channels have exceeded their temperature limit; land as soon as possible",
-        "The overspeed system test failed; continue the flight and correct before the next flight"
+        "The overspeed system test has failed; continue and correct before the next flight"
       ],
       "answer": [1],
       "explanation": "An ENG RATE LIM caution indicates an engine control system malfunction. Full engine power is available, but engine transient response may be degraded and the affected engine may be slow to accelerate. Confirming: possible Nr droop or torque split upon power application; load sharing (torque matching) may be inoperative. Action: 1. Reduce rate of collective input to minimize transient droop of Nr. 2. Land as soon as practical.",
@@ -1088,10 +1088,10 @@
       "section": "EMERGENCY PROCEDURES",
       "question": "An ENG 2 POWER LIM caution illuminates in flight. What does it indicate, and what does the procedure call for?",
       "options": [
-        "Full engine power may not be available, but engine operation is otherwise normal; avoid high rates of descent and maneuvers that require high power settings, and land as soon as practical",
-        "The engine is about to fail; perform an emergency engine shutdown",
-        "Engine power is fixed; reduce airspeed to 80 KIAS and confirm the fail fixed condition",
-        "Full engine power is available but response is slow; reduce the rate of collective input and continue the flight"
+        "Full power may not be available; avoid high descent rates and high power maneuvers, and land as soon as practical",
+        "The engine is about to fail; carry out an emergency engine shutdown and land as soon as possible",
+        "Engine power is fixed; slow to 80 KIAS and make small collective changes to confirm the condition",
+        "Full power is available but response is slow; reduce the rate of collective input and continue"
       ],
       "answer": [0],
       "explanation": "An ENG POWER LIM caution indicates an engine control system malfunction. Full engine power may not be available, but engine operation is otherwise normal. Action: 1. Avoid high rates of descent. 2. Avoid maneuvers that require high power settings. 3. Land as soon as practical.",
@@ -1126,10 +1126,10 @@
       "section": "EMERGENCY PROCEDURES",
       "question": "ENG 1 OVERSPEED is displayed, with Nr and Np of the affected engine cycling between 118 and 120%. After attaining a safe single engine airspeed, what are the next actions?",
       "options": [
-        "Throttle (affected engine) to IDLE, confirm Nr and remaining engine Np are normal, then throttle (affected engine) to STOP and accomplish SINGLE ENGINE FAILURE DURING CRUISE",
-        "Throttle (affected engine) directly to STOP, then press the ENG START button to motor the engine",
+        "Throttle to IDLE, confirm Nr and the other engine's Np are normal, then throttle to STOP",
+        "Throttle directly to STOP, then press the ENG START button to motor the engine",
         "Reduce collective until Nr is below 106% and continue with both engines on line",
-        "Turn off both FADEC channels of the affected engine and restart it in manual mode"
+        "Turn off both FADEC channels of the affected engine and restart it manually"
       ],
       "answer": [0],
       "explanation": "Np above 120% or Ng above 108.5% cause the FADEC to shut off fuel to the affected engine; the FADEC will automatically restart the engine once Ng and Np are within limits. Action: 1. Attain safe single engine airspeed. 2. Throttle (affected engine) — IDLE. 3. Confirm Nr and remaining engine Np are normal. 4. Throttle (affected engine) — STOP. 5. Accomplish SINGLE ENGINE FAILURE DURING CRUISE procedure. 6. Land as soon as practical.",
@@ -1145,10 +1145,10 @@
       "section": "EMERGENCY PROCEDURES",
       "question": "An ENG 2 OVSP TEST caution is displayed in flight. What does it mean, and what is the action?",
       "options": [
-        "The engine has overspeed and been shut down; land as soon as possible",
-        "The overspeed test is in progress; wait for the caution to clear before increasing power",
-        "The FADEC failed a portion of the overspeed system test and overspeed protection may not be available; continue the flight and correct prior to the next flight",
-        "The overspeed system is inhibited; shut down the affected engine"
+        "The engine has overspeed and been shut down by the FADEC; land as soon as possible",
+        "The overspeed test is still in progress; wait for the caution to clear before increasing power",
+        "The FADEC failed part of the overspeed test and protection may be lost; continue and correct before the next flight",
+        "Overspeed protection is lost; shut down the affected engine and land as soon as practical"
       ],
       "answer": [2],
       "explanation": "An ENG OVSP TEST caution indicates that the FADEC failed a portion of the overspeed system test. Overspeed protection for the affected engine may not be available. In flight: continue the flight and correct prior to the next flight. On the ground: correct prior to flight.",
@@ -1221,10 +1221,10 @@
       "section": "EMERGENCY PROCEDURES",
       "question": "According to the ENGINE COMPRESSOR STALL WARNING, what can increase the probability of compressor stalls on one or both engines?",
       "options": [
-        "Prolonged hover in ground effect at high gross weight",
-        "Flight through extreme air temperature environments, such as close to intense fires, volcanic activity or over smoke or fire stacks",
-        "Rapid changes in Nr between 100% and 105%",
-        "Operation with the engine anti-ice ON above 5°C OAT"
+        "Prolonged hovering in ground effect at high gross weight",
+        "Flight close to intense fires, volcanic activity or over smoke or fire stacks",
+        "Rapid changes in Nr between 100% and 105% during the approach",
+        "Engine anti-ice selected ON at an OAT above 5°C"
       ],
       "answer": [1],
       "explanation": "The WARNING states that flight through extreme air temperature environments, such as in close proximity to intense fires, volcanic activity or over smoke or fire stacks, may cause rapid engine inlet air temperature changes and increases the probability of compressor stalls on one or both engines. This may exceed engine limitations causing damage to engine components and, in extreme cases, can increase the probability of engine power loss or engine shutdown.",
@@ -1278,10 +1278,10 @@
       "section": "EMERGENCY PROCEDURES",
       "question": "An ENG 1 OIL PRES caution is displayed. You have attained safe single engine airspeed and set the affected throttle to IDLE. What then requires an emergency engine shutdown?",
       "options": [
-        "Any further illumination of an engine oil caution",
-        "Engine oil pressure decreasing and engine temperature rising, unless that engine's power is required for continued safe flight",
-        "The caution remaining on for more than 60 seconds",
-        "Nothing; the RFM never calls for shutting down an engine for an oil system malfunction"
+        "Any further engine oil caution illuminating after the throttle has been set to IDLE",
+        "Oil pressure decreasing and engine temperature rising, unless that engine's power is needed for safe flight",
+        "The caution remaining on for more than 60 seconds with the throttle at IDLE",
+        "Oil pressure decreasing and engine temperature rising, even if that engine's power is needed for safe flight"
       ],
       "answer": [1],
       "explanation": "Engine oil system malfunctions (ENG OIL PRES, ENG OIL HOT or ENG OIL BYPASS): 1. Attain safe single engine airspeed. 2. Throttle (affected engine) — IDLE. 3. Land as soon as practical. If engine oil pressure is decreasing and engine temperature is rising: 4. Accomplish the EMERGENCY ENGINE SHUTDOWN and SINGLE ENGINE FAILURE procedure. The CAUTION states: do not shut down an engine for an oil system malfunction if that engine power is required for continued safe flight. If the engine has not been shut down, the throttle may go to FLY on final if dual engine power is required for landing, and the engine is shut down after touchdown.",
@@ -1297,10 +1297,10 @@
       "section": "EMERGENCY PROCEDURES",
       "question": "ENG 2 FUEL PRES illuminates with fluctuating Ng, TGT and torque. You select the affected fuel selector switch to XFD and the caution remains. What is next?",
       "options": [
-        "FUEL selector (affected engine) — DIRECT, and land as soon as practical using SINGLE ENGINE FAILURE procedures",
-        "Leave the selector in XFD and continue the flight",
-        "Perform an emergency engine shutdown and land immediately",
-        "Select both fuel selectors to XFD and land as soon as possible"
+        "FUEL selector (affected engine) to DIRECT, then land as soon as practical using SINGLE ENGINE FAILURE procedures",
+        "Leave the selector in XFD, then continue the flight and correct before the next flight",
+        "Perform an emergency engine shutdown, then land immediately using SINGLE ENGINE FAILURE procedures",
+        "Select both fuel selectors to XFD, then land as soon as possible"
       ],
       "answer": [0],
       "explanation": "An ENG FUEL PRES caution indicates reduced fuel pressure at the engine driven fuel boost pump, which could indicate an air leak in the fuel supply lines. Confirming: erratic fuel flow and/or fluctuating Ng, TGT and Q. Action: 1. Fuel selector switch (affected engine) — XFD. If the caution extinguishes: 2. Land as soon as practical. If the caution remains: 3. FUEL selector (affected engine) — DIRECT. 4. Land as soon as practical using SINGLE ENGINE FAILURE procedures.",
@@ -1335,10 +1335,10 @@
       "section": "EMERGENCY PROCEDURES",
       "question": "APU GEN FAIL illuminates. You cycle APU GEN to OFF/RESET and back to ON, but the caution returns. What does the procedure call for?",
       "options": [
-        "Land immediately",
-        "Exit IMC conditions as soon as possible and continue the flight in VMC",
+        "Land immediately at the nearest site where a landing is possible",
+        "Exit IMC as soon as possible and continue the flight in VMC",
         "Shut down the APU and land as soon as possible",
-        "Continue the flight; no further action is required"
+        "Continue in IMC; no further action is required"
       ],
       "answer": [1],
       "explanation": "APU GENERATOR FAILURE: 1. APU GEN — OFF/RESET then back to ON. If the caution remains off: 2. Continue the flight. If the caution returns: 3. Exit IMC conditions as soon as possible and continue the flight in VMC. After an APU generator failure, the APU generator will not be available for emergency power or for engine shutdown; if APU generator power is not available during engine shutdown, monitor TGT on the pilot inboard EICAS display and connect external power, if available.",
@@ -1411,10 +1411,10 @@
       "section": "EMERGENCY PROCEDURES",
       "question": "After an MGB OIL PRES warning, BYP is selected, the APU and APU generator are on, and no symptoms of imminent gearbox failure exist. What altitude and airspeed does the procedure call for?",
       "options": [
-        "Climb to at least 1,500 feet and maintain 70 KIAS",
-        "Maintain cruise altitude and at least 120 KIAS to shorten the time to landing",
-        "Descend to a minimum safe altitude while reducing airspeed below 120 KIAS (below 500 feet above the water/terrain if conditions permit), and maintain 80 to 120 KIAS until committed to land",
-        "Descend to 200 feet and maintain 50 KIAS"
+        "Climb to at least 1,500 feet to keep autorotation options open and hold 70 to 80 KIAS",
+        "Maintain cruise altitude and hold at least 120 KIAS to shorten the time to landing",
+        "Descend to a minimum safe altitude (below 500 feet above the water/terrain if conditions permit) and hold 80 to 120 KIAS",
+        "Descend to 200 feet above the water/terrain and hold 50 to 60 KIAS until committed to land"
       ],
       "answer": [2],
       "explanation": "MAIN GEARBOX OIL PRESSURE WARNING (confirming: MGB oil pressure below 35 psi): 1. MGB OIL BYP — select BYP within 5 seconds. 2. If either INPUT 1/2 CHIP caution also illuminates, throttle (affected engine) — IDLE unless dual engine power is required for continued safe flight. 3. APU CTRL — ON. 4. APU GEN — ON. 5. Descend to a minimum safe altitude while reducing airspeed below 120 KIAS; if conditions permit, descend below 500 feet above the water/terrain; maintain airspeed between 80 and 120 KIAS until committed to land. 6. Land as soon as possible (dual engine power for landing if required). If any symptom of imminent gearbox failure exists: 7. Land immediately.",
@@ -1449,10 +1449,10 @@
       "section": "EMERGENCY PROCEDURES",
       "question": "What is the difference in required action between S/P TEMP DETECT and S/P TEMP LIMIT (with the \"SWASHPLATE TEMPERATURE\" aural alert)?",
       "options": [
-        "Both require land immediately",
-        "S/P TEMP DETECT: land as soon as possible. S/P TEMP LIMIT: land immediately in all cases",
-        "S/P TEMP DETECT: continue and correct before the next flight. S/P TEMP LIMIT: land as soon as practical",
-        "S/P TEMP DETECT: land as soon as practical. S/P TEMP LIMIT: land as soon as possible, or land immediately if accompanied by secondary indications such as restricted control motion, unusual noises or vibrations"
+        "DETECT: land as soon as possible. LIMIT: land immediately in all cases",
+        "DETECT: continue and correct before the next flight. LIMIT: land as soon as practical",
+        "DETECT: land as soon as practical. LIMIT: land immediately in all cases",
+        "DETECT: land as soon as practical. LIMIT: land as soon as possible, or immediately if secondary indications exist"
       ],
       "answer": [3],
       "explanation": "SWASHPLATE TEMPERATURE: for S/P TEMP DETECT, land as soon as practical. For S/P TEMP LIMIT with the \"SWASHPLATE TEMPERATURE\" aural alert, land as soon as possible; if accompanied by secondary indications such as restricted control motion, unusual noises or vibrations, land immediately.",
@@ -1468,10 +1468,10 @@
       "section": "EMERGENCY PROCEDURES",
       "question": "After a dual AC generator failure the aircraft is operating on the APU generator. Which statement is correct?",
       "options": [
-        "All aircraft systems are powered normally by the APU generator",
-        "The RIPS droop stop heaters are lost, but the RIPS blade heating elements continue to operate",
-        "The AVC, windshield anti-ice, number 1 engine inlet anti-ice and RIPS main and tail rotor blade heating are not powered; the pilot windshield anti-ice can be recovered with OVRD, which should only be selected if required for safe flight",
-        "The pilot windshield anti-ice cannot be recovered by any means"
+        "All systems remain powered except the RIPS droop stop heaters; pilot windshield anti-ice works normally",
+        "RIPS blade heating continues but the RIPS droop stop heaters are lost; windshield anti-ice cannot be recovered",
+        "The AVC, windshield anti-ice, No. 1 engine inlet anti-ice and RIPS blade heating are unpowered; pilot windshield anti-ice can be recovered with OVRD",
+        "The AVC and RIPS blade heating remain powered; only the windshield anti-ice is lost, and it cannot be recovered"
       ],
       "answer": [2],
       "explanation": "When operating on the APU generator, the AVC, windshield anti-ice, number 1 engine inlet anti-ice, and RIPS main and tail rotor blade heating elements will not be powered. The RIPS droop stop heaters will still function properly, and the pilot windshield anti-ice can be recovered by selecting OVRD. Do not select OVRD unless required for safe flight.",
@@ -1506,10 +1506,10 @@
       "section": "EMERGENCY PROCEDURES",
       "question": "How does the required action differ between a single primary hydraulic pump failure and a dual hydraulic pump failure (HYD 1 and HYD 2 PUMP FAIL)?",
       "options": [
-        "Both: land immediately",
-        "Single: land as soon as possible. Dual: land immediately",
-        "Single: the #3 system supplies pressure to that system; monitor gauges and land as soon as practical. Dual: restrict control inputs to moderate rates, monitor the #3 system and land as soon as possible",
-        "Single: continue and correct prior to the next flight. Dual: land as soon as practical"
+        "Single: land as soon as possible. Dual: restrict control inputs to moderate rates and land immediately",
+        "Single: continue and correct prior to the next flight. Dual: monitor the #3 system and land as soon as practical",
+        "Single: monitor the gauges and land as soon as practical. Dual: restrict control inputs to moderate rates and land as soon as possible",
+        "Single: land as soon as practical. Dual: land immediately, since nothing remains to pressurize the primary servos"
       ],
       "answer": [2],
       "explanation": "With loss of a single primary hydraulic pump, the #3 hydraulic system will supply pressure to that system; action: monitor hydraulic system pressure gauges and land as soon as practical. With loss of both primary hydraulic systems, the #3 hydraulic system will pressurize the primary servos allowing control of the aircraft; action: restrict control inputs to moderate rates, monitor the #3 hydraulic system and land as soon as possible.",
@@ -1525,10 +1525,10 @@
       "section": "EMERGENCY PROCEDURES",
       "question": "With the #3 hydraulic system inoperative (HYD 3 PUMP FAIL), what are the consequences, and how is the landing gear lowered?",
       "options": [
-        "No effect on the primary systems; lower the gear normally",
-        "The primary systems have no backup, the ramp is inoperative and normal landing gear operation is not possible; extend the gear with the emergency blow down system (EMER DN, less than 90 KIAS)",
-        "The primary servos lose pressure; land immediately with the gear up",
-        "The boost system is lost; lower the gear normally below 120 KIAS"
+        "The primary servos lose all pressure; land immediately with the gear up",
+        "The primary systems have no backup and the ramp is inoperative; extend the gear with EMER DN below 90 KIAS",
+        "There is no effect on the primary systems; lower the gear normally with the handle below 120 KIAS",
+        "Servo boost is lost; lower the gear normally, then cycle it once to confirm the indication"
       ],
       "answer": [1],
       "explanation": "Confirming: #3 hydraulic pressure less than 500 psi in the depress mode or less than 2000 psi in the high mode. With the #3 hydraulic system inoperative, the primary systems have no backup, the ramp will be inoperative and normal landing gear operation will not be possible; use the emergency blow down system. Action: land as soon as practical, LDG GEAR — DN, EMER DN — activate, less than 90 KIAS. Once the gear is blown down, do not raise it until maintenance personnel have inspected and bled the landing gear hydraulic lines.",
@@ -1582,10 +1582,10 @@
       "section": "EMERGENCY PROCEDURES",
       "question": "What does the RFM CAUTION recommend when landing with asymmetrical landing gear extension?",
       "options": [
-        "Land with the gear up on a prepared surface",
-        "Perform a running landing above 40 knots groundspeed",
-        "Consider evacuating all nonessential crew and passengers in a \"light on wheels hover\" before putting the full weight of the aircraft on the landing gear",
-        "Cycle the gear repeatedly until a symmetrical indication is obtained"
+        "Cycle the landing gear until a symmetrical indication is obtained, then land normally",
+        "Land with the gear up on a prepared surface to avoid the risk of a rollover",
+        "Consider evacuating nonessential crew and passengers in a light on wheels hover before full weight is on the gear",
+        "Make a running landing above 40 knots groundspeed to reduce the load on the gear"
       ],
       "answer": [2],
       "explanation": "With asymmetrical landing gear extension, the aircraft could roll over. Consideration should be given to evacuating all nonessential crew and passengers in a \"light on wheels hover\" before putting the full weight of the aircraft on the landing gear. If a safe gear indication (three green lights, no red light) is obtained after a malfunction, do not cycle the gear; if the gear cannot be extended safely, landing on a cradle or some other fixture should be accomplished.",
@@ -1601,9 +1601,9 @@
       "section": "EMERGENCY PROCEDURES",
       "question": "According to the LANDING GEAR WILL NOT RETRACT CAUTION, which set of secondary symptoms may indicate a Weight On Wheels (WOW) failure, and what should the crew then avoid?",
       "options": [
-        "Gear fails to retract, AFCS #1 and #2 ATT mode not engaging, transponder, weather radar and TCAS remaining in standby; avoid flight in icing conditions, since RIPS blade heating is prohibited",
-        "Loss of both hydraulic pumps and the ramp; avoid speeds above 90 KIAS",
-        "EICAS blanking and loss of the copilot displays; avoid IMC",
+        "Gear fails to retract, ATT mode will not engage, and transponder, weather radar and TCAS stay in standby; avoid icing conditions",
+        "Gear fails to retract and both primary hydraulic pumps fail; avoid speeds above 90 KIAS",
+        "The EICAS pages blank and the copilot displays are lost; avoid IMC",
         "Gear fails to retract and the rotor brake caution illuminates; avoid running landings"
       ],
       "answer": [0],
@@ -1620,10 +1620,10 @@
       "section": "EMERGENCY PROCEDURES",
       "question": "What may precede an impending tail rotor drive failure?",
       "options": [
-        "A sudden increase in Nr with no change in torque",
-        "A TR QUAD caution with normal pedal response",
-        "A left yaw that increases with airspeed",
-        "Excessive noise or vibration from the tail rotor section, often felt as a middle frequency \"buzz\" through the rudder pedals"
+        "A TR QUAD caution together with a slow left yaw that increases with airspeed",
+        "Rising Nr with falling torque on both engines and a high frequency buzz in the cyclic",
+        "Binding or restricted rudder pedal travel together with a SAS 1 PRES caution",
+        "Excessive noise or vibration from the tail rotor section, often felt as a middle frequency buzz in the pedals"
       ],
       "answer": [3],
       "explanation": "Impending tail rotor drive failure may be preceded by excessive noise or vibration from the tail rotor section, often felt by the pilot as a middle frequency \"buzz\" through the rudder pedals. Loss of tail rotor thrust is associated with a loss in drive and characterized by a sharp right yaw requiring immediate entry into autorotation in forward flight or landing in a hover; if thrust is lost at 60 KIAS or above, roll excursions up to 10°, pitch changes up to 5° and heading changes up to 50° may be experienced during the transition to autorotation.",
@@ -1658,10 +1658,10 @@
       "section": "EMERGENCY PROCEDURES",
       "question": "TR QUAD illuminates and the aircraft does not respond to pedal inputs because both tail rotor cables have failed. What does the centering spring allow, and how is yaw controlled?",
       "options": [
-        "Trimmed flight only in the hover; yaw is controlled with differential braking in flight",
-        "Trimmed flight at about 60 and 120 KIAS; left yaw is controlled by reducing collective at all speeds",
-        "Trimmed flight at about 30 KIAS and 150 KIAS; below 30 and above 150 KIAS right yaw is controlled by reducing collective, and between 30 and 150 KIAS left yaw is controlled by increasing collective",
-        "Normal handling qualities; land as soon as practical"
+        "Trimmed flight at about 60 and 120 KIAS; between those speeds, left yaw is controlled by reducing collective",
+        "Trimmed flight only in the hover; in forward flight, yaw is controlled with differential braking",
+        "Trimmed flight at about 30 and 150 KIAS; between those speeds, left yaw is controlled by increasing collective",
+        "Trimmed flight at about 30 and 150 KIAS; between those speeds, right yaw is controlled by increasing collective"
       ],
       "answer": [2],
       "explanation": "If only one cable fails, no change in handling qualities should occur (push either pedal; if normal yaw control, land as soon as practical). If both cables fail, a centering spring positions the tail rotor servo linkage to a preset pitch, allowing trimmed flight at about 30 KIAS and 150 KIAS (varying with gross weight). Below 30 and above 150 KIAS, right yaw can be controlled by reducing collective; between 30 and 150 KIAS, left yaw can be controlled by increasing collective. If the aircraft does not respond to pedal inputs: adjust airspeed to reduce yaw, perform a shallow approach to a roll on landing, lower collective slowly and use differential braking to control heading.",
@@ -1677,10 +1677,10 @@
       "section": "EMERGENCY PROCEDURES",
       "question": "A tail rotor fixed pitch condition occurs at low power. What does the procedure call for?",
       "options": [
-        "Lowering collective will yaw the nose left; approach below 60 KIAS",
-        "Raising collective will yaw the nose right; try to attain 70 to 80 KIAS and fly a shallow approach to a roll-on landing at the speed giving minimum yaw angle, expecting right yaw to increase as collective is added to cushion",
-        "Enter autorotation and close the throttles before touchdown",
-        "Raising collective will yaw the nose left; approach at 100 KIAS and hover to land"
+        "Lowering collective will yaw the nose left; approach below 60 KIAS and fly a shallow approach to a roll-on landing",
+        "Raising collective will yaw the nose right; try to attain 70 to 80 KIAS and fly a shallow approach to a roll-on landing",
+        "Raising collective will yaw the nose left; hold 100 KIAS and fly a steep approach to a hover landing",
+        "Enter autorotation, maintain 80 to 100 KIAS and move both throttles to STOP before touchdown"
       ],
       "answer": [1],
       "explanation": "If fixed pitch at low power: 1. Raising collective will yaw the nose right. 2. Try to attain 70 to 80 KIAS. 3. Fly a shallow approach to a roll-on landing at speed which results in minimum yaw angle. 4. Right yaw will increase as collective is added to cushion landing. 5. After touchdown, lower collective slowly. 6. Use differential braking to control heading. (At high power, lowering collective yaws the nose left; at cruise power, approach and land below 60 KIAS.)",
@@ -1696,10 +1696,10 @@
       "section": "EMERGENCY PROCEDURES",
       "question": "How does the RFM distinguish a SAS hardover, a boost hardover and a trim hardover?",
       "options": [
-        "SAS: slow attitude change with control movement. Boost: abrupt attitude change without control movement. Trim: rapid control movement in one axis",
-        "SAS: abrupt, uncommanded attitude change without corresponding pilot flight control movement. Boost: rapid, uncommanded flight control movement in one axis with a corresponding attitude change. Trim: slow, uncommanded attitude change with a corresponding flight control movement",
-        "All three produce identical symptoms and can only be identified from the EICAS cautions",
-        "SAS: rapid control movement in all axes. Boost: slow attitude change without control movement. Trim: abrupt yaw only"
+        "SAS: slow attitude change with control movement. Boost: abrupt attitude change, no control movement. Trim: rapid control movement in one axis",
+        "SAS: abrupt attitude change, no control movement. Boost: rapid control movement in one axis. Trim: slow attitude change with control movement",
+        "SAS: rapid control movement in one axis. Boost: slow attitude change with control movement. Trim: abrupt attitude change, no control movement",
+        "SAS: abrupt attitude change with control movement. Boost: slow attitude change, no control movement. Trim: rapid control movement in one axis"
       ],
       "answer": [1],
       "explanation": "SAS hardovers cause abrupt, uncommanded aircraft attitude changes in one or more axes without a corresponding pilot's flight control movement. Boost hardovers cause rapid, uncommanded flight control movements in one axis with a corresponding change in aircraft attitude. Trim hardovers cause slow, uncommanded aircraft attitude changes in one or more axes with a corresponding flight control movement. The pilot should observe attitude changes and EICAS cautions to determine the appropriate procedure.",
@@ -1715,10 +1715,10 @@
       "section": "EMERGENCY PROCEDURES",
       "question": "During a trim hardover, what happens if the pilot does not intervene, and what is the first action?",
       "options": [
-        "Nothing; the SAS fully cancels a trim hardover indefinitely, so no action is needed",
-        "The AFCS disengages automatically; re-engage the APs",
-        "The SAS initially counteracts it, giving a slow attitude change, but once the SAS saturates the attitude change becomes rapid; depress the cyclic and collective trim releases while adjusting the flight controls to maintain control",
-        "The aircraft pitches up abruptly; turn SERVO BST OFF"
+        "The attitude change is abrupt from the start with no control movement; press the appropriate SAS button to disable it",
+        "The attitude change stays slow because the SAS cancels it indefinitely; press AFCS RESET and continue",
+        "The attitude change is slow at first but becomes rapid once the SAS saturates; depress the cyclic and collective trim releases",
+        "The flight control moves rapidly in one axis; turn SERVO BST OFF and land as soon as practical"
       ],
       "answer": [2],
       "explanation": "The SAS system will initially counteract a trim hardover, resulting in a slow aircraft attitude change. If the pilot does not intervene before the SAS reaches saturation, the attitude change will become rapid. Action: 1. Depress cyclic and collective trim releases while adjusting flight controls to maintain aircraft control. 2. Reduce airspeed to 120 KIAS or less. 3. Disable the malfunctioning trim axis by pressing the appropriate TRIM button. 4. Continue the flight while actively monitoring the controls.",
@@ -1772,10 +1772,10 @@
       "section": "EMERGENCY PROCEDURES",
       "question": "SMOKE IN BAGGAGE is displayed and smoke from a baggage compartment fire is entering the cabin. What does the RFM NOTE say about airspeed?",
       "options": [
-        "Increasing airspeed above 140 KIAS will stop the smoke intrusion",
-        "Decreasing airspeed below 140 KIAS may slow or stop the smoke intrusion, weighed against the need for speed to reach the nearest safe landing zone",
-        "Airspeed has no effect; open the side windows",
-        "Decreasing airspeed below 80 KIAS is required before venting the cabin"
+        "Accelerating above 140 KIAS will stop it, so speed up toward the nearest landing zone",
+        "Slowing below 140 KIAS may slow or stop it, weighed against the need to reach a landing zone quickly",
+        "Airspeed has no effect on it; open the side windows and vent the cabin instead",
+        "Slowing below 80 KIAS is required before the cabin and cockpit can be vented"
       ],
       "answer": [1],
       "explanation": "If smoke from a baggage compartment fire is observed in the cabin, decreasing airspeed below 140 KIAS may slow or stop the smoke intrusion. Prior to slowing the aircraft, the pilot must weigh the necessity for speed to quickly reach the nearest safe landing zone versus the amount of smoke in the cabin. Actions: ECS CONT PANEL CABIN and COCKPIT — VENT, land as soon as possible, inspect the baggage compartment and fight fire if required.",
@@ -1810,10 +1810,10 @@
       "section": "EMERGENCY PROCEDURES",
       "question": "After a single DCU failure has been identified and the good DCU selected on the reversion control panel, why must the flight director corresponding to the good DCU be selected, and how is the flight continued?",
       "options": [
-        "To restore the failed EICAS page; the flight may continue in IMC",
-        "To ensure power limiting is available during coupled flight; continue the flight in VMC, or land as soon as practical if VMC is not available",
-        "To re-enable the autopilots; land immediately",
-        "To restore the cautions on the failed side; continue and correct prior to the next flight"
+        "To restore the failed side's EICAS page; the flight may then continue in IMC",
+        "To keep power limiting available in coupled flight; continue in VMC, or land as soon as practical",
+        "To re-enable the autopilots on the failed side; land as soon as possible",
+        "To restore the cautions on the failed side; continue and correct before the next flight"
       ],
       "answer": [1],
       "explanation": "After a single DCU failure, select the FD that corresponds to the functioning DCU to ensure power limiting is available during coupled flight. Then continue the flight in VMC; if VMC is not available, land as soon as practical. On the ground, do not conduct flight in IMC until the fault is corrected. A simple DCU miscompare still presents full data on both EICAS pages; with a DCU failure, the failed side EICAS page has no data.",
@@ -1829,10 +1829,10 @@
       "section": "EMERGENCY PROCEDURES",
       "question": "Both DCUs fail (DCU 1 and DCU 2, no data on either EICAS, no Nr, Np, TGT or Q on either PFD). Which statement is correct?",
       "options": [
-        "Aircraft performance is not affected and full AFCS functionality remains, but the pilot cannot monitor aircraft health and most cautions, warnings and aural alerts are unavailable; land as soon as possible",
-        "Aircraft performance is degraded and the AFCS disengages; land immediately",
-        "Attitude, heading, airspeed and altitude displays are lost; use the standby instruments and continue",
-        "All cautions remain available on the standby display; continue the flight"
+        "Performance is unaffected and full AFCS remains, but aircraft health cannot be monitored; land as soon as possible",
+        "Performance is degraded and the AFCS disengages; land immediately",
+        "Attitude, heading, airspeed and altitude displays are lost; continue on the standby instruments",
+        "All cautions move to the standby display; continue the flight and correct before the next flight"
       ],
       "answer": [0],
       "explanation": "If both DCUs fail, the performance of the aircraft will not be affected but the pilot will not be able to monitor aircraft health. Most cautions and warnings and most aural alerts will not be available. Attitude, heading, airspeed and altitude displays, navigation and communication radios and displays, and full AFCS functionality will be available. Action: land as soon as possible.",
@@ -1848,10 +1848,10 @@
       "section": "EMERGENCY PROCEDURES",
       "question": "RIPS DEGRD OAT indicates a dual RIPS OAT sensor failure. What OAT does the RIPS use, and why is a manual RIPS mode not recommended?",
       "options": [
-        "-5°C; manual modes are disabled with this failure",
-        "-12°C; without an OAT input the RIPS OAT interlock will not function, so in a manual mode the blades are heated regardless of OAT and blade damage could occur above 5°C OAT",
-        "0°C; manual modes heat the blades too little",
-        "-20°C; manual modes will switch off the tail rotor heating"
+        "-5°C; with no OAT input the manual modes are locked out and cannot be selected",
+        "-12°C; with no OAT input the OAT interlock is lost, so a manual mode heats the blades regardless of OAT",
+        "0°C; with no OAT input a manual mode heats the blades too little to shed ice",
+        "-20°C; with no OAT input a manual mode switches off the tail rotor blade heating"
       ],
       "answer": [1],
       "explanation": "With a dual RIPS OAT sensor failure, in all modes the RIPS schedules the blade heating element on time using a default OAT value of -12°C. WARNING: without an OAT input, the RIPS OAT interlock will not function; in a manual mode, the RIPS will continue to heat the main and tail rotor blades regardless of OAT. Blade damage could occur at an OAT above 5°C. Therefore, use of a manual mode with a dual RIPS OAT sensor failure is not recommended. Actions include monitoring vibrations and power requirements and exiting icing conditions as soon as practical.",
@@ -1867,10 +1867,10 @@
       "section": "EMERGENCY PROCEDURES",
       "question": "During a ditching, which statement about float deployment is correct?",
       "options": [
-        "The floats should be deployed before water entry to absorb the impact",
-        "Automatic float deployment works on battery power only; manual deployment requires generator power",
-        "FLOTATION is armed above 120 KIAS so the floats deploy on the approach",
-        "The floats must only be deployed after water entry; automatic deployment will not function on battery power only, while manual deployment will, and the pilot should manually deploy the floats immediately after water entry"
+        "Deploy the floats before water entry to absorb the impact; both automatic and manual deployment work on battery power",
+        "Deploy the floats only after water entry; manual deployment needs generator power, automatic deployment works on battery",
+        "Arm FLOTATION above 120 KIAS so that the floats deploy automatically during the approach",
+        "Deploy the floats only after water entry; automatic deployment does not work on battery power only, manual deployment does"
       ],
       "answer": [3],
       "explanation": "The floats are not designed to absorb the force of water impact and must only be deployed after water entry. When the flotation system is armed, the floats deploy automatically via the immersion switch or manually via the collective mounted FLOAT switch; the pilot should manually deploy the floats immediately after water entry. Automatic float deployment will not function when operating on battery power only; manual float deployment will. Action: LDG GEAR — DOWN (floats can be deployed with the gear retracted if it cannot be extended), FLOTATION — ARM below 80 KIAS, execute the water landing, FLOATS — deploy.",
@@ -1905,10 +1905,10 @@
       "section": "EMERGENCY PROCEDURES",
       "question": "After an inadvertent in-flight float deployment, what restrictions apply?",
       "options": [
-        "Rate of climb 1000 fpm or less, bank 30° or less, maximum indicated airspeed 50 KIAS in climb, 55 KIAS in level flight and 60 KIAS in descent/autorotation, and flare attitude at touchdown 8° or less",
-        "Maximum 80 KIAS in all flight conditions, with no bank or climb restriction",
-        "Rate of climb 500 fpm or less, bank 15° or less, and 100 KIAS maximum",
-        "No restrictions other than landing as soon as practical"
+        "Climb 1000 fpm or less, bank 30° or less, 50/55/60 KIAS maximum (climb/level/descent), flare 8° or less at touchdown",
+        "Climb 500 fpm or less, bank 15° or less, 80 KIAS maximum in all conditions, flare 10° or less at touchdown",
+        "Climb 1000 fpm or less, bank 45° or less, 60/55/50 KIAS maximum (climb/level/descent), flare 15° or less at touchdown",
+        "No climb or bank restriction, 80 KIAS maximum in all conditions, and land as soon as practical"
       ],
       "answer": [0],
       "explanation": "Intentional in-flight deployment of the float bags is prohibited. After an inadvertent deployment: restrict rate of climb to 1000 fpm or less, angle of bank to 30° or less, and adhere to the float deployed maximum indicated airspeeds (climb 50, level flight 55, descent/autorotation 60), which produce an 80 knot calibrated airspeed because deployed floats affect airspeed accuracy. Land as soon as practical, restricting flare attitude on touchdown to 8° or less to avoid hitting the aft float bag, and avoid icing conditions with floats deployed.",

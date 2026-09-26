@@ -47,6 +47,12 @@ SOURCES = {
         'rfm_parts': [(1, 640, '_source/manuals/AS350 B3 2B1/1_index.pdf')],   # tagged text dump has a harmless empty trailing "page 641"
         'qrh_pdf': None,
     },
+    'AW189': {
+        'rev': 'RFM Issue 2 Rev 14 (21 Nov 2024); QRH Rev 14',
+        'rfm_text': '_source/rfm/aw189-rfm-pages.txt',
+        'rfm_parts': [(1, 4438, '_source/manuals/AW189/AW189 RFM Issue 2_Rev_14_[E] - CHSC.pdf')],
+        'qrh_pdf': '_source/manuals/AW189/AW189 QRH_Rev 14_Phase 8_[E].pdf',
+    },
     'S92': {
         'rev': 'S-92A RFM SA S92A-RFM-006',
         'rfm_text': '_source/rfm/s92-rfm-pages.txt',

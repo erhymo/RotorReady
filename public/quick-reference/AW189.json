@@ -152,7 +152,7 @@
         {
           "label": "Wind",
           "lines": [
-            "Max crosswind for CAT A: 20 kt (10 m/s)",
+            "Max crosswind for CAT A vertical (heliport/helideck): 20 kt (10 m/s)",
             "Max crosswind for CAT A Clear Area: 30 kt (15 m/s)",
             "Take-off with tailwind component: prohibited",
             "CAT A headwind credit: max 50% of the performance increase from actual headwind"
@@ -228,8 +228,9 @@
           "label": "Engine oil",
           "lines": [
             "Type I: D50TF1 (GE Spec) / MIL-PRF-7808",
-            "Type II: D50TF1 (GE Spec) / MIL-PRF-23699 — preferred -20 °C to ISA+40 °C",
-            "Min oil temp for starting: Type II -30 °C, Type I -40 °C"
+            "Type II: D50TF1 (GE Spec) / MIL-PRF-23699",
+            "Min engine oil temperature for starting: -40 °C",
+            "APU oils (MIL-PRF-23699 Type II preferred -20 °C to ISA+40 °C): min oil temp for starting Type II -30 °C, Type I -40 °C"
           ]
         },
         {
@@ -255,15 +256,15 @@
         {
           "label": "AC generator load (%)",
           "lines": [
-            "Engine: normal 0–100, cautionary 101–150, max cautionary 150",
-            "APU: normal 0–100, cautionary 101–155, max cautionary 155"
+            "Engine: normal 0–100, transient 101–150, max transient 150",
+            "APU: normal 0–100, transient 101–155, max transient 155"
           ]
         },
         {
           "label": "TRU load (%)",
           "lines": [
-            "Engine: normal 0–100, cautionary 101–150, max cautionary 150",
-            "APU: normal 0–100, cautionary 101–155, max cautionary 155"
+            "Engine: normal 0–100, transient 101–150, max transient 150",
+            "APU: normal 0–100, transient 101–155, max transient 155"
           ]
         },
         {
@@ -292,7 +293,7 @@
             "Certified for CAT I ILS approaches up to 4° glideslope",
             "Max airspeed for glideslope up to 4°: 150 KIAS",
             "Max airspeed at DA(H): 130 KIAS",
-            "Coupled VOR approach/nav: max airspeed for glideslope up to 4°: 150 KIAS"
+            "Coupled VOR approach: max airspeed 150 KIAS"
           ]
         },
         {

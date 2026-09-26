@@ -908,6 +908,9 @@
             }
           ]
         }
+      ],
+      "cautions": [
+        "Ensure both engines engage as the NFs reach FLIGHT condition. A failed engagement is indicated by NF possibly higher than NR and near-zero torque: shut down the non-engaged engine first and, when it has stopped, the other engine. After a hard engagement, shut down both engines for maintenance action."
       ]
     },
     {
@@ -1384,11 +1387,17 @@
             {
               "left": "7",
               "right": [
-                "APU — SEL MODE OFF (STATUS CLDWN caution during ~70 second shutdown, READY light when complete)"
+                "Rotor Brake — If parking with the rotor brake is required, cycle the lever from the PUMPING LIMIT mark to BRAKE to raise pressure to at least 40 bar on the digital readout and leave it in the BRAKE detent (parking pressure guaranteed for up to 8 hours)"
               ]
             },
             {
               "left": "8",
+              "right": [
+                "APU — SEL MODE OFF (STATUS CLDWN caution during ~70 second shutdown, READY light when complete)"
+              ]
+            },
+            {
+              "left": "9",
               "right": [
                 "MAIN BATT and BATT AUX switches — OFF; BATT MASTER — OFF once APU READY illuminates"
               ]
@@ -1627,7 +1636,7 @@
             {
               "left": "10",
               "right": [
-                "Flare — At approximately 200 ft AGL, initiate a cyclic flare to 15° nose-up"
+                "Flare — At approximately 200 ft AGL, initiate a cyclic flare with an attitude change of 15° nose-up"
               ]
             },
             {
@@ -1772,7 +1781,8 @@
         }
       ],
       "notes": [
-        "If there is evidence of combustion after engine shutdown, carry out a dry motoring procedure as required to extinguish any possible fire."
+        "If there is evidence of combustion after engine shutdown, carry out a dry motoring procedure as required to extinguish any possible fire.",
+        "1 FUEL PUMP will not select OFF if the APU is running, and is automatically selected ON if the APU is started."
       ]
     },
     {
@@ -1866,7 +1876,7 @@
             {
               "left": "4",
               "right": [
-                "If warning remains — Carry out Emergency Ground Egress procedure"
+                "Whether the warning clears or remains — Carry out Emergency Ground Egress procedure"
               ]
             }
           ]
@@ -1901,7 +1911,7 @@
             {
               "left": "5",
               "right": [
-                "If warning remains — start APU, land immediately, refer to Single Engine Procedure"
+                "If warning remains — select BTL2. If it then clears — start APU, land as soon as possible, refer to Single Engine Procedure. If it still remains — land immediately, refer to Single Engine Procedure"
               ]
             },
             {
@@ -1912,6 +1922,10 @@
             }
           ]
         }
+      ],
+      "notes": [
+        "1 FUEL PUMP will not select OFF if the APU is running, and is automatically selected ON if the APU is started.",
+        "Fin camera (ECDU-MENU-MISC) may be helpful in determining the severity of the fire."
       ]
     },
     {
@@ -1941,7 +1955,7 @@
             {
               "left": "3",
               "right": [
-                "If smoke in cabin — Reduce airspeed below 50 KIAS, open storm windows, push to release left-side cabin emergency windows if possible; land as soon as possible or land immediately if severe"
+                "If smoke in cabin — Reduce airspeed below 50 KIAS, open storm window(s), push to release left-side cabin emergency windows if possible, and LAND IMMEDIATELY. If no smoke in cabin — land as soon as possible"
               ]
             },
             {
@@ -1986,7 +2000,7 @@
             {
               "left": "2",
               "right": [
-                "If the fire source is determined — Use the on-board hand-held extinguisher to fight the fire; increase ventilation once extinguished"
+                "If the fire source is determined — Use the on-board hand-held extinguisher to fight the fire; once extinguished, increase ventilation and land as soon as possible"
               ]
             },
             {
@@ -2052,7 +2066,7 @@
             {
               "left": "4",
               "right": [
-                "If smoke persists — GEN 1 & 2 OFF (loses NON-ESS BUS 1–4)"
+                "If conditions permit — GEN 1 & 2 OFF (loses NON-ESS BUS 1–4)"
               ]
             },
             {
@@ -2077,7 +2091,8 @@
         }
       ],
       "notes": [
-        "Unless the source can be positively identified via CAS, the C/B panel or ECDU display and the equipment electrically isolated, work through the bus-shedding sequence above."
+        "Unless the source can be positively identified via CAS, the C/B panel or ECDU display and the equipment electrically isolated, work through the bus-shedding sequence above.",
+        "If operational conditions permit, consider releasing the cabin left side windows."
       ]
     },
     {
@@ -2110,19 +2125,19 @@
             {
               "left": "4",
               "right": [
-                "If normal — Land as soon as practicable, monitoring MGB oil pressure and temperature; do not activate chip burner"
+                "If normal — Land as soon as practicable, monitoring MGB oil pressure and temperature; do not activate chip burner (TQ may be resumed to the previous setting)"
               ]
             },
             {
               "left": "5",
               "right": [
-                "If 1(2) BRG TEMP caution illuminates — Land as soon as possible; landing/ditching within 50 minutes at torque not exceeding 65/65%"
+                "Low or invalid, after reducing power: if 1(2) BRG TEMP caution illuminates — Land as soon as possible; landing/ditching within 50 minutes at torque not exceeding 65/65%"
               ]
             },
             {
               "left": "6",
               "right": [
-                "If associated oil pressure remains permanently above 1.5 bar — Land as soon as possible; landing/ditching within 3 hours at torque not exceeding 65/65%"
+                "Low or invalid, after reducing power: if associated oil pressure remains permanently above 1.5 bar — Land as soon as possible; landing/ditching within 3 hours at torque not exceeding 65/65% (possible failure of one of the dual MGB lubrication pumps)"
               ]
             }
           ]
@@ -2267,7 +2282,7 @@
       "subtitle": "Emergency procedure",
       "reference": "RFM Sect. 3 — Electrical System, Triple AC Generator Failure",
       "intro": [
-        "Confirmed by loss of all electrical systems except those powered by the battery buses."
+        "ELEC FAIL and BUS TIE CLOSED warnings with a voice warning: triple AC generator failure, TRU not powered."
       ],
       "groups": [
         {
@@ -2293,21 +2308,21 @@
             {
               "left": "If ELEC FAIL clears",
               "right": [
-                "GEN 1 back on line — assume GEN 2 failed and leave OFF; reset AMMC 1 when the DBU READY advisory illuminates; select TCAS TA/RA; on ECDU set XFEED OPEN then AUTO; select APU SEL MODE OFF"
+                "If ELEC FAIL clears (1(2) AC GEN and APU GEN FAIL captions illuminate) — GEN 1(2) is back on line; assume GEN 2(1) failed and leave it OFF. When 1 AMMC DBU READY illuminates, reset AMMC 1 (MCDU MENU/AMMC/DBU – EXEC); select TCAS TA/RA; on ECDU select XFEED OPEN then AUTO. DC NON ESS BUS 1 & 2 are lost — land as soon as practicable"
               ]
             },
             {
               "left": "If ELEC FAIL remains",
               "right": [
-                "GEN 1 failed — leave GEN 1 OFF, GEN 2 ON; if the caption remains, GEN 2 has also failed — DC NON ESS BUS 1 & 2 are lost"
+                "If ELEC FAIL remains — GEN 1 has failed: GEN 1 OFF, GEN 2 ON. If ELEC FAIL then clears, continue as in the step above. If it still remains — GEN 2 has also failed: GEN 2 OFF; triple AC generator failure, TRU not powered — select APU SEL MODE OFF and land as soon as possible, within 15 minutes (30 minutes if an auxiliary battery is installed)"
               ]
             }
           ]
         }
       ],
       "notes": [
-        "With DC NON ESS BUS 1 & 2 lost: land as soon as possible, within 15 minutes (30 minutes if an auxiliary battery is installed).",
-        "If ESS BUS 1 & 2, DC MAIN BUS 1–4 and DC NON ESS BUS 1 & 2 are all lost, the Main and Auxiliary (if installed) battery will supply EMER BUS 1 & 2 — land as soon as practicable."
+        "With GEN 1(2) back on line, DC NON ESS BUS 1 & 2 remain lost.",
+        "With all AC generators failed, ESS BUS 1 & 2, DC MAIN BUS 1–4 and DC NON ESS BUS 1 & 2 are lost; the main and auxiliary (if installed) battery supply EMER BUS 1 & 2."
       ]
     },
     {
@@ -2325,15 +2340,15 @@
               ]
             },
             {
-              "left": "If HYD 1 OIL PRESS illuminated",
+              "left": "If HYD 2 OIL PRESS illuminated",
               "right": [
-                "Yaw AP channel not functional, 1-2 AP Y FAIL illuminates — fly attentive, feet on, reduce speed to 110 KIAS; when convenient select LDG GEAR LEVER down, then land as soon as practicable"
+                "Yaw AP channel not functional, 1-2 AP Y FAIL illuminates — fly attentive, feet on, reduce speed to 110 KIAS; when convenient select LDG GEAR LEVER down, then lift the EMER DWN guard and press; land as soon as practicable"
               ]
             },
             {
-              "left": "If HYD 2 OIL PRESS illuminated",
+              "left": "If HYD 1 OIL PRESS illuminated",
               "right": [
-                "When convenient select LDG GEAR LEVER down, lift the EMER DWN guard and press; land as soon as practicable"
+                "When convenient select LDG GEAR LEVER down; land as soon as practicable"
               ]
             }
           ]
@@ -2547,13 +2562,7 @@
       "subtitle": "Category A — Supplement 4, Part B",
       "reference": "RFM Supplement 4, Part B — Section 2B Normal Procedures",
       "intro": [
-        "Running/rolling-style Category A take-off from a clear area. TDP is 30 ft AGL with V",
-        {
-          "sub": [
-            "TOSS"
-          ]
-        },
-        " (50 KIAS) achieved by TDP at 25 kt groundspeed."
+        "Rolling Category A take-off from a clear area: lift off at 25 kt groundspeed; TDP is 30 ft AGL with VTOSS (Figure S4B-1; 50 KIAS in the profile) already achieved."
       ],
       "cautions": [
         "If this procedure is modified, it may not be possible, if an engine fails in the take-off path, to carry out a safe OEI landing or achieve the scheduled OEI performance."
@@ -2751,9 +2760,6 @@
       "reference": "RFM Supplement 4, Part C — Section 2C Normal Procedures",
       "intro": [
         "Vertical Category A take-off from an offshore helideck. TDP is 25 ft ATS, reached from a 5 ft ATS hover with the nose wheel positioned approximately 2 m from the forward edge of the helideck."
-      ],
-      "cautions": [
-        "If this procedure is modified, it may not be possible, if an engine fails in the take-off path, to carry out a safe OEI landing or achieve the scheduled OEI performance."
       ],
       "groups": [
         {
@@ -3090,9 +3096,6 @@
       "intro": [
         "Category A approach and landing to an offshore helideck, offset to the side of the deck. LDP is 50 ft ALS at 10–15 kt groundspeed with a 200–300 fpm rate of descent, reached approximately 45° from the centre of the landing point."
       ],
-      "cautions": [
-        "If this procedure is modified, it may not be possible, if an engine fails in the landing path, to carry out a safe OEI landing or achieve the scheduled OEI performance."
-      ],
       "groups": [
         {
           "steps": [
@@ -3181,7 +3184,10 @@
         "src": "/aw189/procedures/offshore-helideck-landing/offshore-helideck-landing.svg",
         "alt": "Landing profile diagram for offshore helideck approach and landing, showing constant descent to LDP at 50 ft ALS, 10-15 kts GS, 45 degrees from the landing point, and vertical touchdown",
         "caption": "Figure S4G-2 — Offshore Helideck Landing Profile (RFM Supplement 4, Part G)"
-      }
+      },
+      "notes": [
+        "When descending below 150 ft radio altimeter height a vocal message 'ONE FIFTY FEET' is activated regardless of landing gear status, unless AWG is set to REGR."
+      ]
     }
   ]
 }

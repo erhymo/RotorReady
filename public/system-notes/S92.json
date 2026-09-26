@@ -3,13 +3,13 @@
     {
       "slug": "tcas",
       "title": "TCAS: Traffic Alert and Collision Avoidance System",
-      "subtitle": "Traffic-Advisory-only — no Resolution Advisories on the S-92. The sensitivity levels, symbol set, and pop-up display logic behind every TA.",
+      "subtitle": "Traffic Advisories as described in the basic S-92 RFM: the sensitivity levels, symbol set, and pop-up display logic behind every TA.",
       "rfmReference": "S-92A RFM Part 2, Section I, Chapter 6 (Navigation — TCAS: Introduction, TCAS Operation, Display Characteristics and Modes, Controls and Functions, Initial Built-in Test).",
       "sections": [
         {
           "heading": "What it does — and what it doesn't",
           "paragraphs": [
-            "TCAS on the S-92 issues Traffic Advisories (TAs) only — there is no Resolution Advisory capability. It detects and tracks nearby transponder-equipped aircraft (ATCRBS Mode A/C or Mode S), computing range, relative bearing, closure rate, and — if the intruder reports it — relative altitude and vertical trend, to predict time to and separation at Closest Point of Approach (CPA). A TA fires when time to CPA is 15 to 30 seconds, alerting the crew with a 'Traffic, Traffic' aural and a TRAFFIC annunciation on the ADI.",
+            "The TCAS described in the basic S-92 RFM alerts the crew with Traffic Advisories (TAs). It detects and tracks nearby transponder-equipped aircraft (ATCRBS Mode A/C or Mode S), computing range, relative bearing, closure rate, and — if the intruder reports it — relative altitude and vertical trend, to predict time to and separation at Closest Point of Approach (CPA). A TA fires when time to CPA is 15 to 30 seconds, alerting the crew with a 'Traffic, Traffic' aural and a TRAFFIC annunciation on the ADI.",
             "TCAS traffic can be displayed together with weather radar, EGPWS, and/or lightning sensor data. ATC procedures and see-and-avoid remain the primary means of separation — TCAS is a backup, particularly valuable if communication with ATC is lost."
           ]
         },
@@ -66,7 +66,7 @@
         {
           "heading": "Pop-up display",
           "paragraphs": [
-            "If no TCAS display is currently selected and more than three MFDs are operational, a traffic warning forces a NAV ARC page with TCAS onto an available display automatically — center MFD first (if installed), then pilot's inboard MFD, then copilot's inboard MFD. EGPWS pop-up takes precedence over TCAS if both trigger together. Pop-up is disabled when only two or fewer MFDs are functional."
+            "If no TCAS display is currently selected and more than three MFDs are operational, a traffic warning forces a NAV ARC page with TCAS onto an available display automatically — center MFD first (if installed), then pilot's inboard MFD, then copilot's inboard MFD. EGPWS pop-up takes precedence over TCAS if both trigger together. With three or fewer displays operational, the TCAS display does not pop up."
           ]
         },
         {
@@ -145,7 +145,7 @@
               ],
               [
                 "Target Alert (TGT)",
-                "5–200 NM selectable range, monitors 50 NM beyond the selected range and ±7.5° of heading for red/magenta returns; alerts by changing from green 'armed' T to amber TGT. Inactive within the selected range itself; no variable gain in this mode"
+                "5–200 NM selectable range, monitors 50 NM beyond the selected range and ±7.5° of heading for red/magenta returns; alerts by changing from green 'armed' T to yellow TGT. Inactive within the selected range itself; no variable gain in this mode"
               ],
               [
                 "Sector (SECT)",
@@ -263,7 +263,7 @@
               [
                 "2 — Excessive Terrain Closure Rate",
                 "Closing with terrain too fast — descending, level, or even climbing over rising terrain.",
-                "Mode 2A is primary; Mode 2B desensitizes with gear down, on an ILS approach, or within 60 s of takeoff. Also inhibited when Look-Ahead is functioning with high integrity, in low altitude mode, or during autorotation. 'TERRAIN' caution escalates to continuous 'PULL UP' warning."
+                "Mode 2A is primary; Mode 2B desensitizes with gear down, on an ILS approach, or within 60 s of takeoff. Also inhibited when Look-Ahead is functioning with high integrity, in low altitude mode, or during autorotation. 'TERRAIN' caution escalates to a 'PULL UP' warning (red PULL UP on the ADI)."
               ],
               [
                 "3 — Inadvertent Descent After Takeoff",
@@ -278,7 +278,7 @@
               [
                 "4B — Unsafe Terrain Clearance, gear down",
                 "Insufficient clearance in cruise/approach with gear down.",
-                "'TOO LOW TERRAIN' above 120 KIAS below 100 ft, tightening to 10 ft by 80 KIAS. Mode 4 gear-warning floor raises to 400 ft AGL in autorotation; mode 4 altitude warnings (but not gear warnings) are inhibited in low altitude mode."
+                "'TOO LOW TERRAIN' above 120 KIAS below 100 ft, tightening to 10 ft by 80 KIAS. In autorotation, mode 4 terrain alerts are inhibited and the gear-warning boundary is raised to 400 ft AGL; mode 4 altitude warnings (but not gear warnings) are inhibited in low altitude mode."
               ],
               [
                 "4C — Unsafe Terrain Clearance, takeoff",
@@ -472,7 +472,7 @@
         {
           "heading": "The AC side",
           "paragraphs": [
-            "Two oil-cooled brushless main generators produce three-phase 115 VAC at 420 Hz, driven off the main transmission accessory modules. They are rated 75 kVA continuous and 90 kVA transient. Each has its own Generator Control Unit in the cabin overhead that regulates output and protects against over- and under-voltage, feeder fault, and under-frequency — the under-frequency protection is inhibited on the ground and only arms weight-off-wheels.",
+            "Two oil-cooled brushless main generators produce three-phase 115 VAC at 420 Hz, driven off the main transmission accessory modules. They are rated 75 kVA continuous and 90 kVA transient. Each has its own Generator Control Unit in the cabin overhead that regulates output and protects against over- and under-voltage, feeder fault, and under-frequency — the under-frequency protection is disabled when the helicopter is off the ground (weight-off-wheels).",
             "A GCU that sees bad output disconnects its generator and posts AC GEN 1 FAIL or AC GEN 2 FAIL; a fault found in the GCU's own self-test posts AC GCU 1 FAIL or AC GCU 2 FAIL. The two primary AC buses, No. 1 and No. 2, sit at the top of the distribution tree, each fed by its own generator with the APU generator able to back-feed both."
           ]
         },
@@ -542,7 +542,7 @@
           "heading": "What it is",
           "paragraphs": [
             "A separate suction fuel system for each engine. Fuel is held in two crash-resistant nylon-reinforced rubber bladder tanks, one in each sponson, roughly 382 US gallons each. The No. 1 tank feeds the No. 1 engine and the APU; the No. 2 tank feeds the No. 2 engine. A single-point pressure refuel/defuel fitting is on the left side, and both tanks can also be gravity refuelled.",
-            "Usable quantity is about 2,190 kg (4,830 lb) of Jet A on a gravity fill and about 2,345 kg (5,175 lb) on a pressure fill; 4.8 gallons total is unusable, 2.4 gallons in each tank."
+            "Fuel capacity is 713 US gallons, about 2,190 kg (4,830 lb) of Jet A/JP-8, on a gravity fill and 764 US gallons, about 2,345 kg (5,175 lb), on a pressure fill (standard-day weights). Of that, 4.8 gallons is unusable — 2.4 gallons in each tank."
           ]
         },
         {
@@ -601,7 +601,7 @@
         {
           "heading": "What it is",
           "paragraphs": [
-            "A Honeywell GTCP36-150 APU, mounted behind and to the right of the No. 1 engine, with its intake on the rear of the main rotor pylon and its exhaust behind and below the No. 1 engine exhaust. It supplies electrical power on the ground with the rotors stopped, emergency electrical power in flight, bleed air for engine starting, and bleed heat for the cockpit and cabin. Its fuel comes from the No. 1 tank. Maximum airspeed with the APU operating is 150 KIAS."
+            "A GTCP36-150 APU, mounted behind and to the right of the No. 1 engine, with its intake on the rear of the main rotor pylon and its exhaust behind and below the No. 1 engine exhaust. It supplies electrical power on the ground with the rotors stopped, emergency electrical power in flight, bleed air for engine starting, and bleed heat for the cockpit and cabin. Its fuel comes from the No. 1 tank. Maximum airspeed with the APU operating is 150 KIAS."
           ]
         },
         {
@@ -722,7 +722,7 @@
           "heading": "Rotor brake — a separate hydraulic circuit",
           "paragraphs": [
             "The rotor brake pad/disc assembly mounts on the MGB tail rotor output flange, engaged by pulling down and forward on a handle over the pilot's left shoulder — more forward movement or repeated strokes increases brake pressure, shown on an adjacent gauge. The rotor brake reservoir doubles as the servicing reservoir for hydraulic systems 1, 2, and 3.",
-            "Both engines can be started with the rotor brake set — the FADEC won't advance either engine past idle until Np exceeds 24%. The rotor brake is not designed to stop the rotor before shutdown; it's a hold/slow-down function, not a rapid-stop function. Pressure and puck-position sensors drive the ROTOR BRAKE caution: on the ground, either sensor alone triggers it; in the air, both sensors must agree to trigger it."
+            "Both engines can be started with the rotor brake set — the FADEC won't advance either engine past idle until Np exceeds 24%. The rotor brake holds the rotor stationary during engine start and slows or stops it after engine shutdown — it is not designed to stop the rotor before the engines are shut down. Pressure and puck-position sensors drive the ROTOR BRAKE caution: on the ground, either sensor alone triggers it; in the air, both sensors must agree to trigger it."
           ]
         }
       ]
@@ -736,7 +736,7 @@
         {
           "heading": "Three independent systems, full redundancy",
           "paragraphs": [
-            "No. 1 and No. 2 are the primary flight-control hydraulic systems, each fully capable on its own. No. 3 is a genuine backup — it can supply either or both of No. 1/No. 2 if a pump fails, and independently powers the landing gear, cargo ramp, and automatic APU accumulator recharge. All three are completely independent constant-pressure systems (4,000 psi, up to 13 GPM each on No. 1/2); No. 1 and No. 2 pump modules are identical and interchangeable, driven by their respective accessory modules. No. 3 is driven directly off the main gearbox, with a separate reservoir and an AC-motor-driven ground-checkout mode for pre-rotor testing.",
+            "No. 1 and No. 2 are the primary flight-control hydraulic systems, each fully capable on its own. No. 3 is a genuine backup — it can supply either or both of No. 1/No. 2 if a pump fails, and independently powers the landing gear, cargo ramp, and automatic APU accumulator recharge. All three are completely independent. The No. 1 and No. 2 pumps are constant-pressure (4,000 psi) with a variable flow of up to 13 GPM; their pump modules are identical and interchangeable, driven by their respective accessory modules. No. 3 is driven directly off the main gearbox, with a separate reservoir and an AC-motor-driven ground-checkout mode for pre-rotor testing.",
             "A four-channel boost system (collective, pitch, roll, yaw) is powered by No. 2 hydraulics via a BST switch — turning it OFF illuminates BOOST PRES and noticeably increases control forces (cyclic roughly 0.5 kg → 2.7 kg / 1 lb → 6 lb per axis; collective/yaw roughly 1.8 kg → 5.9 kg / 4 lb → 13 lb), with some collective-to-yaw interaction. SAS hydraulic power comes through shutoff valves on the pilot-assist manifold, controlled by the SAS1/SAS2 switches on the AFCS panel — below 1,100 psi, SAS 1 PRES or SAS 2 PRES illuminates."
           ]
         },
@@ -789,7 +789,7 @@
               ],
               [
                 "HYDR FAN FAIL",
-                "Both cooling fans (of that heat exchanger pair) have failed"
+                "Both hydraulic cooling fans have failed"
               ]
             ]
           },
@@ -960,7 +960,7 @@
         {
           "heading": "Vibration is the cue",
           "paragraphs": [
-            "In normal operation airframe vibration and power required both cycle as the blades accrete and shed — up to roughly 15% torque change, more at high altitude and gross weight, which shows up as reduced all-engines climb capability. Cyclic swings are expected. Steadily increasing, non-cyclic vibration or power required is the sign a degraded RIPS is not clearing the rotor, and the response is to exit icing and avoid further flight in icing. A DROOP HTR FAIL caution risks a hung droop stop on the next rotor shutdown."
+            "In normal operation airframe vibration and power required both cycle as the blades accrete and shed — up to roughly 15% torque change, more at high altitude and gross weight, which shows up as reduced all-engines climb capability. Cyclic swings are expected. Steadily increasing, as opposed to cyclic, vibration or power required may indicate run-back ice; if it keeps increasing with a degraded RIPS, the response is to exit icing and avoid further flight in icing. A DROOP HTR FAIL caution risks a hung droop stop on the next rotor shutdown."
           ]
         }
       ]
@@ -974,7 +974,7 @@
         {
           "heading": "What it's designed to do",
           "paragraphs": [
-            "At aircraft weights at or above 8,432 kg (18,590 lb), the system is designed to keep the helicopter upright and afloat long enough for full evacuation in mid Sea State 5 (8–12 ft waves, 18–25 kt wind). Below that weight, the design margin is mid Sea State 4 (4–8 ft waves, 17–21 kt wind) — a real, weight-dependent difference in the survivability margin, not just a certification footnote.",
+            "At aircraft weights at or above 8,432 kg (18,590 lb), the system is designed to keep the helicopter upright and afloat long enough for full evacuation in mid Sea State 5 (8–12 ft waves, 18–25 kt wind). Below that weight, the design margin is mid Sea State 4 (4–8 ft waves, 17–21 kt wind).",
             "Two forward float bags mount below the cockpit jettisonable windows; one aft bag mounts externally on the underside of the tail. Each of the three bags has two separate, independent pockets — if one pocket fails, the other still provides buoyancy for that section of the aircraft. Four nitrogen bottles inflate the system: two under-floor bottles near the forward entrance (one pocket each of the left/right forward floats), and two in the tail boom (one pocket each of the aft float)."
           ]
         },

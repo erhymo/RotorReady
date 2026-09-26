@@ -303,6 +303,994 @@
       "sectionId": "performance",
       "type": "single",
       "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-perf-017",
+      "section": "PERFORMANCE INFORMATION",
+      "question": "What is the maximum crosswind component for Category A horizontal takeoffs and landings?",
+      "options": [
+        "35 knots",
+        "22 knots",
+        "30 knots",
+        "45 knots"
+      ],
+      "answer": [0],
+      "explanation": "Category A horizontal takeoffs and landings are limited to 35 knots of crosswind component or less.",
+      "references": ["S-92 RFM Part 1 Sec IV: CROSSWIND LIMITS (p.4-1)"],
+      "tags": ["performance", "crosswind", "category-a"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-perf-018",
+      "section": "PERFORMANCE INFORMATION",
+      "question": "What is the maximum crosswind component for Category A ground level helipad takeoffs and landings?",
+      "options": [
+        "35 knots",
+        "22 knots",
+        "17 knots",
+        "30 knots"
+      ],
+      "answer": [1],
+      "explanation": "Category A ground level helipad takeoffs and landings are limited to 22 knots of crosswind component or less.",
+      "references": ["S-92 RFM Part 1 Sec IV: CROSSWIND LIMITS (p.4-1)"],
+      "tags": ["performance", "crosswind", "helipad"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-perf-019",
+      "section": "PERFORMANCE INFORMATION",
+      "question": "In the Category A horizontal takeoff profile (Figure 4-7), what power is used for the horizontal acceleration from the 10 ft hover?",
+      "options": [
+        "Hover torque plus 5%",
+        "Maximum continuous torque",
+        "Hover torque plus 10%",
+        "Takeoff power, 100% torque"
+      ],
+      "answer": [2],
+      "explanation": "Figure 4-7 shows the horizontal acceleration made at hover Q + 10%, in the normal, rejected and continued takeoff alike.",
+      "references": ["S-92 RFM Part 1 Sec IV: Figure 4-7 Cat A Horizontal Takeoff Procedures (p.4-10)"],
+      "tags": ["performance", "category-a", "takeoff"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-perf-020",
+      "section": "PERFORMANCE INFORMATION",
+      "question": "In the normal (all engines) Category A horizontal takeoff of Figure 4-7, how does the climb continue after the TDP?",
+      "options": [
+        "Climb at Vtoss at 100% Nr",
+        "Level acceleration to Vy at 100% Nr",
+        "Climbing acceleration to 80 KIAS at 100% Nr",
+        "Climbing acceleration to Vy at 105% Nr"
+      ],
+      "answer": [3],
+      "explanation": "After the TDP in a normal takeoff, Figure 4-7 shows a climbing acceleration to Vy at 105% Nr.",
+      "references": ["S-92 RFM Part 1 Sec IV: Figure 4-7 Cat A Horizontal Takeoff Procedures (p.4-10)"],
+      "tags": ["performance", "category-a", "takeoff"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-perf-021",
+      "section": "PERFORMANCE INFORMATION",
+      "question": "In the Category A horizontal continued takeoff (engine failure after TDP), what speed and rotor speed does Figure 4-7 show for the OEI climb?",
+      "options": [
+        "Vtoss at 100% Nr, gear up with a positive rate of climb",
+        "Vy at 105% Nr, gear up at 200 ft",
+        "Vtoss at 105% Nr, gear left down",
+        "Vy at 100% Nr, gear up at 35 ft"
+      ],
+      "answer": [0],
+      "explanation": "Figure 4-7 shows OEI acceleration to Vtoss, then the OEI climb at Vtoss and 100% Nr, with the gear raised once a positive rate of climb is established.",
+      "references": ["S-92 RFM Part 1 Sec IV: Figure 4-7 Cat A Horizontal Takeoff Procedures (p.4-10)"],
+      "tags": ["performance", "category-a", "oei"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-perf-022",
+      "section": "PERFORMANCE INFORMATION",
+      "question": "At what height does the Category A horizontal continued takeoff distance end in Figure 4-7?",
+      "options": [
+        "50 ft",
+        "15 ft",
+        "100 ft",
+        "35 ft"
+      ],
+      "answer": [3],
+      "explanation": "The continued takeoff distance in Figure 4-7 is measured from the 10 ft hover to the point where the aircraft reaches 35 ft.",
+      "references": ["S-92 RFM Part 1 Sec IV: Figure 4-7 Cat A Horizontal Takeoff Procedures (p.4-10)"],
+      "tags": ["performance", "category-a", "takeoff-distance"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-perf-023",
+      "section": "PERFORMANCE INFORMATION",
+      "question": "With a crosswind component greater than 20 knots, what correction applies to the Figure 4-8 Category A horizontal rejected and continued takeoff distance?",
+      "options": [
+        "Add 320 ft",
+        "Add 650 ft",
+        "Add 500 ft",
+        "Add 50%"
+      ],
+      "answer": [2],
+      "explanation": "A note on Figure 4-8 says to add 500 ft to the chart distance when the crosswind component exceeds 20 knots (and the minimum TDP speed becomes 45 KIAS).",
+      "references": ["S-92 RFM Part 1 Sec IV: Figure 4-8 Cat A Horizontal Rejected and Continued Takeoff Distances (p.4-11)"],
+      "tags": ["performance", "crosswind", "takeoff-distance"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-perf-024",
+      "section": "PERFORMANCE INFORMATION",
+      "question": "On Figure 4-9 the Vtoss scale is labelled 45 (30) up to 60 (45). What does the number in brackets show?",
+      "options": [
+        "The corresponding crosswind limit",
+        "The OEI rate of climb in 100 fpm",
+        "The corresponding Vy",
+        "The corresponding TDP speed"
+      ],
+      "answer": [3],
+      "explanation": "The Figure 4-9 scale is headed 'VTOSS (TDP) ~ KTS': each Vtoss is paired with its TDP, since Vtoss = TDP + 15 knots.",
+      "references": ["S-92 RFM Part 1 Sec IV: Figure 4-9 Cat A Horizontal Takeoff and Landing Gross Weight (p.4-12)"],
+      "tags": ["performance", "category-a", "tdp"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-perf-025",
+      "section": "PERFORMANCE INFORMATION",
+      "question": "Figure 4-12 (OEI forward climb at takeoff safety speed) is drawn for which configuration?",
+      "options": [
+        "2 minute power, Vtoss, 100% Nr, gear down",
+        "Maximum continuous power, Vy, 100% Nr, gear up",
+        "30 second power, Vtoss, 105% Nr, gear down",
+        "2 minute power, Vy, 105% Nr, gear up"
+      ],
+      "answer": [0],
+      "explanation": "Figure 4-12 is headed single engine, 2 minute power, takeoff safety speed, 100% Nr, gear down.",
+      "references": ["S-92 RFM Part 1 Sec IV: Figure 4-12 OEI Forward Climb Performance, Takeoff Safety Speed (p.4-22)"],
+      "tags": ["performance", "oei", "climb"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-perf-026",
+      "section": "PERFORMANCE INFORMATION",
+      "question": "Figure 4-13 (OEI forward climb at best rate of climb speed) is drawn for which configuration?",
+      "options": [
+        "2 minute power, 100% Nr, gear down",
+        "Maximum continuous power, 100% Nr, gear up",
+        "Maximum continuous power, 105% Nr, gear down",
+        "30 second power, 100% Nr, gear up"
+      ],
+      "answer": [1],
+      "explanation": "Figure 4-13 is headed single CT7-8A engine, maximum continuous power, best rate of climb speed, 100% Nr, gear up.",
+      "references": ["S-92 RFM Part 1 Sec IV: Figure 4-13 OEI Forward Climb Performance, Best Rate of Climb Speed (p.4-23)"],
+      "tags": ["performance", "oei", "climb"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-perf-027",
+      "section": "PERFORMANCE INFORMATION",
+      "question": "In the Figure 4-13 OEI climb, how much must the rate of climb be reduced at 26,000 lb with RIPS on (manual HEAVY mode) and anti-ice on?",
+      "options": [
+        "85 fpm",
+        "35 fpm",
+        "440 fpm",
+        "650 fpm"
+      ],
+      "answer": [2],
+      "explanation": "The Figure 4-13 table gives a 440 fpm reduction for RIPS on (manual HEAVY) with anti-ice on at 26,000 lb, against 85 for anti-ice alone and 35 for landing gear down.",
+      "references": ["S-92 RFM Part 1 Sec IV: Figure 4-13 OEI Forward Climb Performance, Best Rate of Climb Speed (p.4-23)"],
+      "tags": ["performance", "oei", "climb", "rips"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-perf-028",
+      "section": "PERFORMANCE INFORMATION",
+      "question": "In the Figure 4-12 OEI climb at Vtoss, what rate-of-climb reduction applies for the air conditioner on at 16,000 lb?",
+      "options": [
+        "100 fpm",
+        "85 fpm",
+        "50 fpm",
+        "105 fpm"
+      ],
+      "answer": [3],
+      "explanation": "The Figure 4-12 table gives 105 fpm for air conditioner on at 16,000 lb (100 fpm for anti-ice on).",
+      "references": ["S-92 RFM Part 1 Sec IV: Figure 4-12 OEI Forward Climb Performance, Takeoff Safety Speed (p.4-22)"],
+      "tags": ["performance", "oei", "climb"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-perf-029",
+      "section": "PERFORMANCE INFORMATION",
+      "question": "Where is the Landing Decision Point in the Category A horizontal landing profile (Figure 4-14)?",
+      "options": [
+        "50 KIAS and 200 ft AGL",
+        "35 KIAS and 125 ft AGL",
+        "50 KIAS and 50 ft AGL",
+        "70 KIAS and 200 ft AGL"
+      ],
+      "answer": [0],
+      "explanation": "Figure 4-14 shows a descent at 600 fpm and 50 KIAS to the decision point at 50 KIAS and 200 ft AGL.",
+      "references": ["S-92 RFM Part 1 Sec IV: Figure 4-14 Cat A Horizontal Landing Profile (p.4-24)"],
+      "tags": ["performance", "category-a", "landing", "ldp"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-perf-030",
+      "section": "PERFORMANCE INFORMATION",
+      "question": "In the Category A horizontal balked landing (Figure 4-14), what speed is flown in the climb-out?",
+      "options": [
+        "Vtoss at 105% Nr, then accelerate to Vy",
+        "70 KIAS at 100% Nr, then accelerate to BROC speed",
+        "55 KIAS at 100% Nr, then accelerate to 80 KIAS",
+        "50 KIAS at 100% Nr, then accelerate to Vtoss"
+      ],
+      "answer": [1],
+      "explanation": "Figure 4-14 shows acceleration to 70 KIAS with 35 ft minimum clearance, a climb at 70 KIAS and 100% Nr, and gear retraction while accelerating to BROC speed.",
+      "references": ["S-92 RFM Part 1 Sec IV: Figure 4-14 Cat A Horizontal Landing Profile (p.4-24)"],
+      "tags": ["performance", "category-a", "balked-landing"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-perf-031",
+      "section": "PERFORMANCE INFORMATION",
+      "question": "What minimum height above the surface does Figure 4-14 show during a Category A horizontal balked landing?",
+      "options": [
+        "50 ft",
+        "15 ft",
+        "35 ft",
+        "25 ft"
+      ],
+      "answer": [2],
+      "explanation": "Figure 4-14 marks a 35 ft minimum during the acceleration to 70 KIAS in the balked landing.",
+      "references": ["S-92 RFM Part 1 Sec IV: Figure 4-14 Cat A Horizontal Landing Profile (p.4-24)"],
+      "tags": ["performance", "category-a", "balked-landing"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-perf-032",
+      "section": "PERFORMANCE INFORMATION",
+      "question": "The Category A horizontal landing distance in Figure 4-15 is measured over what segment?",
+      "options": [
+        "From the LDP at 200 ft to a stop",
+        "From 50 ft height to a stop",
+        "From 50 ft height to a hover",
+        "From 35 ft height to touchdown"
+      ],
+      "answer": [1],
+      "explanation": "Figure 4-15 is titled horizontal profile landing distance from 50 ft height to stop, one engine inoperative, Vappr 50 KIAS, 600 fpm.",
+      "references": ["S-92 RFM Part 1 Sec IV: Figure 4-15 Cat A Horizontal Landing Distance (p.4-25)"],
+      "tags": ["performance", "category-a", "landing-distance"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-perf-033",
+      "section": "PERFORMANCE INFORMATION",
+      "question": "With a crosswind component greater than 20 knots, what must be added to the Figure 4-15 Category A horizontal landing distance?",
+      "options": [
+        "650 ft",
+        "500 ft",
+        "320 ft",
+        "250 ft"
+      ],
+      "answer": [0],
+      "explanation": "A note on Figure 4-15 says to add 650 ft to the chart distance when the crosswind component exceeds 20 knots.",
+      "references": ["S-92 RFM Part 1 Sec IV: Figure 4-15 Cat A Horizontal Landing Distance (p.4-25)"],
+      "tags": ["performance", "crosswind", "landing-distance"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-perf-034",
+      "section": "PERFORMANCE INFORMATION",
+      "question": "In the Category A ground level helipad vertical takeoff profile (Figure 4-16), at what rate is the vertical climb to TDP made?",
+      "options": [
+        "500 to 750 fpm",
+        "850 to 1150 fpm",
+        "1200 to 1500 fpm",
+        "600 to 800 fpm"
+      ],
+      "answer": [1],
+      "explanation": "Figure 4-16 shows a vertical climb to the TDP at 850 to 1150 fpm.",
+      "references": ["S-92 RFM Part 1 Sec IV: Figure 4-16 Cat A Vertical Takeoff Profile (p.4-26)"],
+      "tags": ["performance", "helipad", "takeoff"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-perf-035",
+      "section": "PERFORMANCE INFORMATION",
+      "question": "In the OEI continued takeoff of Figure 4-16 (ground level helipad), what happens after the aircraft reaches Vtoss?",
+      "options": [
+        "The landing gear is lowered",
+        "30 second OEI power is armed",
+        "2 minute OEI power is selected",
+        "The aircraft levels off at 35 ft"
+      ],
+      "answer": [2],
+      "explanation": "In Figure 4-16 the OEI continued takeoff reaches Vtoss first; 2 minute OEI power is selected after that, on the climb-out.",
+      "references": ["S-92 RFM Part 1 Sec IV: Figure 4-16 Cat A Vertical Takeoff Profile (p.4-26)"],
+      "tags": ["performance", "helipad", "oei"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-perf-036",
+      "section": "PERFORMANCE INFORMATION",
+      "question": "What is the maximum gross weight on the Category A ground level helipad TDP/Vtoss chart (Figure 4-18)?",
+      "options": [
+        "26,500 lb",
+        "25,000 lb",
+        "23,640 lb",
+        "24,500 lb"
+      ],
+      "answer": [3],
+      "explanation": "Figure 4-18 marks a maximum gross weight of 24,500 lb for Category A ground level helipad operations, below the 26,500 lb aircraft maximum.",
+      "references": ["S-92 RFM Part 1 Sec IV: Figure 4-18 Cat A Vertical TDP, Vtoss and Takeoff Distance (p.4-33)"],
+      "tags": ["performance", "helipad", "weight"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-perf-037",
+      "section": "PERFORMANCE INFORMATION",
+      "question": "Per the night operations note on Figure 4-18, what is the maximum TDP for night Category A ground level helipad operations?",
+      "options": [
+        "The lower of 110 ft and the chart maximum reject TDP",
+        "The higher of 110 ft and the minimum fly-away TDP",
+        "110 ft plus the height of any obstacle",
+        "The chart maximum reject TDP, with no fixed cap"
+      ],
+      "answer": [0],
+      "explanation": "The Figure 4-18 note says the maximum TDP for night operations is the minimum of 110 ft or the chart maximum reject TDP; a weight reduction may be needed so the minimum fly-away TDP is 110 ft or less.",
+      "references": ["S-92 RFM Part 1 Sec IV: Figure 4-18 Night Operations Note (p.4-33)"],
+      "tags": ["performance", "helipad", "night", "tdp"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-perf-038",
+      "section": "PERFORMANCE INFORMATION",
+      "question": "At night, if the minimum fly-away TDP from Figure 4-18 is above 110 ft, what does the chart note require?",
+      "options": [
+        "Use the maximum reject TDP instead",
+        "Reduce gross weight until it is 110 ft or less",
+        "Add 10 ft to the maximum reject TDP",
+        "Use a rolling takeoff instead"
+      ],
+      "answer": [1],
+      "explanation": "The night operations note says a reduction in gross weight may be required so that the minimum fly-away TDP is less than or equal to 110 ft.",
+      "references": ["S-92 RFM Part 1 Sec IV: Figure 4-18 Night Operations Note (p.4-33)"],
+      "tags": ["performance", "helipad", "night", "tdp"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-perf-039",
+      "section": "PERFORMANCE INFORMATION",
+      "question": "What is the minimum TDP marked on the Category A ground level helipad chart (Figure 4-18)?",
+      "options": [
+        "15 ft",
+        "50 ft",
+        "30 ft",
+        "85 ft"
+      ],
+      "answer": [2],
+      "explanation": "Figure 4-18 shades a 'MINIMUM TDP ~ 30 FT' band on the minimum fly-away TDP scale.",
+      "references": ["S-92 RFM Part 1 Sec IV: Figure 4-18 Cat A Vertical TDP, Vtoss and Takeoff Distance (p.4-33)"],
+      "tags": ["performance", "helipad", "tdp"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-perf-040",
+      "section": "PERFORMANCE INFORMATION",
+      "question": "What minimum field length is marked on the Category A ground level helipad takeoff distance scale (Figure 4-18)?",
+      "options": [
+        "528 ft",
+        "1,000 ft",
+        "320 ft",
+        "600 ft"
+      ],
+      "answer": [3],
+      "explanation": "Figure 4-18 marks a 'MINIMUM FIELD LENGTH ~ 600 FT' on the takeoff distance scale.",
+      "references": ["S-92 RFM Part 1 Sec IV: Figure 4-18 Cat A Vertical TDP, Vtoss and Takeoff Distance (p.4-33)"],
+      "tags": ["performance", "helipad", "takeoff-distance"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-perf-041",
+      "section": "PERFORMANCE INFORMATION",
+      "question": "On Figure 4-18, what does the unfactored headwind correction apply to?",
+      "options": [
+        "The takeoff distance only",
+        "The minimum fly-away TDP only",
+        "Both the TDP and Vtoss",
+        "The maximum reject TDP only"
+      ],
+      "answer": [0],
+      "explanation": "The headwind lines on Figure 4-18 are labelled 'unfactored headwind ~ kts (applicable to takeoff distance only)'.",
+      "references": ["S-92 RFM Part 1 Sec IV: Figure 4-18 Cat A Vertical TDP, Vtoss and Takeoff Distance (p.4-33)"],
+      "tags": ["performance", "helipad", "wind"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-perf-042",
+      "section": "PERFORMANCE INFORMATION",
+      "question": "In the Figure 4-18 example with a 20 knot direct headwind, which wind line is used to read the takeoff distance?",
+      "options": [
+        "The 20 knot line",
+        "The 30 knot line",
+        "The 0 knot line",
+        "The 10 knot line"
+      ],
+      "answer": [3],
+      "explanation": "The example uses the 10 knot wind line, 50% of the 20 knot headwind, consistent with the rule of crediting no more than 50% of the headwind.",
+      "references": ["S-92 RFM Part 1 Sec IV: Figure 4-18 determination examples (p.4-30)"],
+      "tags": ["performance", "helipad", "wind"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-perf-043",
+      "section": "PERFORMANCE INFORMATION",
+      "question": "Per the note to the Figure 4-18 examples, what may be done when chart limitations make the maximum reject TDP up to 10 ft lower than the minimum fly-away TDP?",
+      "options": [
+        "Reduce weight until both TDPs are equal",
+        "Use the maximum reject TDP and add 10 ft",
+        "Use the Figure 4-17 maximum weight and the minimum fly-away TDP",
+        "Discard the takeoff at that weight"
+      ],
+      "answer": [2],
+      "explanation": "The note says that in this case it is permissible to use the Figure 4-17 maximum takeoff weight and the minimum fly-away TDP.",
+      "references": ["S-92 RFM Part 1 Sec IV: Figure 4-18 determination examples, NOTE (p.4-30)"],
+      "tags": ["performance", "helipad", "tdp"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-perf-044",
+      "section": "PERFORMANCE INFORMATION",
+      "question": "In the Figure 4-19 example, a 50 ft obstacle 75 ft from the nose wheel lies outside the exempt region and the no-obstacle minimum fly-away TDP is 85 ft. What is the minimum fly-away TDP?",
+      "options": [
+        "85 ft",
+        "110 ft",
+        "148 ft",
+        "135 ft"
+      ],
+      "answer": [3],
+      "explanation": "Because the obstacle point lies above the minimum fly-away TDP, the obstacle height is added: 85 ft + 50 ft = 135 ft.",
+      "references": ["S-92 RFM Part 1 Sec IV: Figure 4-19 examples (p.4-37)"],
+      "tags": ["performance", "helipad", "obstacle", "tdp"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-perf-045",
+      "section": "PERFORMANCE INFORMATION",
+      "question": "In Figure 4-17 example 1 (sea level, 20°C, no obstacles), the chart reads 25,000 lb. What maximum takeoff weight applies?",
+      "options": [
+        "24,500 lb",
+        "25,000 lb",
+        "26,500 lb",
+        "24,200 lb"
+      ],
+      "answer": [0],
+      "explanation": "Since the maximum allowable gross weight is 24,500 lb, 24,500 lb is also the maximum takeoff weight even though the chart line reads 25,000 lb.",
+      "references": ["S-92 RFM Part 1 Sec IV: Figure 4-17 examples (p.4-27)"],
+      "tags": ["performance", "helipad", "weight"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-perf-046",
+      "section": "PERFORMANCE INFORMATION",
+      "question": "In the Category A ground level helipad approach (Figure 4-20), how is the approach flown to the flare?",
+      "options": [
+        "Descend at 600 fpm and 50 KIAS until the flare at 50 ft",
+        "Descend at 500 fpm and 35 KIAS until the flare at 50 ft",
+        "Descend at 500 fpm and 50 KIAS until the LDP",
+        "Descend at 300 fpm and 40 KIAS until 20 ft"
+      ],
+      "answer": [1],
+      "explanation": "Figure 4-20 shows a descent at 500 fpm and 35 KIAS, maintaining 35 KIAS until the flare is initiated at 50 ft.",
+      "references": ["S-92 RFM Part 1 Sec IV: Figure 4-20 Cat A Vertical Landing Profile (p.4-39)"],
+      "tags": ["performance", "helipad", "landing"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-perf-047",
+      "section": "PERFORMANCE INFORMATION",
+      "question": "In the Category A ground level helipad balked landing (Figure 4-20), to what speed does the aircraft first accelerate?",
+      "options": [
+        "Vtoss, 45 KIAS",
+        "Vbroc, 80 KIAS",
+        "Vblss, 55 KIAS",
+        "Vy, 70 KIAS"
+      ],
+      "answer": [2],
+      "explanation": "Figure 4-20 shows acceleration to Vblss (55 KIAS), selecting 2 minute OEI power, then climbing and accelerating to Vbroc.",
+      "references": ["S-92 RFM Part 1 Sec IV: Figure 4-20 Cat A Vertical Landing Profile (p.4-39)"],
+      "tags": ["performance", "helipad", "balked-landing"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-perf-048",
+      "section": "PERFORMANCE INFORMATION",
+      "question": "What approach angle results from a Category A ground level helipad approach flown at 35 KIAS with a 500 fpm descent?",
+      "options": [
+        "About 5.5°",
+        "About 10.5°",
+        "About 12°",
+        "About 8.1°"
+      ],
+      "answer": [3],
+      "explanation": "Section IV states that at 35 KIAS and 500 FPM the approach angle is approximately 8.1°.",
+      "references": ["S-92 RFM Part 1 Sec IV: CATEGORY A VERTICAL GROUND LEVEL HELIPAD (p.4-2)"],
+      "tags": ["performance", "helipad", "approach"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-perf-049",
+      "section": "PERFORMANCE INFORMATION",
+      "question": "How does a headwind affect the Category A ground level helipad approach angle?",
+      "options": [
+        "It increases the approach angle",
+        "It decreases the approach angle",
+        "It has no effect on the angle",
+        "It only affects the LDP height"
+      ],
+      "answer": [0],
+      "explanation": "A headwind increases the approach angle; a faster approach speed or a slower descent rate decreases it.",
+      "references": ["S-92 RFM Part 1 Sec IV: CATEGORY A VERTICAL GROUND LEVEL HELIPAD (p.4-2)"],
+      "tags": ["performance", "helipad", "approach", "wind"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-perf-050",
+      "section": "PERFORMANCE INFORMATION",
+      "question": "The 'minimum height at balked landing distance' in Figure 4-22 is defined with the aircraft in which climb?",
+      "options": [
+        "Vtoss with 30 second power",
+        "55 KIAS with 2 minute power",
+        "70 KIAS with maximum continuous power",
+        "Vy with takeoff power"
+      ],
+      "answer": [1],
+      "explanation": "Section IV defines it as the minimum height above the helipad level when the aircraft is in a 55 KIAS climb with 2 minute power selected.",
+      "references": ["S-92 RFM Part 1 Sec IV: CATEGORY A VERTICAL GROUND LEVEL HELIPAD (p.4-2)"],
+      "tags": ["performance", "helipad", "balked-landing"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-perf-051",
+      "section": "PERFORMANCE INFORMATION",
+      "question": "Per the note on Figure 4-22, what happens with an LDP of 250 ft?",
+      "options": [
+        "The aircraft can clear a 10 ft obstacle",
+        "The balked landing distance becomes zero",
+        "The aircraft attains a climbing posture as it passes over the helipad",
+        "The approach speed must be raised to 50 KIAS"
+      ],
+      "answer": [2],
+      "explanation": "The Figure 4-22 note says that for an LDP of 250 ft the aircraft attains a climbing posture as it passes over the helipad; the other note concerns the 125 ft minimum LDP clearing a 10 ft obstacle.",
+      "references": ["S-92 RFM Part 1 Sec IV: Figure 4-22 Cat A Ground Level Helipad LDP and Balked Landing Distance (p.4-44)"],
+      "tags": ["performance", "helipad", "ldp"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-perf-052",
+      "section": "PERFORMANCE INFORMATION",
+      "question": "In Figure 4-22 example 2, what LDP is read for a 50 ft obstacle in the balked landing path?",
+      "options": [
+        "125 ft",
+        "165 ft",
+        "135 ft",
+        "250 ft"
+      ],
+      "answer": [1],
+      "explanation": "Entering Figure 4-22 at a 50 ft obstacle gives a minimum height at balked landing distance of 85 ft, a balked landing distance of 665 ft and an LDP of 165 ft.",
+      "references": ["S-92 RFM Part 1 Sec IV: Figure 4-22 examples (p.4-43)"],
+      "tags": ["performance", "helipad", "ldp", "obstacle"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-perf-053",
+      "section": "PERFORMANCE INFORMATION",
+      "question": "In the Category B takeoff profile (Figure 4-23), at what speed does the aircraft rotate?",
+      "options": [
+        "45 KIAS",
+        "30 KIAS",
+        "35 KIAS",
+        "60 KIAS"
+      ],
+      "answer": [0],
+      "explanation": "Figure 4-23: accelerate using hover torque plus up to 10% at 10 ft wheel height, rotate at 45 KIAS and accelerate to climb at Vy.",
+      "references": ["S-92 RFM Part 1 Sec IV: Figure 4-23 Cat B Takeoff Profile (p.4-45)"],
+      "tags": ["performance", "category-b", "takeoff"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-perf-054",
+      "section": "PERFORMANCE INFORMATION",
+      "question": "In the Category B takeoff profile (Figure 4-23), what power is used for the initial acceleration?",
+      "options": [
+        "Takeoff power, climbing straight ahead",
+        "Hover torque plus up to 10%, holding 10 ft wheel height",
+        "Hover torque plus 20%, at 35 ft",
+        "Maximum continuous power, at 50 ft"
+      ],
+      "answer": [1],
+      "explanation": "Figure 4-23 shows the acceleration made using hover Q plus up to 10% Q while maintaining 10 ft wheel height; the later climb is at Vy with takeoff power.",
+      "references": ["S-92 RFM Part 1 Sec IV: Figure 4-23 Cat B Takeoff Profile (p.4-45)"],
+      "tags": ["performance", "category-b", "takeoff"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-perf-055",
+      "section": "PERFORMANCE INFORMATION",
+      "question": "To what height is the Category B takeoff distance measured in Figure 4-23?",
+      "options": [
+        "35 ft",
+        "200 ft",
+        "50 ft",
+        "1000 ft"
+      ],
+      "answer": [2],
+      "explanation": "In Figure 4-23 the takeoff distance ends at 50 ft; the takeoff flight path then continues to 1000 ft.",
+      "references": ["S-92 RFM Part 1 Sec IV: Figure 4-23 Cat B Takeoff Profile (p.4-45)"],
+      "tags": ["performance", "category-b", "takeoff-distance"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-perf-056",
+      "section": "PERFORMANCE INFORMATION",
+      "question": "What correction does Figure 4-24 require for the Category B takeoff distance with anti-ice on?",
+      "options": [
+        "Add 500 ft",
+        "Add 650 ft",
+        "Add 10%",
+        "Add 320 ft"
+      ],
+      "answer": [3],
+      "explanation": "The Figure 4-24 note says to add 320 ft to the Category B takeoff distance with anti-ice on.",
+      "references": ["S-92 RFM Part 1 Sec IV: Figure 4-24 Cat B Takeoff Distance (p.4-46)"],
+      "tags": ["performance", "category-b", "anti-ice"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-perf-057",
+      "section": "PERFORMANCE INFORMATION",
+      "question": "In the Figure 4-24 Category B takeoff distance tables, what do the asterisked values indicate?",
+      "options": [
+        "Data above 11,000 ft DA or the high ambient temperature limit, for interpolation only",
+        "Values that include the anti-ice correction",
+        "Values valid only with the air conditioner off",
+        "Values that need 50% headwind credit applied"
+      ],
+      "answer": [0],
+      "explanation": "The note marks with an asterisk data presented for interpolation only: above 11,000 ft density altitude or the high ambient temperature limit.",
+      "references": ["S-92 RFM Part 1 Sec IV: Figure 4-24 Cat B Takeoff Distance (p.4-46)"],
+      "tags": ["performance", "category-b", "takeoff-distance"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-perf-058",
+      "section": "PERFORMANCE INFORMATION",
+      "question": "How is the Category B landing flown in Figure 4-26?",
+      "options": [
+        "500 fpm at 35 KIAS, flare at 50 ft",
+        "600 fpm at 50 KIAS through 200 ft AGL, flare at 50 ft and 50 KIAS",
+        "600 fpm at 70 KIAS, flare at 100 ft",
+        "500 fpm at 50 KIAS, flare at 20 ft"
+      ],
+      "answer": [1],
+      "explanation": "Figure 4-26 shows a descent at 600 fpm at 50 KIAS through 200 ft AGL and a deceleration flare initiated at 50 KIAS at 50 ft.",
+      "references": ["S-92 RFM Part 1 Sec IV: Figure 4-26 Cat B Landing Profile (p.4-50)"],
+      "tags": ["performance", "category-b", "landing"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-perf-059",
+      "section": "PERFORMANCE INFORMATION",
+      "question": "How does the end point of the Category B landing distance (Figure 4-27) differ from the Category A horizontal landing distance (Figure 4-15)?",
+      "options": [
+        "Category B is measured to a stop; Category A to a hover",
+        "Both are measured to touchdown",
+        "Category B is measured to a hover; Category A to a stop",
+        "Category B is measured from 200 ft; Category A from 50 ft"
+      ],
+      "answer": [2],
+      "explanation": "Figure 4-27 gives landing distance from 50 ft height to hover; Figure 4-15 gives landing distance from 50 ft height to stop.",
+      "references": ["S-92 RFM Part 1 Sec IV: Figure 4-27 Cat B Landing Distance (p.4-51); Figure 4-15 (p.4-25)"],
+      "tags": ["performance", "category-b", "landing-distance"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-perf-060",
+      "section": "PERFORMANCE INFORMATION",
+      "question": "Figure 4-25 (all engines forward climb) is drawn for which conditions?",
+      "options": [
+        "Takeoff power, Vy, 100% Nr, gear down",
+        "Maximum continuous power, Vtoss, 100% Nr, gear up",
+        "30 minute power, BROC speed, 105% Nr, gear down",
+        "Maximum continuous power, BROC speed, 105% Nr, gear up"
+      ],
+      "answer": [3],
+      "explanation": "Figure 4-25 is headed dual engine, maximum continuous power, best rate of climb speed, 105% Nr, gear up, below 14,000 ft HP.",
+      "references": ["S-92 RFM Part 1 Sec IV: Figure 4-25 AEO Forward Climb Performance (p.4-48)"],
+      "tags": ["performance", "aeo", "climb"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-perf-061",
+      "section": "PERFORMANCE INFORMATION",
+      "question": "In the Figure 4-25 AEO climb at 26,500 lb, what rate-of-climb reduction applies for RIPS and anti-ice on above 4,000 ft?",
+      "options": [
+        "1,300 fpm",
+        "600 fpm",
+        "450 fpm",
+        "70 fpm"
+      ],
+      "answer": [0],
+      "explanation": "The Figure 4-25 table gives 1,300 fpm for RIPS and anti-ice on above 4,000 ft at 26,500 lb, against 600 fpm at or below 4,000 ft.",
+      "references": ["S-92 RFM Part 1 Sec IV: Figure 4-25 AEO Forward Climb Performance (p.4-48)"],
+      "tags": ["performance", "aeo", "climb", "rips"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-perf-062",
+      "section": "PERFORMANCE INFORMATION",
+      "question": "On the Hover OGE takeoff power chart (Figure 4-28), how much must maximum gross weight be reduced for a crosswind or tailwind at 20°C?",
+      "options": [
+        "350 lb",
+        "1,150 lb",
+        "425 lb",
+        "600 lb"
+      ],
+      "answer": [3],
+      "explanation": "For other than calm wind with the relative wind outside the sector ahead of the nose, the Figure 4-28 table gives a 600 lb reduction for crosswind or tailwind at 20°C.",
+      "references": ["S-92 RFM Part 1 Sec IV: Figure 4-28 Hover OGE, Takeoff Power (p.4-52)"],
+      "tags": ["performance", "hover", "wind"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-perf-063",
+      "section": "PERFORMANCE INFORMATION",
+      "question": "On the Hover OGE takeoff power chart (Figure 4-28), how much must maximum gross weight be reduced with anti-ice on at 0°C?",
+      "options": [
+        "575 lb",
+        "375 lb",
+        "1,400 lb",
+        "425 lb"
+      ],
+      "answer": [2],
+      "explanation": "The Figure 4-28 table gives a 1,400 lb reduction for anti-ice on at 0°C (575 lb for crosswind/tailwind, 375 lb for the air conditioner).",
+      "references": ["S-92 RFM Part 1 Sec IV: Figure 4-28 Hover OGE, Takeoff Power (p.4-52)"],
+      "tags": ["performance", "hover", "anti-ice"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-perf-064",
+      "section": "PERFORMANCE INFORMATION",
+      "question": "What is the highest point of the avoid area on the S-92 height-velocity diagram (Figure 4-31) at zero airspeed?",
+      "options": [
+        "200 ft",
+        "300 ft",
+        "440 ft",
+        "400 ft"
+      ],
+      "answer": [3],
+      "explanation": "The shaded avoid area of Figure 4-31 reaches 400 ft indicated altitude at 0 knots and extends out to about 40 knots.",
+      "references": ["S-92 RFM Part 1 Sec IV: Figure 4-31 Height-Velocity Diagram (p.4-56)"],
+      "tags": ["performance", "height-velocity"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-perf-065",
+      "section": "PERFORMANCE INFORMATION",
+      "question": "Which test conditions apply to the S-92 height-velocity diagram (Figure 4-31)?",
+      "options": [
+        "Hard surface, winds 5 kt or less, straight path, gear down at entry",
+        "Any surface, winds up to 20 kt, gear up at entry",
+        "Hard surface, calm wind, gear up, 100% Nr",
+        "Helideck, winds 10 kt or less, gear down at entry"
+      ],
+      "answer": [0],
+      "explanation": "Figure 4-31 lists hard surface runway, winds 5 kts or less, straight takeoff and climbout path, and gear down at entry; it applies at the maximum allowable Category B takeoff gross weight.",
+      "references": ["S-92 RFM Part 1 Sec IV: Figure 4-31 Height-Velocity Diagram (p.4-56)"],
+      "tags": ["performance", "height-velocity"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-perf-066",
+      "section": "PERFORMANCE INFORMATION",
+      "question": "The OEI hover OGE capability chart with 30 second power (Figure 4-32) is drawn at which torque limit?",
+      "options": [
+        "120%",
+        "141%",
+        "156%",
+        "110%"
+      ],
+      "answer": [1],
+      "explanation": "Figure 4-32 is headed OEI 30 second power, 100% Nr, 141% Q-limit; the 2 minute chart (Figure 4-34) shows a 120% OEI transmission torque limit.",
+      "references": ["S-92 RFM Part 1 Sec IV: Figure 4-32 OEI HOGE Capability 30 Sec Power (p.4-57)"],
+      "tags": ["performance", "oei", "hover"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-perf-067",
+      "section": "PERFORMANCE INFORMATION",
+      "question": "Which torque limit is marked on the OEI hover OGE capability chart for 2 minute power (Figure 4-34)?",
+      "options": [
+        "141% OEI torque limit",
+        "100% dual engine torque limit",
+        "120% OEI transmission torque limit",
+        "156% transient torque limit"
+      ],
+      "answer": [2],
+      "explanation": "Figure 4-34 (OEI 2 minute power, 100% Nr) marks the 120% OEI transmission torque limit.",
+      "references": ["S-92 RFM Part 1 Sec IV: Figure 4-34 OEI HOGE Capability 2 Min Power (p.4-59)"],
+      "tags": ["performance", "oei", "hover"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["S92"]
+    },
+    {
+      "id": "s92-perf-068",
+      "section": "PERFORMANCE INFORMATION",
+      "question": "Which S-92A certified noise level is highest?",
+      "options": [
+        "Takeoff, 94.5 EPNdB",
+        "Flyover, 97.2 EPNdB",
+        "Takeoff, 97.5 EPNdB",
+        "Approach, 97.5 EPNdB"
+      ],
+      "answer": [3],
+      "explanation": "The certified levels are 94.5 EPNdB takeoff, 97.5 approach and 97.2 flyover; the flyover level is based on a VH of 150.5 KTAS.",
+      "references": ["S-92 RFM Part 1 Sec IV: NOISE LEVEL CERTIFICATION (p.4-61)"],
+      "tags": ["performance", "noise"],
+      "source": "S-92 RFM Part 1",
+      "sectionId": "performance",
+      "type": "single",
+      "modelIds": ["S92"]
     }
   ]
 }

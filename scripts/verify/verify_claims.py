@@ -342,6 +342,24 @@ def units_procedures(data):
                 continue
             label = step.get('left') or step.get('label') or f"step {si}"
             yield f"{p['slug']}/{si}", f"Procedure '{p['title']}', step '{label}'", text
+        # Grouped procedures (S92, AW169, AW169 EP): steps sit under p['groups'][*]['steps'], which the loop
+        # above never saw, so until 2026-09-26 these files yielded 0 units and were silently never checked or
+        # gated. Here EVERY step counts, not only numeric ones: the AS350 errors found on 2026-09-23 were
+        # invented or misattached steps without a single digit in them.
+        for gi, g in enumerate(p.get('groups', [])):
+            head = f", group '{g['heading']}'" if g.get('heading') else ''
+            for si, step in enumerate(g.get('steps', [])):
+                left = str(step.get('left') or '')
+                text = _flatten_inline(step.get('right', []))
+                claim = f"{left} — {text}" if re.search(r'[A-Za-z]', left) else text   # '1', '★': a marker, not a label
+                yield f"{p['slug']}/g{gi}/s{si}", f"Procedure '{p['title']}'{head}, step '{left or si}'", claim
+        if 'groups' in p:
+            if p.get('intro'):   # one paragraph of inline nodes (ProcedureDetailPage renders it as a single <p>)
+                yield f"{p['slug']}/intro", f"Procedure '{p['title']}', intro", _flatten_inline(p['intro'])
+            for kind in ('warnings', 'cautions', 'notes'):
+                for i, t in enumerate(p.get(kind) or []):
+                    text = t if isinstance(t, str) else _flatten_inline(t)
+                    yield f"{p['slug']}/{kind}{i}", f"Procedure '{p['title']}', {kind.rstrip('s')}", text
 
 
 def units_quiz_limitations(data):

@@ -62,7 +62,7 @@
         "Category A takeoff and landing procedures, flown at the approved weight, altitude, temperature, field length and wind conditions, guarantee continued safe flight and landing after an engine failure."
       ],
       "cautions": [
-        "The nose wheel will not self-center after liftoff if it has swiveled about 180° just before liftoff. If retracted in this position, the nose wheel will jam in the up position. If swiveled more than 90°, taxi forward slightly to align it with the fuselage."
+        "The nose wheel will not self-center after liftoff if it has swiveled about 180° just before liftoff. If retracted in this position, the nose wheel will jam in the up position and normal extension will not be possible. If swiveled more than 90°, taxi forward slightly to align it with the fuselage."
       ],
       "groups": [
         {
@@ -131,6 +131,7 @@
         }
       ],
       "notes": [
+        "After a period of heavy or prolonged wheel brake use, leave the landing gear extended for a minimum of 5 minutes before retracting.",
         "Vy (best rate of climb speed) is 80 KIAS at sea level, decreasing 1 knot per 1000 ft of altitude above sea level."
       ],
       "figures": [
@@ -270,7 +271,7 @@
         "Based on a 102 ft square helipad. Before takeoff, identify visual alignment cues (buildings, fences, trees, light poles, painted lines) several hundred feet from the pad, both ahead of and on the flying pilot's side, to provide lateral and longitudinal drift cues. For night operations, the helipad and alignment cues must be illuminated."
       ],
       "cautions": [
-        "The nose wheel will not self-center after liftoff if it has swiveled about 180° just before liftoff. If retracted in this position, the nose wheel will jam in the up position. If swiveled more than 90°, taxi forward slightly to align it with the fuselage."
+        "The nose wheel will not self-center after liftoff if it has swiveled about 180° just before liftoff. If retracted in this position, the nose wheel will jam in the up position and normal extension will not be possible. If swiveled more than 90°, taxi forward slightly to align it with the fuselage."
       ],
       "groups": [
         {
@@ -438,7 +439,7 @@
       "title": "CATEGORY B TAKEOFF",
       "reference": "S-92 RFM Part 1, Section II — Normal Procedures",
       "intro": [
-        "Category B operations do not guarantee a safe continued takeoff or landing after an engine failure at every point in the profile — unlike Category A."
+        "The Category B takeoff profile is shown in Part 1, Section IV, Figure 4-23. When operating outside the approved Category A procedures, weight and ambient conditions, continued safe flight and landing after an engine failure is not guaranteed."
       ],
       "groups": [
         {
@@ -554,10 +555,10 @@
             "No Exposure"
           ]
         },
-        " (continued OEI flight or landing is available at all times, at a more restrictive weight). This page covers the Limited Exposure profile."
+        " (continued OEI flight or landing is available at all times when operating at the Figure 3-28 WAT conditions, which eliminates the risk of a forced landing). This page covers the Limited Exposure profile (Figure 3-22 WAT)."
       ],
       "cautions": [
-        "The nose wheel will not self-center after liftoff if it has swiveled about 180° just before liftoff. If retracted in this position, the nose wheel will jam in the up position. If swiveled more than 90°, taxi forward slightly to align it with the fuselage."
+        "The nose wheel will not self-center after liftoff if it has swiveled about 180° just before liftoff. If retracted in this position, the nose wheel will jam in the up position and normal extension will not be possible. If swiveled more than 90°, taxi forward slightly to align it with the fuselage."
       ],
       "groups": [
         {
@@ -951,6 +952,29 @@
       ],
       "groups": [
         {
+          "heading": "Takeoff — prior to reaching TDP (rejected takeoff)",
+          "steps": [
+            {
+              "left": "Stop climb",
+              "right": [
+                "Decrease collective to stop the vertical climb. Maintain Nr at 100% to 104%."
+              ]
+            },
+            {
+              "left": "Descend",
+              "right": [
+                "Descend vertically to the helipad."
+              ]
+            },
+            {
+              "left": "Cushion",
+              "right": [
+                "Cushion the landing with collective, using brakes to remain on the landing surface."
+              ]
+            }
+          ]
+        },
+        {
           "heading": "Takeoff — forced landing (if Vtoss cannot be reached)",
           "steps": [
             {
@@ -1060,9 +1084,51 @@
               ]
             }
           ]
+        },
+        {
+          "heading": "Approach — after LDP (single engine landing)",
+          "steps": [
+            {
+              "left": "Power",
+              "right": [
+                "Confirm 30-second power is armed."
+              ]
+            },
+            {
+              "left": "Deceleration",
+              "right": [
+                "Initiate deceleration passing 50 ft above the landing surface and 40 KIAS."
+              ]
+            },
+            {
+              "left": "Position",
+              "right": [
+                "Maneuver the aircraft above the landing surface."
+              ]
+            },
+            {
+              "left": "Cushion",
+              "right": [
+                "Use collective to cushion touchdown."
+              ]
+            },
+            {
+              "left": "After touchdown",
+              "right": [
+                "Neutralize cyclic and simultaneously reduce collective to minimum."
+              ]
+            },
+            {
+              "left": "Stop",
+              "right": [
+                "Apply brakes as necessary to stop within the confines of the landing area."
+              ]
+            }
+          ]
         }
       ],
       "notes": [
+        "TDP is 30 ft above the takeoff surface. After an engine failure before the TDP the aircraft will continue to climb briefly — if conditions permit, maneuver to keep the landing surface in sight.",
         "LDP is 200 ft above the ground/water surface below the helideck. An engine failure above the LDP allows a go-around or continued landing; after the LDP, the approach must continue to touchdown."
       ],
       "figures": [
@@ -1090,7 +1156,8 @@
         "Upon dual engine failure the nose swings left as torque reduces. Immediate collective reduction is required to keep Nr within safe limits — hold full-down collective until Nr recovers to the normal range, then modulate collective to maintain it. Use pedals to hold heading."
       ],
       "warnings": [
-        "Nr will decay rapidly to an unrecoverable state, with loss of aircraft control, unless autorotation is entered immediately after a dual engine failure."
+        "Nr will decay rapidly to an unrecoverable state, with loss of aircraft control, unless autorotation is entered immediately after a dual engine failure.",
+        "Hovering or on takeoff at 10 ft or less: failure to move the cyclic forward while lowering the collective can decrease main rotor blade to tail cone clearance and increase the possibility of striking the tail cone with a rotor blade."
       ],
       "groups": [
         {
@@ -1187,7 +1254,7 @@
             {
               "left": "Restart",
               "right": [
-                "If time and altitude permit, try to restart one or both engines."
+                "If time and altitude permit, try to restart one or both engines. If neither engine will start, perform an autorotative landing."
               ]
             }
           ]
@@ -1512,7 +1579,7 @@
             {
               "left": "Fire detection test",
               "right": [
-                "Cycle INBD / NORM / OUTB / SMOKE, confirming FIRE/ARMED pushbutton illumination and aural alerts at each position, then return to NORM."
+                "INBD — APU and both engine FIRE/ARMED pushbuttons and the FIRE warning lights, with the FIRE ENGINE ONE, FIRE ENGINE TWO and FIRE APU aural alerts; NORM — all lights and aural alerts clear; OUTB — both engine FIRE/ARMED pushbuttons and the FIRE warning lights, with the FIRE ENGINE ONE and FIRE ENGINE TWO aural alerts; SMOKE — SMOKE IN BAGGAGE warning and aural alert; then NORM. Without AC external power, only INBD (APU and engine FIRE/ARMED pushbuttons and the pilot's FIRE light) and NORM are checked at this point; the full test is done once the APU generator is on."
               ]
             },
             {
@@ -1536,7 +1603,7 @@
             {
               "left": "AFCS check",
               "right": [
-                "Center all flight controls; SAS 1 & 2 and AP 1 & 2 — ON; rotor brake — ON; disengage then re-engage YAW/CYCLIC/COLL TRIM; run the Preflight Built-In Test via AFCS MODE SEL — TEST; AP PWR RESET — press AP 1 and AP 2 buttons."
+                "Center all flight controls; SAS 1 & 2 and AP 1 & 2 — ON; rotor brake — ON; disengage then re-engage YAW/CYCLIC/COLL TRIM; AFCS RESET — press and hold for two seconds; AFCS MODE SEL panel — TEST; PFLT — press and hold for 0.5 to 2 seconds, then follow the AFCS MODE SEL panel instructions while the Preflight Built-In Test runs (once per day); AP PWR RESET — press AP 1 and AP 2 buttons."
               ]
             },
             {
@@ -1588,6 +1655,7 @@
       "subtitle": "Normal procedure",
       "reference": "S-92 RFM Part 1, Section II — Rotor Engagement/Runup, Before Taxi/Taxi, Before Takeoff",
       "cautions": [
+        "If the engines were started with the rotor brake ON, remain at 50 to 54% Nr for a minimum of 1 minute before advancing the throttles to FLY.",
         "Engine anti-ice operation is limited to 60 seconds on the ground, except when OAT is below 5°C with visible moisture present.",
         "The weather radar has a weight-on-wheels override that forces standby on the ground — unless STBY or OFF is selected, it will radiate once the helicopter lifts to a hover. If an active mode is selected, keep everyone at least 100 ft clear of the forward 270° arc before takeoff."
       ],
@@ -1799,7 +1867,7 @@
             {
               "left": "Fire detection test",
               "right": [
-                "Once per day, cycle INBD / NORM / OUTB, confirming FIRE/ARMED pushbutton illumination and aural alerts at each position, then NORM."
+                "Once per day: INBD — APU and both engine FIRE/ARMED pushbuttons and the FIRE warning lights, with the FIRE ENGINE ONE, FIRE ENGINE TWO and FIRE APU aural alerts; NORM — all lights and aural alerts clear; OUTB — both engine FIRE/ARMED pushbuttons and the FIRE warning lights, with the FIRE ENGINE ONE and FIRE ENGINE TWO aural alerts; then NORM."
               ]
             },
             {

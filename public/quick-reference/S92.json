@@ -1,6 +1,6 @@
 {
   "title": "S-92 Quick Reference",
-  "intro": "For training use only. This is an informal quick reference of selected S-92 RFM limitations. Always use the official RFM as primary reference.",
+  "intro": "For training use only. This is an informal quick reference of selected S-92 RFM limitations, speeds and key system values. Always use the official RFM as primary reference.",
   "groups": [
     {
       "title": "Propulsion & Drive Limits — Dual Engine (Q% / TGT °C / Ng % / Np %)",
@@ -259,6 +259,128 @@
             "Max: 57 °C (135 °F)",
             "Min: -40 °C (-40 °F)",
             "Anti-icing additive required below -20 °C"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Category A / B Takeoff & Landing",
+      "items": [
+        {
+          "label": "Cat A horizontal takeoff",
+          "lines": [
+            "TDP 30–48 KIAS (1 kt steps); Vtoss = TDP + 15 kt",
+            "Accelerate at hover Q + 10%; OEI climb at Vtoss, 100% Nr, gear up with positive rate",
+            "Crosswind > 20 kt: minimum TDP 45 KIAS, add 500 ft to RTO/CTO distance"
+          ]
+        },
+        {
+          "label": "Cat A horizontal landing",
+          "lines": [
+            "LDP 50 KIAS / 200 ft AGL, 600 fpm; flare at 50 ft and 50 KIAS",
+            "Balked: accelerate to 70 KIAS (35 ft minimum), climb at 70 KIAS / 100% Nr",
+            "Crosswind > 20 kt: add 650 ft to landing distance"
+          ]
+        },
+        {
+          "label": "Cat A ground level helipad takeoff",
+          "lines": [
+            "Vertical climb to TDP at 850–1150 fpm; minimum TDP 30 ft",
+            "Maximum gross weight 24,500 lb; minimum field length 600 ft",
+            "Night: maximum TDP is the lower of 110 ft and the maximum reject TDP"
+          ]
+        },
+        {
+          "label": "Cat A ground level helipad landing",
+          "lines": [
+            "35 KIAS, 500 fpm to the flare at 50 ft (about 8.1°)",
+            "Minimum LDP 125 ft if no obstacles over 10 ft in the balked landing path",
+            "Balked: accelerate to Vblss 55 KIAS, 2 min OEI power, then Vbroc"
+          ]
+        },
+        {
+          "label": "Category B",
+          "lines": [
+            "Takeoff: hover Q + up to 10% at 10 ft, rotate at 45 KIAS, climb at Vy",
+            "Anti-ice on: add 320 ft to Cat B takeoff distance",
+            "Landing: 600 fpm at 50 KIAS through 200 ft; flare at 50 ft and 50 KIAS"
+          ]
+        },
+        {
+          "label": "Wind accountability",
+          "lines": [
+            "Credit no more than 50% of the headwind benefit",
+            "Apply 150% of the tailwind penalty"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Climb, OEI & Autorotation Speeds",
+      "items": [
+        {
+          "label": "Vy (best rate of climb)",
+          "lines": [
+            "80 KIAS at sea level, −1 kt per 1000 ft"
+          ]
+        },
+        {
+          "label": "OEI climb rotor speed",
+          "lines": [
+            "Cat A climbout: 100% Nr from TDP to Vy (80 KIAS)",
+            "Single engine above Vy: 105% Nr"
+          ]
+        },
+        {
+          "label": "Autorotation",
+          "lines": [
+            "Glide 80–100 KIAS, Nr 105%; minimum flare airspeed 85 KIAS",
+            "Minimum descent 2,200–2,400 fpm at 80 KIAS",
+            "Maximum glide 0.6 NM per 1000 ft at 100 KIAS"
+          ]
+        },
+        {
+          "label": "AFCS bucket speed",
+          "lines": [
+            "80 KIAS at sea level, −1 kt per 1000 ft"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Key System Values",
+      "items": [
+        {
+          "label": "Hydraulics",
+          "lines": [
+            "Normal 3,500–4,200 psi",
+            "HYD 1/2 PUMP FAIL: below 1,900–2,050 psi",
+            "HYD 3 PUMP FAIL: below 500 psi (depress) / 2,000 psi (high mode)",
+            "SAS 1/2 PRES: below 1,100 psi",
+            "TEMP ALERT above 110 °C; TEMP LIMIT above 135 °C"
+          ]
+        },
+        {
+          "label": "Fuel",
+          "lines": [
+            "FUEL 1/2 LOW: 215 ± 45 lb (98 ± 20 kg) in that tank",
+            "With FUEL LOW: avoid pitch above 10° nose up or below 5° nose down"
+          ]
+        },
+        {
+          "label": "Engine",
+          "lines": [
+            "IDLE: Ng approximately 67%",
+            "FADEC declares engine failure below 55% Ng",
+            "Start: throttle to IDLE when TGT is below 150 °C",
+            "Post-shutdown fire: TGT 540 °C or higher"
+          ]
+        },
+        {
+          "label": "Electrical",
+          "lines": [
+            "BATT HOT: battery above 70 °C (158 °F)",
+            "SE landing: Nr below 96% can drop both AC generators offline"
           ]
         }
       ]
